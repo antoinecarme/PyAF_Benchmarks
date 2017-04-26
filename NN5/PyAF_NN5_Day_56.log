@@ -1,0 +1,78 @@
+BENCH_DATA NN5 <pyaf.Bench.TS_datasets.cTimeSeriesDatasetSpec object at 0x7f8ca0a01588>
+TIME :  Day N= 735 H= 56 HEAD= [['1996-03-18T00:00:00.000000000' '1996-03-18T00:00:00.000000000']
+ ['1996-03-19T00:00:00.000000000' '1996-03-19T00:00:00.000000000']
+ ['1996-03-20T00:00:00.000000000' '1996-03-20T00:00:00.000000000']
+ ['1996-03-21T00:00:00.000000000' '1996-03-21T00:00:00.000000000']
+ ['1996-03-22T00:00:00.000000000' '1996-03-22T00:00:00.000000000']] TAIL= [['1998-03-18T00:00:00.000000000' '1998-03-18T00:00:00.000000000']
+ ['1998-03-19T00:00:00.000000000' '1998-03-19T00:00:00.000000000']
+ ['1998-03-20T00:00:00.000000000' '1998-03-20T00:00:00.000000000']
+ ['1998-03-21T00:00:00.000000000' '1998-03-21T00:00:00.000000000']
+ ['1998-03-22T00:00:00.000000000' '1998-03-22T00:00:00.000000000']]
+SIGNAL :  Day N= 735 H= 56 HEAD= [['1996-03-18T00:00:00.000000000' '1996-03-18T00:00:00.000000000']
+ ['1996-03-19T00:00:00.000000000' '1996-03-19T00:00:00.000000000']
+ ['1996-03-20T00:00:00.000000000' '1996-03-20T00:00:00.000000000']
+ ['1996-03-21T00:00:00.000000000' '1996-03-21T00:00:00.000000000']
+ ['1996-03-22T00:00:00.000000000' '1996-03-22T00:00:00.000000000']] TAIL= [['1998-03-18T00:00:00.000000000' '1998-03-18T00:00:00.000000000']
+ ['1998-03-19T00:00:00.000000000' '1998-03-19T00:00:00.000000000']
+ ['1998-03-20T00:00:00.000000000' '1998-03-20T00:00:00.000000000']
+ ['1998-03-21T00:00:00.000000000' '1998-03-21T00:00:00.000000000']
+ ['1998-03-22T00:00:00.000000000' '1998-03-22T00:00:00.000000000']]
+         Day        Day
+0 1996-03-18 1996-03-18
+1 1996-03-19 1996-03-19
+2 1996-03-20 1996-03-20
+3 1996-03-21 1996-03-21
+4 1996-03-22 1996-03-22
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 735 entries, 0 to 734
+Data columns (total 2 columns):
+Day    735 non-null datetime64[ns]
+Day    735 non-null datetime64[ns]
+dtypes: datetime64[ns](2)
+memory usage: 17.2 KB
+None
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.5/logging/__init__.py", line 983, in emit
+    stream.write(msg)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "benches/run_benchmark_NN5.py", line 15, in <module>
+    tester1.run_multiprocessed()
+  File "/home/antoine/dev/python/packages/pyaf/Bench/GenericBenchmark.py", line 335, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=None)
+  File "/usr/lib/python3.5/multiprocessing/context.py", line 118, in Pool
+    context=self.get_context())
+  File "/usr/lib/python3.5/multiprocessing/pool.py", line 168, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.5/multiprocessing/pool.py", line 233, in _repopulate_pool
+    w.start()
+  File "/usr/lib/python3.5/multiprocessing/process.py", line 105, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.5/multiprocessing/context.py", line 267, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.5/multiprocessing/popen_fork.py", line 20, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.5/multiprocessing/popen_fork.py", line 74, in _launch
+    code = process_obj._bootstrap()
+  File "/usr/lib/python3.5/multiprocessing/process.py", line 249, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.5/multiprocessing/process.py", line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.5/multiprocessing/pool.py", line 119, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/pyaf/Bench/GenericBenchmark.py", line 59, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/pyaf/Bench/GenericBenchmark.py", line 163, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/pyaf/Bench/GenericBenchmark.py", line 158, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/pyaf/Bench/GenericBenchmark.py", line 145, in trainModel
+    lAutoF1.train(df , self.mTSSpec.mTimeVar , iSignal, iHorizon)
+  File "/home/antoine/dev/python/packages/pyaf/ForecastEngine.py", line 25, in train
+    self.mSignalDecomposition.train(iInputDS, iTime, iSignal, iHorizon, iExogenousData);
+  File "/home/antoine/dev/python/packages/pyaf/TS/SignalDecomposition.py", line 459, in train
+    logger.info("START_TRAINING '" + iSignal + "'")
+Message: "START_TRAINING 'Day'"
+Arguments: ()
+BENCHMARK_FAILURE 'NN5_Day_56'
