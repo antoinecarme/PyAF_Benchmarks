@@ -8,4 +8,4 @@ Some are internal benchmarks (used mainly to evaluate new PyAF versions against 
 
 We will run these benchmarks on a regular basis and update this repository when something changes.
 
-Scripts used to run the benchmarks are included with pyaf : https://github.com/antoinecarme/pyaf/tree/master/benches
+Scripts used to run the benchmarks are included with PyAF : https://github.com/antoinecarme/pyaf/tree/master/benches
