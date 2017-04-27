@@ -12,6 +12,6 @@ Each log file gives the full log of PyAF execution, actual and predicted values 
 
 Scripts used to run the benchmarks are included with PyAF : https://github.com/antoinecarme/pyaf/tree/master/benches
 
-Last geenrated benchmark reports : https://github.com/antoinecarme/PyAF_Benchmarks/tree/master/reporting/data
+Last generated benchmark reports : https://github.com/antoinecarme/PyAF_Benchmarks/tree/master/reporting/data
 
 Jupyter notebook to be used to update future reports : https://github.com/antoinecarme/PyAF_Benchmarks/blob/master/reporting/bench-debrief.ipynb
