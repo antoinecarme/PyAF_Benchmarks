@@ -1,6 +1,6 @@
 # PyAF_Benchmarks
 
-This repository contains/will contain benchmarks results/logs that are used to evaluate [PyAF automatic forecasting tool](https://github.com/antoinecarme/pyaf).
+This repository contains benchmarks results/logs that are used to evaluate [PyAF automatic forecasting tool](https://github.com/antoinecarme/pyaf).
 
 Some benchmarks are official forecasting competitions : [M1, M2, M3, M4 , NN3 and NN5](https://en.wikipedia.org/wiki/Makridakis_Competitions)
 
@@ -11,3 +11,7 @@ We will run these benchmarks on a regular basis and update this repository when 
 Each log file gives the full log of PyAF execution, actual and predicted values as well as some performance measures (MAPE, RMSE, ...) and the total execution time.
 
 Scripts used to run the benchmarks are included with PyAF : https://github.com/antoinecarme/pyaf/tree/master/benches
+
+Last geenrated benchmark reports : https://github.com/antoinecarme/PyAF_Benchmarks/tree/master/reporting/data
+
+Jupyter notebook to be used to update future reports : https://github.com/antoinecarme/PyAF_Benchmarks/blob/master/reporting/bench-debrief.ipynb
