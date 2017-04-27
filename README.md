@@ -8,4 +8,6 @@ Some are internal benchmarks (used mainly to evaluate new PyAF versions against 
 
 We will run these benchmarks on a regular basis and update this repository when something changes.
 
+Each log file gives the full log of PyAF execution, actual and predicted values as well as some performance measures (MAPE, RMSE, ...) and the total execution time.
+
 Scripts used to run the benchmarks are included with PyAF : https://github.com/antoinecarme/pyaf/tree/master/benches
