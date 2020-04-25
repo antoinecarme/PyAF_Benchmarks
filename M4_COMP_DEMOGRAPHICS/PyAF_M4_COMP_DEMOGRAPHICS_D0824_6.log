@@ -1,4 +1,7 @@
 Exception ignored in: <_io.FileIO name='/home/antoine/dev/python/packages/pyaf/logs/M4_COMP_DEMOGRAPHICS/PyAF_M4_COMP_DEMOGRAPHICS_D0809_6.log' mode='ab' closefd=True>
+Traceback (most recent call last):
+  File "/home/antoine/dev/python/packages/pyaf/pyaf/Bench/GenericBenchmark.py", line 40, in set_pyaf_logger
+    pyaf_logger.handlers = []
 ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/antoine/dev/python/packages/pyaf/logs/M4_COMP_DEMOGRAPHICS/PyAF_M4_COMP_DEMOGRAPHICS_D0809_6.log' mode='a' encoding='UTF-8'>
 BENCH_DATA M4_COMP_DEMOGRAPHICS
 TIME :  Date N= 47 H= 6 HEAD= [0 1 2 3 4] TAIL= [42 43 44 45 46]
@@ -12,83 +15,33 @@ SIGNAL :  D0824 N= 47 H= 6 HEAD= [3463. 3509. 3558. 3599. 3661.] TAIL= [5303. 53
 <class 'pandas.core.frame.DataFrame'>
 Int64Index: 47 entries, 0 to 46
 Data columns (total 2 columns):
-D0824    47 non-null float64
-Date     47 non-null int64
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   D0824   47 non-null     float64
+ 1   Date    47 non-null     int64  
 dtypes: float64(1), int64(1)
 memory usage: 1.1 KB
 None
-   Split Transformation   ...    ForecastMAPE TestMAPE
-0   None         _D0824   ...          0.0012   0.0016
-1   None         _D0824   ...          0.0012   0.0016
-2   None   CumSum_D0824   ...          0.0012   0.0009
-3   None   CumSum_D0824   ...          0.0012   0.0009
-4   None   CumSum_D0824   ...          0.0012   0.0010
-5   None   CumSum_D0824   ...          0.0012   0.0010
-6   None         _D0824   ...          0.0019   0.0038
-7   None         _D0824   ...          0.0019   0.0038
-8   None   CumSum_D0824   ...          0.0022   0.0028
-9   None   CumSum_D0824   ...          0.0022   0.0028
-10  None         _D0824   ...          0.0028   0.0040
-11  None         _D0824   ...          0.0028   0.0040
-12  None         _D0824   ...          0.0054   0.0034
-13  None         _D0824   ...          0.0054   0.0034
-14  None     Diff_D0824   ...          0.0054   0.0130
-15  None   CumSum_D0824   ...          0.0054   0.0034
-16  None     Diff_D0824   ...          0.0054   0.0034
-17  None     Diff_D0824   ...          0.0054   0.0130
-18  None   CumSum_D0824   ...          0.0054   0.0034
-19  None     Diff_D0824   ...          0.0054   0.0034
-20  None     Diff_D0824   ...          0.0081   0.0242
-21  None     Diff_D0824   ...          0.0081   0.0242
-22  None     Diff_D0824   ...          0.0093   0.0264
-23  None     Diff_D0824   ...          0.0093   0.0264
-24  None         _D0824   ...          0.0099   0.0200
-25  None         _D0824   ...          0.0099   0.0200
-26  None     Diff_D0824   ...          0.0104   0.0200
-27  None     Diff_D0824   ...          0.0104   0.0200
-28  None     Diff_D0824   ...          0.0128   0.0373
-29  None     Diff_D0824   ...          0.0128   0.0373
-..   ...            ...   ...             ...      ...
-34  None         _D0824   ...          0.0232   0.0053
-35  None         _D0824   ...          0.0232   0.0053
-36  None   CumSum_D0824   ...          0.0271   0.0432
-37  None   CumSum_D0824   ...          0.0271   0.0432
-38  None         _D0824   ...          0.0575   0.1537
-39  None         _D0824   ...          0.0575   0.1537
-40  None         _D0824   ...          0.1692   0.1952
-41  None         _D0824   ...          0.1692   0.1952
-42  None  RelDiff_D0824   ...          0.3295   0.3504
-43  None  RelDiff_D0824   ...          0.3295   0.3504
-44  None  RelDiff_D0824   ...          0.3295   0.3504
-45  None  RelDiff_D0824   ...          0.3295   0.3504
-46  None  RelDiff_D0824   ...          0.3295   0.3504
-47  None  RelDiff_D0824   ...          0.3295   0.3504
-48  None  RelDiff_D0824   ...          0.3295   0.3504
-49  None  RelDiff_D0824   ...          0.3295   0.3504
-50  None  RelDiff_D0824   ...          0.3295   0.3504
-51  None  RelDiff_D0824   ...          0.3295   0.3504
-52  None  RelDiff_D0824   ...          0.3295   0.3504
-53  None  RelDiff_D0824   ...          0.3295   0.3504
-54  None  RelDiff_D0824   ...          0.3295   0.3504
-55  None  RelDiff_D0824   ...          0.3295   0.3504
-56  None  RelDiff_D0824   ...          0.3295   0.3504
-57  None  RelDiff_D0824   ...          0.3295   0.3504
-58  None   CumSum_D0824   ...          0.3791   0.3985
-59  None   CumSum_D0824   ...          0.3791   0.3985
-60  None   CumSum_D0824   ...          0.5825   0.9633
-61  None   CumSum_D0824   ...          0.5825   0.9633
-62  None   CumSum_D0824   ...          1.0000   1.0000
-63  None   CumSum_D0824   ...          1.0000   1.0000
+   Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0   None         _D0824  _D0824_ConstantTrend_residue_zeroCycle_residue...          NoTransf_ConstantTrend_NoCycle_AR           8   0.0034        0.0012    0.0016
+1   None         _D0824  _D0824_ConstantTrend_residue_bestCycle_byL2_re...       NoTransf_ConstantTrend_Cycle_None_AR          16   0.0034        0.0012    0.0016
+2   None   CumSum_D0824  CumSum_D0824_LinearTrend_residue_zeroCycle_res...         Integration_LinearTrend_NoCycle_AR          56   0.0086        0.0012    0.0009
+3   None   CumSum_D0824  CumSum_D0824_LinearTrend_residue_bestCycle_byL...      Integration_LinearTrend_Cycle_None_AR          64   0.0086        0.0012    0.0009
+4   None   CumSum_D0824  CumSum_D0824_Lag1Trend_residue_zeroCycle_resid...           Integration_Lag1Trend_NoCycle_AR          72   0.0682        0.0012    0.0010
+..   ...            ...                                                ...                                        ...         ...      ...           ...       ...
+59  None   CumSum_D0824  CumSum_D0824_LinearTrend_residue_bestCycle_byL...    Integration_LinearTrend_Cycle_None_NoAR          56   0.3619        0.3791    0.3985
+60  None   CumSum_D0824  CumSum_D0824_PolyTrend_residue_zeroCycle_resid...         Integration_PolyTrend_NoCycle_NoAR          48   0.4054        0.5825    0.9633
+61  None   CumSum_D0824  CumSum_D0824_PolyTrend_residue_bestCycle_byL2_...      Integration_PolyTrend_Cycle_None_NoAR          56   0.4054        0.5825    0.9633
+62  None   CumSum_D0824  CumSum_D0824_ConstantTrend_residue_zeroCycle_r...     Integration_ConstantTrend_NoCycle_NoAR          32   1.5380        1.0000    1.0000
+63  None   CumSum_D0824  CumSum_D0824_ConstantTrend_residue_bestCycle_b...  Integration_ConstantTrend_Cycle_None_NoAR          40   1.5380        1.0000    1.0000
 
 [64 rows x 8 columns]
-  Split Transformation   ...    ForecastMAPE TestMAPE
-0  None         _D0824   ...          0.0012   0.0016
-1  None         _D0824   ...          0.0012   0.0016
-2  None   CumSum_D0824   ...          0.0012   0.0009
-3  None   CumSum_D0824   ...          0.0012   0.0009
-4  None   CumSum_D0824   ...          0.0012   0.0010
-
-[5 rows x 8 columns]
+  Split Transformation                                              Model                               Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _D0824  _D0824_ConstantTrend_residue_zeroCycle_residue...      NoTransf_ConstantTrend_NoCycle_AR           8   0.0034        0.0012    0.0016
+1  None         _D0824  _D0824_ConstantTrend_residue_bestCycle_byL2_re...   NoTransf_ConstantTrend_Cycle_None_AR          16   0.0034        0.0012    0.0016
+2  None   CumSum_D0824  CumSum_D0824_LinearTrend_residue_zeroCycle_res...     Integration_LinearTrend_NoCycle_AR          56   0.0086        0.0012    0.0009
+3  None   CumSum_D0824  CumSum_D0824_LinearTrend_residue_bestCycle_byL...  Integration_LinearTrend_Cycle_None_AR          64   0.0086        0.0012    0.0009
+4  None   CumSum_D0824  CumSum_D0824_Lag1Trend_residue_zeroCycle_resid...       Integration_Lag1Trend_NoCycle_AR          72   0.0682        0.0012    0.0010
 6 0    5383.0
 1    5390.0
 2    5396.0
@@ -106,7 +59,7 @@ Name: D0824_Forecast, dtype: float64
 FORECAST_DETAIL_ACTUAL D0824 D0824 [5383.0, 5390.0, 5396.0, 5400.0, 5405.0, 5410.0]
 FORECAST_DETAIL_PREDICTED D0824 D0824 [5398.0714234283205, 5423.167935634363, 5447.762809658821, 5473.018964391274, 5498.7491467751215, 5524.612979705319]
 BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON D0824 D0824 47 6
-BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ D0824 D0824 4.322878360748291
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ D0824 D0824 4.476216077804565
 BENCHMARK_PERF_DETAIL_BEST_MODEL D0824 D0824 ConstantTrend + NoCycle + AR
 BENCHMARK_PERF_DETAIL_PERF_COUNT D0824 D0824 6
 BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE D0824 D0824 0.0118 0.0117 11.7711
