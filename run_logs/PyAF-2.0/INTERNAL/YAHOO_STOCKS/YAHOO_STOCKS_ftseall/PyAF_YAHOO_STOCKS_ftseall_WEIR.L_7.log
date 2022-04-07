@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1294 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  WEIR.L N= 1294 H= 7 HEAD= [2124. 2122. 2086. 2072. 2016.] TAIL= [1509. 1509. 1536. 1557. 1549.]
+   WEIR.L       Date
+0  2124.0 2011-07-28
+1  2122.0 2011-07-29
+2  2086.0 2011-08-01
+3  2072.0 2011-08-02
+4  2016.0 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1294 entries, 0 to 1293
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   WEIR.L  1294 non-null   float64       
+ 1   Date    1294 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split  Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _WEIR.L   _WEIR.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0157  2.250000e-02  1.910000e-02
+1   None   CumSum_WEIR.L  CumSum_WEIR.L_Lag1Trend_residue_zeroCycle_resi...  ...  0.0167  2.250000e-02  1.910000e-02
+2   None     Diff_WEIR.L  Diff_WEIR.L_Lag1Trend_residue_zeroCycle_residu...  ...  0.0157  2.250000e-02  1.910000e-02
+3   None  RelDiff_WEIR.L  RelDiff_WEIR.L_Lag1Trend_residue_zeroCycle_res...  ...  0.0157  2.250000e-02  1.910000e-02
+4   None         _WEIR.L  _WEIR.L_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  0.0158  2.260000e-02  1.880000e-02
+..   ...             ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_WEIR.L  RelDiff_WEIR.L_LinearTrend_residue_zeroCycle_r...  ...  0.3611  4.986053e+07  8.892741e+07
+92  None  RelDiff_WEIR.L  RelDiff_WEIR.L_LinearTrend_residue_Seasonal_Da...  ...  0.3613  4.986055e+07  8.892741e+07
+93  None  RelDiff_WEIR.L  RelDiff_WEIR.L_ConstantTrend_residue_bestCycle...  ...  0.1714  4.986068e+07  8.892741e+07
+94  None  RelDiff_WEIR.L  RelDiff_WEIR.L_ConstantTrend_residue_zeroCycle...  ...  0.1715  4.986069e+07  8.892741e+07
+95  None  RelDiff_WEIR.L  RelDiff_WEIR.L_ConstantTrend_residue_Seasonal_...  ...  0.1718  4.986071e+07  8.892741e+07
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _WEIR.L   _WEIR.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0157        0.0225    0.0191
+1  None   CumSum_WEIR.L  CumSum_WEIR.L_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0167        0.0225    0.0191
+2  None     Diff_WEIR.L  Diff_WEIR.L_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0157        0.0225    0.0191
+3  None  RelDiff_WEIR.L  RelDiff_WEIR.L_Lag1Trend_residue_zeroCycle_res...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0157        0.0225    0.0191
+4  None         _WEIR.L  _WEIR.L_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0158        0.0226    0.0188
+7 0    1502.0
+1    1491.0
+2    1565.0
+3    1553.0
+4    1529.0
+5    1513.0
+6    1524.0
+Name: WEIR.L, dtype: float64
+7 0    1549.0
+1    1549.0
+2    1549.0
+3    1549.0
+4    1549.0
+5    1549.0
+6    1549.0
+Name: WEIR.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_WEIR.L WEIR.L [1502.0, 1491.0, 1565.0, 1553.0, 1529.0, 1513.0, 1524.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_WEIR.L WEIR.L [1549.0, 1549.0, 1549.0, 1549.0, 1549.0, 1549.0, 1549.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_WEIR.L WEIR.L 1294 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_WEIR.L WEIR.L 11.034067869186401
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_WEIR.L WEIR.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_WEIR.L WEIR.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_WEIR.L WEIR.L 0.0195 0.0192 1.1931
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_WEIR.L WEIR.L 29.428571428571427 34.15510838178425 -0.930757278929901
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_WEIR.L_7'

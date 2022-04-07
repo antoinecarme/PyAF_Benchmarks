@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftse100
+TIME :  Date N= 1294 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  BLT.L N= 1294 H= 7 HEAD= [4341.48 4239.82 4211.84 4130.7  3956.3 ] TAIL= [1003.5  997.7 1003.5  996.5  976.8]
+     BLT.L       Date
+0  4341.48 2011-07-28
+1  4239.82 2011-07-29
+2  4211.84 2011-08-01
+3  4130.70 2011-08-02
+4  3956.30 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1294 entries, 0 to 1293
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   BLT.L   1294 non-null   float64       
+ 1   Date    1294 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _BLT.L    _BLT.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0140  2.550000e-02  1.450000e-02
+1   None   CumSum_BLT.L  CumSum_BLT.L_Lag1Trend_residue_zeroCycle_resid...  ...  0.0150  2.550000e-02  1.450000e-02
+2   None     Diff_BLT.L  Diff_BLT.L_Lag1Trend_residue_zeroCycle_residue...  ...  0.0140  2.550000e-02  1.450000e-02
+3   None  RelDiff_BLT.L  RelDiff_BLT.L_Lag1Trend_residue_zeroCycle_resi...  ...  0.0140  2.550000e-02  1.450000e-02
+4   None     Diff_BLT.L  Diff_BLT.L_Lag1Trend_residue_bestCycle_byL2_re...  ...  0.0141  2.590000e-02  1.440000e-02
+..   ...            ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_BLT.L  RelDiff_BLT.L_ConstantTrend_residue_Seasonal_D...  ...  0.2470  2.128063e+08  3.798401e+08
+92  None  RelDiff_BLT.L  RelDiff_BLT.L_ConstantTrend_residue_bestCycle_...  ...  0.2641  2.128063e+08  3.798401e+08
+93  None  RelDiff_BLT.L  RelDiff_BLT.L_Lag1Trend_residue_bestCycle_byL2...  ...  0.0528  2.128064e+08  3.798401e+08
+94  None  RelDiff_BLT.L  RelDiff_BLT.L_Lag1Trend_residue_Seasonal_DayOf...  ...  0.0592  2.128064e+08  3.798401e+08
+95  None  RelDiff_BLT.L  RelDiff_BLT.L_Lag1Trend_residue_zeroCycle_resi...  ...  0.0598  2.128065e+08  3.798401e+08
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _BLT.L    _BLT.L_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0140        0.0255    0.0145
+1  None   CumSum_BLT.L  CumSum_BLT.L_Lag1Trend_residue_zeroCycle_resid...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0150        0.0255    0.0145
+2  None     Diff_BLT.L  Diff_BLT.L_Lag1Trend_residue_zeroCycle_residue...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0140        0.0255    0.0145
+3  None  RelDiff_BLT.L  RelDiff_BLT.L_Lag1Trend_residue_zeroCycle_resi...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0140        0.0255    0.0145
+4  None     Diff_BLT.L  Diff_BLT.L_Lag1Trend_residue_bestCycle_byL2_re...            Difference_Lag1Trend_Cycle_NoAR          72   0.0141        0.0259    0.0144
+7 0    948.5
+1    926.4
+2    939.2
+3    924.8
+4    921.1
+5    951.0
+6    964.3
+Name: BLT.L, dtype: float64
+7 0    976.8
+1    976.8
+2    976.8
+3    976.8
+4    976.8
+5    976.8
+6    976.8
+Name: BLT.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_BLT.L BLT.L [948.5, 926.4, 939.2, 924.8, 921.1, 951.0, 964.3]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_BLT.L BLT.L [976.8, 976.8, 976.8, 976.8, 976.8, 976.8, 976.8]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_BLT.L BLT.L 1294 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_BLT.L BLT.L 10.960116147994995
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_BLT.L BLT.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_BLT.L BLT.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_BLT.L BLT.L 0.0402 0.0392 2.3371
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_BLT.L BLT.L 37.47142857142853 40.3257981942081 -6.323043569364214
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftse100_BLT.L_7'

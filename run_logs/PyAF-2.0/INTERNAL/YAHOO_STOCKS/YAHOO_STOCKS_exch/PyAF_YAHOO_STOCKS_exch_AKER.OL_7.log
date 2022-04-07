@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_exch
+TIME :  Date N= 1298 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  AKER.OL N= 1298 H= 7 HEAD= [144.  142.5 142.5 136.5 134.5] TAIL= [232.5 235.5 234.5 235.5 237. ]
+   AKER.OL       Date
+0    144.0 2011-07-28
+1    142.5 2011-07-29
+2    142.5 2011-08-01
+3    136.5 2011-08-02
+4    134.5 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1298 entries, 0 to 1297
+Data columns (total 2 columns):
+ #   Column   Non-Null Count  Dtype         
+---  ------   --------------  -----         
+ 0   AKER.OL  1298 non-null   float64       
+ 1   Date     1298 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split   Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _AKER.OL  _AKER.OL_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.240000e-02  1.610000e-02  1.170000e-02
+1   None         _AKER.OL  _AKER.OL_Lag1Trend_residue_Seasonal_DayOfWeek_...  ...  1.250000e-02  1.610000e-02  1.210000e-02
+2   None         _AKER.OL  _AKER.OL_Lag1Trend_residue_bestCycle_byL2_resi...  ...  1.250000e-02  1.610000e-02  1.210000e-02
+3   None   CumSum_AKER.OL  CumSum_AKER.OL_Lag1Trend_residue_zeroCycle_res...  ...  1.340000e-02  1.610000e-02  1.170000e-02
+4   None     Diff_AKER.OL  Diff_AKER.OL_Lag1Trend_residue_zeroCycle_resid...  ...  1.240000e-02  1.610000e-02  1.170000e-02
+..   ...              ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_AKER.OL  RelDiff_AKER.OL_LinearTrend_residue_Seasonal_D...  ...  1.796949e+07  1.987358e+07  1.405236e+07
+92  None  RelDiff_AKER.OL  RelDiff_AKER.OL_LinearTrend_residue_bestCycle_...  ...  1.796949e+07  1.987358e+07  1.405236e+07
+93  None  RelDiff_AKER.OL  RelDiff_AKER.OL_PolyTrend_residue_zeroCycle_re...  ...  1.797373e+07  1.987358e+07  1.405236e+07
+94  None  RelDiff_AKER.OL  RelDiff_AKER.OL_ConstantTrend_residue_Seasonal...  ...  1.786508e+07  1.987358e+07  1.405236e+07
+95  None  RelDiff_AKER.OL  RelDiff_AKER.OL_ConstantTrend_residue_bestCycl...  ...  1.786508e+07  1.987358e+07  1.405236e+07
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _AKER.OL  _AKER.OL_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0124        0.0161    0.0117
+1  None        _AKER.OL  _AKER.OL_Lag1Trend_residue_Seasonal_DayOfWeek_...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0125        0.0161    0.0121
+2  None        _AKER.OL  _AKER.OL_Lag1Trend_residue_bestCycle_byL2_resi...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0125        0.0161    0.0121
+3  None  CumSum_AKER.OL  CumSum_AKER.OL_Lag1Trend_residue_zeroCycle_res...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0134        0.0161    0.0117
+4  None    Diff_AKER.OL  Diff_AKER.OL_Lag1Trend_residue_zeroCycle_resid...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0124        0.0161    0.0117
+7 0    242.0
+1    243.0
+2    256.0
+3    252.0
+4    247.5
+5    252.0
+6    253.0
+Name: AKER.OL, dtype: float64
+7 0    237.0
+1    237.0
+2    237.0
+3    237.0
+4    237.0
+5    237.0
+6    237.0
+Name: AKER.OL_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_AKER.OL AKER.OL [242.0, 243.0, 256.0, 252.0, 247.5, 252.0, 253.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_AKER.OL AKER.OL [237.0, 237.0, 237.0, 237.0, 237.0, 237.0, 237.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_AKER.OL AKER.OL 1298 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_AKER.OL AKER.OL 11.729129076004028
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_AKER.OL AKER.OL Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_AKER.OL AKER.OL 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_AKER.OL AKER.OL 0.0492 0.0506 2.648
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_AKER.OL AKER.OL 12.357142857142858 13.300107410951881 -6.3114719527582315
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_exch_AKER.OL_7'

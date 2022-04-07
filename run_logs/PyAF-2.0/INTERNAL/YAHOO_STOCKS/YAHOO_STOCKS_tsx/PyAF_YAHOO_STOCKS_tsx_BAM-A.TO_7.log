@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_tsx
+TIME :  Date N= 1295 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  BAM-A.TO N= 1295 H= 7 HEAD= [28.7181  28.6704  27.67035 27.6798  26.71785] TAIL= [45.25 45.44 45.76 45.7  45.72]
+   BAM-A.TO       Date
+0  28.71810 2011-07-28
+1  28.67040 2011-07-29
+2  27.67035 2011-08-02
+3  27.67980 2011-08-03
+4  26.71785 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1295 entries, 0 to 1294
+Data columns (total 2 columns):
+ #   Column    Non-Null Count  Dtype         
+---  ------    --------------  -----         
+ 0   BAM-A.TO  1295 non-null   float64       
+ 1   Date      1295 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split    Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _BAM-A.TO  _BAM-A.TO_Lag1Trend_residue_bestCycle_byL2_res...  ...  9.800000e-03  1.050000e-02  8.900000e-03
+1   None         _BAM-A.TO  _BAM-A.TO_Lag1Trend_residue_zeroCycle_residue_...  ...  9.500000e-03  1.080000e-02  8.100000e-03
+2   None         _BAM-A.TO  _BAM-A.TO_Lag1Trend_residue_Seasonal_DayOfWeek...  ...  9.600000e-03  1.080000e-02  8.100000e-03
+3   None   CumSum_BAM-A.TO  CumSum_BAM-A.TO_Lag1Trend_residue_zeroCycle_re...  ...  1.050000e-02  1.080000e-02  8.100000e-03
+4   None     Diff_BAM-A.TO  Diff_BAM-A.TO_Lag1Trend_residue_zeroCycle_resi...  ...  9.500000e-03  1.080000e-02  8.100000e-03
+..   ...               ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_BAM-A.TO  RelDiff_BAM-A.TO_LinearTrend_residue_bestCycle...  ...  1.347374e+07  1.182557e+07  1.115922e+07
+92  None  RelDiff_BAM-A.TO  RelDiff_BAM-A.TO_Lag1Trend_residue_Seasonal_Da...  ...  1.346031e+07  1.182557e+07  1.115922e+07
+93  None  RelDiff_BAM-A.TO  RelDiff_BAM-A.TO_Lag1Trend_residue_bestCycle_b...  ...  1.345026e+07  1.182557e+07  1.115922e+07
+94  None  RelDiff_BAM-A.TO  RelDiff_BAM-A.TO_PolyTrend_residue_bestCycle_b...  ...  1.347394e+07  1.182557e+07  1.115922e+07
+95  None  RelDiff_BAM-A.TO  RelDiff_BAM-A.TO_ConstantTrend_residue_zeroCyc...  ...  1.345839e+07  1.182557e+07  1.115922e+07
+
+[96 rows x 8 columns]
+  Split   Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _BAM-A.TO  _BAM-A.TO_Lag1Trend_residue_bestCycle_byL2_res...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0098        0.0105    0.0089
+1  None        _BAM-A.TO  _BAM-A.TO_Lag1Trend_residue_zeroCycle_residue_...             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0095        0.0108    0.0081
+2  None        _BAM-A.TO  _BAM-A.TO_Lag1Trend_residue_Seasonal_DayOfWeek...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0096        0.0108    0.0081
+3  None  CumSum_BAM-A.TO  CumSum_BAM-A.TO_Lag1Trend_residue_zeroCycle_re...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0105        0.0108    0.0081
+4  None    Diff_BAM-A.TO  Diff_BAM-A.TO_Lag1Trend_residue_zeroCycle_resi...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0095        0.0108    0.0081
+7 0    45.63
+1    45.99
+2    45.68
+3    46.15
+4    45.82
+5    45.55
+6    45.21
+Name: BAM-A.TO, dtype: float64
+7 0    45.72
+1    45.72
+2    45.72
+3    45.72
+4    45.72
+5    45.72
+6    45.72
+Name: BAM-A.TO_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_BAM-A.TO BAM-A.TO [45.63, 45.99, 45.68, 46.15, 45.82, 45.55, 45.21]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_BAM-A.TO BAM-A.TO [45.72, 45.72, 45.72, 45.72, 45.72, 45.72, 45.72]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_BAM-A.TO BAM-A.TO 1295 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_BAM-A.TO BAM-A.TO 11.317797660827637
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_BAM-A.TO BAM-A.TO Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_BAM-A.TO BAM-A.TO 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_BAM-A.TO BAM-A.TO 0.005 0.005 0.6635
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_BAM-A.TO BAM-A.TO 0.22999999999999993 0.284479474529484 -2.5217960352597046e-05
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_tsx_BAM-A.TO_7'

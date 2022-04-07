@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nasdaqbio
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  ALNY N= 1251 H= 7 HEAD= [9.44 9.38 9.4  9.04 8.44] TAIL= [64.       62.82     63.009998 64.480003 64.830002]
+   ALNY       Date
+0  9.44 2011-07-28
+1  9.38 2011-07-29
+2  9.40 2011-08-01
+3  9.04 2011-08-02
+4  8.44 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   ALNY    1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None    CumSum_ALNY  CumSum_ALNY_Lag1Trend_residue_bestCycle_byL2_r...  ...  3.360000e-02  3.170000e-02  1.400000e-02
+1   None          _ALNY     _ALNY_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.480000e-02  3.190000e-02  1.270000e-02
+2   None    CumSum_ALNY  CumSum_ALNY_Lag1Trend_residue_zeroCycle_residu...  ...  2.580000e-02  3.190000e-02  1.270000e-02
+3   None      Diff_ALNY  Diff_ALNY_Lag1Trend_residue_zeroCycle_residue_...  ...  2.480000e-02  3.190000e-02  1.270000e-02
+4   None   RelDiff_ALNY  RelDiff_ALNY_Lag1Trend_residue_zeroCycle_resid...  ...  2.480000e-02  3.190000e-02  1.270000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None   RelDiff_ALNY  RelDiff_ALNY_PolyTrend_residue_Seasonal_DayOfW...  ...  1.579319e+07  4.484197e+06  5.414951e+06
+92  None   RelDiff_ALNY  RelDiff_ALNY_PolyTrend_residue_bestCycle_byL2_...  ...  1.579319e+07  4.484197e+06  5.414951e+06
+93  None   RelDiff_ALNY  RelDiff_ALNY_ConstantTrend_residue_bestCycle_b...  ...  1.550382e+07  4.484197e+06  5.414951e+06
+94  None   RelDiff_ALNY  RelDiff_ALNY_PolyTrend_residue_zeroCycle_resid...  ...  1.579563e+07  4.484197e+06  5.414951e+06
+95  None   RelDiff_ALNY  RelDiff_ALNY_PolyTrend_residue_Seasonal_DayOfW...  ...  1.579454e+07  4.484197e+06  5.414951e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None    CumSum_ALNY  CumSum_ALNY_Lag1Trend_residue_bestCycle_byL2_r...           Integration_Lag1Trend_Cycle_NoAR          72   0.0336        0.0317    0.0140
+1  None          _ALNY     _ALNY_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0248        0.0319    0.0127
+2  None    CumSum_ALNY  CumSum_ALNY_Lag1Trend_residue_zeroCycle_residu...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0258        0.0319    0.0127
+3  None      Diff_ALNY  Diff_ALNY_Lag1Trend_residue_zeroCycle_residue_...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0248        0.0319    0.0127
+4  None   RelDiff_ALNY  RelDiff_ALNY_Lag1Trend_residue_zeroCycle_resid...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0248        0.0319    0.0127
+7 0    64.029999
+1    65.739998
+2    64.970001
+3    65.489998
+4    66.199997
+5    66.809998
+6    68.410004
+Name: ALNY, dtype: float64
+7 0    64.830002
+1    64.830002
+2    64.830002
+3    64.830002
+4    64.830002
+5    64.830002
+6    64.830002
+Name: ALNY_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_ALNY ALNY [64.029999, 65.739998, 64.970001, 65.489998, 66.199997, 66.809998, 68.410004]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_ALNY ALNY [64.83000200000001, 64.83000200000001, 64.83000200000001, 64.83000200000001, 64.83000200000001, 64.83000200000001, 64.83000200000001]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_ALNY ALNY 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_ALNY ALNY 11.273207187652588
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_ALNY ALNY Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_ALNY ALNY 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_ALNY ALNY 0.0202 0.0205 1.3668
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_ALNY ALNY 1.3485695714285637 1.7128496197893164 -0.7469031680831517
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nasdaqbio_ALNY_7'

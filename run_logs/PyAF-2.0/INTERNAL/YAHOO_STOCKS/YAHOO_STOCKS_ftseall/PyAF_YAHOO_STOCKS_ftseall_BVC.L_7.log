@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1295 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  BVC.L N= 1295 H= 7 HEAD= [21.25 21.   20.5  20.25 20.75] TAIL= [15.625 15.625 16.625 16.75  16.75 ]
+   BVC.L       Date
+0  21.25 2011-07-28
+1  21.00 2011-07-29
+2  20.50 2011-08-01
+3  20.25 2011-08-02
+4  20.75 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1295 entries, 0 to 1294
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   BVC.L   1295 non-null   float64       
+ 1   Date    1295 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _BVC.L    _BVC.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.530000e-02  1.150000e-02  1.660000e-02
+1   None   CumSum_BVC.L  CumSum_BVC.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.630000e-02  1.150000e-02  1.660000e-02
+2   None     Diff_BVC.L  Diff_BVC.L_Lag1Trend_residue_zeroCycle_residue...  ...  1.530000e-02  1.150000e-02  1.660000e-02
+3   None  RelDiff_BVC.L  RelDiff_BVC.L_Lag1Trend_residue_zeroCycle_resi...  ...  1.530000e-02  1.150000e-02  1.660000e-02
+4   None         _BVC.L  _BVC.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  1.560000e-02  1.190000e-02  1.770000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_BVC.L  RelDiff_BVC.L_ConstantTrend_residue_Seasonal_D...  ...  5.355597e+07  5.160902e+07  5.450869e+07
+92  None  RelDiff_BVC.L  RelDiff_BVC.L_ConstantTrend_residue_bestCycle_...  ...  5.355597e+07  5.160902e+07  5.450869e+07
+93  None  RelDiff_BVC.L  RelDiff_BVC.L_Lag1Trend_residue_bestCycle_byL2...  ...  5.354797e+07  5.160902e+07  5.450869e+07
+94  None  RelDiff_BVC.L  RelDiff_BVC.L_ConstantTrend_residue_zeroCycle_...  ...  5.354157e+07  5.160902e+07  5.450869e+07
+95  None  RelDiff_BVC.L  RelDiff_BVC.L_PolyTrend_residue_zeroCycle_resi...  ...  5.356204e+07  5.160902e+07  5.450869e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _BVC.L    _BVC.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0153        0.0115    0.0166
+1  None   CumSum_BVC.L  CumSum_BVC.L_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0163        0.0115    0.0166
+2  None     Diff_BVC.L  Diff_BVC.L_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0153        0.0115    0.0166
+3  None  RelDiff_BVC.L  RelDiff_BVC.L_Lag1Trend_residue_zeroCycle_resi...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0153        0.0115    0.0166
+4  None         _BVC.L  _BVC.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0156        0.0119    0.0177
+7 0    16.625
+1    16.625
+2    16.250
+3    16.500
+4    16.500
+5    16.375
+6    16.500
+Name: BVC.L, dtype: float64
+7 0    16.75
+1    16.75
+2    16.75
+3    16.75
+4    16.75
+5    16.75
+6    16.75
+Name: BVC.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_BVC.L BVC.L [16.625, 16.625, 16.25, 16.5, 16.5, 16.375, 16.5]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_BVC.L BVC.L [16.75, 16.75, 16.75, 16.75, 16.75, 16.75, 16.75]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_BVC.L BVC.L 1295 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_BVC.L BVC.L 11.059730052947998
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_BVC.L BVC.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_BVC.L BVC.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_BVC.L BVC.L 0.0163 0.0161 1.8367
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_BVC.L BVC.L 0.26785714285714285 0.29504842217604116 -4.687499994691667
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_BVC.L_7'

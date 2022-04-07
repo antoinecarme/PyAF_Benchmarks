@@ -1,0 +1,86 @@
+BENCH_DATA M3_M_COMP
+TIME :  Date N= 108 H= 18 HEAD= [0 1 2 3 4] TAIL= [103 104 105 106 107]
+SIGNAL :  N1807 N= 108 H= 18 HEAD= [5640. 3510. 3470. 8580. 5090.] TAIL= [1490. 1750. 2310. 2430. 1850.]
+Index   N1807  Date
+1      5640.0     0
+2      3510.0     1
+3      3470.0     2
+4      8580.0     3
+5      5090.0     4
+<class 'pandas.core.frame.DataFrame'>
+Index: 108 entries, 1 to 108
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   N1807   108 non-null    float64
+ 1   Date    108 non-null    int64  
+dtypes: float64(1), int64(1)
+memory usage: 2.5+ KB
+None
+   Split Transformation                                              Model  ...    FitMAPE  ForecastMAPE      TestMAPE
+0   None         _N1807  _N1807_ConstantTrend_residue_zeroCycle_residue...  ...     0.1593  1.084000e-01  1.086000e-01
+1   None     Diff_N1807  Diff_N1807_LinearTrend_residue_zeroCycle_resid...  ...     0.2195  1.241000e-01  1.829000e-01
+2   None         _N1807    _N1807_Lag1Trend_residue_zeroCycle_residue_NoAR  ...     0.2166  1.314000e-01  1.672000e-01
+3   None   CumSum_N1807  CumSum_N1807_Lag1Trend_residue_zeroCycle_resid...  ...     0.2221  1.314000e-01  1.672000e-01
+4   None     Diff_N1807  Diff_N1807_Lag1Trend_residue_zeroCycle_residue...  ...     0.2166  1.314000e-01  1.672000e-01
+..   ...            ...                                                ...  ...        ...           ...           ...
+59  None  RelDiff_N1807  RelDiff_N1807_ConstantTrend_residue_zeroCycle_...  ...  3340.6148  1.588011e+05  1.787275e+06
+60  None  RelDiff_N1807  RelDiff_N1807_LinearTrend_residue_bestCycle_by...  ...   837.7180  3.405037e+05  6.222876e+07
+61  None  RelDiff_N1807  RelDiff_N1807_LinearTrend_residue_zeroCycle_re...  ...  1755.1548  8.019438e+05  1.071399e+08
+62  None  RelDiff_N1807  RelDiff_N1807_PolyTrend_residue_bestCycle_byL2...  ...   648.1756  1.584028e+06  1.913057e+08
+63  None  RelDiff_N1807  RelDiff_N1807_PolyTrend_residue_zeroCycle_resi...  ...  1396.1574  3.718453e+06  2.127440e+08
+
+[64 rows x 8 columns]
+  Split Transformation                                              Model                             Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _N1807  _N1807_ConstantTrend_residue_zeroCycle_residue...    NoTransf_ConstantTrend_NoCycle_AR          18   0.1593        0.1084    0.1086
+1  None     Diff_N1807  Diff_N1807_LinearTrend_residue_zeroCycle_resid...  Difference_LinearTrend_NoCycle_NoAR          48   0.2195        0.1241    0.1829
+2  None         _N1807    _N1807_Lag1Trend_residue_zeroCycle_residue_NoAR      NoTransf_Lag1Trend_NoCycle_NoAR          32   0.2166        0.1314    0.1672
+3  None   CumSum_N1807  CumSum_N1807_Lag1Trend_residue_zeroCycle_resid...   Integration_Lag1Trend_NoCycle_NoAR          64   0.2221        0.1314    0.1672
+4  None     Diff_N1807  Diff_N1807_Lag1Trend_residue_zeroCycle_residue...    Difference_Lag1Trend_NoCycle_NoAR          64   0.2166        0.1314    0.1672
+18 0     1370.0
+1     1690.0
+2     1440.0
+3     1340.0
+4     1430.0
+5     1510.0
+6     1670.0
+7     1430.0
+8     1890.0
+9     2110.0
+10    1900.0
+11    1840.0
+12    1610.0
+13    1880.0
+14    1470.0
+15    1610.0
+16    1300.0
+17    1880.0
+Name: N1807, dtype: float64
+18 0     1938.404056
+1     1621.606065
+2     1554.079651
+3     1587.558587
+4     1444.883507
+5     1570.774236
+6     1399.077651
+7     1509.508648
+8     1639.839444
+9     1745.106657
+10    1830.466637
+11    1696.070041
+12    1696.573464
+13    1529.467460
+14    1475.401019
+15    1536.816336
+16    1437.084062
+17    1419.601133
+Name: N1807_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL M3_M_COMP N1807 [1370.0, 1690.0, 1440.0, 1340.0, 1430.0, 1510.0, 1670.0, 1430.0, 1890.0, 2110.0, 1900.0, 1840.0, 1610.0, 1880.0, 1470.0, 1610.0, 1300.0, 1880.0]
+FORECAST_DETAIL_PREDICTED M3_M_COMP N1807 [1938.4040558357135, 1621.6060653163904, 1554.079650830939, 1587.5585865219537, 1444.8835073011223, 1570.774235869073, 1399.0776513869264, 1509.5086478701724, 1639.839444166866, 1745.1066565349215, 1830.4666366676988, 1696.070041256964, 1696.5734640312494, 1529.4674598084443, 1475.4010192985957, 1536.8163358974402, 1437.084061914663, 1419.6011325724448]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON M3_M_COMP N1807 108 18
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ M3_M_COMP N1807 6.698256969451904
+BENCHMARK_PERF_DETAIL_BEST_MODEL M3_M_COMP N1807 ConstantTrend + NoCycle + AR
+BENCHMARK_PERF_DETAIL_PERF_COUNT M3_M_COMP N1807 18
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE M3_M_COMP N1807 0.1138 0.1138 0.7698
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 M3_M_COMP N1807 187.0119892147436 244.20918546671143 -0.1151366257660249
+BENCHMARK_SUCCESS 'M3_M_COMP_N1807_18'

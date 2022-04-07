@@ -1,0 +1,62 @@
+BENCH_DATA M4_COMP_INVENTORY
+TIME :  Date N= 78 H= 6 HEAD= [0 1 2 3 4] TAIL= [73 74 75 76 77]
+SIGNAL :  I1406 N= 78 H= 6 HEAD= [0. 0. 0. 0. 0.] TAIL= [  0. 200.   0.   0.   0.]
+   I1406  Date
+0    0.0     0
+1    0.0     1
+2    0.0     2
+3    0.0     3
+4    0.0     4
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 78 entries, 0 to 77
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   I1406   78 non-null     float64
+ 1   Date    78 non-null     int64  
+dtypes: float64(1), int64(1)
+memory usage: 1.8 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None   CumSum_I1406  CumSum_I1406_ConstantTrend_residue_zeroCycle_r...  ...  1.105879e+11  1.333000e-01  1.667000e-01
+1   None     Diff_I1406  Diff_I1406_ConstantTrend_residue_zeroCycle_res...  ...  1.930000e-01  1.333000e-01  1.667000e-01
+2   None  RelDiff_I1406  RelDiff_I1406_ConstantTrend_residue_zeroCycle_...  ...  1.930000e-01  1.333000e-01  1.667000e-01
+3   None  RelDiff_I1406  RelDiff_I1406_ConstantTrend_residue_bestCycle_...  ...  1.930000e-01  1.333000e-01  1.667000e-01
+4   None  RelDiff_I1406  RelDiff_I1406_ConstantTrend_residue_zeroCycle_...  ...  1.930000e-01  1.333000e-01  1.667000e-01
+..   ...            ...                                                ...  ...           ...           ...           ...
+59  None   CumSum_I1406  CumSum_I1406_ConstantTrend_residue_bestCycle_b...  ...  4.282564e+11  5.098410e+11  3.946371e+11
+60  None   CumSum_I1406  CumSum_I1406_Lag1Trend_residue_zeroCycle_resid...  ...  3.050712e+11  5.111669e+11  3.620983e+11
+61  None   CumSum_I1406  CumSum_I1406_LinearTrend_residue_bestCycle_byL...  ...  3.310507e+11  5.150757e+11  4.031760e+11
+62  None   CumSum_I1406  CumSum_I1406_Lag1Trend_residue_bestCycle_byL2_...  ...  3.292785e+11  5.497119e+11  4.895488e+11
+63  None     Diff_I1406  Diff_I1406_ConstantTrend_residue_zeroCycle_res...  ...  3.633600e+11  6.601804e+11  3.946340e+11
+
+[64 rows x 8 columns]
+  Split Transformation                                              Model                                       Category  Complexity       FitMAPE  ForecastMAPE  TestMAPE
+0  None   CumSum_I1406  CumSum_I1406_ConstantTrend_residue_zeroCycle_r...         Integration_ConstantTrend_NoCycle_NoAR          32  1.105879e+11        0.1333    0.1667
+1  None     Diff_I1406  Diff_I1406_ConstantTrend_residue_zeroCycle_res...          Difference_ConstantTrend_NoCycle_NoAR          32  1.930000e-01        0.1333    0.1667
+2  None  RelDiff_I1406  RelDiff_I1406_ConstantTrend_residue_zeroCycle_...  RelativeDifference_ConstantTrend_NoCycle_NoAR          32  1.930000e-01        0.1333    0.1667
+3  None  RelDiff_I1406  RelDiff_I1406_ConstantTrend_residue_bestCycle_...    RelativeDifference_ConstantTrend_Cycle_NoAR          40  1.930000e-01        0.1333    0.1667
+4  None  RelDiff_I1406  RelDiff_I1406_ConstantTrend_residue_zeroCycle_...    RelativeDifference_ConstantTrend_NoCycle_AR          46  1.930000e-01        0.1333    0.1667
+6 0      0.0
+1      0.0
+2      0.0
+3      0.0
+4      0.0
+5    100.0
+Name: I1406, dtype: float64
+6 0    0.0
+1    0.0
+2    0.0
+3    0.0
+4    0.0
+5    0.0
+Name: I1406_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL I1406 I1406 [0.0, 0.0, 0.0, 0.0, 0.0, 100.0]
+FORECAST_DETAIL_PREDICTED I1406 I1406 [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON I1406 I1406 78 6
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ I1406 I1406 5.776338815689087
+BENCHMARK_PERF_DETAIL_BEST_MODEL I1406 I1406 ConstantTrend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT I1406 I1406 6
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE I1406 I1406 0.1667 0.3333 0.8333
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 I1406 I1406 16.666666666666668 40.824829046386306 -0.19999999999998574
+BENCHMARK_SUCCESS 'M4_COMP_INVENTORY_I1406_6'

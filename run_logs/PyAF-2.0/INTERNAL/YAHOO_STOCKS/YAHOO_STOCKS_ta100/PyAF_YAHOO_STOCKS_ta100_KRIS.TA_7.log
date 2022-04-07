@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ta100
+TIME :  Date N= 1017 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-08-01T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-07T00:00:00.000000000' '2016-07-11T00:00:00.000000000'
+ '2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000']
+SIGNAL :  KRIS.TA N= 1017 H= 7 HEAD= [5.3   5.26  5.255 5.113 5.101] TAIL= [4.214 4.256 4.26  4.26  4.26 ]
+   KRIS.TA       Date
+0    5.300 2011-07-28
+1    5.260 2011-08-01
+2    5.255 2011-08-02
+3    5.113 2011-08-03
+4    5.101 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1017 entries, 0 to 1016
+Data columns (total 2 columns):
+ #   Column   Non-Null Count  Dtype         
+---  ------   --------------  -----         
+ 0   KRIS.TA  1017 non-null   float64       
+ 1   Date     1017 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 23.8 KB
+None
+   Split   Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _KRIS.TA  _KRIS.TA_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.970000e-02  1.940000e-02  5.400000e-03
+1   None   CumSum_KRIS.TA  CumSum_KRIS.TA_Lag1Trend_residue_zeroCycle_res...  ...  2.090000e-02  1.940000e-02  5.400000e-03
+2   None     Diff_KRIS.TA  Diff_KRIS.TA_Lag1Trend_residue_zeroCycle_resid...  ...  1.970000e-02  1.940000e-02  5.400000e-03
+3   None  RelDiff_KRIS.TA  RelDiff_KRIS.TA_Lag1Trend_residue_zeroCycle_re...  ...  1.970000e-02  1.940000e-02  5.400000e-03
+4   None         _KRIS.TA  _KRIS.TA_Lag1Trend_residue_Seasonal_DayOfWeek_...  ...  2.010000e-02  1.960000e-02  6.400000e-03
+..   ...              ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_KRIS.TA  RelDiff_KRIS.TA_LinearTrend_residue_Seasonal_D...  ...  2.101292e+08  1.064150e+08  1.061938e+08
+92  None  RelDiff_KRIS.TA  RelDiff_KRIS.TA_PolyTrend_residue_Seasonal_Day...  ...  2.101243e+08  1.064150e+08  1.061938e+08
+93  None  RelDiff_KRIS.TA  RelDiff_KRIS.TA_Lag1Trend_residue_Seasonal_Day...  ...  2.100368e+08  1.064150e+08  1.061938e+08
+94  None  RelDiff_KRIS.TA  RelDiff_KRIS.TA_ConstantTrend_residue_Seasonal...  ...  2.101132e+08  1.064150e+08  1.061938e+08
+95  None  RelDiff_KRIS.TA  RelDiff_KRIS.TA_ConstantTrend_residue_bestCycl...  ...  2.101144e+08  1.064150e+08  1.061938e+08
+
+[96 rows x 8 columns]
+  Split   Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _KRIS.TA  _KRIS.TA_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0197        0.0194    0.0054
+1  None   CumSum_KRIS.TA  CumSum_KRIS.TA_Lag1Trend_residue_zeroCycle_res...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0209        0.0194    0.0054
+2  None     Diff_KRIS.TA  Diff_KRIS.TA_Lag1Trend_residue_zeroCycle_resid...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0197        0.0194    0.0054
+3  None  RelDiff_KRIS.TA  RelDiff_KRIS.TA_Lag1Trend_residue_zeroCycle_re...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0197        0.0194    0.0054
+4  None         _KRIS.TA  _KRIS.TA_Lag1Trend_residue_Seasonal_DayOfWeek_...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0201        0.0196    0.0064
+7 0    4.161
+1    4.169
+2    4.137
+3    4.249
+4    4.208
+5    4.150
+6    4.346
+Name: KRIS.TA, dtype: float64
+7 0    4.26
+1    4.26
+2    4.26
+3    4.26
+4    4.26
+5    4.26
+6    4.26
+Name: KRIS.TA_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_KRIS.TA KRIS.TA [4.1610000000000005, 4.169, 4.137, 4.249, 4.208, 4.15, 4.346]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_KRIS.TA KRIS.TA [4.26, 4.26, 4.26, 4.26, 4.26, 4.26, 4.26]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_KRIS.TA KRIS.TA 1017 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_KRIS.TA KRIS.TA 10.650561809539795
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_KRIS.TA KRIS.TA Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_KRIS.TA KRIS.TA 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_KRIS.TA KRIS.TA 0.0195 0.0193 1.0968
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_KRIS.TA KRIS.TA 0.0817142857142856 0.0890681921739901 -0.6995330564799742
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ta100_KRIS.TA_7'

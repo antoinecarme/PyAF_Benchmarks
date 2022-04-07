@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1294 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  ALY.L N= 1294 H= 7 HEAD= [18.5  18.25 18.5  18.5  17.75] TAIL= [21.5   21.125 21.5   21.75  21.5  ]
+   ALY.L       Date
+0  18.50 2011-07-28
+1  18.25 2011-07-29
+2  18.50 2011-08-01
+3  18.50 2011-08-02
+4  17.75 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1294 entries, 0 to 1293
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   ALY.L   1294 non-null   float64       
+ 1   Date    1294 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _ALY.L  _ALY.L_ConstantTrend_residue_zeroCycle_residue...  ...  1.480000e-02  1.220000e-02  1.630000e-02
+1   None         _ALY.L  _ALY.L_ConstantTrend_residue_bestCycle_byL2_re...  ...  1.480000e-02  1.220000e-02  1.700000e-02
+2   None         _ALY.L  _ALY.L_ConstantTrend_residue_Seasonal_DayOfWee...  ...  1.490000e-02  1.230000e-02  1.620000e-02
+3   None         _ALY.L  _ALY.L_Lag1Trend_residue_zeroCycle_residue_AR(64)  ...  1.480000e-02  1.230000e-02  1.640000e-02
+4   None         _ALY.L  _ALY.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  1.480000e-02  1.230000e-02  1.580000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_ALY.L  RelDiff_ALY.L_LinearTrend_residue_bestCycle_by...  ...  9.930453e+06  9.641956e+06  1.169834e+07
+92  None  RelDiff_ALY.L  RelDiff_ALY.L_PolyTrend_residue_Seasonal_DayOf...  ...  9.930457e+06  9.641956e+06  1.169834e+07
+93  None  RelDiff_ALY.L  RelDiff_ALY.L_PolyTrend_residue_bestCycle_byL2...  ...  9.930457e+06  9.641956e+06  1.169834e+07
+94  None  RelDiff_ALY.L  RelDiff_ALY.L_ConstantTrend_residue_bestCycle_...  ...  9.835416e+06  9.641956e+06  1.169834e+07
+95  None  RelDiff_ALY.L  RelDiff_ALY.L_PolyTrend_residue_Seasonal_DayOf...  ...  9.930462e+06  9.641956e+06  1.169834e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                      Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _ALY.L  _ALY.L_ConstantTrend_residue_zeroCycle_residue...             NoTransf_ConstantTrend_NoCycle_AR          64   0.0148        0.0122    0.0163
+1  None         _ALY.L  _ALY.L_ConstantTrend_residue_bestCycle_byL2_re...               NoTransf_ConstantTrend_Cycle_AR          72   0.0148        0.0122    0.0170
+2  None         _ALY.L  _ALY.L_ConstantTrend_residue_Seasonal_DayOfWee...  NoTransf_ConstantTrend_Seasonal_DayOfWeek_AR          68   0.0149        0.0123    0.0162
+3  None         _ALY.L  _ALY.L_Lag1Trend_residue_zeroCycle_residue_AR(64)                 NoTransf_Lag1Trend_NoCycle_AR          96   0.0148        0.0123    0.0164
+4  None         _ALY.L  _ALY.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...      NoTransf_Lag1Trend_Seasonal_DayOfWeek_AR         100   0.0148        0.0123    0.0158
+7 0    21.750
+1    21.500
+2    21.500
+3    21.500
+4    21.500
+5    21.375
+6    21.500
+Name: ALY.L, dtype: float64
+7 0    21.5
+1    21.5
+2    21.5
+3    21.5
+4    21.5
+5    21.5
+6    21.5
+Name: ALY.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_ALY.L ALY.L [21.75, 21.5, 21.5, 21.5, 21.5, 21.375, 21.5]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_ALY.L ALY.L [21.5, 21.5, 21.5, 21.5, 21.5, 21.5, 21.5]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_ALY.L ALY.L 1294 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_ALY.L ALY.L 11.285851001739502
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_ALY.L ALY.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_ALY.L ALY.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_ALY.L ALY.L 0.0025 0.0025 0.6429
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_ALY.L ALY.L 0.05357142857142857 0.10564428184106457 -0.029411763349481035
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_ALY.L_7'

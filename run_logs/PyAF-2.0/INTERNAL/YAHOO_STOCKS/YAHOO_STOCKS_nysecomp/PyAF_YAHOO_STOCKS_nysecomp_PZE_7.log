@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  PZE N= 1251 H= 7 HEAD= [19.469999 19.6      20.23     19.51     20.120001] TAIL= [6.3  6.35 6.27 6.29 6.33]
+         PZE       Date
+0  19.469999 2011-07-28
+1  19.600000 2011-07-29
+2  20.230000 2011-08-01
+3  19.510000 2011-08-02
+4  20.120001 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   PZE     1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _PZE      _PZE_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.290000e-02  1.700000e-02  5.200000e-03
+1   None     CumSum_PZE  CumSum_PZE_Lag1Trend_residue_zeroCycle_residue...  ...  2.390000e-02  1.700000e-02  5.200000e-03
+2   None       Diff_PZE  Diff_PZE_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.290000e-02  1.700000e-02  5.200000e-03
+3   None    RelDiff_PZE  RelDiff_PZE_Lag1Trend_residue_zeroCycle_residu...  ...  2.290000e-02  1.700000e-02  5.200000e-03
+4   None           _PZE  _PZE_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  ...  2.310000e-02  1.710000e-02  6.100000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_PZE  RelDiff_PZE_LinearTrend_residue_bestCycle_byL2...  ...  2.504777e+08  2.669035e+08  2.537996e+08
+92  None    RelDiff_PZE  RelDiff_PZE_Lag1Trend_residue_bestCycle_byL2_r...  ...  2.506982e+08  2.669035e+08  2.537996e+08
+93  None    RelDiff_PZE  RelDiff_PZE_ConstantTrend_residue_Seasonal_Day...  ...  2.501065e+08  2.669035e+08  2.537996e+08
+94  None    RelDiff_PZE  RelDiff_PZE_ConstantTrend_residue_zeroCycle_re...  ...  2.506165e+08  2.669035e+08  2.537996e+08
+95  None    RelDiff_PZE  RelDiff_PZE_LinearTrend_residue_zeroCycle_resi...  ...  2.506166e+08  2.669035e+08  2.537996e+08
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _PZE      _PZE_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0229        0.0170    0.0052
+1  None     CumSum_PZE  CumSum_PZE_Lag1Trend_residue_zeroCycle_residue...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0239        0.0170    0.0052
+2  None       Diff_PZE  Diff_PZE_Lag1Trend_residue_zeroCycle_residue_NoAR           Difference_Lag1Trend_NoCycle_NoAR          64   0.0229        0.0170    0.0052
+3  None    RelDiff_PZE  RelDiff_PZE_Lag1Trend_residue_zeroCycle_residu...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0229        0.0170    0.0052
+4  None           _PZE  _PZE_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0231        0.0171    0.0061
+7 0    6.40
+1    6.27
+2    6.25
+3    6.25
+4    6.10
+5    6.13
+6    6.15
+Name: PZE, dtype: float64
+7 0    6.33
+1    6.33
+2    6.33
+3    6.33
+4    6.33
+5    6.33
+6    6.33
+Name: PZE_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_PZE PZE [6.4, 6.27, 6.25, 6.25, 6.1, 6.13, 6.15]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_PZE PZE [6.33, 6.33, 6.33, 6.33, 6.33, 6.33, 6.33]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_PZE PZE 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_PZE PZE 11.489330291748047
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_PZE PZE Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_PZE PZE 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_PZE PZE 0.0208 0.0206 2.2041
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_PZE PZE 0.12857142857142875 0.14471647156718956 -1.2875612982583746
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_PZE_7'

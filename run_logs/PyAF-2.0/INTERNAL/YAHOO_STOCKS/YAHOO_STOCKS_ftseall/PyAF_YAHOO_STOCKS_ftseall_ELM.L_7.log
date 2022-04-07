@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1294 H= 7 HEAD= ['2011-07-29T00:00:00.000000000' '2011-08-01T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  ELM.L N= 1294 H= 7 HEAD= [162.8 161.  159.5 156.9 148. ] TAIL= [209.3 210.8 211.  212.5 215.3]
+   ELM.L       Date
+0  162.8 2011-07-29
+1  161.0 2011-08-01
+2  159.5 2011-08-02
+3  156.9 2011-08-03
+4  148.0 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1294 entries, 0 to 1293
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   ELM.L   1294 non-null   float64       
+ 1   Date    1294 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _ELM.L  _ELM.L_Lag1Trend_residue_bestCycle_byL2_residu...  ...  1.440000e-02  1.440000e-02  1.180000e-02
+1   None         _ELM.L    _ELM.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.440000e-02  1.450000e-02  1.130000e-02
+2   None         _ELM.L  _ELM.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  1.440000e-02  1.450000e-02  1.140000e-02
+3   None   CumSum_ELM.L  CumSum_ELM.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.540000e-02  1.450000e-02  1.130000e-02
+4   None     Diff_ELM.L  Diff_ELM.L_Lag1Trend_residue_zeroCycle_residue...  ...  1.440000e-02  1.450000e-02  1.130000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_ELM.L  RelDiff_ELM.L_PolyTrend_residue_bestCycle_byL2...  ...  2.489696e+07  2.442500e+07  2.622201e+07
+92  None  RelDiff_ELM.L  RelDiff_ELM.L_ConstantTrend_residue_Seasonal_D...  ...  2.477759e+07  2.442500e+07  2.622201e+07
+93  None  RelDiff_ELM.L  RelDiff_ELM.L_ConstantTrend_residue_bestCycle_...  ...  2.477744e+07  2.442500e+07  2.622201e+07
+94  None  RelDiff_ELM.L  RelDiff_ELM.L_PolyTrend_residue_zeroCycle_resi...  ...  2.489696e+07  2.442500e+07  2.622201e+07
+95  None  RelDiff_ELM.L  RelDiff_ELM.L_PolyTrend_residue_bestCycle_byL2...  ...  2.489696e+07  2.442500e+07  2.622201e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _ELM.L  _ELM.L_Lag1Trend_residue_bestCycle_byL2_residu...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0144        0.0144    0.0118
+1  None         _ELM.L    _ELM.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0144        0.0145    0.0113
+2  None         _ELM.L  _ELM.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0144        0.0145    0.0114
+3  None   CumSum_ELM.L  CumSum_ELM.L_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0154        0.0145    0.0113
+4  None     Diff_ELM.L  Diff_ELM.L_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0144        0.0145    0.0113
+7 0    219.6
+1    219.9
+2    219.5
+3    222.8
+4    222.4
+5    223.5
+6    220.8
+Name: ELM.L, dtype: float64
+7 0    215.3
+1    215.3
+2    215.3
+3    215.3
+4    215.3
+5    215.3
+6    215.3
+Name: ELM.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_ELM.L ELM.L [219.6, 219.9, 219.5, 222.8, 222.4, 223.5, 220.8]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_ELM.L ELM.L [215.3, 215.3, 215.3, 215.3, 215.3, 215.3, 215.3]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_ELM.L ELM.L 1294 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_ELM.L ELM.L 11.008230924606323
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_ELM.L ELM.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_ELM.L ELM.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_ELM.L ELM.L 0.0267 0.0271 4.3275
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_ELM.L ELM.L 5.914285714285707 6.111347758765766 -14.760248019195304
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_ELM.L_7'

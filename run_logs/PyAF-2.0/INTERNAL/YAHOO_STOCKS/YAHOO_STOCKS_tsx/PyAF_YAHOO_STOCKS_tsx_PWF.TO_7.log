@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_tsx
+TIME :  Date N= 1248 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  PWF.TO N= 1248 H= 7 HEAD= [28.280001 28.190001 27.389999 27.58     27.200001] TAIL= [29.950001 29.870001 30.120001 30.       30.34    ]
+      PWF.TO       Date
+0  28.280001 2011-07-28
+1  28.190001 2011-07-29
+2  27.389999 2011-08-02
+3  27.580000 2011-08-03
+4  27.200001 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1248 entries, 0 to 1247
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   PWF.TO  1248 non-null   float64       
+ 1   Date    1248 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.2 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _PWF.TO   _PWF.TO_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  8.000000e-03  9.300000e-03  6.600000e-03
+1   None   CumSum_PWF.TO  CumSum_PWF.TO_Lag1Trend_residue_zeroCycle_resi...  ...  9.000000e-03  9.300000e-03  6.600000e-03
+2   None     Diff_PWF.TO  Diff_PWF.TO_Lag1Trend_residue_zeroCycle_residu...  ...  8.000000e-03  9.300000e-03  6.600000e-03
+3   None  RelDiff_PWF.TO  RelDiff_PWF.TO_Lag1Trend_residue_zeroCycle_res...  ...  8.000000e-03  9.300000e-03  6.600000e-03
+4   None         _PWF.TO  _PWF.TO_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  8.000000e-03  9.400000e-03  6.500000e-03
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_PWF.TO  RelDiff_PWF.TO_LinearTrend_residue_zeroCycle_r...  ...  1.489893e+07  1.419240e+07  1.518610e+07
+92  None  RelDiff_PWF.TO  RelDiff_PWF.TO_Lag1Trend_residue_Seasonal_DayO...  ...  1.486599e+07  1.419240e+07  1.518610e+07
+93  None  RelDiff_PWF.TO  RelDiff_PWF.TO_Lag1Trend_residue_Seasonal_DayO...  ...  1.489897e+07  1.419240e+07  1.518610e+07
+94  None  RelDiff_PWF.TO  RelDiff_PWF.TO_ConstantTrend_residue_zeroCycle...  ...  1.488790e+07  1.419240e+07  1.518610e+07
+95  None  RelDiff_PWF.TO  RelDiff_PWF.TO_PolyTrend_residue_bestCycle_byL...  ...  1.489893e+07  1.419240e+07  1.518610e+07
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _PWF.TO   _PWF.TO_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32    0.008        0.0093    0.0066
+1  None   CumSum_PWF.TO  CumSum_PWF.TO_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64    0.009        0.0093    0.0066
+2  None     Diff_PWF.TO  Diff_PWF.TO_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64    0.008        0.0093    0.0066
+3  None  RelDiff_PWF.TO  RelDiff_PWF.TO_Lag1Trend_residue_zeroCycle_res...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64    0.008        0.0093    0.0066
+4  None         _PWF.TO  _PWF.TO_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36    0.008        0.0094    0.0065
+7 0    30.309999
+1    30.420000
+2    30.270000
+3    30.440001
+4    30.340000
+5    30.219999
+6    30.180000
+Name: PWF.TO, dtype: float64
+7 0    30.34
+1    30.34
+2    30.34
+3    30.34
+4    30.34
+5    30.34
+6    30.34
+Name: PWF.TO_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_PWF.TO PWF.TO [30.309998999999998, 30.42, 30.27, 30.440001000000002, 30.34, 30.219998999999998, 30.18]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_PWF.TO PWF.TO [30.34, 30.34, 30.34, 30.34, 30.34, 30.34, 30.34]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_PWF.TO PWF.TO 1248 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_PWF.TO PWF.TO 11.448740720748901
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_PWF.TO PWF.TO Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_PWF.TO PWF.TO 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_PWF.TO PWF.TO 0.0026 0.0026 0.6957
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_PWF.TO PWF.TO 0.08000042857142985 0.09426444565537156 -0.1011635953996346
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_tsx_PWF.TO_7'

@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  LYV N= 1251 H= 7 HEAD= [11.03 11.1  11.13 10.7  10.66] TAIL= [24.24     24.200001 24.379999 24.51     24.870001]
+     LYV       Date
+0  11.03 2011-07-28
+1  11.10 2011-07-29
+2  11.13 2011-08-01
+3  10.70 2011-08-02
+4  10.66 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   LYV     1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _LYV      _LYV_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.470000e-02  1.240000e-02  9.100000e-03
+1   None     CumSum_LYV  CumSum_LYV_Lag1Trend_residue_zeroCycle_residue...  ...  1.570000e-02  1.240000e-02  9.100000e-03
+2   None       Diff_LYV  Diff_LYV_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.470000e-02  1.240000e-02  9.100000e-03
+3   None    RelDiff_LYV  RelDiff_LYV_Lag1Trend_residue_zeroCycle_residu...  ...  1.470000e-02  1.240000e-02  9.100000e-03
+4   None           _LYV  _LYV_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  ...  1.470000e-02  1.250000e-02  8.900000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_LYV  RelDiff_LYV_Lag1Trend_residue_Seasonal_DayOfWe...  ...  2.723977e+07  1.557764e+07  1.526125e+07
+92  None    RelDiff_LYV  RelDiff_LYV_LinearTrend_residue_bestCycle_byL2...  ...  2.728264e+07  1.557764e+07  1.526125e+07
+93  None    RelDiff_LYV  RelDiff_LYV_PolyTrend_residue_Seasonal_DayOfWe...  ...  2.729559e+07  1.557764e+07  1.526125e+07
+94  None    RelDiff_LYV  RelDiff_LYV_ConstantTrend_residue_bestCycle_by...  ...  2.709658e+07  1.557764e+07  1.526125e+07
+95  None    RelDiff_LYV  RelDiff_LYV_PolyTrend_residue_zeroCycle_residu...  ...  2.730665e+07  1.557764e+07  1.526125e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _LYV      _LYV_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0147        0.0124    0.0091
+1  None     CumSum_LYV  CumSum_LYV_Lag1Trend_residue_zeroCycle_residue...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0157        0.0124    0.0091
+2  None       Diff_LYV  Diff_LYV_Lag1Trend_residue_zeroCycle_residue_NoAR           Difference_Lag1Trend_NoCycle_NoAR          64   0.0147        0.0124    0.0091
+3  None    RelDiff_LYV  RelDiff_LYV_Lag1Trend_residue_zeroCycle_residu...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0147        0.0124    0.0091
+4  None           _LYV  _LYV_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0147        0.0125    0.0089
+7 0    24.940001
+1    25.129999
+2    25.170000
+3    25.690001
+4    25.900000
+5    26.250000
+6    26.010000
+Name: LYV, dtype: float64
+7 0    24.870001
+1    24.870001
+2    24.870001
+3    24.870001
+4    24.870001
+5    24.870001
+6    24.870001
+Name: LYV_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_LYV LYV [24.940001000000002, 25.129998999999998, 25.17, 25.690001000000002, 25.9, 26.25, 26.01]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_LYV LYV [24.870001000000002, 24.870001000000002, 24.870001000000002, 24.870001000000002, 24.870001000000002, 24.870001000000002, 24.870001000000002]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_LYV LYV 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_LYV LYV 11.995073318481445
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_LYV LYV Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_LYV LYV 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_LYV LYV 0.0276 0.0281 2.765
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_LYV LYV 0.7142848571428557 0.8535464888174334 -2.33674899099109
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_LYV_7'

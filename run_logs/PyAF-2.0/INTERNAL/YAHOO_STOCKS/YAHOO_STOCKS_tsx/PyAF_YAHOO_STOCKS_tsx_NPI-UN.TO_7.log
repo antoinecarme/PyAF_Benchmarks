@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_tsx
+TIME :  Date N= 1248 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  NPI-UN.TO N= 1248 H= 7 HEAD= [16.370001 16.200001 16.200001 15.85     15.1     ] TAIL= [24.219999 24.139999 24.049999 24.33     24.530001]
+   NPI-UN.TO       Date
+0  16.370001 2011-07-28
+1  16.200001 2011-07-29
+2  16.200001 2011-08-02
+3  15.850000 2011-08-03
+4  15.100000 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1248 entries, 0 to 1247
+Data columns (total 2 columns):
+ #   Column     Non-Null Count  Dtype         
+---  ------     --------------  -----         
+ 0   NPI-UN.TO  1248 non-null   float64       
+ 1   Date       1248 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.2 KB
+None
+   Split     Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _NPI-UN.TO  _NPI-UN.TO_Lag1Trend_residue_zeroCycle_residue...  ...  8.600000e-03  1.110000e-02  1.570000e-02
+1   None         _NPI-UN.TO  _NPI-UN.TO_Lag1Trend_residue_Seasonal_DayOfWee...  ...  8.600000e-03  1.110000e-02  1.560000e-02
+2   None         _NPI-UN.TO  _NPI-UN.TO_Lag1Trend_residue_bestCycle_byL2_re...  ...  8.600000e-03  1.110000e-02  1.500000e-02
+3   None   CumSum_NPI-UN.TO  CumSum_NPI-UN.TO_Lag1Trend_residue_zeroCycle_r...  ...  9.600000e-03  1.110000e-02  1.570000e-02
+4   None     Diff_NPI-UN.TO  Diff_NPI-UN.TO_Lag1Trend_residue_zeroCycle_res...  ...  8.600000e-03  1.110000e-02  1.570000e-02
+..   ...                ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_NPI-UN.TO  RelDiff_NPI-UN.TO_PolyTrend_residue_Seasonal_D...  ...  1.322913e+07  1.218840e+07  9.563105e+06
+92  None  RelDiff_NPI-UN.TO  RelDiff_NPI-UN.TO_PolyTrend_residue_bestCycle_...  ...  1.323054e+07  1.218840e+07  9.563105e+06
+93  None  RelDiff_NPI-UN.TO  RelDiff_NPI-UN.TO_ConstantTrend_residue_Season...  ...  1.318719e+07  1.218840e+07  9.563105e+06
+94  None  RelDiff_NPI-UN.TO  RelDiff_NPI-UN.TO_LinearTrend_residue_bestCycl...  ...  1.322511e+07  1.218840e+07  9.563105e+06
+95  None  RelDiff_NPI-UN.TO  RelDiff_NPI-UN.TO_LinearTrend_residue_zeroCycl...  ...  1.322591e+07  1.218840e+07  9.563105e+06
+
+[96 rows x 8 columns]
+  Split    Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _NPI-UN.TO  _NPI-UN.TO_Lag1Trend_residue_zeroCycle_residue...             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0086        0.0111    0.0157
+1  None        _NPI-UN.TO  _NPI-UN.TO_Lag1Trend_residue_Seasonal_DayOfWee...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0086        0.0111    0.0156
+2  None        _NPI-UN.TO  _NPI-UN.TO_Lag1Trend_residue_bestCycle_byL2_re...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0086        0.0111    0.0150
+3  None  CumSum_NPI-UN.TO  CumSum_NPI-UN.TO_Lag1Trend_residue_zeroCycle_r...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0096        0.0111    0.0157
+4  None    Diff_NPI-UN.TO  Diff_NPI-UN.TO_Lag1Trend_residue_zeroCycle_res...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0086        0.0111    0.0157
+7 0    25.020000
+1    24.760000
+2    24.450001
+3    24.500000
+4    24.580000
+5    24.540001
+6    24.370001
+Name: NPI-UN.TO, dtype: float64
+7 0    24.530001
+1    24.530001
+2    24.530001
+3    24.530001
+4    24.530001
+5    24.530001
+6    24.530001
+Name: NPI-UN.TO_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_NPI-UN.TO NPI-UN.TO [25.02, 24.76, 24.450001, 24.5, 24.58, 24.540001, 24.370001000000002]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_NPI-UN.TO NPI-UN.TO [24.530001000000002, 24.530001000000002, 24.530001000000002, 24.530001000000002, 24.530001000000002, 24.530001000000002, 24.530001000000002]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_NPI-UN.TO NPI-UN.TO 1248 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_NPI-UN.TO NPI-UN.TO 11.39577579498291
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_NPI-UN.TO NPI-UN.TO Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_NPI-UN.TO NPI-UN.TO 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_NPI-UN.TO NPI-UN.TO 0.0061 0.0061 0.989
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_NPI-UN.TO NPI-UN.TO 0.1499997142857136 0.21662954553931704 -0.12753590279035554
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_tsx_NPI-UN.TO_7'

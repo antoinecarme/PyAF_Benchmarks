@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_mibtel
+TIME :  Date N= 1297 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  BRI.MI N= 1297 H= 7 HEAD= [0.14   0.1415 0.1385 0.1336 0.1366] TAIL= [0.0496 0.049  0.0487 0.0507 0.05  ]
+   BRI.MI       Date
+0  0.1400 2011-07-28
+1  0.1415 2011-07-29
+2  0.1385 2011-08-01
+3  0.1336 2011-08-02
+4  0.1366 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1297 entries, 0 to 1296
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   BRI.MI  1297 non-null   float64       
+ 1   Date    1297 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _BRI.MI   _BRI.MI_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0182  2.040000e-02  3.010000e-02
+1   None   CumSum_BRI.MI  CumSum_BRI.MI_Lag1Trend_residue_zeroCycle_resi...  ...  0.0191  2.040000e-02  3.010000e-02
+2   None     Diff_BRI.MI  Diff_BRI.MI_Lag1Trend_residue_zeroCycle_residu...  ...  0.0182  2.040000e-02  3.010000e-02
+3   None  RelDiff_BRI.MI  RelDiff_BRI.MI_Lag1Trend_residue_zeroCycle_res...  ...  0.0182  2.040000e-02  3.010000e-02
+4   None         _BRI.MI  _BRI.MI_Lag1Trend_residue_zeroCycle_residue_AR...  ...  0.0182  2.040000e-02  3.000000e-02
+..   ...             ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_BRI.MI  RelDiff_BRI.MI_LinearTrend_residue_zeroCycle_r...  ...  0.7027  4.390617e+06  1.933117e+08
+92  None  RelDiff_BRI.MI  RelDiff_BRI.MI_LinearTrend_residue_Seasonal_Da...  ...  0.7178  4.390688e+06  1.933117e+08
+93  None  RelDiff_BRI.MI  RelDiff_BRI.MI_Lag1Trend_residue_bestCycle_byL...  ...  0.3879  4.400807e+06  1.933117e+08
+94  None  RelDiff_BRI.MI  RelDiff_BRI.MI_Lag1Trend_residue_Seasonal_DayO...  ...  0.4187  4.400976e+06  1.933117e+08
+95  None  RelDiff_BRI.MI  RelDiff_BRI.MI_Lag1Trend_residue_zeroCycle_res...  ...  0.4151  4.401120e+06  1.933117e+08
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _BRI.MI   _BRI.MI_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0182        0.0204    0.0301
+1  None   CumSum_BRI.MI  CumSum_BRI.MI_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0191        0.0204    0.0301
+2  None     Diff_BRI.MI  Diff_BRI.MI_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0182        0.0204    0.0301
+3  None  RelDiff_BRI.MI  RelDiff_BRI.MI_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0182        0.0204    0.0301
+4  None         _BRI.MI  _BRI.MI_Lag1Trend_residue_zeroCycle_residue_AR...              NoTransf_Lag1Trend_NoCycle_AR          96   0.0182        0.0204    0.0300
+7 0    0.0489
+1    0.0490
+2    0.0496
+3    0.0495
+4    0.0499
+5    0.0519
+6    0.0517
+Name: BRI.MI, dtype: float64
+7 0    0.05
+1    0.05
+2    0.05
+3    0.05
+4    0.05
+5    0.05
+6    0.05
+Name: BRI.MI_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_BRI.MI BRI.MI [0.0489, 0.049, 0.0496, 0.0495, 0.0499, 0.0519, 0.0517]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_BRI.MI BRI.MI [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_BRI.MI BRI.MI 1297 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_BRI.MI BRI.MI 11.612746477127075
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_BRI.MI BRI.MI Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_BRI.MI BRI.MI 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_BRI.MI BRI.MI 0.0189 0.019 1.6891
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_BRI.MI BRI.MI 0.0009571428571428588 0.0011420532887241803 -0.00391607381005854
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_mibtel_BRI.MI_7'

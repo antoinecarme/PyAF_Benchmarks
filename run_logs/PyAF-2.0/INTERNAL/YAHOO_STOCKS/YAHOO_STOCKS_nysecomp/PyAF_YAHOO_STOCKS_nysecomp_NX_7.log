@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  NX N= 1251 H= 7 HEAD= [15.76 15.67 15.77 14.58 14.45] TAIL= [20.459999 20.67     20.4      20.620001 20.620001]
+      NX       Date
+0  15.76 2011-07-28
+1  15.67 2011-07-29
+2  15.77 2011-08-01
+3  14.58 2011-08-02
+4  14.45 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   NX      1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None            _NX  _NX_Lag1Trend_residue_bestCycle_byL2_residue_NoAR  ...  1.630000e-02  1.580000e-02  1.270000e-02
+1   None      CumSum_NX  CumSum_NX_Lag1Trend_residue_Seasonal_DayOfWeek...  ...  1.850000e-02  1.590000e-02  1.190000e-02
+2   None            _NX       _NX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.620000e-02  1.600000e-02  1.280000e-02
+3   None      CumSum_NX  CumSum_NX_Lag1Trend_residue_zeroCycle_residue_...  ...  1.720000e-02  1.600000e-02  1.280000e-02
+4   None        Diff_NX   Diff_NX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.620000e-02  1.600000e-02  1.280000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None     RelDiff_NX  RelDiff_NX_Lag1Trend_residue_bestCycle_byL2_re...  ...  3.174498e+07  2.997080e+07  2.737854e+07
+92  None     RelDiff_NX  RelDiff_NX_PolyTrend_residue_Seasonal_DayOfWee...  ...  3.174494e+07  2.997080e+07  2.737855e+07
+93  None     RelDiff_NX  RelDiff_NX_PolyTrend_residue_bestCycle_byL2_re...  ...  3.174494e+07  2.997080e+07  2.737855e+07
+94  None     RelDiff_NX  RelDiff_NX_PolyTrend_residue_zeroCycle_residue...  ...  3.174494e+07  2.997080e+07  2.737855e+07
+95  None     RelDiff_NX  RelDiff_NX_PolyTrend_residue_Seasonal_DayOfWee...  ...  3.174494e+07  2.997080e+07  2.737855e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                       Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None            _NX  _NX_Lag1Trend_residue_bestCycle_byL2_residue_NoAR                  NoTransf_Lag1Trend_Cycle_NoAR          40   0.0163        0.0158    0.0127
+1  None      CumSum_NX  CumSum_NX_Lag1Trend_residue_Seasonal_DayOfWeek...  Integration_Lag1Trend_Seasonal_DayOfWeek_NoAR          68   0.0185        0.0159    0.0119
+2  None            _NX       _NX_Lag1Trend_residue_zeroCycle_residue_NoAR                NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0162        0.0160    0.0128
+3  None      CumSum_NX  CumSum_NX_Lag1Trend_residue_zeroCycle_residue_...             Integration_Lag1Trend_NoCycle_NoAR          64   0.0172        0.0160    0.0128
+4  None        Diff_NX   Diff_NX_Lag1Trend_residue_zeroCycle_residue_NoAR              Difference_Lag1Trend_NoCycle_NoAR          64   0.0162        0.0160    0.0128
+7 0    20.459999
+1    20.850000
+2    20.870001
+3    20.600000
+4    20.290001
+5    20.600000
+6    20.469999
+Name: NX, dtype: float64
+7 0    20.620001
+1    20.620001
+2    20.620001
+3    20.620001
+4    20.620001
+5    20.620001
+6    20.620001
+Name: NX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_NX NX [20.459999, 20.85, 20.870001000000002, 20.6, 20.290001, 20.6, 20.469998999999998]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_NX NX [20.620001000000002, 20.620001000000002, 20.620001000000002, 20.620001000000002, 20.620001000000002, 20.620001000000002, 20.620001000000002]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_NX NX 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_NX NX 12.424678564071655
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_NX NX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_NX NX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_NX NX 0.0081 0.008 0.6953
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_NX NX 0.16571500000000125 0.1975568128090908 -0.021364414943406684
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_NX_7'

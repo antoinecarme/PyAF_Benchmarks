@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1291 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  ELTA.L N= 1291 H= 7 HEAD= [16.86 22.06 16.57 16.54 16.34] TAIL= [46.1265 46.1227 46.0539 46.0852 46.0775]
+   ELTA.L       Date
+0   16.86 2011-07-28
+1   22.06 2011-07-29
+2   16.57 2011-08-01
+3   16.54 2011-08-02
+4   16.34 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1291 entries, 0 to 1290
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   ELTA.L  1291 non-null   float64       
+ 1   Date    1291 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _ELTA.L   _ELTA.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.820000e-02  1.440000e-02  1.300000e-03
+1   None   CumSum_ELTA.L  CumSum_ELTA.L_Lag1Trend_residue_zeroCycle_resi...  ...  2.900000e-02  1.440000e-02  1.300000e-03
+2   None     Diff_ELTA.L  Diff_ELTA.L_Lag1Trend_residue_zeroCycle_residu...  ...  2.820000e-02  1.440000e-02  1.300000e-03
+3   None  RelDiff_ELTA.L  RelDiff_ELTA.L_Lag1Trend_residue_zeroCycle_res...  ...  2.820000e-02  1.440000e-02  1.300000e-03
+4   None         _ELTA.L  _ELTA.L_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  3.030000e-02  1.600000e-02  3.600000e-03
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_ELTA.L  RelDiff_ELTA.L_Lag1Trend_residue_bestCycle_byL...  ...  1.851914e+07  1.030362e+07  8.644511e+06
+92  None  RelDiff_ELTA.L  RelDiff_ELTA.L_Lag1Trend_residue_Seasonal_DayO...  ...  1.851914e+07  1.030362e+07  8.644511e+06
+93  None  RelDiff_ELTA.L  RelDiff_ELTA.L_PolyTrend_residue_bestCycle_byL...  ...  1.850317e+07  1.030362e+07  8.644511e+06
+94  None  RelDiff_ELTA.L  RelDiff_ELTA.L_ConstantTrend_residue_zeroCycle...  ...  1.849714e+07  1.030362e+07  8.644511e+06
+95  None  RelDiff_ELTA.L  RelDiff_ELTA.L_PolyTrend_residue_zeroCycle_res...  ...  1.850432e+07  1.030362e+07  8.644511e+06
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _ELTA.L   _ELTA.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0282        0.0144    0.0013
+1  None   CumSum_ELTA.L  CumSum_ELTA.L_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0290        0.0144    0.0013
+2  None     Diff_ELTA.L  Diff_ELTA.L_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0282        0.0144    0.0013
+3  None  RelDiff_ELTA.L  RelDiff_ELTA.L_Lag1Trend_residue_zeroCycle_res...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0282        0.0144    0.0013
+4  None         _ELTA.L  _ELTA.L_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0303        0.0160    0.0036
+7 0    46.1356
+1    46.1055
+2    46.0828
+3    38.3000
+4    38.4800
+5    38.3000
+6    38.4700
+Name: ELTA.L, dtype: float64
+7 0    46.0775
+1    46.0775
+2    46.0775
+3    46.0775
+4    46.0775
+5    46.0775
+6    46.0775
+Name: ELTA.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_ELTA.L ELTA.L [46.1356, 46.1055, 46.0828, 38.3, 38.48, 38.3, 38.47]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_ELTA.L ELTA.L [46.0775, 46.0775, 46.0775, 46.0775, 46.0775, 46.0775, 46.0775]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_ELTA.L ELTA.L 1291 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_ELTA.L ELTA.L 11.019334316253662
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_ELTA.L ELTA.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_ELTA.L ELTA.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_ELTA.L ELTA.L 0.1148 0.1043 3.161
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_ELTA.L ELTA.L 4.407342857142858 5.813521955628228 -1.3145685372604747
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_ELTA.L_7'

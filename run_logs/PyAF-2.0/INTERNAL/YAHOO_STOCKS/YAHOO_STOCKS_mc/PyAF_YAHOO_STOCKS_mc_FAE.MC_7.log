@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_mc
+TIME :  Date N= 1298 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  FAE.MC N= 1298 H= 7 HEAD= [7.44 7.44 7.18 6.86 6.6 ] TAIL= [3.03  3.22  3.245 3.165 3.295]
+   FAE.MC       Date
+0    7.44 2011-07-28
+1    7.44 2011-07-29
+2    7.18 2011-08-01
+3    6.86 2011-08-02
+4    6.60 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1298 entries, 0 to 1297
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   FAE.MC  1298 non-null   float64       
+ 1   Date    1298 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _FAE.MC   _FAE.MC_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.960000e-02  1.460000e-02  2.630000e-02
+1   None   CumSum_FAE.MC  CumSum_FAE.MC_Lag1Trend_residue_zeroCycle_resi...  ...  2.060000e-02  1.460000e-02  2.630000e-02
+2   None     Diff_FAE.MC  Diff_FAE.MC_Lag1Trend_residue_zeroCycle_residu...  ...  1.960000e-02  1.460000e-02  2.630000e-02
+3   None  RelDiff_FAE.MC  RelDiff_FAE.MC_Lag1Trend_residue_zeroCycle_res...  ...  1.960000e-02  1.460000e-02  2.630000e-02
+4   None         _FAE.MC  _FAE.MC_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  1.990000e-02  1.510000e-02  2.540000e-02
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_FAE.MC  RelDiff_FAE.MC_Lag1Trend_residue_bestCycle_byL...  ...  1.861799e+08  2.193569e+08  1.842598e+08
+92  None  RelDiff_FAE.MC  RelDiff_FAE.MC_ConstantTrend_residue_zeroCycle...  ...  1.861050e+08  2.193569e+08  1.842598e+08
+93  None  RelDiff_FAE.MC  RelDiff_FAE.MC_PolyTrend_residue_zeroCycle_res...  ...  1.858719e+08  2.193569e+08  1.842598e+08
+94  None  RelDiff_FAE.MC  RelDiff_FAE.MC_PolyTrend_residue_Seasonal_DayO...  ...  1.861050e+08  2.193569e+08  1.842598e+08
+95  None  RelDiff_FAE.MC  RelDiff_FAE.MC_PolyTrend_residue_bestCycle_byL...  ...  1.861050e+08  2.193569e+08  1.842598e+08
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _FAE.MC   _FAE.MC_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0196        0.0146    0.0263
+1  None   CumSum_FAE.MC  CumSum_FAE.MC_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0206        0.0146    0.0263
+2  None     Diff_FAE.MC  Diff_FAE.MC_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0196        0.0146    0.0263
+3  None  RelDiff_FAE.MC  RelDiff_FAE.MC_Lag1Trend_residue_zeroCycle_res...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0196        0.0146    0.0263
+4  None         _FAE.MC  _FAE.MC_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0199        0.0151    0.0254
+7 0    3.49
+1    3.70
+2    3.45
+3    3.28
+4    3.40
+5    3.55
+6    3.59
+Name: FAE.MC, dtype: float64
+7 0    3.295
+1    3.295
+2    3.295
+3    3.295
+4    3.295
+5    3.295
+6    3.295
+Name: FAE.MC_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_FAE.MC FAE.MC [3.49, 3.7, 3.45, 3.28, 3.4, 3.55, 3.59]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_FAE.MC FAE.MC [3.295, 3.295, 3.295, 3.295, 3.295, 3.295, 3.295]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_FAE.MC FAE.MC 1298 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_FAE.MC FAE.MC 11.054175615310669
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_FAE.MC FAE.MC Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_FAE.MC FAE.MC 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_FAE.MC FAE.MC 0.0571 0.0593 1.2994
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_FAE.MC FAE.MC 0.20357142857142868 0.23584952830141517 -2.4961839373430874
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_mc_FAE.MC_7'

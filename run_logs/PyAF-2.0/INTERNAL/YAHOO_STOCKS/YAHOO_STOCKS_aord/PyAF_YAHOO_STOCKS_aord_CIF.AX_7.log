@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aord
+TIME :  Date N= 367 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2012-12-17T00:00:00.000000000' '2012-12-18T00:00:00.000000000'
+ '2012-12-19T00:00:00.000000000' '2012-12-20T00:00:00.000000000'
+ '2012-12-21T00:00:00.000000000']
+SIGNAL :  CIF.AX N= 367 H= 7 HEAD= [0.985 1.005 0.985 0.98  0.97 ] TAIL= [1.26 1.26 1.26 1.26 1.26]
+   CIF.AX       Date
+0   0.985 2011-07-28
+1   1.005 2011-07-29
+2   0.985 2011-08-01
+3   0.980 2011-08-02
+4   0.970 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 367 entries, 0 to 366
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   CIF.AX  367 non-null    float64       
+ 1   Date    367 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 8.6 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _CIF.AX   _CIF.AX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.160000e-02  3.500000e-03  0.000000e+00
+1   None   CumSum_CIF.AX  CumSum_CIF.AX_Lag1Trend_residue_zeroCycle_resi...  ...  1.500000e-02  3.500000e-03  0.000000e+00
+2   None     Diff_CIF.AX  Diff_CIF.AX_Lag1Trend_residue_zeroCycle_residu...  ...  1.160000e-02  3.500000e-03  0.000000e+00
+3   None  RelDiff_CIF.AX  RelDiff_CIF.AX_Lag1Trend_residue_zeroCycle_res...  ...  1.160000e-02  3.500000e-03  0.000000e+00
+4   None         _CIF.AX  _CIF.AX_Lag1Trend_residue_zeroCycle_residue_AR...  ...  1.150000e-02  4.200000e-03  1.100000e-03
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_CIF.AX  RelDiff_CIF.AX_Lag1Trend_residue_bestCycle_byL...  ...  8.310275e+06  7.251491e+06  7.539683e+06
+92  None  RelDiff_CIF.AX  RelDiff_CIF.AX_ConstantTrend_residue_zeroCycle...  ...  8.309979e+06  7.251491e+06  7.539683e+06
+93  None  RelDiff_CIF.AX  RelDiff_CIF.AX_ConstantTrend_residue_Seasonal_...  ...  8.245746e+06  7.251491e+06  7.539683e+06
+94  None  RelDiff_CIF.AX  RelDiff_CIF.AX_ConstantTrend_residue_bestCycle...  ...  8.245746e+06  7.251491e+06  7.539683e+06
+95  None  RelDiff_CIF.AX  RelDiff_CIF.AX_PolyTrend_residue_zeroCycle_res...  ...  8.310186e+06  7.251491e+06  7.539683e+06
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _CIF.AX   _CIF.AX_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0116        0.0035    0.0000
+1  None   CumSum_CIF.AX  CumSum_CIF.AX_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0150        0.0035    0.0000
+2  None     Diff_CIF.AX  Diff_CIF.AX_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0116        0.0035    0.0000
+3  None  RelDiff_CIF.AX  RelDiff_CIF.AX_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0116        0.0035    0.0000
+4  None         _CIF.AX  _CIF.AX_Lag1Trend_residue_zeroCycle_residue_AR...              NoTransf_Lag1Trend_NoCycle_AR          96   0.0115        0.0042    0.0011
+7 0    1.26
+1    1.26
+2    1.26
+3    1.26
+4    1.26
+5    1.26
+6    1.26
+Name: CIF.AX, dtype: float64
+7 0    1.26
+1    1.26
+2    1.26
+3    1.26
+4    1.26
+5    1.26
+6    1.26
+Name: CIF.AX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_CIF.AX CIF.AX [1.26, 1.26, 1.26, 1.26, 1.26, 1.26, 1.26]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_CIF.AX CIF.AX [1.26, 1.26, 1.26, 1.26, 1.26, 1.26, 1.26]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_CIF.AX CIF.AX 367 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_CIF.AX CIF.AX 10.177212715148926
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_CIF.AX CIF.AX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_CIF.AX CIF.AX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_CIF.AX CIF.AX 0.0 0.0 0.0
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_CIF.AX CIF.AX 0.0 0.0 1.0
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aord_CIF.AX_7'

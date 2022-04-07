@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nyworldlead
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  TD N= 1251 H= 7 HEAD= [80.849998 79.870003 80.230003 78.580002 79.669998] TAIL= [43.200001 43.470001 43.759998 43.810001 43.68    ]
+          TD       Date
+0  80.849998 2011-07-28
+1  79.870003 2011-07-29
+2  80.230003 2011-08-01
+3  78.580002 2011-08-02
+4  79.669998 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   TD      1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None            _TD  _TD_Lag1Trend_residue_Seasonal_DayOfWeek_resid...  ...  0.0094  1.050000e-02  6.500000e-03
+1   None            _TD       _TD_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0092  1.060000e-02  5.800000e-03
+2   None            _TD  _TD_Lag1Trend_residue_bestCycle_byL2_residue_NoAR  ...  0.0094  1.060000e-02  6.200000e-03
+3   None      CumSum_TD  CumSum_TD_Lag1Trend_residue_zeroCycle_residue_...  ...  0.0102  1.060000e-02  5.800000e-03
+4   None        Diff_TD   Diff_TD_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0092  1.060000e-02  5.800000e-03
+..   ...            ...                                                ...  ...     ...           ...           ...
+91  None     RelDiff_TD  RelDiff_TD_ConstantTrend_residue_bestCycle_byL...  ...  0.2304  5.258166e+07  1.083503e+08
+92  None     RelDiff_TD  RelDiff_TD_ConstantTrend_residue_Seasonal_DayO...  ...  0.2289  5.259581e+07  1.083503e+08
+93  None     RelDiff_TD  RelDiff_TD_Lag1Trend_residue_bestCycle_byL2_re...  ...  0.1715  5.300144e+07  1.083503e+08
+94  None     RelDiff_TD  RelDiff_TD_Lag1Trend_residue_zeroCycle_residue...  ...  0.1769  5.300144e+07  1.083503e+08
+95  None     RelDiff_TD  RelDiff_TD_Lag1Trend_residue_Seasonal_DayOfWee...  ...  0.1708  5.300144e+07  1.083503e+08
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None            _TD  _TD_Lag1Trend_residue_Seasonal_DayOfWeek_resid...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0094        0.0105    0.0065
+1  None            _TD       _TD_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0092        0.0106    0.0058
+2  None            _TD  _TD_Lag1Trend_residue_bestCycle_byL2_residue_NoAR               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0094        0.0106    0.0062
+3  None      CumSum_TD  CumSum_TD_Lag1Trend_residue_zeroCycle_residue_...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0102        0.0106    0.0058
+4  None        Diff_TD   Diff_TD_Lag1Trend_residue_zeroCycle_residue_NoAR           Difference_Lag1Trend_NoCycle_NoAR          64   0.0092        0.0106    0.0058
+7 0    43.540001
+1    43.669998
+2    43.529999
+3    43.450001
+4    43.209999
+5    43.459999
+6    43.250000
+Name: TD, dtype: float64
+7 0    43.68
+1    43.68
+2    43.68
+3    43.68
+4    43.68
+5    43.68
+6    43.68
+Name: TD_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_TD TD [43.540001000000004, 43.669998, 43.529999, 43.450001, 43.209998999999996, 43.459998999999996, 43.25]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_TD TD [43.68, 43.68, 43.68, 43.68, 43.68, 43.68, 43.68]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_TD TD 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_TD TD 11.010878086090088
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_TD TD Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_TD TD 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_TD TD 0.0054 0.0054 1.3469
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_TD TD 0.23571471428571503 0.28012777186975746 -2.4251890878810127
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nyworldlead_TD_7'

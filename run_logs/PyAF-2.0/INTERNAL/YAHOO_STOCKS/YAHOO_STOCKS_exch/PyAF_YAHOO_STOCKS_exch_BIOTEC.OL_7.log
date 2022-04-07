@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_exch
+TIME :  Date N= 1298 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  BIOTEC.OL N= 1298 H= 7 HEAD= [7.62486 7.61508 7.61508 7.33159 7.11653] TAIL= [11.05 11.15 11.15 11.1  10.8 ]
+   BIOTEC.OL       Date
+0    7.62486 2011-07-28
+1    7.61508 2011-07-29
+2    7.61508 2011-08-01
+3    7.33159 2011-08-02
+4    7.11653 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1298 entries, 0 to 1297
+Data columns (total 2 columns):
+ #   Column     Non-Null Count  Dtype         
+---  ------     --------------  -----         
+ 0   BIOTEC.OL  1298 non-null   float64       
+ 1   Date       1298 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split     Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _BIOTEC.OL  _BIOTEC.OL_Lag1Trend_residue_zeroCycle_residue...  ...  2.220000e-02  2.260000e-02  8.500000e-03
+1   None   CumSum_BIOTEC.OL  CumSum_BIOTEC.OL_Lag1Trend_residue_zeroCycle_r...  ...  2.310000e-02  2.260000e-02  8.500000e-03
+2   None     Diff_BIOTEC.OL  Diff_BIOTEC.OL_Lag1Trend_residue_zeroCycle_res...  ...  2.220000e-02  2.260000e-02  8.500000e-03
+3   None  RelDiff_BIOTEC.OL  RelDiff_BIOTEC.OL_Lag1Trend_residue_zeroCycle_...  ...  2.220000e-02  2.260000e-02  8.500000e-03
+4   None         _BIOTEC.OL  _BIOTEC.OL_Lag1Trend_residue_bestCycle_byL2_re...  ...  2.320000e-02  2.310000e-02  8.400000e-03
+..   ...                ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_BIOTEC.OL  RelDiff_BIOTEC.OL_PolyTrend_residue_zeroCycle_...  ...  5.028826e+07  3.140705e+07  3.358374e+07
+92  None  RelDiff_BIOTEC.OL  RelDiff_BIOTEC.OL_PolyTrend_residue_Seasonal_D...  ...  5.032761e+07  3.140705e+07  3.358374e+07
+93  None  RelDiff_BIOTEC.OL  RelDiff_BIOTEC.OL_PolyTrend_residue_bestCycle_...  ...  5.032761e+07  3.140705e+07  3.358374e+07
+94  None  RelDiff_BIOTEC.OL  RelDiff_BIOTEC.OL_Lag1Trend_residue_Seasonal_D...  ...  5.037476e+07  3.140705e+07  3.358374e+07
+95  None  RelDiff_BIOTEC.OL  RelDiff_BIOTEC.OL_Lag1Trend_residue_bestCycle_...  ...  5.037476e+07  3.140705e+07  3.358374e+07
+
+[96 rows x 8 columns]
+  Split     Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _BIOTEC.OL  _BIOTEC.OL_Lag1Trend_residue_zeroCycle_residue...            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0222        0.0226    0.0085
+1  None   CumSum_BIOTEC.OL  CumSum_BIOTEC.OL_Lag1Trend_residue_zeroCycle_r...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0231        0.0226    0.0085
+2  None     Diff_BIOTEC.OL  Diff_BIOTEC.OL_Lag1Trend_residue_zeroCycle_res...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0222        0.0226    0.0085
+3  None  RelDiff_BIOTEC.OL  RelDiff_BIOTEC.OL_Lag1Trend_residue_zeroCycle_...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0222        0.0226    0.0085
+4  None         _BIOTEC.OL  _BIOTEC.OL_Lag1Trend_residue_bestCycle_byL2_re...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0232        0.0231    0.0084
+7 0    10.85
+1    10.90
+2    10.90
+3    10.70
+4    10.90
+5    10.90
+6    10.90
+Name: BIOTEC.OL, dtype: float64
+7 0    10.8
+1    10.8
+2    10.8
+3    10.8
+4    10.8
+5    10.8
+6    10.8
+Name: BIOTEC.OL_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_BIOTEC.OL BIOTEC.OL [10.85, 10.9, 10.9, 10.7, 10.9, 10.9, 10.9]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_BIOTEC.OL BIOTEC.OL [10.8, 10.8, 10.8, 10.8, 10.8, 10.8, 10.8]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_BIOTEC.OL BIOTEC.OL 1298 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_BIOTEC.OL BIOTEC.OL 11.468727827072144
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_BIOTEC.OL BIOTEC.OL Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_BIOTEC.OL BIOTEC.OL 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_BIOTEC.OL BIOTEC.OL 0.0085 0.0086 1.2381
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_BIOTEC.OL BIOTEC.OL 0.09285714285714265 0.09449111825230666 -0.8617021221140526
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_exch_BIOTEC.OL_7'

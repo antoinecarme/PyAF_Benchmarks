@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aord
+TIME :  Date N= 1296 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  DMP.AX N= 1296 H= 7 HEAD= [5.89202 5.95055 5.95055 5.89202 5.853  ] TAIL= [67.47 68.33 68.27 69.89 71.76]
+    DMP.AX       Date
+0  5.89202 2011-07-28
+1  5.95055 2011-07-29
+2  5.95055 2011-08-01
+3  5.89202 2011-08-02
+4  5.85300 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1296 entries, 0 to 1295
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   DMP.AX  1296 non-null   float64       
+ 1   Date    1296 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE     TestMAPE
+0   None         _DMP.AX  _DMP.AX_Lag1Trend_residue_bestCycle_byL2_resid...  ...  1.550000e-02        0.0140       0.0138
+1   None         _DMP.AX   _DMP.AX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.430000e-02        0.0141       0.0133
+2   None         _DMP.AX  _DMP.AX_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  1.460000e-02        0.0141       0.0134
+3   None   CumSum_DMP.AX  CumSum_DMP.AX_Lag1Trend_residue_zeroCycle_resi...  ...  1.520000e-02        0.0141       0.0133
+4   None     Diff_DMP.AX  Diff_DMP.AX_Lag1Trend_residue_zeroCycle_residu...  ...  1.430000e-02        0.0141       0.0133
+..   ...             ...                                                ...  ...           ...           ...          ...
+91  None  RelDiff_DMP.AX  RelDiff_DMP.AX_Lag1Trend_residue_Seasonal_DayO...  ...  3.797244e+06   929330.9654  694106.0801
+92  None  RelDiff_DMP.AX  RelDiff_DMP.AX_ConstantTrend_residue_zeroCycle...  ...  3.811264e+06   929331.6799  694106.8704
+93  None  RelDiff_DMP.AX  RelDiff_DMP.AX_ConstantTrend_residue_Seasonal_...  ...  3.761401e+06   929331.6799  694106.8704
+94  None  RelDiff_DMP.AX  RelDiff_DMP.AX_PolyTrend_residue_zeroCycle_res...  ...  3.814188e+06   929331.6799  694106.8704
+95  None  RelDiff_DMP.AX  RelDiff_DMP.AX_PolyTrend_residue_Seasonal_DayO...  ...  3.813205e+06   929331.6799  694106.8704
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _DMP.AX  _DMP.AX_Lag1Trend_residue_bestCycle_byL2_resid...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0155        0.0140    0.0138
+1  None        _DMP.AX   _DMP.AX_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0143        0.0141    0.0133
+2  None        _DMP.AX  _DMP.AX_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0146        0.0141    0.0134
+3  None  CumSum_DMP.AX  CumSum_DMP.AX_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0152        0.0141    0.0133
+4  None    Diff_DMP.AX  Diff_DMP.AX_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0143        0.0141    0.0133
+7 0    73.35
+1    72.45
+2    71.70
+3    74.18
+4    74.61
+5    74.33
+6    74.23
+Name: DMP.AX, dtype: float64
+7 0    71.76
+1    71.76
+2    71.76
+3    71.76
+4    71.76
+5    71.76
+6    71.76
+Name: DMP.AX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_DMP.AX DMP.AX [73.35, 72.45, 71.7, 74.18, 74.61, 74.33, 74.23]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_DMP.AX DMP.AX [71.76, 71.76, 71.76, 71.76, 71.76, 71.76, 71.76]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_DMP.AX DMP.AX 1296 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_DMP.AX DMP.AX 10.601037979125977
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_DMP.AX DMP.AX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_DMP.AX DMP.AX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_DMP.AX DMP.AX 0.0244 0.0248 2.1949
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_DMP.AX DMP.AX 1.8071428571428538 2.0595595923123224 -3.0877364464317765
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aord_DMP.AX_7'

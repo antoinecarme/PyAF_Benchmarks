@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aord
+TIME :  Date N= 1299 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  AWE.AX N= 1299 H= 7 HEAD= [1.27  1.25  1.235 1.225 1.195] TAIL= [0.9   0.875 0.87  0.895 0.935]
+   AWE.AX       Date
+0   1.270 2011-07-28
+1   1.250 2011-07-29
+2   1.235 2011-08-01
+3   1.225 2011-08-02
+4   1.195 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1299 entries, 0 to 1298
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   AWE.AX  1299 non-null   float64       
+ 1   Date    1299 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _AWE.AX   _AWE.AX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0186  3.730000e-02  2.470000e-02
+1   None   CumSum_AWE.AX  CumSum_AWE.AX_Lag1Trend_residue_zeroCycle_resi...  ...  0.0195  3.730000e-02  2.470000e-02
+2   None     Diff_AWE.AX  Diff_AWE.AX_Lag1Trend_residue_zeroCycle_residu...  ...  0.0186  3.730000e-02  2.470000e-02
+3   None  RelDiff_AWE.AX  RelDiff_AWE.AX_Lag1Trend_residue_zeroCycle_res...  ...  0.0186  3.730000e-02  2.470000e-02
+4   None         _AWE.AX  _AWE.AX_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  0.0186  3.770000e-02  2.750000e-02
+..   ...             ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_AWE.AX  RelDiff_AWE.AX_LinearTrend_residue_zeroCycle_r...  ...  0.3141  6.831284e+07  1.083764e+08
+92  None  RelDiff_AWE.AX  RelDiff_AWE.AX_ConstantTrend_residue_zeroCycle...  ...  0.2102  6.839843e+07  1.083764e+08
+93  None  RelDiff_AWE.AX  RelDiff_AWE.AX_Lag1Trend_residue_zeroCycle_res...  ...  0.1245  6.875518e+07  1.083764e+08
+94  None  RelDiff_AWE.AX  RelDiff_AWE.AX_Lag1Trend_residue_Seasonal_DayO...  ...  0.1228  6.875518e+07  1.083764e+08
+95  None  RelDiff_AWE.AX  RelDiff_AWE.AX_Lag1Trend_residue_bestCycle_byL...  ...  0.1228  6.875518e+07  1.083764e+08
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _AWE.AX   _AWE.AX_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0186        0.0373    0.0247
+1  None   CumSum_AWE.AX  CumSum_AWE.AX_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0195        0.0373    0.0247
+2  None     Diff_AWE.AX  Diff_AWE.AX_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0186        0.0373    0.0247
+3  None  RelDiff_AWE.AX  RelDiff_AWE.AX_Lag1Trend_residue_zeroCycle_res...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0186        0.0373    0.0247
+4  None         _AWE.AX  _AWE.AX_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0186        0.0377    0.0275
+7 0    0.920
+1    0.930
+2    0.935
+3    0.915
+4    0.940
+5    0.920
+6    0.915
+Name: AWE.AX, dtype: float64
+7 0    0.935
+1    0.935
+2    0.935
+3    0.935
+4    0.935
+5    0.935
+6    0.935
+Name: AWE.AX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_AWE.AX AWE.AX [0.92, 0.93, 0.935, 0.915, 0.94, 0.92, 0.915]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_AWE.AX AWE.AX [0.935, 0.935, 0.935, 0.935, 0.935, 0.935, 0.935]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_AWE.AX AWE.AX 1299 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_AWE.AX AWE.AX 10.957430124282837
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_AWE.AX AWE.AX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_AWE.AX AWE.AX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_AWE.AX AWE.AX 0.0124 0.0123 0.8067
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_AWE.AX AWE.AX 0.011428571428571423 0.013627702877384944 -1.166666305555626
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aord_AWE.AX_7'

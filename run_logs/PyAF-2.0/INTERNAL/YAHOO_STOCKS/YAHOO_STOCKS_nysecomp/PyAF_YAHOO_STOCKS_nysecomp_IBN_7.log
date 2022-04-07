@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  IBN N= 1251 H= 7 HEAD= [45.630002 46.570001 47.280002 45.39     45.06    ] TAIL= [7.95 7.88 7.98 7.9  7.95]
+         IBN       Date
+0  45.630002 2011-07-28
+1  46.570001 2011-07-29
+2  47.280002 2011-08-01
+3  45.390000 2011-08-02
+4  45.060000 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   IBN     1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None           _IBN      _IBN_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0213  1.860000e-02  1.870000e-02
+1   None     CumSum_IBN  CumSum_IBN_Lag1Trend_residue_zeroCycle_residue...  ...  0.0223  1.860000e-02  1.870000e-02
+2   None       Diff_IBN  Diff_IBN_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0213  1.860000e-02  1.870000e-02
+3   None    RelDiff_IBN  RelDiff_IBN_Lag1Trend_residue_zeroCycle_residu...  ...  0.0213  1.860000e-02  1.870000e-02
+4   None           _IBN    _IBN_Lag1Trend_residue_zeroCycle_residue_AR(64)  ...  0.0236  1.890000e-02  2.230000e-02
+..   ...            ...                                                ...  ...     ...           ...           ...
+91  None    RelDiff_IBN  RelDiff_IBN_LinearTrend_residue_Seasonal_DayOf...  ...  0.5704  2.073345e+08  5.185879e+08
+92  None    RelDiff_IBN  RelDiff_IBN_ConstantTrend_residue_Seasonal_Day...  ...  0.4837  2.073496e+08  5.185879e+08
+93  None    RelDiff_IBN  RelDiff_IBN_Lag1Trend_residue_bestCycle_byL2_r...  ...  0.2689  2.099157e+08  5.185879e+08
+94  None    RelDiff_IBN  RelDiff_IBN_Lag1Trend_residue_zeroCycle_residu...  ...  0.2908  2.099157e+08  5.185879e+08
+95  None    RelDiff_IBN  RelDiff_IBN_Lag1Trend_residue_Seasonal_DayOfWe...  ...  0.2997  2.099157e+08  5.185879e+08
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _IBN      _IBN_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0213        0.0186    0.0187
+1  None     CumSum_IBN  CumSum_IBN_Lag1Trend_residue_zeroCycle_residue...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0223        0.0186    0.0187
+2  None       Diff_IBN  Diff_IBN_Lag1Trend_residue_zeroCycle_residue_NoAR          Difference_Lag1Trend_NoCycle_NoAR          64   0.0213        0.0186    0.0187
+3  None    RelDiff_IBN  RelDiff_IBN_Lag1Trend_residue_zeroCycle_residu...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0213        0.0186    0.0187
+4  None           _IBN    _IBN_Lag1Trend_residue_zeroCycle_residue_AR(64)              NoTransf_Lag1Trend_NoCycle_AR          96   0.0236        0.0189    0.0223
+7 0    7.90
+1    7.90
+2    7.84
+3    7.82
+4    7.86
+5    7.83
+6    7.98
+Name: IBN, dtype: float64
+7 0    7.95
+1    7.95
+2    7.95
+3    7.95
+4    7.95
+5    7.95
+6    7.95
+Name: IBN_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_IBN IBN [7.9, 7.9, 7.84, 7.82, 7.86, 7.83, 7.98]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_IBN IBN [7.95, 7.95, 7.95, 7.95, 7.95, 7.95, 7.95]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_IBN IBN 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_IBN IBN 11.49474287033081
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_IBN IBN Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_IBN IBN 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_IBN IBN 0.0105 0.0105 1.6571
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_IBN IBN 0.08285714285714287 0.09055385138137417 -2.0578386442885175
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_IBN_7'

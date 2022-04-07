@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftse250
+TIME :  Date N= 1277 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  SMT.L N= 1277 H= 7 HEAD= [7.425 7.31  7.3   7.235 7.055] TAIL= [2.88797 2.87191 2.86457 2.87691 2.88378]
+   SMT.L       Date
+0  7.425 2011-07-28
+1  7.310 2011-07-29
+2  7.300 2011-08-01
+3  7.235 2011-08-02
+4  7.055 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1277 entries, 0 to 1276
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   SMT.L   1277 non-null   float64       
+ 1   Date    1277 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.9 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _SMT.L    _SMT.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.360000e-02  1.200000e-02  5.300000e-03
+1   None   CumSum_SMT.L  CumSum_SMT.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.460000e-02  1.200000e-02  5.300000e-03
+2   None     Diff_SMT.L  Diff_SMT.L_Lag1Trend_residue_zeroCycle_residue...  ...  1.360000e-02  1.200000e-02  5.300000e-03
+3   None  RelDiff_SMT.L  RelDiff_SMT.L_Lag1Trend_residue_zeroCycle_resi...  ...  1.360000e-02  1.200000e-02  5.300000e-03
+4   None         _SMT.L  _SMT.L_LinearTrend_residue_zeroCycle_residue_A...  ...  1.610000e-02  1.220000e-02  6.200000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_SMT.L  RelDiff_SMT.L_PolyTrend_residue_zeroCycle_resi...  ...  1.073225e+08  2.079798e+08  1.850413e+08
+92  None  RelDiff_SMT.L  RelDiff_SMT.L_LinearTrend_residue_Seasonal_Day...  ...  1.073232e+08  2.079798e+08  1.850413e+08
+93  None  RelDiff_SMT.L  RelDiff_SMT.L_LinearTrend_residue_bestCycle_by...  ...  1.073256e+08  2.079798e+08  1.850413e+08
+94  None  RelDiff_SMT.L  RelDiff_SMT.L_ConstantTrend_residue_zeroCycle_...  ...  1.073226e+08  2.079798e+08  1.850413e+08
+95  None  RelDiff_SMT.L  RelDiff_SMT.L_LinearTrend_residue_bestCycle_by...  ...  1.073247e+08  2.079798e+08  1.850413e+08
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _SMT.L    _SMT.L_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0136        0.0120    0.0053
+1  None   CumSum_SMT.L  CumSum_SMT.L_Lag1Trend_residue_zeroCycle_resid...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0146        0.0120    0.0053
+2  None     Diff_SMT.L  Diff_SMT.L_Lag1Trend_residue_zeroCycle_residue...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0136        0.0120    0.0053
+3  None  RelDiff_SMT.L  RelDiff_SMT.L_Lag1Trend_residue_zeroCycle_resi...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0136        0.0120    0.0053
+4  None         _SMT.L  _SMT.L_LinearTrend_residue_zeroCycle_residue_A...            NoTransf_LinearTrend_NoCycle_AR          80   0.0161        0.0122    0.0062
+7 0    2.92210
+1    2.94936
+2    2.90000
+3    2.90900
+4    2.90400
+5    2.92400
+6    2.94000
+Name: SMT.L, dtype: float64
+7 0    2.88378
+1    2.88378
+2    2.88378
+3    2.88378
+4    2.88378
+5    2.88378
+6    2.88378
+Name: SMT.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_SMT.L SMT.L [2.9221, 2.94936, 2.9, 2.909, 2.904, 2.924, 2.94]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_SMT.L SMT.L [2.88378, 2.88378, 2.88378, 2.88378, 2.88378, 2.88378, 2.88378]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_SMT.L SMT.L 1277 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_SMT.L SMT.L 11.334862232208252
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_SMT.L SMT.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_SMT.L SMT.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_SMT.L SMT.L 0.0128 0.0129 1.7736
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_SMT.L SMT.L 0.037428571428571554 0.04115385904487846 -4.785432682376509
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftse250_SMT.L_7'

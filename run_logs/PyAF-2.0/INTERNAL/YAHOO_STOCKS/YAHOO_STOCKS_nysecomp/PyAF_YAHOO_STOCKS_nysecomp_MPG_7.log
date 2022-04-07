@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 401 H= 7 HEAD= ['2014-12-12T00:00:00.000000000' '2014-12-15T00:00:00.000000000'
+ '2014-12-16T00:00:00.000000000' '2014-12-17T00:00:00.000000000'
+ '2014-12-18T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  MPG N= 401 H= 7 HEAD= [15.11 15.   15.   15.   15.42] TAIL= [14.93 15.02 15.23 15.37 15.67]
+     MPG       Date
+0  15.11 2014-12-12
+1  15.00 2014-12-15
+2  15.00 2014-12-16
+3  15.00 2014-12-17
+4  15.42 2014-12-18
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 401 entries, 0 to 400
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   MPG     401 non-null    float64       
+ 1   Date    401 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 9.4 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _MPG      _MPG_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.970000e-02  1.700000e-02  2.170000e-02
+1   None     CumSum_MPG  CumSum_MPG_Lag1Trend_residue_zeroCycle_residue...  ...  2.280000e-02  1.700000e-02  2.170000e-02
+2   None       Diff_MPG  Diff_MPG_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.970000e-02  1.700000e-02  2.170000e-02
+3   None    RelDiff_MPG  RelDiff_MPG_Lag1Trend_residue_zeroCycle_residu...  ...  1.970000e-02  1.700000e-02  2.170000e-02
+4   None           _MPG  _MPG_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  ...  1.960000e-02  1.720000e-02  2.150000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_MPG  RelDiff_MPG_Lag1Trend_residue_Seasonal_DayOfWe...  ...  2.186430e+07  2.539276e+07  2.628809e+07
+92  None    RelDiff_MPG  RelDiff_MPG_PolyTrend_residue_zeroCycle_residu...  ...  2.177004e+07  2.539276e+07  2.628809e+07
+93  None    RelDiff_MPG  RelDiff_MPG_ConstantTrend_residue_bestCycle_by...  ...  2.181259e+07  2.539276e+07  2.628809e+07
+94  None    RelDiff_MPG  RelDiff_MPG_LinearTrend_residue_zeroCycle_resi...  ...  2.179857e+07  2.539276e+07  2.628809e+07
+95  None    RelDiff_MPG  RelDiff_MPG_PolyTrend_residue_bestCycle_byL2_r...  ...  2.177912e+07  2.539276e+07  2.628809e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _MPG      _MPG_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0197        0.0170    0.0217
+1  None     CumSum_MPG  CumSum_MPG_Lag1Trend_residue_zeroCycle_residue...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0228        0.0170    0.0217
+2  None       Diff_MPG  Diff_MPG_Lag1Trend_residue_zeroCycle_residue_NoAR           Difference_Lag1Trend_NoCycle_NoAR          64   0.0197        0.0170    0.0217
+3  None    RelDiff_MPG  RelDiff_MPG_Lag1Trend_residue_zeroCycle_residu...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0197        0.0170    0.0217
+4  None           _MPG  _MPG_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0196        0.0172    0.0215
+7 0    15.600000
+1    15.940000
+2    16.030001
+3    16.030001
+4    16.020000
+5    16.129999
+6    16.110001
+Name: MPG, dtype: float64
+7 0    15.67
+1    15.67
+2    15.67
+3    15.67
+4    15.67
+5    15.67
+6    15.67
+Name: MPG_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_MPG MPG [15.6, 15.94, 16.030001000000002, 16.030001000000002, 16.02, 16.129998999999998, 16.110001]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_MPG MPG [15.67, 15.67, 15.67, 15.67, 15.67, 15.67, 15.67]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_MPG MPG 401 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_MPG MPG 10.709693670272827
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_MPG MPG Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_MPG MPG 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_MPG MPG 0.0206 0.0208 3.4737
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_MPG MPG 0.3300002857142861 0.3514666007306286 -3.503649369553621
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_MPG_7'

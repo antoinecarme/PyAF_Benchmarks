@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftse250
+TIME :  Date N= 1294 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  MTC.L N= 1294 H= 7 HEAD= [318.477 320.921 315.718 313.511 309.884] TAIL= [137.25 135.25 135.5  137.75 135.5 ]
+     MTC.L       Date
+0  318.477 2011-07-28
+1  320.921 2011-07-29
+2  315.718 2011-08-01
+3  313.511 2011-08-02
+4  309.884 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1294 entries, 0 to 1293
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   MTC.L   1294 non-null   float64       
+ 1   Date    1294 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _MTC.L  _MTC.L_Lag1Trend_residue_bestCycle_byL2_residu...  ...  1.880000e-02  1.610000e-02  1.520000e-02
+1   None         _MTC.L    _MTC.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.870000e-02  1.640000e-02  1.710000e-02
+2   None   CumSum_MTC.L  CumSum_MTC.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.960000e-02  1.640000e-02  1.710000e-02
+3   None     Diff_MTC.L  Diff_MTC.L_Lag1Trend_residue_zeroCycle_residue...  ...  1.870000e-02  1.640000e-02  1.710000e-02
+4   None  RelDiff_MTC.L  RelDiff_MTC.L_Lag1Trend_residue_zeroCycle_resi...  ...  1.870000e-02  1.640000e-02  1.710000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_MTC.L  RelDiff_MTC.L_LinearTrend_residue_zeroCycle_re...  ...  1.114114e+08  1.148060e+08  1.615315e+08
+92  None  RelDiff_MTC.L  RelDiff_MTC.L_Lag1Trend_residue_bestCycle_byL2...  ...  1.114589e+08  1.148060e+08  1.615315e+08
+93  None  RelDiff_MTC.L  RelDiff_MTC.L_PolyTrend_residue_Seasonal_DayOf...  ...  1.114559e+08  1.148060e+08  1.615315e+08
+94  None  RelDiff_MTC.L  RelDiff_MTC.L_ConstantTrend_residue_zeroCycle_...  ...  1.113945e+08  1.148060e+08  1.615315e+08
+95  None  RelDiff_MTC.L  RelDiff_MTC.L_ConstantTrend_residue_Seasonal_D...  ...  1.111337e+08  1.148060e+08  1.615315e+08
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _MTC.L  _MTC.L_Lag1Trend_residue_bestCycle_byL2_residu...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0188        0.0161    0.0152
+1  None         _MTC.L    _MTC.L_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0187        0.0164    0.0171
+2  None   CumSum_MTC.L  CumSum_MTC.L_Lag1Trend_residue_zeroCycle_resid...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0196        0.0164    0.0171
+3  None     Diff_MTC.L  Diff_MTC.L_Lag1Trend_residue_zeroCycle_residue...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0187        0.0164    0.0171
+4  None  RelDiff_MTC.L  RelDiff_MTC.L_Lag1Trend_residue_zeroCycle_resi...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0187        0.0164    0.0171
+7 0    134.50
+1    141.25
+2    138.25
+3    135.50
+4    135.00
+5    135.25
+6    135.75
+Name: MTC.L, dtype: float64
+7 0    135.5
+1    135.5
+2    135.5
+3    135.5
+4    135.5
+5    135.5
+6    135.5
+Name: MTC.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_MTC.L MTC.L [134.5, 141.25, 138.25, 135.5, 135.0, 135.25, 135.75]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_MTC.L MTC.L [135.5, 135.5, 135.5, 135.5, 135.5, 135.5, 135.5]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_MTC.L MTC.L 1294 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_MTC.L MTC.L 11.01641845703125
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_MTC.L MTC.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_MTC.L MTC.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_MTC.L MTC.L 0.0108 0.0109 0.6545
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_MTC.L MTC.L 1.5 2.449489742783178 -0.19999999999657136
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftse250_MTC.L_7'

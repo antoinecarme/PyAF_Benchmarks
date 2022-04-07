@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1295 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  CSRT.L N= 1295 H= 7 HEAD= [488.069 491.13  483.914 488.506 476.698] TAIL= [1084. 1055. 1041. 1025. 1014.]
+    CSRT.L       Date
+0  488.069 2011-07-28
+1  491.130 2011-07-29
+2  483.914 2011-08-01
+3  488.506 2011-08-02
+4  476.698 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1295 entries, 0 to 1294
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   CSRT.L  1295 non-null   float64       
+ 1   Date    1295 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _CSRT.L   _CSRT.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  9.500000e-03  1.070000e-02  1.040000e-02
+1   None         _CSRT.L  _CSRT.L_Lag1Trend_residue_bestCycle_byL2_resid...  ...  9.600000e-03  1.070000e-02  1.050000e-02
+2   None   CumSum_CSRT.L  CumSum_CSRT.L_Lag1Trend_residue_zeroCycle_resi...  ...  1.050000e-02  1.070000e-02  1.040000e-02
+3   None     Diff_CSRT.L  Diff_CSRT.L_Lag1Trend_residue_zeroCycle_residu...  ...  9.500000e-03  1.070000e-02  1.040000e-02
+4   None  RelDiff_CSRT.L  RelDiff_CSRT.L_Lag1Trend_residue_zeroCycle_res...  ...  9.500000e-03  1.070000e-02  1.040000e-02
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_CSRT.L  RelDiff_CSRT.L_LinearTrend_residue_zeroCycle_r...  ...  7.822421e+06  5.342743e+06  4.980398e+06
+92  None  RelDiff_CSRT.L  RelDiff_CSRT.L_LinearTrend_residue_Seasonal_Da...  ...  7.822423e+06  5.342743e+06  4.980398e+06
+93  None  RelDiff_CSRT.L  RelDiff_CSRT.L_ConstantTrend_residue_Seasonal_...  ...  7.812889e+06  5.342743e+06  4.980398e+06
+94  None  RelDiff_CSRT.L  RelDiff_CSRT.L_LinearTrend_residue_bestCycle_b...  ...  7.822421e+06  5.342743e+06  4.980398e+06
+95  None  RelDiff_CSRT.L  RelDiff_CSRT.L_Lag1Trend_residue_Seasonal_DayO...  ...  7.822440e+06  5.342743e+06  4.980398e+06
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _CSRT.L   _CSRT.L_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0095        0.0107    0.0104
+1  None         _CSRT.L  _CSRT.L_Lag1Trend_residue_bestCycle_byL2_resid...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0096        0.0107    0.0105
+2  None   CumSum_CSRT.L  CumSum_CSRT.L_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0105        0.0107    0.0104
+3  None     Diff_CSRT.L  Diff_CSRT.L_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0095        0.0107    0.0104
+4  None  RelDiff_CSRT.L  RelDiff_CSRT.L_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0095        0.0107    0.0104
+7 0    1035.0
+1    1047.0
+2    1045.0
+3    1045.0
+4    1025.0
+5    1044.0
+6    1017.0
+Name: CSRT.L, dtype: float64
+7 0    1014.0
+1    1014.0
+2    1014.0
+3    1014.0
+4    1014.0
+5    1014.0
+6    1014.0
+Name: CSRT.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_CSRT.L CSRT.L [1035.0, 1047.0, 1045.0, 1045.0, 1025.0, 1044.0, 1017.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_CSRT.L CSRT.L [1014.0, 1014.0, 1014.0, 1014.0, 1014.0, 1014.0, 1014.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_CSRT.L CSRT.L 1295 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_CSRT.L CSRT.L 11.833255052566528
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_CSRT.L CSRT.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_CSRT.L CSRT.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_CSRT.L CSRT.L 0.0219 0.0222 1.7143
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_CSRT.L CSRT.L 22.857142857142858 25.303867575643736 -4.433668167647419
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_CSRT.L_7'

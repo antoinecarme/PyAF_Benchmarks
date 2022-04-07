@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1292 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  WPC.L N= 1292 H= 7 HEAD= [2.165  2.4801 2.1375 2.2    2.1075] TAIL= [3.10089 3.10605 3.08249 3.10907 3.09859]
+    WPC.L       Date
+0  2.1650 2011-07-28
+1  2.4801 2011-07-29
+2  2.1375 2011-08-01
+3  2.2000 2011-08-02
+4  2.1075 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1292 entries, 0 to 1291
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   WPC.L   1292 non-null   float64       
+ 1   Date    1292 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _WPC.L    _WPC.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.420000e-02  1.920000e-02  7.300000e-03
+1   None   CumSum_WPC.L  CumSum_WPC.L_Lag1Trend_residue_zeroCycle_resid...  ...  2.500000e-02  1.920000e-02  7.300000e-03
+2   None     Diff_WPC.L  Diff_WPC.L_Lag1Trend_residue_zeroCycle_residue...  ...  2.420000e-02  1.920000e-02  7.300000e-03
+3   None  RelDiff_WPC.L  RelDiff_WPC.L_Lag1Trend_residue_zeroCycle_resi...  ...  2.420000e-02  1.920000e-02  7.300000e-03
+4   None         _WPC.L  _WPC.L_Lag1Trend_residue_bestCycle_byL2_residu...  ...  2.490000e-02  1.950000e-02  7.600000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_WPC.L  RelDiff_WPC.L_LinearTrend_residue_bestCycle_by...  ...  1.921926e+07  1.656492e+07  1.402700e+07
+92  None  RelDiff_WPC.L  RelDiff_WPC.L_Lag1Trend_residue_bestCycle_byL2...  ...  1.918734e+07  1.656492e+07  1.402700e+07
+93  None  RelDiff_WPC.L  RelDiff_WPC.L_LinearTrend_residue_Seasonal_Day...  ...  1.921932e+07  1.656492e+07  1.402700e+07
+94  None  RelDiff_WPC.L  RelDiff_WPC.L_Lag1Trend_residue_Seasonal_DayOf...  ...  1.918738e+07  1.656492e+07  1.402700e+07
+95  None  RelDiff_WPC.L  RelDiff_WPC.L_PolyTrend_residue_bestCycle_byL2...  ...  1.922398e+07  1.656492e+07  1.402700e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _WPC.L    _WPC.L_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0242        0.0192    0.0073
+1  None   CumSum_WPC.L  CumSum_WPC.L_Lag1Trend_residue_zeroCycle_resid...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0250        0.0192    0.0073
+2  None     Diff_WPC.L  Diff_WPC.L_Lag1Trend_residue_zeroCycle_residue...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0242        0.0192    0.0073
+3  None  RelDiff_WPC.L  RelDiff_WPC.L_Lag1Trend_residue_zeroCycle_resi...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0242        0.0192    0.0073
+4  None         _WPC.L  _WPC.L_Lag1Trend_residue_bestCycle_byL2_residu...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0249        0.0195    0.0076
+7 0    3.13271
+1    3.12188
+2    3.13454
+3    3.14945
+4    3.13886
+5    3.14542
+6    2.73000
+Name: WPC.L, dtype: float64
+7 0    3.09859
+1    3.09859
+2    3.09859
+3    3.09859
+4    3.09859
+5    3.09859
+6    3.09859
+Name: WPC.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_WPC.L WPC.L [3.13271, 3.12188, 3.1345400000000003, 3.14945, 3.1388599999999998, 3.14542, 2.73]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_WPC.L WPC.L [3.09859, 3.09859, 3.09859, 3.09859, 3.09859, 3.09859, 3.09859]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_WPC.L WPC.L 1292 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_WPC.L WPC.L 11.096344709396362
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_WPC.L WPC.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_WPC.L WPC.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_WPC.L WPC.L 0.0298 0.0287 1.0918
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_WPC.L WPC.L 0.08570142857142844 0.1440530906595601 -0.018881375703720504
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_WPC.L_7'

@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ta100
+TIME :  Date N= 1019 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-08-01T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-07T00:00:00.000000000' '2016-07-11T00:00:00.000000000'
+ '2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000']
+SIGNAL :  SAE.TA N= 1019 H= 7 HEAD= [19.27 18.6  18.25 17.83 17.66] TAIL= [12.94 13.   12.92 12.99 13.07]
+   SAE.TA       Date
+0   19.27 2011-07-28
+1   18.60 2011-08-01
+2   18.25 2011-08-02
+3   17.83 2011-08-03
+4   17.66 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1019 entries, 0 to 1018
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   SAE.TA  1019 non-null   float64       
+ 1   Date    1019 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 23.9 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _SAE.TA   _SAE.TA_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.360000e-02  1.380000e-02  7.400000e-03
+1   None   CumSum_SAE.TA  CumSum_SAE.TA_Lag1Trend_residue_zeroCycle_resi...  ...  1.480000e-02  1.380000e-02  7.400000e-03
+2   None     Diff_SAE.TA  Diff_SAE.TA_Lag1Trend_residue_zeroCycle_residu...  ...  1.360000e-02  1.380000e-02  7.400000e-03
+3   None  RelDiff_SAE.TA  RelDiff_SAE.TA_Lag1Trend_residue_zeroCycle_res...  ...  1.360000e-02  1.380000e-02  7.400000e-03
+4   None         _SAE.TA  _SAE.TA_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  1.370000e-02  1.390000e-02  8.000000e-03
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_SAE.TA  RelDiff_SAE.TA_LinearTrend_residue_zeroCycle_r...  ...  1.005375e+08  1.003128e+08  8.960040e+07
+92  None  RelDiff_SAE.TA  RelDiff_SAE.TA_LinearTrend_residue_Seasonal_Da...  ...  1.005777e+08  1.003128e+08  8.960040e+07
+93  None  RelDiff_SAE.TA  RelDiff_SAE.TA_PolyTrend_residue_Seasonal_DayO...  ...  1.005132e+08  1.003128e+08  8.960040e+07
+94  None  RelDiff_SAE.TA  RelDiff_SAE.TA_ConstantTrend_residue_zeroCycle...  ...  1.005252e+08  1.003128e+08  8.960040e+07
+95  None  RelDiff_SAE.TA  RelDiff_SAE.TA_LinearTrend_residue_zeroCycle_r...  ...  1.005603e+08  1.003128e+08  8.960040e+07
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _SAE.TA   _SAE.TA_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0136        0.0138    0.0074
+1  None   CumSum_SAE.TA  CumSum_SAE.TA_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0148        0.0138    0.0074
+2  None     Diff_SAE.TA  Diff_SAE.TA_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0136        0.0138    0.0074
+3  None  RelDiff_SAE.TA  RelDiff_SAE.TA_Lag1Trend_residue_zeroCycle_res...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0136        0.0138    0.0074
+4  None         _SAE.TA  _SAE.TA_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0137        0.0139    0.0080
+7 0    13.12
+1    13.19
+2    13.11
+3    13.08
+4    13.19
+5    13.19
+6    13.08
+Name: SAE.TA, dtype: float64
+7 0    13.07
+1    13.07
+2    13.07
+3    13.07
+4    13.07
+5    13.07
+6    13.07
+Name: SAE.TA_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_SAE.TA SAE.TA [13.12, 13.19, 13.11, 13.08, 13.19, 13.19, 13.08]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_SAE.TA SAE.TA [13.07, 13.07, 13.07, 13.07, 13.07, 13.07, 13.07]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_SAE.TA SAE.TA 1019 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_SAE.TA SAE.TA 10.617680788040161
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_SAE.TA SAE.TA Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_SAE.TA SAE.TA 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_SAE.TA SAE.TA 0.0051 0.0051 1.0071
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_SAE.TA SAE.TA 0.06714285714285648 0.08237544710479075 -1.9793906623156245
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ta100_SAE.TA_7'

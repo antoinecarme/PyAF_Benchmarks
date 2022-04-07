@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1117 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2015-11-03T00:00:00.000000000' '2015-11-04T00:00:00.000000000'
+ '2015-11-05T00:00:00.000000000' '2015-11-06T00:00:00.000000000'
+ '2015-11-09T00:00:00.000000000']
+SIGNAL :  TIG.L N= 1117 H= 7 HEAD= [20.875 20.625 20.25  20.25  19.875] TAIL= [39.75 40.   40.   39.5  39.5 ]
+    TIG.L       Date
+0  20.875 2011-07-28
+1  20.625 2011-07-29
+2  20.250 2011-08-01
+3  20.250 2011-08-02
+4  19.875 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1117 entries, 0 to 1116
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   TIG.L   1117 non-null   float64       
+ 1   Date    1117 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 26.2 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _TIG.L    _TIG.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  9.900000e-03  1.000000e-02  2.700000e-03
+1   None   CumSum_TIG.L  CumSum_TIG.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.100000e-02  1.000000e-02  2.700000e-03
+2   None     Diff_TIG.L  Diff_TIG.L_Lag1Trend_residue_zeroCycle_residue...  ...  9.900000e-03  1.000000e-02  2.700000e-03
+3   None  RelDiff_TIG.L  RelDiff_TIG.L_Lag1Trend_residue_zeroCycle_resi...  ...  9.900000e-03  1.000000e-02  2.700000e-03
+4   None         _TIG.L  _TIG.L_Lag1Trend_residue_bestCycle_byL2_residu...  ...  1.010000e-02  1.010000e-02  2.900000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_TIG.L  RelDiff_TIG.L_PolyTrend_residue_Seasonal_DayOf...  ...  1.665153e+07  1.319412e+07  1.037759e+07
+92  None  RelDiff_TIG.L  RelDiff_TIG.L_PolyTrend_residue_Seasonal_DayOf...  ...  1.665153e+07  1.319412e+07  1.037759e+07
+93  None  RelDiff_TIG.L  RelDiff_TIG.L_PolyTrend_residue_bestCycle_byL2...  ...  1.665153e+07  1.319412e+07  1.037759e+07
+94  None  RelDiff_TIG.L  RelDiff_TIG.L_ConstantTrend_residue_zeroCycle_...  ...  1.663048e+07  1.319412e+07  1.037759e+07
+95  None  RelDiff_TIG.L  RelDiff_TIG.L_PolyTrend_residue_zeroCycle_resi...  ...  1.665153e+07  1.319412e+07  1.037759e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _TIG.L    _TIG.L_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0099        0.0100    0.0027
+1  None   CumSum_TIG.L  CumSum_TIG.L_Lag1Trend_residue_zeroCycle_resid...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0110        0.0100    0.0027
+2  None     Diff_TIG.L  Diff_TIG.L_Lag1Trend_residue_zeroCycle_residue...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0099        0.0100    0.0027
+3  None  RelDiff_TIG.L  RelDiff_TIG.L_Lag1Trend_residue_zeroCycle_resi...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0099        0.0100    0.0027
+4  None         _TIG.L  _TIG.L_Lag1Trend_residue_bestCycle_byL2_residu...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0101        0.0101    0.0029
+7 0    39.75
+1    39.50
+2    39.75
+3    39.75
+4    39.75
+5    40.00
+6    40.00
+Name: TIG.L, dtype: float64
+7 0    39.5
+1    39.5
+2    39.5
+3    39.5
+4    39.5
+5    39.5
+6    39.5
+Name: TIG.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_TIG.L TIG.L [39.75, 39.5, 39.75, 39.75, 39.75, 40.0, 40.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_TIG.L TIG.L [39.5, 39.5, 39.5, 39.5, 39.5, 39.5, 39.5]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_TIG.L TIG.L 1117 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_TIG.L TIG.L 10.71121072769165
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_TIG.L TIG.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_TIG.L TIG.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_TIG.L TIG.L 0.0072 0.0072 2.2857
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_TIG.L TIG.L 0.2857142857142857 0.32732683535398854 -3.199999997647999
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_TIG.L_7'

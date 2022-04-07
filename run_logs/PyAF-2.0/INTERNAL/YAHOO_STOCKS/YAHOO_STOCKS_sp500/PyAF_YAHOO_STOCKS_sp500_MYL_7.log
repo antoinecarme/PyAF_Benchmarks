@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_sp500
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  MYL N= 1251 H= 7 HEAD= [23.200001 22.780001 22.15     20.85     20.41    ] TAIL= [45.16     45.299999 45.380001 45.450001 45.529999]
+         MYL       Date
+0  23.200001 2011-07-28
+1  22.780001 2011-07-29
+2  22.150000 2011-08-01
+3  20.850000 2011-08-02
+4  20.410000 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   MYL     1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _MYL  _MYL_Lag1Trend_residue_bestCycle_byL2_residue_...  ...  1.320000e-02  2.020000e-02  5.800000e-03
+1   None           _MYL      _MYL_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.310000e-02  2.030000e-02  5.800000e-03
+2   None           _MYL  _MYL_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  ...  1.310000e-02  2.030000e-02  5.400000e-03
+3   None     CumSum_MYL  CumSum_MYL_Lag1Trend_residue_zeroCycle_residue...  ...  1.410000e-02  2.030000e-02  5.800000e-03
+4   None       Diff_MYL  Diff_MYL_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.310000e-02  2.030000e-02  5.800000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_MYL  RelDiff_MYL_Lag1Trend_residue_bestCycle_byL2_r...  ...  2.202101e+07  1.476319e+07  1.560053e+07
+92  None    RelDiff_MYL  RelDiff_MYL_PolyTrend_residue_bestCycle_byL2_r...  ...  2.206340e+07  1.476319e+07  1.560053e+07
+93  None    RelDiff_MYL  RelDiff_MYL_ConstantTrend_residue_zeroCycle_re...  ...  2.205340e+07  1.476319e+07  1.560053e+07
+94  None    RelDiff_MYL  RelDiff_MYL_ConstantTrend_residue_bestCycle_by...  ...  2.184123e+07  1.476319e+07  1.560053e+07
+95  None    RelDiff_MYL  RelDiff_MYL_PolyTrend_residue_bestCycle_byL2_r...  ...  2.207550e+07  1.476319e+07  1.560053e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _MYL  _MYL_Lag1Trend_residue_bestCycle_byL2_residue_...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0132        0.0202    0.0058
+1  None           _MYL      _MYL_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0131        0.0203    0.0058
+2  None           _MYL  _MYL_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0131        0.0203    0.0054
+3  None     CumSum_MYL  CumSum_MYL_Lag1Trend_residue_zeroCycle_residue...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0141        0.0203    0.0058
+4  None       Diff_MYL  Diff_MYL_Lag1Trend_residue_zeroCycle_residue_NoAR           Difference_Lag1Trend_NoCycle_NoAR          64   0.0131        0.0203    0.0058
+7 0    44.930000
+1    47.200001
+2    46.860001
+3    46.590000
+4    47.279999
+5    46.480000
+6    46.930000
+Name: MYL, dtype: float64
+7 0    45.529999
+1    45.529999
+2    45.529999
+3    45.529999
+4    45.529999
+5    45.529999
+6    45.529999
+Name: MYL_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_MYL MYL [44.93, 47.200001, 46.860001000000004, 46.59, 47.279999, 46.48, 46.93]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_MYL MYL [45.529999, 45.529999, 45.529999, 45.529999, 45.529999, 45.529999, 45.529999]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_MYL MYL 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_MYL MYL 11.420591592788696
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_MYL MYL Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_MYL MYL 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_MYL MYL 0.0267 0.0271 1.5578
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_MYL MYL 1.2514294285714311 1.3074739888159508 -2.1477316260152404
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_sp500_MYL_7'

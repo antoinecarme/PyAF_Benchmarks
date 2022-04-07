@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1294 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  CAL.L N= 1294 H= 7 HEAD= [37.75 37.75 37.   37.5  36.75] TAIL= [51.   51.75 52.   54.   54.5 ]
+   CAL.L       Date
+0  37.75 2011-07-28
+1  37.75 2011-07-29
+2  37.00 2011-08-01
+3  37.50 2011-08-02
+4  36.75 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1294 entries, 0 to 1293
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   CAL.L   1294 non-null   float64       
+ 1   Date    1294 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _CAL.L    _CAL.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.350000e-02  1.090000e-02  2.080000e-02
+1   None   CumSum_CAL.L  CumSum_CAL.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.440000e-02  1.090000e-02  2.080000e-02
+2   None     Diff_CAL.L  Diff_CAL.L_Lag1Trend_residue_zeroCycle_residue...  ...  1.350000e-02  1.090000e-02  2.080000e-02
+3   None  RelDiff_CAL.L  RelDiff_CAL.L_Lag1Trend_residue_zeroCycle_resi...  ...  1.350000e-02  1.090000e-02  2.080000e-02
+4   None         _CAL.L  _CAL.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  1.370000e-02  1.100000e-02  2.060000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_CAL.L  RelDiff_CAL.L_PolyTrend_residue_bestCycle_byL2...  ...  4.069783e+07  2.348868e+07  2.922997e+07
+92  None  RelDiff_CAL.L  RelDiff_CAL.L_PolyTrend_residue_bestCycle_byL2...  ...  4.070126e+07  2.348868e+07  2.922997e+07
+93  None  RelDiff_CAL.L  RelDiff_CAL.L_Lag1Trend_residue_bestCycle_byL2...  ...  4.073474e+07  2.348868e+07  2.922997e+07
+94  None  RelDiff_CAL.L  RelDiff_CAL.L_Lag1Trend_residue_Seasonal_DayOf...  ...  4.069648e+07  2.348868e+07  2.922997e+07
+95  None  RelDiff_CAL.L  RelDiff_CAL.L_ConstantTrend_residue_zeroCycle_...  ...  4.069886e+07  2.348868e+07  2.922997e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _CAL.L    _CAL.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0135        0.0109    0.0208
+1  None   CumSum_CAL.L  CumSum_CAL.L_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0144        0.0109    0.0208
+2  None     Diff_CAL.L  Diff_CAL.L_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0135        0.0109    0.0208
+3  None  RelDiff_CAL.L  RelDiff_CAL.L_Lag1Trend_residue_zeroCycle_resi...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0135        0.0109    0.0208
+4  None         _CAL.L  _CAL.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0137        0.0110    0.0206
+7 0    54.25
+1    56.00
+2    54.00
+3    54.25
+4    56.25
+5    56.00
+6    58.50
+Name: CAL.L, dtype: float64
+7 0    54.5
+1    54.5
+2    54.5
+3    54.5
+4    54.5
+5    54.5
+6    54.5
+Name: CAL.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_CAL.L CAL.L [54.25, 56.0, 54.0, 54.25, 56.25, 56.0, 58.5]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_CAL.L CAL.L [54.5, 54.5, 54.5, 54.5, 54.5, 54.5, 54.5]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_CAL.L CAL.L 1294 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_CAL.L CAL.L 10.961587190628052
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_CAL.L CAL.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_CAL.L CAL.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_CAL.L CAL.L 0.0245 0.025 0.9551
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_CAL.L CAL.L 1.3928571428571428 1.8492276379999455 -0.5587209302224085
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_CAL.L_7'

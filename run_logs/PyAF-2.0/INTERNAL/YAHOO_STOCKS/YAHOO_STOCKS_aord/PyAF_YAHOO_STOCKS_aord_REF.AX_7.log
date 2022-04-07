@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aord
+TIME :  Date N= 1265 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  REF.AX N= 1265 H= 7 HEAD= [0.051 0.05  0.05  0.05  0.05 ] TAIL= [0.125 0.125 0.125 0.13  0.13 ]
+   REF.AX       Date
+0   0.051 2011-07-28
+1   0.050 2011-07-29
+2   0.050 2011-08-01
+3   0.050 2011-08-02
+4   0.050 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1265 entries, 0 to 1264
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   REF.AX  1265 non-null   float64       
+ 1   Date    1265 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.6 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _REF.AX   _REF.AX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.730000e-02  1.390000e-02  1.120000e-02
+1   None   CumSum_REF.AX  CumSum_REF.AX_Lag1Trend_residue_zeroCycle_resi...  ...  2.830000e-02  1.390000e-02  1.120000e-02
+2   None     Diff_REF.AX  Diff_REF.AX_Lag1Trend_residue_zeroCycle_residu...  ...  2.730000e-02  1.390000e-02  1.120000e-02
+3   None  RelDiff_REF.AX  RelDiff_REF.AX_Lag1Trend_residue_zeroCycle_res...  ...  2.730000e-02  1.390000e-02  1.120000e-02
+4   None     Diff_REF.AX  Diff_REF.AX_Lag1Trend_residue_zeroCycle_residu...  ...  2.810000e-02  1.440000e-02  1.190000e-02
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_REF.AX  RelDiff_REF.AX_PolyTrend_residue_bestCycle_byL...  ...  1.087026e+08  3.351988e+07  3.263480e+07
+92  None  RelDiff_REF.AX  RelDiff_REF.AX_PolyTrend_residue_Seasonal_DayO...  ...  1.086425e+08  3.351988e+07  3.263480e+07
+93  None  RelDiff_REF.AX  RelDiff_REF.AX_LinearTrend_residue_Seasonal_Da...  ...  1.086708e+08  3.351988e+07  3.263480e+07
+94  None  RelDiff_REF.AX  RelDiff_REF.AX_ConstantTrend_residue_Seasonal_...  ...  1.086476e+08  3.351988e+07  3.263480e+07
+95  None  RelDiff_REF.AX  RelDiff_REF.AX_Lag1Trend_residue_Seasonal_DayO...  ...  1.087027e+08  3.351988e+07  3.263480e+07
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _REF.AX   _REF.AX_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0273        0.0139    0.0112
+1  None   CumSum_REF.AX  CumSum_REF.AX_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0283        0.0139    0.0112
+2  None     Diff_REF.AX  Diff_REF.AX_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0273        0.0139    0.0112
+3  None  RelDiff_REF.AX  RelDiff_REF.AX_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0273        0.0139    0.0112
+4  None     Diff_REF.AX  Diff_REF.AX_Lag1Trend_residue_zeroCycle_residu...            Difference_Lag1Trend_NoCycle_AR         128   0.0281        0.0144    0.0119
+7 0    0.130
+1    0.125
+2    0.125
+3    0.120
+4    0.125
+5    0.125
+6    0.125
+Name: REF.AX, dtype: float64
+7 0    0.13
+1    0.13
+2    0.13
+3    0.13
+4    0.13
+5    0.13
+6    0.13
+Name: REF.AX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_REF.AX REF.AX [0.13, 0.125, 0.125, 0.12, 0.125, 0.125, 0.125]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_REF.AX REF.AX [0.13, 0.13, 0.13, 0.13, 0.13, 0.13, 0.13]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_REF.AX REF.AX 1265 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_REF.AX REF.AX 10.94127345085144
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_REF.AX REF.AX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_REF.AX REF.AX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_REF.AX REF.AX 0.0405 0.0394 2.0
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_REF.AX REF.AX 0.0050000000000000044 0.005669467095138413 -3.4999910000179995
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aord_REF.AX_7'

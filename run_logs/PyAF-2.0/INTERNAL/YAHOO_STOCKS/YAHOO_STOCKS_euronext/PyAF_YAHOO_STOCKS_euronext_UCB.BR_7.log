@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_euronext
+TIME :  Date N= 1298 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  UCB.BR N= 1298 H= 7 HEAD= [32.48  32.07  31.65  31.585 31.39 ] TAIL= [68.35 68.21 68.11 68.   68.39]
+   UCB.BR       Date
+0  32.480 2011-07-28
+1  32.070 2011-07-29
+2  31.650 2011-08-01
+3  31.585 2011-08-02
+4  31.390 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1298 entries, 0 to 1297
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   UCB.BR  1298 non-null   float64       
+ 1   Date    1298 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _UCB.BR  _UCB.BR_Lag1Trend_residue_bestCycle_byL2_resid...  ...  1.050000e-02  1.370000e-02  5.500000e-03
+1   None         _UCB.BR   _UCB.BR_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.060000e-02  1.380000e-02  4.200000e-03
+2   None         _UCB.BR  _UCB.BR_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  1.060000e-02  1.380000e-02  4.900000e-03
+3   None   CumSum_UCB.BR  CumSum_UCB.BR_Lag1Trend_residue_zeroCycle_resi...  ...  1.150000e-02  1.380000e-02  4.200000e-03
+4   None     Diff_UCB.BR  Diff_UCB.BR_Lag1Trend_residue_zeroCycle_residu...  ...  1.060000e-02  1.380000e-02  4.200000e-03
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_UCB.BR  RelDiff_UCB.BR_Lag1Trend_residue_bestCycle_byL...  ...  1.078036e+07  6.848624e+06  7.222562e+06
+92  None  RelDiff_UCB.BR  RelDiff_UCB.BR_PolyTrend_residue_Seasonal_DayO...  ...  1.078034e+07  6.848624e+06  7.222562e+06
+93  None  RelDiff_UCB.BR  RelDiff_UCB.BR_PolyTrend_residue_bestCycle_byL...  ...  1.078034e+07  6.848624e+06  7.222562e+06
+94  None  RelDiff_UCB.BR  RelDiff_UCB.BR_ConstantTrend_residue_zeroCycle...  ...  1.076594e+07  6.848624e+06  7.222562e+06
+95  None  RelDiff_UCB.BR  RelDiff_UCB.BR_PolyTrend_residue_zeroCycle_res...  ...  1.078034e+07  6.848624e+06  7.222562e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _UCB.BR  _UCB.BR_Lag1Trend_residue_bestCycle_byL2_resid...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0105        0.0137    0.0055
+1  None        _UCB.BR   _UCB.BR_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0106        0.0138    0.0042
+2  None        _UCB.BR  _UCB.BR_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0106        0.0138    0.0049
+3  None  CumSum_UCB.BR  CumSum_UCB.BR_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0115        0.0138    0.0042
+4  None    Diff_UCB.BR  Diff_UCB.BR_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0106        0.0138    0.0042
+7 0    68.15
+1    69.34
+2    68.69
+3    70.44
+4    70.75
+5    71.00
+6    70.94
+Name: UCB.BR, dtype: float64
+7 0    68.39
+1    68.39
+2    68.39
+3    68.39
+4    68.39
+5    68.39
+6    68.39
+Name: UCB.BR_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_UCB.BR UCB.BR [68.15, 69.34, 68.69, 70.44, 70.75, 71.0, 70.94]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_UCB.BR UCB.BR [68.39, 68.39, 68.39, 68.39, 68.39, 68.39, 68.39]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_UCB.BR UCB.BR 1298 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_UCB.BR UCB.BR 9.51930832862854
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_UCB.BR UCB.BR Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_UCB.BR UCB.BR 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_UCB.BR UCB.BR 0.0224 0.0227 2.2518
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_UCB.BR UCB.BR 1.5799999999999983 1.8569098754959223 -1.963066368261738
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_euronext_UCB.BR_7'

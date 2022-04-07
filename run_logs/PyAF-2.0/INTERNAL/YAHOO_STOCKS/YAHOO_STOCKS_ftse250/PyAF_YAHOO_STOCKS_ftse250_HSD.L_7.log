@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftse250
+TIME :  Date N= 1294 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  HSD.L N= 1294 H= 7 HEAD= [170.75 172.   171.   171.5  168.5 ] TAIL= [107.5 105.  107.5 105.  112. ]
+    HSD.L       Date
+0  170.75 2011-07-28
+1  172.00 2011-07-29
+2  171.00 2011-08-01
+3  171.50 2011-08-02
+4  168.50 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1294 entries, 0 to 1293
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   HSD.L   1294 non-null   float64       
+ 1   Date    1294 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _HSD.L    _HSD.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.450000e-02  1.690000e-02  2.890000e-02
+1   None   CumSum_HSD.L  CumSum_HSD.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.540000e-02  1.690000e-02  2.890000e-02
+2   None     Diff_HSD.L  Diff_HSD.L_Lag1Trend_residue_zeroCycle_residue...  ...  1.450000e-02  1.690000e-02  2.890000e-02
+3   None  RelDiff_HSD.L  RelDiff_HSD.L_Lag1Trend_residue_zeroCycle_resi...  ...  1.450000e-02  1.690000e-02  2.890000e-02
+4   None         _HSD.L  _HSD.L_Lag1Trend_residue_bestCycle_byL2_residu...  ...  1.470000e-02  1.700000e-02  2.730000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_HSD.L  RelDiff_HSD.L_LinearTrend_residue_bestCycle_by...  ...  8.377219e+07  8.299115e+07  8.434749e+07
+92  None  RelDiff_HSD.L  RelDiff_HSD.L_PolyTrend_residue_bestCycle_byL2...  ...  8.375534e+07  8.299115e+07  8.434749e+07
+93  None  RelDiff_HSD.L  RelDiff_HSD.L_PolyTrend_residue_zeroCycle_resi...  ...  8.374389e+07  8.299115e+07  8.434749e+07
+94  None  RelDiff_HSD.L  RelDiff_HSD.L_LinearTrend_residue_Seasonal_Day...  ...  8.378191e+07  8.299115e+07  8.434749e+07
+95  None  RelDiff_HSD.L  RelDiff_HSD.L_PolyTrend_residue_bestCycle_byL2...  ...  8.375835e+07  8.299115e+07  8.434749e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _HSD.L    _HSD.L_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0145        0.0169    0.0289
+1  None   CumSum_HSD.L  CumSum_HSD.L_Lag1Trend_residue_zeroCycle_resid...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0154        0.0169    0.0289
+2  None     Diff_HSD.L  Diff_HSD.L_Lag1Trend_residue_zeroCycle_residue...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0145        0.0169    0.0289
+3  None  RelDiff_HSD.L  RelDiff_HSD.L_Lag1Trend_residue_zeroCycle_resi...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0145        0.0169    0.0289
+4  None         _HSD.L  _HSD.L_Lag1Trend_residue_bestCycle_byL2_residu...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0147        0.0170    0.0273
+7 0    110.0
+1    109.5
+2    112.0
+3    107.0
+4    108.0
+5    113.0
+6    111.5
+Name: HSD.L, dtype: float64
+7 0    112.0
+1    112.0
+2    112.0
+3    112.0
+4    112.0
+5    112.0
+6    112.0
+Name: HSD.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_HSD.L HSD.L [110.0, 109.5, 112.0, 107.0, 108.0, 113.0, 111.5]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_HSD.L HSD.L [112.0, 112.0, 112.0, 112.0, 112.0, 112.0, 112.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_HSD.L HSD.L 1294 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_HSD.L HSD.L 11.041402101516724
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_HSD.L HSD.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_HSD.L HSD.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_HSD.L HSD.L 0.0197 0.0194 0.8295
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_HSD.L HSD.L 2.142857142857143 2.7386127875258306 -0.8513853904216828
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftse250_HSD.L_7'

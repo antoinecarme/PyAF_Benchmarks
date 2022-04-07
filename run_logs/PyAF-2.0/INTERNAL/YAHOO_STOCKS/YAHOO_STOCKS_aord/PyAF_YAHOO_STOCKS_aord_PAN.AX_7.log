@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aord
+TIME :  Date N= 1299 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  PAN.AX N= 1299 H= 7 HEAD= [1.82304 1.75881 1.80821 1.73905 1.66   ] TAIL= [0.245 0.27  0.26  0.255 0.25 ]
+    PAN.AX       Date
+0  1.82304 2011-07-28
+1  1.75881 2011-07-29
+2  1.80821 2011-08-01
+3  1.73905 2011-08-02
+4  1.66000 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1299 entries, 0 to 1298
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   PAN.AX  1299 non-null   float64       
+ 1   Date    1299 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _PAN.AX   _PAN.AX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0292  3.990000e-02  6.970000e-02
+1   None   CumSum_PAN.AX  CumSum_PAN.AX_Lag1Trend_residue_zeroCycle_resi...  ...  0.0301  3.990000e-02  6.970000e-02
+2   None     Diff_PAN.AX  Diff_PAN.AX_Lag1Trend_residue_zeroCycle_residu...  ...  0.0292  3.990000e-02  6.970000e-02
+3   None  RelDiff_PAN.AX  RelDiff_PAN.AX_Lag1Trend_residue_zeroCycle_res...  ...  0.0292  3.990000e-02  6.970000e-02
+4   None         _PAN.AX  _PAN.AX_Lag1Trend_residue_bestCycle_byL2_resid...  ...  0.0297  4.090000e-02  7.270000e-02
+..   ...             ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_PAN.AX  RelDiff_PAN.AX_LinearTrend_residue_zeroCycle_r...  ...  0.8609  6.257404e+08  7.385826e+08
+92  None  RelDiff_PAN.AX  RelDiff_PAN.AX_LinearTrend_residue_Seasonal_Da...  ...  0.8677  6.257906e+08  7.385826e+08
+93  None  RelDiff_PAN.AX  RelDiff_PAN.AX_Lag1Trend_residue_Seasonal_DayO...  ...  0.5517  6.310588e+08  7.385826e+08
+94  None  RelDiff_PAN.AX  RelDiff_PAN.AX_Lag1Trend_residue_zeroCycle_res...  ...  0.5685  6.311882e+08  7.385826e+08
+95  None  RelDiff_PAN.AX  RelDiff_PAN.AX_Lag1Trend_residue_bestCycle_byL...  ...  0.5180  6.312742e+08  7.385826e+08
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _PAN.AX   _PAN.AX_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0292        0.0399    0.0697
+1  None   CumSum_PAN.AX  CumSum_PAN.AX_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0301        0.0399    0.0697
+2  None     Diff_PAN.AX  Diff_PAN.AX_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0292        0.0399    0.0697
+3  None  RelDiff_PAN.AX  RelDiff_PAN.AX_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0292        0.0399    0.0697
+4  None         _PAN.AX  _PAN.AX_Lag1Trend_residue_bestCycle_byL2_resid...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0297        0.0409    0.0727
+7 0    0.240
+1    0.210
+2    0.230
+3    0.230
+4    0.215
+5    0.220
+6    0.230
+Name: PAN.AX, dtype: float64
+7 0    0.25
+1    0.25
+2    0.25
+3    0.25
+4    0.25
+5    0.25
+6    0.25
+Name: PAN.AX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_PAN.AX PAN.AX [0.24, 0.21, 0.23, 0.23, 0.215, 0.22, 0.23]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_PAN.AX PAN.AX [0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_PAN.AX PAN.AX 1299 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_PAN.AX PAN.AX 10.989924192428589
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_PAN.AX PAN.AX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_PAN.AX PAN.AX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_PAN.AX PAN.AX 0.1132 0.1061 1.875
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_PAN.AX PAN.AX 0.024999999999999998 0.026792856190730074 -6.730768041420296
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aord_PAN.AX_7'

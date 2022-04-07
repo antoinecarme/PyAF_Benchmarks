@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_bvsp
+TIME :  Date N= 1254 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  CMIG4.SA N= 1254 H= 7 HEAD= [30.0072 29.1701 29.7873 29.0876 28.5578] TAIL= [8.54 8.12 8.65 8.47 8.92]
+   CMIG4.SA       Date
+0   30.0072 2011-07-28
+1   29.1701 2011-07-29
+2   29.7873 2011-08-01
+3   29.0876 2011-08-02
+4   28.5578 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1254 entries, 0 to 1253
+Data columns (total 2 columns):
+ #   Column    Non-Null Count  Dtype         
+---  ------    --------------  -----         
+ 0   CMIG4.SA  1254 non-null   float64       
+ 1   Date      1254 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.4 KB
+None
+   Split    Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _CMIG4.SA  _CMIG4.SA_Lag1Trend_residue_zeroCycle_residue_...  ...  0.0211  2.810000e-02  4.790000e-02
+1   None   CumSum_CMIG4.SA  CumSum_CMIG4.SA_Lag1Trend_residue_zeroCycle_re...  ...  0.0221  2.810000e-02  4.790000e-02
+2   None     Diff_CMIG4.SA  Diff_CMIG4.SA_Lag1Trend_residue_zeroCycle_resi...  ...  0.0211  2.810000e-02  4.790000e-02
+3   None  RelDiff_CMIG4.SA  RelDiff_CMIG4.SA_Lag1Trend_residue_zeroCycle_r...  ...  0.0211  2.810000e-02  4.790000e-02
+4   None         _CMIG4.SA  _CMIG4.SA_Lag1Trend_residue_bestCycle_byL2_res...  ...  0.0214  3.000000e-02  4.830000e-02
+..   ...               ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_CMIG4.SA  RelDiff_CMIG4.SA_LinearTrend_residue_Seasonal_...  ...  2.6712  1.944430e+08  3.054306e+08
+92  None  RelDiff_CMIG4.SA  RelDiff_CMIG4.SA_LinearTrend_residue_zeroCycle...  ...  2.6819  1.944430e+08  3.054306e+08
+93  None  RelDiff_CMIG4.SA  RelDiff_CMIG4.SA_ConstantTrend_residue_bestCyc...  ...  0.6736  1.944440e+08  3.054306e+08
+94  None  RelDiff_CMIG4.SA  RelDiff_CMIG4.SA_ConstantTrend_residue_Seasona...  ...  0.6909  1.944442e+08  3.054306e+08
+95  None  RelDiff_CMIG4.SA  RelDiff_CMIG4.SA_ConstantTrend_residue_zeroCyc...  ...  0.7011  1.944443e+08  3.054306e+08
+
+[96 rows x 8 columns]
+  Split    Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _CMIG4.SA  _CMIG4.SA_Lag1Trend_residue_zeroCycle_residue_...            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0211        0.0281    0.0479
+1  None   CumSum_CMIG4.SA  CumSum_CMIG4.SA_Lag1Trend_residue_zeroCycle_re...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0221        0.0281    0.0479
+2  None     Diff_CMIG4.SA  Diff_CMIG4.SA_Lag1Trend_residue_zeroCycle_resi...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0211        0.0281    0.0479
+3  None  RelDiff_CMIG4.SA  RelDiff_CMIG4.SA_Lag1Trend_residue_zeroCycle_r...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0211        0.0281    0.0479
+4  None         _CMIG4.SA  _CMIG4.SA_Lag1Trend_residue_bestCycle_byL2_res...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0214        0.0300    0.0483
+7 0    8.80
+1    8.88
+2    9.08
+3    9.04
+4    8.75
+5    9.02
+6    9.10
+Name: CMIG4.SA, dtype: float64
+7 0    8.92
+1    8.92
+2    8.92
+3    8.92
+4    8.92
+5    8.92
+6    8.92
+Name: CMIG4.SA_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_CMIG4.SA CMIG4.SA [8.8, 8.88, 9.08, 9.04, 8.75, 9.02, 9.1]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_CMIG4.SA CMIG4.SA [8.92, 8.92, 8.92, 8.92, 8.92, 8.92, 8.92]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_CMIG4.SA CMIG4.SA 1254 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_CMIG4.SA CMIG4.SA 12.00538945198059
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_CMIG4.SA CMIG4.SA Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_CMIG4.SA CMIG4.SA 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_CMIG4.SA CMIG4.SA 0.0142 0.0142 0.7946
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_CMIG4.SA CMIG4.SA 0.12714285714285672 0.13485441885868701 -0.06311142836533357
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_bvsp_CMIG4.SA_7'

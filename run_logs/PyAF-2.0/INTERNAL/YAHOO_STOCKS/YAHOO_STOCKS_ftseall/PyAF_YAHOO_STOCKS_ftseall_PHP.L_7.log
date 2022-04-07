@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1137 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  PHP.L N= 1137 H= 7 HEAD= [315.5 316.  319.  319.  316.5] TAIL= [0.89856 0.89856 0.89856 0.89856 0.89856]
+   PHP.L       Date
+0  315.5 2011-07-28
+1  316.0 2011-07-29
+2  319.0 2011-08-01
+3  319.0 2011-08-02
+4  316.5 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1137 entries, 0 to 1136
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   PHP.L   1137 non-null   float64       
+ 1   Date    1137 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 26.6 KB
+None
+   Split Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _PHP.L    _PHP.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.1360  8.610000e-02  0.000000e+00
+1   None   CumSum_PHP.L  CumSum_PHP.L_Lag1Trend_residue_zeroCycle_resid...  ...  0.1371  8.610000e-02  0.000000e+00
+2   None     Diff_PHP.L  Diff_PHP.L_Lag1Trend_residue_zeroCycle_residue...  ...  0.1360  8.610000e-02  0.000000e+00
+3   None  RelDiff_PHP.L  RelDiff_PHP.L_Lag1Trend_residue_zeroCycle_resi...  ...  0.1360  8.610000e-02  0.000000e+00
+4   None   CumSum_PHP.L  CumSum_PHP.L_ConstantTrend_residue_zeroCycle_r...  ...  0.3242  1.896000e-01  9.400000e-03
+..   ...            ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_PHP.L  RelDiff_PHP.L_PolyTrend_residue_Seasonal_DayOf...  ...  9.2331  2.549001e+10  3.502033e+10
+92  None  RelDiff_PHP.L  RelDiff_PHP.L_PolyTrend_residue_zeroCycle_resi...  ...  9.4229  2.549134e+10  3.502033e+10
+93  None  RelDiff_PHP.L  RelDiff_PHP.L_Lag1Trend_residue_Seasonal_DayOf...  ...  5.5632  2.556090e+10  3.502033e+10
+94  None  RelDiff_PHP.L  RelDiff_PHP.L_Lag1Trend_residue_zeroCycle_resi...  ...  5.6676  2.556090e+10  3.502033e+10
+95  None  RelDiff_PHP.L  RelDiff_PHP.L_Lag1Trend_residue_bestCycle_byL2...  ...  5.4698  2.556090e+10  3.502033e+10
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _PHP.L    _PHP.L_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.1360        0.0861    0.0000
+1  None   CumSum_PHP.L  CumSum_PHP.L_Lag1Trend_residue_zeroCycle_resid...         Integration_Lag1Trend_NoCycle_NoAR          64   0.1371        0.0861    0.0000
+2  None     Diff_PHP.L  Diff_PHP.L_Lag1Trend_residue_zeroCycle_residue...          Difference_Lag1Trend_NoCycle_NoAR          64   0.1360        0.0861    0.0000
+3  None  RelDiff_PHP.L  RelDiff_PHP.L_Lag1Trend_residue_zeroCycle_resi...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.1360        0.0861    0.0000
+4  None   CumSum_PHP.L  CumSum_PHP.L_ConstantTrend_residue_zeroCycle_r...       Integration_ConstantTrend_NoCycle_AR          96   0.3242        0.1896    0.0094
+7 0    0.89856
+1    0.89856
+2    1.09250
+3    1.09000
+4    1.09750
+5    1.10250
+6    1.10250
+Name: PHP.L, dtype: float64
+7 0    0.89856
+1    0.89856
+2    0.89856
+3    0.89856
+4    0.89856
+5    0.89856
+6    0.89856
+Name: PHP.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_PHP.L PHP.L [0.89856, 0.89856, 1.0925, 1.09, 1.0975, 1.1025, 1.1025]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_PHP.L PHP.L [0.89856, 0.89856, 0.89856, 0.89856, 0.89856, 0.89856, 0.89856]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_PHP.L PHP.L 1137 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_PHP.L PHP.L 11.769191980361938
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_PHP.L PHP.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_PHP.L PHP.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_PHP.L PHP.L 0.1292 0.142 4.0703
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_PHP.L PHP.L 0.14174285714285714 0.16776776806049487 -2.49423603979469
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_PHP.L_7'

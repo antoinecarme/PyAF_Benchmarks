@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aord
+TIME :  Date N= 1298 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  TFC.AX N= 1298 H= 7 HEAD= [0.805 0.79  0.8   0.81  0.8  ] TAIL= [1.515 1.475 1.5   1.5   1.48 ]
+   TFC.AX       Date
+0   0.805 2011-07-28
+1   0.790 2011-07-29
+2   0.800 2011-08-01
+3   0.810 2011-08-02
+4   0.800 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1298 entries, 0 to 1297
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   TFC.AX  1298 non-null   float64       
+ 1   Date    1298 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _TFC.AX   _TFC.AX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.180000e-02  1.880000e-02  1.980000e-02
+1   None   CumSum_TFC.AX  CumSum_TFC.AX_Lag1Trend_residue_zeroCycle_resi...  ...  2.280000e-02  1.880000e-02  1.980000e-02
+2   None     Diff_TFC.AX  Diff_TFC.AX_Lag1Trend_residue_zeroCycle_residu...  ...  2.180000e-02  1.880000e-02  1.980000e-02
+3   None  RelDiff_TFC.AX  RelDiff_TFC.AX_Lag1Trend_residue_zeroCycle_res...  ...  2.180000e-02  1.880000e-02  1.980000e-02
+4   None         _TFC.AX  _TFC.AX_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  2.230000e-02  1.890000e-02  2.030000e-02
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_TFC.AX  RelDiff_TFC.AX_ConstantTrend_residue_Seasonal_...  ...  6.508325e+07  3.081847e+07  3.162685e+07
+92  None  RelDiff_TFC.AX  RelDiff_TFC.AX_LinearTrend_residue_Seasonal_Da...  ...  6.513137e+07  3.081847e+07  3.162685e+07
+93  None  RelDiff_TFC.AX  RelDiff_TFC.AX_PolyTrend_residue_Seasonal_DayO...  ...  6.510685e+07  3.081847e+07  3.162685e+07
+94  None  RelDiff_TFC.AX  RelDiff_TFC.AX_Lag1Trend_residue_bestCycle_byL...  ...  6.513507e+07  3.081847e+07  3.162685e+07
+95  None  RelDiff_TFC.AX  RelDiff_TFC.AX_ConstantTrend_residue_zeroCycle...  ...  6.508258e+07  3.081847e+07  3.162685e+07
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _TFC.AX   _TFC.AX_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0218        0.0188    0.0198
+1  None   CumSum_TFC.AX  CumSum_TFC.AX_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0228        0.0188    0.0198
+2  None     Diff_TFC.AX  Diff_TFC.AX_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0218        0.0188    0.0198
+3  None  RelDiff_TFC.AX  RelDiff_TFC.AX_Lag1Trend_residue_zeroCycle_res...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0218        0.0188    0.0198
+4  None         _TFC.AX  _TFC.AX_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0223        0.0189    0.0203
+7 0    1.510
+1    1.570
+2    1.630
+3    1.630
+4    1.645
+5    1.565
+6    1.595
+Name: TFC.AX, dtype: float64
+7 0    1.48
+1    1.48
+2    1.48
+3    1.48
+4    1.48
+5    1.48
+6    1.48
+Name: TFC.AX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_TFC.AX TFC.AX [1.51, 1.57, 1.63, 1.63, 1.645, 1.565, 1.595]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_TFC.AX TFC.AX [1.48, 1.48, 1.48, 1.48, 1.48, 1.48, 1.48]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_TFC.AX TFC.AX 1298 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_TFC.AX TFC.AX 11.141776084899902
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_TFC.AX TFC.AX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_TFC.AX TFC.AX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_TFC.AX TFC.AX 0.0697 0.0726 2.7464
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_TFC.AX TFC.AX 0.11214285714285713 0.12051970793193949 -6.45261774642061
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aord_TFC.AX_7'

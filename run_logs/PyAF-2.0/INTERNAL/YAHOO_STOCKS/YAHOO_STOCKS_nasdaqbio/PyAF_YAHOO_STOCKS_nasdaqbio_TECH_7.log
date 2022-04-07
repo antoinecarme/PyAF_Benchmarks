@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nasdaqbio
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  TECH N= 1251 H= 7 HEAD= [76.150002 75.790001 72.779999 76.059998 75.839996] TAIL= [114.629997 114.330002 111.879997 110.919998 111.639999]
+        TECH       Date
+0  76.150002 2011-07-28
+1  75.790001 2011-07-29
+2  72.779999 2011-08-01
+3  76.059998 2011-08-02
+4  75.839996 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   TECH    1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None    CumSum_TECH  CumSum_TECH_Lag1Trend_residue_bestCycle_byL2_r...  ...  1.200000e-02  1.170000e-02  6.900000e-03
+1   None          _TECH   _TECH_Lag1Trend_residue_zeroCycle_residue_AR(64)  ...  9.300000e-03  1.170000e-02  7.500000e-03
+2   None          _TECH  _TECH_Lag1Trend_residue_bestCycle_byL2_residue...  ...  9.300000e-03  1.170000e-02  7.500000e-03
+3   None          _TECH     _TECH_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  9.500000e-03  1.180000e-02  6.900000e-03
+4   None          _TECH  _TECH_Lag1Trend_residue_Seasonal_DayOfWeek_res...  ...  9.500000e-03  1.180000e-02  7.100000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None   RelDiff_TECH  RelDiff_TECH_ConstantTrend_residue_bestCycle_b...  ...  1.758893e+07  1.448114e+07  1.216654e+07
+92  None   RelDiff_TECH  RelDiff_TECH_LinearTrend_residue_bestCycle_byL...  ...  1.760166e+07  1.448114e+07  1.216654e+07
+93  None   RelDiff_TECH  RelDiff_TECH_PolyTrend_residue_bestCycle_byL2_...  ...  1.760166e+07  1.448114e+07  1.216654e+07
+94  None   RelDiff_TECH  RelDiff_TECH_PolyTrend_residue_zeroCycle_resid...  ...  1.760166e+07  1.448114e+07  1.216654e+07
+95  None   RelDiff_TECH  RelDiff_TECH_PolyTrend_residue_Seasonal_DayOfW...  ...  1.760166e+07  1.448114e+07  1.216654e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None    CumSum_TECH  CumSum_TECH_Lag1Trend_residue_bestCycle_byL2_r...            Integration_Lag1Trend_Cycle_NoAR          72   0.0120        0.0117    0.0069
+1  None          _TECH   _TECH_Lag1Trend_residue_zeroCycle_residue_AR(64)               NoTransf_Lag1Trend_NoCycle_AR          96   0.0093        0.0117    0.0075
+2  None          _TECH  _TECH_Lag1Trend_residue_bestCycle_byL2_residue...                 NoTransf_Lag1Trend_Cycle_AR         104   0.0093        0.0117    0.0075
+3  None          _TECH     _TECH_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0095        0.0118    0.0069
+4  None          _TECH  _TECH_Lag1Trend_residue_Seasonal_DayOfWeek_res...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0095        0.0118    0.0071
+7 0    110.879997
+1    111.480003
+2    110.889999
+3    110.750000
+4    110.419998
+5    110.389999
+6    110.709999
+Name: TECH, dtype: float64
+7 0    111.639999
+1    111.639999
+2    111.639999
+3    111.639999
+4    111.639999
+5    111.639999
+6    111.639999
+Name: TECH_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_TECH TECH [110.879997, 111.480003, 110.889999, 110.75, 110.41999799999999, 110.389999, 110.709999]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_TECH TECH [111.639999, 111.639999, 111.639999, 111.639999, 111.639999, 111.639999, 111.639999]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_TECH TECH 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_TECH TECH 10.65616512298584
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_TECH TECH Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_TECH TECH 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_TECH TECH 0.0077 0.0077 2.5416
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_TECH TECH 0.8514282857142896 0.9160164081517042 -6.350349897496732
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nasdaqbio_TECH_7'

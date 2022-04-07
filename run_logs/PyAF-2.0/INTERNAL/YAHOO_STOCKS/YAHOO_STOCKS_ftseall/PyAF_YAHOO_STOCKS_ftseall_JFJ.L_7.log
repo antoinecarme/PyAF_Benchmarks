@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1278 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  JFJ.L N= 1278 H= 7 HEAD= [1.82  1.81  1.85  1.84  1.795] TAIL= [3.82604 3.80235 3.74004 3.7229  3.67873]
+   JFJ.L       Date
+0  1.820 2011-07-28
+1  1.810 2011-07-29
+2  1.850 2011-08-01
+3  1.840 2011-08-02
+4  1.795 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1278 entries, 0 to 1277
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   JFJ.L   1278 non-null   float64       
+ 1   Date    1278 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.0 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _JFJ.L  _JFJ.L_LinearTrend_residue_zeroCycle_residue_NoAR  ...  8.680000e-02  5.910000e-02  1.318000e-01
+1   None         _JFJ.L  _JFJ.L_LinearTrend_residue_Seasonal_DayOfWeek_...  ...  8.680000e-02  5.920000e-02  1.319000e-01
+2   None         _JFJ.L  _JFJ.L_LinearTrend_residue_bestCycle_byL2_resi...  ...  8.680000e-02  5.950000e-02  1.315000e-01
+3   None     Diff_JFJ.L  Diff_JFJ.L_ConstantTrend_residue_bestCycle_byL...  ...  1.906000e-01  8.480000e-02  7.900000e-02
+4   None     Diff_JFJ.L  Diff_JFJ.L_ConstantTrend_residue_Seasonal_DayO...  ...  1.984000e-01  8.800000e-02  7.430000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_JFJ.L  RelDiff_JFJ.L_PolyTrend_residue_bestCycle_byL2...  ...  1.570442e+07  1.030920e+07  8.445644e+06
+92  None  RelDiff_JFJ.L  RelDiff_JFJ.L_PolyTrend_residue_bestCycle_byL2...  ...  1.570786e+07  1.030920e+07  8.445644e+06
+93  None  RelDiff_JFJ.L  RelDiff_JFJ.L_Lag1Trend_residue_bestCycle_byL2...  ...  1.575527e+07  1.030920e+07  8.445644e+06
+94  None  RelDiff_JFJ.L  RelDiff_JFJ.L_PolyTrend_residue_zeroCycle_resi...  ...  1.570617e+07  1.030921e+07  8.445644e+06
+95  None  RelDiff_JFJ.L  RelDiff_JFJ.L_ConstantTrend_residue_zeroCycle_...  ...  1.567796e+07  1.030921e+07  8.445644e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                          Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _JFJ.L  _JFJ.L_LinearTrend_residue_zeroCycle_residue_NoAR                 NoTransf_LinearTrend_NoCycle_NoAR          16   0.0868        0.0591    0.1318
+1  None         _JFJ.L  _JFJ.L_LinearTrend_residue_Seasonal_DayOfWeek_...      NoTransf_LinearTrend_Seasonal_DayOfWeek_NoAR          20   0.0868        0.0592    0.1319
+2  None         _JFJ.L  _JFJ.L_LinearTrend_residue_bestCycle_byL2_resi...                   NoTransf_LinearTrend_Cycle_NoAR          24   0.0868        0.0595    0.1315
+3  None     Diff_JFJ.L  Diff_JFJ.L_ConstantTrend_residue_bestCycle_byL...               Difference_ConstantTrend_Cycle_NoAR          40   0.1906        0.0848    0.0790
+4  None     Diff_JFJ.L  Diff_JFJ.L_ConstantTrend_residue_Seasonal_DayO...  Difference_ConstantTrend_Seasonal_DayOfWeek_NoAR          36   0.1984        0.0880    0.0743
+7 0    3.73757
+1    3.76223
+2    3.32000
+3    3.30000
+4    3.29000
+5    3.31500
+6    3.33625
+Name: JFJ.L, dtype: float64
+7 0    3.295714
+1    3.296772
+2    3.297830
+3    3.298888
+4    3.299946
+5    3.301004
+6    3.302062
+Name: JFJ.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_JFJ.L JFJ.L [3.73757, 3.76223, 3.32, 3.3, 3.29, 3.315, 3.33625]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_JFJ.L JFJ.L [3.2957139619893705, 3.2967719246992218, 3.297829887409073, 3.2988878501189243, 3.299945812828776, 3.301003775538627, 3.3020617382484785]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_JFJ.L JFJ.L 1278 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_JFJ.L JFJ.L 11.188020706176758
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_JFJ.L JFJ.L LinearTrend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_JFJ.L JFJ.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_JFJ.L JFJ.L 0.0381 0.0403 1.5603
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_JFJ.L JFJ.L 0.14124666783215442 0.24314733325772345 -0.5036975060481279
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_JFJ.L_7'

@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_eurindex
+TIME :  Date N= 1273 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  ^IBEX N= 1273 H= 7 HEAD= [9657.       9630.700195 9318.200195 9114.900391 9037.700195] TAIL= [8506.       8473.900391 8552.299805 8531.       8524.400391]
+         ^IBEX       Date
+0  9657.000000 2011-07-28
+1  9630.700195 2011-07-29
+2  9318.200195 2011-08-01
+3  9114.900391 2011-08-02
+4  9037.700195 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1273 entries, 0 to 1272
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   ^IBEX   1273 non-null   float64       
+ 1   Date    1273 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.8 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _^IBEX  _^IBEX_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  1.100000e-02  1.260000e-02  1.090000e-02
+1   None         _^IBEX    _^IBEX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.100000e-02  1.270000e-02  1.080000e-02
+2   None   CumSum_^IBEX  CumSum_^IBEX_Lag1Trend_residue_zeroCycle_resid...  ...  1.200000e-02  1.270000e-02  1.080000e-02
+3   None     Diff_^IBEX  Diff_^IBEX_Lag1Trend_residue_zeroCycle_residue...  ...  1.100000e-02  1.270000e-02  1.080000e-02
+4   None  RelDiff_^IBEX  RelDiff_^IBEX_Lag1Trend_residue_zeroCycle_resi...  ...  1.100000e-02  1.270000e-02  1.080000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_^IBEX  RelDiff_^IBEX_Lag1Trend_residue_Seasonal_DayOf...  ...  4.138563e+07  3.961332e+07  4.385859e+07
+92  None  RelDiff_^IBEX  RelDiff_^IBEX_LinearTrend_residue_bestCycle_by...  ...  4.135001e+07  3.961332e+07  4.385859e+07
+93  None  RelDiff_^IBEX  RelDiff_^IBEX_LinearTrend_residue_bestCycle_by...  ...  4.135110e+07  3.961332e+07  4.385859e+07
+94  None  RelDiff_^IBEX  RelDiff_^IBEX_PolyTrend_residue_bestCycle_byL2...  ...  4.135019e+07  3.961332e+07  4.385859e+07
+95  None  RelDiff_^IBEX  RelDiff_^IBEX_ConstantTrend_residue_Seasonal_D...  ...  4.106525e+07  3.961332e+07  4.385859e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _^IBEX  _^IBEX_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36    0.011        0.0126    0.0109
+1  None         _^IBEX    _^IBEX_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32    0.011        0.0127    0.0108
+2  None   CumSum_^IBEX  CumSum_^IBEX_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64    0.012        0.0127    0.0108
+3  None     Diff_^IBEX  Diff_^IBEX_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64    0.011        0.0127    0.0108
+4  None  RelDiff_^IBEX  RelDiff_^IBEX_Lag1Trend_residue_zeroCycle_resi...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64    0.011        0.0127    0.0108
+7 0    8485.200195
+1    8575.500000
+2    8583.599609
+3    8599.900391
+4    8575.700195
+5    8560.200195
+6    8661.400391
+Name: ^IBEX, dtype: float64
+7 0    8524.400391
+1    8524.400391
+2    8524.400391
+3    8524.400391
+4    8524.400391
+5    8524.400391
+6    8524.400391
+Name: ^IBEX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_^IBEX ^IBEX [8485.200195, 8575.5, 8583.599609, 8599.900391, 8575.700195, 8560.200195, 8661.400391]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_^IBEX ^IBEX [8524.400391, 8524.400391, 8524.400391, 8524.400391, 8524.400391, 8524.400391, 8524.400391]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_^IBEX ^IBEX 1273 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_^IBEX ^IBEX 10.690006732940674
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_^IBEX ^IBEX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_^IBEX ^IBEX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_^IBEX ^IBEX 0.0075 0.0075 1.506
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_^IBEX ^IBEX 64.15694728571465 71.74848796324157 -1.1967297726999964
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_eurindex_^IBEX_7'

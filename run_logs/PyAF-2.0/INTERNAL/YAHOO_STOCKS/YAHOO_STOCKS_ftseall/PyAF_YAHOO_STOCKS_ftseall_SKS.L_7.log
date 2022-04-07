@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1295 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  SKS.L N= 1295 H= 7 HEAD= [126.1 127.  125.1 120.8 119. ] TAIL= [ 94.    96.75 101.5  101.25 101.5 ]
+   SKS.L       Date
+0  126.1 2011-07-28
+1  127.0 2011-07-29
+2  125.1 2011-08-01
+3  120.8 2011-08-02
+4  119.0 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1295 entries, 0 to 1294
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   SKS.L   1295 non-null   float64       
+ 1   Date    1295 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _SKS.L    _SKS.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0114  1.060000e-02  1.640000e-02
+1   None   CumSum_SKS.L  CumSum_SKS.L_Lag1Trend_residue_zeroCycle_resid...  ...  0.0124  1.060000e-02  1.640000e-02
+2   None     Diff_SKS.L  Diff_SKS.L_Lag1Trend_residue_zeroCycle_residue...  ...  0.0114  1.060000e-02  1.640000e-02
+3   None  RelDiff_SKS.L  RelDiff_SKS.L_Lag1Trend_residue_zeroCycle_resi...  ...  0.0114  1.060000e-02  1.640000e-02
+4   None         _SKS.L  _SKS.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  0.0115  1.070000e-02  1.620000e-02
+..   ...            ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_SKS.L  RelDiff_SKS.L_LinearTrend_residue_Seasonal_Day...  ...  9.0213  2.690168e+07  5.674625e+07
+92  None  RelDiff_SKS.L  RelDiff_SKS.L_ConstantTrend_residue_bestCycle_...  ...  6.3796  2.690225e+07  5.674625e+07
+93  None  RelDiff_SKS.L  RelDiff_SKS.L_LinearTrend_residue_zeroCycle_re...  ...  8.9537  2.690599e+07  5.674625e+07
+94  None  RelDiff_SKS.L  RelDiff_SKS.L_ConstantTrend_residue_Seasonal_D...  ...  7.5820  2.690998e+07  5.674625e+07
+95  None  RelDiff_SKS.L  RelDiff_SKS.L_ConstantTrend_residue_zeroCycle_...  ...  7.4914  2.691561e+07  5.674625e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _SKS.L    _SKS.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0114        0.0106    0.0164
+1  None   CumSum_SKS.L  CumSum_SKS.L_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0124        0.0106    0.0164
+2  None     Diff_SKS.L  Diff_SKS.L_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0114        0.0106    0.0164
+3  None  RelDiff_SKS.L  RelDiff_SKS.L_Lag1Trend_residue_zeroCycle_resi...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0114        0.0106    0.0164
+4  None         _SKS.L  _SKS.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0115        0.0107    0.0162
+7 0    101.00
+1    101.25
+2    102.25
+3    101.50
+4    104.25
+5    106.25
+6    105.25
+Name: SKS.L, dtype: float64
+7 0    101.5
+1    101.5
+2    101.5
+3    101.5
+4    101.5
+5    101.5
+6    101.5
+Name: SKS.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_SKS.L SKS.L [101.0, 101.25, 102.25, 101.5, 104.25, 106.25, 105.25]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_SKS.L SKS.L [101.5, 101.5, 101.5, 101.5, 101.5, 101.5, 101.5]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_SKS.L SKS.L 1295 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_SKS.L SKS.L 10.893504619598389
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_SKS.L SKS.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_SKS.L SKS.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_SKS.L SKS.L 0.0174 0.0176 1.4101
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_SKS.L SKS.L 1.8214285714285714 2.537222891273055 -0.6700860357317324
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_SKS.L_7'

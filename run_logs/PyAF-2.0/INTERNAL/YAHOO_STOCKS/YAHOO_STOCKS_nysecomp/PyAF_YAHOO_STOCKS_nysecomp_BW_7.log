@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 275 H= 7 HEAD= ['2015-06-16T00:00:00.000000000' '2015-06-17T00:00:00.000000000'
+ '2015-06-18T00:00:00.000000000' '2015-06-19T00:00:00.000000000'
+ '2015-06-22T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  BW N= 275 H= 7 HEAD= [19.99     19.280001 18.1      18.25     18.860001] TAIL= [15.47 15.31 15.73 15.59 15.82]
+          BW       Date
+0  19.990000 2015-06-16
+1  19.280001 2015-06-17
+2  18.100000 2015-06-18
+3  18.250000 2015-06-19
+4  18.860001 2015-06-22
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 275 entries, 0 to 274
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   BW      275 non-null    float64       
+ 1   Date    275 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 6.4 KB
+None
+   Split Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None            _BW       _BW_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0154  1.810000e-02  1.470000e-02
+1   None      CumSum_BW  CumSum_BW_Lag1Trend_residue_zeroCycle_residue_...  ...  0.0199  1.810000e-02  1.470000e-02
+2   None        Diff_BW   Diff_BW_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0154  1.810000e-02  1.470000e-02
+3   None     RelDiff_BW  RelDiff_BW_Lag1Trend_residue_zeroCycle_residue...  ...  0.0154  1.810000e-02  1.470000e-02
+4   None            _BW  _BW_Lag1Trend_residue_bestCycle_byL2_residue_NoAR  ...  0.0149  1.820000e-02  1.480000e-02
+..   ...            ...                                                ...  ...     ...           ...           ...
+91  None     RelDiff_BW  RelDiff_BW_PolyTrend_residue_bestCycle_byL2_re...  ...  0.1407  2.040042e+06  3.496119e+07
+92  None     RelDiff_BW  RelDiff_BW_ConstantTrend_residue_bestCycle_byL...  ...  0.2816  2.040127e+06  3.496119e+07
+93  None     RelDiff_BW  RelDiff_BW_LinearTrend_residue_Seasonal_DayOfW...  ...  0.1490  2.040250e+06  3.496119e+07
+94  None     RelDiff_BW  RelDiff_BW_LinearTrend_residue_zeroCycle_resid...  ...  0.1847  2.041506e+06  3.496119e+07
+95  None     RelDiff_BW  RelDiff_BW_LinearTrend_residue_bestCycle_byL2_...  ...  0.1253  2.042004e+06  3.496119e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None            _BW       _BW_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0154        0.0181    0.0147
+1  None      CumSum_BW  CumSum_BW_Lag1Trend_residue_zeroCycle_residue_...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0199        0.0181    0.0147
+2  None        Diff_BW   Diff_BW_Lag1Trend_residue_zeroCycle_residue_NoAR          Difference_Lag1Trend_NoCycle_NoAR          64   0.0154        0.0181    0.0147
+3  None     RelDiff_BW  RelDiff_BW_Lag1Trend_residue_zeroCycle_residue...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0154        0.0181    0.0147
+4  None            _BW  _BW_Lag1Trend_residue_bestCycle_byL2_residue_NoAR              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0149        0.0182    0.0148
+7 0    15.56
+1    15.81
+2    15.64
+3    15.06
+4    15.15
+5    15.46
+6    15.50
+Name: BW, dtype: float64
+7 0    15.82
+1    15.82
+2    15.82
+3    15.82
+4    15.82
+5    15.82
+6    15.82
+Name: BW_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_BW BW [15.56, 15.81, 15.64, 15.06, 15.15, 15.46, 15.5]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_BW BW [15.82, 15.82, 15.82, 15.82, 15.82, 15.82, 15.82]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_BW BW 275 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_BW BW 10.10427212715149
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_BW BW Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_BW BW 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_BW BW 0.0239 0.0235 1.5238
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_BW BW 0.36571428571428555 0.44055160229616025 -2.2166001480580304
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_BW_7'

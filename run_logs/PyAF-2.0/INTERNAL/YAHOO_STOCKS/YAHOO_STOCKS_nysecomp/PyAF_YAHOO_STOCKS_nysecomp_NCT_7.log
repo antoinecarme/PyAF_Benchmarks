@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  NCT N= 1251 H= 7 HEAD= [5.840071 6.010048 6.020048 5.750047 5.760047] TAIL= [4.75 4.71 4.7  4.66 4.69]
+        NCT       Date
+0  5.840071 2011-07-28
+1  6.010048 2011-07-29
+2  6.020048 2011-08-01
+3  5.750047 2011-08-02
+4  5.760047 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   NCT     1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...  FitMAPE  ForecastMAPE      TestMAPE
+0   None           _NCT      _NCT_Lag1Trend_residue_zeroCycle_residue_NoAR  ...   0.0233  1.860000e-02  1.090000e-02
+1   None     CumSum_NCT  CumSum_NCT_Lag1Trend_residue_zeroCycle_residue...  ...   0.0243  1.860000e-02  1.090000e-02
+2   None       Diff_NCT  Diff_NCT_Lag1Trend_residue_zeroCycle_residue_NoAR  ...   0.0233  1.860000e-02  1.090000e-02
+3   None    RelDiff_NCT  RelDiff_NCT_Lag1Trend_residue_zeroCycle_residu...  ...   0.0233  1.860000e-02  1.090000e-02
+4   None     CumSum_NCT  CumSum_NCT_Lag1Trend_residue_Seasonal_DayOfWee...  ...   0.0270  2.120000e-02  1.590000e-02
+..   ...            ...                                                ...  ...      ...           ...           ...
+91  None    RelDiff_NCT  RelDiff_NCT_LinearTrend_residue_bestCycle_byL2...  ...  42.4036  3.373850e+07  6.283492e+07
+92  None    RelDiff_NCT  RelDiff_NCT_PolyTrend_residue_Seasonal_DayOfWe...  ...  53.9306  3.373885e+07  6.283492e+07
+93  None    RelDiff_NCT  RelDiff_NCT_LinearTrend_residue_Seasonal_DayOf...  ...  55.4635  3.373901e+07  6.283492e+07
+94  None    RelDiff_NCT  RelDiff_NCT_PolyTrend_residue_zeroCycle_residu...  ...  61.2416  3.373908e+07  6.283492e+07
+95  None    RelDiff_NCT  RelDiff_NCT_LinearTrend_residue_zeroCycle_resi...  ...  62.9476  3.373927e+07  6.283492e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                       Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _NCT      _NCT_Lag1Trend_residue_zeroCycle_residue_NoAR                NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0233        0.0186    0.0109
+1  None     CumSum_NCT  CumSum_NCT_Lag1Trend_residue_zeroCycle_residue...             Integration_Lag1Trend_NoCycle_NoAR          64   0.0243        0.0186    0.0109
+2  None       Diff_NCT  Diff_NCT_Lag1Trend_residue_zeroCycle_residue_NoAR              Difference_Lag1Trend_NoCycle_NoAR          64   0.0233        0.0186    0.0109
+3  None    RelDiff_NCT  RelDiff_NCT_Lag1Trend_residue_zeroCycle_residu...      RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0233        0.0186    0.0109
+4  None     CumSum_NCT  CumSum_NCT_Lag1Trend_residue_Seasonal_DayOfWee...  Integration_Lag1Trend_Seasonal_DayOfWeek_NoAR          68   0.0270        0.0212    0.0159
+7 0    4.81
+1    4.75
+2    4.78
+3    4.73
+4    4.71
+5    4.69
+6    4.72
+Name: NCT, dtype: float64
+7 0    4.69
+1    4.69
+2    4.69
+3    4.69
+4    4.69
+5    4.69
+6    4.69
+Name: NCT_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_NCT NCT [4.81, 4.75, 4.78, 4.73, 4.71, 4.69, 4.72]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_NCT NCT [4.69, 4.69, 4.69, 4.69, 4.69, 4.69, 4.69]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_NCT NCT 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_NCT NCT 11.986375570297241
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_NCT NCT Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_NCT NCT 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_NCT NCT 0.0108 0.0109 1.4694
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_NCT NCT 0.051428571428571095 0.06436503043467857 -1.7656675485562934
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_NCT_7'

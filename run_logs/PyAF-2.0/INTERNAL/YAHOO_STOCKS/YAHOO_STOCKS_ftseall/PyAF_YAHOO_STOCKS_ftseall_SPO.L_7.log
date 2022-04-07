@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1295 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  SPO.L N= 1295 H= 7 HEAD= [40.125 40.75  41.125 39.5   39.25 ] TAIL= [66.5 66.5 67.  66.  67. ]
+    SPO.L       Date
+0  40.125 2011-07-28
+1  40.750 2011-07-29
+2  41.125 2011-08-01
+3  39.500 2011-08-02
+4  39.250 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1295 entries, 0 to 1294
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   SPO.L   1295 non-null   float64       
+ 1   Date    1295 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _SPO.L    _SPO.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.060000e-02  1.670000e-02  1.130000e-02
+1   None   CumSum_SPO.L  CumSum_SPO.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.150000e-02  1.670000e-02  1.130000e-02
+2   None     Diff_SPO.L  Diff_SPO.L_Lag1Trend_residue_zeroCycle_residue...  ...  1.060000e-02  1.670000e-02  1.130000e-02
+3   None  RelDiff_SPO.L  RelDiff_SPO.L_Lag1Trend_residue_zeroCycle_resi...  ...  1.060000e-02  1.670000e-02  1.130000e-02
+4   None         _SPO.L  _SPO.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  1.080000e-02  1.690000e-02  1.140000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_SPO.L  RelDiff_SPO.L_PolyTrend_residue_zeroCycle_resi...  ...  4.674023e+06  4.920437e+06  4.536599e+06
+92  None  RelDiff_SPO.L  RelDiff_SPO.L_PolyTrend_residue_Seasonal_DayOf...  ...  4.673909e+06  4.920437e+06  4.536599e+06
+93  None  RelDiff_SPO.L  RelDiff_SPO.L_ConstantTrend_residue_bestCycle_...  ...  4.550241e+06  4.920437e+06  4.536599e+06
+94  None  RelDiff_SPO.L  RelDiff_SPO.L_PolyTrend_residue_Seasonal_DayOf...  ...  4.674397e+06  4.920437e+06  4.536599e+06
+95  None  RelDiff_SPO.L  RelDiff_SPO.L_PolyTrend_residue_bestCycle_byL2...  ...  4.674393e+06  4.920437e+06  4.536599e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _SPO.L    _SPO.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0106        0.0167    0.0113
+1  None   CumSum_SPO.L  CumSum_SPO.L_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0115        0.0167    0.0113
+2  None     Diff_SPO.L  Diff_SPO.L_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0106        0.0167    0.0113
+3  None  RelDiff_SPO.L  RelDiff_SPO.L_Lag1Trend_residue_zeroCycle_resi...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0106        0.0167    0.0113
+4  None         _SPO.L  _SPO.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0108        0.0169    0.0114
+7 0    66.000
+1    66.750
+2    66.875
+3    66.500
+4    66.500
+5    66.500
+6    67.000
+Name: SPO.L, dtype: float64
+7 0    67.0
+1    67.0
+2    67.0
+3    67.0
+4    67.0
+5    67.0
+6    67.0
+Name: SPO.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_SPO.L SPO.L [66.0, 66.75, 66.875, 66.5, 66.5, 66.5, 67.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_SPO.L SPO.L [67.0, 67.0, 67.0, 67.0, 67.0, 67.0, 67.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_SPO.L SPO.L 1295 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_SPO.L SPO.L 11.184758186340332
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_SPO.L SPO.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_SPO.L SPO.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_SPO.L SPO.L 0.0062 0.0062 1.4082
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_SPO.L SPO.L 0.4107142857142857 0.5110388579019352 -1.824137930598202
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_SPO.L_7'

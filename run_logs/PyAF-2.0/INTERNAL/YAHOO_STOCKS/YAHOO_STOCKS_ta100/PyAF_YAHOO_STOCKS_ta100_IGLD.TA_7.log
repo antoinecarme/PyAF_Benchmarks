@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ta100
+TIME :  Date N= 1019 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-08-01T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-07T00:00:00.000000000' '2016-07-11T00:00:00.000000000'
+ '2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000']
+SIGNAL :  IGLD.TA N= 1019 H= 7 HEAD= [73.34 72.24 71.5  71.33 69.38] TAIL= [53.45 53.88 54.39 53.64 54.26]
+   IGLD.TA       Date
+0    73.34 2011-07-28
+1    72.24 2011-08-01
+2    71.50 2011-08-02
+3    71.33 2011-08-03
+4    69.38 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1019 entries, 0 to 1018
+Data columns (total 2 columns):
+ #   Column   Non-Null Count  Dtype         
+---  ------   --------------  -----         
+ 0   IGLD.TA  1019 non-null   float64       
+ 1   Date     1019 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 23.9 KB
+None
+   Split   Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _IGLD.TA  _IGLD.TA_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  3.020000e-02  2.460000e-02  9.800000e-03
+1   None   CumSum_IGLD.TA  CumSum_IGLD.TA_Lag1Trend_residue_zeroCycle_res...  ...  3.140000e-02  2.460000e-02  9.800000e-03
+2   None     Diff_IGLD.TA  Diff_IGLD.TA_Lag1Trend_residue_zeroCycle_resid...  ...  3.020000e-02  2.460000e-02  9.800000e-03
+3   None  RelDiff_IGLD.TA  RelDiff_IGLD.TA_Lag1Trend_residue_zeroCycle_re...  ...  3.020000e-02  2.460000e-02  9.800000e-03
+4   None         _IGLD.TA  _IGLD.TA_Lag1Trend_residue_Seasonal_DayOfWeek_...  ...  3.020000e-02  2.490000e-02  1.010000e-02
+..   ...              ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_IGLD.TA  RelDiff_IGLD.TA_PolyTrend_residue_bestCycle_by...  ...  3.269890e+08  1.645955e+08  1.222436e+08
+92  None  RelDiff_IGLD.TA  RelDiff_IGLD.TA_LinearTrend_residue_bestCycle_...  ...  3.270193e+08  1.645955e+08  1.222436e+08
+93  None  RelDiff_IGLD.TA  RelDiff_IGLD.TA_PolyTrend_residue_bestCycle_by...  ...  3.269946e+08  1.645955e+08  1.222436e+08
+94  None  RelDiff_IGLD.TA  RelDiff_IGLD.TA_Lag1Trend_residue_bestCycle_by...  ...  3.267594e+08  1.645955e+08  1.222436e+08
+95  None  RelDiff_IGLD.TA  RelDiff_IGLD.TA_ConstantTrend_residue_zeroCycl...  ...  3.269779e+08  1.645955e+08  1.222436e+08
+
+[96 rows x 8 columns]
+  Split   Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _IGLD.TA  _IGLD.TA_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0302        0.0246    0.0098
+1  None   CumSum_IGLD.TA  CumSum_IGLD.TA_Lag1Trend_residue_zeroCycle_res...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0314        0.0246    0.0098
+2  None     Diff_IGLD.TA  Diff_IGLD.TA_Lag1Trend_residue_zeroCycle_resid...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0302        0.0246    0.0098
+3  None  RelDiff_IGLD.TA  RelDiff_IGLD.TA_Lag1Trend_residue_zeroCycle_re...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0302        0.0246    0.0098
+4  None         _IGLD.TA  _IGLD.TA_Lag1Trend_residue_Seasonal_DayOfWeek_...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0302        0.0249    0.0101
+7 0    54.29
+1    54.61
+2    54.47
+3    54.20
+4    55.48
+5    54.62
+6    54.84
+Name: IGLD.TA, dtype: float64
+7 0    54.26
+1    54.26
+2    54.26
+3    54.26
+4    54.26
+5    54.26
+6    54.26
+Name: IGLD.TA_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_IGLD.TA IGLD.TA [54.29, 54.61, 54.47, 54.2, 55.48, 54.62, 54.84]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_IGLD.TA IGLD.TA [54.26, 54.26, 54.26, 54.26, 54.26, 54.26, 54.26]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_IGLD.TA IGLD.TA 1019 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_IGLD.TA IGLD.TA 10.682783603668213
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_IGLD.TA IGLD.TA Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_IGLD.TA IGLD.TA 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_IGLD.TA IGLD.TA 0.0073 0.0073 0.7795
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_IGLD.TA IGLD.TA 0.40142857142857175 0.5510379815791809 -0.9468360722596718
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ta100_IGLD.TA_7'

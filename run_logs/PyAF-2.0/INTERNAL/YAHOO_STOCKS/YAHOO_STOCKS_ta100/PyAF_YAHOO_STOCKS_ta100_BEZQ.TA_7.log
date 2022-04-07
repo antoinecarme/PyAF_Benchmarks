@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ta100
+TIME :  Date N= 1019 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-08-01T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-07T00:00:00.000000000' '2016-07-11T00:00:00.000000000'
+ '2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000']
+SIGNAL :  BEZQ.TA N= 1019 H= 7 HEAD= [8.349 8.24  8.218 8.266 8.1  ] TAIL= [7.758 7.8   7.898 7.771 7.869]
+   BEZQ.TA       Date
+0    8.349 2011-07-28
+1    8.240 2011-08-01
+2    8.218 2011-08-02
+3    8.266 2011-08-03
+4    8.100 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1019 entries, 0 to 1018
+Data columns (total 2 columns):
+ #   Column   Non-Null Count  Dtype         
+---  ------   --------------  -----         
+ 0   BEZQ.TA  1019 non-null   float64       
+ 1   Date     1019 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 23.9 KB
+None
+   Split   Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _BEZQ.TA  _BEZQ.TA_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.580000e-02  1.430000e-02  9.100000e-03
+1   None         _BEZQ.TA  _BEZQ.TA_Lag1Trend_residue_Seasonal_DayOfWeek_...  ...  1.580000e-02  1.430000e-02  9.500000e-03
+2   None   CumSum_BEZQ.TA  CumSum_BEZQ.TA_Lag1Trend_residue_zeroCycle_res...  ...  1.700000e-02  1.430000e-02  9.100000e-03
+3   None     Diff_BEZQ.TA  Diff_BEZQ.TA_Lag1Trend_residue_zeroCycle_resid...  ...  1.580000e-02  1.430000e-02  9.100000e-03
+4   None  RelDiff_BEZQ.TA  RelDiff_BEZQ.TA_Lag1Trend_residue_zeroCycle_re...  ...  1.580000e-02  1.430000e-02  9.100000e-03
+..   ...              ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_BEZQ.TA  RelDiff_BEZQ.TA_Lag1Trend_residue_Seasonal_Day...  ...  7.498687e+07  5.455829e+07  5.555654e+07
+92  None  RelDiff_BEZQ.TA  RelDiff_BEZQ.TA_LinearTrend_residue_bestCycle_...  ...  7.494622e+07  5.455829e+07  5.555654e+07
+93  None  RelDiff_BEZQ.TA  RelDiff_BEZQ.TA_PolyTrend_residue_bestCycle_by...  ...  7.493867e+07  5.455829e+07  5.555654e+07
+94  None  RelDiff_BEZQ.TA  RelDiff_BEZQ.TA_Lag1Trend_residue_bestCycle_by...  ...  7.485880e+07  5.455829e+07  5.555654e+07
+95  None  RelDiff_BEZQ.TA  RelDiff_BEZQ.TA_ConstantTrend_residue_zeroCycl...  ...  7.492962e+07  5.455829e+07  5.555654e+07
+
+[96 rows x 8 columns]
+  Split   Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _BEZQ.TA  _BEZQ.TA_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0158        0.0143    0.0091
+1  None         _BEZQ.TA  _BEZQ.TA_Lag1Trend_residue_Seasonal_DayOfWeek_...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0158        0.0143    0.0095
+2  None   CumSum_BEZQ.TA  CumSum_BEZQ.TA_Lag1Trend_residue_zeroCycle_res...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0170        0.0143    0.0091
+3  None     Diff_BEZQ.TA  Diff_BEZQ.TA_Lag1Trend_residue_zeroCycle_resid...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0158        0.0143    0.0091
+4  None  RelDiff_BEZQ.TA  RelDiff_BEZQ.TA_Lag1Trend_residue_zeroCycle_re...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0158        0.0143    0.0091
+7 0    7.745
+1    7.800
+2    7.704
+3    7.620
+4    7.711
+5    7.632
+6    7.610
+Name: BEZQ.TA, dtype: float64
+7 0    7.869
+1    7.869
+2    7.869
+3    7.869
+4    7.869
+5    7.869
+6    7.869
+Name: BEZQ.TA_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_BEZQ.TA BEZQ.TA [7.745, 7.8, 7.704, 7.62, 7.711, 7.632000000000001, 7.61]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_BEZQ.TA BEZQ.TA [7.869, 7.869, 7.869, 7.869, 7.869, 7.869, 7.869]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_BEZQ.TA BEZQ.TA 1019 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_BEZQ.TA BEZQ.TA 10.815789461135864
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_BEZQ.TA BEZQ.TA Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_BEZQ.TA BEZQ.TA 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_BEZQ.TA BEZQ.TA 0.0235 0.0232 2.5313
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_BEZQ.TA BEZQ.TA 0.18014285714285677 0.19182469675647643 -7.468231873642617
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ta100_BEZQ.TA_7'

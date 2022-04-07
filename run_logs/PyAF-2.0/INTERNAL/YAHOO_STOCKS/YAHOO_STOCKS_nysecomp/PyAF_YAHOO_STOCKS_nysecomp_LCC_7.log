@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1298 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  LCC N= 1298 H= 7 HEAD= [5.98 6.24 5.96 5.52 5.9 ] TAIL= [1.95 2.   1.99 1.98 1.96]
+    LCC       Date
+0  5.98 2011-07-28
+1  6.24 2011-07-29
+2  5.96 2011-08-01
+3  5.52 2011-08-02
+4  5.90 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1298 entries, 0 to 1297
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   LCC     1298 non-null   float64       
+ 1   Date    1298 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _LCC      _LCC_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  3.860000e-02  1.620000e-02  1.620000e-02
+1   None     CumSum_LCC  CumSum_LCC_Lag1Trend_residue_zeroCycle_residue...  ...  3.950000e-02  1.620000e-02  1.620000e-02
+2   None       Diff_LCC  Diff_LCC_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  3.860000e-02  1.620000e-02  1.620000e-02
+3   None    RelDiff_LCC  RelDiff_LCC_Lag1Trend_residue_zeroCycle_residu...  ...  3.860000e-02  1.620000e-02  1.620000e-02
+4   None           _LCC    _LCC_Lag1Trend_residue_zeroCycle_residue_AR(64)  ...  4.820000e-02  1.670000e-02  1.710000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_LCC  RelDiff_LCC_Lag1Trend_residue_bestCycle_byL2_r...  ...  1.432751e+08  2.684312e+08  2.618987e+08
+92  None    RelDiff_LCC  RelDiff_LCC_ConstantTrend_residue_Seasonal_Day...  ...  1.431548e+08  2.684312e+08  2.618987e+08
+93  None    RelDiff_LCC  RelDiff_LCC_ConstantTrend_residue_bestCycle_by...  ...  1.431548e+08  2.684312e+08  2.618987e+08
+94  None    RelDiff_LCC  RelDiff_LCC_PolyTrend_residue_Seasonal_DayOfWe...  ...  1.433542e+08  2.684312e+08  2.618987e+08
+95  None    RelDiff_LCC  RelDiff_LCC_PolyTrend_residue_bestCycle_byL2_r...  ...  1.433542e+08  2.684312e+08  2.618987e+08
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _LCC      _LCC_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0386        0.0162    0.0162
+1  None     CumSum_LCC  CumSum_LCC_Lag1Trend_residue_zeroCycle_residue...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0395        0.0162    0.0162
+2  None       Diff_LCC  Diff_LCC_Lag1Trend_residue_zeroCycle_residue_NoAR          Difference_Lag1Trend_NoCycle_NoAR          64   0.0386        0.0162    0.0162
+3  None    RelDiff_LCC  RelDiff_LCC_Lag1Trend_residue_zeroCycle_residu...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0386        0.0162    0.0162
+4  None           _LCC    _LCC_Lag1Trend_residue_zeroCycle_residue_AR(64)              NoTransf_Lag1Trend_NoCycle_AR          96   0.0482        0.0167    0.0171
+7 0    1.93
+1    1.97
+2    1.95
+3    1.97
+4    1.95
+5    2.00
+6    1.99
+Name: LCC, dtype: float64
+7 0    1.96
+1    1.96
+2    1.96
+3    1.96
+4    1.96
+5    1.96
+6    1.96
+Name: LCC_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_LCC LCC [1.93, 1.97, 1.95, 1.97, 1.95, 2.0, 1.99]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_LCC LCC [1.96, 1.96, 1.96, 1.96, 1.96, 1.96, 1.96]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_LCC LCC 1298 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_LCC LCC 13.632435321807861
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_LCC LCC Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_LCC LCC 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_LCC LCC 0.0101 0.0102 0.75
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_LCC LCC 0.020000000000000018 0.023299294900428723 -0.06399997020800074
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_LCC_7'

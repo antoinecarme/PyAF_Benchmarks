@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  AKO-B N= 1251 H= 7 HEAD= [26.809999 26.700001 26.91     26.540001 25.780001] TAIL= [23.02     22.9      22.790001 22.360001 22.450001]
+       AKO-B       Date
+0  26.809999 2011-07-28
+1  26.700001 2011-07-29
+2  26.910000 2011-08-01
+3  26.540001 2011-08-02
+4  25.780001 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   AKO-B   1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None     Diff_AKO-B  Diff_AKO-B_Lag1Trend_residue_Seasonal_DayOfWee...  ...  0.0138  1.890000e-02  2.260000e-02
+1   None         _AKO-B    _AKO-B_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0135  1.910000e-02  2.250000e-02
+2   None         _AKO-B  _AKO-B_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  0.0135  1.910000e-02  2.280000e-02
+3   None   CumSum_AKO-B  CumSum_AKO-B_Lag1Trend_residue_zeroCycle_resid...  ...  0.0145  1.910000e-02  2.250000e-02
+4   None     Diff_AKO-B  Diff_AKO-B_Lag1Trend_residue_zeroCycle_residue...  ...  0.0135  1.910000e-02  2.250000e-02
+..   ...            ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_AKO-B  RelDiff_AKO-B_LinearTrend_residue_zeroCycle_re...  ...  1.1827  2.959079e+07  5.326881e+07
+92  None  RelDiff_AKO-B  RelDiff_AKO-B_LinearTrend_residue_Seasonal_Day...  ...  1.1710  2.959083e+07  5.326881e+07
+93  None  RelDiff_AKO-B  RelDiff_AKO-B_PolyTrend_residue_bestCycle_byL2...  ...  0.8243  2.990531e+07  5.326881e+07
+94  None  RelDiff_AKO-B  RelDiff_AKO-B_PolyTrend_residue_Seasonal_DayOf...  ...  0.8341  2.990534e+07  5.326881e+07
+95  None  RelDiff_AKO-B  RelDiff_AKO-B_PolyTrend_residue_zeroCycle_resi...  ...  0.8425  2.990534e+07  5.326881e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                      Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None     Diff_AKO-B  Diff_AKO-B_Lag1Trend_residue_Seasonal_DayOfWee...  Difference_Lag1Trend_Seasonal_DayOfWeek_NoAR          68   0.0138        0.0189    0.0226
+1  None         _AKO-B    _AKO-B_Lag1Trend_residue_zeroCycle_residue_NoAR               NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0135        0.0191    0.0225
+2  None         _AKO-B  _AKO-B_Lag1Trend_residue_Seasonal_DayOfWeek_re...    NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0135        0.0191    0.0228
+3  None   CumSum_AKO-B  CumSum_AKO-B_Lag1Trend_residue_zeroCycle_resid...            Integration_Lag1Trend_NoCycle_NoAR          64   0.0145        0.0191    0.0225
+4  None     Diff_AKO-B  Diff_AKO-B_Lag1Trend_residue_zeroCycle_residue...             Difference_Lag1Trend_NoCycle_NoAR          64   0.0135        0.0191    0.0225
+7 0    23.000000
+1    22.980000
+2    22.950001
+3    23.809999
+4    23.230000
+5    22.559999
+6    23.110001
+Name: AKO-B, dtype: float64
+7 0    22.450001
+1    22.450001
+2    22.450001
+3    22.450001
+4    22.450001
+5    22.450001
+6    22.450001
+Name: AKO-B_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_AKO-B AKO-B [23.0, 22.98, 22.950001, 23.809998999999998, 23.23, 22.559998999999998, 23.110001]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_AKO-B AKO-B [22.450001, 22.450001, 22.450001, 22.450001, 22.450001, 22.450001, 22.450001]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_AKO-B AKO-B 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_AKO-B AKO-B 11.698976516723633
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_AKO-B AKO-B Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_AKO-B AKO-B 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_AKO-B AKO-B 0.0276 0.0281 1.4201
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_AKO-B AKO-B 0.6414275714285707 0.7308596113003795 -3.3524098188052136
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_AKO-B_7'

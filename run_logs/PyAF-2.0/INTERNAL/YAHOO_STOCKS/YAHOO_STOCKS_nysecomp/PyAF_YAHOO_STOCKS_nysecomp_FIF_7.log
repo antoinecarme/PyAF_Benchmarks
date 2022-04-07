@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1208 H= 7 HEAD= ['2011-09-28T00:00:00.000000000' '2011-09-29T00:00:00.000000000'
+ '2011-09-30T00:00:00.000000000' '2011-10-03T00:00:00.000000000'
+ '2011-10-04T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  FIF N= 1208 H= 7 HEAD= [20. 20. 20. 20. 20.] TAIL= [17.76     17.610001 17.700001 17.68     17.92    ]
+    FIF       Date
+0  20.0 2011-09-28
+1  20.0 2011-09-29
+2  20.0 2011-09-30
+3  20.0 2011-10-03
+4  20.0 2011-10-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1208 entries, 0 to 1207
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   FIF     1208 non-null   float64       
+ 1   Date    1208 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 28.3 KB
+None
+   Split Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None           _FIF  _FIF_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  ...  0.0077  1.850000e-02  9.900000e-03
+1   None           _FIF  _FIF_Lag1Trend_residue_bestCycle_byL2_residue_...  ...  0.0077  1.850000e-02  8.700000e-03
+2   None           _FIF    _FIF_Lag1Trend_residue_zeroCycle_residue_AR(64)  ...  0.0077  1.860000e-02  9.100000e-03
+3   None           _FIF  _FIF_ConstantTrend_residue_Seasonal_DayOfWeek_...  ...  0.0077  1.870000e-02  8.200000e-03
+4   None           _FIF  _FIF_ConstantTrend_residue_bestCycle_byL2_resi...  ...  0.0077  1.870000e-02  7.700000e-03
+..   ...            ...                                                ...  ...     ...           ...           ...
+91  None    RelDiff_FIF  RelDiff_FIF_LinearTrend_residue_bestCycle_byL2...  ...  0.0790  2.827175e+07  5.169932e+07
+92  None    RelDiff_FIF  RelDiff_FIF_LinearTrend_residue_Seasonal_DayOf...  ...  0.0760  2.827181e+07  5.169932e+07
+93  None    RelDiff_FIF  RelDiff_FIF_ConstantTrend_residue_bestCycle_by...  ...  0.0811  2.827203e+07  5.169932e+07
+94  None    RelDiff_FIF  RelDiff_FIF_ConstantTrend_residue_zeroCycle_re...  ...  0.0841  2.827203e+07  5.169932e+07
+95  None    RelDiff_FIF  RelDiff_FIF_ConstantTrend_residue_Seasonal_Day...  ...  0.0826  2.827211e+07  5.169932e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                      Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _FIF  _FIF_Lag1Trend_residue_Seasonal_DayOfWeek_resi...      NoTransf_Lag1Trend_Seasonal_DayOfWeek_AR         100   0.0077        0.0185    0.0099
+1  None           _FIF  _FIF_Lag1Trend_residue_bestCycle_byL2_residue_...                   NoTransf_Lag1Trend_Cycle_AR         104   0.0077        0.0185    0.0087
+2  None           _FIF    _FIF_Lag1Trend_residue_zeroCycle_residue_AR(64)                 NoTransf_Lag1Trend_NoCycle_AR          96   0.0077        0.0186    0.0091
+3  None           _FIF  _FIF_ConstantTrend_residue_Seasonal_DayOfWeek_...  NoTransf_ConstantTrend_Seasonal_DayOfWeek_AR          68   0.0077        0.0187    0.0082
+4  None           _FIF  _FIF_ConstantTrend_residue_bestCycle_byL2_resi...               NoTransf_ConstantTrend_Cycle_AR          72   0.0077        0.0187    0.0077
+7 0    17.950001
+1    17.959999
+2    17.990000
+3    18.030001
+4    17.920000
+5    17.709999
+6    17.590000
+Name: FIF, dtype: float64
+7 0    17.92
+1    17.92
+2    17.92
+3    17.92
+4    17.92
+5    17.92
+6    17.92
+Name: FIF_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_FIF FIF [17.950001, 17.959999, 17.99, 18.030001000000002, 17.92, 17.709999, 17.59]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_FIF FIF [17.92, 17.92, 17.92, 17.92, 17.92, 17.92, 17.92]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_FIF FIF 1208 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_FIF FIF 11.862834453582764
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_FIF FIF Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_FIF FIF 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_FIF FIF 0.0064 0.0063 1.3022
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_FIF FIF 0.11285742857142823 0.1569807176530205 -0.07486173610964131
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_FIF_7'

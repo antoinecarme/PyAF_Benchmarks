@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_tsx
+TIME :  Date N= 354 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2012-12-03T00:00:00.000000000' '2012-12-04T00:00:00.000000000'
+ '2012-12-05T00:00:00.000000000' '2012-12-06T00:00:00.000000000'
+ '2012-12-07T00:00:00.000000000']
+SIGNAL :  VT.TO N= 354 H= 7 HEAD= [10.93 10.82 10.55 10.35 10.17] TAIL= [15.96 15.98 15.96 15.85 16.2 ]
+   VT.TO       Date
+0  10.93 2011-07-28
+1  10.82 2011-07-29
+2  10.55 2011-08-02
+3  10.35 2011-08-03
+4  10.17 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 354 entries, 0 to 353
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   VT.TO   354 non-null    float64       
+ 1   Date    354 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 8.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _VT.TO    _VT.TO_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  9.700000e-03  2.300000e-03  8.900000e-03
+1   None   CumSum_VT.TO  CumSum_VT.TO_Lag1Trend_residue_zeroCycle_resid...  ...  1.320000e-02  2.300000e-03  8.900000e-03
+2   None     Diff_VT.TO  Diff_VT.TO_Lag1Trend_residue_zeroCycle_residue...  ...  9.700000e-03  2.300000e-03  8.900000e-03
+3   None  RelDiff_VT.TO  RelDiff_VT.TO_Lag1Trend_residue_zeroCycle_resi...  ...  9.700000e-03  2.300000e-03  8.900000e-03
+4   None         _VT.TO  _VT.TO_ConstantTrend_residue_zeroCycle_residue...  ...  1.020000e-02  2.600000e-03  8.500000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_VT.TO  RelDiff_VT.TO_Lag1Trend_residue_Seasonal_DayOf...  ...  1.087850e+07  8.464395e+06  8.513738e+06
+92  None  RelDiff_VT.TO  RelDiff_VT.TO_PolyTrend_residue_bestCycle_byL2...  ...  1.096985e+07  8.464395e+06  8.513738e+06
+93  None  RelDiff_VT.TO  RelDiff_VT.TO_PolyTrend_residue_bestCycle_byL2...  ...  1.096974e+07  8.464395e+06  8.513738e+06
+94  None  RelDiff_VT.TO  RelDiff_VT.TO_PolyTrend_residue_Seasonal_DayOf...  ...  1.096974e+07  8.464395e+06  8.513738e+06
+95  None  RelDiff_VT.TO  RelDiff_VT.TO_ConstantTrend_residue_bestCycle_...  ...  1.092465e+07  8.464395e+06  8.513738e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _VT.TO    _VT.TO_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0097        0.0023    0.0089
+1  None   CumSum_VT.TO  CumSum_VT.TO_Lag1Trend_residue_zeroCycle_resid...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0132        0.0023    0.0089
+2  None     Diff_VT.TO  Diff_VT.TO_Lag1Trend_residue_zeroCycle_residue...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0097        0.0023    0.0089
+3  None  RelDiff_VT.TO  RelDiff_VT.TO_Lag1Trend_residue_zeroCycle_resi...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0097        0.0023    0.0089
+4  None         _VT.TO  _VT.TO_ConstantTrend_residue_zeroCycle_residue...          NoTransf_ConstantTrend_NoCycle_AR          64   0.0102        0.0026    0.0085
+7 0    16.22
+1    16.24
+2    16.23
+3    16.22
+4    16.22
+5    16.24
+6    16.24
+Name: VT.TO, dtype: float64
+7 0    16.2
+1    16.2
+2    16.2
+3    16.2
+4    16.2
+5    16.2
+6    16.2
+Name: VT.TO_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_VT.TO VT.TO [16.22, 16.24, 16.23, 16.22, 16.22, 16.24, 16.24]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_VT.TO VT.TO [16.2, 16.2, 16.2, 16.2, 16.2, 16.2, 16.2]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_VT.TO VT.TO 354 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_VT.TO VT.TO 10.271458148956299
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_VT.TO VT.TO Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_VT.TO VT.TO 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_VT.TO VT.TO 0.0018 0.0018 3.0
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_VT.TO VT.TO 0.029999999999999614 0.031396087108336586 -10.499998083333828
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_tsx_VT.TO_7'

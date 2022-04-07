@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_tsx
+TIME :  Date N= 1248 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  PWT-UN.TO N= 1248 H= 7 HEAD= [21.33     21.280001 20.559999 20.469999 19.68    ] TAIL= [1.88 1.83 1.83 1.81 1.83]
+   PWT-UN.TO       Date
+0  21.330000 2011-07-28
+1  21.280001 2011-07-29
+2  20.559999 2011-08-02
+3  20.469999 2011-08-03
+4  19.680000 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1248 entries, 0 to 1247
+Data columns (total 2 columns):
+ #   Column     Non-Null Count  Dtype         
+---  ------     --------------  -----         
+ 0   PWT-UN.TO  1248 non-null   float64       
+ 1   Date       1248 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.2 KB
+None
+   Split     Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _PWT-UN.TO  _PWT-UN.TO_Lag1Trend_residue_zeroCycle_residue...  ...  0.0208  5.260000e-02  1.160000e-02
+1   None   CumSum_PWT-UN.TO  CumSum_PWT-UN.TO_Lag1Trend_residue_zeroCycle_r...  ...  0.0218  5.260000e-02  1.160000e-02
+2   None     Diff_PWT-UN.TO  Diff_PWT-UN.TO_Lag1Trend_residue_zeroCycle_res...  ...  0.0208  5.260000e-02  1.160000e-02
+3   None  RelDiff_PWT-UN.TO  RelDiff_PWT-UN.TO_Lag1Trend_residue_zeroCycle_...  ...  0.0208  5.260000e-02  1.160000e-02
+4   None         _PWT-UN.TO  _PWT-UN.TO_Lag1Trend_residue_bestCycle_byL2_re...  ...  0.0206  5.400000e-02  1.550000e-02
+..   ...                ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_PWT-UN.TO  RelDiff_PWT-UN.TO_ConstantTrend_residue_zeroCy...  ...  0.2347  1.276778e+09  1.126772e+09
+92  None  RelDiff_PWT-UN.TO  RelDiff_PWT-UN.TO_ConstantTrend_residue_Season...  ...  0.2316  1.276807e+09  1.126772e+09
+93  None  RelDiff_PWT-UN.TO  RelDiff_PWT-UN.TO_Lag1Trend_residue_Seasonal_D...  ...  0.0608  1.277467e+09  1.126772e+09
+94  None  RelDiff_PWT-UN.TO  RelDiff_PWT-UN.TO_Lag1Trend_residue_zeroCycle_...  ...  0.0405  1.277468e+09  1.126772e+09
+95  None  RelDiff_PWT-UN.TO  RelDiff_PWT-UN.TO_Lag1Trend_residue_bestCycle_...  ...  0.0401  1.277487e+09  1.126772e+09
+
+[96 rows x 8 columns]
+  Split     Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _PWT-UN.TO  _PWT-UN.TO_Lag1Trend_residue_zeroCycle_residue...            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0208        0.0526    0.0116
+1  None   CumSum_PWT-UN.TO  CumSum_PWT-UN.TO_Lag1Trend_residue_zeroCycle_r...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0218        0.0526    0.0116
+2  None     Diff_PWT-UN.TO  Diff_PWT-UN.TO_Lag1Trend_residue_zeroCycle_res...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0208        0.0526    0.0116
+3  None  RelDiff_PWT-UN.TO  RelDiff_PWT-UN.TO_Lag1Trend_residue_zeroCycle_...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0208        0.0526    0.0116
+4  None         _PWT-UN.TO  _PWT-UN.TO_Lag1Trend_residue_bestCycle_byL2_re...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0206        0.0540    0.0155
+7 0    1.80
+1    1.85
+2    1.81
+3    1.80
+4    1.73
+5    1.72
+6    1.68
+Name: PWT-UN.TO, dtype: float64
+7 0    1.83
+1    1.83
+2    1.83
+3    1.83
+4    1.83
+5    1.83
+6    1.83
+Name: PWT-UN.TO_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_PWT-UN.TO PWT-UN.TO [1.8, 1.85, 1.81, 1.8, 1.73, 1.72, 1.68]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_PWT-UN.TO PWT-UN.TO [1.83, 1.83, 1.83, 1.83, 1.83, 1.83, 1.83]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_PWT-UN.TO PWT-UN.TO 1248 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_PWT-UN.TO PWT-UN.TO 11.766787767410278
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_PWT-UN.TO PWT-UN.TO Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_PWT-UN.TO PWT-UN.TO 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_PWT-UN.TO PWT-UN.TO 0.038 0.0369 1.7922
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_PWT-UN.TO PWT-UN.TO 0.06571428571428577 0.08211490207542815 -1.1454545357024792
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_tsx_PWT-UN.TO_7'

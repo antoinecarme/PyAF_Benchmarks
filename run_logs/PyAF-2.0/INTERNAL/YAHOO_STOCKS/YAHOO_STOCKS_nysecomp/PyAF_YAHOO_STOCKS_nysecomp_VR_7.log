@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  VR N= 1251 H= 7 HEAD= [27.07     26.59     26.530001 26.       25.809999] TAIL= [48.009998 48.110001 48.419998 48.630001 48.400002]
+          VR       Date
+0  27.070000 2011-07-28
+1  26.590000 2011-07-29
+2  26.530001 2011-08-01
+3  26.000000 2011-08-02
+4  25.809999 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   VR      1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None      CumSum_VR  CumSum_VR_Lag1Trend_residue_bestCycle_byL2_res...  ...  1.090000e-02  8.300000e-03  5.500000e-03
+1   None            _VR  _VR_ConstantTrend_residue_bestCycle_byL2_resid...  ...  8.000000e-03  8.300000e-03  4.200000e-03
+2   None            _VR       _VR_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  8.200000e-03  8.400000e-03  5.000000e-03
+3   None            _VR  _VR_Lag1Trend_residue_bestCycle_byL2_residue_NoAR  ...  8.200000e-03  8.400000e-03  5.100000e-03
+4   None      CumSum_VR  CumSum_VR_Lag1Trend_residue_zeroCycle_residue_...  ...  9.200000e-03  8.400000e-03  5.000000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None     RelDiff_VR  RelDiff_VR_Lag1Trend_residue_bestCycle_byL2_re...  ...  1.027239e+07  7.928232e+06  7.493387e+06
+92  None     RelDiff_VR  RelDiff_VR_PolyTrend_residue_bestCycle_byL2_re...  ...  1.026609e+07  7.928232e+06  7.493387e+06
+93  None     RelDiff_VR  RelDiff_VR_ConstantTrend_residue_zeroCycle_res...  ...  1.025886e+07  7.928232e+06  7.493387e+06
+94  None     RelDiff_VR  RelDiff_VR_PolyTrend_residue_zeroCycle_residue...  ...  1.027090e+07  7.928232e+06  7.493387e+06
+95  None     RelDiff_VR  RelDiff_VR_PolyTrend_residue_Seasonal_DayOfWee...  ...  1.027238e+07  7.928232e+06  7.493387e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                            Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None      CumSum_VR  CumSum_VR_Lag1Trend_residue_bestCycle_byL2_res...    Integration_Lag1Trend_Cycle_NoAR          72   0.0109        0.0083    0.0055
+1  None            _VR  _VR_ConstantTrend_residue_bestCycle_byL2_resid...     NoTransf_ConstantTrend_Cycle_AR          72   0.0080        0.0083    0.0042
+2  None            _VR       _VR_Lag1Trend_residue_zeroCycle_residue_NoAR     NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0082        0.0084    0.0050
+3  None            _VR  _VR_Lag1Trend_residue_bestCycle_byL2_residue_NoAR       NoTransf_Lag1Trend_Cycle_NoAR          40   0.0082        0.0084    0.0051
+4  None      CumSum_VR  CumSum_VR_Lag1Trend_residue_zeroCycle_residue_...  Integration_Lag1Trend_NoCycle_NoAR          64   0.0092        0.0084    0.0050
+7 0    48.630001
+1    48.959999
+2    49.099998
+3    49.480000
+4    49.369999
+5    49.330002
+6    49.450001
+Name: VR, dtype: float64
+7 0    48.400002
+1    48.400002
+2    48.400002
+3    48.400002
+4    48.400002
+5    48.400002
+6    48.400002
+Name: VR_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_VR VR [48.630001, 48.959998999999996, 49.099998, 49.48, 49.369999, 49.330002, 49.450001]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_VR VR [48.400002, 48.400002, 48.400002, 48.400002, 48.400002, 48.400002, 48.400002]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_VR VR 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_VR VR 11.573194980621338
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_VR VR Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_VR VR 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_VR VR 0.016 0.0161 4.2245
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_VR VR 0.788569428571427 0.8393176088806552 -7.527229076961719
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_VR_7'

@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1262 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  LAB N= 1262 H= 7 HEAD= [0.35 0.33 0.35 0.4  0.33] TAIL= [9.24 9.24 9.24 9.24 9.24]
+    LAB       Date
+0  0.35 2011-07-28
+1  0.33 2011-07-29
+2  0.35 2011-08-01
+3  0.40 2011-08-02
+4  0.33 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1262 entries, 0 to 1261
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   LAB     1262 non-null   float64       
+ 1   Date    1262 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.6 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _LAB      _LAB_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.755000e-01  8.400000e-03  3.000000e-04
+1   None     CumSum_LAB  CumSum_LAB_Lag1Trend_residue_zeroCycle_residue...  ...  2.764000e-01  8.400000e-03  3.000000e-04
+2   None       Diff_LAB  Diff_LAB_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.755000e-01  8.400000e-03  3.000000e-04
+3   None    RelDiff_LAB  RelDiff_LAB_Lag1Trend_residue_zeroCycle_residu...  ...  2.755000e-01  8.400000e-03  3.000000e-04
+4   None     CumSum_LAB  CumSum_LAB_ConstantTrend_residue_zeroCycle_res...  ...  3.898000e-01  1.030000e-02  2.200000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_LAB  RelDiff_LAB_PolyTrend_residue_zeroCycle_residu...  ...  1.558444e+08  2.461458e+06  3.246252e+06
+92  None    RelDiff_LAB  RelDiff_LAB_Lag1Trend_residue_bestCycle_byL2_r...  ...  1.547908e+08  2.461458e+06  3.246252e+06
+93  None    RelDiff_LAB  RelDiff_LAB_Lag1Trend_residue_bestCycle_byL2_r...  ...  1.553949e+08  2.461459e+06  3.246253e+06
+94  None    RelDiff_LAB  RelDiff_LAB_LinearTrend_residue_bestCycle_byL2...  ...  1.558073e+08  2.461459e+06  3.246253e+06
+95  None    RelDiff_LAB  RelDiff_LAB_ConstantTrend_residue_Seasonal_Day...  ...  1.548707e+08  2.461459e+06  3.246253e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _LAB      _LAB_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.2755        0.0084    0.0003
+1  None     CumSum_LAB  CumSum_LAB_Lag1Trend_residue_zeroCycle_residue...         Integration_Lag1Trend_NoCycle_NoAR          64   0.2764        0.0084    0.0003
+2  None       Diff_LAB  Diff_LAB_Lag1Trend_residue_zeroCycle_residue_NoAR          Difference_Lag1Trend_NoCycle_NoAR          64   0.2755        0.0084    0.0003
+3  None    RelDiff_LAB  RelDiff_LAB_Lag1Trend_residue_zeroCycle_residu...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.2755        0.0084    0.0003
+4  None     CumSum_LAB  CumSum_LAB_ConstantTrend_residue_zeroCycle_res...       Integration_ConstantTrend_NoCycle_AR          96   0.3898        0.0103    0.0022
+7 0    9.15
+1    9.25
+2    8.33
+3    8.59
+4    8.28
+5    8.50
+6    8.40
+Name: LAB, dtype: float64
+7 0    9.24
+1    9.24
+2    9.24
+3    9.24
+4    9.24
+5    9.24
+6    9.24
+Name: LAB_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_LAB LAB [9.15, 9.25, 8.33, 8.59, 8.28, 8.5, 8.4]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_LAB LAB [9.24, 9.24, 9.24, 9.24, 9.24, 9.24, 9.24]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_LAB LAB 1262 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_LAB LAB 13.274706602096558
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_LAB LAB Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_LAB LAB 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_LAB LAB 0.0713 0.0679 1.8848
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_LAB LAB 0.6000000000000002 0.7003672506009159 -2.662339245053386
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_LAB_7'

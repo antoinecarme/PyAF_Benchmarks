@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_tsx
+TIME :  Date N= 1248 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  CLS.TO N= 1248 H= 7 HEAD= [8.41 8.39 7.79 8.   7.97] TAIL= [12.23 12.33 12.47 12.64 12.71]
+   CLS.TO       Date
+0    8.41 2011-07-28
+1    8.39 2011-07-29
+2    7.79 2011-08-02
+3    8.00 2011-08-03
+4    7.97 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1248 entries, 0 to 1247
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   CLS.TO  1248 non-null   float64       
+ 1   Date    1248 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.2 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _CLS.TO  _CLS.TO_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  1.330000e-02  1.470000e-02  9.300000e-03
+1   None   CumSum_CLS.TO  CumSum_CLS.TO_Lag1Trend_residue_bestCycle_byL2...  ...  1.580000e-02  1.470000e-02  8.900000e-03
+2   None         _CLS.TO   _CLS.TO_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.320000e-02  1.480000e-02  9.500000e-03
+3   None         _CLS.TO  _CLS.TO_Lag1Trend_residue_bestCycle_byL2_resid...  ...  1.320000e-02  1.480000e-02  7.400000e-03
+4   None   CumSum_CLS.TO  CumSum_CLS.TO_Lag1Trend_residue_zeroCycle_resi...  ...  1.420000e-02  1.480000e-02  9.500000e-03
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_CLS.TO  RelDiff_CLS.TO_PolyTrend_residue_zeroCycle_res...  ...  1.814338e+07  1.225580e+07  1.437725e+07
+92  None  RelDiff_CLS.TO  RelDiff_CLS.TO_LinearTrend_residue_Seasonal_Da...  ...  1.814525e+07  1.225580e+07  1.437725e+07
+93  None  RelDiff_CLS.TO  RelDiff_CLS.TO_ConstantTrend_residue_Seasonal_...  ...  1.814332e+07  1.225580e+07  1.437725e+07
+94  None  RelDiff_CLS.TO  RelDiff_CLS.TO_Lag1Trend_residue_Seasonal_DayO...  ...  1.816441e+07  1.225580e+07  1.437725e+07
+95  None  RelDiff_CLS.TO  RelDiff_CLS.TO_PolyTrend_residue_bestCycle_byL...  ...  1.814302e+07  1.225580e+07  1.437725e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _CLS.TO  _CLS.TO_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0133        0.0147    0.0093
+1  None  CumSum_CLS.TO  CumSum_CLS.TO_Lag1Trend_residue_bestCycle_byL2...            Integration_Lag1Trend_Cycle_NoAR          72   0.0158        0.0147    0.0089
+2  None        _CLS.TO   _CLS.TO_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0132        0.0148    0.0095
+3  None        _CLS.TO  _CLS.TO_Lag1Trend_residue_bestCycle_byL2_resid...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0132        0.0148    0.0074
+4  None  CumSum_CLS.TO  CumSum_CLS.TO_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0142        0.0148    0.0095
+7 0    12.92
+1    13.14
+2    13.16
+3    14.28
+4    14.49
+5    14.80
+6    14.95
+Name: CLS.TO, dtype: float64
+7 0    12.71
+1    12.71
+2    12.71
+3    12.71
+4    12.71
+5    12.71
+6    12.71
+Name: CLS.TO_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_CLS.TO CLS.TO [12.92, 13.14, 13.16, 14.28, 14.49, 14.8, 14.95]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_CLS.TO CLS.TO [12.71, 12.71, 12.71, 12.71, 12.71, 12.71, 12.71]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_CLS.TO CLS.TO 1248 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_CLS.TO CLS.TO 10.808775901794434
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_CLS.TO CLS.TO Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_CLS.TO CLS.TO 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_CLS.TO CLS.TO 0.0867 0.0922 3.703
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_CLS.TO CLS.TO 1.252857142857142 1.485669642186406 -2.461953355491782
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_tsx_CLS.TO_7'

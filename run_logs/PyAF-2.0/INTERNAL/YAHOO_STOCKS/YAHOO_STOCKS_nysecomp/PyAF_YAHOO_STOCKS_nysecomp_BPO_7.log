@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 741 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2014-05-26T00:00:00.000000000' '2014-05-27T00:00:00.000000000'
+ '2014-05-28T00:00:00.000000000' '2014-05-29T00:00:00.000000000'
+ '2014-05-30T00:00:00.000000000']
+SIGNAL :  BPO N= 741 H= 7 HEAD= [19.07 18.95 18.82 18.33 17.97] TAIL= [20.31 20.37 20.18 20.16 20.  ]
+     BPO       Date
+0  19.07 2011-07-28
+1  18.95 2011-07-29
+2  18.82 2011-08-01
+3  18.33 2011-08-02
+4  17.97 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 741 entries, 0 to 740
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   BPO     741 non-null    float64       
+ 1   Date    741 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 17.4 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _BPO      _BPO_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.090000e-02  4.900000e-03  4.200000e-03
+1   None     CumSum_BPO  CumSum_BPO_Lag1Trend_residue_zeroCycle_residue...  ...  1.250000e-02  4.900000e-03  4.200000e-03
+2   None       Diff_BPO  Diff_BPO_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.090000e-02  4.900000e-03  4.200000e-03
+3   None    RelDiff_BPO  RelDiff_BPO_Lag1Trend_residue_zeroCycle_residu...  ...  1.090000e-02  4.900000e-03  4.200000e-03
+4   None           _BPO  _BPO_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  ...  1.070000e-02  5.300000e-03  3.700000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_BPO  RelDiff_BPO_PolyTrend_residue_bestCycle_byL2_r...  ...  3.385502e+07  2.952215e+07  2.808596e+07
+92  None    RelDiff_BPO  RelDiff_BPO_PolyTrend_residue_Seasonal_DayOfWe...  ...  3.385505e+07  2.952215e+07  2.808596e+07
+93  None    RelDiff_BPO  RelDiff_BPO_PolyTrend_residue_bestCycle_byL2_r...  ...  3.385503e+07  2.952215e+07  2.808596e+07
+94  None    RelDiff_BPO  RelDiff_BPO_ConstantTrend_residue_zeroCycle_re...  ...  3.383844e+07  2.952215e+07  2.808596e+07
+95  None    RelDiff_BPO  RelDiff_BPO_ConstantTrend_residue_bestCycle_by...  ...  3.370031e+07  2.952215e+07  2.808596e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _BPO      _BPO_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0109        0.0049    0.0042
+1  None     CumSum_BPO  CumSum_BPO_Lag1Trend_residue_zeroCycle_residue...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0125        0.0049    0.0042
+2  None       Diff_BPO  Diff_BPO_Lag1Trend_residue_zeroCycle_residue_NoAR           Difference_Lag1Trend_NoCycle_NoAR          64   0.0109        0.0049    0.0042
+3  None    RelDiff_BPO  RelDiff_BPO_Lag1Trend_residue_zeroCycle_residu...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0109        0.0049    0.0042
+4  None           _BPO  _BPO_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0107        0.0053    0.0037
+7 0    19.95
+1    20.12
+2    20.16
+3    20.27
+4    20.55
+5    20.52
+6    20.52
+Name: BPO, dtype: float64
+7 0    20.0
+1    20.0
+2    20.0
+3    20.0
+4    20.0
+5    20.0
+6    20.0
+Name: BPO_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_BPO BPO [19.95, 20.12, 20.16, 20.27, 20.55, 20.52, 20.52]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_BPO BPO [20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_BPO BPO 741 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_BPO BPO 11.361377239227295
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_BPO BPO Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_BPO BPO 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_BPO BPO 0.0153 0.0155 2.9796
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_BPO BPO 0.31285714285714306 0.37007721202087385 -1.864478401056369
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_BPO_7'

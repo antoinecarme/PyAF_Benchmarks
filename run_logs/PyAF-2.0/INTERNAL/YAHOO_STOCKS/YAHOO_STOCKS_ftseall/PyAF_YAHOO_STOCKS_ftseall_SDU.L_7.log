@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1292 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  SDU.L N= 1292 H= 7 HEAD= [1.285   1.3661  1.2825  1.2775  1.25125] TAIL= [1.74146 1.74171 1.73954 1.74156 1.74121]
+     SDU.L       Date
+0  1.28500 2011-07-28
+1  1.36610 2011-07-29
+2  1.28250 2011-08-01
+3  1.27750 2011-08-02
+4  1.25125 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1292 entries, 0 to 1291
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   SDU.L   1292 non-null   float64       
+ 1   Date    1292 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _SDU.L    _SDU.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.340000e-02  1.540000e-02  5.400000e-03
+1   None         _SDU.L  _SDU.L_Lag1Trend_residue_bestCycle_byL2_residu...  ...  1.340000e-02  1.540000e-02  5.100000e-03
+2   None   CumSum_SDU.L  CumSum_SDU.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.430000e-02  1.540000e-02  5.400000e-03
+3   None     Diff_SDU.L  Diff_SDU.L_Lag1Trend_residue_zeroCycle_residue...  ...  1.340000e-02  1.540000e-02  5.400000e-03
+4   None  RelDiff_SDU.L  RelDiff_SDU.L_Lag1Trend_residue_zeroCycle_resi...  ...  1.340000e-02  1.540000e-02  5.400000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_SDU.L  RelDiff_SDU.L_PolyTrend_residue_Seasonal_DayOf...  ...  1.193031e+07  1.087182e+07  1.051880e+07
+92  None  RelDiff_SDU.L  RelDiff_SDU.L_PolyTrend_residue_bestCycle_byL2...  ...  1.193031e+07  1.087182e+07  1.051880e+07
+93  None  RelDiff_SDU.L  RelDiff_SDU.L_PolyTrend_residue_zeroCycle_resi...  ...  1.192927e+07  1.087182e+07  1.051880e+07
+94  None  RelDiff_SDU.L  RelDiff_SDU.L_PolyTrend_residue_Seasonal_DayOf...  ...  1.193214e+07  1.087182e+07  1.051880e+07
+95  None  RelDiff_SDU.L  RelDiff_SDU.L_PolyTrend_residue_bestCycle_byL2...  ...  1.193213e+07  1.087182e+07  1.051880e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _SDU.L    _SDU.L_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0134        0.0154    0.0054
+1  None         _SDU.L  _SDU.L_Lag1Trend_residue_bestCycle_byL2_residu...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0134        0.0154    0.0051
+2  None   CumSum_SDU.L  CumSum_SDU.L_Lag1Trend_residue_zeroCycle_resid...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0143        0.0154    0.0054
+3  None     Diff_SDU.L  Diff_SDU.L_Lag1Trend_residue_zeroCycle_residue...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0134        0.0154    0.0054
+4  None  RelDiff_SDU.L  RelDiff_SDU.L_Lag1Trend_residue_zeroCycle_resi...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0134        0.0154    0.0054
+7 0    1.74772
+1    1.76000
+2    1.75663
+3    1.57000
+4    1.56000
+5    1.56250
+6    1.57250
+Name: SDU.L, dtype: float64
+7 0    1.74121
+1    1.74121
+2    1.74121
+3    1.74121
+4    1.74121
+5    1.74121
+6    1.74121
+Name: SDU.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_SDU.L SDU.L [1.7477200000000002, 1.76, 1.75663, 1.57, 1.56, 1.5625, 1.5725]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_SDU.L SDU.L [1.74121, 1.74121, 1.74121, 1.74121, 1.74121, 1.74121, 1.74121]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_SDU.L SDU.L 1292 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_SDU.L SDU.L 11.359699964523315
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_SDU.L SDU.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_SDU.L SDU.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_SDU.L SDU.L 0.0672 0.0638 2.8239
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_SDU.L SDU.L 0.1057942857142857 0.13265609511601248 -1.0154121372281377
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_SDU.L_7'

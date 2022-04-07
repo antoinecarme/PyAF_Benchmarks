@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nasdaqbio
+TIME :  Date N= 539 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2013-08-15T00:00:00.000000000' '2013-08-16T00:00:00.000000000'
+ '2013-08-19T00:00:00.000000000' '2013-08-20T00:00:00.000000000'
+ '2013-08-21T00:00:00.000000000']
+SIGNAL :  MAXY N= 539 H= 7 HEAD= [5.39 5.43 5.48 5.41 5.53] TAIL= [2.56 2.55 2.54 2.54 2.56]
+   MAXY       Date
+0  5.39 2011-07-28
+1  5.43 2011-07-29
+2  5.48 2011-08-01
+3  5.41 2011-08-02
+4  5.53 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 539 entries, 0 to 538
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   MAXY    539 non-null    float64       
+ 1   Date    539 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 12.6 KB
+None
+   Split Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None          _MAXY     _MAXY_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0122  4.800000e-03  4.500000e-03
+1   None    CumSum_MAXY  CumSum_MAXY_Lag1Trend_residue_zeroCycle_residu...  ...  0.0145  4.800000e-03  4.500000e-03
+2   None      Diff_MAXY  Diff_MAXY_Lag1Trend_residue_zeroCycle_residue_...  ...  0.0122  4.800000e-03  4.500000e-03
+3   None   RelDiff_MAXY  RelDiff_MAXY_Lag1Trend_residue_zeroCycle_resid...  ...  0.0122  4.800000e-03  4.500000e-03
+4   None          _MAXY  _MAXY_ConstantTrend_residue_zeroCycle_residue_...  ...  0.0126  5.300000e-03  4.300000e-03
+..   ...            ...                                                ...  ...     ...           ...           ...
+91  None   RelDiff_MAXY  RelDiff_MAXY_LinearTrend_residue_zeroCycle_res...  ...  0.8356  7.004499e+07  1.192167e+08
+92  None   RelDiff_MAXY  RelDiff_MAXY_LinearTrend_residue_bestCycle_byL...  ...  0.7448  7.004512e+07  1.192167e+08
+93  None   RelDiff_MAXY  RelDiff_MAXY_PolyTrend_residue_zeroCycle_resid...  ...  0.4687  7.004872e+07  1.192167e+08
+94  None   RelDiff_MAXY  RelDiff_MAXY_PolyTrend_residue_Seasonal_DayOfW...  ...  0.4508  7.004873e+07  1.192167e+08
+95  None   RelDiff_MAXY  RelDiff_MAXY_PolyTrend_residue_bestCycle_byL2_...  ...  0.4166  7.004948e+07  1.192167e+08
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None          _MAXY     _MAXY_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0122        0.0048    0.0045
+1  None    CumSum_MAXY  CumSum_MAXY_Lag1Trend_residue_zeroCycle_residu...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0145        0.0048    0.0045
+2  None      Diff_MAXY  Diff_MAXY_Lag1Trend_residue_zeroCycle_residue_...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0122        0.0048    0.0045
+3  None   RelDiff_MAXY  RelDiff_MAXY_Lag1Trend_residue_zeroCycle_resid...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0122        0.0048    0.0045
+4  None          _MAXY  _MAXY_ConstantTrend_residue_zeroCycle_residue_...          NoTransf_ConstantTrend_NoCycle_AR          64   0.0126        0.0053    0.0043
+7 0    2.550
+1    2.550
+2    2.540
+3    2.541
+4    2.540
+5    2.530
+6    2.530
+Name: MAXY, dtype: float64
+7 0    2.56
+1    2.56
+2    2.56
+3    2.56
+4    2.56
+5    2.56
+6    2.56
+Name: MAXY_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_MAXY MAXY [2.55, 2.55, 2.54, 2.541, 2.54, 2.53, 2.53]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_MAXY MAXY [2.56, 2.56, 2.56, 2.56, 2.56, 2.56, 2.56]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_MAXY MAXY 539 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_MAXY MAXY 10.173635482788086
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_MAXY MAXY Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_MAXY MAXY 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_MAXY MAXY 0.0078 0.0078 5.4156
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_MAXY MAXY 0.019857142857143018 0.021250210082995297 -6.8856003136422155
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nasdaqbio_MAXY_7'

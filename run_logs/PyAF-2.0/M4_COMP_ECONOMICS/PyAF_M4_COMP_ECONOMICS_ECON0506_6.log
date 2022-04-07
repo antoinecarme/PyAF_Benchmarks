@@ -1,0 +1,62 @@
+BENCH_DATA M4_COMP_ECONOMICS
+TIME :  Date N= 68 H= 6 HEAD= [0 1 2 3 4] TAIL= [63 64 65 66 67]
+SIGNAL :  ECON0506 N= 68 H= 6 HEAD= [0.1 0.1 0.1 0.1 0.1] TAIL= [120.4 126.2 132.2 141.7 152.3]
+   ECON0506  Date
+0       0.1     0
+1       0.1     1
+2       0.1     2
+3       0.1     3
+4       0.1     4
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 68 entries, 0 to 67
+Data columns (total 2 columns):
+ #   Column    Non-Null Count  Dtype  
+---  ------    --------------  -----  
+ 0   ECON0506  68 non-null     float64
+ 1   Date      68 non-null     int64  
+dtypes: float64(1), int64(1)
+memory usage: 1.6 KB
+None
+   Split    Transformation                                              Model                                 Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0   None         _ECON0506  _ECON0506_PolyTrend_residue_bestCycle_byL2_res...              NoTransf_PolyTrend_Cycle_AR          36   0.8744        0.0229    0.0304
+1   None         _ECON0506  _ECON0506_PolyTrend_residue_zeroCycle_residue_...            NoTransf_PolyTrend_NoCycle_AR          28   0.2168        0.0262    0.0256
+2   None   CumSum_ECON0506  CumSum_ECON0506_LinearTrend_residue_bestCycle_...         Integration_LinearTrend_Cycle_AR          68   8.9516        0.0264    0.0358
+3   None     Diff_ECON0506  Diff_ECON0506_Lag1Trend_residue_bestCycle_byL2...          Difference_Lag1Trend_Cycle_NoAR          72   1.9565        0.0267    0.0223
+4   None         _ECON0506  _ECON0506_Lag1Trend_residue_bestCycle_byL2_res...              NoTransf_Lag1Trend_Cycle_AR          52   0.5746        0.0294    0.0330
+..   ...               ...                                                ...                                      ...         ...      ...           ...       ...
+59  None  RelDiff_ECON0506  RelDiff_ECON0506_Lag1Trend_residue_bestCycle_b...  RelativeDifference_Lag1Trend_Cycle_NoAR          72   0.7373        0.9983    0.9992
+60  None  RelDiff_ECON0506  RelDiff_ECON0506_Lag1Trend_residue_zeroCycle_r...  RelativeDifference_Lag1Trend_NoCycle_AR          76   0.7373        0.9983    0.9992
+61  None  RelDiff_ECON0506  RelDiff_ECON0506_Lag1Trend_residue_bestCycle_b...    RelativeDifference_Lag1Trend_Cycle_AR          84   0.7373        0.9983    0.9992
+62  None   CumSum_ECON0506  CumSum_ECON0506_ConstantTrend_residue_zeroCycl...   Integration_ConstantTrend_NoCycle_NoAR          32   8.0837        1.0000    1.0000
+63  None   CumSum_ECON0506  CumSum_ECON0506_ConstantTrend_residue_bestCycl...     Integration_ConstantTrend_Cycle_NoAR          40  21.3583        1.0249    0.9939
+
+[64 rows x 8 columns]
+  Split   Transformation                                              Model                          Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _ECON0506  _ECON0506_PolyTrend_residue_bestCycle_byL2_res...       NoTransf_PolyTrend_Cycle_AR          36   0.8744        0.0229    0.0304
+1  None        _ECON0506  _ECON0506_PolyTrend_residue_zeroCycle_residue_...     NoTransf_PolyTrend_NoCycle_AR          28   0.2168        0.0262    0.0256
+2  None  CumSum_ECON0506  CumSum_ECON0506_LinearTrend_residue_bestCycle_...  Integration_LinearTrend_Cycle_AR          68   8.9516        0.0264    0.0358
+3  None    Diff_ECON0506  Diff_ECON0506_Lag1Trend_residue_bestCycle_byL2...   Difference_Lag1Trend_Cycle_NoAR          72   1.9565        0.0267    0.0223
+4  None        _ECON0506  _ECON0506_Lag1Trend_residue_bestCycle_byL2_res...       NoTransf_Lag1Trend_Cycle_AR          52   0.5746        0.0294    0.0330
+6 0    164.7
+1    183.0
+2    195.5
+3    217.4
+4    223.3
+5    201.3
+Name: ECON0506, dtype: float64
+6 0    152.719551
+1    150.609214
+2    150.560363
+3    150.977010
+4    145.563761
+5    136.669822
+Name: ECON0506_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL ECON0506 ECON0506 [164.7, 183.0, 195.5, 217.4, 223.3, 201.3]
+FORECAST_DETAIL_PREDICTED ECON0506 ECON0506 [152.71955142576653, 150.60921417613838, 150.56036311103793, 150.9770102943585, 145.56376117353486, 136.6698218611821]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON ECON0506 ECON0506 68 6
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ ECON0506 ECON0506 5.69658899307251
+BENCHMARK_PERF_DETAIL_BEST_MODEL ECON0506 ECON0506 PolyTrend + NoCycle + AR
+BENCHMARK_PERF_DETAIL_PERF_COUNT ECON0506 ECON0506 6
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE ECON0506 ECON0506 0.2424 0.2823 3.0821
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 ECON0506 ECON0506 49.683379659663615 54.5347923082369 -6.541400784648537
+BENCHMARK_SUCCESS 'M4_COMP_ECONOMICS_ECON0506_6'

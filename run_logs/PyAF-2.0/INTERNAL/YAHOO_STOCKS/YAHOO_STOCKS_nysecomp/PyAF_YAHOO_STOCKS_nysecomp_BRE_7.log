@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 691 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2014-03-17T00:00:00.000000000' '2014-03-18T00:00:00.000000000'
+ '2014-03-19T00:00:00.000000000' '2014-03-20T00:00:00.000000000'
+ '2014-03-21T00:00:00.000000000']
+SIGNAL :  BRE N= 691 H= 7 HEAD= [52.19 52.48 52.25 50.64 48.01] TAIL= [61.28 61.5  60.61 61.28 61.66]
+     BRE       Date
+0  52.19 2011-07-28
+1  52.48 2011-07-29
+2  52.25 2011-08-01
+3  50.64 2011-08-02
+4  48.01 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 691 entries, 0 to 690
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   BRE     691 non-null    float64       
+ 1   Date    691 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 16.2 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _BRE      _BRE_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.050000e-02  8.600000e-03  7.800000e-03
+1   None     CumSum_BRE  CumSum_BRE_Lag1Trend_residue_zeroCycle_residue...  ...  1.230000e-02  8.600000e-03  7.800000e-03
+2   None       Diff_BRE  Diff_BRE_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.050000e-02  8.600000e-03  7.800000e-03
+3   None    RelDiff_BRE  RelDiff_BRE_Lag1Trend_residue_zeroCycle_residu...  ...  1.050000e-02  8.600000e-03  7.800000e-03
+4   None           _BRE  _BRE_Lag1Trend_residue_bestCycle_byL2_residue_...  ...  1.040000e-02  8.700000e-03  7.100000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_BRE  RelDiff_BRE_PolyTrend_residue_bestCycle_byL2_r...  ...  2.333820e+07  2.093518e+07  1.884714e+07
+92  None    RelDiff_BRE  RelDiff_BRE_ConstantTrend_residue_zeroCycle_re...  ...  2.333816e+07  2.093518e+07  1.884714e+07
+93  None    RelDiff_BRE  RelDiff_BRE_ConstantTrend_residue_Seasonal_Day...  ...  2.325799e+07  2.093518e+07  1.884714e+07
+94  None    RelDiff_BRE  RelDiff_BRE_ConstantTrend_residue_bestCycle_by...  ...  2.329799e+07  2.093518e+07  1.884714e+07
+95  None    RelDiff_BRE  RelDiff_BRE_PolyTrend_residue_zeroCycle_residu...  ...  2.333821e+07  2.093518e+07  1.884714e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _BRE      _BRE_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0105        0.0086    0.0078
+1  None     CumSum_BRE  CumSum_BRE_Lag1Trend_residue_zeroCycle_residue...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0123        0.0086    0.0078
+2  None       Diff_BRE  Diff_BRE_Lag1Trend_residue_zeroCycle_residue_NoAR          Difference_Lag1Trend_NoCycle_NoAR          64   0.0105        0.0086    0.0078
+3  None    RelDiff_BRE  RelDiff_BRE_Lag1Trend_residue_zeroCycle_residu...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0105        0.0086    0.0078
+4  None           _BRE  _BRE_Lag1Trend_residue_bestCycle_byL2_residue_...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0104        0.0087    0.0071
+7 0    61.64
+1    62.60
+2    61.40
+3    62.10
+4    62.13
+5    62.78
+6    61.00
+Name: BRE, dtype: float64
+7 0    61.66
+1    61.66
+2    61.66
+3    61.66
+4    61.66
+5    61.66
+6    61.66
+Name: BRE_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_BRE BRE [61.64, 62.6, 61.4, 62.1, 62.13, 62.78, 61.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_BRE BRE [61.66, 61.66, 61.66, 61.66, 61.66, 61.66, 61.66]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_BRE BRE 691 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_BRE BRE 13.285929679870605
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_BRE BRE Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_BRE BRE 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_BRE BRE 0.009 0.009 0.63
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_BRE BRE 0.5585714285714302 0.6607463312692078 -0.23859122958424117
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_BRE_7'

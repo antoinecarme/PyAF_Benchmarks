@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1224 H= 7 HEAD= ['2011-08-30T00:00:00.000000000' '2011-09-01T00:00:00.000000000'
+ '2011-09-05T00:00:00.000000000' '2011-09-14T00:00:00.000000000'
+ '2011-09-15T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  KG N= 1224 H= 7 HEAD= [0.12 0.11 0.1  0.1  0.1 ] TAIL= [5.49 5.49 5.49 5.49 5.49]
+     KG       Date
+0  0.12 2011-08-30
+1  0.11 2011-09-01
+2  0.10 2011-09-05
+3  0.10 2011-09-14
+4  0.10 2011-09-15
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1224 entries, 0 to 1223
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   KG      1224 non-null   float64       
+ 1   Date    1224 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 28.7 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE     TestMAPE
+0   None            _KG       _KG_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.020000e-02  1.450000e-02       0.0000
+1   None      CumSum_KG  CumSum_KG_Lag1Trend_residue_zeroCycle_residue_...  ...  1.120000e-02  1.450000e-02       0.0000
+2   None        Diff_KG   Diff_KG_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.020000e-02  1.450000e-02       0.0000
+3   None     RelDiff_KG  RelDiff_KG_Lag1Trend_residue_zeroCycle_residue...  ...  1.020000e-02  1.450000e-02       0.0000
+4   None            _KG  _KG_Lag1Trend_residue_bestCycle_byL2_residue_NoAR  ...  2.080000e-02  1.510000e-02       0.0004
+..   ...            ...                                                ...  ...           ...           ...          ...
+91  None     RelDiff_KG  RelDiff_KG_PolyTrend_residue_zeroCycle_residue...  ...  1.554611e+07  1.113944e+06  473589.3253
+92  None     RelDiff_KG  RelDiff_KG_PolyTrend_residue_bestCycle_byL2_re...  ...  1.554601e+07  1.113944e+06  473589.3253
+93  None     RelDiff_KG  RelDiff_KG_ConstantTrend_residue_Seasonal_DayO...  ...  1.541764e+07  1.113944e+06  473589.3253
+94  None     RelDiff_KG  RelDiff_KG_PolyTrend_residue_zeroCycle_residue...  ...  1.554693e+07  1.113944e+06  473589.3253
+95  None     RelDiff_KG  RelDiff_KG_PolyTrend_residue_Seasonal_DayOfWee...  ...  1.554696e+07  1.113944e+06  473589.3253
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None            _KG       _KG_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0102        0.0145    0.0000
+1  None      CumSum_KG  CumSum_KG_Lag1Trend_residue_zeroCycle_residue_...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0112        0.0145    0.0000
+2  None        Diff_KG   Diff_KG_Lag1Trend_residue_zeroCycle_residue_NoAR          Difference_Lag1Trend_NoCycle_NoAR          64   0.0102        0.0145    0.0000
+3  None     RelDiff_KG  RelDiff_KG_Lag1Trend_residue_zeroCycle_residue...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0102        0.0145    0.0000
+4  None            _KG  _KG_Lag1Trend_residue_bestCycle_byL2_residue_NoAR              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0208        0.0151    0.0004
+7 0    5.49
+1    5.49
+2    5.49
+3    5.49
+4    5.49
+5    5.49
+6    5.49
+Name: KG, dtype: float64
+7 0    5.49
+1    5.49
+2    5.49
+3    5.49
+4    5.49
+5    5.49
+6    5.49
+Name: KG_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_KG KG [5.49, 5.49, 5.49, 5.49, 5.49, 5.49, 5.49]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_KG KG [5.49, 5.49, 5.49, 5.49, 5.49, 5.49, 5.49]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_KG KG 1224 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_KG KG 12.576168298721313
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_KG KG Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_KG KG 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_KG KG 0.0 0.0 0.0
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_KG KG 0.0 0.0 1.0
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_KG_7'

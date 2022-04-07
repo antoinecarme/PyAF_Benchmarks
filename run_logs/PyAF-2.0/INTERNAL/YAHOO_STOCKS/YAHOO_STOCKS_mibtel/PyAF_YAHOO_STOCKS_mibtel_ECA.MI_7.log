@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_mibtel
+TIME :  Date N= 1297 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  ECA.MI N= 1297 H= 7 HEAD= [0.34012 0.33687 0.33661 0.33267 0.33284] TAIL= [0.049  0.0472 0.0473 0.0463 0.0483]
+    ECA.MI       Date
+0  0.34012 2011-07-28
+1  0.33687 2011-07-29
+2  0.33661 2011-08-01
+3  0.33267 2011-08-02
+4  0.33284 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1297 entries, 0 to 1296
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   ECA.MI  1297 non-null   float64       
+ 1   Date    1297 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _ECA.MI  _ECA.MI_Lag1Trend_residue_zeroCycle_residue_AR...  ...  0.0236  2.170000e-02  1.960000e-02
+1   None         _ECA.MI   _ECA.MI_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0238  2.180000e-02  1.770000e-02
+2   None   CumSum_ECA.MI  CumSum_ECA.MI_Lag1Trend_residue_zeroCycle_resi...  ...  0.0248  2.180000e-02  1.770000e-02
+3   None     Diff_ECA.MI  Diff_ECA.MI_Lag1Trend_residue_zeroCycle_residu...  ...  0.0238  2.180000e-02  1.770000e-02
+4   None  RelDiff_ECA.MI  RelDiff_ECA.MI_Lag1Trend_residue_zeroCycle_res...  ...  0.0238  2.180000e-02  1.770000e-02
+..   ...             ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_ECA.MI  RelDiff_ECA.MI_ConstantTrend_residue_Seasonal_...  ...  1.4146  1.458348e+07  6.224343e+08
+92  None  RelDiff_ECA.MI  RelDiff_ECA.MI_ConstantTrend_residue_zeroCycle...  ...  1.4141  1.458350e+07  6.224343e+08
+93  None  RelDiff_ECA.MI  RelDiff_ECA.MI_LinearTrend_residue_bestCycle_b...  ...  1.0493  1.458404e+07  6.224343e+08
+94  None  RelDiff_ECA.MI  RelDiff_ECA.MI_LinearTrend_residue_Seasonal_Da...  ...  1.0531  1.458406e+07  6.224343e+08
+95  None  RelDiff_ECA.MI  RelDiff_ECA.MI_LinearTrend_residue_zeroCycle_r...  ...  1.0482  1.458410e+07  6.224343e+08
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _ECA.MI  _ECA.MI_Lag1Trend_residue_zeroCycle_residue_AR...              NoTransf_Lag1Trend_NoCycle_AR          96   0.0236        0.0217    0.0196
+1  None         _ECA.MI   _ECA.MI_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0238        0.0218    0.0177
+2  None   CumSum_ECA.MI  CumSum_ECA.MI_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0248        0.0218    0.0177
+3  None     Diff_ECA.MI  Diff_ECA.MI_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0238        0.0218    0.0177
+4  None  RelDiff_ECA.MI  RelDiff_ECA.MI_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0238        0.0218    0.0177
+7 0    0.0477
+1    0.0477
+2    0.0461
+3    0.0462
+4    0.0462
+5    0.0460
+6    0.0470
+Name: ECA.MI, dtype: float64
+7 0    0.0483
+1    0.0483
+2    0.0483
+3    0.0483
+4    0.0483
+5    0.0483
+6    0.0483
+Name: ECA.MI_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_ECA.MI ECA.MI [0.0477, 0.0477, 0.0461, 0.0462, 0.0462, 0.046, 0.047]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_ECA.MI ECA.MI [0.0483, 0.0483, 0.0483, 0.0483, 0.0483, 0.0483, 0.0483]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_ECA.MI ECA.MI 1297 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_ECA.MI ECA.MI 11.524356842041016
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_ECA.MI ECA.MI Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_ECA.MI ECA.MI 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_ECA.MI ECA.MI 0.0345 0.0338 3.3103
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_ECA.MI ECA.MI 0.0016000000000000031 0.0017468338705866056 -5.209121827853863
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_mibtel_ECA.MI_7'

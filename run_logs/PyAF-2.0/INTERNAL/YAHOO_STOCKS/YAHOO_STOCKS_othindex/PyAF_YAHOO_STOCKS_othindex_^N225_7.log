@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_othindex
+TIME :  Date N= 1235 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-11T00:00:00.000000000' '2016-07-12T00:00:00.000000000'
+ '2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000']
+SIGNAL :  ^N225 N= 1235 H= 7 HEAD= [9901.349609 9833.030273 9965.009766 9844.589844 9637.139648] TAIL= [15708.820312 16095.650391 16231.429688 16385.890625 16497.849609]
+         ^N225       Date
+0  9901.349609 2011-07-28
+1  9833.030273 2011-07-29
+2  9965.009766 2011-08-01
+3  9844.589844 2011-08-02
+4  9637.139648 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1235 entries, 0 to 1234
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   ^N225   1235 non-null   float64       
+ 1   Date    1235 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 28.9 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _^N225    _^N225_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  9.700000e-03  1.330000e-02  1.500000e-02
+1   None         _^N225  _^N225_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  9.800000e-03  1.330000e-02  1.470000e-02
+2   None         _^N225  _^N225_Lag1Trend_residue_bestCycle_byL2_residu...  ...  9.700000e-03  1.330000e-02  1.440000e-02
+3   None   CumSum_^N225  CumSum_^N225_Lag1Trend_residue_zeroCycle_resid...  ...  1.080000e-02  1.330000e-02  1.500000e-02
+4   None     Diff_^N225  Diff_^N225_Lag1Trend_residue_zeroCycle_residue...  ...  9.700000e-03  1.330000e-02  1.500000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_^N225  RelDiff_^N225_PolyTrend_residue_bestCycle_byL2...  ...  1.433060e+07  9.815636e+06  1.096282e+07
+92  None  RelDiff_^N225  RelDiff_^N225_PolyTrend_residue_zeroCycle_resi...  ...  1.433240e+07  9.815636e+06  1.096282e+07
+93  None  RelDiff_^N225  RelDiff_^N225_ConstantTrend_residue_zeroCycle_...  ...  1.432743e+07  9.815636e+06  1.096282e+07
+94  None  RelDiff_^N225  RelDiff_^N225_PolyTrend_residue_zeroCycle_resi...  ...  1.433634e+07  9.815636e+06  1.096282e+07
+95  None  RelDiff_^N225  RelDiff_^N225_PolyTrend_residue_Seasonal_DayOf...  ...  1.433332e+07  9.815636e+06  1.096282e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _^N225    _^N225_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0097        0.0133    0.0150
+1  None         _^N225  _^N225_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0098        0.0133    0.0147
+2  None         _^N225  _^N225_Lag1Trend_residue_bestCycle_byL2_residu...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0097        0.0133    0.0144
+3  None   CumSum_^N225  CumSum_^N225_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0108        0.0133    0.0150
+4  None     Diff_^N225  Diff_^N225_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0097        0.0133    0.0150
+7 0    16723.310547
+1    16681.890625
+2    16810.220703
+3    16627.250000
+4    16620.289062
+5    16383.040039
+6    16664.820312
+Name: ^N225, dtype: float64
+7 0    16497.849609
+1    16497.849609
+2    16497.849609
+3    16497.849609
+4    16497.849609
+5    16497.849609
+6    16497.849609
+Name: ^N225_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_^N225 ^N225 [16723.310547, 16681.890625, 16810.220703, 16627.25, 16620.289062, 16383.040038999998, 16664.820312]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_^N225 ^N225 [16497.849609, 16497.849609, 16497.849609, 16497.849609, 16497.849609, 16497.849609, 16497.849609]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_^N225 ^N225 1235 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_^N225 ^N225 11.386359691619873
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_^N225 ^N225 Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_^N225 ^N225 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_^N225 ^N225 0.0108 0.0108 1.2247
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_^N225 ^N225 179.35616642857116 190.89105507992878 -1.4355464320843225
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_othindex_^N225_7'

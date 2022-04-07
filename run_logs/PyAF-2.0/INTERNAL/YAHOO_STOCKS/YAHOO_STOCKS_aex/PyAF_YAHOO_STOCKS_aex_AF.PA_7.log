@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aex
+TIME :  Date N= 1298 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  AF.PA N= 1298 H= 7 HEAD= [8.619 8.426 8.051 7.83  7.579] TAIL= [5.982 5.89  6.006 5.91  5.888]
+   AF.PA       Date
+0  8.619 2011-07-28
+1  8.426 2011-07-29
+2  8.051 2011-08-01
+3  7.830 2011-08-02
+4  7.579 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1298 entries, 0 to 1297
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   AF.PA   1298 non-null   float64       
+ 1   Date    1298 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _AF.PA    _AF.PA_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.110000e-02  1.730000e-02  1.540000e-02
+1   None   CumSum_AF.PA  CumSum_AF.PA_Lag1Trend_residue_zeroCycle_resid...  ...  2.210000e-02  1.730000e-02  1.540000e-02
+2   None     Diff_AF.PA  Diff_AF.PA_Lag1Trend_residue_zeroCycle_residue...  ...  2.110000e-02  1.730000e-02  1.540000e-02
+3   None  RelDiff_AF.PA  RelDiff_AF.PA_Lag1Trend_residue_zeroCycle_resi...  ...  2.110000e-02  1.730000e-02  1.540000e-02
+4   None         _AF.PA  _AF.PA_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  2.110000e-02  1.740000e-02  1.510000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_AF.PA  RelDiff_AF.PA_LinearTrend_residue_zeroCycle_re...  ...  8.872676e+07  8.041596e+07  9.444441e+07
+92  None  RelDiff_AF.PA  RelDiff_AF.PA_LinearTrend_residue_Seasonal_Day...  ...  8.873566e+07  8.041596e+07  9.444441e+07
+93  None  RelDiff_AF.PA  RelDiff_AF.PA_LinearTrend_residue_bestCycle_by...  ...  8.873566e+07  8.041596e+07  9.444441e+07
+94  None  RelDiff_AF.PA  RelDiff_AF.PA_PolyTrend_residue_zeroCycle_resi...  ...  8.872486e+07  8.041596e+07  9.444441e+07
+95  None  RelDiff_AF.PA  RelDiff_AF.PA_ConstantTrend_residue_zeroCycle_...  ...  8.871746e+07  8.041596e+07  9.444441e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _AF.PA    _AF.PA_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0211        0.0173    0.0154
+1  None   CumSum_AF.PA  CumSum_AF.PA_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0221        0.0173    0.0154
+2  None     Diff_AF.PA  Diff_AF.PA_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0211        0.0173    0.0154
+3  None  RelDiff_AF.PA  RelDiff_AF.PA_Lag1Trend_residue_zeroCycle_resi...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0211        0.0173    0.0154
+4  None         _AF.PA  _AF.PA_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0211        0.0174    0.0151
+7 0    5.645
+1    5.569
+2    5.340
+3    5.387
+4    5.262
+5    5.215
+6    5.179
+Name: AF.PA, dtype: float64
+7 0    5.888
+1    5.888
+2    5.888
+3    5.888
+4    5.888
+5    5.888
+6    5.888
+Name: AF.PA_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_AF.PA AF.PA [5.645, 5.569, 5.34, 5.3870000000000005, 5.2620000000000005, 5.215, 5.178999999999999]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_AF.PA AF.PA [5.888, 5.888, 5.888, 5.888, 5.888, 5.888, 5.888]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_AF.PA AF.PA 1298 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_AF.PA AF.PA 11.414741277694702
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_AF.PA AF.PA Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_AF.PA AF.PA 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_AF.PA AF.PA 0.0973 0.0923 5.5393
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_AF.PA AF.PA 0.517 0.5424285338048822 -9.92174590306306
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aex_AF.PA_7'

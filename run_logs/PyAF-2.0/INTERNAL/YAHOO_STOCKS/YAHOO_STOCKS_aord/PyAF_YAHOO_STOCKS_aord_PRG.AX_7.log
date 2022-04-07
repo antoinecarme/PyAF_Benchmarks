@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aord
+TIME :  Date N= 1299 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  PRG.AX N= 1299 H= 7 HEAD= [1.925 1.965 1.95  1.95  1.925] TAIL= [1.71  1.68  1.625 1.64  1.645]
+   PRG.AX       Date
+0   1.925 2011-07-28
+1   1.965 2011-07-29
+2   1.950 2011-08-01
+3   1.950 2011-08-02
+4   1.925 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1299 entries, 0 to 1298
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   PRG.AX  1299 non-null   float64       
+ 1   Date    1299 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _PRG.AX   _PRG.AX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0156  2.250000e-02  1.930000e-02
+1   None   CumSum_PRG.AX  CumSum_PRG.AX_Lag1Trend_residue_zeroCycle_resi...  ...  0.0166  2.250000e-02  1.930000e-02
+2   None     Diff_PRG.AX  Diff_PRG.AX_Lag1Trend_residue_zeroCycle_residu...  ...  0.0156  2.250000e-02  1.930000e-02
+3   None  RelDiff_PRG.AX  RelDiff_PRG.AX_Lag1Trend_residue_zeroCycle_res...  ...  0.0156  2.250000e-02  1.930000e-02
+4   None         _PRG.AX  _PRG.AX_Lag1Trend_residue_bestCycle_byL2_resid...  ...  0.0157  2.260000e-02  2.010000e-02
+..   ...             ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_PRG.AX  RelDiff_PRG.AX_LinearTrend_residue_Seasonal_Da...  ...  0.2887  2.485870e+07  5.552528e+07
+92  None  RelDiff_PRG.AX  RelDiff_PRG.AX_LinearTrend_residue_zeroCycle_r...  ...  0.2960  2.485874e+07  5.552528e+07
+93  None  RelDiff_PRG.AX  RelDiff_PRG.AX_ConstantTrend_residue_bestCycle...  ...  0.1313  2.485878e+07  5.552528e+07
+94  None  RelDiff_PRG.AX  RelDiff_PRG.AX_ConstantTrend_residue_Seasonal_...  ...  0.1327  2.485880e+07  5.552528e+07
+95  None  RelDiff_PRG.AX  RelDiff_PRG.AX_ConstantTrend_residue_zeroCycle...  ...  0.1336  2.485885e+07  5.552528e+07
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _PRG.AX   _PRG.AX_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0156        0.0225    0.0193
+1  None   CumSum_PRG.AX  CumSum_PRG.AX_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0166        0.0225    0.0193
+2  None     Diff_PRG.AX  Diff_PRG.AX_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0156        0.0225    0.0193
+3  None  RelDiff_PRG.AX  RelDiff_PRG.AX_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0156        0.0225    0.0193
+4  None         _PRG.AX  _PRG.AX_Lag1Trend_residue_bestCycle_byL2_resid...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0157        0.0226    0.0201
+7 0    1.740
+1    1.740
+2    1.755
+3    1.730
+4    1.775
+5    2.030
+6    2.050
+Name: PRG.AX, dtype: float64
+7 0    1.645
+1    1.645
+2    1.645
+3    1.645
+4    1.645
+5    1.645
+6    1.645
+Name: PRG.AX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_PRG.AX PRG.AX [1.74, 1.74, 1.755, 1.73, 1.775, 2.03, 2.05]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_PRG.AX PRG.AX [1.645, 1.645, 1.645, 1.645, 1.645, 1.645, 1.645]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_PRG.AX PRG.AX 1299 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_PRG.AX PRG.AX 10.783994436264038
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_PRG.AX PRG.AX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_PRG.AX PRG.AX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_PRG.AX PRG.AX 0.0974 0.1046 3.1071
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_PRG.AX PRG.AX 0.18642857142857133 0.22882463653574156 -1.9741784013424621
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aord_PRG.AX_7'

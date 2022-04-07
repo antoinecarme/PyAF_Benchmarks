@@ -1,0 +1,62 @@
+BENCH_DATA M4_COMP_DEMOGRAPHICS
+TIME :  Date N= 20 H= 6 HEAD= [0 1 2 3 4] TAIL= [15 16 17 18 19]
+SIGNAL :  D0601 N= 20 H= 6 HEAD= [25. 24. 24. 23. 22.] TAIL= [15. 14. 14. 13. 12.]
+   D0601  Date
+0   25.0     0
+1   24.0     1
+2   24.0     2
+3   23.0     3
+4   22.0     4
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 20 entries, 0 to 19
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   D0601   20 non-null     float64
+ 1   Date    20 non-null     int64  
+dtypes: float64(1), int64(1)
+memory usage: 480.0 bytes
+None
+   Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0   None     Diff_D0601  Diff_D0601_LinearTrend_residue_zeroCycle_resid...          Difference_LinearTrend_NoCycle_AR          53   0.0129        0.0129    0.0129
+1   None     Diff_D0601  Diff_D0601_LinearTrend_residue_bestCycle_byL2_...       Difference_LinearTrend_Cycle_None_AR          61   0.0129        0.0129    0.0129
+2   None     Diff_D0601  Diff_D0601_PolyTrend_residue_zeroCycle_residue...            Difference_PolyTrend_NoCycle_AR          53   0.0140        0.0140    0.0140
+3   None     Diff_D0601  Diff_D0601_PolyTrend_residue_bestCycle_byL2_re...         Difference_PolyTrend_Cycle_None_AR          61   0.0140        0.0140    0.0140
+4   None         _D0601  _D0601_LinearTrend_residue_zeroCycle_residue_A...            NoTransf_LinearTrend_NoCycle_AR          21   0.0141        0.0141    0.0141
+..   ...            ...                                                ...                                        ...         ...      ...           ...       ...
+59  None   CumSum_D0601  CumSum_D0601_LinearTrend_residue_bestCycle_byL...    Integration_LinearTrend_Cycle_None_NoAR          56   0.4663        0.4663    0.4663
+60  None   CumSum_D0601  CumSum_D0601_PolyTrend_residue_zeroCycle_resid...         Integration_PolyTrend_NoCycle_NoAR          48   0.6033        0.6033    0.6033
+61  None   CumSum_D0601  CumSum_D0601_PolyTrend_residue_bestCycle_byL2_...      Integration_PolyTrend_Cycle_None_NoAR          56   0.6033        0.6033    0.6033
+62  None   CumSum_D0601  CumSum_D0601_ConstantTrend_residue_zeroCycle_r...     Integration_ConstantTrend_NoCycle_NoAR          32   1.3371        1.3371    1.3371
+63  None   CumSum_D0601  CumSum_D0601_ConstantTrend_residue_bestCycle_b...  Integration_ConstantTrend_Cycle_None_NoAR          40   1.3371        1.3371    1.3371
+
+[64 rows x 8 columns]
+  Split Transformation                                              Model                              Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None     Diff_D0601  Diff_D0601_LinearTrend_residue_zeroCycle_resid...     Difference_LinearTrend_NoCycle_AR          53   0.0129        0.0129    0.0129
+1  None     Diff_D0601  Diff_D0601_LinearTrend_residue_bestCycle_byL2_...  Difference_LinearTrend_Cycle_None_AR          61   0.0129        0.0129    0.0129
+2  None     Diff_D0601  Diff_D0601_PolyTrend_residue_zeroCycle_residue...       Difference_PolyTrend_NoCycle_AR          53   0.0140        0.0140    0.0140
+3  None     Diff_D0601  Diff_D0601_PolyTrend_residue_bestCycle_byL2_re...    Difference_PolyTrend_Cycle_None_AR          61   0.0140        0.0140    0.0140
+4  None         _D0601  _D0601_LinearTrend_residue_zeroCycle_residue_A...       NoTransf_LinearTrend_NoCycle_AR          21   0.0141        0.0141    0.0141
+6 0    12.0
+1    11.0
+2    11.0
+3    11.0
+4    11.0
+5    10.0
+Name: D0601, dtype: float64
+6 0    11.553924
+1    10.669254
+2     9.807238
+3     9.113740
+4     8.262853
+5     7.410608
+Name: D0601_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL D0601 D0601 [12.0, 11.0, 11.0, 11.0, 11.0, 10.0]
+FORECAST_DETAIL_PREDICTED D0601 D0601 [11.55392376237065, 10.669254025519749, 9.807238026490399, 9.11373971342907, 8.262853199012326, 7.41060785078337]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON D0601 D0601 20 6
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ D0601 D0601 4.738952875137329
+BENCHMARK_PERF_DETAIL_BEST_MODEL D0601 D0601 ConstantTrend + NoCycle + AR
+BENCHMARK_PERF_DETAIL_PERF_COUNT D0601 D0601 6
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE D0601 D0601 0.1425 0.1587 3.826
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 D0601 D0601 1.5303972370657395 1.8021265316351212 -8.742980107582545
+BENCHMARK_SUCCESS 'M4_COMP_DEMOGRAPHICS_D0601_6'

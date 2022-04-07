@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  ACC N= 1251 H= 7 HEAD= [37.07     37.220001 36.98     36.540001 36.130001] TAIL= [52.43     52.689999 51.82     51.790001 51.599998]
+         ACC       Date
+0  37.070000 2011-07-28
+1  37.220001 2011-07-29
+2  36.980000 2011-08-01
+3  36.540001 2011-08-02
+4  36.130001 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   ACC     1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _ACC  _ACC_Lag1Trend_residue_bestCycle_byL2_residue_...  ...  9.100000e-03  1.030000e-02  5.400000e-03
+1   None       Diff_ACC  Diff_ACC_Lag1Trend_residue_bestCycle_byL2_resi...  ...  9.200000e-03  1.030000e-02  5.700000e-03
+2   None           _ACC      _ACC_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  9.100000e-03  1.040000e-02  5.500000e-03
+3   None           _ACC  _ACC_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  ...  9.100000e-03  1.040000e-02  5.700000e-03
+4   None     CumSum_ACC  CumSum_ACC_Lag1Trend_residue_zeroCycle_residue...  ...  1.010000e-02  1.040000e-02  5.500000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_ACC  RelDiff_ACC_PolyTrend_residue_Seasonal_DayOfWe...  ...  1.310370e+07  1.277326e+07  1.009806e+07
+92  None    RelDiff_ACC  RelDiff_ACC_Lag1Trend_residue_Seasonal_DayOfWe...  ...  1.304611e+07  1.277326e+07  1.009806e+07
+93  None    RelDiff_ACC  RelDiff_ACC_Lag1Trend_residue_bestCycle_byL2_r...  ...  1.311786e+07  1.277326e+07  1.009806e+07
+94  None    RelDiff_ACC  RelDiff_ACC_LinearTrend_residue_Seasonal_DayOf...  ...  1.309452e+07  1.277326e+07  1.009806e+07
+95  None    RelDiff_ACC  RelDiff_ACC_LinearTrend_residue_zeroCycle_resi...  ...  1.308959e+07  1.277326e+07  1.009806e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _ACC  _ACC_Lag1Trend_residue_bestCycle_byL2_residue_...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0091        0.0103    0.0054
+1  None       Diff_ACC  Diff_ACC_Lag1Trend_residue_bestCycle_byL2_resi...             Difference_Lag1Trend_Cycle_NoAR          72   0.0092        0.0103    0.0057
+2  None           _ACC      _ACC_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0091        0.0104    0.0055
+3  None           _ACC  _ACC_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0091        0.0104    0.0057
+4  None     CumSum_ACC  CumSum_ACC_Lag1Trend_residue_zeroCycle_residue...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0101        0.0104    0.0055
+7 0    52.160000
+1    51.889999
+2    52.119999
+3    52.639999
+4    52.439999
+5    52.570000
+6    52.130001
+Name: ACC, dtype: float64
+7 0    51.599998
+1    51.599998
+2    51.599998
+3    51.599998
+4    51.599998
+5    51.599998
+6    51.599998
+Name: ACC_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_ACC ACC [52.16, 51.889998999999996, 52.119999, 52.639998999999996, 52.439999, 52.57, 52.130001]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_ACC ACC [51.599998, 51.599998, 51.599998, 51.599998, 51.599998, 51.599998, 51.599998]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_ACC ACC 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_ACC ACC 11.871861457824707
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_ACC ACC Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_ACC ACC 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_ACC ACC 0.013 0.0131 2.2745
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_ACC ACC 0.6785729999999991 0.7247772741648678 -7.101415350222824
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_ACC_7'

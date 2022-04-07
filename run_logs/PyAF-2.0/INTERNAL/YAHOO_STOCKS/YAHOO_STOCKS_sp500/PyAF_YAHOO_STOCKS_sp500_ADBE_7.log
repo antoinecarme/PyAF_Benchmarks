@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_sp500
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  ADBE N= 1251 H= 7 HEAD= [28.02     27.709999 27.67     27.030001 27.370001] TAIL= [97.540001 97.339996 97.699997 97.830002 97.790001]
+        ADBE       Date
+0  28.020000 2011-07-28
+1  27.709999 2011-07-29
+2  27.670000 2011-08-01
+3  27.030001 2011-08-02
+4  27.370001 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   ADBE    1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None          _ADBE  _ADBE_Lag1Trend_residue_Seasonal_DayOfWeek_res...  ...  1.190000e-02  1.270000e-02  4.300000e-03
+1   None          _ADBE  _ADBE_Lag1Trend_residue_bestCycle_byL2_residue...  ...  1.190000e-02  1.270000e-02  4.000000e-03
+2   None          _ADBE     _ADBE_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.190000e-02  1.280000e-02  4.600000e-03
+3   None    CumSum_ADBE  CumSum_ADBE_Lag1Trend_residue_zeroCycle_residu...  ...  1.290000e-02  1.280000e-02  4.600000e-03
+4   None      Diff_ADBE  Diff_ADBE_Lag1Trend_residue_zeroCycle_residue_...  ...  1.190000e-02  1.280000e-02  4.600000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None   RelDiff_ADBE  RelDiff_ADBE_PolyTrend_residue_Seasonal_DayOfW...  ...  1.216637e+07  6.035023e+06  5.469704e+06
+92  None   RelDiff_ADBE  RelDiff_ADBE_ConstantTrend_residue_zeroCycle_r...  ...  1.216389e+07  6.035023e+06  5.469704e+06
+93  None   RelDiff_ADBE  RelDiff_ADBE_ConstantTrend_residue_bestCycle_b...  ...  1.199096e+07  6.035023e+06  5.469704e+06
+94  None   RelDiff_ADBE  RelDiff_ADBE_PolyTrend_residue_zeroCycle_resid...  ...  1.217330e+07  6.035023e+06  5.469704e+06
+95  None   RelDiff_ADBE  RelDiff_ADBE_PolyTrend_residue_bestCycle_byL2_...  ...  1.217019e+07  6.035023e+06  5.469704e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None          _ADBE  _ADBE_Lag1Trend_residue_Seasonal_DayOfWeek_res...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0119        0.0127    0.0043
+1  None          _ADBE  _ADBE_Lag1Trend_residue_bestCycle_byL2_residue...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0119        0.0127    0.0040
+2  None          _ADBE     _ADBE_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0119        0.0128    0.0046
+3  None    CumSum_ADBE  CumSum_ADBE_Lag1Trend_residue_zeroCycle_residu...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0129        0.0128    0.0046
+4  None      Diff_ADBE  Diff_ADBE_Lag1Trend_residue_zeroCycle_residue_...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0119        0.0128    0.0046
+7 0    97.790001
+1    98.400002
+2    96.339996
+3    98.059998
+4    97.320000
+5    97.910004
+6    97.930000
+Name: ADBE, dtype: float64
+7 0    97.790001
+1    97.790001
+2    97.790001
+3    97.790001
+4    97.790001
+5    97.790001
+6    97.790001
+Name: ADBE_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_ADBE ADBE [97.790001, 98.400002, 96.339996, 98.059998, 97.32, 97.910004, 97.93]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_ADBE ADBE [97.790001, 97.790001, 97.790001, 97.790001, 97.790001, 97.790001, 97.790001]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_ADBE ADBE 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_ADBE ADBE 11.584907531738281
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_ADBE ADBE Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_ADBE ADBE 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_ADBE ADBE 0.0045 0.0045 0.4569
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_ADBE ADBE 0.43714371428571447 0.6327282738885642 -0.032007227888140255
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_sp500_ADBE_7'

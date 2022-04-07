@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_eurostoxx50
+TIME :  Date N= 1298 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  BBVA.MC N= 1298 H= 7 HEAD= [7.46194 7.43866 7.0854  6.886   6.82931] TAIL= [5.275 5.236 5.352 5.345 5.195]
+   BBVA.MC       Date
+0  7.46194 2011-07-28
+1  7.43866 2011-07-29
+2  7.08540 2011-08-01
+3  6.88600 2011-08-02
+4  6.82931 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1298 entries, 0 to 1297
+Data columns (total 2 columns):
+ #   Column   Non-Null Count  Dtype         
+---  ------   --------------  -----         
+ 0   BBVA.MC  1298 non-null   float64       
+ 1   Date     1298 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split   Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _BBVA.MC  _BBVA.MC_Lag1Trend_residue_bestCycle_byL2_resi...  ...  1.490000e-02  1.750000e-02  2.260000e-02
+1   None         _BBVA.MC  _BBVA.MC_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.500000e-02  1.760000e-02  2.020000e-02
+2   None         _BBVA.MC  _BBVA.MC_Lag1Trend_residue_Seasonal_DayOfWeek_...  ...  1.500000e-02  1.760000e-02  1.990000e-02
+3   None   CumSum_BBVA.MC  CumSum_BBVA.MC_Lag1Trend_residue_zeroCycle_res...  ...  1.600000e-02  1.760000e-02  2.020000e-02
+4   None     Diff_BBVA.MC  Diff_BBVA.MC_Lag1Trend_residue_zeroCycle_resid...  ...  1.500000e-02  1.760000e-02  2.020000e-02
+..   ...              ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_BBVA.MC  RelDiff_BBVA.MC_PolyTrend_residue_bestCycle_by...  ...  4.044493e+07  4.485590e+07  5.719822e+07
+92  None  RelDiff_BBVA.MC  RelDiff_BBVA.MC_PolyTrend_residue_Seasonal_Day...  ...  4.045906e+07  4.485590e+07  5.719822e+07
+93  None  RelDiff_BBVA.MC  RelDiff_BBVA.MC_PolyTrend_residue_bestCycle_by...  ...  4.045906e+07  4.485590e+07  5.719822e+07
+94  None  RelDiff_BBVA.MC  RelDiff_BBVA.MC_Lag1Trend_residue_Seasonal_Day...  ...  4.051225e+07  4.485590e+07  5.719822e+07
+95  None  RelDiff_BBVA.MC  RelDiff_BBVA.MC_Lag1Trend_residue_bestCycle_by...  ...  4.051225e+07  4.485590e+07  5.719822e+07
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _BBVA.MC  _BBVA.MC_Lag1Trend_residue_bestCycle_byL2_resi...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0149        0.0175    0.0226
+1  None        _BBVA.MC  _BBVA.MC_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0150        0.0176    0.0202
+2  None        _BBVA.MC  _BBVA.MC_Lag1Trend_residue_Seasonal_DayOfWeek_...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0150        0.0176    0.0199
+3  None  CumSum_BBVA.MC  CumSum_BBVA.MC_Lag1Trend_residue_zeroCycle_res...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0160        0.0176    0.0202
+4  None    Diff_BBVA.MC  Diff_BBVA.MC_Lag1Trend_residue_zeroCycle_resid...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0150        0.0176    0.0202
+7 0    5.147
+1    5.198
+2    5.248
+3    5.254
+4    5.175
+5    5.131
+6    5.224
+Name: BBVA.MC, dtype: float64
+7 0    5.195
+1    5.195
+2    5.195
+3    5.195
+4    5.195
+5    5.195
+6    5.195
+Name: BBVA.MC_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_BBVA.MC BBVA.MC [5.147, 5.1979999999999995, 5.247999999999999, 5.254, 5.175, 5.131, 5.224]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_BBVA.MC BBVA.MC [5.195, 5.195, 5.195, 5.195, 5.195, 5.195, 5.195]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_BBVA.MC BBVA.MC 1298 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_BBVA.MC BBVA.MC 11.558382511138916
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_BBVA.MC BBVA.MC Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_BBVA.MC BBVA.MC 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_BBVA.MC BBVA.MC 0.0076 0.0076 0.7324
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_BBVA.MC BBVA.MC 0.039428571428571146 0.04462542516804235 -0.0014778859863440186
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_eurostoxx50_BBVA.MC_7'

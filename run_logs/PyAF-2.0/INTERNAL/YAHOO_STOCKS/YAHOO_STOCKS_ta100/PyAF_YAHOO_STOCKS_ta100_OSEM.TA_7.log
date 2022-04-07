@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ta100
+TIME :  Date N= 963 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-08-01T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-03-30T00:00:00.000000000' '2016-03-31T00:00:00.000000000'
+ '2016-04-04T00:00:00.000000000' '2016-04-05T00:00:00.000000000'
+ '2016-04-06T00:00:00.000000000']
+SIGNAL :  OSEM.TA N= 963 H= 7 HEAD= [57.05 55.02 54.47 54.55 53.88] TAIL= [82.08 82.13 82.03 82.04 82.03]
+   OSEM.TA       Date
+0    57.05 2011-07-28
+1    55.02 2011-08-01
+2    54.47 2011-08-02
+3    54.55 2011-08-03
+4    53.88 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 963 entries, 0 to 962
+Data columns (total 2 columns):
+ #   Column   Non-Null Count  Dtype         
+---  ------   --------------  -----         
+ 0   OSEM.TA  963 non-null    float64       
+ 1   Date     963 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 22.6 KB
+None
+   Split   Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _OSEM.TA  _OSEM.TA_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.080000e-02  1.170000e-02  4.000000e-04
+1   None   CumSum_OSEM.TA  CumSum_OSEM.TA_Lag1Trend_residue_zeroCycle_res...  ...  1.200000e-02  1.170000e-02  4.000000e-04
+2   None     Diff_OSEM.TA  Diff_OSEM.TA_Lag1Trend_residue_zeroCycle_resid...  ...  1.080000e-02  1.170000e-02  4.000000e-04
+3   None  RelDiff_OSEM.TA  RelDiff_OSEM.TA_Lag1Trend_residue_zeroCycle_re...  ...  1.080000e-02  1.170000e-02  4.000000e-04
+4   None         _OSEM.TA  _OSEM.TA_Lag1Trend_residue_Seasonal_DayOfWeek_...  ...  1.080000e-02  1.180000e-02  7.000000e-04
+..   ...              ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_OSEM.TA  RelDiff_OSEM.TA_PolyTrend_residue_Seasonal_Day...  ...  1.639877e+07  1.453339e+07  1.321996e+07
+92  None  RelDiff_OSEM.TA  RelDiff_OSEM.TA_Lag1Trend_residue_Seasonal_Day...  ...  1.642356e+07  1.453339e+07  1.321996e+07
+93  None  RelDiff_OSEM.TA  RelDiff_OSEM.TA_LinearTrend_residue_bestCycle_...  ...  1.640218e+07  1.453339e+07  1.321996e+07
+94  None  RelDiff_OSEM.TA  RelDiff_OSEM.TA_LinearTrend_residue_bestCycle_...  ...  1.640352e+07  1.453339e+07  1.321996e+07
+95  None  RelDiff_OSEM.TA  RelDiff_OSEM.TA_ConstantTrend_residue_Seasonal...  ...  1.635367e+07  1.453339e+07  1.321996e+07
+
+[96 rows x 8 columns]
+  Split   Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _OSEM.TA  _OSEM.TA_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0108        0.0117    0.0004
+1  None   CumSum_OSEM.TA  CumSum_OSEM.TA_Lag1Trend_residue_zeroCycle_res...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0120        0.0117    0.0004
+2  None     Diff_OSEM.TA  Diff_OSEM.TA_Lag1Trend_residue_zeroCycle_resid...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0108        0.0117    0.0004
+3  None  RelDiff_OSEM.TA  RelDiff_OSEM.TA_Lag1Trend_residue_zeroCycle_re...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0108        0.0117    0.0004
+4  None         _OSEM.TA  _OSEM.TA_Lag1Trend_residue_Seasonal_DayOfWeek_...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0108        0.0118    0.0007
+7 0    82.08
+1    82.16
+2    82.27
+3    82.27
+4    82.99
+5    82.99
+6    82.99
+Name: OSEM.TA, dtype: float64
+7 0    82.03
+1    82.03
+2    82.03
+3    82.03
+4    82.03
+5    82.03
+6    82.03
+Name: OSEM.TA_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_OSEM.TA OSEM.TA [82.08, 82.16, 82.27, 82.27, 82.99, 82.99, 82.99]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_OSEM.TA OSEM.TA [82.03, 82.03, 82.03, 82.03, 82.03, 82.03, 82.03]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_OSEM.TA OSEM.TA 963 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_OSEM.TA OSEM.TA 10.546796321868896
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_OSEM.TA OSEM.TA Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_OSEM.TA OSEM.TA 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_OSEM.TA OSEM.TA 0.0061 0.0061 3.3344
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_OSEM.TA OSEM.TA 0.5057142857142806 0.6435837163881587 -1.6140233376484363
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ta100_OSEM.TA_7'

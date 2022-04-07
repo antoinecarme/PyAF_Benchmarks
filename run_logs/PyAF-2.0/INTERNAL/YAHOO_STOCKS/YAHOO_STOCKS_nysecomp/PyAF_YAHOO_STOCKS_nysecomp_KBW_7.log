@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 399 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2013-01-31T00:00:00.000000000' '2013-02-01T00:00:00.000000000'
+ '2013-02-04T00:00:00.000000000' '2013-02-05T00:00:00.000000000'
+ '2013-02-06T00:00:00.000000000']
+SIGNAL :  KBW N= 399 H= 7 HEAD= [17.29 17.1  16.49 15.25 15.33] TAIL= [15.87 16.13 16.07 16.19 16.14]
+     KBW       Date
+0  17.29 2011-07-28
+1  17.10 2011-07-29
+2  16.49 2011-08-01
+3  15.25 2011-08-02
+4  15.33 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 399 entries, 0 to 398
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   KBW     399 non-null    float64       
+ 1   Date    399 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 9.4 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _KBW      _KBW_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.810000e-02  7.800000e-03  5.100000e-03
+1   None     CumSum_KBW  CumSum_KBW_Lag1Trend_residue_zeroCycle_residue...  ...  2.120000e-02  7.800000e-03  5.100000e-03
+2   None       Diff_KBW  Diff_KBW_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.810000e-02  7.800000e-03  5.100000e-03
+3   None    RelDiff_KBW  RelDiff_KBW_Lag1Trend_residue_zeroCycle_residu...  ...  1.810000e-02  7.800000e-03  5.100000e-03
+4   None           _KBW  _KBW_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  ...  1.810000e-02  8.500000e-03  4.100000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_KBW  RelDiff_KBW_PolyTrend_residue_Seasonal_DayOfWe...  ...  3.105246e+07  3.016065e+07  3.028228e+07
+92  None    RelDiff_KBW  RelDiff_KBW_PolyTrend_residue_bestCycle_byL2_r...  ...  3.105246e+07  3.016065e+07  3.028228e+07
+93  None    RelDiff_KBW  RelDiff_KBW_Lag1Trend_residue_Seasonal_DayOfWe...  ...  3.096401e+07  3.016065e+07  3.028228e+07
+94  None    RelDiff_KBW  RelDiff_KBW_Lag1Trend_residue_bestCycle_byL2_r...  ...  3.105244e+07  3.016065e+07  3.028228e+07
+95  None    RelDiff_KBW  RelDiff_KBW_ConstantTrend_residue_zeroCycle_re...  ...  3.105247e+07  3.016065e+07  3.028228e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _KBW      _KBW_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0181        0.0078    0.0051
+1  None     CumSum_KBW  CumSum_KBW_Lag1Trend_residue_zeroCycle_residue...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0212        0.0078    0.0051
+2  None       Diff_KBW  Diff_KBW_Lag1Trend_residue_zeroCycle_residue_NoAR           Difference_Lag1Trend_NoCycle_NoAR          64   0.0181        0.0078    0.0051
+3  None    RelDiff_KBW  RelDiff_KBW_Lag1Trend_residue_zeroCycle_residu...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0181        0.0078    0.0051
+4  None           _KBW  _KBW_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0181        0.0085    0.0041
+7 0    16.21
+1    16.18
+2    16.23
+3    16.32
+4    16.29
+5    16.40
+6    16.40
+Name: KBW, dtype: float64
+7 0    16.14
+1    16.14
+2    16.14
+3    16.14
+4    16.14
+5    16.14
+6    16.14
+Name: KBW_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_KBW KBW [16.21, 16.18, 16.23, 16.32, 16.29, 16.4, 16.4]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_KBW KBW [16.14, 16.14, 16.14, 16.14, 16.14, 16.14, 16.14]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_KBW KBW 399 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_KBW KBW 10.916064262390137
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_KBW KBW Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_KBW KBW 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_KBW KBW 0.0092 0.0092 2.9032
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_KBW KBW 0.14999999999999908 0.17100543015605313 -3.336864397591401
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_KBW_7'

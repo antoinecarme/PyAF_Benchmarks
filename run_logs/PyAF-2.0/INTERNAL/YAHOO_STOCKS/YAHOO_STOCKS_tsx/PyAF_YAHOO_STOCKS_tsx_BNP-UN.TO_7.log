@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_tsx
+TIME :  Date N= 1248 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  BNP-UN.TO N= 1248 H= 7 HEAD= [29.030001 28.75     27.719999 27.610001 26.200001] TAIL= [3.61 3.57 3.72 3.65 3.71]
+   BNP-UN.TO       Date
+0  29.030001 2011-07-28
+1  28.750000 2011-07-29
+2  27.719999 2011-08-02
+3  27.610001 2011-08-03
+4  26.200001 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1248 entries, 0 to 1247
+Data columns (total 2 columns):
+ #   Column     Non-Null Count  Dtype         
+---  ------     --------------  -----         
+ 0   BNP-UN.TO  1248 non-null   float64       
+ 1   Date       1248 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.2 KB
+None
+   Split     Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _BNP-UN.TO  _BNP-UN.TO_Lag1Trend_residue_zeroCycle_residue...  ...  0.0162  4.220000e-02  2.450000e-02
+1   None   CumSum_BNP-UN.TO  CumSum_BNP-UN.TO_Lag1Trend_residue_zeroCycle_r...  ...  0.0172  4.220000e-02  2.450000e-02
+2   None     Diff_BNP-UN.TO  Diff_BNP-UN.TO_Lag1Trend_residue_zeroCycle_res...  ...  0.0162  4.220000e-02  2.450000e-02
+3   None  RelDiff_BNP-UN.TO  RelDiff_BNP-UN.TO_Lag1Trend_residue_zeroCycle_...  ...  0.0162  4.220000e-02  2.450000e-02
+4   None         _BNP-UN.TO  _BNP-UN.TO_Lag1Trend_residue_bestCycle_byL2_re...  ...  0.0161  4.230000e-02  2.510000e-02
+..   ...                ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_BNP-UN.TO  RelDiff_BNP-UN.TO_Lag1Trend_residue_Seasonal_D...  ...  0.0950  4.986823e+08  7.814833e+08
+92  None  RelDiff_BNP-UN.TO  RelDiff_BNP-UN.TO_Lag1Trend_residue_bestCycle_...  ...  0.0575  4.987022e+08  7.814833e+08
+93  None  RelDiff_BNP-UN.TO  RelDiff_BNP-UN.TO_Lag1Trend_residue_zeroCycle_...  ...  0.0619  4.987163e+08  7.814833e+08
+94  None  RelDiff_BNP-UN.TO  RelDiff_BNP-UN.TO_LinearTrend_residue_Seasonal...  ...  0.2053  4.987270e+08  7.814833e+08
+95  None  RelDiff_BNP-UN.TO  RelDiff_BNP-UN.TO_ConstantTrend_residue_Season...  ...  0.1816  4.987392e+08  7.814833e+08
+
+[96 rows x 8 columns]
+  Split     Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _BNP-UN.TO  _BNP-UN.TO_Lag1Trend_residue_zeroCycle_residue...            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0162        0.0422    0.0245
+1  None   CumSum_BNP-UN.TO  CumSum_BNP-UN.TO_Lag1Trend_residue_zeroCycle_r...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0172        0.0422    0.0245
+2  None     Diff_BNP-UN.TO  Diff_BNP-UN.TO_Lag1Trend_residue_zeroCycle_res...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0162        0.0422    0.0245
+3  None  RelDiff_BNP-UN.TO  RelDiff_BNP-UN.TO_Lag1Trend_residue_zeroCycle_...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0162        0.0422    0.0245
+4  None         _BNP-UN.TO  _BNP-UN.TO_Lag1Trend_residue_bestCycle_byL2_re...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0161        0.0423    0.0251
+7 0    3.70
+1    3.72
+2    3.72
+3    3.90
+4    3.62
+5    3.49
+6    3.30
+Name: BNP-UN.TO, dtype: float64
+7 0    3.71
+1    3.71
+2    3.71
+3    3.71
+4    3.71
+5    3.71
+6    3.71
+Name: BNP-UN.TO_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_BNP-UN.TO BNP-UN.TO [3.7, 3.72, 3.72, 3.9, 3.62, 3.49, 3.3]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_BNP-UN.TO BNP-UN.TO [3.71, 3.71, 3.71, 3.71, 3.71, 3.71, 3.71]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_BNP-UN.TO BNP-UN.TO 1248 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_BNP-UN.TO BNP-UN.TO 11.53293251991272
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_BNP-UN.TO BNP-UN.TO Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_BNP-UN.TO BNP-UN.TO 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_BNP-UN.TO BNP-UN.TO 0.0384 0.0372 1.0071
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_BNP-UN.TO BNP-UN.TO 0.13428571428571429 0.1930950913040367 -0.17371193574354393
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_tsx_BNP-UN.TO_7'

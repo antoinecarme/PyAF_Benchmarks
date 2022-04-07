@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_exch
+TIME :  Date N= 1298 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  DETNOR.OL N= 1298 H= 7 HEAD= [24.6766 23.9535 24.2247 22.9592 22.5977] TAIL= [108.3 108.9 111.9 110.  108.8]
+   DETNOR.OL       Date
+0    24.6766 2011-07-28
+1    23.9535 2011-07-29
+2    24.2247 2011-08-01
+3    22.9592 2011-08-02
+4    22.5977 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1298 entries, 0 to 1297
+Data columns (total 2 columns):
+ #   Column     Non-Null Count  Dtype         
+---  ------     --------------  -----         
+ 0   DETNOR.OL  1298 non-null   float64       
+ 1   Date       1298 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split     Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _DETNOR.OL  _DETNOR.OL_Lag1Trend_residue_Seasonal_DayOfWee...  ...  1.780000e-02  2.500000e-02  1.340000e-02
+1   None         _DETNOR.OL  _DETNOR.OL_Lag1Trend_residue_bestCycle_byL2_re...  ...  1.780000e-02  2.500000e-02  1.340000e-02
+2   None         _DETNOR.OL  _DETNOR.OL_Lag1Trend_residue_zeroCycle_residue...  ...  1.780000e-02  2.520000e-02  1.340000e-02
+3   None   CumSum_DETNOR.OL  CumSum_DETNOR.OL_Lag1Trend_residue_zeroCycle_r...  ...  1.880000e-02  2.520000e-02  1.340000e-02
+4   None     Diff_DETNOR.OL  Diff_DETNOR.OL_Lag1Trend_residue_zeroCycle_res...  ...  1.780000e-02  2.520000e-02  1.340000e-02
+..   ...                ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_DETNOR.OL  RelDiff_DETNOR.OL_LinearTrend_residue_Seasonal...  ...  4.632618e+06  4.901189e+06  2.589608e+06
+92  None  RelDiff_DETNOR.OL  RelDiff_DETNOR.OL_LinearTrend_residue_bestCycl...  ...  4.632618e+06  4.901189e+06  2.589608e+06
+93  None  RelDiff_DETNOR.OL  RelDiff_DETNOR.OL_ConstantTrend_residue_Season...  ...  4.554319e+06  4.901190e+06  2.589609e+06
+94  None  RelDiff_DETNOR.OL  RelDiff_DETNOR.OL_ConstantTrend_residue_bestCy...  ...  4.554319e+06  4.901190e+06  2.589609e+06
+95  None  RelDiff_DETNOR.OL  RelDiff_DETNOR.OL_PolyTrend_residue_zeroCycle_...  ...  4.638935e+06  4.901190e+06  2.589609e+06
+
+[96 rows x 8 columns]
+  Split    Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _DETNOR.OL  _DETNOR.OL_Lag1Trend_residue_Seasonal_DayOfWee...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0178        0.0250    0.0134
+1  None        _DETNOR.OL  _DETNOR.OL_Lag1Trend_residue_bestCycle_byL2_re...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0178        0.0250    0.0134
+2  None        _DETNOR.OL  _DETNOR.OL_Lag1Trend_residue_zeroCycle_residue...             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0178        0.0252    0.0134
+3  None  CumSum_DETNOR.OL  CumSum_DETNOR.OL_Lag1Trend_residue_zeroCycle_r...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0188        0.0252    0.0134
+4  None    Diff_DETNOR.OL  Diff_DETNOR.OL_Lag1Trend_residue_zeroCycle_res...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0178        0.0252    0.0134
+7 0    108.0
+1    105.0
+2    110.0
+3    106.3
+4    103.2
+5    104.6
+6    106.8
+Name: DETNOR.OL, dtype: float64
+7 0    108.8
+1    108.8
+2    108.8
+3    108.8
+4    108.8
+5    108.8
+6    108.8
+Name: DETNOR.OL_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_DETNOR.OL DETNOR.OL [108.0, 105.0, 110.0, 106.3, 103.2, 104.6, 106.8]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_DETNOR.OL DETNOR.OL [108.8, 108.8, 108.8, 108.8, 108.8, 108.8, 108.8]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_DETNOR.OL DETNOR.OL 1298 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_DETNOR.OL DETNOR.OL 11.497660636901855
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_DETNOR.OL DETNOR.OL Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_DETNOR.OL DETNOR.OL 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_DETNOR.OL DETNOR.OL 0.0273 0.0268 0.9363
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_DETNOR.OL DETNOR.OL 2.8714285714285706 3.290028223934516 -1.443067710724503
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_exch_DETNOR.OL_7'

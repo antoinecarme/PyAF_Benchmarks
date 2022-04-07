@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1292 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  PLI.L N= 1292 H= 7 HEAD= [2.649  2.6237 2.627  2.612  2.555 ] TAIL= [4.00938 3.99714 3.99762 3.98626 4.0005 ]
+    PLI.L       Date
+0  2.6490 2011-07-28
+1  2.6237 2011-07-29
+2  2.6270 2011-08-01
+3  2.6120 2011-08-02
+4  2.5550 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1292 entries, 0 to 1291
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   PLI.L   1292 non-null   float64       
+ 1   Date    1292 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _PLI.L  _PLI.L_Lag1Trend_residue_zeroCycle_residue_AR(64)  ...  7.900000e-03  9.700000e-03  5.500000e-03
+1   None         _PLI.L  _PLI.L_Lag1Trend_residue_bestCycle_byL2_residu...  ...  7.700000e-03  9.700000e-03  6.500000e-03
+2   None         _PLI.L  _PLI.L_Lag1Trend_residue_bestCycle_byL2_residu...  ...  8.000000e-03  9.800000e-03  6.600000e-03
+3   None         _PLI.L    _PLI.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  8.100000e-03  9.900000e-03  5.700000e-03
+4   None   CumSum_PLI.L  CumSum_PLI.L_Lag1Trend_residue_zeroCycle_resid...  ...  9.000000e-03  9.900000e-03  5.700000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_PLI.L  RelDiff_PLI.L_Lag1Trend_residue_bestCycle_byL2...  ...  8.818174e+06  7.162007e+06  7.109587e+06
+92  None  RelDiff_PLI.L  RelDiff_PLI.L_PolyTrend_residue_Seasonal_DayOf...  ...  8.818163e+06  7.162008e+06  7.109587e+06
+93  None  RelDiff_PLI.L  RelDiff_PLI.L_PolyTrend_residue_bestCycle_byL2...  ...  8.818163e+06  7.162008e+06  7.109587e+06
+94  None  RelDiff_PLI.L  RelDiff_PLI.L_ConstantTrend_residue_bestCycle_...  ...  8.758906e+06  7.162008e+06  7.109587e+06
+95  None  RelDiff_PLI.L  RelDiff_PLI.L_PolyTrend_residue_Seasonal_DayOf...  ...  8.818163e+06  7.162008e+06  7.109587e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                            Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _PLI.L  _PLI.L_Lag1Trend_residue_zeroCycle_residue_AR(64)       NoTransf_Lag1Trend_NoCycle_AR          96   0.0079        0.0097    0.0055
+1  None         _PLI.L  _PLI.L_Lag1Trend_residue_bestCycle_byL2_residu...         NoTransf_Lag1Trend_Cycle_AR         104   0.0077        0.0097    0.0065
+2  None         _PLI.L  _PLI.L_Lag1Trend_residue_bestCycle_byL2_residu...       NoTransf_Lag1Trend_Cycle_NoAR          40   0.0080        0.0098    0.0066
+3  None         _PLI.L    _PLI.L_Lag1Trend_residue_zeroCycle_residue_NoAR     NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0081        0.0099    0.0057
+4  None   CumSum_PLI.L  CumSum_PLI.L_Lag1Trend_residue_zeroCycle_resid...  Integration_Lag1Trend_NoCycle_NoAR          64   0.0090        0.0099    0.0057
+7 0    4.00100
+1    4.03057
+2    4.01853
+3    3.80100
+4    3.82400
+5    3.85000
+6    3.86800
+Name: PLI.L, dtype: float64
+7 0    4.0005
+1    4.0005
+2    4.0005
+3    4.0005
+4    4.0005
+5    4.0005
+6    4.0005
+Name: PLI.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_PLI.L PLI.L [4.001, 4.03057, 4.01853, 3.801, 3.824, 3.85, 3.8680000000000003]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_PLI.L PLI.L [4.0005, 4.0005, 4.0005, 4.0005, 4.0005, 4.0005, 4.0005]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_PLI.L PLI.L 1292 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_PLI.L PLI.L 10.727123260498047
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_PLI.L PLI.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_PLI.L PLI.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_PLI.L PLI.L 0.0263 0.0258 1.8597
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_PLI.L PLI.L 0.10108571428571425 0.12671031968346402 -0.8996854312186258
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_PLI.L_7'

@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1295 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  MCB.L N= 1295 H= 7 HEAD= [127.25 131.25 127.   126.25 126.5 ] TAIL= [152.   152.75 154.   149.5  148.  ]
+    MCB.L       Date
+0  127.25 2011-07-28
+1  131.25 2011-07-29
+2  127.00 2011-08-01
+3  126.25 2011-08-02
+4  126.50 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1295 entries, 0 to 1294
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   MCB.L   1295 non-null   float64       
+ 1   Date    1295 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _MCB.L    _MCB.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.220000e-02  1.370000e-02  1.860000e-02
+1   None         _MCB.L  _MCB.L_Lag1Trend_residue_bestCycle_byL2_residu...  ...  1.230000e-02  1.370000e-02  1.880000e-02
+2   None   CumSum_MCB.L  CumSum_MCB.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.310000e-02  1.370000e-02  1.860000e-02
+3   None     Diff_MCB.L  Diff_MCB.L_Lag1Trend_residue_zeroCycle_residue...  ...  1.220000e-02  1.370000e-02  1.860000e-02
+4   None  RelDiff_MCB.L  RelDiff_MCB.L_Lag1Trend_residue_zeroCycle_resi...  ...  1.220000e-02  1.370000e-02  1.860000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_MCB.L  RelDiff_MCB.L_LinearTrend_residue_Seasonal_Day...  ...  4.785115e+07  3.533611e+07  3.420552e+07
+92  None  RelDiff_MCB.L  RelDiff_MCB.L_ConstantTrend_residue_zeroCycle_...  ...  4.784093e+07  3.533611e+07  3.420552e+07
+93  None  RelDiff_MCB.L  RelDiff_MCB.L_LinearTrend_residue_zeroCycle_re...  ...  4.784277e+07  3.533611e+07  3.420552e+07
+94  None  RelDiff_MCB.L  RelDiff_MCB.L_PolyTrend_residue_zeroCycle_resi...  ...  4.780055e+07  3.533611e+07  3.420552e+07
+95  None  RelDiff_MCB.L  RelDiff_MCB.L_LinearTrend_residue_Seasonal_Day...  ...  4.785644e+07  3.533611e+07  3.420552e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _MCB.L    _MCB.L_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0122        0.0137    0.0186
+1  None         _MCB.L  _MCB.L_Lag1Trend_residue_bestCycle_byL2_residu...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0123        0.0137    0.0188
+2  None   CumSum_MCB.L  CumSum_MCB.L_Lag1Trend_residue_zeroCycle_resid...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0131        0.0137    0.0186
+3  None     Diff_MCB.L  Diff_MCB.L_Lag1Trend_residue_zeroCycle_residue...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0122        0.0137    0.0186
+4  None  RelDiff_MCB.L  RelDiff_MCB.L_Lag1Trend_residue_zeroCycle_resi...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0122        0.0137    0.0186
+7 0    150.75
+1    154.25
+2    155.00
+3    154.00
+4    153.25
+5    155.75
+6    158.75
+Name: MCB.L, dtype: float64
+7 0    148.0
+1    148.0
+2    148.0
+3    148.0
+4    148.0
+5    148.0
+6    148.0
+Name: MCB.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_MCB.L MCB.L [150.75, 154.25, 155.0, 154.0, 153.25, 155.75, 158.75]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_MCB.L MCB.L [148.0, 148.0, 148.0, 148.0, 148.0, 148.0, 148.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_MCB.L MCB.L 1295 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_MCB.L MCB.L 11.13524603843689
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_MCB.L MCB.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_MCB.L MCB.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_MCB.L MCB.L 0.0421 0.0431 3.4099
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_MCB.L MCB.L 6.535714285714286 6.915949475152139 -8.351371571046199
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_MCB.L_7'

@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  MAN N= 1251 H= 7 HEAD= [50.580002 50.52     48.529999 45.740002 45.689999] TAIL= [66.57     66.230003 67.279999 67.599998 68.269997]
+         MAN       Date
+0  50.580002 2011-07-28
+1  50.520000 2011-07-29
+2  48.529999 2011-08-01
+3  45.740002 2011-08-02
+4  45.689999 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   MAN     1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _MAN      _MAN_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.460000e-02  1.520000e-02  1.760000e-02
+1   None           _MAN  _MAN_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  ...  1.470000e-02  1.520000e-02  1.720000e-02
+2   None           _MAN  _MAN_Lag1Trend_residue_bestCycle_byL2_residue_...  ...  1.460000e-02  1.520000e-02  1.630000e-02
+3   None     CumSum_MAN  CumSum_MAN_Lag1Trend_residue_zeroCycle_residue...  ...  1.560000e-02  1.520000e-02  1.760000e-02
+4   None       Diff_MAN  Diff_MAN_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.460000e-02  1.520000e-02  1.760000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_MAN  RelDiff_MAN_ConstantTrend_residue_Seasonal_Day...  ...  3.338920e+07  2.241228e+07  2.764501e+07
+92  None    RelDiff_MAN  RelDiff_MAN_Lag1Trend_residue_bestCycle_byL2_r...  ...  3.358592e+07  2.241228e+07  2.764501e+07
+93  None    RelDiff_MAN  RelDiff_MAN_PolyTrend_residue_bestCycle_byL2_r...  ...  3.357610e+07  2.241228e+07  2.764501e+07
+94  None    RelDiff_MAN  RelDiff_MAN_PolyTrend_residue_zeroCycle_residu...  ...  3.358590e+07  2.241228e+07  2.764501e+07
+95  None    RelDiff_MAN  RelDiff_MAN_PolyTrend_residue_Seasonal_DayOfWe...  ...  3.358590e+07  2.241228e+07  2.764501e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _MAN      _MAN_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0146        0.0152    0.0176
+1  None           _MAN  _MAN_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0147        0.0152    0.0172
+2  None           _MAN  _MAN_Lag1Trend_residue_bestCycle_byL2_residue_...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0146        0.0152    0.0163
+3  None     CumSum_MAN  CumSum_MAN_Lag1Trend_residue_zeroCycle_residue...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0156        0.0152    0.0176
+4  None       Diff_MAN  Diff_MAN_Lag1Trend_residue_zeroCycle_residue_NoAR           Difference_Lag1Trend_NoCycle_NoAR          64   0.0146        0.0152    0.0176
+7 0    67.459999
+1    68.870003
+2    70.269997
+3    70.400002
+4    69.980003
+5    70.279999
+6    69.180000
+Name: MAN, dtype: float64
+7 0    68.269997
+1    68.269997
+2    68.269997
+3    68.269997
+4    68.269997
+5    68.269997
+6    68.269997
+Name: MAN_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_MAN MAN [67.459999, 68.870003, 70.269997, 70.400002, 69.980003, 70.279999, 69.18]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_MAN MAN [68.269997, 68.269997, 68.269997, 68.269997, 68.269997, 68.269997, 68.269997]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_MAN MAN 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_MAN MAN 11.777148723602295
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_MAN MAN Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_MAN MAN 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_MAN MAN 0.0208 0.021 1.8313
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_MAN MAN 1.4528599999999992 1.5741373728451118 -1.513060306800127
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_MAN_7'

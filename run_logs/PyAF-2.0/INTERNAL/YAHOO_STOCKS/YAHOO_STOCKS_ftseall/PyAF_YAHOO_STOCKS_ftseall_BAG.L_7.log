@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1294 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  BAG.L N= 1294 H= 7 HEAD= [1284.999 1274.001 1230.999 1226.001 1206.   ] TAIL= [529.5 520.  520.  515.  524. ]
+      BAG.L       Date
+0  1284.999 2011-07-28
+1  1274.001 2011-07-29
+2  1230.999 2011-08-01
+3  1226.001 2011-08-02
+4  1206.000 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1294 entries, 0 to 1293
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   BAG.L   1294 non-null   float64       
+ 1   Date    1294 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model                                   Category  Complexity       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _BAG.L    _BAG.L_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32  1.350000e-02  1.140000e-02  1.550000e-02
+1   None   CumSum_BAG.L  CumSum_BAG.L_Lag1Trend_residue_zeroCycle_resid...         Integration_Lag1Trend_NoCycle_NoAR          64  1.450000e-02  1.140000e-02  1.550000e-02
+2   None     Diff_BAG.L  Diff_BAG.L_Lag1Trend_residue_zeroCycle_residue...          Difference_Lag1Trend_NoCycle_NoAR          64  1.350000e-02  1.140000e-02  1.550000e-02
+3   None  RelDiff_BAG.L  RelDiff_BAG.L_Lag1Trend_residue_zeroCycle_resi...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64  1.350000e-02  1.140000e-02  1.550000e-02
+4   None         _BAG.L  _BAG.L_ConstantTrend_residue_zeroCycle_residue...          NoTransf_ConstantTrend_NoCycle_AR          64  1.440000e-02  1.160000e-02  1.910000e-02
+..   ...            ...                                                ...                                        ...         ...           ...           ...           ...
+91  None  RelDiff_BAG.L  RelDiff_BAG.L_LinearTrend_residue_bestCycle_by...  RelativeDifference_LinearTrend_Cycle_NoAR          56  1.517236e+08  1.749299e+08  1.794441e+08
+92  None  RelDiff_BAG.L  RelDiff_BAG.L_PolyTrend_residue_bestCycle_byL2...    RelativeDifference_PolyTrend_Cycle_NoAR          56  1.517234e+08  1.749299e+08  1.794441e+08
+93  None  RelDiff_BAG.L  RelDiff_BAG.L_LinearTrend_residue_bestCycle_by...    RelativeDifference_LinearTrend_Cycle_AR         120  1.517239e+08  1.749299e+08  1.794441e+08
+94  None  RelDiff_BAG.L  RelDiff_BAG.L_PolyTrend_residue_bestCycle_byL2...      RelativeDifference_PolyTrend_Cycle_AR         120  1.517237e+08  1.749299e+08  1.794441e+08
+95  None  RelDiff_BAG.L  RelDiff_BAG.L_PolyTrend_residue_zeroCycle_resi...    RelativeDifference_PolyTrend_NoCycle_AR         112  1.517257e+08  1.749299e+08  1.794441e+08
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _BAG.L    _BAG.L_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0135        0.0114    0.0155
+1  None   CumSum_BAG.L  CumSum_BAG.L_Lag1Trend_residue_zeroCycle_resid...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0145        0.0114    0.0155
+2  None     Diff_BAG.L  Diff_BAG.L_Lag1Trend_residue_zeroCycle_residue...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0135        0.0114    0.0155
+3  None  RelDiff_BAG.L  RelDiff_BAG.L_Lag1Trend_residue_zeroCycle_resi...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0135        0.0114    0.0155
+4  None         _BAG.L  _BAG.L_ConstantTrend_residue_zeroCycle_residue...          NoTransf_ConstantTrend_NoCycle_AR          64   0.0144        0.0116    0.0191
+7 0    522.5
+1    535.5
+2    531.0
+3    529.5
+4    534.0
+5    539.0
+6    542.0
+Name: BAG.L, dtype: float64
+7 0    524.0
+1    524.0
+2    524.0
+3    524.0
+4    524.0
+5    524.0
+6    524.0
+Name: BAG.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_BAG.L BAG.L [522.5, 535.5, 531.0, 529.5, 534.0, 539.0, 542.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_BAG.L BAG.L [524.0, 524.0, 524.0, 524.0, 524.0, 524.0, 524.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_BAG.L BAG.L 1294 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_BAG.L BAG.L 11.278695106506348
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_BAG.L BAG.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_BAG.L BAG.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_BAG.L BAG.L 0.0182 0.0185 1.8639
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_BAG.L BAG.L 9.785714285714286 11.10180165558726 -2.452973127500047
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_BAG.L_7'

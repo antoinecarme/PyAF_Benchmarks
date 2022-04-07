@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_eurostoxx50
+TIME :  Date N= 1298 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  CA.PA N= 1298 H= 7 HEAD= [21.225 20.6   20.08  19.545 19.235] TAIL= [22.905 22.935 23.185 23.18  23.02 ]
+    CA.PA       Date
+0  21.225 2011-07-28
+1  20.600 2011-07-29
+2  20.080 2011-08-01
+3  19.545 2011-08-02
+4  19.235 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1298 entries, 0 to 1297
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   CA.PA   1298 non-null   float64       
+ 1   Date    1298 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _CA.PA    _CA.PA_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.440000e-02  1.480000e-02  1.190000e-02
+1   None         _CA.PA  _CA.PA_Lag1Trend_residue_bestCycle_byL2_residu...  ...  1.440000e-02  1.480000e-02  1.190000e-02
+2   None   CumSum_CA.PA  CumSum_CA.PA_Lag1Trend_residue_zeroCycle_resid...  ...  1.530000e-02  1.480000e-02  1.190000e-02
+3   None     Diff_CA.PA  Diff_CA.PA_Lag1Trend_residue_zeroCycle_residue...  ...  1.440000e-02  1.480000e-02  1.190000e-02
+4   None  RelDiff_CA.PA  RelDiff_CA.PA_Lag1Trend_residue_zeroCycle_resi...  ...  1.440000e-02  1.480000e-02  1.190000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_CA.PA  RelDiff_CA.PA_PolyTrend_residue_bestCycle_byL2...  ...  3.790853e+07  3.126511e+07  3.580722e+07
+92  None  RelDiff_CA.PA  RelDiff_CA.PA_PolyTrend_residue_Seasonal_DayOf...  ...  3.790857e+07  3.126511e+07  3.580722e+07
+93  None  RelDiff_CA.PA  RelDiff_CA.PA_PolyTrend_residue_bestCycle_byL2...  ...  3.790857e+07  3.126511e+07  3.580722e+07
+94  None  RelDiff_CA.PA  RelDiff_CA.PA_Lag1Trend_residue_Seasonal_DayOf...  ...  3.783180e+07  3.126511e+07  3.580722e+07
+95  None  RelDiff_CA.PA  RelDiff_CA.PA_Lag1Trend_residue_bestCycle_byL2...  ...  3.783180e+07  3.126511e+07  3.580722e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _CA.PA    _CA.PA_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0144        0.0148    0.0119
+1  None         _CA.PA  _CA.PA_Lag1Trend_residue_bestCycle_byL2_residu...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0144        0.0148    0.0119
+2  None   CumSum_CA.PA  CumSum_CA.PA_Lag1Trend_residue_zeroCycle_resid...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0153        0.0148    0.0119
+3  None     Diff_CA.PA  Diff_CA.PA_Lag1Trend_residue_zeroCycle_residue...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0144        0.0148    0.0119
+4  None  RelDiff_CA.PA  RelDiff_CA.PA_Lag1Trend_residue_zeroCycle_resi...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0144        0.0148    0.0119
+7 0    22.870
+1    23.125
+2    23.235
+3    23.120
+4    23.235
+5    23.255
+6    23.700
+Name: CA.PA, dtype: float64
+7 0    23.02
+1    23.02
+2    23.02
+3    23.02
+4    23.02
+5    23.02
+6    23.02
+Name: CA.PA_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_CA.PA CA.PA [22.87, 23.125, 23.235, 23.12, 23.235, 23.255, 23.7]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_CA.PA CA.PA [23.02, 23.02, 23.02, 23.02, 23.02, 23.02, 23.02]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_CA.PA CA.PA 1298 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_CA.PA CA.PA 11.114588499069214
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_CA.PA CA.PA Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_CA.PA CA.PA 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_CA.PA CA.PA 0.0104 0.0105 1.3747
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_CA.PA CA.PA 0.24285714285714274 0.3055673879382884 -0.7494646676259515
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_eurostoxx50_CA.PA_7'

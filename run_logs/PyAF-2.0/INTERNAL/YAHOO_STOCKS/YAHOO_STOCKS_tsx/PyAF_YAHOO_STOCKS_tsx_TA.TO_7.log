@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_tsx
+TIME :  Date N= 1248 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  TA.TO N= 1248 H= 7 HEAD= [20.98     21.129999 20.870001 20.879999 20.66    ] TAIL= [6.59 6.5  6.46 6.4  6.4 ]
+       TA.TO       Date
+0  20.980000 2011-07-28
+1  21.129999 2011-07-29
+2  20.870001 2011-08-02
+3  20.879999 2011-08-03
+4  20.660000 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1248 entries, 0 to 1247
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   TA.TO   1248 non-null   float64       
+ 1   Date    1248 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.2 KB
+None
+   Split Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _TA.TO  _TA.TO_Lag1Trend_residue_zeroCycle_residue_AR(64)  ...  0.0094  2.310000e-02  1.000000e-02
+1   None         _TA.TO  _TA.TO_Lag1Trend_residue_bestCycle_byL2_residu...  ...  0.0094  2.310000e-02  1.030000e-02
+2   None         _TA.TO  _TA.TO_ConstantTrend_residue_zeroCycle_residue...  ...  0.0094  2.320000e-02  1.100000e-02
+3   None         _TA.TO  _TA.TO_ConstantTrend_residue_bestCycle_byL2_re...  ...  0.0094  2.320000e-02  1.210000e-02
+4   None         _TA.TO  _TA.TO_LinearTrend_residue_zeroCycle_residue_A...  ...  0.0094  2.320000e-02  1.060000e-02
+..   ...            ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_TA.TO  RelDiff_TA.TO_ConstantTrend_residue_bestCycle_...  ...  0.0562  1.344312e+08  2.650749e+08
+92  None  RelDiff_TA.TO  RelDiff_TA.TO_ConstantTrend_residue_Seasonal_D...  ...  0.0566  1.344321e+08  2.650749e+08
+93  None  RelDiff_TA.TO  RelDiff_TA.TO_Lag1Trend_residue_Seasonal_DayOf...  ...  0.0423  1.354077e+08  2.650749e+08
+94  None  RelDiff_TA.TO  RelDiff_TA.TO_Lag1Trend_residue_bestCycle_byL2...  ...  0.0348  1.354224e+08  2.650749e+08
+95  None  RelDiff_TA.TO  RelDiff_TA.TO_Lag1Trend_residue_zeroCycle_resi...  ...  0.0332  1.354473e+08  2.650749e+08
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                           Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _TA.TO  _TA.TO_Lag1Trend_residue_zeroCycle_residue_AR(64)      NoTransf_Lag1Trend_NoCycle_AR          96   0.0094        0.0231    0.0100
+1  None         _TA.TO  _TA.TO_Lag1Trend_residue_bestCycle_byL2_residu...        NoTransf_Lag1Trend_Cycle_AR         104   0.0094        0.0231    0.0103
+2  None         _TA.TO  _TA.TO_ConstantTrend_residue_zeroCycle_residue...  NoTransf_ConstantTrend_NoCycle_AR          64   0.0094        0.0232    0.0110
+3  None         _TA.TO  _TA.TO_ConstantTrend_residue_bestCycle_byL2_re...    NoTransf_ConstantTrend_Cycle_AR          72   0.0094        0.0232    0.0121
+4  None         _TA.TO  _TA.TO_LinearTrend_residue_zeroCycle_residue_A...    NoTransf_LinearTrend_NoCycle_AR          80   0.0094        0.0232    0.0106
+7 0    6.23
+1    6.09
+2    6.19
+3    6.11
+4    6.45
+5    6.33
+6    6.23
+Name: TA.TO, dtype: float64
+7 0    6.4
+1    6.4
+2    6.4
+3    6.4
+4    6.4
+5    6.4
+6    6.4
+Name: TA.TO_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_TA.TO TA.TO [6.23, 6.09, 6.19, 6.11, 6.45, 6.33, 6.23]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_TA.TO TA.TO [6.4, 6.4, 6.4, 6.4, 6.4, 6.4, 6.4]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_TA.TO TA.TO 1248 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_TA.TO TA.TO 10.9475417137146
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_TA.TO TA.TO Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_TA.TO TA.TO 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_TA.TO TA.TO 0.0294 0.0289 1.237
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_TA.TO TA.TO 0.1814285714285715 0.20336455654106222 -2.081660580661252
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_tsx_TA.TO_7'

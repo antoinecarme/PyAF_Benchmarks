@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftse100
+TIME :  Date N= 1295 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  SHP.L N= 1295 H= 7 HEAD= [2136. 2119. 2099. 2026. 1945.] TAIL= [4885. 4837. 4825. 4844. 4873.]
+    SHP.L       Date
+0  2136.0 2011-07-28
+1  2119.0 2011-07-29
+2  2099.0 2011-08-01
+3  2026.0 2011-08-02
+4  1945.0 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1295 entries, 0 to 1294
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   SHP.L   1295 non-null   float64       
+ 1   Date    1295 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _SHP.L    _SHP.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.120000e-02  1.620000e-02  5.800000e-03
+1   None         _SHP.L  _SHP.L_Lag1Trend_residue_bestCycle_byL2_residu...  ...  1.170000e-02  1.620000e-02  6.000000e-03
+2   None   CumSum_SHP.L  CumSum_SHP.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.220000e-02  1.620000e-02  5.800000e-03
+3   None     Diff_SHP.L  Diff_SHP.L_Lag1Trend_residue_zeroCycle_residue...  ...  1.120000e-02  1.620000e-02  5.800000e-03
+4   None  RelDiff_SHP.L  RelDiff_SHP.L_Lag1Trend_residue_zeroCycle_resi...  ...  1.120000e-02  1.620000e-02  5.800000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_SHP.L  RelDiff_SHP.L_PolyTrend_residue_zeroCycle_resi...  ...  1.580060e+07  9.308206e+06  8.436405e+06
+92  None  RelDiff_SHP.L  RelDiff_SHP.L_Lag1Trend_residue_Seasonal_DayOf...  ...  1.568556e+07  9.308206e+06  8.436405e+06
+93  None  RelDiff_SHP.L  RelDiff_SHP.L_LinearTrend_residue_Seasonal_Day...  ...  1.580063e+07  9.308206e+06  8.436405e+06
+94  None  RelDiff_SHP.L  RelDiff_SHP.L_LinearTrend_residue_Seasonal_Day...  ...  1.580065e+07  9.308206e+06  8.436405e+06
+95  None  RelDiff_SHP.L  RelDiff_SHP.L_PolyTrend_residue_Seasonal_DayOf...  ...  1.578348e+07  9.308206e+06  8.436405e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _SHP.L    _SHP.L_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0112        0.0162    0.0058
+1  None         _SHP.L  _SHP.L_Lag1Trend_residue_bestCycle_byL2_residu...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0117        0.0162    0.0060
+2  None   CumSum_SHP.L  CumSum_SHP.L_Lag1Trend_residue_zeroCycle_resid...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0122        0.0162    0.0058
+3  None     Diff_SHP.L  Diff_SHP.L_Lag1Trend_residue_zeroCycle_residue...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0112        0.0162    0.0058
+4  None  RelDiff_SHP.L  RelDiff_SHP.L_Lag1Trend_residue_zeroCycle_resi...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0112        0.0162    0.0058
+7 0    4937.0
+1    4895.0
+2    4914.0
+3    4870.0
+4    4907.0
+5    4906.0
+6    4818.0
+Name: SHP.L, dtype: float64
+7 0    4873.0
+1    4873.0
+2    4873.0
+3    4873.0
+4    4873.0
+5    4873.0
+6    4873.0
+Name: SHP.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_SHP.L SHP.L [4937.0, 4895.0, 4914.0, 4870.0, 4907.0, 4906.0, 4818.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_SHP.L SHP.L [4873.0, 4873.0, 4873.0, 4873.0, 4873.0, 4873.0, 4873.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_SHP.L SHP.L 1295 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_SHP.L SHP.L 11.088356971740723
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_SHP.L SHP.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_SHP.L SHP.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_SHP.L SHP.L 0.0074 0.0074 0.9351
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_SHP.L SHP.L 36.0 40.60260371665133 -0.2969623017147114
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftse100_SHP.L_7'

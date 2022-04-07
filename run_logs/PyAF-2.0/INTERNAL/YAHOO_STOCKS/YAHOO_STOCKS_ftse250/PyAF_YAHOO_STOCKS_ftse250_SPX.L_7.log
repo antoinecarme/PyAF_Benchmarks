@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftse250
+TIME :  Date N= 1294 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  SPX.L N= 1294 H= 7 HEAD= [1879.001 1877.004 1866.001 1838.998 1814.994] TAIL= [3907. 3891. 3880. 3852. 3869.]
+      SPX.L       Date
+0  1879.001 2011-07-28
+1  1877.004 2011-07-29
+2  1866.001 2011-08-01
+3  1838.998 2011-08-02
+4  1814.994 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1294 entries, 0 to 1293
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   SPX.L   1294 non-null   float64       
+ 1   Date    1294 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _SPX.L  _SPX.L_Lag1Trend_residue_bestCycle_byL2_residu...  ...  1.030000e-02  1.060000e-02  6.200000e-03
+1   None         _SPX.L    _SPX.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.020000e-02  1.070000e-02  6.300000e-03
+2   None         _SPX.L  _SPX.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  1.020000e-02  1.070000e-02  6.300000e-03
+3   None   CumSum_SPX.L  CumSum_SPX.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.120000e-02  1.070000e-02  6.300000e-03
+4   None     Diff_SPX.L  Diff_SPX.L_Lag1Trend_residue_zeroCycle_residue...  ...  1.020000e-02  1.070000e-02  6.300000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_SPX.L  RelDiff_SPX.L_Lag1Trend_residue_Seasonal_DayOf...  ...  9.248832e+06  7.172867e+06  5.926138e+06
+92  None  RelDiff_SPX.L  RelDiff_SPX.L_ConstantTrend_residue_Seasonal_D...  ...  9.185013e+06  7.172867e+06  5.926139e+06
+93  None  RelDiff_SPX.L  RelDiff_SPX.L_LinearTrend_residue_bestCycle_by...  ...  9.269253e+06  7.172867e+06  5.926138e+06
+94  None  RelDiff_SPX.L  RelDiff_SPX.L_PolyTrend_residue_zeroCycle_resi...  ...  9.272666e+06  7.172868e+06  5.926139e+06
+95  None  RelDiff_SPX.L  RelDiff_SPX.L_ConstantTrend_residue_zeroCycle_...  ...  9.261544e+06  7.172868e+06  5.926139e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _SPX.L  _SPX.L_Lag1Trend_residue_bestCycle_byL2_residu...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0103        0.0106    0.0062
+1  None         _SPX.L    _SPX.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0102        0.0107    0.0063
+2  None         _SPX.L  _SPX.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0102        0.0107    0.0063
+3  None   CumSum_SPX.L  CumSum_SPX.L_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0112        0.0107    0.0063
+4  None     Diff_SPX.L  Diff_SPX.L_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0102        0.0107    0.0063
+7 0    3866.0
+1    3864.0
+2    3881.0
+3    3929.0
+4    3958.0
+5    4012.0
+6    3989.0
+Name: SPX.L, dtype: float64
+7 0    3869.0
+1    3869.0
+2    3869.0
+3    3869.0
+4    3869.0
+5    3869.0
+6    3869.0
+Name: SPX.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_SPX.L SPX.L [3866.0, 3864.0, 3881.0, 3929.0, 3958.0, 4012.0, 3989.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_SPX.L SPX.L [3869.0, 3869.0, 3869.0, 3869.0, 3869.0, 3869.0, 3869.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_SPX.L SPX.L 1294 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_SPX.L SPX.L 11.30299973487854
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_SPX.L SPX.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_SPX.L SPX.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_SPX.L SPX.L 0.0155 0.0157 2.1404
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_SPX.L SPX.L 61.714285714285715 81.54578030599919 -1.1327137059824488
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftse250_SPX.L_7'

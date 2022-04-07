@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ipc
+TIME :  Date N= 1295 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  ICA.MX N= 1295 H= 7 HEAD= [23.84 23.86 23.33 21.99 20.94] TAIL= [2.94 2.9  2.83 2.81 2.78]
+   ICA.MX       Date
+0   23.84 2011-07-28
+1   23.86 2011-07-29
+2   23.33 2011-08-01
+3   21.99 2011-08-02
+4   20.94 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1295 entries, 0 to 1294
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   ICA.MX  1295 non-null   float64       
+ 1   Date    1295 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None     Diff_ICA.MX  Diff_ICA.MX_Lag1Trend_residue_bestCycle_byL2_r...  ...  0.0164  4.330000e-02  1.660000e-02
+1   None         _ICA.MX  _ICA.MX_Lag1Trend_residue_bestCycle_byL2_resid...  ...  0.0164  4.340000e-02  1.700000e-02
+2   None         _ICA.MX  _ICA.MX_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  0.0164  4.370000e-02  1.220000e-02
+3   None         _ICA.MX   _ICA.MX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0164  4.380000e-02  1.150000e-02
+4   None   CumSum_ICA.MX  CumSum_ICA.MX_Lag1Trend_residue_zeroCycle_resi...  ...  0.0174  4.380000e-02  1.150000e-02
+..   ...             ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_ICA.MX  RelDiff_ICA.MX_ConstantTrend_residue_bestCycle...  ...  0.2460  8.312393e+07  7.605869e+08
+92  None  RelDiff_ICA.MX  RelDiff_ICA.MX_LinearTrend_residue_zeroCycle_r...  ...  0.2247  8.341847e+07  7.605869e+08
+93  None  RelDiff_ICA.MX  RelDiff_ICA.MX_LinearTrend_residue_Seasonal_Da...  ...  0.2250  8.388155e+07  7.605869e+08
+94  None  RelDiff_ICA.MX  RelDiff_ICA.MX_ConstantTrend_residue_zeroCycle...  ...  0.2318  8.617264e+07  7.605869e+08
+95  None  RelDiff_ICA.MX  RelDiff_ICA.MX_ConstantTrend_residue_Seasonal_...  ...  0.2283  8.621129e+07  7.605869e+08
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None    Diff_ICA.MX  Diff_ICA.MX_Lag1Trend_residue_bestCycle_byL2_r...             Difference_Lag1Trend_Cycle_NoAR          72   0.0164        0.0433    0.0166
+1  None        _ICA.MX  _ICA.MX_Lag1Trend_residue_bestCycle_byL2_resid...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0164        0.0434    0.0170
+2  None        _ICA.MX  _ICA.MX_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0164        0.0437    0.0122
+3  None        _ICA.MX   _ICA.MX_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0164        0.0438    0.0115
+4  None  CumSum_ICA.MX  CumSum_ICA.MX_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0174        0.0438    0.0115
+7 0    2.81
+1    2.79
+2    2.75
+3    2.72
+4    2.75
+5    2.69
+6    2.56
+Name: ICA.MX, dtype: float64
+7 0    2.78
+1    2.78
+2    2.78
+3    2.78
+4    2.78
+5    2.78
+6    2.78
+Name: ICA.MX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_ICA.MX ICA.MX [2.81, 2.79, 2.75, 2.72, 2.75, 2.69, 2.56]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_ICA.MX ICA.MX [2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_ICA.MX ICA.MX 1295 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_ICA.MX ICA.MX 10.866155862808228
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_ICA.MX ICA.MX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_ICA.MX ICA.MX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_ICA.MX ICA.MX 0.0254 0.0247 1.2995
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_ICA.MX ICA.MX 0.06714285714285705 0.09479300757816612 -0.5277584973302145
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ipc_ICA.MX_7'

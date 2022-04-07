@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1000 H= 7 HEAD= ['2012-09-12T00:00:00.000000000' '2012-09-13T00:00:00.000000000'
+ '2012-09-14T00:00:00.000000000' '2012-09-17T00:00:00.000000000'
+ '2012-09-18T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  SII N= 1000 H= 7 HEAD= [10000.  9500.  9900.  9500.  9200.] TAIL= [31000. 33000. 33000. 35300. 33100.]
+       SII       Date
+0  10000.0 2012-09-12
+1   9500.0 2012-09-13
+2   9900.0 2012-09-14
+3   9500.0 2012-09-17
+4   9200.0 2012-09-18
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1000 entries, 0 to 999
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   SII     1000 non-null   float64       
+ 1   Date    1000 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 23.4 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None     CumSum_SII  CumSum_SII_Lag1Trend_residue_bestCycle_byL2_re...  ...  2.750000e-02  3.780000e-02  4.680000e-02
+1   None           _SII      _SII_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.160000e-02  3.800000e-02  4.260000e-02
+2   None     CumSum_SII  CumSum_SII_Lag1Trend_residue_zeroCycle_residue...  ...  2.280000e-02  3.800000e-02  4.260000e-02
+3   None       Diff_SII  Diff_SII_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.160000e-02  3.800000e-02  4.260000e-02
+4   None    RelDiff_SII  RelDiff_SII_Lag1Trend_residue_zeroCycle_residu...  ...  2.160000e-02  3.800000e-02  4.260000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_SII  RelDiff_SII_LinearTrend_residue_bestCycle_byL2...  ...  4.535852e+06  3.044515e+06  2.526234e+06
+92  None    RelDiff_SII  RelDiff_SII_Lag1Trend_residue_bestCycle_byL2_r...  ...  4.544814e+06  3.044515e+06  2.526234e+06
+93  None    RelDiff_SII  RelDiff_SII_PolyTrend_residue_Seasonal_DayOfWe...  ...  4.538823e+06  3.044515e+06  2.526235e+06
+94  None    RelDiff_SII  RelDiff_SII_PolyTrend_residue_zeroCycle_residu...  ...  4.544806e+06  3.044515e+06  2.526235e+06
+95  None    RelDiff_SII  RelDiff_SII_PolyTrend_residue_bestCycle_byL2_r...  ...  4.544806e+06  3.044515e+06  2.526235e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None     CumSum_SII  CumSum_SII_Lag1Trend_residue_bestCycle_byL2_re...           Integration_Lag1Trend_Cycle_NoAR          72   0.0275        0.0378    0.0468
+1  None           _SII      _SII_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0216        0.0380    0.0426
+2  None     CumSum_SII  CumSum_SII_Lag1Trend_residue_zeroCycle_residue...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0228        0.0380    0.0426
+3  None       Diff_SII  Diff_SII_Lag1Trend_residue_zeroCycle_residue_NoAR          Difference_Lag1Trend_NoCycle_NoAR          64   0.0216        0.0380    0.0426
+4  None    RelDiff_SII  RelDiff_SII_Lag1Trend_residue_zeroCycle_residu...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0216        0.0380    0.0426
+7 0    33100.0
+1    32000.0
+2    31500.0
+3    29300.0
+4    27300.0
+5    28800.0
+6    28800.0
+Name: SII, dtype: float64
+7 0    33100.0
+1    33100.0
+2    33100.0
+3    33100.0
+4    33100.0
+5    33100.0
+6    33100.0
+Name: SII_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_SII SII [33100.0, 32000.0, 31500.0, 29300.0, 27300.0, 28800.0, 28800.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_SII SII [33100.0, 33100.0, 33100.0, 33100.0, 33100.0, 33100.0, 33100.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_SII SII 1000 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_SII SII 11.38707423210144
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_SII SII Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_SII SII 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_SII SII 0.1037 0.0964 2.454
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_SII SII 2985.714285714286 3562.302626111375 -2.361135135135135
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_SII_7'

@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1295 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  KCOM.L N= 1295 H= 7 HEAD= [80.25 80.75 84.   81.5  80.  ] TAIL= [110.25 110.75 110.5  109.   110.25]
+   KCOM.L       Date
+0   80.25 2011-07-28
+1   80.75 2011-07-29
+2   84.00 2011-08-01
+3   81.50 2011-08-02
+4   80.00 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1295 entries, 0 to 1294
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   KCOM.L  1295 non-null   float64       
+ 1   Date    1295 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _KCOM.L   _KCOM.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.080000e-02  1.090000e-02  1.070000e-02
+1   None         _KCOM.L  _KCOM.L_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  1.090000e-02  1.090000e-02  1.090000e-02
+2   None         _KCOM.L  _KCOM.L_Lag1Trend_residue_bestCycle_byL2_resid...  ...  1.080000e-02  1.090000e-02  1.000000e-02
+3   None   CumSum_KCOM.L  CumSum_KCOM.L_Lag1Trend_residue_zeroCycle_resi...  ...  1.180000e-02  1.090000e-02  1.070000e-02
+4   None     Diff_KCOM.L  Diff_KCOM.L_Lag1Trend_residue_zeroCycle_residu...  ...  1.080000e-02  1.090000e-02  1.070000e-02
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_KCOM.L  RelDiff_KCOM.L_Lag1Trend_residue_bestCycle_byL...  ...  1.763494e+07  1.443138e+07  1.327131e+07
+92  None  RelDiff_KCOM.L  RelDiff_KCOM.L_Lag1Trend_residue_Seasonal_DayO...  ...  1.763494e+07  1.443138e+07  1.327131e+07
+93  None  RelDiff_KCOM.L  RelDiff_KCOM.L_ConstantTrend_residue_zeroCycle...  ...  1.762071e+07  1.443138e+07  1.327131e+07
+94  None  RelDiff_KCOM.L  RelDiff_KCOM.L_ConstantTrend_residue_bestCycle...  ...  1.757011e+07  1.443138e+07  1.327131e+07
+95  None  RelDiff_KCOM.L  RelDiff_KCOM.L_PolyTrend_residue_Seasonal_DayO...  ...  1.763492e+07  1.443138e+07  1.327131e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _KCOM.L   _KCOM.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0108        0.0109    0.0107
+1  None        _KCOM.L  _KCOM.L_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0109        0.0109    0.0109
+2  None        _KCOM.L  _KCOM.L_Lag1Trend_residue_bestCycle_byL2_resid...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0108        0.0109    0.0100
+3  None  CumSum_KCOM.L  CumSum_KCOM.L_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0118        0.0109    0.0107
+4  None    Diff_KCOM.L  Diff_KCOM.L_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0108        0.0109    0.0107
+7 0    110.00
+1    111.50
+2    113.50
+3    112.75
+4    111.25
+5    115.50
+6    112.50
+Name: KCOM.L, dtype: float64
+7 0    110.25
+1    110.25
+2    110.25
+3    110.25
+4    110.25
+5    110.25
+6    110.25
+Name: KCOM.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_KCOM.L KCOM.L [110.0, 111.5, 113.5, 112.75, 111.25, 115.5, 112.5]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_KCOM.L KCOM.L [110.25, 110.25, 110.25, 110.25, 110.25, 110.25, 110.25]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_KCOM.L KCOM.L 1295 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_KCOM.L KCOM.L 10.991374731063843
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_KCOM.L KCOM.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_KCOM.L KCOM.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_KCOM.L KCOM.L 0.0198 0.0201 1.0385
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_KCOM.L KCOM.L 2.25 2.7271780286589284 -1.763507108990071
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_KCOM.L_7'

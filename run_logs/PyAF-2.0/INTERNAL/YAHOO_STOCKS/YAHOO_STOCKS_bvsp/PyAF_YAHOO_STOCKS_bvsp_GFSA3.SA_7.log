@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_bvsp
+TIME :  Date N= 1285 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  GFSA3.SA N= 1285 H= 7 HEAD= [7.18 7.52 7.28 7.21 7.08] TAIL= [2.17 2.17 2.16 2.23 2.29]
+   GFSA3.SA       Date
+0      7.18 2011-07-28
+1      7.52 2011-07-29
+2      7.28 2011-08-01
+3      7.21 2011-08-02
+4      7.08 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1285 entries, 0 to 1284
+Data columns (total 2 columns):
+ #   Column    Non-Null Count  Dtype         
+---  ------    --------------  -----         
+ 0   GFSA3.SA  1285 non-null   float64       
+ 1   Date      1285 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.1 KB
+None
+   Split    Transformation                                              Model  ...  FitMAPE  ForecastMAPE      TestMAPE
+0   None         _GFSA3.SA  _GFSA3.SA_Lag1Trend_residue_Seasonal_DayOfWeek...  ...   0.0257  2.130000e-02  2.120000e-02
+1   None         _GFSA3.SA  _GFSA3.SA_Lag1Trend_residue_zeroCycle_residue_...  ...   0.0256  2.140000e-02  1.900000e-02
+2   None   CumSum_GFSA3.SA  CumSum_GFSA3.SA_Lag1Trend_residue_zeroCycle_re...  ...   0.0266  2.140000e-02  1.900000e-02
+3   None     Diff_GFSA3.SA  Diff_GFSA3.SA_Lag1Trend_residue_zeroCycle_resi...  ...   0.0256  2.140000e-02  1.900000e-02
+4   None  RelDiff_GFSA3.SA  RelDiff_GFSA3.SA_Lag1Trend_residue_zeroCycle_r...  ...   0.0256  2.140000e-02  1.900000e-02
+..   ...               ...                                                ...  ...      ...           ...           ...
+91  None  RelDiff_GFSA3.SA  RelDiff_GFSA3.SA_LinearTrend_residue_Seasonal_...  ...  14.3681  2.323004e+07  2.511229e+08
+92  None  RelDiff_GFSA3.SA  RelDiff_GFSA3.SA_LinearTrend_residue_zeroCycle...  ...  14.6492  2.323009e+07  2.511229e+08
+93  None  RelDiff_GFSA3.SA  RelDiff_GFSA3.SA_PolyTrend_residue_bestCycle_b...  ...   7.5348  2.327640e+07  2.511229e+08
+94  None  RelDiff_GFSA3.SA  RelDiff_GFSA3.SA_PolyTrend_residue_Seasonal_Da...  ...  10.2805  2.329298e+07  2.511229e+08
+95  None  RelDiff_GFSA3.SA  RelDiff_GFSA3.SA_PolyTrend_residue_zeroCycle_r...  ...  10.4904  2.330063e+07  2.511229e+08
+
+[96 rows x 8 columns]
+  Split    Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _GFSA3.SA  _GFSA3.SA_Lag1Trend_residue_Seasonal_DayOfWeek...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0257        0.0213    0.0212
+1  None         _GFSA3.SA  _GFSA3.SA_Lag1Trend_residue_zeroCycle_residue_...             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0256        0.0214    0.0190
+2  None   CumSum_GFSA3.SA  CumSum_GFSA3.SA_Lag1Trend_residue_zeroCycle_re...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0266        0.0214    0.0190
+3  None     Diff_GFSA3.SA  Diff_GFSA3.SA_Lag1Trend_residue_zeroCycle_resi...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0256        0.0214    0.0190
+4  None  RelDiff_GFSA3.SA  RelDiff_GFSA3.SA_Lag1Trend_residue_zeroCycle_r...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0256        0.0214    0.0190
+7 0    2.29
+1    2.25
+2    2.34
+3    2.28
+4    2.26
+5    2.16
+6    2.17
+Name: GFSA3.SA, dtype: float64
+7 0    2.29
+1    2.29
+2    2.29
+3    2.29
+4    2.29
+5    2.29
+6    2.29
+Name: GFSA3.SA_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_GFSA3.SA GFSA3.SA [2.29, 2.25, 2.34, 2.28, 2.26, 2.16, 2.17]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_GFSA3.SA GFSA3.SA [2.29, 2.29, 2.29, 2.29, 2.29, 2.29, 2.29]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_GFSA3.SA GFSA3.SA 1285 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_GFSA3.SA GFSA3.SA 10.506284475326538
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_GFSA3.SA GFSA3.SA Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_GFSA3.SA GFSA3.SA 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_GFSA3.SA GFSA3.SA 0.0246 0.0241 1.0179
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_GFSA3.SA GFSA3.SA 0.05428571428571433 0.0721110255092798 -0.44444443871252526
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_bvsp_GFSA3.SA_7'

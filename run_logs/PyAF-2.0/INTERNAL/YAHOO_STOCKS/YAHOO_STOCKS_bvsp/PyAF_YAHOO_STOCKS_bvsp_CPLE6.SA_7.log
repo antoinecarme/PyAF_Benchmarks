@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_bvsp
+TIME :  Date N= 1246 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  CPLE6.SA N= 1246 H= 7 HEAD= [37.1  37.   38.05 37.95 37.4 ] TAIL= [32.3  32.57 33.31 33.17 34.03]
+   CPLE6.SA       Date
+0     37.10 2011-07-28
+1     37.00 2011-07-29
+2     38.05 2011-08-01
+3     37.95 2011-08-02
+4     37.40 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1246 entries, 0 to 1245
+Data columns (total 2 columns):
+ #   Column    Non-Null Count  Dtype         
+---  ------    --------------  -----         
+ 0   CPLE6.SA  1246 non-null   float64       
+ 1   Date      1246 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.2 KB
+None
+   Split    Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _CPLE6.SA  _CPLE6.SA_Lag1Trend_residue_zeroCycle_residue_...  ...  0.0157  2.220000e-02  2.230000e-02
+1   None         _CPLE6.SA  _CPLE6.SA_Lag1Trend_residue_Seasonal_DayOfWeek...  ...  0.0157  2.220000e-02  2.230000e-02
+2   None   CumSum_CPLE6.SA  CumSum_CPLE6.SA_Lag1Trend_residue_zeroCycle_re...  ...  0.0167  2.220000e-02  2.230000e-02
+3   None     Diff_CPLE6.SA  Diff_CPLE6.SA_Lag1Trend_residue_zeroCycle_resi...  ...  0.0157  2.220000e-02  2.230000e-02
+4   None  RelDiff_CPLE6.SA  RelDiff_CPLE6.SA_Lag1Trend_residue_zeroCycle_r...  ...  0.0157  2.220000e-02  2.230000e-02
+..   ...               ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_CPLE6.SA  RelDiff_CPLE6.SA_PolyTrend_residue_Seasonal_Da...  ...  0.3937  3.591520e+07  5.941437e+07
+92  None  RelDiff_CPLE6.SA  RelDiff_CPLE6.SA_ConstantTrend_residue_zeroCyc...  ...  0.5340  3.591520e+07  5.941437e+07
+93  None  RelDiff_CPLE6.SA  RelDiff_CPLE6.SA_PolyTrend_residue_zeroCycle_r...  ...  0.3878  3.591520e+07  5.941437e+07
+94  None  RelDiff_CPLE6.SA  RelDiff_CPLE6.SA_LinearTrend_residue_Seasonal_...  ...  0.3853  3.591522e+07  5.941437e+07
+95  None  RelDiff_CPLE6.SA  RelDiff_CPLE6.SA_LinearTrend_residue_zeroCycle...  ...  0.3794  3.591522e+07  5.941437e+07
+
+[96 rows x 8 columns]
+  Split    Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _CPLE6.SA  _CPLE6.SA_Lag1Trend_residue_zeroCycle_residue_...             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0157        0.0222    0.0223
+1  None         _CPLE6.SA  _CPLE6.SA_Lag1Trend_residue_Seasonal_DayOfWeek...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0157        0.0222    0.0223
+2  None   CumSum_CPLE6.SA  CumSum_CPLE6.SA_Lag1Trend_residue_zeroCycle_re...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0167        0.0222    0.0223
+3  None     Diff_CPLE6.SA  Diff_CPLE6.SA_Lag1Trend_residue_zeroCycle_resi...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0157        0.0222    0.0223
+4  None  RelDiff_CPLE6.SA  RelDiff_CPLE6.SA_Lag1Trend_residue_zeroCycle_r...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0157        0.0222    0.0223
+7 0    34.29
+1    33.80
+2    33.89
+3    34.17
+4    33.73
+5    33.23
+6    32.51
+Name: CPLE6.SA, dtype: float64
+7 0    34.03
+1    34.03
+2    34.03
+3    34.03
+4    34.03
+5    34.03
+6    34.03
+Name: CPLE6.SA_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_CPLE6.SA CPLE6.SA [34.29, 33.8, 33.89, 34.17, 33.73, 33.23, 32.51]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_CPLE6.SA CPLE6.SA [34.03, 34.03, 34.03, 34.03, 34.03, 34.03, 34.03]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_CPLE6.SA CPLE6.SA 1246 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_CPLE6.SA CPLE6.SA 10.707551002502441
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_CPLE6.SA CPLE6.SA Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_CPLE6.SA CPLE6.SA 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_CPLE6.SA CPLE6.SA 0.0146 0.0144 1.1531
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_CPLE6.SA CPLE6.SA 0.4842857142857164 0.6761339681284662 -0.427468998062835
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_bvsp_CPLE6.SA_7'

@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_sp500
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  DOV N= 1251 H= 7 HEAD= [60.41     60.470001 60.77001  58.400001 59.220003] TAIL= [72.029999 72.32     72.57     73.110001 73.199997]
+         DOV       Date
+0  60.410000 2011-07-28
+1  60.470001 2011-07-29
+2  60.770010 2011-08-01
+3  58.400001 2011-08-02
+4  59.220003 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   DOV     1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _DOV  _DOV_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  ...  1.170000e-02  1.350000e-02  9.200000e-03
+1   None           _DOV      _DOV_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.170000e-02  1.360000e-02  8.900000e-03
+2   None           _DOV  _DOV_Lag1Trend_residue_bestCycle_byL2_residue_...  ...  1.170000e-02  1.360000e-02  8.700000e-03
+3   None     CumSum_DOV  CumSum_DOV_Lag1Trend_residue_zeroCycle_residue...  ...  1.270000e-02  1.360000e-02  8.900000e-03
+4   None       Diff_DOV  Diff_DOV_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.170000e-02  1.360000e-02  8.900000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_DOV  RelDiff_DOV_LinearTrend_residue_bestCycle_byL2...  ...  2.252741e+07  2.512480e+07  2.187904e+07
+92  None    RelDiff_DOV  RelDiff_DOV_PolyTrend_residue_Seasonal_DayOfWe...  ...  2.252742e+07  2.512480e+07  2.187904e+07
+93  None    RelDiff_DOV  RelDiff_DOV_ConstantTrend_residue_bestCycle_by...  ...  2.245266e+07  2.512480e+07  2.187904e+07
+94  None    RelDiff_DOV  RelDiff_DOV_PolyTrend_residue_zeroCycle_residu...  ...  2.252742e+07  2.512480e+07  2.187904e+07
+95  None    RelDiff_DOV  RelDiff_DOV_PolyTrend_residue_bestCycle_byL2_r...  ...  2.252742e+07  2.512480e+07  2.187904e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _DOV  _DOV_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0117        0.0135    0.0092
+1  None           _DOV      _DOV_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0117        0.0136    0.0089
+2  None           _DOV  _DOV_Lag1Trend_residue_bestCycle_byL2_residue_...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0117        0.0136    0.0087
+3  None     CumSum_DOV  CumSum_DOV_Lag1Trend_residue_zeroCycle_residue...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0127        0.0136    0.0089
+4  None       Diff_DOV  Diff_DOV_Lag1Trend_residue_zeroCycle_residue_NoAR           Difference_Lag1Trend_NoCycle_NoAR          64   0.0117        0.0136    0.0089
+7 0    72.970001
+1    73.050003
+2    71.910004
+3    71.269997
+4    70.980003
+5    72.349998
+6    71.839996
+Name: DOV, dtype: float64
+7 0    73.199997
+1    73.199997
+2    73.199997
+3    73.199997
+4    73.199997
+5    73.199997
+6    73.199997
+Name: DOV_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_DOV DOV [72.970001, 73.050003, 71.910004, 71.269997, 70.980003, 72.349998, 71.839996]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_DOV DOV [73.199997, 73.199997, 73.199997, 73.199997, 73.199997, 73.199997, 73.199997]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_DOV DOV 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_DOV DOV 11.40439510345459
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_DOV DOV Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_DOV DOV 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_DOV DOV 0.016 0.0158 1.7079
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_DOV DOV 1.1471395714285677 1.360926820754305 -2.4542098477341083
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_sp500_DOV_7'

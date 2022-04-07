@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ta100
+TIME :  Date N= 1019 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-08-01T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-07T00:00:00.000000000' '2016-07-11T00:00:00.000000000'
+ '2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000']
+SIGNAL :  UNON.TA N= 1019 H= 7 HEAD= [15.82 15.39 15.28 15.22 14.88] TAIL= [12.75 12.93 12.96 12.99 13.08]
+   UNON.TA       Date
+0    15.82 2011-07-28
+1    15.39 2011-08-01
+2    15.28 2011-08-02
+3    15.22 2011-08-03
+4    14.88 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1019 entries, 0 to 1018
+Data columns (total 2 columns):
+ #   Column   Non-Null Count  Dtype         
+---  ------   --------------  -----         
+ 0   UNON.TA  1019 non-null   float64       
+ 1   Date     1019 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 23.9 KB
+None
+   Split   Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _UNON.TA  _UNON.TA_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  9.800000e-03  9.900000e-03  6.100000e-03
+1   None   CumSum_UNON.TA  CumSum_UNON.TA_Lag1Trend_residue_zeroCycle_res...  ...  1.100000e-02  9.900000e-03  6.100000e-03
+2   None     Diff_UNON.TA  Diff_UNON.TA_Lag1Trend_residue_zeroCycle_resid...  ...  9.800000e-03  9.900000e-03  6.100000e-03
+3   None  RelDiff_UNON.TA  RelDiff_UNON.TA_Lag1Trend_residue_zeroCycle_re...  ...  9.800000e-03  9.900000e-03  6.100000e-03
+4   None         _UNON.TA  _UNON.TA_Lag1Trend_residue_bestCycle_byL2_resi...  ...  9.800000e-03  1.000000e-02  6.700000e-03
+..   ...              ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_UNON.TA  RelDiff_UNON.TA_Lag1Trend_residue_bestCycle_by...  ...  4.220769e+07  4.276521e+07  4.451799e+07
+92  None  RelDiff_UNON.TA  RelDiff_UNON.TA_LinearTrend_residue_bestCycle_...  ...  4.226021e+07  4.276521e+07  4.451799e+07
+93  None  RelDiff_UNON.TA  RelDiff_UNON.TA_PolyTrend_residue_bestCycle_by...  ...  4.225643e+07  4.276521e+07  4.451799e+07
+94  None  RelDiff_UNON.TA  RelDiff_UNON.TA_PolyTrend_residue_bestCycle_by...  ...  4.225721e+07  4.276521e+07  4.451799e+07
+95  None  RelDiff_UNON.TA  RelDiff_UNON.TA_ConstantTrend_residue_zeroCycl...  ...  4.225755e+07  4.276521e+07  4.451799e+07
+
+[96 rows x 8 columns]
+  Split   Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _UNON.TA  _UNON.TA_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0098        0.0099    0.0061
+1  None   CumSum_UNON.TA  CumSum_UNON.TA_Lag1Trend_residue_zeroCycle_res...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0110        0.0099    0.0061
+2  None     Diff_UNON.TA  Diff_UNON.TA_Lag1Trend_residue_zeroCycle_resid...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0098        0.0099    0.0061
+3  None  RelDiff_UNON.TA  RelDiff_UNON.TA_Lag1Trend_residue_zeroCycle_re...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0098        0.0099    0.0061
+4  None         _UNON.TA  _UNON.TA_Lag1Trend_residue_bestCycle_byL2_resi...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0098        0.0100    0.0067
+7 0    13.18
+1    13.18
+2    13.41
+3    13.39
+4    13.26
+5    13.35
+6    13.44
+Name: UNON.TA, dtype: float64
+7 0    13.08
+1    13.08
+2    13.08
+3    13.08
+4    13.08
+5    13.08
+6    13.08
+Name: UNON.TA_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_UNON.TA UNON.TA [13.18, 13.18, 13.41, 13.39, 13.26, 13.35, 13.44]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_UNON.TA UNON.TA [13.08, 13.08, 13.08, 13.08, 13.08, 13.08, 13.08]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_UNON.TA UNON.TA 1019 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_UNON.TA UNON.TA 9.819198846817017
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_UNON.TA UNON.TA Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_UNON.TA UNON.TA 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_UNON.TA UNON.TA 0.0176 0.0178 2.5255
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_UNON.TA UNON.TA 0.23571428571428552 0.2563201123595258 -5.4800724546375585
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ta100_UNON.TA_7'

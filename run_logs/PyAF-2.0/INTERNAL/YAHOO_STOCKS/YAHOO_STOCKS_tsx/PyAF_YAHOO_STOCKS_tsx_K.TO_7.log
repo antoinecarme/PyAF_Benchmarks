@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_tsx
+TIME :  Date N= 1248 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  K.TO N= 1248 H= 7 HEAD= [15.95     15.6      16.129999 16.33     15.5     ] TAIL= [6.92 7.01 6.96 6.87 7.03]
+        K.TO       Date
+0  15.950000 2011-07-28
+1  15.600000 2011-07-29
+2  16.129999 2011-08-02
+3  16.330000 2011-08-03
+4  15.500000 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1248 entries, 0 to 1247
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   K.TO    1248 non-null   float64       
+ 1   Date    1248 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.2 KB
+None
+   Split Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None          _K.TO  _K.TO_Lag1Trend_residue_bestCycle_byL2_residue...  ...  0.0219  3.690000e-02  2.280000e-02
+1   None          _K.TO     _K.TO_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0218  3.710000e-02  2.130000e-02
+2   None    CumSum_K.TO  CumSum_K.TO_Lag1Trend_residue_zeroCycle_residu...  ...  0.0228  3.710000e-02  2.130000e-02
+3   None      Diff_K.TO  Diff_K.TO_Lag1Trend_residue_zeroCycle_residue_...  ...  0.0218  3.710000e-02  2.130000e-02
+4   None   RelDiff_K.TO  RelDiff_K.TO_Lag1Trend_residue_zeroCycle_resid...  ...  0.0218  3.710000e-02  2.130000e-02
+..   ...            ...                                                ...  ...     ...           ...           ...
+91  None   RelDiff_K.TO  RelDiff_K.TO_LinearTrend_residue_zeroCycle_res...  ...  0.4757  3.316895e+08  1.990734e+08
+92  None   RelDiff_K.TO  RelDiff_K.TO_LinearTrend_residue_bestCycle_byL...  ...  0.4600  3.316895e+08  1.990734e+08
+93  None   RelDiff_K.TO  RelDiff_K.TO_Lag1Trend_residue_bestCycle_byL2_...  ...  0.1691  3.316896e+08  1.990734e+08
+94  None   RelDiff_K.TO  RelDiff_K.TO_Lag1Trend_residue_Seasonal_DayOfW...  ...  0.2028  3.316896e+08  1.990734e+08
+95  None   RelDiff_K.TO  RelDiff_K.TO_Lag1Trend_residue_zeroCycle_resid...  ...  0.1924  3.316896e+08  1.990734e+08
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None          _K.TO  _K.TO_Lag1Trend_residue_bestCycle_byL2_residue...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0219        0.0369    0.0228
+1  None          _K.TO     _K.TO_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0218        0.0371    0.0213
+2  None    CumSum_K.TO  CumSum_K.TO_Lag1Trend_residue_zeroCycle_residu...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0228        0.0371    0.0213
+3  None      Diff_K.TO  Diff_K.TO_Lag1Trend_residue_zeroCycle_residue_...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0218        0.0371    0.0213
+4  None   RelDiff_K.TO  RelDiff_K.TO_Lag1Trend_residue_zeroCycle_resid...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0218        0.0371    0.0213
+7 0    6.96
+1    6.45
+2    6.67
+3    6.57
+4    6.24
+5    6.40
+6    6.61
+Name: K.TO, dtype: float64
+7 0    7.03
+1    7.03
+2    7.03
+3    7.03
+4    7.03
+5    7.03
+6    7.03
+Name: K.TO_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_K.TO K.TO [6.96, 6.45, 6.67, 6.57, 6.24, 6.4, 6.61]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_K.TO K.TO [7.03, 7.03, 7.03, 7.03, 7.03, 7.03, 7.03]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_K.TO K.TO 1248 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_K.TO K.TO 10.956134557723999
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_K.TO K.TO Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_K.TO K.TO 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_K.TO K.TO 0.0732 0.0701 1.8543
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_K.TO K.TO 0.4728571428571429 0.5182249925053237 -4.972812271159697
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_tsx_K.TO_7'

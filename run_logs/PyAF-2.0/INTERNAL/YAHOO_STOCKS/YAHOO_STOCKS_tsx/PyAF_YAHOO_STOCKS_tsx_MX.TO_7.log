@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_tsx
+TIME :  Date N= 1248 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  MX.TO N= 1248 H= 7 HEAD= [28.370001 28.299999 27.48     27.32     25.610001] TAIL= [37.869999 37.59     37.810001 38.07     38.02    ]
+       MX.TO       Date
+0  28.370001 2011-07-28
+1  28.299999 2011-07-29
+2  27.480000 2011-08-02
+3  27.320000 2011-08-03
+4  25.610001 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1248 entries, 0 to 1247
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   MX.TO   1248 non-null   float64       
+ 1   Date    1248 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.2 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _MX.TO    _MX.TO_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.430000e-02  2.390000e-02  1.270000e-02
+1   None   CumSum_MX.TO  CumSum_MX.TO_Lag1Trend_residue_zeroCycle_resid...  ...  1.530000e-02  2.390000e-02  1.270000e-02
+2   None     Diff_MX.TO  Diff_MX.TO_Lag1Trend_residue_zeroCycle_residue...  ...  1.430000e-02  2.390000e-02  1.270000e-02
+3   None  RelDiff_MX.TO  RelDiff_MX.TO_Lag1Trend_residue_zeroCycle_resi...  ...  1.430000e-02  2.390000e-02  1.270000e-02
+4   None         _MX.TO  _MX.TO_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  1.430000e-02  2.400000e-02  1.200000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_MX.TO  RelDiff_MX.TO_LinearTrend_residue_bestCycle_by...  ...  1.664639e+07  1.508278e+07  1.829764e+07
+92  None  RelDiff_MX.TO  RelDiff_MX.TO_Lag1Trend_residue_bestCycle_byL2...  ...  1.666961e+07  1.508278e+07  1.829764e+07
+93  None  RelDiff_MX.TO  RelDiff_MX.TO_PolyTrend_residue_bestCycle_byL2...  ...  1.666511e+07  1.508278e+07  1.829764e+07
+94  None  RelDiff_MX.TO  RelDiff_MX.TO_ConstantTrend_residue_zeroCycle_...  ...  1.662434e+07  1.508278e+07  1.829764e+07
+95  None  RelDiff_MX.TO  RelDiff_MX.TO_PolyTrend_residue_Seasonal_DayOf...  ...  1.666687e+07  1.508278e+07  1.829764e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _MX.TO    _MX.TO_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0143        0.0239    0.0127
+1  None   CumSum_MX.TO  CumSum_MX.TO_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0153        0.0239    0.0127
+2  None     Diff_MX.TO  Diff_MX.TO_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0143        0.0239    0.0127
+3  None  RelDiff_MX.TO  RelDiff_MX.TO_Lag1Trend_residue_zeroCycle_resi...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0143        0.0239    0.0127
+4  None         _MX.TO  _MX.TO_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0143        0.0240    0.0120
+7 0    37.029999
+1    37.189999
+2    37.369999
+3    37.380001
+4    36.599998
+5    37.470001
+6    37.680000
+Name: MX.TO, dtype: float64
+7 0    38.02
+1    38.02
+2    38.02
+3    38.02
+4    38.02
+5    38.02
+6    38.02
+Name: MX.TO_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_MX.TO MX.TO [37.029999, 37.189999, 37.369999, 37.380001, 36.599998, 37.470001, 37.68]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_MX.TO MX.TO [38.02, 38.02, 38.02, 38.02, 38.02, 38.02, 38.02]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_MX.TO MX.TO 1248 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_MX.TO MX.TO 11.334032535552979
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_MX.TO MX.TO Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_MX.TO MX.TO 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_MX.TO MX.TO 0.0209 0.0206 2.1021
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_MX.TO MX.TO 0.774286142857146 0.8396945226865915 -5.6789919640406215
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_tsx_MX.TO_7'

@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 453 H= 7 HEAD= ['2014-09-30T00:00:00.000000000' '2014-10-01T00:00:00.000000000'
+ '2014-10-02T00:00:00.000000000' '2014-10-03T00:00:00.000000000'
+ '2014-10-06T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  CTV N= 453 H= 7 HEAD= [24.360001 24.389999 24.450001 24.59     24.73    ] TAIL= [26.43     26.440001 26.4      26.48     26.43    ]
+         CTV       Date
+0  24.360001 2014-09-30
+1  24.389999 2014-10-01
+2  24.450001 2014-10-02
+3  24.590000 2014-10-03
+4  24.730000 2014-10-06
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 453 entries, 0 to 452
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   CTV     453 non-null    float64       
+ 1   Date    453 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 10.6 KB
+None
+   Split Transformation                                              Model                                           Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0   None           _CTV      _CTV_Lag1Trend_residue_zeroCycle_residue_NoAR                    NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0037        0.0027    0.0015
+1   None     CumSum_CTV  CumSum_CTV_Lag1Trend_residue_zeroCycle_residue...                 Integration_Lag1Trend_NoCycle_NoAR          64   0.0065        0.0027    0.0015
+2   None       Diff_CTV  Diff_CTV_Lag1Trend_residue_zeroCycle_residue_NoAR                  Difference_Lag1Trend_NoCycle_NoAR          64   0.0037        0.0027    0.0015
+3   None           _CTV  _CTV_Lag1Trend_residue_Seasonal_DayOfWeek_resi...         NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0037        0.0028    0.0013
+4   None           _CTV  _CTV_Lag1Trend_residue_bestCycle_byL2_residue_...                      NoTransf_Lag1Trend_Cycle_NoAR          40   0.0037        0.0028    0.0017
+..   ...            ...                                                ...                                                ...         ...      ...           ...       ...
+91  None     CumSum_CTV  CumSum_CTV_PolyTrend_residue_bestCycle_byL2_re...                     Integration_PolyTrend_Cycle_AR         120   0.4136        0.5938    0.7502
+92  None     CumSum_CTV  CumSum_CTV_ConstantTrend_residue_zeroCycle_res...             Integration_ConstantTrend_NoCycle_NoAR          32   1.5257        1.0000    1.0000
+93  None     CumSum_CTV  CumSum_CTV_ConstantTrend_residue_bestCycle_byL...               Integration_ConstantTrend_Cycle_NoAR          40   1.4292        1.0214    4.2107
+94  None     CumSum_CTV  CumSum_CTV_ConstantTrend_residue_Seasonal_DayO...    Integration_ConstantTrend_Seasonal_DayOfWeek_AR         100   1.2619        1.3250    2.3069
+95  None     CumSum_CTV  CumSum_CTV_ConstantTrend_residue_Seasonal_DayO...  Integration_ConstantTrend_Seasonal_DayOfWeek_NoAR          36   3.2713        2.7944    3.0721
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _CTV      _CTV_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0037        0.0027    0.0015
+1  None     CumSum_CTV  CumSum_CTV_Lag1Trend_residue_zeroCycle_residue...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0065        0.0027    0.0015
+2  None       Diff_CTV  Diff_CTV_Lag1Trend_residue_zeroCycle_residue_NoAR           Difference_Lag1Trend_NoCycle_NoAR          64   0.0037        0.0027    0.0015
+3  None           _CTV  _CTV_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0037        0.0028    0.0013
+4  None           _CTV  _CTV_Lag1Trend_residue_bestCycle_byL2_residue_...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0037        0.0028    0.0017
+7 0    26.370001
+1    26.438000
+2    26.480000
+3    26.440001
+4    26.580000
+5    26.600000
+6    26.700001
+Name: CTV, dtype: float64
+7 0    25.798758
+1    25.798758
+2    25.798758
+3    25.798758
+4    25.798758
+5    25.798758
+6    25.798758
+Name: CTV_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_CTV CTV [26.370001000000002, 26.438000000000002, 26.48, 26.440001000000002, 26.58, 26.6, 26.700001]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_CTV CTV [25.798758460674158, 25.798758460674158, 25.798758460674158, 25.798758460674158, 25.798758460674158, 25.798758460674158, 25.798758460674158]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_CTV CTV 453 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_CTV CTV 10.819422245025635
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_CTV CTV ConstantTrend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_CTV CTV 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_CTV CTV 0.027 0.0274 10.4879
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_CTV CTV 0.7166705393258432 0.7245485565192759 -45.236830777979
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_CTV_7'

@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_tsx
+TIME :  Date N= 1295 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  RET-A.TO N= 1295 H= 7 HEAD= [14.86 14.89 14.93 15.13 14.52] TAIL= [4.24 4.24 4.24 4.22 4.23]
+   RET-A.TO       Date
+0     14.86 2011-07-28
+1     14.89 2011-07-29
+2     14.93 2011-08-02
+3     15.13 2011-08-03
+4     14.52 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1295 entries, 0 to 1294
+Data columns (total 2 columns):
+ #   Column    Non-Null Count  Dtype         
+---  ------    --------------  -----         
+ 0   RET-A.TO  1295 non-null   float64       
+ 1   Date      1295 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split    Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _RET-A.TO  _RET-A.TO_Lag1Trend_residue_zeroCycle_residue_...  ...  0.0125  1.740000e-02  8.400000e-03
+1   None   CumSum_RET-A.TO  CumSum_RET-A.TO_Lag1Trend_residue_zeroCycle_re...  ...  0.0135  1.740000e-02  8.400000e-03
+2   None     Diff_RET-A.TO  Diff_RET-A.TO_Lag1Trend_residue_zeroCycle_resi...  ...  0.0125  1.740000e-02  8.400000e-03
+3   None  RelDiff_RET-A.TO  RelDiff_RET-A.TO_Lag1Trend_residue_zeroCycle_r...  ...  0.0125  1.740000e-02  8.400000e-03
+4   None         _RET-A.TO  _RET-A.TO_Lag1Trend_residue_bestCycle_byL2_res...  ...  0.0126  1.750000e-02  9.200000e-03
+..   ...               ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_RET-A.TO  RelDiff_RET-A.TO_PolyTrend_residue_zeroCycle_r...  ...  0.1886  1.183348e+08  2.644016e+08
+92  None  RelDiff_RET-A.TO  RelDiff_RET-A.TO_PolyTrend_residue_bestCycle_b...  ...  0.1790  1.183433e+08  2.644016e+08
+93  None  RelDiff_RET-A.TO  RelDiff_RET-A.TO_Lag1Trend_residue_bestCycle_b...  ...  0.0694  1.184050e+08  2.644016e+08
+94  None  RelDiff_RET-A.TO  RelDiff_RET-A.TO_Lag1Trend_residue_Seasonal_Da...  ...  0.0689  1.184059e+08  2.644016e+08
+95  None  RelDiff_RET-A.TO  RelDiff_RET-A.TO_Lag1Trend_residue_zeroCycle_r...  ...  0.0765  1.184086e+08  2.644016e+08
+
+[96 rows x 8 columns]
+  Split    Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _RET-A.TO  _RET-A.TO_Lag1Trend_residue_zeroCycle_residue_...            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0125        0.0174    0.0084
+1  None   CumSum_RET-A.TO  CumSum_RET-A.TO_Lag1Trend_residue_zeroCycle_re...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0135        0.0174    0.0084
+2  None     Diff_RET-A.TO  Diff_RET-A.TO_Lag1Trend_residue_zeroCycle_resi...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0125        0.0174    0.0084
+3  None  RelDiff_RET-A.TO  RelDiff_RET-A.TO_Lag1Trend_residue_zeroCycle_r...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0125        0.0174    0.0084
+4  None         _RET-A.TO  _RET-A.TO_Lag1Trend_residue_bestCycle_byL2_res...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0126        0.0175    0.0092
+7 0    4.19
+1    4.23
+2    4.25
+3    4.37
+4    4.28
+5    4.32
+6    4.29
+Name: RET-A.TO, dtype: float64
+7 0    4.23
+1    4.23
+2    4.23
+3    4.23
+4    4.23
+5    4.23
+6    4.23
+Name: RET-A.TO_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_RET-A.TO RET-A.TO [4.19, 4.23, 4.25, 4.37, 4.28, 4.32, 4.29]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_RET-A.TO RET-A.TO [4.23, 4.23, 4.23, 4.23, 4.23, 4.23, 4.23]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_RET-A.TO RET-A.TO 1295 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_RET-A.TO RET-A.TO 10.936208724975586
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_RET-A.TO RET-A.TO Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_RET-A.TO RET-A.TO 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_RET-A.TO RET-A.TO 0.0133 0.0134 1.0084
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_RET-A.TO RET-A.TO 0.05714285714285694 0.07151423434733596 -0.6909581566553882
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_tsx_RET-A.TO_7'

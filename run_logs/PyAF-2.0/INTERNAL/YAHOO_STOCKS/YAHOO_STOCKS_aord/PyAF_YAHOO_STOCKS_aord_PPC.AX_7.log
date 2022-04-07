@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aord
+TIME :  Date N= 1034 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  PPC.AX N= 1034 H= 7 HEAD= [1.49 1.45 1.43 1.44 1.4 ] TAIL= [0.93 0.95 0.93 0.94 0.94]
+   PPC.AX       Date
+0    1.49 2011-07-28
+1    1.45 2011-07-29
+2    1.43 2011-08-01
+3    1.44 2011-08-02
+4    1.40 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1034 entries, 0 to 1033
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   PPC.AX  1034 non-null   float64       
+ 1   Date    1034 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 24.2 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _PPC.AX   _PPC.AX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.630000e-02  1.110000e-02  1.070000e-02
+1   None   CumSum_PPC.AX  CumSum_PPC.AX_Lag1Trend_residue_zeroCycle_resi...  ...  1.750000e-02  1.110000e-02  1.070000e-02
+2   None     Diff_PPC.AX  Diff_PPC.AX_Lag1Trend_residue_zeroCycle_residu...  ...  1.630000e-02  1.110000e-02  1.070000e-02
+3   None  RelDiff_PPC.AX  RelDiff_PPC.AX_Lag1Trend_residue_zeroCycle_res...  ...  1.630000e-02  1.110000e-02  1.070000e-02
+4   None     Diff_PPC.AX  Diff_PPC.AX_Lag1Trend_residue_Seasonal_DayOfWe...  ...  1.760000e-02  1.110000e-02  8.200000e-03
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_PPC.AX  RelDiff_PPC.AX_LinearTrend_residue_bestCycle_b...  ...  8.166366e+07  8.635268e+07  9.116959e+07
+92  None  RelDiff_PPC.AX  RelDiff_PPC.AX_LinearTrend_residue_bestCycle_b...  ...  8.166366e+07  8.635268e+07  9.116959e+07
+93  None  RelDiff_PPC.AX  RelDiff_PPC.AX_PolyTrend_residue_bestCycle_byL...  ...  8.166366e+07  8.635268e+07  9.116959e+07
+94  None  RelDiff_PPC.AX  RelDiff_PPC.AX_Lag1Trend_residue_bestCycle_byL...  ...  8.159502e+07  8.635268e+07  9.116959e+07
+95  None  RelDiff_PPC.AX  RelDiff_PPC.AX_ConstantTrend_residue_zeroCycle...  ...  8.161213e+07  8.635268e+07  9.116959e+07
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _PPC.AX   _PPC.AX_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0163        0.0111    0.0107
+1  None   CumSum_PPC.AX  CumSum_PPC.AX_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0175        0.0111    0.0107
+2  None     Diff_PPC.AX  Diff_PPC.AX_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0163        0.0111    0.0107
+3  None  RelDiff_PPC.AX  RelDiff_PPC.AX_Lag1Trend_residue_zeroCycle_res...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0163        0.0111    0.0107
+4  None     Diff_PPC.AX  Diff_PPC.AX_Lag1Trend_residue_Seasonal_DayOfWe...  Difference_Lag1Trend_Seasonal_DayOfWeek_AR         132   0.0176        0.0111    0.0082
+7 0    0.955
+1    0.950
+2    0.950
+3    0.940
+4    0.945
+5    0.945
+6    0.950
+Name: PPC.AX, dtype: float64
+7 0    0.94
+1    0.94
+2    0.94
+3    0.94
+4    0.94
+5    0.94
+6    0.94
+Name: PPC.AX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_PPC.AX PPC.AX [0.955, 0.95, 0.95, 0.94, 0.945, 0.945, 0.95]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_PPC.AX PPC.AX [0.94, 0.94, 0.94, 0.94, 0.94, 0.94, 0.94]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_PPC.AX PPC.AX 1034 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_PPC.AX PPC.AX 11.184606075286865
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_PPC.AX PPC.AX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_PPC.AX PPC.AX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_PPC.AX PPC.AX 0.0083 0.0083 1.8857
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_PPC.AX PPC.AX 0.007857142857142865 0.009063269671749667 -3.0249971825019735
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aord_PPC.AX_7'

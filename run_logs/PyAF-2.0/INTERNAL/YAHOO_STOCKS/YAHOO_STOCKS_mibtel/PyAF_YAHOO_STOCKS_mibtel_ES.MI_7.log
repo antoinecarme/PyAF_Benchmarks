@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_mibtel
+TIME :  Date N= 1297 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  ES.MI N= 1297 H= 7 HEAD= [1.619 1.623 1.54  1.489 1.365] TAIL= [0.7895 0.7695 0.792  0.774  0.7845]
+   ES.MI       Date
+0  1.619 2011-07-28
+1  1.623 2011-07-29
+2  1.540 2011-08-01
+3  1.489 2011-08-02
+4  1.365 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1297 entries, 0 to 1296
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   ES.MI   1297 non-null   float64       
+ 1   Date    1297 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _ES.MI  _ES.MI_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  1.700000e-02  1.710000e-02  3.060000e-02
+1   None         _ES.MI  _ES.MI_Lag1Trend_residue_bestCycle_byL2_residu...  ...  1.700000e-02  1.710000e-02  3.060000e-02
+2   None         _ES.MI    _ES.MI_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.700000e-02  1.720000e-02  2.960000e-02
+3   None   CumSum_ES.MI  CumSum_ES.MI_Lag1Trend_residue_zeroCycle_resid...  ...  1.800000e-02  1.720000e-02  2.960000e-02
+4   None     Diff_ES.MI  Diff_ES.MI_Lag1Trend_residue_zeroCycle_residue...  ...  1.700000e-02  1.720000e-02  2.960000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_ES.MI  RelDiff_ES.MI_LinearTrend_residue_bestCycle_by...  ...  1.038009e+08  1.150776e+08  1.373940e+08
+92  None  RelDiff_ES.MI  RelDiff_ES.MI_PolyTrend_residue_Seasonal_DayOf...  ...  1.038006e+08  1.150776e+08  1.373940e+08
+93  None  RelDiff_ES.MI  RelDiff_ES.MI_LinearTrend_residue_bestCycle_by...  ...  1.038012e+08  1.150776e+08  1.373940e+08
+94  None  RelDiff_ES.MI  RelDiff_ES.MI_Lag1Trend_residue_bestCycle_byL2...  ...  1.037182e+08  1.150776e+08  1.373940e+08
+95  None  RelDiff_ES.MI  RelDiff_ES.MI_ConstantTrend_residue_zeroCycle_...  ...  1.038001e+08  1.150776e+08  1.373940e+08
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _ES.MI  _ES.MI_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36    0.017        0.0171    0.0306
+1  None         _ES.MI  _ES.MI_Lag1Trend_residue_bestCycle_byL2_residu...               NoTransf_Lag1Trend_Cycle_NoAR          40    0.017        0.0171    0.0306
+2  None         _ES.MI    _ES.MI_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32    0.017        0.0172    0.0296
+3  None   CumSum_ES.MI  CumSum_ES.MI_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64    0.018        0.0172    0.0296
+4  None     Diff_ES.MI  Diff_ES.MI_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64    0.017        0.0172    0.0296
+7 0    0.7845
+1    0.7840
+2    0.7745
+3    0.7690
+4    0.7525
+5    0.7510
+6    0.7855
+Name: ES.MI, dtype: float64
+7 0    0.7845
+1    0.7845
+2    0.7845
+3    0.7845
+4    0.7845
+5    0.7845
+6    0.7845
+Name: ES.MI_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_ES.MI ES.MI [0.7845, 0.784, 0.7745, 0.769, 0.7525, 0.7509999999999999, 0.7855]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_ES.MI ES.MI [0.7845, 0.7845, 0.7845, 0.7845, 0.7845, 0.7845, 0.7845]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_ES.MI ES.MI 1297 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_ES.MI ES.MI 11.384621858596802
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_ES.MI ES.MI Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_ES.MI ES.MI 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_ES.MI ES.MI 0.0174 0.0171 1.166
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_ES.MI ES.MI 0.013214285714285718 0.018851866144837175 -0.887928087429565
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_mibtel_ES.MI_7'

@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aord
+TIME :  Date N= 1299 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  FMS.AX N= 1299 H= 7 HEAD= [0.14149 0.13661 0.14149 0.14149 0.13173] TAIL= [0.025 0.025 0.025 0.025 0.026]
+    FMS.AX       Date
+0  0.14149 2011-07-28
+1  0.13661 2011-07-29
+2  0.14149 2011-08-01
+3  0.14149 2011-08-02
+4  0.13173 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1299 entries, 0 to 1298
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   FMS.AX  1299 non-null   float64       
+ 1   Date    1299 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _FMS.AX   _FMS.AX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0308  3.670000e-02  5.500000e-03
+1   None   CumSum_FMS.AX  CumSum_FMS.AX_Lag1Trend_residue_zeroCycle_resi...  ...  0.0317  3.670000e-02  5.500000e-03
+2   None     Diff_FMS.AX  Diff_FMS.AX_Lag1Trend_residue_zeroCycle_residu...  ...  0.0308  3.670000e-02  5.500000e-03
+3   None  RelDiff_FMS.AX  RelDiff_FMS.AX_Lag1Trend_residue_zeroCycle_res...  ...  0.0308  3.670000e-02  5.500000e-03
+4   None     Diff_FMS.AX  Diff_FMS.AX_Lag1Trend_residue_zeroCycle_residu...  ...  0.0311  3.830000e-02  7.300000e-03
+..   ...             ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_FMS.AX  RelDiff_FMS.AX_LinearTrend_residue_bestCycle_b...  ...  1.8670  3.362879e+08  5.389822e+08
+92  None  RelDiff_FMS.AX  RelDiff_FMS.AX_LinearTrend_residue_zeroCycle_r...  ...  1.9074  3.362880e+08  5.389822e+08
+93  None  RelDiff_FMS.AX  RelDiff_FMS.AX_PolyTrend_residue_bestCycle_byL...  ...  1.2731  3.363148e+08  5.389822e+08
+94  None  RelDiff_FMS.AX  RelDiff_FMS.AX_PolyTrend_residue_Seasonal_DayO...  ...  1.2637  3.363153e+08  5.389822e+08
+95  None  RelDiff_FMS.AX  RelDiff_FMS.AX_PolyTrend_residue_zeroCycle_res...  ...  1.2850  3.363171e+08  5.389822e+08
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _FMS.AX   _FMS.AX_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0308        0.0367    0.0055
+1  None   CumSum_FMS.AX  CumSum_FMS.AX_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0317        0.0367    0.0055
+2  None     Diff_FMS.AX  Diff_FMS.AX_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0308        0.0367    0.0055
+3  None  RelDiff_FMS.AX  RelDiff_FMS.AX_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0308        0.0367    0.0055
+4  None     Diff_FMS.AX  Diff_FMS.AX_Lag1Trend_residue_zeroCycle_residu...            Difference_Lag1Trend_NoCycle_AR         128   0.0311        0.0383    0.0073
+7 0    0.025
+1    0.025
+2    0.025
+3    0.025
+4    0.025
+5    0.025
+6    0.025
+Name: FMS.AX, dtype: float64
+7 0    0.026
+1    0.026
+2    0.026
+3    0.026
+4    0.026
+5    0.026
+6    0.026
+Name: FMS.AX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_FMS.AX FMS.AX [0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.025]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_FMS.AX FMS.AX [0.026000000000000002, 0.026000000000000002, 0.026000000000000002, 0.026000000000000002, 0.026000000000000002, 0.026000000000000002, 0.026000000000000002]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_FMS.AX FMS.AX 1299 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_FMS.AX FMS.AX 10.910732984542847
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_FMS.AX FMS.AX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_FMS.AX FMS.AX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_FMS.AX FMS.AX 0.04 0.0392 10000000.0
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_FMS.AX FMS.AX 0.0010000000000000009 0.001000000000000001 -69999.00000000015
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aord_FMS.AX_7'

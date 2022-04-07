@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_tsx
+TIME :  Date N= 1248 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  SVM.TO N= 1248 H= 7 HEAD= [9.92 9.92 9.78 9.98 8.78] TAIL= [3.82 3.96 3.99 3.9  3.8 ]
+   SVM.TO       Date
+0    9.92 2011-07-28
+1    9.92 2011-07-29
+2    9.78 2011-08-02
+3    9.98 2011-08-03
+4    8.78 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1248 entries, 0 to 1247
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   SVM.TO  1248 non-null   float64       
+ 1   Date    1248 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.2 KB
+None
+   Split  Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _SVM.TO   _SVM.TO_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0266  3.920000e-02  2.650000e-02
+1   None   CumSum_SVM.TO  CumSum_SVM.TO_Lag1Trend_residue_zeroCycle_resi...  ...  0.0276  3.920000e-02  2.650000e-02
+2   None     Diff_SVM.TO  Diff_SVM.TO_Lag1Trend_residue_zeroCycle_residu...  ...  0.0266  3.920000e-02  2.650000e-02
+3   None  RelDiff_SVM.TO  RelDiff_SVM.TO_Lag1Trend_residue_zeroCycle_res...  ...  0.0266  3.920000e-02  2.650000e-02
+4   None         _SVM.TO  _SVM.TO_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  0.0267  4.030000e-02  2.650000e-02
+..   ...             ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_SVM.TO  RelDiff_SVM.TO_LinearTrend_residue_bestCycle_b...  ...  0.4366  2.500593e+08  2.387909e+08
+92  None  RelDiff_SVM.TO  RelDiff_SVM.TO_ConstantTrend_residue_bestCycle...  ...  0.3670  2.500605e+08  2.387909e+08
+93  None  RelDiff_SVM.TO  RelDiff_SVM.TO_Lag1Trend_residue_zeroCycle_res...  ...  0.2294  2.516472e+08  2.387909e+08
+94  None  RelDiff_SVM.TO  RelDiff_SVM.TO_Lag1Trend_residue_Seasonal_DayO...  ...  0.2628  2.516481e+08  2.387909e+08
+95  None  RelDiff_SVM.TO  RelDiff_SVM.TO_Lag1Trend_residue_bestCycle_byL...  ...  0.2212  2.516895e+08  2.387909e+08
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _SVM.TO   _SVM.TO_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0266        0.0392    0.0265
+1  None   CumSum_SVM.TO  CumSum_SVM.TO_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0276        0.0392    0.0265
+2  None     Diff_SVM.TO  Diff_SVM.TO_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0266        0.0392    0.0265
+3  None  RelDiff_SVM.TO  RelDiff_SVM.TO_Lag1Trend_residue_zeroCycle_res...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0266        0.0392    0.0265
+4  None         _SVM.TO  _SVM.TO_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0267        0.0403    0.0265
+7 0    3.78
+1    3.38
+2    3.67
+3    3.59
+4    3.41
+5    3.47
+6    3.85
+Name: SVM.TO, dtype: float64
+7 0    3.8
+1    3.8
+2    3.8
+3    3.8
+4    3.8
+5    3.8
+6    3.8
+Name: SVM.TO_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_SVM.TO SVM.TO [3.78, 3.38, 3.67, 3.59, 3.41, 3.47, 3.85]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_SVM.TO SVM.TO [3.8, 3.8, 3.8, 3.8, 3.8, 3.8, 3.8]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_SVM.TO SVM.TO 1248 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_SVM.TO SVM.TO 10.994701147079468
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_SVM.TO SVM.TO Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_SVM.TO SVM.TO 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_SVM.TO SVM.TO 0.0637 0.0608 0.9558
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_SVM.TO SVM.TO 0.22142857142857134 0.26760845598427124 -1.494739085919011
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_tsx_SVM.TO_7'

@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ta100
+TIME :  Date N= 1019 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-08-01T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-07T00:00:00.000000000' '2016-07-11T00:00:00.000000000'
+ '2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000']
+SIGNAL :  RMLI.TA N= 1019 H= 7 HEAD= [126.2 119.5 118.9 114.8 113.1] TAIL= [145.6 147.4 151.3 150.6 150.2]
+   RMLI.TA       Date
+0    126.2 2011-07-28
+1    119.5 2011-08-01
+2    118.9 2011-08-02
+3    114.8 2011-08-03
+4    113.1 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1019 entries, 0 to 1018
+Data columns (total 2 columns):
+ #   Column   Non-Null Count  Dtype         
+---  ------   --------------  -----         
+ 0   RMLI.TA  1019 non-null   float64       
+ 1   Date     1019 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 23.9 KB
+None
+   Split   Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _RMLI.TA  _RMLI.TA_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.340000e-02  1.420000e-02  8.700000e-03
+1   None         _RMLI.TA  _RMLI.TA_Lag1Trend_residue_bestCycle_byL2_resi...  ...  1.340000e-02  1.420000e-02  8.300000e-03
+2   None   CumSum_RMLI.TA  CumSum_RMLI.TA_Lag1Trend_residue_zeroCycle_res...  ...  1.450000e-02  1.420000e-02  8.700000e-03
+3   None     Diff_RMLI.TA  Diff_RMLI.TA_Lag1Trend_residue_zeroCycle_resid...  ...  1.340000e-02  1.420000e-02  8.700000e-03
+4   None  RelDiff_RMLI.TA  RelDiff_RMLI.TA_Lag1Trend_residue_zeroCycle_re...  ...  1.340000e-02  1.420000e-02  8.700000e-03
+..   ...              ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_RMLI.TA  RelDiff_RMLI.TA_Lag1Trend_residue_bestCycle_by...  ...  2.537769e+07  2.250547e+07  2.545465e+07
+92  None  RelDiff_RMLI.TA  RelDiff_RMLI.TA_PolyTrend_residue_Seasonal_Day...  ...  2.538835e+07  2.250547e+07  2.545465e+07
+93  None  RelDiff_RMLI.TA  RelDiff_RMLI.TA_Lag1Trend_residue_Seasonal_Day...  ...  2.541674e+07  2.250547e+07  2.545465e+07
+94  None  RelDiff_RMLI.TA  RelDiff_RMLI.TA_LinearTrend_residue_bestCycle_...  ...  2.541668e+07  2.250547e+07  2.545465e+07
+95  None  RelDiff_RMLI.TA  RelDiff_RMLI.TA_Lag1Trend_residue_bestCycle_by...  ...  2.537893e+07  2.250547e+07  2.545465e+07
+
+[96 rows x 8 columns]
+  Split   Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _RMLI.TA  _RMLI.TA_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0134        0.0142    0.0087
+1  None         _RMLI.TA  _RMLI.TA_Lag1Trend_residue_bestCycle_byL2_resi...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0134        0.0142    0.0083
+2  None   CumSum_RMLI.TA  CumSum_RMLI.TA_Lag1Trend_residue_zeroCycle_res...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0145        0.0142    0.0087
+3  None     Diff_RMLI.TA  Diff_RMLI.TA_Lag1Trend_residue_zeroCycle_resid...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0134        0.0142    0.0087
+4  None  RelDiff_RMLI.TA  RelDiff_RMLI.TA_Lag1Trend_residue_zeroCycle_re...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0134        0.0142    0.0087
+7 0    147.9
+1    147.9
+2    149.0
+3    149.3
+4    149.2
+5    149.4
+6    149.4
+Name: RMLI.TA, dtype: float64
+7 0    150.2
+1    150.2
+2    150.2
+3    150.2
+4    150.2
+5    150.2
+6    150.2
+Name: RMLI.TA_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_RMLI.TA RMLI.TA [147.9, 147.9, 149.0, 149.3, 149.2, 149.4, 149.4]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_RMLI.TA RMLI.TA [150.2, 150.2, 150.2, 150.2, 150.2, 150.2, 150.2]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_RMLI.TA RMLI.TA 1019 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_RMLI.TA RMLI.TA 10.500661134719849
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_RMLI.TA RMLI.TA Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_RMLI.TA RMLI.TA 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_RMLI.TA RMLI.TA 0.0089 0.0089 4.6891
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_RMLI.TA RMLI.TA 1.3285714285714139 1.469207755414934 -4.485995850423142
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ta100_RMLI.TA_7'

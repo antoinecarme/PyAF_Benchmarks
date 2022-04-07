@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_bvsp
+TIME :  Date N= 1286 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  ELET3.SA N= 1286 H= 7 HEAD= [18.2  18.56 18.3  18.35 17.92] TAIL= [15.46 15.22 15.9  16.11 16.36]
+   ELET3.SA       Date
+0     18.20 2011-07-28
+1     18.56 2011-07-29
+2     18.30 2011-08-01
+3     18.35 2011-08-02
+4     17.92 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1286 entries, 0 to 1285
+Data columns (total 2 columns):
+ #   Column    Non-Null Count  Dtype         
+---  ------    --------------  -----         
+ 0   ELET3.SA  1286 non-null   float64       
+ 1   Date      1286 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.1 KB
+None
+   Split    Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _ELET3.SA  _ELET3.SA_Lag1Trend_residue_zeroCycle_residue_...  ...  2.010000e-02  2.460000e-02  2.780000e-02
+1   None   CumSum_ELET3.SA  CumSum_ELET3.SA_Lag1Trend_residue_zeroCycle_re...  ...  2.110000e-02  2.460000e-02  2.780000e-02
+2   None     Diff_ELET3.SA  Diff_ELET3.SA_Lag1Trend_residue_zeroCycle_resi...  ...  2.010000e-02  2.460000e-02  2.780000e-02
+3   None  RelDiff_ELET3.SA  RelDiff_ELET3.SA_Lag1Trend_residue_zeroCycle_r...  ...  2.010000e-02  2.460000e-02  2.780000e-02
+4   None         _ELET3.SA  _ELET3.SA_Lag1Trend_residue_bestCycle_byL2_res...  ...  2.020000e-02  2.490000e-02  2.810000e-02
+..   ...               ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_ELET3.SA  RelDiff_ELET3.SA_LinearTrend_residue_bestCycle...  ...  1.841793e+08  2.246970e+08  8.939502e+07
+92  None  RelDiff_ELET3.SA  RelDiff_ELET3.SA_Lag1Trend_residue_bestCycle_b...  ...  1.843247e+08  2.246970e+08  8.939502e+07
+93  None  RelDiff_ELET3.SA  RelDiff_ELET3.SA_ConstantTrend_residue_Seasona...  ...  1.842525e+08  2.246970e+08  8.939502e+07
+94  None  RelDiff_ELET3.SA  RelDiff_ELET3.SA_ConstantTrend_residue_zeroCyc...  ...  1.842331e+08  2.246970e+08  8.939502e+07
+95  None  RelDiff_ELET3.SA  RelDiff_ELET3.SA_LinearTrend_residue_zeroCycle...  ...  1.842496e+08  2.246970e+08  8.939502e+07
+
+[96 rows x 8 columns]
+  Split    Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _ELET3.SA  _ELET3.SA_Lag1Trend_residue_zeroCycle_residue_...            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0201        0.0246    0.0278
+1  None   CumSum_ELET3.SA  CumSum_ELET3.SA_Lag1Trend_residue_zeroCycle_re...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0211        0.0246    0.0278
+2  None     Diff_ELET3.SA  Diff_ELET3.SA_Lag1Trend_residue_zeroCycle_resi...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0201        0.0246    0.0278
+3  None  RelDiff_ELET3.SA  RelDiff_ELET3.SA_Lag1Trend_residue_zeroCycle_r...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0201        0.0246    0.0278
+4  None         _ELET3.SA  _ELET3.SA_Lag1Trend_residue_bestCycle_byL2_res...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0202        0.0249    0.0281
+7 0    15.58
+1    15.30
+2    15.62
+3    16.52
+4    17.21
+5    16.81
+6    16.74
+Name: ELET3.SA, dtype: float64
+7 0    16.36
+1    16.36
+2    16.36
+3    16.36
+4    16.36
+5    16.36
+6    16.36
+Name: ELET3.SA_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_ELET3.SA ELET3.SA [15.58, 15.3, 15.62, 16.52, 17.21, 16.81, 16.74]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_ELET3.SA ELET3.SA [16.36, 16.36, 16.36, 16.36, 16.36, 16.36, 16.36]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_ELET3.SA ELET3.SA 1286 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_ELET3.SA ELET3.SA 10.75944709777832
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_ELET3.SA ELET3.SA Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_ELET3.SA ELET3.SA 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_ELET3.SA ELET3.SA 0.0393 0.0389 1.4243
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_ELET3.SA ELET3.SA 0.6314285714285711 0.6943239260501642 -0.023731722295657676
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_bvsp_ELET3.SA_7'

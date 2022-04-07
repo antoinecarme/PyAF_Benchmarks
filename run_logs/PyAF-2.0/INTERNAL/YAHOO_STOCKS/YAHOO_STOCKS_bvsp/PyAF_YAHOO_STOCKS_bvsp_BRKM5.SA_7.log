@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_bvsp
+TIME :  Date N= 1255 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  BRKM5.SA N= 1255 H= 7 HEAD= [18.85 18.31 18.39 17.26 16.15] TAIL= [18.56 18.42 18.31 18.25 18.72]
+   BRKM5.SA       Date
+0     18.85 2011-07-28
+1     18.31 2011-07-29
+2     18.39 2011-08-01
+3     17.26 2011-08-02
+4     16.15 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1255 entries, 0 to 1254
+Data columns (total 2 columns):
+ #   Column    Non-Null Count  Dtype         
+---  ------    --------------  -----         
+ 0   BRKM5.SA  1255 non-null   float64       
+ 1   Date      1255 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.4 KB
+None
+   Split    Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _BRKM5.SA  _BRKM5.SA_Lag1Trend_residue_bestCycle_byL2_res...  ...  1.850000e-02  2.050000e-02  6.900000e-03
+1   None         _BRKM5.SA  _BRKM5.SA_Lag1Trend_residue_zeroCycle_residue_...  ...  1.850000e-02  2.060000e-02  7.900000e-03
+2   None   CumSum_BRKM5.SA  CumSum_BRKM5.SA_Lag1Trend_residue_zeroCycle_re...  ...  1.950000e-02  2.060000e-02  7.900000e-03
+3   None     Diff_BRKM5.SA  Diff_BRKM5.SA_Lag1Trend_residue_zeroCycle_resi...  ...  1.850000e-02  2.060000e-02  7.900000e-03
+4   None  RelDiff_BRKM5.SA  RelDiff_BRKM5.SA_Lag1Trend_residue_zeroCycle_r...  ...  1.850000e-02  2.060000e-02  7.900000e-03
+..   ...               ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_BRKM5.SA  RelDiff_BRKM5.SA_PolyTrend_residue_bestCycle_b...  ...  5.680768e+07  4.171138e+07  4.607687e+07
+92  None  RelDiff_BRKM5.SA  RelDiff_BRKM5.SA_LinearTrend_residue_zeroCycle...  ...  5.681019e+07  4.171138e+07  4.607687e+07
+93  None  RelDiff_BRKM5.SA  RelDiff_BRKM5.SA_PolyTrend_residue_zeroCycle_r...  ...  5.679853e+07  4.171138e+07  4.607687e+07
+94  None  RelDiff_BRKM5.SA  RelDiff_BRKM5.SA_LinearTrend_residue_Seasonal_...  ...  5.682356e+07  4.171138e+07  4.607687e+07
+95  None  RelDiff_BRKM5.SA  RelDiff_BRKM5.SA_LinearTrend_residue_bestCycle...  ...  5.682218e+07  4.171138e+07  4.607687e+07
+
+[96 rows x 8 columns]
+  Split    Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _BRKM5.SA  _BRKM5.SA_Lag1Trend_residue_bestCycle_byL2_res...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0185        0.0205    0.0069
+1  None         _BRKM5.SA  _BRKM5.SA_Lag1Trend_residue_zeroCycle_residue_...            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0185        0.0206    0.0079
+2  None   CumSum_BRKM5.SA  CumSum_BRKM5.SA_Lag1Trend_residue_zeroCycle_re...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0195        0.0206    0.0079
+3  None     Diff_BRKM5.SA  Diff_BRKM5.SA_Lag1Trend_residue_zeroCycle_resi...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0185        0.0206    0.0079
+4  None  RelDiff_BRKM5.SA  RelDiff_BRKM5.SA_Lag1Trend_residue_zeroCycle_r...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0185        0.0206    0.0079
+7 0    18.97
+1    18.88
+2    18.64
+3    19.31
+4    19.24
+5    19.16
+6    19.00
+Name: BRKM5.SA, dtype: float64
+7 0    18.72
+1    18.72
+2    18.72
+3    18.72
+4    18.72
+5    18.72
+6    18.72
+Name: BRKM5.SA_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_BRKM5.SA BRKM5.SA [18.97, 18.88, 18.64, 19.31, 19.24, 19.16, 19.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_BRKM5.SA BRKM5.SA [18.72, 18.72, 18.72, 18.72, 18.72, 18.72, 18.72]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_BRKM5.SA BRKM5.SA 1255 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_BRKM5.SA BRKM5.SA 12.136559963226318
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_BRKM5.SA BRKM5.SA Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_BRKM5.SA BRKM5.SA 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_BRKM5.SA BRKM5.SA 0.0173 0.0175 1.518
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_BRKM5.SA BRKM5.SA 0.33142857142857146 0.3751190287285968 -2.0927603829887436
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_bvsp_BRKM5.SA_7'

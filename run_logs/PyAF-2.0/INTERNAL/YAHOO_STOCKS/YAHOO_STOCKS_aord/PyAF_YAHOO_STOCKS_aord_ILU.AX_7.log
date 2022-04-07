@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aord
+TIME :  Date N= 1299 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  ILU.AX N= 1299 H= 7 HEAD= [18.17 17.76 18.52 18.09 17.25] TAIL= [7.2  7.28 7.21 7.08 6.9 ]
+   ILU.AX       Date
+0   18.17 2011-07-28
+1   17.76 2011-07-29
+2   18.52 2011-08-01
+3   18.09 2011-08-02
+4   17.25 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1299 entries, 0 to 1298
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   ILU.AX  1299 non-null   float64       
+ 1   Date    1299 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _ILU.AX  _ILU.AX_Lag1Trend_residue_bestCycle_byL2_resid...  ...  0.0206  2.080000e-02  2.750000e-02
+1   None         _ILU.AX   _ILU.AX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0205  2.090000e-02  2.650000e-02
+2   None   CumSum_ILU.AX  CumSum_ILU.AX_Lag1Trend_residue_zeroCycle_resi...  ...  0.0215  2.090000e-02  2.650000e-02
+3   None     Diff_ILU.AX  Diff_ILU.AX_Lag1Trend_residue_zeroCycle_residu...  ...  0.0205  2.090000e-02  2.650000e-02
+4   None  RelDiff_ILU.AX  RelDiff_ILU.AX_Lag1Trend_residue_zeroCycle_res...  ...  0.0205  2.090000e-02  2.650000e-02
+..   ...             ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_ILU.AX  RelDiff_ILU.AX_PolyTrend_residue_Seasonal_DayO...  ...  0.8301  1.209253e+08  1.834242e+08
+92  None  RelDiff_ILU.AX  RelDiff_ILU.AX_PolyTrend_residue_bestCycle_byL...  ...  0.8116  1.209589e+08  1.834242e+08
+93  None  RelDiff_ILU.AX  RelDiff_ILU.AX_Lag1Trend_residue_bestCycle_byL...  ...  0.4951  1.213440e+08  1.834242e+08
+94  None  RelDiff_ILU.AX  RelDiff_ILU.AX_Lag1Trend_residue_Seasonal_DayO...  ...  0.5014  1.213440e+08  1.834242e+08
+95  None  RelDiff_ILU.AX  RelDiff_ILU.AX_Lag1Trend_residue_zeroCycle_res...  ...  0.5044  1.213440e+08  1.834242e+08
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _ILU.AX  _ILU.AX_Lag1Trend_residue_bestCycle_byL2_resid...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0206        0.0208    0.0275
+1  None         _ILU.AX   _ILU.AX_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0205        0.0209    0.0265
+2  None   CumSum_ILU.AX  CumSum_ILU.AX_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0215        0.0209    0.0265
+3  None     Diff_ILU.AX  Diff_ILU.AX_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0205        0.0209    0.0265
+4  None  RelDiff_ILU.AX  RelDiff_ILU.AX_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0205        0.0209    0.0265
+7 0    6.87
+1    6.80
+2    7.02
+3    6.89
+4    6.69
+5    6.84
+6    7.00
+Name: ILU.AX, dtype: float64
+7 0    6.9
+1    6.9
+2    6.9
+3    6.9
+4    6.9
+5    6.9
+6    6.9
+Name: ILU.AX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_ILU.AX ILU.AX [6.87, 6.8, 7.02, 6.89, 6.69, 6.84, 7.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_ILU.AX ILU.AX [6.9, 6.9, 6.9, 6.9, 6.9, 6.9, 6.9]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_ILU.AX ILU.AX 1299 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_ILU.AX ILU.AX 10.823155879974365
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_ILU.AX ILU.AX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_ILU.AX ILU.AX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_ILU.AX ILU.AX 0.0132 0.0131 0.5806
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_ILU.AX ILU.AX 0.09000000000000011 0.10895608551810478 -0.06616568778168141
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aord_ILU.AX_7'

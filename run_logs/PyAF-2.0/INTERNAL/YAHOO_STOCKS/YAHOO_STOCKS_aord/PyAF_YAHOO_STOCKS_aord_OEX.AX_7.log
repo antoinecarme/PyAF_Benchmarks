@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aord
+TIME :  Date N= 1297 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  OEX.AX N= 1297 H= 7 HEAD= [0.32987 0.34361 0.38485 0.38943 0.38485] TAIL= [0.009 0.009 0.009 0.009 0.01 ]
+    OEX.AX       Date
+0  0.32987 2011-07-28
+1  0.34361 2011-07-29
+2  0.38485 2011-08-01
+3  0.38943 2011-08-02
+4  0.38485 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1297 entries, 0 to 1296
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   OEX.AX  1297 non-null   float64       
+ 1   Date    1297 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _OEX.AX   _OEX.AX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0403  4.630000e-02  6.030000e-02
+1   None   CumSum_OEX.AX  CumSum_OEX.AX_Lag1Trend_residue_zeroCycle_resi...  ...  0.0412  4.630000e-02  6.030000e-02
+2   None     Diff_OEX.AX  Diff_OEX.AX_Lag1Trend_residue_zeroCycle_residu...  ...  0.0403  4.630000e-02  6.030000e-02
+3   None  RelDiff_OEX.AX  RelDiff_OEX.AX_Lag1Trend_residue_zeroCycle_res...  ...  0.0403  4.630000e-02  6.030000e-02
+4   None         _OEX.AX  _OEX.AX_Lag1Trend_residue_zeroCycle_residue_AR...  ...  0.0410  5.660000e-02  7.270000e-02
+..   ...             ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_OEX.AX  RelDiff_OEX.AX_LinearTrend_residue_zeroCycle_r...  ...  1.8208  2.723072e+08  3.484946e+09
+92  None  RelDiff_OEX.AX  RelDiff_OEX.AX_LinearTrend_residue_Seasonal_Da...  ...  1.8253  2.723072e+08  3.484946e+09
+93  None  RelDiff_OEX.AX  RelDiff_OEX.AX_Lag1Trend_residue_bestCycle_byL...  ...  1.0638  2.723128e+08  3.484946e+09
+94  None  RelDiff_OEX.AX  RelDiff_OEX.AX_Lag1Trend_residue_Seasonal_DayO...  ...  1.2081  2.723156e+08  3.484946e+09
+95  None  RelDiff_OEX.AX  RelDiff_OEX.AX_Lag1Trend_residue_zeroCycle_res...  ...  1.2071  2.723156e+08  3.484946e+09
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _OEX.AX   _OEX.AX_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0403        0.0463    0.0603
+1  None   CumSum_OEX.AX  CumSum_OEX.AX_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0412        0.0463    0.0603
+2  None     Diff_OEX.AX  Diff_OEX.AX_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0403        0.0463    0.0603
+3  None  RelDiff_OEX.AX  RelDiff_OEX.AX_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0403        0.0463    0.0603
+4  None         _OEX.AX  _OEX.AX_Lag1Trend_residue_zeroCycle_residue_AR...              NoTransf_Lag1Trend_NoCycle_AR          96   0.0410        0.0566    0.0727
+7 0    0.009
+1    0.009
+2    0.009
+3    0.009
+4    0.009
+5    0.009
+6    0.009
+Name: OEX.AX, dtype: float64
+7 0    0.01
+1    0.01
+2    0.01
+3    0.01
+4    0.01
+5    0.01
+6    0.01
+Name: OEX.AX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_OEX.AX OEX.AX [0.009000000000000001, 0.009000000000000001, 0.009000000000000001, 0.009000000000000001, 0.009000000000000001, 0.009000000000000001, 0.009000000000000001]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_OEX.AX OEX.AX [0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_OEX.AX OEX.AX 1297 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_OEX.AX OEX.AX 10.723247289657593
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_OEX.AX OEX.AX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_OEX.AX OEX.AX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_OEX.AX OEX.AX 0.1111 0.1053 10000000.0
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_OEX.AX OEX.AX 0.0009999999999999992 0.0009999999999999992 -69998.99999999987
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aord_OEX.AX_7'

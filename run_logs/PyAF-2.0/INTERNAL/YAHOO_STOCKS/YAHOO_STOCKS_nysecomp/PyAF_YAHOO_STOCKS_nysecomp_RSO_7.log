@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  RSO N= 1251 H= 7 HEAD= [5.75 5.7  5.96 5.62 5.71] TAIL= [12.95 12.98 12.85 12.96 13.02]
+    RSO       Date
+0  5.75 2011-07-28
+1  5.70 2011-07-29
+2  5.96 2011-08-01
+3  5.62 2011-08-02
+4  5.71 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   RSO     1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None           _RSO      _RSO_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0105  2.220000e-02  1.020000e-02
+1   None     CumSum_RSO  CumSum_RSO_Lag1Trend_residue_zeroCycle_residue...  ...  0.0115  2.220000e-02  1.020000e-02
+2   None       Diff_RSO  Diff_RSO_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0105  2.220000e-02  1.020000e-02
+3   None    RelDiff_RSO  RelDiff_RSO_Lag1Trend_residue_zeroCycle_residu...  ...  0.0105  2.220000e-02  1.020000e-02
+4   None           _RSO  _RSO_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  ...  0.0105  2.230000e-02  1.040000e-02
+..   ...            ...                                                ...  ...     ...           ...           ...
+91  None    RelDiff_RSO  RelDiff_RSO_ConstantTrend_residue_Seasonal_Day...  ...  0.1274  2.544703e+07  2.165575e+07
+92  None    RelDiff_RSO  RelDiff_RSO_LinearTrend_residue_bestCycle_byL2...  ...  0.3117  2.544704e+07  2.165575e+07
+93  None    RelDiff_RSO  RelDiff_RSO_ConstantTrend_residue_bestCycle_by...  ...  0.1268  2.544704e+07  2.165575e+07
+94  None    RelDiff_RSO  RelDiff_RSO_LinearTrend_residue_zeroCycle_resi...  ...  0.3152  2.544704e+07  2.165575e+07
+95  None    RelDiff_RSO  RelDiff_RSO_ConstantTrend_residue_zeroCycle_re...  ...  0.1267  2.544704e+07  2.165575e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _RSO      _RSO_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0105        0.0222    0.0102
+1  None     CumSum_RSO  CumSum_RSO_Lag1Trend_residue_zeroCycle_residue...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0115        0.0222    0.0102
+2  None       Diff_RSO  Diff_RSO_Lag1Trend_residue_zeroCycle_residue_NoAR           Difference_Lag1Trend_NoCycle_NoAR          64   0.0105        0.0222    0.0102
+3  None    RelDiff_RSO  RelDiff_RSO_Lag1Trend_residue_zeroCycle_residu...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0105        0.0222    0.0102
+4  None           _RSO  _RSO_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0105        0.0223    0.0104
+7 0    13.10
+1    13.24
+2    13.20
+3    13.32
+4    13.34
+5    13.40
+6    13.50
+Name: RSO, dtype: float64
+7 0    13.02
+1    13.02
+2    13.02
+3    13.02
+4    13.02
+5    13.02
+6    13.02
+Name: RSO_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_RSO RSO [13.1, 13.24, 13.2, 13.32, 13.34, 13.4, 13.5]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_RSO RSO [13.02, 13.02, 13.02, 13.02, 13.02, 13.02, 13.02]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_RSO RSO 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_RSO RSO 11.949795722961426
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_RSO RSO Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_RSO RSO 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_RSO RSO 0.021 0.0212 3.5
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_RSO RSO 0.28000000000000036 0.3057543364953546 -5.196969691101353
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_RSO_7'

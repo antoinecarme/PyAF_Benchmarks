@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nasdaqbio
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  XOMA N= 1251 H= 7 HEAD= [2.21 2.2  2.22 2.08 2.1 ] TAIL= [0.54 0.51 0.52 0.53 0.52]
+   XOMA       Date
+0  2.21 2011-07-28
+1  2.20 2011-07-29
+2  2.22 2011-08-01
+3  2.08 2011-08-02
+4  2.10 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   XOMA    1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None          _XOMA     _XOMA_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0309  5.640000e-02  2.720000e-02
+1   None    CumSum_XOMA  CumSum_XOMA_Lag1Trend_residue_zeroCycle_residu...  ...  0.0319  5.640000e-02  2.720000e-02
+2   None      Diff_XOMA  Diff_XOMA_Lag1Trend_residue_zeroCycle_residue_...  ...  0.0309  5.640000e-02  2.720000e-02
+3   None   RelDiff_XOMA  RelDiff_XOMA_Lag1Trend_residue_zeroCycle_resid...  ...  0.0309  5.640000e-02  2.720000e-02
+4   None          _XOMA  _XOMA_Lag1Trend_residue_Seasonal_DayOfWeek_res...  ...  0.0311  6.160000e-02  2.330000e-02
+..   ...            ...                                                ...  ...     ...           ...           ...
+91  None   RelDiff_XOMA  RelDiff_XOMA_Lag1Trend_residue_bestCycle_byL2_...  ...  0.7085  5.124065e+06  3.331569e+08
+92  None   RelDiff_XOMA  RelDiff_XOMA_ConstantTrend_residue_zeroCycle_r...  ...  0.9349  5.124260e+06  3.331569e+08
+93  None   RelDiff_XOMA  RelDiff_XOMA_ConstantTrend_residue_Seasonal_Da...  ...  0.9295  5.124429e+06  3.331569e+08
+94  None   RelDiff_XOMA  RelDiff_XOMA_Lag1Trend_residue_Seasonal_DayOfW...  ...  0.8316  5.124477e+06  3.331569e+08
+95  None   RelDiff_XOMA  RelDiff_XOMA_Lag1Trend_residue_zeroCycle_resid...  ...  0.7993  5.124644e+06  3.331569e+08
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None          _XOMA     _XOMA_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0309        0.0564    0.0272
+1  None    CumSum_XOMA  CumSum_XOMA_Lag1Trend_residue_zeroCycle_residu...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0319        0.0564    0.0272
+2  None      Diff_XOMA  Diff_XOMA_Lag1Trend_residue_zeroCycle_residue_...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0309        0.0564    0.0272
+3  None   RelDiff_XOMA  RelDiff_XOMA_Lag1Trend_residue_zeroCycle_resid...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0309        0.0564    0.0272
+4  None          _XOMA  _XOMA_Lag1Trend_residue_Seasonal_DayOfWeek_res...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0311        0.0616    0.0233
+7 0    0.50
+1    0.58
+2    0.56
+3    0.55
+4    0.55
+5    0.56
+6    0.59
+Name: XOMA, dtype: float64
+7 0    0.52
+1    0.52
+2    0.52
+3    0.52
+4    0.52
+5    0.52
+6    0.52
+Name: XOMA_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_XOMA XOMA [0.5, 0.58, 0.56, 0.55, 0.55, 0.56, 0.59]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_XOMA XOMA [0.52, 0.52, 0.52, 0.52, 0.52, 0.52, 0.52]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_XOMA XOMA 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_XOMA XOMA 10.169171571731567
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_XOMA XOMA Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_XOMA XOMA 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_XOMA XOMA 0.0734 0.0764 1.6571
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_XOMA XOMA 0.04142857142857143 0.04456135417280634 -1.7959769552533391
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nasdaqbio_XOMA_7'

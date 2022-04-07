@@ -1,0 +1,62 @@
+BENCH_DATA M4_COMP_ECONOMICS
+TIME :  Date N= 51 H= 6 HEAD= [0 1 2 3 4] TAIL= [46 47 48 49 50]
+SIGNAL :  ECON1508 N= 51 H= 6 HEAD= [-101. -358. -152. -137.  -54.] TAIL= [-13050. -13066. -11126. -12023. -13722.]
+   ECON1508  Date
+0    -101.0     0
+1    -358.0     1
+2    -152.0     2
+3    -137.0     3
+4     -54.0     4
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 51 entries, 0 to 50
+Data columns (total 2 columns):
+ #   Column    Non-Null Count  Dtype  
+---  ------    --------------  -----  
+ 0   ECON1508  51 non-null     float64
+ 1   Date      51 non-null     int64  
+dtypes: float64(1), int64(1)
+memory usage: 1.2 KB
+None
+   Split    Transformation                                              Model  ...  FitMAPE  ForecastMAPE      TestMAPE
+0   None         _ECON1508  _ECON1508_Lag1Trend_residue_zeroCycle_residue_...  ...   1.4069        0.6554  2.368000e-01
+1   None         _ECON1508  _ECON1508_Lag1Trend_residue_bestCycle_byL2_res...  ...   1.4069        0.6554  2.368000e-01
+2   None   CumSum_ECON1508  CumSum_ECON1508_Lag1Trend_residue_zeroCycle_re...  ...   1.4148        0.6554  2.368000e-01
+3   None     Diff_ECON1508  Diff_ECON1508_Lag1Trend_residue_zeroCycle_resi...  ...   1.4069        0.6554  2.368000e-01
+4   None  RelDiff_ECON1508  RelDiff_ECON1508_Lag1Trend_residue_zeroCycle_r...  ...   1.4069        0.6554  2.368000e-01
+..   ...               ...                                                ...  ...      ...           ...           ...
+59  None     Diff_ECON1508  Diff_ECON1508_PolyTrend_residue_bestCycle_byL2...  ...  25.9774        2.7111  4.428600e+00
+60  None  RelDiff_ECON1508  RelDiff_ECON1508_PolyTrend_residue_zeroCycle_r...  ...  11.0212        2.7663  4.736100e+00
+61  None  RelDiff_ECON1508  RelDiff_ECON1508_PolyTrend_residue_bestCycle_b...  ...  11.0212        2.7663  4.736100e+00
+62  None  RelDiff_ECON1508  RelDiff_ECON1508_PolyTrend_residue_zeroCycle_r...  ...  11.5377        2.8094  1.328200e+08
+63  None  RelDiff_ECON1508  RelDiff_ECON1508_PolyTrend_residue_bestCycle_b...  ...  11.5377        2.8094  1.328200e+08
+
+[64 rows x 8 columns]
+  Split    Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _ECON1508  _ECON1508_Lag1Trend_residue_zeroCycle_residue_...            NoTransf_Lag1Trend_NoCycle_NoAR          32   1.4069        0.6554    0.2368
+1  None         _ECON1508  _ECON1508_Lag1Trend_residue_bestCycle_byL2_res...         NoTransf_Lag1Trend_Cycle_None_NoAR          40   1.4069        0.6554    0.2368
+2  None   CumSum_ECON1508  CumSum_ECON1508_Lag1Trend_residue_zeroCycle_re...         Integration_Lag1Trend_NoCycle_NoAR          64   1.4148        0.6554    0.2368
+3  None     Diff_ECON1508  Diff_ECON1508_Lag1Trend_residue_zeroCycle_resi...          Difference_Lag1Trend_NoCycle_NoAR          64   1.4069        0.6554    0.2368
+4  None  RelDiff_ECON1508  RelDiff_ECON1508_Lag1Trend_residue_zeroCycle_r...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   1.4069        0.6554    0.2368
+6 0   -12342.0
+1   -21813.0
+2   -29051.0
+3   -32976.0
+4   -41212.0
+5   -47705.0
+Name: ECON1508, dtype: float64
+6 0   -13722.0
+1   -13722.0
+2   -13722.0
+3   -13722.0
+4   -13722.0
+5   -13722.0
+Name: ECON1508_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL ECON1508 ECON1508 [-12342.0, -21813.0, -29051.0, -32976.0, -41212.0, -47705.0]
+FORECAST_DETAIL_PREDICTED ECON1508 ECON1508 [-13722.0, -13722.0, -13722.0, -13722.0, -13722.0, -13722.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON ECON1508 ECON1508 51 6
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ ECON1508 ECON1508 5.726602077484131
+BENCHMARK_PERF_DETAIL_BEST_MODEL ECON1508 ECON1508 Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT ECON1508 ECON1508 6
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE ECON1508 ECON1508 0.4956 0.7017 2.4868
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 ECON1508 ECON1508 17587.833333333332 20750.935027125885 -2.1376100527241553
+BENCHMARK_SUCCESS 'M4_COMP_ECONOMICS_ECON1508_6'

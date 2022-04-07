@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ipc
+TIME :  Date N= 360 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2012-12-10T00:00:00.000000000' '2012-12-11T00:00:00.000000000'
+ '2012-12-12T00:00:00.000000000' '2012-12-13T00:00:00.000000000'
+ '2012-12-14T00:00:00.000000000']
+SIGNAL :  TELMEXL.MX N= 360 H= 7 HEAD= [ 9.42  9.49 10.22 10.49 10.5 ] TAIL= [9.6 9.6 9.6 9.6 9.6]
+   TELMEXL.MX       Date
+0        9.42 2011-07-28
+1        9.49 2011-07-29
+2       10.22 2011-08-01
+3       10.49 2011-08-02
+4       10.50 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 360 entries, 0 to 359
+Data columns (total 2 columns):
+ #   Column      Non-Null Count  Dtype         
+---  ------      --------------  -----         
+ 0   TELMEXL.MX  360 non-null    float64       
+ 1   Date        360 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 8.4 KB
+None
+   Split     Transformation                                              Model  ... FitMAPE  ForecastMAPE  TestMAPE
+0   None        _TELMEXL.MX  _TELMEXL.MX_Lag1Trend_residue_zeroCycle_residu...  ...  0.0050        0.0029    0.0000
+1   None  CumSum_TELMEXL.MX  CumSum_TELMEXL.MX_Lag1Trend_residue_zeroCycle_...  ...  0.0085        0.0029    0.0000
+2   None    Diff_TELMEXL.MX  Diff_TELMEXL.MX_Lag1Trend_residue_zeroCycle_re...  ...  0.0050        0.0029    0.0000
+3   None    Diff_TELMEXL.MX  Diff_TELMEXL.MX_Lag1Trend_residue_Seasonal_Day...  ...  0.0054        0.0035    0.0011
+4   None        _TELMEXL.MX  _TELMEXL.MX_Lag1Trend_residue_Seasonal_DayOfWe...  ...  0.0053        0.0036    0.0012
+..   ...                ...                                                ...  ...     ...           ...       ...
+91  None  CumSum_TELMEXL.MX  CumSum_TELMEXL.MX_PolyTrend_residue_zeroCycle_...  ...  0.5287        0.4121    0.3267
+92  None  CumSum_TELMEXL.MX  CumSum_TELMEXL.MX_LinearTrend_residue_zeroCycl...  ...  0.4899        0.4611    0.4042
+93  None  CumSum_TELMEXL.MX  CumSum_TELMEXL.MX_ConstantTrend_residue_zeroCy...  ...  1.5406        1.0000    1.0000
+94  None  CumSum_TELMEXL.MX  CumSum_TELMEXL.MX_ConstantTrend_residue_bestCy...  ...  1.5443        1.0371    0.7883
+95  None  CumSum_TELMEXL.MX  CumSum_TELMEXL.MX_ConstantTrend_residue_Season...  ...  2.2654        1.7482    2.1716
+
+[96 rows x 8 columns]
+  Split     Transformation                                              Model                                      Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _TELMEXL.MX  _TELMEXL.MX_Lag1Trend_residue_zeroCycle_residu...               NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0050        0.0029    0.0000
+1  None  CumSum_TELMEXL.MX  CumSum_TELMEXL.MX_Lag1Trend_residue_zeroCycle_...            Integration_Lag1Trend_NoCycle_NoAR          64   0.0085        0.0029    0.0000
+2  None    Diff_TELMEXL.MX  Diff_TELMEXL.MX_Lag1Trend_residue_zeroCycle_re...             Difference_Lag1Trend_NoCycle_NoAR          64   0.0050        0.0029    0.0000
+3  None    Diff_TELMEXL.MX  Diff_TELMEXL.MX_Lag1Trend_residue_Seasonal_Day...  Difference_Lag1Trend_Seasonal_DayOfWeek_NoAR          68   0.0054        0.0035    0.0011
+4  None        _TELMEXL.MX  _TELMEXL.MX_Lag1Trend_residue_Seasonal_DayOfWe...    NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0053        0.0036    0.0012
+7 0    9.6
+1    9.6
+2    9.6
+3    9.6
+4    9.6
+5    9.6
+6    9.6
+Name: TELMEXL.MX, dtype: float64
+7 0    10.072684
+1    10.073124
+2    10.073571
+3    10.074025
+4    10.074487
+5    10.074955
+6    10.075432
+Name: TELMEXL.MX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_TELMEXL.MX TELMEXL.MX [9.6, 9.6, 9.6, 9.6, 9.6, 9.6, 9.6]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_TELMEXL.MX TELMEXL.MX [10.072683898563294, 10.073123756011098, 10.073570828542662, 10.07402513217157, 10.074486682911406, 10.074955496775747, 10.075431589778177]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_TELMEXL.MX TELMEXL.MX 360 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_TELMEXL.MX TELMEXL.MX 8.829503774642944
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_TELMEXL.MX TELMEXL.MX PolyTrend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_TELMEXL.MX TELMEXL.MX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_TELMEXL.MX TELMEXL.MX 0.0494 0.0482 4740396263.9342
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_TELMEXL.MX TELMEXL.MX 0.4740396263934224 0.4740405113454627 -15730008446.766743
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ipc_TELMEXL.MX_7'

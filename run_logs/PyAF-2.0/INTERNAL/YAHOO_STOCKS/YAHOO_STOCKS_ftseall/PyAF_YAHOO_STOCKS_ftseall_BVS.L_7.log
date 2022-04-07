@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1294 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  BVS.L N= 1294 H= 7 HEAD= [416.5 412.4 407.4 401.5 398.1] TAIL= [782.5 775.5 774.5 775.  793. ]
+   BVS.L       Date
+0  416.5 2011-07-28
+1  412.4 2011-07-29
+2  407.4 2011-08-01
+3  401.5 2011-08-02
+4  398.1 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1294 entries, 0 to 1293
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   BVS.L   1294 non-null   float64       
+ 1   Date    1294 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _BVS.L  _BVS.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  1.250000e-02  1.830000e-02  2.810000e-02
+1   None         _BVS.L  _BVS.L_Lag1Trend_residue_bestCycle_byL2_residu...  ...  1.250000e-02  1.830000e-02  2.630000e-02
+2   None         _BVS.L    _BVS.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.240000e-02  1.840000e-02  2.810000e-02
+3   None   CumSum_BVS.L  CumSum_BVS.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.340000e-02  1.840000e-02  2.810000e-02
+4   None     Diff_BVS.L  Diff_BVS.L_Lag1Trend_residue_zeroCycle_residue...  ...  1.240000e-02  1.840000e-02  2.810000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_BVS.L  RelDiff_BVS.L_PolyTrend_residue_bestCycle_byL2...  ...  1.414245e+07  9.405398e+06  1.163259e+07
+92  None  RelDiff_BVS.L  RelDiff_BVS.L_ConstantTrend_residue_bestCycle_...  ...  1.391453e+07  9.405398e+06  1.163259e+07
+93  None  RelDiff_BVS.L  RelDiff_BVS.L_PolyTrend_residue_zeroCycle_resi...  ...  1.414542e+07  9.405398e+06  1.163259e+07
+94  None  RelDiff_BVS.L  RelDiff_BVS.L_PolyTrend_residue_Seasonal_DayOf...  ...  1.414408e+07  9.405398e+06  1.163259e+07
+95  None  RelDiff_BVS.L  RelDiff_BVS.L_PolyTrend_residue_bestCycle_byL2...  ...  1.414409e+07  9.405398e+06  1.163259e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _BVS.L  _BVS.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0125        0.0183    0.0281
+1  None         _BVS.L  _BVS.L_Lag1Trend_residue_bestCycle_byL2_residu...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0125        0.0183    0.0263
+2  None         _BVS.L    _BVS.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0124        0.0184    0.0281
+3  None   CumSum_BVS.L  CumSum_BVS.L_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0134        0.0184    0.0281
+4  None     Diff_BVS.L  Diff_BVS.L_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0124        0.0184    0.0281
+7 0    788.5
+1    805.0
+2    803.0
+3    775.5
+4    784.5
+5    763.0
+6    796.0
+Name: BVS.L, dtype: float64
+7 0    793.0
+1    793.0
+2    793.0
+3    793.0
+4    793.0
+5    793.0
+6    793.0
+Name: BVS.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_BVS.L BVS.L [788.5, 805.0, 803.0, 775.5, 784.5, 763.0, 796.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_BVS.L BVS.L [793.0, 793.0, 793.0, 793.0, 793.0, 793.0, 793.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_BVS.L BVS.L 1294 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_BVS.L BVS.L 11.254717111587524
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_BVS.L BVS.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_BVS.L BVS.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_BVS.L BVS.L 0.0157 0.0155 0.6693
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_BVS.L BVS.L 12.214285714285714 14.888874081963733 -0.13124869818779494
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_BVS.L_7'

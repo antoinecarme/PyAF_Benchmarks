@@ -1,0 +1,66 @@
+BENCH_DATA M1_COMP
+TIME :  Date N= 44 H= 8 HEAD= [0 1 2 3 4] TAIL= [39 40 41 42 43]
+SIGNAL :  QRG11 N= 44 H= 8 HEAD= [63. 67. 70. 71. 69.] TAIL= [112. 106. 114. 125. 119.]
+Index  QRG11  Date
+1       63.0     0
+2       67.0     1
+3       70.0     2
+4       71.0     3
+5       69.0     4
+<class 'pandas.core.frame.DataFrame'>
+Index: 44 entries, 1 to 44
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   QRG11   44 non-null     float64
+ 1   Date    44 non-null     int64  
+dtypes: float64(1), int64(1)
+memory usage: 1.0+ KB
+None
+   Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0   None     Diff_QRG11  Diff_QRG11_LinearTrend_residue_zeroCycle_resid...          Difference_LinearTrend_NoCycle_AR          55   0.0344        0.0143    0.0439
+1   None     Diff_QRG11  Diff_QRG11_LinearTrend_residue_bestCycle_byL2_...       Difference_LinearTrend_Cycle_None_AR          63   0.0344        0.0143    0.0439
+2   None     Diff_QRG11  Diff_QRG11_ConstantTrend_residue_zeroCycle_res...        Difference_ConstantTrend_NoCycle_AR          39   0.0347        0.0146    0.0441
+3   None     Diff_QRG11  Diff_QRG11_ConstantTrend_residue_bestCycle_byL...     Difference_ConstantTrend_Cycle_None_AR          47   0.0347        0.0146    0.0441
+4   None         _QRG11  _QRG11_ConstantTrend_residue_zeroCycle_residue...          NoTransf_ConstantTrend_NoCycle_AR           7   0.0154        0.0194    0.0393
+..   ...            ...                                                ...                                        ...         ...      ...           ...       ...
+59  None   CumSum_QRG11  CumSum_QRG11_LinearTrend_residue_bestCycle_byL...    Integration_LinearTrend_Cycle_None_NoAR          56   0.4165        0.4207    0.4646
+60  None   CumSum_QRG11  CumSum_QRG11_PolyTrend_residue_zeroCycle_resid...         Integration_PolyTrend_NoCycle_NoAR          48   0.4252        0.5195    0.8935
+61  None   CumSum_QRG11  CumSum_QRG11_PolyTrend_residue_bestCycle_byL2_...      Integration_PolyTrend_Cycle_None_NoAR          56   0.4252        0.5195    0.8935
+62  None   CumSum_QRG11  CumSum_QRG11_ConstantTrend_residue_zeroCycle_r...     Integration_ConstantTrend_NoCycle_NoAR          32   1.5610        1.0000    1.0000
+63  None   CumSum_QRG11  CumSum_QRG11_ConstantTrend_residue_bestCycle_b...  Integration_ConstantTrend_Cycle_None_NoAR          40   1.5610        1.0000    1.0000
+
+[64 rows x 8 columns]
+  Split Transformation                                              Model                                Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None     Diff_QRG11  Diff_QRG11_LinearTrend_residue_zeroCycle_resid...       Difference_LinearTrend_NoCycle_AR          55   0.0344        0.0143    0.0439
+1  None     Diff_QRG11  Diff_QRG11_LinearTrend_residue_bestCycle_byL2_...    Difference_LinearTrend_Cycle_None_AR          63   0.0344        0.0143    0.0439
+2  None     Diff_QRG11  Diff_QRG11_ConstantTrend_residue_zeroCycle_res...     Difference_ConstantTrend_NoCycle_AR          39   0.0347        0.0146    0.0441
+3  None     Diff_QRG11  Diff_QRG11_ConstantTrend_residue_bestCycle_byL...  Difference_ConstantTrend_Cycle_None_AR          47   0.0347        0.0146    0.0441
+4  None         _QRG11  _QRG11_ConstantTrend_residue_zeroCycle_residue...       NoTransf_ConstantTrend_NoCycle_AR           7   0.0154        0.0194    0.0393
+8 0    115.0
+1    122.0
+2    123.0
+3    116.0
+4    104.0
+5    109.0
+6    113.0
+7    115.0
+Name: QRG11, dtype: float64
+8 0    110.373478
+1    115.266445
+2    125.356459
+3    118.152310
+4    109.141448
+5    114.277947
+6    126.442876
+7    121.425789
+Name: QRG11_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL M1_COMP QRG11 [115.0, 122.0, 123.0, 116.0, 104.0, 109.0, 113.0, 115.0]
+FORECAST_DETAIL_PREDICTED M1_COMP QRG11 [110.3734778517356, 115.26644482176498, 125.35645865864004, 118.15231007207832, 109.14144768312963, 114.27794652644818, 126.44287603181921, 121.42578933258204]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON M1_COMP QRG11 44 8
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ M1_COMP QRG11 4.631190299987793
+BENCHMARK_PERF_DETAIL_BEST_MODEL M1_COMP QRG11 ConstantTrend + NoCycle + AR
+BENCHMARK_PERF_DETAIL_PERF_COUNT M1_COMP QRG11 8
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE M1_COMP QRG11 0.0507 0.0497 1.0628
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 M1_COMP QRG11 5.769613203899604 6.64476953090696 -0.2897259587433212
+BENCHMARK_SUCCESS 'M1_COMP_QRG11_8'

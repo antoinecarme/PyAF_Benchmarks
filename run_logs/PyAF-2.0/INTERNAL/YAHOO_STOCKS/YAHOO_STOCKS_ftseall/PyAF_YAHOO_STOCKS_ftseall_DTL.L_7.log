@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 721 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2014-04-25T00:00:00.000000000' '2014-04-28T00:00:00.000000000'
+ '2014-04-29T00:00:00.000000000' '2014-04-30T00:00:00.000000000'
+ '2014-05-01T00:00:00.000000000']
+SIGNAL :  DTL.L N= 721 H= 7 HEAD= [1.23  1.245 1.24  1.24  1.205] TAIL= [1.3375 1.3375 1.3375 1.3375 1.3375]
+   DTL.L       Date
+0  1.230 2011-07-28
+1  1.245 2011-07-29
+2  1.240 2011-08-01
+3  1.240 2011-08-02
+4  1.205 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 721 entries, 0 to 720
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   DTL.L   721 non-null    float64       
+ 1   Date    721 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 16.9 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _DTL.L    _DTL.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  6.100000e-03  6.200000e-03  0.000000e+00
+1   None   CumSum_DTL.L  CumSum_DTL.L_Lag1Trend_residue_zeroCycle_resid...  ...  7.800000e-03  6.200000e-03  0.000000e+00
+2   None     Diff_DTL.L  Diff_DTL.L_Lag1Trend_residue_zeroCycle_residue...  ...  6.100000e-03  6.200000e-03  0.000000e+00
+3   None  RelDiff_DTL.L  RelDiff_DTL.L_Lag1Trend_residue_zeroCycle_resi...  ...  6.100000e-03  6.200000e-03  0.000000e+00
+4   None         _DTL.L  _DTL.L_Lag1Trend_residue_zeroCycle_residue_AR(64)  ...  6.100000e-03  6.200000e-03  5.000000e-04
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_DTL.L  RelDiff_DTL.L_LinearTrend_residue_Seasonal_Day...  ...  9.143976e+06  8.408273e+06  8.411215e+06
+92  None  RelDiff_DTL.L  RelDiff_DTL.L_LinearTrend_residue_bestCycle_by...  ...  9.143976e+06  8.408273e+06  8.411215e+06
+93  None  RelDiff_DTL.L  RelDiff_DTL.L_Lag1Trend_residue_Seasonal_DayOf...  ...  9.148781e+06  8.408273e+06  8.411215e+06
+94  None  RelDiff_DTL.L  RelDiff_DTL.L_Lag1Trend_residue_bestCycle_byL2...  ...  9.148781e+06  8.408273e+06  8.411215e+06
+95  None  RelDiff_DTL.L  RelDiff_DTL.L_LinearTrend_residue_zeroCycle_re...  ...  9.148703e+06  8.408273e+06  8.411215e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _DTL.L    _DTL.L_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0061        0.0062    0.0000
+1  None   CumSum_DTL.L  CumSum_DTL.L_Lag1Trend_residue_zeroCycle_resid...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0078        0.0062    0.0000
+2  None     Diff_DTL.L  Diff_DTL.L_Lag1Trend_residue_zeroCycle_residue...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0061        0.0062    0.0000
+3  None  RelDiff_DTL.L  RelDiff_DTL.L_Lag1Trend_residue_zeroCycle_resi...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0061        0.0062    0.0000
+4  None         _DTL.L  _DTL.L_Lag1Trend_residue_zeroCycle_residue_AR(64)              NoTransf_Lag1Trend_NoCycle_AR          96   0.0061        0.0062    0.0005
+7 0    1.3375
+1    1.3567
+2    1.3375
+3    1.3375
+4    1.3375
+5    1.3567
+6    1.3375
+Name: DTL.L, dtype: float64
+7 0    1.339770
+1    1.339948
+2    1.340127
+3    1.340306
+4    1.340485
+5    1.340664
+6    1.340842
+Name: DTL.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_DTL.L DTL.L [1.3375, 1.3567, 1.3375, 1.3375, 1.3375, 1.3567, 1.3375]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_DTL.L DTL.L [1.3397696500438752, 1.339948444466382, 1.340127238888889, 1.3403060333113959, 1.3404848277339028, 1.3406636221564097, 1.3408424165789166]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_DTL.L DTL.L 721 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_DTL.L DTL.L 10.856450319290161
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_DTL.L DTL.L LinearTrend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_DTL.L DTL.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_DTL.L DTL.L 0.005 0.005 0.5225
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_DTL.L DTL.L 0.006688299990598294 0.009085219478219964 -0.09714590587070471
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_DTL.L_7'

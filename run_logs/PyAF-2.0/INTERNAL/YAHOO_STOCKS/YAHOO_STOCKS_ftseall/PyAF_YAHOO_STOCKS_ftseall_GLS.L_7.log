@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 569 H= 7 HEAD= ['2014-05-12T00:00:00.000000000' '2014-05-13T00:00:00.000000000'
+ '2014-05-14T00:00:00.000000000' '2014-05-15T00:00:00.000000000'
+ '2014-05-16T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  GLS.L N= 569 H= 7 HEAD= [24.5 24.5 24.  24.  24. ] TAIL= [25.75 25.75 25.75 25.75 25.75]
+   GLS.L       Date
+0   24.5 2014-05-12
+1   24.5 2014-05-13
+2   24.0 2014-05-14
+3   24.0 2014-05-15
+4   24.0 2014-05-16
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 569 entries, 0 to 568
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   GLS.L   569 non-null    float64       
+ 1   Date    569 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 13.3 KB
+None
+   Split Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _GLS.L    _GLS.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0085  1.340000e-02  0.000000e+00
+1   None   CumSum_GLS.L  CumSum_GLS.L_Lag1Trend_residue_zeroCycle_resid...  ...  0.0107  1.340000e-02  0.000000e+00
+2   None     Diff_GLS.L  Diff_GLS.L_Lag1Trend_residue_zeroCycle_residue...  ...  0.0085  1.340000e-02  0.000000e+00
+3   None  RelDiff_GLS.L  RelDiff_GLS.L_Lag1Trend_residue_zeroCycle_resi...  ...  0.0085  1.340000e-02  0.000000e+00
+4   None         _GLS.L  _GLS.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  0.0095  1.460000e-02  1.100000e-03
+..   ...            ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_GLS.L  RelDiff_GLS.L_ConstantTrend_residue_bestCycle_...  ...  0.1478  4.946787e+07  4.660194e+07
+92  None  RelDiff_GLS.L  RelDiff_GLS.L_ConstantTrend_residue_Seasonal_D...  ...  0.1507  4.946787e+07  4.660194e+07
+93  None  RelDiff_GLS.L  RelDiff_GLS.L_Lag1Trend_residue_bestCycle_byL2...  ...  0.0492  4.946827e+07  4.660194e+07
+94  None  RelDiff_GLS.L  RelDiff_GLS.L_Lag1Trend_residue_zeroCycle_resi...  ...  0.0616  4.946828e+07  4.660194e+07
+95  None  RelDiff_GLS.L  RelDiff_GLS.L_Lag1Trend_residue_Seasonal_DayOf...  ...  0.0551  4.946829e+07  4.660194e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _GLS.L    _GLS.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0085        0.0134    0.0000
+1  None   CumSum_GLS.L  CumSum_GLS.L_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0107        0.0134    0.0000
+2  None     Diff_GLS.L  Diff_GLS.L_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0085        0.0134    0.0000
+3  None  RelDiff_GLS.L  RelDiff_GLS.L_Lag1Trend_residue_zeroCycle_resi...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0085        0.0134    0.0000
+4  None         _GLS.L  _GLS.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0095        0.0146    0.0011
+7 0    25.75
+1    25.75
+2    25.75
+3    25.75
+4    25.75
+5    25.75
+6    25.75
+Name: GLS.L, dtype: float64
+7 0    25.75
+1    25.75
+2    25.75
+3    25.75
+4    25.75
+5    25.75
+6    25.75
+Name: GLS.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_GLS.L GLS.L [25.75, 25.75, 25.75, 25.75, 25.75, 25.75, 25.75]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_GLS.L GLS.L [25.75, 25.75, 25.75, 25.75, 25.75, 25.75, 25.75]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_GLS.L GLS.L 569 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_GLS.L GLS.L 10.462399244308472
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_GLS.L GLS.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_GLS.L GLS.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_GLS.L GLS.L 0.0 0.0 0.0
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_GLS.L GLS.L 0.0 0.0 1.0
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_GLS.L_7'

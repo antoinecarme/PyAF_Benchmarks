@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nasdaqbio
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  PGNX N= 1251 H= 7 HEAD= [5.68 5.46 5.89 5.55 5.93] TAIL= [5.18 4.92 4.83 5.1  5.4 ]
+   PGNX       Date
+0  5.68 2011-07-28
+1  5.46 2011-07-29
+2  5.89 2011-08-01
+3  5.55 2011-08-02
+4  5.93 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   PGNX    1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None    CumSum_PGNX  CumSum_PGNX_Lag1Trend_residue_bestCycle_byL2_r...  ...  3.480000e-02  3.200000e-02  3.440000e-02
+1   None          _PGNX     _PGNX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  3.250000e-02  3.220000e-02  3.440000e-02
+2   None          _PGNX  _PGNX_Lag1Trend_residue_bestCycle_byL2_residue...  ...  3.260000e-02  3.220000e-02  3.120000e-02
+3   None    CumSum_PGNX  CumSum_PGNX_Lag1Trend_residue_zeroCycle_residu...  ...  3.340000e-02  3.220000e-02  3.440000e-02
+4   None      Diff_PGNX  Diff_PGNX_Lag1Trend_residue_zeroCycle_residue_...  ...  3.250000e-02  3.220000e-02  3.440000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None   RelDiff_PGNX  RelDiff_PGNX_Lag1Trend_residue_Seasonal_DayOfW...  ...  8.474651e+07  7.545912e+07  8.044491e+07
+92  None   RelDiff_PGNX  RelDiff_PGNX_ConstantTrend_residue_Seasonal_Da...  ...  8.440171e+07  7.545912e+07  8.044491e+07
+93  None   RelDiff_PGNX  RelDiff_PGNX_LinearTrend_residue_bestCycle_byL...  ...  8.483033e+07  7.545912e+07  8.044491e+07
+94  None   RelDiff_PGNX  RelDiff_PGNX_Lag1Trend_residue_bestCycle_byL2_...  ...  8.480513e+07  7.545912e+07  8.044491e+07
+95  None   RelDiff_PGNX  RelDiff_PGNX_ConstantTrend_residue_zeroCycle_r...  ...  8.481981e+07  7.545912e+07  8.044491e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                            Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None    CumSum_PGNX  CumSum_PGNX_Lag1Trend_residue_bestCycle_byL2_r...    Integration_Lag1Trend_Cycle_NoAR          72   0.0348        0.0320    0.0344
+1  None          _PGNX     _PGNX_Lag1Trend_residue_zeroCycle_residue_NoAR     NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0325        0.0322    0.0344
+2  None          _PGNX  _PGNX_Lag1Trend_residue_bestCycle_byL2_residue...       NoTransf_Lag1Trend_Cycle_NoAR          40   0.0326        0.0322    0.0312
+3  None    CumSum_PGNX  CumSum_PGNX_Lag1Trend_residue_zeroCycle_residu...  Integration_Lag1Trend_NoCycle_NoAR          64   0.0334        0.0322    0.0344
+4  None      Diff_PGNX  Diff_PGNX_Lag1Trend_residue_zeroCycle_residue_...   Difference_Lag1Trend_NoCycle_NoAR          64   0.0325        0.0322    0.0344
+7 0    4.94
+1    6.14
+2    6.16
+3    6.01
+4    5.92
+5    5.98
+6    6.06
+Name: PGNX, dtype: float64
+7 0    5.4
+1    5.4
+2    5.4
+3    5.4
+4    5.4
+5    5.4
+6    5.4
+Name: PGNX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_PGNX PGNX [4.94, 6.14, 6.16, 6.01, 5.92, 5.98, 6.06]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_PGNX PGNX [5.4, 5.4, 5.4, 5.4, 5.4, 5.4, 5.4]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_PGNX PGNX 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_PGNX PGNX 10.894621133804321
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_PGNX PGNX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_PGNX PGNX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_PGNX PGNX 0.1046 0.1092 2.3196
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_PGNX PGNX 0.6185714285714282 0.6269313017730545 -1.5237976671777402
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nasdaqbio_PGNX_7'

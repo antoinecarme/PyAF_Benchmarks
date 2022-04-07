@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_mc
+TIME :  Date N= 1298 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  PAC.MC N= 1298 H= 7 HEAD= [3.9   3.88  3.84  3.735 3.76 ] TAIL= [5.11  5.155 5.125 5.055 5.075]
+   PAC.MC       Date
+0   3.900 2011-07-28
+1   3.880 2011-07-29
+2   3.840 2011-08-01
+3   3.735 2011-08-02
+4   3.760 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1298 entries, 0 to 1297
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   PAC.MC  1298 non-null   float64       
+ 1   Date    1298 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None   CumSum_PAC.MC  CumSum_PAC.MC_Lag1Trend_residue_bestCycle_byL2...  ...  1.570000e-02  1.330000e-02  9.500000e-03
+1   None         _PAC.MC   _PAC.MC_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.330000e-02  1.350000e-02  9.500000e-03
+2   None         _PAC.MC  _PAC.MC_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  1.330000e-02  1.350000e-02  9.300000e-03
+3   None   CumSum_PAC.MC  CumSum_PAC.MC_Lag1Trend_residue_zeroCycle_resi...  ...  1.420000e-02  1.350000e-02  9.500000e-03
+4   None     Diff_PAC.MC  Diff_PAC.MC_Lag1Trend_residue_zeroCycle_residu...  ...  1.330000e-02  1.350000e-02  9.500000e-03
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_PAC.MC  RelDiff_PAC.MC_PolyTrend_residue_Seasonal_DayO...  ...  7.068234e+07  4.343495e+07  4.243796e+07
+92  None  RelDiff_PAC.MC  RelDiff_PAC.MC_PolyTrend_residue_bestCycle_byL...  ...  7.068234e+07  4.343495e+07  4.243796e+07
+93  None  RelDiff_PAC.MC  RelDiff_PAC.MC_PolyTrend_residue_Seasonal_DayO...  ...  7.068318e+07  4.343495e+07  4.243796e+07
+94  None  RelDiff_PAC.MC  RelDiff_PAC.MC_PolyTrend_residue_bestCycle_byL...  ...  7.068318e+07  4.343495e+07  4.243796e+07
+95  None  RelDiff_PAC.MC  RelDiff_PAC.MC_ConstantTrend_residue_zeroCycle...  ...  7.067803e+07  4.343495e+07  4.243797e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None  CumSum_PAC.MC  CumSum_PAC.MC_Lag1Trend_residue_bestCycle_byL2...            Integration_Lag1Trend_Cycle_NoAR          72   0.0157        0.0133    0.0095
+1  None        _PAC.MC   _PAC.MC_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0133        0.0135    0.0095
+2  None        _PAC.MC  _PAC.MC_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0133        0.0135    0.0093
+3  None  CumSum_PAC.MC  CumSum_PAC.MC_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0142        0.0135    0.0095
+4  None    Diff_PAC.MC  Diff_PAC.MC_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0133        0.0135    0.0095
+7 0    5.130
+1    5.070
+2    5.110
+3    5.120
+4    5.155
+5    5.155
+6    5.205
+Name: PAC.MC, dtype: float64
+7 0    5.075
+1    5.075
+2    5.075
+3    5.075
+4    5.075
+5    5.075
+6    5.075
+Name: PAC.MC_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_PAC.MC PAC.MC [5.13, 5.07, 5.11, 5.12, 5.155, 5.155, 5.205]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_PAC.MC PAC.MC [5.075, 5.075, 5.075, 5.075, 5.075, 5.075, 5.075]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_PAC.MC PAC.MC 1298 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_PAC.MC PAC.MC 11.273577690124512
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_PAC.MC PAC.MC Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_PAC.MC PAC.MC 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_PAC.MC PAC.MC 0.0119 0.012 1.8901
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_PAC.MC PAC.MC 0.06142857142857139 0.07171371656006358 -2.3333333024691405
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_mc_PAC.MC_7'

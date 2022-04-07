@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1294 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  KIE.L N= 1294 H= 7 HEAD= [1065.18  1061.98  1050.8   1022.83   998.057] TAIL= [1066. 1039. 1047. 1030. 1055.]
+      KIE.L       Date
+0  1065.180 2011-07-28
+1  1061.980 2011-07-29
+2  1050.800 2011-08-01
+3  1022.830 2011-08-02
+4   998.057 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1294 entries, 0 to 1293
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   KIE.L   1294 non-null   float64       
+ 1   Date    1294 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _KIE.L    _KIE.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.090000e-02  1.280000e-02  2.720000e-02
+1   None         _KIE.L  _KIE.L_Lag1Trend_residue_bestCycle_byL2_residu...  ...  1.090000e-02  1.280000e-02  2.790000e-02
+2   None   CumSum_KIE.L  CumSum_KIE.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.190000e-02  1.280000e-02  2.720000e-02
+3   None     Diff_KIE.L  Diff_KIE.L_Lag1Trend_residue_zeroCycle_residue...  ...  1.090000e-02  1.280000e-02  2.720000e-02
+4   None  RelDiff_KIE.L  RelDiff_KIE.L_Lag1Trend_residue_zeroCycle_resi...  ...  1.090000e-02  1.280000e-02  2.720000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_KIE.L  RelDiff_KIE.L_Lag1Trend_residue_bestCycle_byL2...  ...  1.650092e+07  1.462383e+07  1.847980e+07
+92  None  RelDiff_KIE.L  RelDiff_KIE.L_Lag1Trend_residue_Seasonal_DayOf...  ...  1.656156e+07  1.462383e+07  1.847980e+07
+93  None  RelDiff_KIE.L  RelDiff_KIE.L_LinearTrend_residue_bestCycle_by...  ...  1.655024e+07  1.462383e+07  1.847980e+07
+94  None  RelDiff_KIE.L  RelDiff_KIE.L_PolyTrend_residue_bestCycle_byL2...  ...  1.655256e+07  1.462383e+07  1.847980e+07
+95  None  RelDiff_KIE.L  RelDiff_KIE.L_PolyTrend_residue_zeroCycle_resi...  ...  1.656153e+07  1.462383e+07  1.847980e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _KIE.L    _KIE.L_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0109        0.0128    0.0272
+1  None         _KIE.L  _KIE.L_Lag1Trend_residue_bestCycle_byL2_residu...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0109        0.0128    0.0279
+2  None   CumSum_KIE.L  CumSum_KIE.L_Lag1Trend_residue_zeroCycle_resid...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0119        0.0128    0.0272
+3  None     Diff_KIE.L  Diff_KIE.L_Lag1Trend_residue_zeroCycle_residue...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0109        0.0128    0.0272
+4  None  RelDiff_KIE.L  RelDiff_KIE.L_Lag1Trend_residue_zeroCycle_resi...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0109        0.0128    0.0272
+7 0    1040.0
+1    1041.0
+2    1049.0
+3    1031.0
+4    1045.0
+5    1025.0
+6    1081.0
+Name: KIE.L, dtype: float64
+7 0    1055.0
+1    1055.0
+2    1055.0
+3    1055.0
+4    1055.0
+5    1055.0
+6    1055.0
+Name: KIE.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_KIE.L KIE.L [1040.0, 1041.0, 1049.0, 1031.0, 1045.0, 1025.0, 1081.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_KIE.L KIE.L [1055.0, 1055.0, 1055.0, 1055.0, 1055.0, 1055.0, 1055.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_KIE.L KIE.L 1294 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_KIE.L KIE.L 10.966445684432983
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_KIE.L KIE.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_KIE.L KIE.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_KIE.L KIE.L 0.0171 0.017 0.9158
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_KIE.L KIE.L 17.857142857142858 19.672315572906 -0.3908610825875771
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_KIE.L_7'

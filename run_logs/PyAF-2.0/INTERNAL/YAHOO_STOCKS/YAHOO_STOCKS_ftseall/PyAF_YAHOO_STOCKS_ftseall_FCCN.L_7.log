@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1294 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  FCCN.L N= 1294 H= 7 HEAD= [70.75 67.25 69.   66.   61.75] TAIL= [34.75  35.    36.875 37.    36.875]
+   FCCN.L       Date
+0   70.75 2011-07-28
+1   67.25 2011-07-29
+2   69.00 2011-08-01
+3   66.00 2011-08-02
+4   61.75 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1294 entries, 0 to 1293
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   FCCN.L  1294 non-null   float64       
+ 1   Date    1294 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _FCCN.L   _FCCN.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.530000e-02  2.710000e-02  2.180000e-02
+1   None   CumSum_FCCN.L  CumSum_FCCN.L_Lag1Trend_residue_zeroCycle_resi...  ...  2.620000e-02  2.710000e-02  2.180000e-02
+2   None     Diff_FCCN.L  Diff_FCCN.L_Lag1Trend_residue_zeroCycle_residu...  ...  2.530000e-02  2.710000e-02  2.180000e-02
+3   None  RelDiff_FCCN.L  RelDiff_FCCN.L_Lag1Trend_residue_zeroCycle_res...  ...  2.530000e-02  2.710000e-02  2.180000e-02
+4   None   CumSum_FCCN.L  CumSum_FCCN.L_Lag1Trend_residue_bestCycle_byL2...  ...  2.730000e-02  2.730000e-02  2.170000e-02
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_FCCN.L  RelDiff_FCCN.L_PolyTrend_residue_zeroCycle_res...  ...  1.324661e+08  1.403127e+08  1.454418e+08
+92  None  RelDiff_FCCN.L  RelDiff_FCCN.L_Lag1Trend_residue_Seasonal_DayO...  ...  1.320793e+08  1.403127e+08  1.454418e+08
+93  None  RelDiff_FCCN.L  RelDiff_FCCN.L_LinearTrend_residue_Seasonal_Da...  ...  1.324644e+08  1.403127e+08  1.454418e+08
+94  None  RelDiff_FCCN.L  RelDiff_FCCN.L_PolyTrend_residue_Seasonal_DayO...  ...  1.324628e+08  1.403127e+08  1.454418e+08
+95  None  RelDiff_FCCN.L  RelDiff_FCCN.L_PolyTrend_residue_bestCycle_byL...  ...  1.324628e+08  1.403127e+08  1.454418e+08
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _FCCN.L   _FCCN.L_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0253        0.0271    0.0218
+1  None   CumSum_FCCN.L  CumSum_FCCN.L_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0262        0.0271    0.0218
+2  None     Diff_FCCN.L  Diff_FCCN.L_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0253        0.0271    0.0218
+3  None  RelDiff_FCCN.L  RelDiff_FCCN.L_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0253        0.0271    0.0218
+4  None   CumSum_FCCN.L  CumSum_FCCN.L_Lag1Trend_residue_bestCycle_byL2...           Integration_Lag1Trend_Cycle_NoAR          72   0.0273        0.0273    0.0217
+7 0    37.000
+1    34.000
+2    33.750
+3    34.500
+4    36.750
+5    36.750
+6    35.625
+Name: FCCN.L, dtype: float64
+7 0    36.875
+1    36.875
+2    36.875
+3    36.875
+4    36.875
+5    36.875
+6    36.875
+Name: FCCN.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_FCCN.L FCCN.L [37.0, 34.0, 33.75, 34.5, 36.75, 36.75, 35.625]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_FCCN.L FCCN.L [36.875, 36.875, 36.875, 36.875, 36.875, 36.875, 36.875]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_FCCN.L FCCN.L 1294 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_FCCN.L FCCN.L 11.22973084449768
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_FCCN.L FCCN.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_FCCN.L FCCN.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_FCCN.L FCCN.L 0.0416 0.0401 1.1622
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_FCCN.L FCCN.L 1.4285714285714286 1.9004228852697873 -1.1606257153573454
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_FCCN.L_7'

@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftse250
+TIME :  Date N= 1294 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  ADN.L N= 1294 H= 7 HEAD= [229.3 220.5 221.4 210.2 207.6] TAIL= [294.9 295.  311.2 307.1 318.5]
+   ADN.L       Date
+0  229.3 2011-07-28
+1  220.5 2011-07-29
+2  221.4 2011-08-01
+3  210.2 2011-08-02
+4  207.6 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1294 entries, 0 to 1293
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   ADN.L   1294 non-null   float64       
+ 1   Date    1294 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _ADN.L    _ADN.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.370000e-02  2.310000e-02  2.360000e-02
+1   None         _ADN.L  _ADN.L_Lag1Trend_residue_bestCycle_byL2_residu...  ...  1.370000e-02  2.310000e-02  2.240000e-02
+2   None   CumSum_ADN.L  CumSum_ADN.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.470000e-02  2.310000e-02  2.360000e-02
+3   None     Diff_ADN.L  Diff_ADN.L_Lag1Trend_residue_zeroCycle_residue...  ...  1.370000e-02  2.310000e-02  2.360000e-02
+4   None  RelDiff_ADN.L  RelDiff_ADN.L_Lag1Trend_residue_zeroCycle_resi...  ...  1.370000e-02  2.310000e-02  2.360000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_ADN.L  RelDiff_ADN.L_LinearTrend_residue_bestCycle_by...  ...  1.835890e+07  2.109985e+07  2.057417e+07
+92  None  RelDiff_ADN.L  RelDiff_ADN.L_PolyTrend_residue_bestCycle_byL2...  ...  1.836100e+07  2.109985e+07  2.057417e+07
+93  None  RelDiff_ADN.L  RelDiff_ADN.L_ConstantTrend_residue_zeroCycle_...  ...  1.835825e+07  2.109985e+07  2.057417e+07
+94  None  RelDiff_ADN.L  RelDiff_ADN.L_ConstantTrend_residue_Seasonal_D...  ...  1.814759e+07  2.109985e+07  2.057417e+07
+95  None  RelDiff_ADN.L  RelDiff_ADN.L_ConstantTrend_residue_bestCycle_...  ...  1.818080e+07  2.109985e+07  2.057417e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _ADN.L    _ADN.L_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0137        0.0231    0.0236
+1  None         _ADN.L  _ADN.L_Lag1Trend_residue_bestCycle_byL2_residu...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0137        0.0231    0.0224
+2  None   CumSum_ADN.L  CumSum_ADN.L_Lag1Trend_residue_zeroCycle_resid...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0147        0.0231    0.0236
+3  None     Diff_ADN.L  Diff_ADN.L_Lag1Trend_residue_zeroCycle_residue...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0137        0.0231    0.0236
+4  None  RelDiff_ADN.L  RelDiff_ADN.L_Lag1Trend_residue_zeroCycle_resi...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0137        0.0231    0.0236
+7 0    322.1
+1    322.5
+2    320.7
+3    316.0
+4    317.9
+5    313.3
+6    314.6
+Name: ADN.L, dtype: float64
+7 0    318.5
+1    318.5
+2    318.5
+3    318.5
+4    318.5
+5    318.5
+6    318.5
+Name: ADN.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_ADN.L ADN.L [322.1, 322.5, 320.7, 316.0, 317.9, 313.3, 314.6]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_ADN.L ADN.L [318.5, 318.5, 318.5, 318.5, 318.5, 318.5, 318.5]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_ADN.L ADN.L 1294 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_ADN.L ADN.L 11.384094476699829
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_ADN.L ADN.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_ADN.L ADN.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_ADN.L ADN.L 0.0099 0.0099 1.2828
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_ADN.L ADN.L 3.142857142857143 3.4363602006441942 -0.010054812692966486
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftse250_ADN.L_7'

@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_tsx
+TIME :  Date N= 1248 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  ESI.TO N= 1248 H= 7 HEAD= [20.799999 20.58     19.959999 19.379999 18.4     ] TAIL= [7.77 7.47 7.4  7.36 7.54]
+      ESI.TO       Date
+0  20.799999 2011-07-28
+1  20.580000 2011-07-29
+2  19.959999 2011-08-02
+3  19.379999 2011-08-03
+4  18.400000 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1248 entries, 0 to 1247
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   ESI.TO  1248 non-null   float64       
+ 1   Date    1248 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.2 KB
+None
+   Split  Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _ESI.TO  _ESI.TO_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  0.0142  2.820000e-02  2.480000e-02
+1   None         _ESI.TO   _ESI.TO_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0144  2.840000e-02  2.550000e-02
+2   None   CumSum_ESI.TO  CumSum_ESI.TO_Lag1Trend_residue_zeroCycle_resi...  ...  0.0154  2.840000e-02  2.550000e-02
+3   None     Diff_ESI.TO  Diff_ESI.TO_Lag1Trend_residue_zeroCycle_residu...  ...  0.0144  2.840000e-02  2.550000e-02
+4   None  RelDiff_ESI.TO  RelDiff_ESI.TO_Lag1Trend_residue_zeroCycle_res...  ...  0.0144  2.840000e-02  2.550000e-02
+..   ...             ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_ESI.TO  RelDiff_ESI.TO_ConstantTrend_residue_zeroCycle...  ...  0.2485  8.008453e+07  2.138541e+08
+92  None  RelDiff_ESI.TO  RelDiff_ESI.TO_LinearTrend_residue_zeroCycle_r...  ...  0.2038  8.009133e+07  2.138541e+08
+93  None  RelDiff_ESI.TO  RelDiff_ESI.TO_Lag1Trend_residue_bestCycle_byL...  ...  0.0735  8.111952e+07  2.138541e+08
+94  None  RelDiff_ESI.TO  RelDiff_ESI.TO_Lag1Trend_residue_Seasonal_DayO...  ...  0.0938  8.111953e+07  2.138541e+08
+95  None  RelDiff_ESI.TO  RelDiff_ESI.TO_Lag1Trend_residue_zeroCycle_res...  ...  0.0762  8.111953e+07  2.138541e+08
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _ESI.TO  _ESI.TO_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0142        0.0282    0.0248
+1  None         _ESI.TO   _ESI.TO_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0144        0.0284    0.0255
+2  None   CumSum_ESI.TO  CumSum_ESI.TO_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0154        0.0284    0.0255
+3  None     Diff_ESI.TO  Diff_ESI.TO_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0144        0.0284    0.0255
+4  None  RelDiff_ESI.TO  RelDiff_ESI.TO_Lag1Trend_residue_zeroCycle_res...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0144        0.0284    0.0255
+7 0    7.35
+1    7.36
+2    7.36
+3    7.49
+4    7.29
+5    7.24
+6    7.19
+Name: ESI.TO, dtype: float64
+7 0    7.54
+1    7.54
+2    7.54
+3    7.54
+4    7.54
+5    7.54
+6    7.54
+Name: ESI.TO_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_ESI.TO ESI.TO [7.35, 7.36, 7.36, 7.49, 7.29, 7.24, 7.19]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_ESI.TO ESI.TO [7.54, 7.54, 7.54, 7.54, 7.54, 7.54, 7.54]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_ESI.TO ESI.TO 1248 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_ESI.TO ESI.TO 10.984164237976074
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_ESI.TO ESI.TO Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_ESI.TO ESI.TO 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_ESI.TO ESI.TO 0.0294 0.0289 2.9221
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_ESI.TO ESI.TO 0.21428571428571416 0.23250192011495907 -5.64192576567365
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_tsx_ESI.TO_7'

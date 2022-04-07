@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_mc
+TIME :  Date N= 1298 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  POP.MC N= 1298 H= 7 HEAD= [1.95194 1.96227 1.86336 1.80902 1.81065] TAIL= [1.254 1.273 1.27  1.253 1.252]
+    POP.MC       Date
+0  1.95194 2011-07-28
+1  1.96227 2011-07-29
+2  1.86336 2011-08-01
+3  1.80902 2011-08-02
+4  1.81065 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1298 entries, 0 to 1297
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   POP.MC  1298 non-null   float64       
+ 1   Date    1298 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _POP.MC   _POP.MC_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.980000e-02  2.370000e-02  2.230000e-02
+1   None   CumSum_POP.MC  CumSum_POP.MC_Lag1Trend_residue_zeroCycle_resi...  ...  2.080000e-02  2.370000e-02  2.230000e-02
+2   None     Diff_POP.MC  Diff_POP.MC_Lag1Trend_residue_zeroCycle_residu...  ...  1.980000e-02  2.370000e-02  2.230000e-02
+3   None  RelDiff_POP.MC  RelDiff_POP.MC_Lag1Trend_residue_zeroCycle_res...  ...  1.980000e-02  2.370000e-02  2.230000e-02
+4   None   CumSum_POP.MC  CumSum_POP.MC_Lag1Trend_residue_Seasonal_DayOf...  ...  2.240000e-02  2.370000e-02  2.230000e-02
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_POP.MC  RelDiff_POP.MC_LinearTrend_residue_Seasonal_Da...  ...  8.841677e+07  5.592410e+07  1.144941e+08
+92  None  RelDiff_POP.MC  RelDiff_POP.MC_LinearTrend_residue_bestCycle_b...  ...  8.841677e+07  5.592410e+07  1.144941e+08
+93  None  RelDiff_POP.MC  RelDiff_POP.MC_Lag1Trend_residue_Seasonal_DayO...  ...  8.828085e+07  5.592410e+07  1.144941e+08
+94  None  RelDiff_POP.MC  RelDiff_POP.MC_Lag1Trend_residue_bestCycle_byL...  ...  8.828085e+07  5.592410e+07  1.144941e+08
+95  None  RelDiff_POP.MC  RelDiff_POP.MC_ConstantTrend_residue_zeroCycle...  ...  8.841678e+07  5.592410e+07  1.144941e+08
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                       Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _POP.MC   _POP.MC_Lag1Trend_residue_zeroCycle_residue_NoAR                NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0198        0.0237    0.0223
+1  None   CumSum_POP.MC  CumSum_POP.MC_Lag1Trend_residue_zeroCycle_resi...             Integration_Lag1Trend_NoCycle_NoAR          64   0.0208        0.0237    0.0223
+2  None     Diff_POP.MC  Diff_POP.MC_Lag1Trend_residue_zeroCycle_residu...              Difference_Lag1Trend_NoCycle_NoAR          64   0.0198        0.0237    0.0223
+3  None  RelDiff_POP.MC  RelDiff_POP.MC_Lag1Trend_residue_zeroCycle_res...      RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0198        0.0237    0.0223
+4  None   CumSum_POP.MC  CumSum_POP.MC_Lag1Trend_residue_Seasonal_DayOf...  Integration_Lag1Trend_Seasonal_DayOfWeek_NoAR          68   0.0224        0.0237    0.0223
+7 0    1.211
+1    1.252
+2    1.300
+3    1.278
+4    1.270
+5    1.223
+6    1.257
+Name: POP.MC, dtype: float64
+7 0    1.252
+1    1.252
+2    1.252
+3    1.252
+4    1.252
+5    1.252
+6    1.252
+Name: POP.MC_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_POP.MC POP.MC [1.2109999999999999, 1.252, 1.3, 1.278, 1.27, 1.2229999999999999, 1.2570000000000001]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_POP.MC POP.MC [1.252, 1.252, 1.252, 1.252, 1.252, 1.252, 1.252]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_POP.MC POP.MC 1298 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_POP.MC POP.MC 11.250178098678589
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_POP.MC POP.MC Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_POP.MC POP.MC 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_POP.MC POP.MC 0.019 0.019 0.7157
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_POP.MC POP.MC 0.023857142857142927 0.028911194075256504 -0.018121688558089266
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_mc_POP.MC_7'

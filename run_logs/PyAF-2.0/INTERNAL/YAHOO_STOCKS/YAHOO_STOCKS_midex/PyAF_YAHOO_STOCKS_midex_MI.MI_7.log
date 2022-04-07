@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_midex
+TIME :  Date N= 628 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2013-12-18T00:00:00.000000000' '2013-12-19T00:00:00.000000000'
+ '2013-12-20T00:00:00.000000000' '2013-12-23T00:00:00.000000000'
+ '2013-12-24T00:00:00.000000000']
+SIGNAL :  MI.MI N= 628 H= 7 HEAD= [0.3062 0.3051 0.2854 0.2702 0.263 ] TAIL= [0.7205 0.7465 0.7525 0.7705 0.7705]
+    MI.MI       Date
+0  0.3062 2011-07-28
+1  0.3051 2011-07-29
+2  0.2854 2011-08-01
+3  0.2702 2011-08-02
+4  0.2630 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 628 entries, 0 to 627
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   MI.MI   628 non-null    float64       
+ 1   Date    628 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 14.7 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _MI.MI  _MI.MI_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  2.580000e-02  1.390000e-02  1.450000e-02
+1   None         _MI.MI  _MI.MI_Lag1Trend_residue_zeroCycle_residue_AR(64)  ...  2.570000e-02  1.390000e-02  1.460000e-02
+2   None         _MI.MI  _MI.MI_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  2.570000e-02  1.390000e-02  1.460000e-02
+3   None         _MI.MI    _MI.MI_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.580000e-02  1.400000e-02  1.470000e-02
+4   None         _MI.MI  _MI.MI_Lag1Trend_residue_bestCycle_byL2_residu...  ...  2.590000e-02  1.400000e-02  1.470000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_MI.MI  RelDiff_MI.MI_PolyTrend_residue_bestCycle_byL2...  ...  3.204994e+07  1.767626e+07  1.320482e+07
+92  None  RelDiff_MI.MI  RelDiff_MI.MI_Lag1Trend_residue_Seasonal_DayOf...  ...  3.201695e+07  1.767626e+07  1.320482e+07
+93  None  RelDiff_MI.MI  RelDiff_MI.MI_Lag1Trend_residue_bestCycle_byL2...  ...  3.209566e+07  1.767626e+07  1.320482e+07
+94  None  RelDiff_MI.MI  RelDiff_MI.MI_PolyTrend_residue_zeroCycle_resi...  ...  3.204326e+07  1.767626e+07  1.320482e+07
+95  None  RelDiff_MI.MI  RelDiff_MI.MI_ConstantTrend_residue_zeroCycle_...  ...  3.203302e+07  1.767626e+07  1.320482e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _MI.MI  _MI.MI_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0258        0.0139    0.0145
+1  None         _MI.MI  _MI.MI_Lag1Trend_residue_zeroCycle_residue_AR(64)               NoTransf_Lag1Trend_NoCycle_AR          96   0.0257        0.0139    0.0146
+2  None         _MI.MI  _MI.MI_Lag1Trend_residue_Seasonal_DayOfWeek_re...    NoTransf_Lag1Trend_Seasonal_DayOfWeek_AR         100   0.0257        0.0139    0.0146
+3  None         _MI.MI    _MI.MI_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0258        0.0140    0.0147
+4  None         _MI.MI  _MI.MI_Lag1Trend_residue_bestCycle_byL2_residu...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0259        0.0140    0.0147
+7 0    0.7705
+1    0.7705
+2    0.8250
+3    0.7930
+4    0.7930
+5    0.7930
+6    0.8200
+Name: MI.MI, dtype: float64
+7 0    0.7705
+1    0.7705
+2    0.7705
+3    0.7705
+4    0.7705
+5    0.7705
+6    0.7705
+Name: MI.MI_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_MI.MI MI.MI [0.7705, 0.7705, 0.825, 0.7929999999999999, 0.7929999999999999, 0.7929999999999999, 0.82]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_MI.MI MI.MI [0.7705, 0.7705, 0.7705, 0.7705, 0.7705, 0.7705, 0.7705]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_MI.MI MI.MI 628 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_MI.MI MI.MI 10.297608852386475
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_MI.MI MI.MI Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_MI.MI MI.MI 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_MI.MI MI.MI 0.0302 0.031 1.2952
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_MI.MI MI.MI 0.024499999999999984 0.031485257321029275 -1.5348857521502905
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_midex_MI.MI_7'

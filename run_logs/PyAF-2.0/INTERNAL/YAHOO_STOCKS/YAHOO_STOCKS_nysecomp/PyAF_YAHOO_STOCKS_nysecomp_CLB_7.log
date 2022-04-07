@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  CLB N= 1251 H= 7 HEAD= [106.57     108.68     107.830002 106.830002 106.93    ] TAIL= [125.620003 121.639999 123.730003 123.800003 125.      ]
+          CLB       Date
+0  106.570000 2011-07-28
+1  108.680000 2011-07-29
+2  107.830002 2011-08-01
+3  106.830002 2011-08-02
+4  106.930000 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   CLB     1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _CLB  _CLB_Lag1Trend_residue_bestCycle_byL2_residue_...  ...  1.450000e-02  2.080000e-02  1.610000e-02
+1   None           _CLB      _CLB_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.450000e-02  2.100000e-02  1.700000e-02
+2   None           _CLB  _CLB_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  ...  1.440000e-02  2.100000e-02  1.640000e-02
+3   None     CumSum_CLB  CumSum_CLB_Lag1Trend_residue_zeroCycle_residue...  ...  1.550000e-02  2.100000e-02  1.700000e-02
+4   None       Diff_CLB  Diff_CLB_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.450000e-02  2.100000e-02  1.700000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_CLB  RelDiff_CLB_LinearTrend_residue_bestCycle_byL2...  ...  1.591159e+07  1.872226e+07  1.698264e+07
+92  None    RelDiff_CLB  RelDiff_CLB_PolyTrend_residue_Seasonal_DayOfWe...  ...  1.592047e+07  1.872226e+07  1.698265e+07
+93  None    RelDiff_CLB  RelDiff_CLB_ConstantTrend_residue_bestCycle_by...  ...  1.581223e+07  1.872226e+07  1.698265e+07
+94  None    RelDiff_CLB  RelDiff_CLB_PolyTrend_residue_zeroCycle_residu...  ...  1.592047e+07  1.872226e+07  1.698265e+07
+95  None    RelDiff_CLB  RelDiff_CLB_PolyTrend_residue_bestCycle_byL2_r...  ...  1.592047e+07  1.872226e+07  1.698265e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _CLB  _CLB_Lag1Trend_residue_bestCycle_byL2_residue_...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0145        0.0208    0.0161
+1  None           _CLB      _CLB_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0145        0.0210    0.0170
+2  None           _CLB  _CLB_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0144        0.0210    0.0164
+3  None     CumSum_CLB  CumSum_CLB_Lag1Trend_residue_zeroCycle_residue...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0155        0.0210    0.0170
+4  None       Diff_CLB  Diff_CLB_Lag1Trend_residue_zeroCycle_residue_NoAR           Difference_Lag1Trend_NoCycle_NoAR          64   0.0145        0.0210    0.0170
+7 0    123.029999
+1    123.870003
+2    118.239998
+3    118.720001
+4    115.389999
+5    117.699997
+6    116.000000
+Name: CLB, dtype: float64
+7 0    125.0
+1    125.0
+2    125.0
+3    125.0
+4    125.0
+5    125.0
+6    125.0
+Name: CLB_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_CLB CLB [123.029999, 123.870003, 118.239998, 118.720001, 115.389999, 117.699997, 116.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_CLB CLB [125.0, 125.0, 125.0, 125.0, 125.0, 125.0, 125.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_CLB CLB 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_CLB CLB 12.502468824386597
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_CLB CLB Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_CLB CLB 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_CLB CLB 0.0512 0.0496 2.5222
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_CLB CLB 6.007143285714286 6.728786503417612 -3.9262937770460935
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_CLB_7'

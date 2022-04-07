@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 476 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2013-05-20T00:00:00.000000000' '2013-05-21T00:00:00.000000000'
+ '2013-05-22T00:00:00.000000000' '2013-05-23T00:00:00.000000000'
+ '2013-05-24T00:00:00.000000000']
+SIGNAL :  MMR N= 476 H= 7 HEAD= [16.86 16.84 16.74 15.88 15.82] TAIL= [16.84 16.86 16.83 16.78 16.78]
+     MMR       Date
+0  16.86 2011-07-28
+1  16.84 2011-07-29
+2  16.74 2011-08-01
+3  15.88 2011-08-02
+4  15.82 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 476 entries, 0 to 475
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   MMR     476 non-null    float64       
+ 1   Date    476 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 11.2 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _MMR      _MMR_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.970000e-02  3.900000e-03  1.900000e-03
+1   None     CumSum_MMR  CumSum_MMR_Lag1Trend_residue_zeroCycle_residue...  ...  3.230000e-02  3.900000e-03  1.900000e-03
+2   None       Diff_MMR  Diff_MMR_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.970000e-02  3.900000e-03  1.900000e-03
+3   None    RelDiff_MMR  RelDiff_MMR_Lag1Trend_residue_zeroCycle_residu...  ...  2.970000e-02  3.900000e-03  1.900000e-03
+4   None           _MMR  _MMR_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  ...  3.010000e-02  4.800000e-03  3.400000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_MMR  RelDiff_MMR_PolyTrend_residue_Seasonal_DayOfWe...  ...  7.361276e+07  5.461421e+07  5.280695e+07
+92  None    RelDiff_MMR  RelDiff_MMR_PolyTrend_residue_bestCycle_byL2_r...  ...  7.361476e+07  5.461421e+07  5.280695e+07
+93  None    RelDiff_MMR  RelDiff_MMR_PolyTrend_residue_Seasonal_DayOfWe...  ...  7.356546e+07  5.461421e+07  5.280695e+07
+94  None    RelDiff_MMR  RelDiff_MMR_LinearTrend_residue_Seasonal_DayOf...  ...  7.342203e+07  5.461421e+07  5.280695e+07
+95  None    RelDiff_MMR  RelDiff_MMR_LinearTrend_residue_zeroCycle_resi...  ...  7.354893e+07  5.461421e+07  5.280695e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _MMR      _MMR_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0297        0.0039    0.0019
+1  None     CumSum_MMR  CumSum_MMR_Lag1Trend_residue_zeroCycle_residue...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0323        0.0039    0.0019
+2  None       Diff_MMR  Diff_MMR_Lag1Trend_residue_zeroCycle_residue_NoAR           Difference_Lag1Trend_NoCycle_NoAR          64   0.0297        0.0039    0.0019
+3  None    RelDiff_MMR  RelDiff_MMR_Lag1Trend_residue_zeroCycle_residu...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0297        0.0039    0.0019
+4  None           _MMR  _MMR_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0301        0.0048    0.0034
+7 0    16.78
+1    16.82
+2    16.85
+3    16.76
+4    16.63
+5    16.75
+6    16.75
+Name: MMR, dtype: float64
+7 0    16.78
+1    16.78
+2    16.78
+3    16.78
+4    16.78
+5    16.78
+6    16.78
+Name: MMR_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_MMR MMR [16.78, 16.82, 16.85, 16.76, 16.63, 16.75, 16.75]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_MMR MMR [16.78, 16.78, 16.78, 16.78, 16.78, 16.78, 16.78]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_MMR MMR 476 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_MMR MMR 11.676882266998291
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_MMR MMR Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_MMR MMR 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_MMR MMR 0.0029 0.0029 0.7108
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_MMR MMR 0.04857142857142906 0.0667618368317032 -0.07058823162053462
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_MMR_7'

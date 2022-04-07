@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ta100
+TIME :  Date N= 1019 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-08-01T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-07T00:00:00.000000000' '2016-07-11T00:00:00.000000000'
+ '2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000']
+SIGNAL :  LUMI.TA N= 1019 H= 7 HEAD= [16.   15.44 15.15 15.25 14.72] TAIL= [12.9  13.31 13.47 13.47 13.63]
+   LUMI.TA       Date
+0    16.00 2011-07-28
+1    15.44 2011-08-01
+2    15.15 2011-08-02
+3    15.25 2011-08-03
+4    14.72 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1019 entries, 0 to 1018
+Data columns (total 2 columns):
+ #   Column   Non-Null Count  Dtype         
+---  ------   --------------  -----         
+ 0   LUMI.TA  1019 non-null   float64       
+ 1   Date     1019 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 23.9 KB
+None
+   Split   Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _LUMI.TA  _LUMI.TA_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.270000e-02  1.110000e-02  1.490000e-02
+1   None         _LUMI.TA  _LUMI.TA_Lag1Trend_residue_Seasonal_DayOfWeek_...  ...  1.270000e-02  1.110000e-02  1.470000e-02
+2   None   CumSum_LUMI.TA  CumSum_LUMI.TA_Lag1Trend_residue_zeroCycle_res...  ...  1.390000e-02  1.110000e-02  1.490000e-02
+3   None     Diff_LUMI.TA  Diff_LUMI.TA_Lag1Trend_residue_zeroCycle_resid...  ...  1.270000e-02  1.110000e-02  1.490000e-02
+4   None  RelDiff_LUMI.TA  RelDiff_LUMI.TA_Lag1Trend_residue_zeroCycle_re...  ...  1.270000e-02  1.110000e-02  1.490000e-02
+..   ...              ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_LUMI.TA  RelDiff_LUMI.TA_PolyTrend_residue_Seasonal_Day...  ...  5.994800e+07  5.354736e+07  5.690339e+07
+92  None  RelDiff_LUMI.TA  RelDiff_LUMI.TA_LinearTrend_residue_Seasonal_D...  ...  5.997309e+07  5.354736e+07  5.690339e+07
+93  None  RelDiff_LUMI.TA  RelDiff_LUMI.TA_LinearTrend_residue_bestCycle_...  ...  5.996482e+07  5.354736e+07  5.690339e+07
+94  None  RelDiff_LUMI.TA  RelDiff_LUMI.TA_PolyTrend_residue_bestCycle_by...  ...  5.994797e+07  5.354736e+07  5.690339e+07
+95  None  RelDiff_LUMI.TA  RelDiff_LUMI.TA_PolyTrend_residue_bestCycle_by...  ...  5.995148e+07  5.354736e+07  5.690339e+07
+
+[96 rows x 8 columns]
+  Split   Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _LUMI.TA  _LUMI.TA_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0127        0.0111    0.0149
+1  None         _LUMI.TA  _LUMI.TA_Lag1Trend_residue_Seasonal_DayOfWeek_...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0127        0.0111    0.0147
+2  None   CumSum_LUMI.TA  CumSum_LUMI.TA_Lag1Trend_residue_zeroCycle_res...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0139        0.0111    0.0149
+3  None     Diff_LUMI.TA  Diff_LUMI.TA_Lag1Trend_residue_zeroCycle_resid...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0127        0.0111    0.0149
+4  None  RelDiff_LUMI.TA  RelDiff_LUMI.TA_Lag1Trend_residue_zeroCycle_re...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0127        0.0111    0.0149
+7 0    13.67
+1    13.77
+2    13.99
+3    14.03
+4    14.10
+5    13.81
+6    13.90
+Name: LUMI.TA, dtype: float64
+7 0    13.63
+1    13.63
+2    13.63
+3    13.63
+4    13.63
+5    13.63
+6    13.63
+Name: LUMI.TA_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_LUMI.TA LUMI.TA [13.67, 13.77, 13.99, 14.03, 14.1, 13.81, 13.9]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_LUMI.TA LUMI.TA [13.63, 13.63, 13.63, 13.63, 13.63, 13.63, 13.63]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_LUMI.TA LUMI.TA 1019 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_LUMI.TA LUMI.TA 10.354512929916382
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_LUMI.TA LUMI.TA Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_LUMI.TA LUMI.TA 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_LUMI.TA LUMI.TA 0.019 0.0193 1.9683
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_LUMI.TA LUMI.TA 0.26571428571428485 0.3016620625799663 -3.4616770030786554
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ta100_LUMI.TA_7'

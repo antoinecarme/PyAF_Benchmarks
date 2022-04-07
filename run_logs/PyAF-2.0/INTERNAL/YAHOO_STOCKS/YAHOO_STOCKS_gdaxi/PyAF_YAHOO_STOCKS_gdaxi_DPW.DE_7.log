@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_gdaxi
+TIME :  Date N= 1298 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  DPW.DE N= 1298 H= 7 HEAD= [12.435 12.32  12.015 11.97  11.705] TAIL= [25.655 25.46  25.82  25.785 25.625]
+   DPW.DE       Date
+0  12.435 2011-07-28
+1  12.320 2011-07-29
+2  12.015 2011-08-01
+3  11.970 2011-08-02
+4  11.705 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1298 entries, 0 to 1297
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   DPW.DE  1298 non-null   float64       
+ 1   Date    1298 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _DPW.DE  _DPW.DE_Lag1Trend_residue_bestCycle_byL2_resid...  ...  1.150000e-02  1.310000e-02  1.180000e-02
+1   None         _DPW.DE  _DPW.DE_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  1.150000e-02  1.320000e-02  1.090000e-02
+2   None   CumSum_DPW.DE  CumSum_DPW.DE_Lag1Trend_residue_bestCycle_byL2...  ...  1.460000e-02  1.320000e-02  1.330000e-02
+3   None         _DPW.DE   _DPW.DE_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.150000e-02  1.330000e-02  1.100000e-02
+4   None   CumSum_DPW.DE  CumSum_DPW.DE_Lag1Trend_residue_zeroCycle_resi...  ...  1.240000e-02  1.330000e-02  1.100000e-02
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_DPW.DE  RelDiff_DPW.DE_LinearTrend_residue_zeroCycle_r...  ...  1.804181e+07  1.324491e+07  1.296375e+07
+92  None  RelDiff_DPW.DE  RelDiff_DPW.DE_LinearTrend_residue_zeroCycle_r...  ...  1.804403e+07  1.324491e+07  1.296375e+07
+93  None  RelDiff_DPW.DE  RelDiff_DPW.DE_Lag1Trend_residue_Seasonal_DayO...  ...  1.792616e+07  1.324491e+07  1.296375e+07
+94  None  RelDiff_DPW.DE  RelDiff_DPW.DE_Lag1Trend_residue_bestCycle_byL...  ...  1.792616e+07  1.324491e+07  1.296375e+07
+95  None  RelDiff_DPW.DE  RelDiff_DPW.DE_ConstantTrend_residue_zeroCycle...  ...  1.803814e+07  1.324491e+07  1.296375e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _DPW.DE  _DPW.DE_Lag1Trend_residue_bestCycle_byL2_resid...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0115        0.0131    0.0118
+1  None        _DPW.DE  _DPW.DE_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0115        0.0132    0.0109
+2  None  CumSum_DPW.DE  CumSum_DPW.DE_Lag1Trend_residue_bestCycle_byL2...            Integration_Lag1Trend_Cycle_NoAR          72   0.0146        0.0132    0.0133
+3  None        _DPW.DE   _DPW.DE_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0115        0.0133    0.0110
+4  None  CumSum_DPW.DE  CumSum_DPW.DE_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0124        0.0133    0.0110
+7 0    25.500
+1    25.830
+2    25.935
+3    25.855
+4    26.100
+5    26.100
+6    26.430
+Name: DPW.DE, dtype: float64
+7 0    25.625
+1    25.625
+2    25.625
+3    25.625
+4    25.625
+5    25.625
+6    25.625
+Name: DPW.DE_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_DPW.DE DPW.DE [25.5, 25.83, 25.935, 25.855, 26.1, 26.1, 26.43]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_DPW.DE DPW.DE [25.625, 25.625, 25.625, 25.625, 25.625, 25.625, 25.625]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_DPW.DE DPW.DE 1298 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_DPW.DE DPW.DE 13.413483381271362
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_DPW.DE DPW.DE Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_DPW.DE DPW.DE 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_DPW.DE DPW.DE 0.0144 0.0145 2.0642
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_DPW.DE DPW.DE 0.375 0.4319267464347565 -1.6112158470577547
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_gdaxi_DPW.DE_7'

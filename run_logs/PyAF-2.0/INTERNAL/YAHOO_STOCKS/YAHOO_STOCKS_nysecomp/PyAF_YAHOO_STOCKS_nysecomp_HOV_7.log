@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  HOV N= 1251 H= 7 HEAD= [1.94 1.92 1.94 1.77 1.73] TAIL= [1.81 1.78 1.77 1.77 1.82]
+    HOV       Date
+0  1.94 2011-07-28
+1  1.92 2011-07-29
+2  1.94 2011-08-01
+3  1.77 2011-08-02
+4  1.73 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   HOV     1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _HOV      _HOV_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.640000e-02  3.330000e-02  1.440000e-02
+1   None     CumSum_HOV  CumSum_HOV_Lag1Trend_residue_zeroCycle_residue...  ...  2.740000e-02  3.330000e-02  1.440000e-02
+2   None       Diff_HOV  Diff_HOV_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.640000e-02  3.330000e-02  1.440000e-02
+3   None    RelDiff_HOV  RelDiff_HOV_Lag1Trend_residue_zeroCycle_residu...  ...  2.640000e-02  3.330000e-02  1.440000e-02
+4   None           _HOV  _HOV_Lag1Trend_residue_bestCycle_byL2_residue_...  ...  2.660000e-02  3.340000e-02  1.630000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_HOV  RelDiff_HOV_PolyTrend_residue_zeroCycle_residu...  ...  2.837441e+07  5.318031e+07  5.100896e+07
+92  None    RelDiff_HOV  RelDiff_HOV_PolyTrend_residue_Seasonal_DayOfWe...  ...  2.837062e+07  5.318031e+07  5.100896e+07
+93  None    RelDiff_HOV  RelDiff_HOV_PolyTrend_residue_bestCycle_byL2_r...  ...  2.837911e+07  5.318031e+07  5.100896e+07
+94  None    RelDiff_HOV  RelDiff_HOV_PolyTrend_residue_zeroCycle_residu...  ...  2.838782e+07  5.318031e+07  5.100896e+07
+95  None    RelDiff_HOV  RelDiff_HOV_PolyTrend_residue_bestCycle_byL2_r...  ...  2.839249e+07  5.318031e+07  5.100896e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _HOV      _HOV_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0264        0.0333    0.0144
+1  None     CumSum_HOV  CumSum_HOV_Lag1Trend_residue_zeroCycle_residue...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0274        0.0333    0.0144
+2  None       Diff_HOV  Diff_HOV_Lag1Trend_residue_zeroCycle_residue_NoAR          Difference_Lag1Trend_NoCycle_NoAR          64   0.0264        0.0333    0.0144
+3  None    RelDiff_HOV  RelDiff_HOV_Lag1Trend_residue_zeroCycle_residu...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0264        0.0333    0.0144
+4  None           _HOV  _HOV_Lag1Trend_residue_bestCycle_byL2_residue_...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0266        0.0334    0.0163
+7 0    1.77
+1    1.80
+2    1.78
+3    1.80
+4    1.81
+5    1.83
+6    1.86
+Name: HOV, dtype: float64
+7 0    1.82
+1    1.82
+2    1.82
+3    1.82
+4    1.82
+5    1.82
+6    1.82
+Name: HOV_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_HOV HOV [1.77, 1.8, 1.78, 1.8, 1.81, 1.83, 1.86]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_HOV HOV [1.82, 1.82, 1.82, 1.82, 1.82, 1.82, 1.82]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_HOV HOV 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_HOV HOV 11.490153551101685
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_HOV HOV Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_HOV HOV 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_HOV HOV 0.0151 0.015 1.2527
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_HOV HOV 0.027142857142857166 0.030937725468153904 -0.20876286479036055
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_HOV_7'

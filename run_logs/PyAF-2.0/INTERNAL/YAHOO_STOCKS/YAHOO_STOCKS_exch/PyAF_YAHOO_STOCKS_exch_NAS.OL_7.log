@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_exch
+TIME :  Date N= 1298 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  NAS.OL N= 1298 H= 7 HEAD= [106.5 105.  102.5  98.   97.5] TAIL= [308.  307.2 305.6 294.8 294.7]
+   NAS.OL       Date
+0   106.5 2011-07-28
+1   105.0 2011-07-29
+2   102.5 2011-08-01
+3    98.0 2011-08-02
+4    97.5 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1298 entries, 0 to 1297
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   NAS.OL  1298 non-null   float64       
+ 1   Date    1298 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _NAS.OL   _NAS.OL_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.970000e-02  1.880000e-02  1.590000e-02
+1   None         _NAS.OL  _NAS.OL_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  1.990000e-02  1.880000e-02  1.630000e-02
+2   None   CumSum_NAS.OL  CumSum_NAS.OL_Lag1Trend_residue_zeroCycle_resi...  ...  2.070000e-02  1.880000e-02  1.590000e-02
+3   None     Diff_NAS.OL  Diff_NAS.OL_Lag1Trend_residue_zeroCycle_residu...  ...  1.970000e-02  1.880000e-02  1.590000e-02
+4   None  RelDiff_NAS.OL  RelDiff_NAS.OL_Lag1Trend_residue_zeroCycle_res...  ...  1.970000e-02  1.880000e-02  1.590000e-02
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_NAS.OL  RelDiff_NAS.OL_LinearTrend_residue_bestCycle_b...  ...  3.688204e+07  1.696637e+07  1.793573e+07
+92  None  RelDiff_NAS.OL  RelDiff_NAS.OL_Lag1Trend_residue_Seasonal_DayO...  ...  3.688856e+07  1.696637e+07  1.793573e+07
+93  None  RelDiff_NAS.OL  RelDiff_NAS.OL_Lag1Trend_residue_bestCycle_byL...  ...  3.688856e+07  1.696637e+07  1.793573e+07
+94  None  RelDiff_NAS.OL  RelDiff_NAS.OL_PolyTrend_residue_Seasonal_DayO...  ...  3.688853e+07  1.696637e+07  1.793573e+07
+95  None  RelDiff_NAS.OL  RelDiff_NAS.OL_PolyTrend_residue_bestCycle_byL...  ...  3.688853e+07  1.696637e+07  1.793573e+07
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _NAS.OL   _NAS.OL_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0197        0.0188    0.0159
+1  None         _NAS.OL  _NAS.OL_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0199        0.0188    0.0163
+2  None   CumSum_NAS.OL  CumSum_NAS.OL_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0207        0.0188    0.0159
+3  None     Diff_NAS.OL  Diff_NAS.OL_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0197        0.0188    0.0159
+4  None  RelDiff_NAS.OL  RelDiff_NAS.OL_Lag1Trend_residue_zeroCycle_res...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0197        0.0188    0.0159
+7 0    294.2
+1    288.9
+2    282.3
+3    283.3
+4    289.9
+5    287.4
+6    290.8
+Name: NAS.OL, dtype: float64
+7 0    294.7
+1    294.7
+2    294.7
+3    294.7
+4    294.7
+5    294.7
+6    294.7
+Name: NAS.OL_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_NAS.OL NAS.OL [294.2, 288.9, 282.3, 283.3, 289.9, 287.4, 290.8]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_NAS.OL NAS.OL [294.7, 294.7, 294.7, 294.7, 294.7, 294.7, 294.7]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_NAS.OL NAS.OL 1298 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_NAS.OL NAS.OL 11.181402206420898
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_NAS.OL NAS.OL Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_NAS.OL NAS.OL 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_NAS.OL NAS.OL 0.023 0.0227 1.5557
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_NAS.OL NAS.OL 6.585714285714281 7.645259969418952 -2.8764143792936103
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_exch_NAS.OL_7'

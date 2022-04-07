@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftse100
+TIME :  Date N= 1294 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  MRW.L N= 1294 H= 7 HEAD= [293.  290.9 287.9 291.2 290.1] TAIL= [182.  183.6 184.1 181.5 180.6]
+   MRW.L       Date
+0  293.0 2011-07-28
+1  290.9 2011-07-29
+2  287.9 2011-08-01
+3  291.2 2011-08-02
+4  290.1 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1294 entries, 0 to 1293
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   MRW.L   1294 non-null   float64       
+ 1   Date    1294 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _MRW.L  _MRW.L_Lag1Trend_residue_bestCycle_byL2_residu...  ...  0.0098  1.360000e-02  1.000000e-02
+1   None         _MRW.L    _MRW.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0098  1.370000e-02  1.050000e-02
+2   None   CumSum_MRW.L  CumSum_MRW.L_Lag1Trend_residue_zeroCycle_resid...  ...  0.0107  1.370000e-02  1.050000e-02
+3   None     Diff_MRW.L  Diff_MRW.L_Lag1Trend_residue_zeroCycle_residue...  ...  0.0098  1.370000e-02  1.050000e-02
+4   None  RelDiff_MRW.L  RelDiff_MRW.L_Lag1Trend_residue_zeroCycle_resi...  ...  0.0098  1.370000e-02  1.050000e-02
+..   ...            ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_MRW.L  RelDiff_MRW.L_LinearTrend_residue_bestCycle_by...  ...  0.1595  4.749319e+07  8.489780e+07
+92  None  RelDiff_MRW.L  RelDiff_MRW.L_Lag1Trend_residue_bestCycle_byL2...  ...  0.0526  4.749319e+07  8.489780e+07
+93  None  RelDiff_MRW.L  RelDiff_MRW.L_PolyTrend_residue_bestCycle_byL2...  ...  0.1464  4.749319e+07  8.489780e+07
+94  None  RelDiff_MRW.L  RelDiff_MRW.L_Lag1Trend_residue_Seasonal_DayOf...  ...  0.0532  4.749320e+07  8.489780e+07
+95  None  RelDiff_MRW.L  RelDiff_MRW.L_Lag1Trend_residue_zeroCycle_resi...  ...  0.0531  4.749320e+07  8.489780e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _MRW.L  _MRW.L_Lag1Trend_residue_bestCycle_byL2_residu...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0098        0.0136    0.0100
+1  None         _MRW.L    _MRW.L_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0098        0.0137    0.0105
+2  None   CumSum_MRW.L  CumSum_MRW.L_Lag1Trend_residue_zeroCycle_resid...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0107        0.0137    0.0105
+3  None     Diff_MRW.L  Diff_MRW.L_Lag1Trend_residue_zeroCycle_residue...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0098        0.0137    0.0105
+4  None  RelDiff_MRW.L  RelDiff_MRW.L_Lag1Trend_residue_zeroCycle_resi...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0098        0.0137    0.0105
+7 0    180.5
+1    181.2
+2    178.1
+3    179.9
+4    183.8
+5    181.6
+6    187.0
+Name: MRW.L, dtype: float64
+7 0    180.6
+1    180.6
+2    180.6
+3    180.6
+4    180.6
+5    180.6
+6    180.6
+Name: MRW.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_MRW.L MRW.L [180.5, 181.2, 178.1, 179.9, 183.8, 181.6, 187.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_MRW.L MRW.L [180.6, 180.6, 180.6, 180.6, 180.6, 180.6, 180.6]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_MRW.L MRW.L 1294 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_MRW.L MRW.L 10.901144742965698
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_MRW.L MRW.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_MRW.L MRW.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_MRW.L MRW.L 0.0113 0.0114 0.7268
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_MRW.L MRW.L 2.0714285714285716 2.910817263734906 -0.17691915182893903
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftse100_MRW.L_7'

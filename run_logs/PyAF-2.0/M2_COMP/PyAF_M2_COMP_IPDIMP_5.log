@@ -1,0 +1,60 @@
+BENCH_DATA M2_COMP
+TIME :  Date N= 168 H= 5 HEAD= [0 1 2 3 4] TAIL= [163 164 165 166 167]
+SIGNAL :  IPDIMP N= 168 H= 5 HEAD= [ 5.  19.9 21.2 21.  21.6] TAIL= [97.7 97.6 99.2 99.8 99.9]
+Index  IPDIMP  Date
+NF        5.0     0
+1        19.9     1
+2        21.2     2
+3        21.0     3
+4        21.6     4
+<class 'pandas.core.frame.DataFrame'>
+Index: 168 entries, NF to 167
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   IPDIMP  168 non-null    float64
+ 1   Date    168 non-null    int64  
+dtypes: float64(1), int64(1)
+memory usage: 3.9+ KB
+None
+   Split  Transformation                                              Model                                 Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0   None   CumSum_IPDIMP  CumSum_IPDIMP_ConstantTrend_residue_zeroCycle_...     Integration_ConstantTrend_NoCycle_AR          64   0.0306        0.0130    0.0093
+1   None   CumSum_IPDIMP  CumSum_IPDIMP_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_AR          96   0.0297        0.0135    0.0105
+2   None   CumSum_IPDIMP  CumSum_IPDIMP_PolyTrend_residue_zeroCycle_resi...         Integration_PolyTrend_NoCycle_AR          80   0.0222        0.0148    0.0118
+3   None   CumSum_IPDIMP  CumSum_IPDIMP_LinearTrend_residue_zeroCycle_re...       Integration_LinearTrend_NoCycle_AR          80   0.0196        0.0158    0.0117
+4   None   CumSum_IPDIMP  CumSum_IPDIMP_Lag1Trend_residue_bestCycle_byL2...           Integration_Lag1Trend_Cycle_AR         104   0.0538        0.0167    0.0133
+..   ...             ...                                                ...                                      ...         ...      ...           ...       ...
+59  None  RelDiff_IPDIMP  RelDiff_IPDIMP_PolyTrend_residue_bestCycle_byL...    RelativeDifference_PolyTrend_Cycle_AR          88   0.8103        0.9473    0.9494
+60  None  RelDiff_IPDIMP  RelDiff_IPDIMP_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_AR          96   0.8103        0.9473    0.9494
+61  None  RelDiff_IPDIMP  RelDiff_IPDIMP_Lag1Trend_residue_bestCycle_byL...    RelativeDifference_Lag1Trend_Cycle_AR         104   0.8103        0.9473    0.9494
+62  None   CumSum_IPDIMP  CumSum_IPDIMP_ConstantTrend_residue_zeroCycle_...   Integration_ConstantTrend_NoCycle_NoAR          32   3.4671        1.0000    1.0000
+63  None   CumSum_IPDIMP  CumSum_IPDIMP_ConstantTrend_residue_bestCycle_...     Integration_ConstantTrend_Cycle_NoAR          40   3.6762        1.0261    0.9460
+
+[64 rows x 8 columns]
+  Split Transformation                                              Model                              Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None  CumSum_IPDIMP  CumSum_IPDIMP_ConstantTrend_residue_zeroCycle_...  Integration_ConstantTrend_NoCycle_AR          64   0.0306        0.0130    0.0093
+1  None  CumSum_IPDIMP  CumSum_IPDIMP_Lag1Trend_residue_zeroCycle_resi...      Integration_Lag1Trend_NoCycle_AR          96   0.0297        0.0135    0.0105
+2  None  CumSum_IPDIMP  CumSum_IPDIMP_PolyTrend_residue_zeroCycle_resi...      Integration_PolyTrend_NoCycle_AR          80   0.0222        0.0148    0.0118
+3  None  CumSum_IPDIMP  CumSum_IPDIMP_LinearTrend_residue_zeroCycle_re...    Integration_LinearTrend_NoCycle_AR          80   0.0196        0.0158    0.0117
+4  None  CumSum_IPDIMP  CumSum_IPDIMP_Lag1Trend_residue_bestCycle_byL2...        Integration_Lag1Trend_Cycle_AR         104   0.0538        0.0167    0.0133
+5 0    104.0
+1    105.6
+2    105.9
+3    103.6
+4    104.4
+Name: IPDIMP, dtype: float64
+5 0    100.209712
+1    100.665790
+2    101.124936
+3    101.480022
+4    102.016003
+Name: IPDIMP_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL M2_COMP IPDIMP [104.0, 105.6, 105.9, 103.6, 104.4]
+FORECAST_DETAIL_PREDICTED M2_COMP IPDIMP [100.20971187639509, 100.6657904916832, 101.12493551349482, 101.48002167142192, 102.01600327932982]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON M2_COMP IPDIMP 168 5
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ M2_COMP IPDIMP 6.027740716934204
+BENCHMARK_PERF_DETAIL_BEST_MODEL M2_COMP IPDIMP ConstantTrend + NoCycle + AR
+BENCHMARK_PERF_DETAIL_PERF_COUNT M2_COMP IPDIMP 5
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE M2_COMP IPDIMP 0.0343 0.035 2.8806
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 M2_COMP IPDIMP 3.6007074335350295 3.786599975175467 -16.74546951936125
+BENCHMARK_SUCCESS 'M2_COMP_IPDIMP_5'

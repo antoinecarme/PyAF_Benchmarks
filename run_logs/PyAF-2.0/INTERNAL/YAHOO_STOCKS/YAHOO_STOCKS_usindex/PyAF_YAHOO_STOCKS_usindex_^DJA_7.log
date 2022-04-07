@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_usindex
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  ^DJA N= 1251 H= 7 HEAD= [4227.399902 4199.240234 4187.029785 4081.27002  4092.      ] TAIL= [6452.569824 6478.209961 6516.299805 6515.220215 6517.680176]
+          ^DJA       Date
+0  4227.399902 2011-07-28
+1  4199.240234 2011-07-29
+2  4187.029785 2011-08-01
+3  4081.270020 2011-08-02
+4  4092.000000 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   ^DJA    1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None          _^DJA     _^DJA_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  6.500000e-03  7.500000e-03  5.100000e-03
+1   None          _^DJA  _^DJA_Lag1Trend_residue_Seasonal_DayOfWeek_res...  ...  6.500000e-03  7.500000e-03  5.100000e-03
+2   None          _^DJA  _^DJA_Lag1Trend_residue_bestCycle_byL2_residue...  ...  6.500000e-03  7.500000e-03  4.800000e-03
+3   None    CumSum_^DJA  CumSum_^DJA_Lag1Trend_residue_zeroCycle_residu...  ...  7.500000e-03  7.500000e-03  5.100000e-03
+4   None      Diff_^DJA  Diff_^DJA_Lag1Trend_residue_zeroCycle_residue_...  ...  6.500000e-03  7.500000e-03  5.100000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None   RelDiff_^DJA  RelDiff_^DJA_LinearTrend_residue_bestCycle_byL...  ...  1.155117e+07  9.670714e+06  9.039486e+06
+92  None   RelDiff_^DJA  RelDiff_^DJA_PolyTrend_residue_Seasonal_DayOfW...  ...  1.155704e+07  9.670714e+06  9.039486e+06
+93  None   RelDiff_^DJA  RelDiff_^DJA_ConstantTrend_residue_bestCycle_b...  ...  1.148029e+07  9.670714e+06  9.039486e+06
+94  None   RelDiff_^DJA  RelDiff_^DJA_PolyTrend_residue_zeroCycle_resid...  ...  1.155704e+07  9.670714e+06  9.039486e+06
+95  None   RelDiff_^DJA  RelDiff_^DJA_PolyTrend_residue_bestCycle_byL2_...  ...  1.155704e+07  9.670714e+06  9.039486e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None          _^DJA     _^DJA_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0065        0.0075    0.0051
+1  None          _^DJA  _^DJA_Lag1Trend_residue_Seasonal_DayOfWeek_res...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0065        0.0075    0.0051
+2  None          _^DJA  _^DJA_Lag1Trend_residue_bestCycle_byL2_residue...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0065        0.0075    0.0048
+3  None    CumSum_^DJA  CumSum_^DJA_Lag1Trend_residue_zeroCycle_residu...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0075        0.0075    0.0051
+4  None      Diff_^DJA  Diff_^DJA_Lag1Trend_residue_zeroCycle_residue_...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0065        0.0075    0.0051
+7 0    6519.540039
+1    6520.649902
+2    6488.450195
+3    6538.850098
+4    6506.450195
+5    6511.000000
+6    6470.770020
+Name: ^DJA, dtype: float64
+7 0    6517.680176
+1    6517.680176
+2    6517.680176
+3    6517.680176
+4    6517.680176
+5    6517.680176
+6    6517.680176
+Name: ^DJA_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_^DJA ^DJA [6519.540039, 6520.649902, 6488.450195, 6538.850098, 6506.450195, 6511.0, 6470.77002]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_^DJA ^DJA [6517.680176, 6517.680176, 6517.680176, 6517.680176, 6517.680176, 6517.680176, 6517.680176]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_^DJA ^DJA 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_^DJA ^DJA 10.822092056274414
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_^DJA ^DJA Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_^DJA ^DJA 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_^DJA ^DJA 0.0026 0.0026 0.6396
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_^DJA ^DJA 17.14997214285709 22.947566662894527 -0.21872757037208812
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_usindex_^DJA_7'

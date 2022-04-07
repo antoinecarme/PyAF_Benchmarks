@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aex
+TIME :  Date N= 1298 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  WKL.AS N= 1298 H= 7 HEAD= [14.6   14.47  14.19  13.625 13.295] TAIL= [37.295 37.525 37.42  37.39  37.23 ]
+   WKL.AS       Date
+0  14.600 2011-07-28
+1  14.470 2011-07-29
+2  14.190 2011-08-01
+3  13.625 2011-08-02
+4  13.295 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1298 entries, 0 to 1297
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   WKL.AS  1298 non-null   float64       
+ 1   Date    1298 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _WKL.AS  _WKL.AS_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  9.300000e-03  1.100000e-02  7.300000e-03
+1   None         _WKL.AS  _WKL.AS_Lag1Trend_residue_bestCycle_byL2_resid...  ...  9.300000e-03  1.100000e-02  7.400000e-03
+2   None   CumSum_WKL.AS  CumSum_WKL.AS_Lag1Trend_residue_bestCycle_byL2...  ...  1.220000e-02  1.100000e-02  7.600000e-03
+3   None         _WKL.AS   _WKL.AS_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  9.300000e-03  1.110000e-02  7.200000e-03
+4   None   CumSum_WKL.AS  CumSum_WKL.AS_Lag1Trend_residue_zeroCycle_resi...  ...  1.030000e-02  1.110000e-02  7.200000e-03
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_WKL.AS  RelDiff_WKL.AS_Lag1Trend_residue_Seasonal_DayO...  ...  1.803146e+07  9.888303e+06  8.394026e+06
+92  None  RelDiff_WKL.AS  RelDiff_WKL.AS_Lag1Trend_residue_bestCycle_byL...  ...  1.803146e+07  9.888303e+06  8.394026e+06
+93  None  RelDiff_WKL.AS  RelDiff_WKL.AS_PolyTrend_residue_zeroCycle_res...  ...  1.801191e+07  9.888303e+06  8.394026e+06
+94  None  RelDiff_WKL.AS  RelDiff_WKL.AS_PolyTrend_residue_zeroCycle_res...  ...  1.801160e+07  9.888303e+06  8.394026e+06
+95  None  RelDiff_WKL.AS  RelDiff_WKL.AS_ConstantTrend_residue_zeroCycle...  ...  1.801078e+07  9.888303e+06  8.394026e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _WKL.AS  _WKL.AS_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0093        0.0110    0.0073
+1  None        _WKL.AS  _WKL.AS_Lag1Trend_residue_bestCycle_byL2_resid...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0093        0.0110    0.0074
+2  None  CumSum_WKL.AS  CumSum_WKL.AS_Lag1Trend_residue_bestCycle_byL2...            Integration_Lag1Trend_Cycle_NoAR          72   0.0122        0.0110    0.0076
+3  None        _WKL.AS   _WKL.AS_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0093        0.0111    0.0072
+4  None  CumSum_WKL.AS  CumSum_WKL.AS_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0103        0.0111    0.0072
+7 0    37.475
+1    37.920
+2    37.790
+3    37.910
+4    38.150
+5    37.665
+6    37.620
+Name: WKL.AS, dtype: float64
+7 0    37.23
+1    37.23
+2    37.23
+3    37.23
+4    37.23
+5    37.23
+6    37.23
+Name: WKL.AS_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_WKL.AS WKL.AS [37.475, 37.92, 37.79, 37.91, 38.15, 37.665, 37.62]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_WKL.AS WKL.AS [37.23, 37.23, 37.23, 37.23, 37.23, 37.23, 37.23]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_WKL.AS WKL.AS 1298 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_WKL.AS WKL.AS 10.270336866378784
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_WKL.AS WKL.AS Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_WKL.AS WKL.AS 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_WKL.AS WKL.AS 0.0148 0.0149 2.2935
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_WKL.AS WKL.AS 0.5600000000000023 0.5975963759691243 -7.205645820382282
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aex_WKL.AS_7'

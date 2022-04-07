@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_tsx
+TIME :  Date N= 1248 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  RUS.TO N= 1248 H= 7 HEAD= [23.469999 23.280001 22.790001 22.74     22.58    ] TAIL= [24.08     23.       23.49     23.98     23.620001]
+      RUS.TO       Date
+0  23.469999 2011-07-28
+1  23.280001 2011-07-29
+2  22.790001 2011-08-02
+3  22.740000 2011-08-03
+4  22.580000 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1248 entries, 0 to 1247
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   RUS.TO  1248 non-null   float64       
+ 1   Date    1248 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.2 KB
+None
+   Split  Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _RUS.TO  _RUS.TO_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  0.0106  1.870000e-02  2.420000e-02
+1   None         _RUS.TO   _RUS.TO_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0107  1.880000e-02  2.410000e-02
+2   None   CumSum_RUS.TO  CumSum_RUS.TO_Lag1Trend_residue_zeroCycle_resi...  ...  0.0117  1.880000e-02  2.410000e-02
+3   None     Diff_RUS.TO  Diff_RUS.TO_Lag1Trend_residue_zeroCycle_residu...  ...  0.0107  1.880000e-02  2.410000e-02
+4   None  RelDiff_RUS.TO  RelDiff_RUS.TO_Lag1Trend_residue_zeroCycle_res...  ...  0.0107  1.880000e-02  2.410000e-02
+..   ...             ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_RUS.TO  RelDiff_RUS.TO_ConstantTrend_residue_zeroCycle...  ...  0.1049  2.586001e+07  3.746569e+07
+92  None  RelDiff_RUS.TO  RelDiff_RUS.TO_ConstantTrend_residue_bestCycle...  ...  0.1062  2.592995e+07  3.746569e+07
+93  None  RelDiff_RUS.TO  RelDiff_RUS.TO_Lag1Trend_residue_bestCycle_byL...  ...  0.0959  2.599037e+07  3.746569e+07
+94  None  RelDiff_RUS.TO  RelDiff_RUS.TO_Lag1Trend_residue_zeroCycle_res...  ...  0.0978  2.599037e+07  3.746569e+07
+95  None  RelDiff_RUS.TO  RelDiff_RUS.TO_Lag1Trend_residue_Seasonal_DayO...  ...  0.1047  2.599037e+07  3.746569e+07
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _RUS.TO  _RUS.TO_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0106        0.0187    0.0242
+1  None         _RUS.TO   _RUS.TO_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0107        0.0188    0.0241
+2  None   CumSum_RUS.TO  CumSum_RUS.TO_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0117        0.0188    0.0241
+3  None     Diff_RUS.TO  Diff_RUS.TO_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0107        0.0188    0.0241
+4  None  RelDiff_RUS.TO  RelDiff_RUS.TO_Lag1Trend_residue_zeroCycle_res...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0107        0.0188    0.0241
+7 0    24.219999
+1    23.809999
+2    23.480000
+3    23.430000
+4    23.260000
+5    22.959999
+6    23.490000
+Name: RUS.TO, dtype: float64
+7 0    23.620001
+1    23.620001
+2    23.620001
+3    23.620001
+4    23.620001
+5    23.620001
+6    23.620001
+Name: RUS.TO_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_RUS.TO RUS.TO [24.219998999999998, 23.809998999999998, 23.48, 23.43, 23.26, 22.959999, 23.49]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_RUS.TO RUS.TO [23.620001000000002, 23.620001000000002, 23.620001000000002, 23.620001000000002, 23.620001000000002, 23.620001000000002, 23.620001000000002]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_RUS.TO RUS.TO 1248 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_RUS.TO RUS.TO 10.829981088638306
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_RUS.TO RUS.TO Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_RUS.TO RUS.TO 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_RUS.TO RUS.TO 0.0138 0.0138 1.087
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_RUS.TO RUS.TO 0.32428600000000024 0.384317785175609 -0.07041859714913468
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_tsx_RUS.TO_7'

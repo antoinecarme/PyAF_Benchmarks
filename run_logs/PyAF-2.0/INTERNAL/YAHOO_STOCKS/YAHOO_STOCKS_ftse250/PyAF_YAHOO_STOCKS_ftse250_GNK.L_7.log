@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftse250
+TIME :  Date N= 1294 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  GNK.L N= 1294 H= 7 HEAD= [490.8 489.2 479.8 471.  465.2] TAIL= [778.  777.  772.  763.  774.5]
+   GNK.L       Date
+0  490.8 2011-07-28
+1  489.2 2011-07-29
+2  479.8 2011-08-01
+3  471.0 2011-08-02
+4  465.2 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1294 entries, 0 to 1293
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   GNK.L   1294 non-null   float64       
+ 1   Date    1294 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _GNK.L    _GNK.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  9.200000e-03  1.060000e-02  1.330000e-02
+1   None         _GNK.L  _GNK.L_Lag1Trend_residue_bestCycle_byL2_residu...  ...  9.200000e-03  1.060000e-02  1.350000e-02
+2   None   CumSum_GNK.L  CumSum_GNK.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.020000e-02  1.060000e-02  1.330000e-02
+3   None     Diff_GNK.L  Diff_GNK.L_Lag1Trend_residue_zeroCycle_residue...  ...  9.200000e-03  1.060000e-02  1.330000e-02
+4   None  RelDiff_GNK.L  RelDiff_GNK.L_Lag1Trend_residue_zeroCycle_resi...  ...  9.200000e-03  1.060000e-02  1.330000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_GNK.L  RelDiff_GNK.L_LinearTrend_residue_Seasonal_Day...  ...  1.209671e+07  9.510466e+06  1.052872e+07
+92  None  RelDiff_GNK.L  RelDiff_GNK.L_Lag1Trend_residue_bestCycle_byL2...  ...  1.209673e+07  9.510466e+06  1.052872e+07
+93  None  RelDiff_GNK.L  RelDiff_GNK.L_PolyTrend_residue_zeroCycle_resi...  ...  1.209325e+07  9.510466e+06  1.052872e+07
+94  None  RelDiff_GNK.L  RelDiff_GNK.L_PolyTrend_residue_Seasonal_DayOf...  ...  1.209671e+07  9.510466e+06  1.052872e+07
+95  None  RelDiff_GNK.L  RelDiff_GNK.L_PolyTrend_residue_bestCycle_byL2...  ...  1.209671e+07  9.510466e+06  1.052872e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _GNK.L    _GNK.L_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0092        0.0106    0.0133
+1  None         _GNK.L  _GNK.L_Lag1Trend_residue_bestCycle_byL2_residu...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0092        0.0106    0.0135
+2  None   CumSum_GNK.L  CumSum_GNK.L_Lag1Trend_residue_zeroCycle_resid...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0102        0.0106    0.0133
+3  None     Diff_GNK.L  Diff_GNK.L_Lag1Trend_residue_zeroCycle_residue...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0092        0.0106    0.0133
+4  None  RelDiff_GNK.L  RelDiff_GNK.L_Lag1Trend_residue_zeroCycle_resi...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0092        0.0106    0.0133
+7 0    777.5
+1    787.5
+2    786.0
+3    783.5
+4    792.0
+5    788.5
+6    799.5
+Name: GNK.L, dtype: float64
+7 0    774.5
+1    774.5
+2    774.5
+3    774.5
+4    774.5
+5    774.5
+6    774.5
+Name: GNK.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_GNK.L GNK.L [777.5, 787.5, 786.0, 783.5, 792.0, 788.5, 799.5]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_GNK.L GNK.L [774.5, 774.5, 774.5, 774.5, 774.5, 774.5, 774.5]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_GNK.L GNK.L 1294 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_GNK.L GNK.L 11.289927959442139
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_GNK.L GNK.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_GNK.L GNK.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_GNK.L GNK.L 0.0168 0.017 2.1544
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_GNK.L GNK.L 13.285714285714286 14.728495219423179 -4.367079020447484
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftse250_GNK.L_7'

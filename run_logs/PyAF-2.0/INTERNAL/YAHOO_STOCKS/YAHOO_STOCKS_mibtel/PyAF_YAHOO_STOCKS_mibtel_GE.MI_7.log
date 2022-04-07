@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_mibtel
+TIME :  Date N= 1297 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  GE.MI N= 1297 H= 7 HEAD= [4.232 4.2   4.2   4.196 4.224] TAIL= [1.572 1.597 1.648 1.64  1.64 ]
+   GE.MI       Date
+0  4.232 2011-07-28
+1  4.200 2011-07-29
+2  4.200 2011-08-01
+3  4.196 2011-08-02
+4  4.224 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1297 entries, 0 to 1296
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   GE.MI   1297 non-null   float64       
+ 1   Date    1297 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _GE.MI    _GE.MI_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0152  1.540000e-02  1.620000e-02
+1   None         _GE.MI  _GE.MI_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  0.0153  1.540000e-02  1.750000e-02
+2   None         _GE.MI  _GE.MI_Lag1Trend_residue_bestCycle_byL2_residu...  ...  0.0153  1.540000e-02  1.750000e-02
+3   None   CumSum_GE.MI  CumSum_GE.MI_Lag1Trend_residue_zeroCycle_resid...  ...  0.0162  1.540000e-02  1.620000e-02
+4   None     Diff_GE.MI  Diff_GE.MI_Lag1Trend_residue_zeroCycle_residue...  ...  0.0152  1.540000e-02  1.620000e-02
+..   ...            ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_GE.MI  RelDiff_GE.MI_ConstantTrend_residue_Seasonal_D...  ...  0.6191  6.626290e+07  1.755729e+08
+92  None  RelDiff_GE.MI  RelDiff_GE.MI_ConstantTrend_residue_zeroCycle_...  ...  0.6208  6.626290e+07  1.755729e+08
+93  None  RelDiff_GE.MI  RelDiff_GE.MI_LinearTrend_residue_bestCycle_by...  ...  0.3655  6.626299e+07  1.755729e+08
+94  None  RelDiff_GE.MI  RelDiff_GE.MI_LinearTrend_residue_Seasonal_Day...  ...  0.3516  6.626302e+07  1.755729e+08
+95  None  RelDiff_GE.MI  RelDiff_GE.MI_LinearTrend_residue_zeroCycle_re...  ...  0.3569  6.626303e+07  1.755729e+08
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _GE.MI    _GE.MI_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0152        0.0154    0.0162
+1  None         _GE.MI  _GE.MI_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0153        0.0154    0.0175
+2  None         _GE.MI  _GE.MI_Lag1Trend_residue_bestCycle_byL2_residu...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0153        0.0154    0.0175
+3  None   CumSum_GE.MI  CumSum_GE.MI_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0162        0.0154    0.0162
+4  None     Diff_GE.MI  Diff_GE.MI_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0152        0.0154    0.0162
+7 0    1.575
+1    1.575
+2    1.575
+3    1.563
+4    1.563
+5    1.589
+6    1.597
+Name: GE.MI, dtype: float64
+7 0    1.64
+1    1.64
+2    1.64
+3    1.64
+4    1.64
+5    1.64
+6    1.64
+Name: GE.MI_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_GE.MI GE.MI [1.575, 1.575, 1.575, 1.5630000000000002, 1.5630000000000002, 1.589, 1.597]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_GE.MI GE.MI [1.64, 1.64, 1.64, 1.64, 1.64, 1.64, 1.64]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_GE.MI GE.MI 1297 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_GE.MI GE.MI 10.136141061782837
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_GE.MI GE.MI Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_GE.MI GE.MI 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_GE.MI GE.MI 0.0402 0.0394 8.2547
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_GE.MI GE.MI 0.06328571428571417 0.06434616205671131 -29.591221137838755
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_mibtel_GE.MI_7'

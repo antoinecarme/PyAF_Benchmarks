@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_tsx
+TIME :  Date N= 1248 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  TCW.TO N= 1248 H= 7 HEAD= [25.23     25.01     24.5      24.75     24.040001] TAIL= [2.48 2.36 2.26 2.26 2.37]
+      TCW.TO       Date
+0  25.230000 2011-07-28
+1  25.010000 2011-07-29
+2  24.500000 2011-08-02
+3  24.750000 2011-08-03
+4  24.040001 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1248 entries, 0 to 1247
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   TCW.TO  1248 non-null   float64       
+ 1   Date    1248 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.2 KB
+None
+   Split  Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _TCW.TO   _TCW.TO_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0213  5.270000e-02  2.950000e-02
+1   None   CumSum_TCW.TO  CumSum_TCW.TO_Lag1Trend_residue_zeroCycle_resi...  ...  0.0223  5.270000e-02  2.950000e-02
+2   None     Diff_TCW.TO  Diff_TCW.TO_Lag1Trend_residue_zeroCycle_residu...  ...  0.0213  5.270000e-02  2.950000e-02
+3   None  RelDiff_TCW.TO  RelDiff_TCW.TO_Lag1Trend_residue_zeroCycle_res...  ...  0.0213  5.270000e-02  2.950000e-02
+4   None         _TCW.TO  _TCW.TO_Lag1Trend_residue_bestCycle_byL2_resid...  ...  0.0212  5.790000e-02  2.690000e-02
+..   ...             ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_TCW.TO  RelDiff_TCW.TO_LinearTrend_residue_Seasonal_Da...  ...  0.3392  8.314518e+08  1.048967e+09
+92  None  RelDiff_TCW.TO  RelDiff_TCW.TO_ConstantTrend_residue_Seasonal_...  ...  0.2532  8.314633e+08  1.048967e+09
+93  None  RelDiff_TCW.TO  RelDiff_TCW.TO_Lag1Trend_residue_Seasonal_DayO...  ...  0.0746  8.316643e+08  1.048967e+09
+94  None  RelDiff_TCW.TO  RelDiff_TCW.TO_Lag1Trend_residue_bestCycle_byL...  ...  0.0470  8.316677e+08  1.048967e+09
+95  None  RelDiff_TCW.TO  RelDiff_TCW.TO_Lag1Trend_residue_zeroCycle_res...  ...  0.0512  8.316679e+08  1.048967e+09
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _TCW.TO   _TCW.TO_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0213        0.0527    0.0295
+1  None   CumSum_TCW.TO  CumSum_TCW.TO_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0223        0.0527    0.0295
+2  None     Diff_TCW.TO  Diff_TCW.TO_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0213        0.0527    0.0295
+3  None  RelDiff_TCW.TO  RelDiff_TCW.TO_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0213        0.0527    0.0295
+4  None         _TCW.TO  _TCW.TO_Lag1Trend_residue_bestCycle_byL2_resid...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0212        0.0579    0.0269
+7 0    2.32
+1    2.29
+2    2.21
+3    2.15
+4    2.00
+5    1.99
+6    1.92
+Name: TCW.TO, dtype: float64
+7 0    2.37
+1    2.37
+2    2.37
+3    2.37
+4    2.37
+5    2.37
+6    2.37
+Name: TCW.TO_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_TCW.TO TCW.TO [2.32, 2.29, 2.21, 2.15, 2.0, 1.99, 1.92]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_TCW.TO TCW.TO [2.37, 2.37, 2.37, 2.37, 2.37, 2.37, 2.37]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_TCW.TO TCW.TO 1248 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_TCW.TO TCW.TO 10.914490461349487
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_TCW.TO TCW.TO Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_TCW.TO TCW.TO 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_TCW.TO TCW.TO 0.1202 0.1109 3.6643
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_TCW.TO TCW.TO 0.24428571428571444 0.2845296871279743 -2.804085152797415
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_tsx_TCW.TO_7'

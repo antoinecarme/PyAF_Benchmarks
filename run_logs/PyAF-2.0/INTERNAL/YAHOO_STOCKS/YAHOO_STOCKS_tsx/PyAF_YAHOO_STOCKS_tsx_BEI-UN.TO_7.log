@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_tsx
+TIME :  Date N= 1248 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  BEI-UN.TO N= 1248 H= 7 HEAD= [49.360001 50.07     49.650002 49.040001 48.299999] TAIL= [59.349998 59.25     57.119999 57.220001 57.169998]
+   BEI-UN.TO       Date
+0  49.360001 2011-07-28
+1  50.070000 2011-07-29
+2  49.650002 2011-08-02
+3  49.040001 2011-08-03
+4  48.299999 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1248 entries, 0 to 1247
+Data columns (total 2 columns):
+ #   Column     Non-Null Count  Dtype         
+---  ------     --------------  -----         
+ 0   BEI-UN.TO  1248 non-null   float64       
+ 1   Date       1248 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.2 KB
+None
+   Split     Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _BEI-UN.TO  _BEI-UN.TO_Lag1Trend_residue_zeroCycle_residue...  ...  0.0080  1.190000e-02  7.900000e-03
+1   None         _BEI-UN.TO  _BEI-UN.TO_Lag1Trend_residue_Seasonal_DayOfWee...  ...  0.0080  1.190000e-02  7.900000e-03
+2   None         _BEI-UN.TO  _BEI-UN.TO_Lag1Trend_residue_bestCycle_byL2_re...  ...  0.0080  1.190000e-02  7.900000e-03
+3   None   CumSum_BEI-UN.TO  CumSum_BEI-UN.TO_Lag1Trend_residue_zeroCycle_r...  ...  0.0090  1.190000e-02  7.900000e-03
+4   None     Diff_BEI-UN.TO  Diff_BEI-UN.TO_Lag1Trend_residue_zeroCycle_res...  ...  0.0080  1.190000e-02  7.900000e-03
+..   ...                ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_BEI-UN.TO  RelDiff_BEI-UN.TO_ConstantTrend_residue_zeroCy...  ...  0.1226  7.921978e+06  1.499014e+07
+92  None  RelDiff_BEI-UN.TO  RelDiff_BEI-UN.TO_ConstantTrend_residue_Season...  ...  0.1229  7.922007e+06  1.499014e+07
+93  None  RelDiff_BEI-UN.TO  RelDiff_BEI-UN.TO_PolyTrend_residue_zeroCycle_...  ...  0.3028  7.922042e+06  1.499014e+07
+94  None  RelDiff_BEI-UN.TO  RelDiff_BEI-UN.TO_PolyTrend_residue_Seasonal_D...  ...  0.3078  7.922043e+06  1.499014e+07
+95  None  RelDiff_BEI-UN.TO  RelDiff_BEI-UN.TO_PolyTrend_residue_bestCycle_...  ...  0.2956  7.922069e+06  1.499014e+07
+
+[96 rows x 8 columns]
+  Split    Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _BEI-UN.TO  _BEI-UN.TO_Lag1Trend_residue_zeroCycle_residue...             NoTransf_Lag1Trend_NoCycle_NoAR          32    0.008        0.0119    0.0079
+1  None        _BEI-UN.TO  _BEI-UN.TO_Lag1Trend_residue_Seasonal_DayOfWee...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36    0.008        0.0119    0.0079
+2  None        _BEI-UN.TO  _BEI-UN.TO_Lag1Trend_residue_bestCycle_byL2_re...               NoTransf_Lag1Trend_Cycle_NoAR          40    0.008        0.0119    0.0079
+3  None  CumSum_BEI-UN.TO  CumSum_BEI-UN.TO_Lag1Trend_residue_zeroCycle_r...          Integration_Lag1Trend_NoCycle_NoAR          64    0.009        0.0119    0.0079
+4  None    Diff_BEI-UN.TO  Diff_BEI-UN.TO_Lag1Trend_residue_zeroCycle_res...           Difference_Lag1Trend_NoCycle_NoAR          64    0.008        0.0119    0.0079
+7 0    57.110001
+1    57.200001
+2    56.900002
+3    55.700001
+4    55.900002
+5    55.310001
+6    55.169998
+Name: BEI-UN.TO, dtype: float64
+7 0    57.169998
+1    57.169998
+2    57.169998
+3    57.169998
+4    57.169998
+5    57.169998
+6    57.169998
+Name: BEI-UN.TO_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_BEI-UN.TO BEI-UN.TO [57.110001000000004, 57.200001, 56.900002, 55.700001, 55.900002, 55.310001, 55.169998]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_BEI-UN.TO BEI-UN.TO [57.169998, 57.169998, 57.169998, 57.169998, 57.169998, 57.169998, 57.169998]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_BEI-UN.TO BEI-UN.TO 1248 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_BEI-UN.TO BEI-UN.TO 11.519428491592407
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_BEI-UN.TO BEI-UN.TO Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_BEI-UN.TO BEI-UN.TO 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_BEI-UN.TO BEI-UN.TO 0.0179 0.0176 2.3673
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_BEI-UN.TO BEI-UN.TO 0.9942837142857134 1.2711506328670434 -1.5082764349786975
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_tsx_BEI-UN.TO_7'

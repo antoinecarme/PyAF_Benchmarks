@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_mibtel
+TIME :  Date N= 1005 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2015-07-31T00:00:00.000000000' '2015-08-31T00:00:00.000000000'
+ '2015-09-30T00:00:00.000000000' '2015-10-30T00:00:00.000000000'
+ '2015-11-30T00:00:00.000000000']
+SIGNAL :  BB.MI N= 1005 H= 7 HEAD= [52.1    14.0633 52.5    50.95   48.11  ] TAIL= [77.49 69.49 62.25 68.83 73.45]
+     BB.MI       Date
+0  52.1000 2011-07-28
+1  14.0633 2011-07-29
+2  52.5000 2011-08-01
+3  50.9500 2011-08-02
+4  48.1100 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1005 entries, 0 to 1004
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   BB.MI   1005 non-null   float64       
+ 1   Date    1005 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 23.6 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _BB.MI  _BB.MI_Lag1Trend_residue_Seasonal_DayOfMonth_r...  ...  9.130000e-02  1.709000e-01  5.712000e-01
+1   None   CumSum_BB.MI  CumSum_BB.MI_Lag1Trend_residue_Seasonal_DayOfW...  ...  1.366000e-01  1.955000e-01  4.558000e-01
+2   None         _BB.MI    _BB.MI_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.299000e-01  1.958000e-01  4.542000e-01
+3   None   CumSum_BB.MI  CumSum_BB.MI_Lag1Trend_residue_zeroCycle_resid...  ...  1.277000e-01  1.958000e-01  4.542000e-01
+4   None     Diff_BB.MI  Diff_BB.MI_Lag1Trend_residue_zeroCycle_residue...  ...  1.299000e-01  1.958000e-01  4.542000e-01
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_BB.MI  RelDiff_BB.MI_PolyTrend_residue_Seasonal_DayOf...  ...  5.612838e+07  1.972149e+07  4.434140e+07
+92  None  RelDiff_BB.MI  RelDiff_BB.MI_ConstantTrend_residue_zeroCycle_...  ...  5.612827e+07  1.972149e+07  4.434140e+07
+93  None  RelDiff_BB.MI  RelDiff_BB.MI_ConstantTrend_residue_Seasonal_D...  ...  5.612833e+07  1.972149e+07  4.434140e+07
+94  None  RelDiff_BB.MI  RelDiff_BB.MI_PolyTrend_residue_zeroCycle_resi...  ...  5.612838e+07  1.972149e+07  4.434140e+07
+95  None  RelDiff_BB.MI  RelDiff_BB.MI_PolyTrend_residue_Seasonal_DayOf...  ...  5.612847e+07  1.972149e+07  4.434140e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                       Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _BB.MI  _BB.MI_Lag1Trend_residue_Seasonal_DayOfMonth_r...    NoTransf_Lag1Trend_Seasonal_DayOfMonth_NoAR          36   0.0913        0.1709    0.5712
+1  None   CumSum_BB.MI  CumSum_BB.MI_Lag1Trend_residue_Seasonal_DayOfW...  Integration_Lag1Trend_Seasonal_DayOfWeek_NoAR          68   0.1366        0.1955    0.4558
+2  None         _BB.MI    _BB.MI_Lag1Trend_residue_zeroCycle_residue_NoAR                NoTransf_Lag1Trend_NoCycle_NoAR          32   0.1299        0.1958    0.4542
+3  None   CumSum_BB.MI  CumSum_BB.MI_Lag1Trend_residue_zeroCycle_resid...             Integration_Lag1Trend_NoCycle_NoAR          64   0.1277        0.1958    0.4542
+4  None     Diff_BB.MI  Diff_BB.MI_Lag1Trend_residue_zeroCycle_residue...              Difference_Lag1Trend_NoCycle_NoAR          64   0.1299        0.1958    0.4542
+7 0    71.2056
+1    51.8400
+2    49.9646
+3    46.9000
+4    50.9893
+5    51.8500
+6    47.4114
+Name: BB.MI, dtype: float64
+7 0    125.215050
+1    141.285946
+2    155.133724
+3    154.970510
+4    154.885867
+5    154.692163
+6    154.335497
+Name: BB.MI_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_BB.MI BB.MI [71.2056, 51.84, 49.9646, 46.9, 50.9893, 51.85, 47.4114]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_BB.MI BB.MI [125.21505, 141.2859462962963, 155.13372407407405, 154.97050978835978, 154.88586693121692, 154.69216322751322, 154.33549656084656]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_BB.MI BB.MI 1005 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_BB.MI BB.MI 10.7738196849823
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_BB.MI BB.MI Lag1Trend + Seasonal_DayOfMonth + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_BB.MI BB.MI 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_BB.MI BB.MI 1.8813 0.9482 17.0532
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_BB.MI BB.MI 95.7654081254724 97.43946642866968 -158.87366818159578
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_mibtel_BB.MI_7'

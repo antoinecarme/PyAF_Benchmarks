@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aord
+TIME :  Date N= 1299 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  JBH.AX N= 1299 H= 7 HEAD= [15.19 15.   15.3  15.   14.91] TAIL= [23.5  23.75 23.62 24.25 24.76]
+   JBH.AX       Date
+0   15.19 2011-07-28
+1   15.00 2011-07-29
+2   15.30 2011-08-01
+3   15.00 2011-08-02
+4   14.91 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1299 entries, 0 to 1298
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   JBH.AX  1299 non-null   float64       
+ 1   Date    1299 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _JBH.AX   _JBH.AX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.370000e-02  1.390000e-02  1.380000e-02
+1   None         _JBH.AX  _JBH.AX_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  1.380000e-02  1.390000e-02  1.410000e-02
+2   None         _JBH.AX  _JBH.AX_Lag1Trend_residue_bestCycle_byL2_resid...  ...  1.380000e-02  1.390000e-02  1.400000e-02
+3   None   CumSum_JBH.AX  CumSum_JBH.AX_Lag1Trend_residue_zeroCycle_resi...  ...  1.470000e-02  1.390000e-02  1.380000e-02
+4   None     Diff_JBH.AX  Diff_JBH.AX_Lag1Trend_residue_zeroCycle_residu...  ...  1.370000e-02  1.390000e-02  1.380000e-02
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_JBH.AX  RelDiff_JBH.AX_Lag1Trend_residue_bestCycle_byL...  ...  5.077026e+07  3.527380e+07  3.036499e+07
+92  None  RelDiff_JBH.AX  RelDiff_JBH.AX_LinearTrend_residue_Seasonal_Da...  ...  5.087105e+07  3.527380e+07  3.036499e+07
+93  None  RelDiff_JBH.AX  RelDiff_JBH.AX_LinearTrend_residue_bestCycle_b...  ...  5.087105e+07  3.527380e+07  3.036499e+07
+94  None  RelDiff_JBH.AX  RelDiff_JBH.AX_Lag1Trend_residue_Seasonal_DayO...  ...  5.091013e+07  3.527380e+07  3.036499e+07
+95  None  RelDiff_JBH.AX  RelDiff_JBH.AX_Lag1Trend_residue_bestCycle_byL...  ...  5.091013e+07  3.527380e+07  3.036499e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _JBH.AX   _JBH.AX_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0137        0.0139    0.0138
+1  None        _JBH.AX  _JBH.AX_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0138        0.0139    0.0141
+2  None        _JBH.AX  _JBH.AX_Lag1Trend_residue_bestCycle_byL2_resid...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0138        0.0139    0.0140
+3  None  CumSum_JBH.AX  CumSum_JBH.AX_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0147        0.0139    0.0138
+4  None    Diff_JBH.AX  Diff_JBH.AX_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0137        0.0139    0.0138
+7 0    24.97
+1    24.82
+2    24.38
+3    24.59
+4    25.17
+5    25.00
+6    25.39
+Name: JBH.AX, dtype: float64
+7 0    24.76
+1    24.76
+2    24.76
+3    24.76
+4    24.76
+5    24.76
+6    24.76
+Name: JBH.AX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_JBH.AX JBH.AX [24.97, 24.82, 24.38, 24.59, 25.17, 25.0, 25.39]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_JBH.AX JBH.AX [24.76, 24.76, 24.76, 24.76, 24.76, 24.76, 24.76]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_JBH.AX JBH.AX 1299 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_JBH.AX JBH.AX 11.046530961990356
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_JBH.AX JBH.AX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_JBH.AX JBH.AX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_JBH.AX JBH.AX 0.012 0.0121 0.9278
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_JBH.AX JBH.AX 0.2999999999999997 0.34715167537300695 -0.2038652856473271
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aord_JBH.AX_7'

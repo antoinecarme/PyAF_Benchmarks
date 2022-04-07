@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aord
+TIME :  Date N= 1299 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  ASZ.AX N= 1299 H= 7 HEAD= [0.96719 0.97686 0.97203 0.98654 0.96719] TAIL= [0.98  0.97  0.96  0.945 0.94 ]
+    ASZ.AX       Date
+0  0.96719 2011-07-28
+1  0.97686 2011-07-29
+2  0.97203 2011-08-01
+3  0.98654 2011-08-02
+4  0.96719 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1299 entries, 0 to 1298
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   ASZ.AX  1299 non-null   float64       
+ 1   Date    1299 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _ASZ.AX   _ASZ.AX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.840000e-02  1.690000e-02  1.630000e-02
+1   None   CumSum_ASZ.AX  CumSum_ASZ.AX_Lag1Trend_residue_zeroCycle_resi...  ...  1.940000e-02  1.690000e-02  1.630000e-02
+2   None     Diff_ASZ.AX  Diff_ASZ.AX_Lag1Trend_residue_zeroCycle_residu...  ...  1.840000e-02  1.690000e-02  1.630000e-02
+3   None  RelDiff_ASZ.AX  RelDiff_ASZ.AX_Lag1Trend_residue_zeroCycle_res...  ...  1.840000e-02  1.690000e-02  1.630000e-02
+4   None         _ASZ.AX  _ASZ.AX_Lag1Trend_residue_bestCycle_byL2_resid...  ...  1.880000e-02  1.700000e-02  1.660000e-02
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_ASZ.AX  RelDiff_ASZ.AX_PolyTrend_residue_bestCycle_byL...  ...  1.226839e+08  6.623431e+07  7.154428e+07
+92  None  RelDiff_ASZ.AX  RelDiff_ASZ.AX_LinearTrend_residue_Seasonal_Da...  ...  1.226258e+08  6.623431e+07  7.154428e+07
+93  None  RelDiff_ASZ.AX  RelDiff_ASZ.AX_LinearTrend_residue_bestCycle_b...  ...  1.226258e+08  6.623431e+07  7.154428e+07
+94  None  RelDiff_ASZ.AX  RelDiff_ASZ.AX_Lag1Trend_residue_Seasonal_DayO...  ...  1.226933e+08  6.623431e+07  7.154428e+07
+95  None  RelDiff_ASZ.AX  RelDiff_ASZ.AX_Lag1Trend_residue_bestCycle_byL...  ...  1.226933e+08  6.623431e+07  7.154428e+07
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _ASZ.AX   _ASZ.AX_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0184        0.0169    0.0163
+1  None   CumSum_ASZ.AX  CumSum_ASZ.AX_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0194        0.0169    0.0163
+2  None     Diff_ASZ.AX  Diff_ASZ.AX_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0184        0.0169    0.0163
+3  None  RelDiff_ASZ.AX  RelDiff_ASZ.AX_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0184        0.0169    0.0163
+4  None         _ASZ.AX  _ASZ.AX_Lag1Trend_residue_bestCycle_byL2_resid...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0188        0.0170    0.0166
+7 0    0.935
+1    0.970
+2    0.950
+3    0.935
+4    0.970
+5    0.980
+6    0.980
+Name: ASZ.AX, dtype: float64
+7 0    0.94
+1    0.94
+2    0.94
+3    0.94
+4    0.94
+5    0.94
+6    0.94
+Name: ASZ.AX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_ASZ.AX ASZ.AX [0.935, 0.97, 0.95, 0.935, 0.97, 0.98, 0.98]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_ASZ.AX ASZ.AX [0.94, 0.94, 0.94, 0.94, 0.94, 0.94, 0.94]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_ASZ.AX ASZ.AX 1299 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_ASZ.AX ASZ.AX 10.822473287582397
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_ASZ.AX ASZ.AX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_ASZ.AX ASZ.AX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_ASZ.AX ASZ.AX 0.0235 0.0239 1.1925
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_ASZ.AX ASZ.AX 0.022857142857142847 0.02712405363721077 -1.1914892684472749
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aord_ASZ.AX_7'

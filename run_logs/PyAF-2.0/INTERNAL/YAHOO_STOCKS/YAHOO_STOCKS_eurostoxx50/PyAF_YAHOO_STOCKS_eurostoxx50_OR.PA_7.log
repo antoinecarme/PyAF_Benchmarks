@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_eurostoxx50
+TIME :  Date N= 1298 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  OR.PA N= 1298 H= 7 HEAD= [84.3  84.01 82.95 81.9  81.11] TAIL= [173.45 173.7  174.   174.4  173.85]
+   OR.PA       Date
+0  84.30 2011-07-28
+1  84.01 2011-07-29
+2  82.95 2011-08-01
+3  81.90 2011-08-02
+4  81.11 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1298 entries, 0 to 1297
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   OR.PA   1298 non-null   float64       
+ 1   Date    1298 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _OR.PA  _OR.PA_Lag1Trend_residue_bestCycle_byL2_residu...  ...  9.500000e-03  1.260000e-02  2.900000e-03
+1   None   CumSum_OR.PA  CumSum_OR.PA_Lag1Trend_residue_bestCycle_byL2_...  ...  1.230000e-02  1.260000e-02  4.100000e-03
+2   None         _OR.PA    _OR.PA_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  9.600000e-03  1.270000e-02  3.200000e-03
+3   None         _OR.PA  _OR.PA_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  9.600000e-03  1.270000e-02  3.000000e-03
+4   None   CumSum_OR.PA  CumSum_OR.PA_Lag1Trend_residue_zeroCycle_resid...  ...  1.050000e-02  1.270000e-02  3.200000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_OR.PA  RelDiff_OR.PA_Lag1Trend_residue_bestCycle_byL2...  ...  1.172936e+07  8.194283e+06  7.527805e+06
+92  None  RelDiff_OR.PA  RelDiff_OR.PA_LinearTrend_residue_zeroCycle_re...  ...  1.174571e+07  8.194283e+06  7.527806e+06
+93  None  RelDiff_OR.PA  RelDiff_OR.PA_Lag1Trend_residue_Seasonal_DayOf...  ...  1.167468e+07  8.194283e+06  7.527805e+06
+94  None  RelDiff_OR.PA  RelDiff_OR.PA_Lag1Trend_residue_bestCycle_byL2...  ...  1.167468e+07  8.194283e+06  7.527805e+06
+95  None  RelDiff_OR.PA  RelDiff_OR.PA_LinearTrend_residue_zeroCycle_re...  ...  1.174655e+07  8.194283e+06  7.527806e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _OR.PA  _OR.PA_Lag1Trend_residue_bestCycle_byL2_residu...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0095        0.0126    0.0029
+1  None   CumSum_OR.PA  CumSum_OR.PA_Lag1Trend_residue_bestCycle_byL2_...            Integration_Lag1Trend_Cycle_NoAR          72   0.0123        0.0126    0.0041
+2  None         _OR.PA    _OR.PA_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0096        0.0127    0.0032
+3  None         _OR.PA  _OR.PA_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0096        0.0127    0.0030
+4  None   CumSum_OR.PA  CumSum_OR.PA_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0105        0.0127    0.0032
+7 0    171.95
+1    174.50
+2    173.35
+3    174.55
+4    175.20
+5    175.80
+6    176.20
+Name: OR.PA, dtype: float64
+7 0    173.85
+1    173.85
+2    173.85
+3    173.85
+4    173.85
+5    173.85
+6    173.85
+Name: OR.PA_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_OR.PA OR.PA [171.95, 174.5, 173.35, 174.55, 175.2, 175.8, 176.2]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_OR.PA OR.PA [173.85, 173.85, 173.85, 173.85, 173.85, 173.85, 173.85]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_OR.PA OR.PA 1298 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_OR.PA OR.PA 10.608112573623657
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_OR.PA OR.PA Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_OR.PA OR.PA 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_OR.PA OR.PA 0.0077 0.0077 1.2301
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_OR.PA OR.PA 1.3428571428571476 1.5080735109024777 -0.23438192289694326
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_eurostoxx50_OR.PA_7'

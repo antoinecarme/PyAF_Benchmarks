@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftse100
+TIME :  Date N= 1294 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  DRX.L N= 1294 H= 7 HEAD= [526.5 535.  529.  529.5 520. ] TAIL= [348.8 354.7 354.8 355.4 355. ]
+   DRX.L       Date
+0  526.5 2011-07-28
+1  535.0 2011-07-29
+2  529.0 2011-08-01
+3  529.5 2011-08-02
+4  520.0 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1294 entries, 0 to 1293
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   DRX.L   1294 non-null   float64       
+ 1   Date    1294 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _DRX.L    _DRX.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0127  2.310000e-02  1.380000e-02
+1   None   CumSum_DRX.L  CumSum_DRX.L_Lag1Trend_residue_zeroCycle_resid...  ...  0.0136  2.310000e-02  1.380000e-02
+2   None     Diff_DRX.L  Diff_DRX.L_Lag1Trend_residue_zeroCycle_residue...  ...  0.0127  2.310000e-02  1.380000e-02
+3   None  RelDiff_DRX.L  RelDiff_DRX.L_Lag1Trend_residue_zeroCycle_resi...  ...  0.0127  2.310000e-02  1.380000e-02
+4   None         _DRX.L  _DRX.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  0.0128  2.320000e-02  1.470000e-02
+..   ...            ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_DRX.L  RelDiff_DRX.L_ConstantTrend_residue_Seasonal_D...  ...  0.2486  5.214725e+07  9.084663e+07
+92  None  RelDiff_DRX.L  RelDiff_DRX.L_ConstantTrend_residue_zeroCycle_...  ...  0.2494  5.218311e+07  9.084663e+07
+93  None  RelDiff_DRX.L  RelDiff_DRX.L_Lag1Trend_residue_bestCycle_byL2...  ...  0.1176  5.251857e+07  9.084663e+07
+94  None  RelDiff_DRX.L  RelDiff_DRX.L_Lag1Trend_residue_Seasonal_DayOf...  ...  0.1155  5.251858e+07  9.084663e+07
+95  None  RelDiff_DRX.L  RelDiff_DRX.L_Lag1Trend_residue_zeroCycle_resi...  ...  0.1140  5.251858e+07  9.084663e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _DRX.L    _DRX.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0127        0.0231    0.0138
+1  None   CumSum_DRX.L  CumSum_DRX.L_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0136        0.0231    0.0138
+2  None     Diff_DRX.L  Diff_DRX.L_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0127        0.0231    0.0138
+3  None  RelDiff_DRX.L  RelDiff_DRX.L_Lag1Trend_residue_zeroCycle_resi...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0127        0.0231    0.0138
+4  None         _DRX.L  _DRX.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0128        0.0232    0.0147
+7 0    356.8
+1    356.5
+2    357.2
+3    354.0
+4    352.3
+5    346.9
+6    341.6
+Name: DRX.L, dtype: float64
+7 0    355.0
+1    355.0
+2    355.0
+3    355.0
+4    355.0
+5    355.0
+6    355.0
+Name: DRX.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_DRX.L DRX.L [356.8, 356.5, 357.2, 354.0, 352.3, 346.9, 341.6]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_DRX.L DRX.L [355.0, 355.0, 355.0, 355.0, 355.0, 355.0, 355.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_DRX.L DRX.L 1294 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_DRX.L DRX.L 11.34445309638977
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_DRX.L DRX.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_DRX.L DRX.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_DRX.L DRX.L 0.0126 0.0125 1.5852
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_DRX.L DRX.L 4.385714285714284 6.138752781655707 -0.26609939387229775
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftse100_DRX.L_7'

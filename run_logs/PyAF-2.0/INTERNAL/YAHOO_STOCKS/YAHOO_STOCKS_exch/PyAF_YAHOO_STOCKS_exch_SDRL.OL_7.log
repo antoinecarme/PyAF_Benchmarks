@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_exch
+TIME :  Date N= 1297 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  SDRL.OL N= 1297 H= 7 HEAD= [190.7 188.2 185.8 182.4 178.5] TAIL= [26.85 27.89 27.06 27.5  26.71]
+   SDRL.OL       Date
+0    190.7 2011-07-28
+1    188.2 2011-07-29
+2    185.8 2011-08-01
+3    182.4 2011-08-02
+4    178.5 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1297 entries, 0 to 1296
+Data columns (total 2 columns):
+ #   Column   Non-Null Count  Dtype         
+---  ------   --------------  -----         
+ 0   SDRL.OL  1297 non-null   float64       
+ 1   Date     1297 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split   Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _SDRL.OL  _SDRL.OL_Lag1Trend_residue_Seasonal_DayOfWeek_...  ...  0.0139  4.630000e-02  3.170000e-02
+1   None         _SDRL.OL  _SDRL.OL_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0138  4.650000e-02  3.210000e-02
+2   None   CumSum_SDRL.OL  CumSum_SDRL.OL_Lag1Trend_residue_zeroCycle_res...  ...  0.0148  4.650000e-02  3.210000e-02
+3   None     Diff_SDRL.OL  Diff_SDRL.OL_Lag1Trend_residue_zeroCycle_resid...  ...  0.0138  4.650000e-02  3.210000e-02
+4   None  RelDiff_SDRL.OL  RelDiff_SDRL.OL_Lag1Trend_residue_zeroCycle_re...  ...  0.0138  4.650000e-02  3.210000e-02
+..   ...              ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_SDRL.OL  RelDiff_SDRL.OL_ConstantTrend_residue_bestCycl...  ...  0.2798  2.603030e+08  6.602458e+08
+92  None  RelDiff_SDRL.OL  RelDiff_SDRL.OL_ConstantTrend_residue_Seasonal...  ...  0.2800  2.603074e+08  6.602458e+08
+93  None  RelDiff_SDRL.OL  RelDiff_SDRL.OL_ConstantTrend_residue_zeroCycl...  ...  0.2799  2.603076e+08  6.602458e+08
+94  None  RelDiff_SDRL.OL  RelDiff_SDRL.OL_Lag1Trend_residue_Seasonal_Day...  ...  0.0319  2.603820e+08  6.602458e+08
+95  None  RelDiff_SDRL.OL  RelDiff_SDRL.OL_Lag1Trend_residue_zeroCycle_re...  ...  0.0332  2.603973e+08  6.602458e+08
+
+[96 rows x 8 columns]
+  Split   Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _SDRL.OL  _SDRL.OL_Lag1Trend_residue_Seasonal_DayOfWeek_...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0139        0.0463    0.0317
+1  None         _SDRL.OL  _SDRL.OL_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0138        0.0465    0.0321
+2  None   CumSum_SDRL.OL  CumSum_SDRL.OL_Lag1Trend_residue_zeroCycle_res...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0148        0.0465    0.0321
+3  None     Diff_SDRL.OL  Diff_SDRL.OL_Lag1Trend_residue_zeroCycle_resid...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0138        0.0465    0.0321
+4  None  RelDiff_SDRL.OL  RelDiff_SDRL.OL_Lag1Trend_residue_zeroCycle_re...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0138        0.0465    0.0321
+7 0    26.84
+1    26.42
+2    27.98
+3    26.60
+4    26.15
+5    26.34
+6    27.26
+Name: SDRL.OL, dtype: float64
+7 0    26.71
+1    26.71
+2    26.71
+3    26.71
+4    26.71
+5    26.71
+6    26.71
+Name: SDRL.OL_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_SDRL.OL SDRL.OL [26.84, 26.42, 27.98, 26.6, 26.15, 26.34, 27.26]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_SDRL.OL SDRL.OL [26.71, 26.71, 26.71, 26.71, 26.71, 26.71, 26.71]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_SDRL.OL SDRL.OL 1297 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_SDRL.OL SDRL.OL 11.223145484924316
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_SDRL.OL SDRL.OL Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_SDRL.OL SDRL.OL 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_SDRL.OL SDRL.OL 0.0173 0.0174 0.5714
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_SDRL.OL SDRL.OL 0.46857142857142875 0.595099031374491 -0.02265360720885279
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_exch_SDRL.OL_7'

@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftse250
+TIME :  Date N= 1294 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  RTO.L N= 1294 H= 7 HEAD= [90.3  91.8  89.5  87.05 84.75] TAIL= [205.  204.6 204.6 205.7 207.8]
+   RTO.L       Date
+0  90.30 2011-07-28
+1  91.80 2011-07-29
+2  89.50 2011-08-01
+3  87.05 2011-08-02
+4  84.75 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1294 entries, 0 to 1293
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   RTO.L   1294 non-null   float64       
+ 1   Date    1294 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _RTO.L    _RTO.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.050000e-02  8.700000e-03  1.180000e-02
+1   None         _RTO.L  _RTO.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  1.050000e-02  8.700000e-03  1.200000e-02
+2   None         _RTO.L  _RTO.L_Lag1Trend_residue_bestCycle_byL2_residu...  ...  1.050000e-02  8.700000e-03  1.190000e-02
+3   None   CumSum_RTO.L  CumSum_RTO.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.140000e-02  8.700000e-03  1.180000e-02
+4   None     Diff_RTO.L  Diff_RTO.L_Lag1Trend_residue_zeroCycle_residue...  ...  1.050000e-02  8.700000e-03  1.180000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_RTO.L  RelDiff_RTO.L_LinearTrend_residue_Seasonal_Day...  ...  3.316298e+07  2.001935e+07  1.560293e+07
+92  None  RelDiff_RTO.L  RelDiff_RTO.L_Lag1Trend_residue_bestCycle_byL2...  ...  3.318816e+07  2.001935e+07  1.560293e+07
+93  None  RelDiff_RTO.L  RelDiff_RTO.L_PolyTrend_residue_Seasonal_DayOf...  ...  3.317205e+07  2.001935e+07  1.560293e+07
+94  None  RelDiff_RTO.L  RelDiff_RTO.L_PolyTrend_residue_bestCycle_byL2...  ...  3.316211e+07  2.001935e+07  1.560293e+07
+95  None  RelDiff_RTO.L  RelDiff_RTO.L_ConstantTrend_residue_zeroCycle_...  ...  3.315473e+07  2.001935e+07  1.560293e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _RTO.L    _RTO.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0105        0.0087    0.0118
+1  None         _RTO.L  _RTO.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0105        0.0087    0.0120
+2  None         _RTO.L  _RTO.L_Lag1Trend_residue_bestCycle_byL2_residu...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0105        0.0087    0.0119
+3  None   CumSum_RTO.L  CumSum_RTO.L_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0114        0.0087    0.0118
+4  None     Diff_RTO.L  Diff_RTO.L_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0105        0.0087    0.0118
+7 0    209.0
+1    210.0
+2    208.3
+3    207.4
+4    210.5
+5    211.8
+6    212.0
+Name: RTO.L, dtype: float64
+7 0    207.8
+1    207.8
+2    207.8
+3    207.8
+4    207.8
+5    207.8
+6    207.8
+Name: RTO.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_RTO.L RTO.L [209.0, 210.0, 208.3, 207.4, 210.5, 211.8, 212.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_RTO.L RTO.L [207.8, 207.8, 207.8, 207.8, 207.8, 207.8, 207.8]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_RTO.L RTO.L 1294 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_RTO.L RTO.L 11.410291910171509
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_RTO.L RTO.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_RTO.L RTO.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_RTO.L RTO.L 0.0103 0.0104 1.5889
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_RTO.L RTO.L 2.171428571428566 2.608228736682638 -1.6459755516601566
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftse250_RTO.L_7'

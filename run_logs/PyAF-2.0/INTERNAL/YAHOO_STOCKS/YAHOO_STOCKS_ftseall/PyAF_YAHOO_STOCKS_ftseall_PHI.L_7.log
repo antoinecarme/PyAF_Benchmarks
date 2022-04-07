@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1292 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  PHI.L N= 1292 H= 7 HEAD= [1.66   1.7703 1.63   1.65   1.565 ] TAIL= [2.21788 2.22418 2.21026 2.22909 2.21409]
+    PHI.L       Date
+0  1.6600 2011-07-28
+1  1.7703 2011-07-29
+2  1.6300 2011-08-01
+3  1.6500 2011-08-02
+4  1.5650 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1292 entries, 0 to 1291
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   PHI.L   1292 non-null   float64       
+ 1   Date    1292 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _PHI.L    _PHI.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.130000e-02  1.810000e-02  8.100000e-03
+1   None   CumSum_PHI.L  CumSum_PHI.L_Lag1Trend_residue_zeroCycle_resid...  ...  2.220000e-02  1.810000e-02  8.100000e-03
+2   None     Diff_PHI.L  Diff_PHI.L_Lag1Trend_residue_zeroCycle_residue...  ...  2.130000e-02  1.810000e-02  8.100000e-03
+3   None  RelDiff_PHI.L  RelDiff_PHI.L_Lag1Trend_residue_zeroCycle_resi...  ...  2.130000e-02  1.810000e-02  8.100000e-03
+4   None         _PHI.L  _PHI.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  2.150000e-02  1.840000e-02  8.100000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_PHI.L  RelDiff_PHI.L_Lag1Trend_residue_bestCycle_byL2...  ...  2.126338e+07  1.913674e+07  1.622785e+07
+92  None  RelDiff_PHI.L  RelDiff_PHI.L_LinearTrend_residue_Seasonal_Day...  ...  2.126332e+07  1.913674e+07  1.622785e+07
+93  None  RelDiff_PHI.L  RelDiff_PHI.L_PolyTrend_residue_zeroCycle_resi...  ...  2.126332e+07  1.913674e+07  1.622785e+07
+94  None  RelDiff_PHI.L  RelDiff_PHI.L_PolyTrend_residue_bestCycle_byL2...  ...  2.126333e+07  1.913674e+07  1.622785e+07
+95  None  RelDiff_PHI.L  RelDiff_PHI.L_ConstantTrend_residue_zeroCycle_...  ...  2.125111e+07  1.913674e+07  1.622785e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _PHI.L    _PHI.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0213        0.0181    0.0081
+1  None   CumSum_PHI.L  CumSum_PHI.L_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0222        0.0181    0.0081
+2  None     Diff_PHI.L  Diff_PHI.L_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0213        0.0181    0.0081
+3  None  RelDiff_PHI.L  RelDiff_PHI.L_Lag1Trend_residue_zeroCycle_resi...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0213        0.0181    0.0081
+4  None         _PHI.L  _PHI.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0215        0.0184    0.0081
+7 0    2.23712
+1    2.23144
+2    2.23174
+3    1.95125
+4    1.98000
+5    1.94000
+6    1.95500
+Name: PHI.L, dtype: float64
+7 0    2.21409
+1    2.21409
+2    2.21409
+3    2.21409
+4    2.21409
+5    2.21409
+6    2.21409
+Name: PHI.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_PHI.L PHI.L [2.23712, 2.23144, 2.2317400000000003, 1.95125, 1.98, 1.94, 1.955]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_PHI.L PHI.L [2.21409, 2.21409, 2.21409, 2.21409, 2.21409, 2.21409, 2.21409]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_PHI.L PHI.L 1292 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_PHI.L PHI.L 11.315635919570923
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_PHI.L PHI.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_PHI.L PHI.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_PHI.L PHI.L 0.079 0.0743 2.5193
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_PHI.L PHI.L 0.15544857142857152 0.1954039317487168 -1.0204391610868448
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_PHI.L_7'

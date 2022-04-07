@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1250 H= 7 HEAD= ['2011-07-29T00:00:00.000000000' '2011-08-01T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  SWX N= 1250 H= 7 HEAD= [37.290001 37.48     37.189999 37.349998 36.25    ] TAIL= [77.43     77.989998 77.550003 78.080002 78.169998]
+         SWX       Date
+0  37.290001 2011-07-29
+1  37.480000 2011-08-01
+2  37.189999 2011-08-02
+3  37.349998 2011-08-03
+4  36.250000 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1250 entries, 0 to 1249
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   SWX     1250 non-null   float64       
+ 1   Date    1250 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _SWX  _SWX_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  ...  8.800000e-03  9.900000e-03  5.100000e-03
+1   None           _SWX      _SWX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  8.900000e-03  1.000000e-02  5.000000e-03
+2   None           _SWX  _SWX_Lag1Trend_residue_bestCycle_byL2_residue_...  ...  8.900000e-03  1.000000e-02  4.800000e-03
+3   None     CumSum_SWX  CumSum_SWX_Lag1Trend_residue_zeroCycle_residue...  ...  9.900000e-03  1.000000e-02  5.000000e-03
+4   None       Diff_SWX  Diff_SWX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  8.900000e-03  1.000000e-02  5.000000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_SWX  RelDiff_SWX_ConstantTrend_residue_zeroCycle_re...  ...  1.061054e+07  8.387049e+06  6.503621e+06
+92  None    RelDiff_SWX  RelDiff_SWX_ConstantTrend_residue_bestCycle_by...  ...  1.053133e+07  8.387049e+06  6.503621e+06
+93  None    RelDiff_SWX  RelDiff_SWX_PolyTrend_residue_zeroCycle_residu...  ...  1.061576e+07  8.387049e+06  6.503621e+06
+94  None    RelDiff_SWX  RelDiff_SWX_PolyTrend_residue_Seasonal_DayOfWe...  ...  1.061576e+07  8.387049e+06  6.503621e+06
+95  None    RelDiff_SWX  RelDiff_SWX_PolyTrend_residue_bestCycle_byL2_r...  ...  1.061576e+07  8.387049e+06  6.503621e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _SWX  _SWX_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0088        0.0099    0.0051
+1  None           _SWX      _SWX_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0089        0.0100    0.0050
+2  None           _SWX  _SWX_Lag1Trend_residue_bestCycle_byL2_residue_...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0089        0.0100    0.0048
+3  None     CumSum_SWX  CumSum_SWX_Lag1Trend_residue_zeroCycle_residue...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0099        0.0100    0.0050
+4  None       Diff_SWX  Diff_SWX_Lag1Trend_residue_zeroCycle_residue_NoAR           Difference_Lag1Trend_NoCycle_NoAR          64   0.0089        0.0100    0.0050
+7 0    77.949997
+1    77.430000
+2    77.739998
+3    78.830002
+4    77.889999
+5    77.339996
+6    76.349998
+Name: SWX, dtype: float64
+7 0    78.169998
+1    78.169998
+2    78.169998
+3    78.169998
+4    78.169998
+5    78.169998
+6    78.169998
+Name: SWX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_SWX SWX [77.949997, 77.43, 77.739998, 78.83000200000001, 77.889999, 77.339996, 76.349998]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_SWX SWX [78.16999799999999, 78.16999799999999, 78.16999799999999, 78.16999799999999, 78.16999799999999, 78.16999799999999, 78.16999799999999]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_SWX SWX 1250 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_SWX SWX 12.41404676437378
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_SWX SWX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_SWX SWX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_SWX SWX 0.0092 0.0092 0.9701
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_SWX SWX 0.7114291428571379 0.8698280224131294 -0.5657422688598872
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_SWX_7'

@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftse100
+TIME :  Date N= 1295 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  SRP.L N= 1295 H= 7 HEAD= [436.896 437.301 436.491 431.632 425.558] TAIL= [116.4 117.4 118.  118.3 117.3]
+     SRP.L       Date
+0  436.896 2011-07-28
+1  437.301 2011-07-29
+2  436.491 2011-08-01
+3  431.632 2011-08-02
+4  425.558 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1295 entries, 0 to 1294
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   SRP.L   1295 non-null   float64       
+ 1   Date    1295 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _SRP.L    _SRP.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0127  1.770000e-02  1.360000e-02
+1   None   CumSum_SRP.L  CumSum_SRP.L_Lag1Trend_residue_zeroCycle_resid...  ...  0.0137  1.770000e-02  1.360000e-02
+2   None     Diff_SRP.L  Diff_SRP.L_Lag1Trend_residue_zeroCycle_residue...  ...  0.0127  1.770000e-02  1.360000e-02
+3   None  RelDiff_SRP.L  RelDiff_SRP.L_Lag1Trend_residue_zeroCycle_resi...  ...  0.0127  1.770000e-02  1.360000e-02
+4   None         _SRP.L  _SRP.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  0.0129  1.860000e-02  1.610000e-02
+..   ...            ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_SRP.L  RelDiff_SRP.L_ConstantTrend_residue_Seasonal_D...  ...  0.3156  1.452788e+08  3.056967e+08
+92  None  RelDiff_SRP.L  RelDiff_SRP.L_ConstantTrend_residue_bestCycle_...  ...  0.3093  1.453077e+08  3.056967e+08
+93  None  RelDiff_SRP.L  RelDiff_SRP.L_Lag1Trend_residue_Seasonal_DayOf...  ...  0.0890  1.469816e+08  3.056967e+08
+94  None  RelDiff_SRP.L  RelDiff_SRP.L_Lag1Trend_residue_bestCycle_byL2...  ...  0.0863  1.469816e+08  3.056967e+08
+95  None  RelDiff_SRP.L  RelDiff_SRP.L_Lag1Trend_residue_zeroCycle_resi...  ...  0.0864  1.469816e+08  3.056967e+08
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _SRP.L    _SRP.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0127        0.0177    0.0136
+1  None   CumSum_SRP.L  CumSum_SRP.L_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0137        0.0177    0.0136
+2  None     Diff_SRP.L  Diff_SRP.L_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0127        0.0177    0.0136
+3  None  RelDiff_SRP.L  RelDiff_SRP.L_Lag1Trend_residue_zeroCycle_resi...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0127        0.0177    0.0136
+4  None         _SRP.L  _SRP.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0129        0.0186    0.0161
+7 0    118.2
+1    118.3
+2    117.8
+3    116.8
+4    116.2
+5    118.4
+6    117.6
+Name: SRP.L, dtype: float64
+7 0    117.3
+1    117.3
+2    117.3
+3    117.3
+4    117.3
+5    117.3
+6    117.3
+Name: SRP.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_SRP.L SRP.L [118.2, 118.3, 117.8, 116.8, 116.2, 118.4, 117.6]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_SRP.L SRP.L [117.3, 117.3, 117.3, 117.3, 117.3, 117.3, 117.3]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_SRP.L SRP.L 1295 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_SRP.L SRP.L 11.167872190475464
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_SRP.L SRP.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_SRP.L SRP.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_SRP.L SRP.L 0.0066 0.0066 0.8901
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_SRP.L SRP.L 0.7714285714285722 0.8298020417975788 -0.16747404841463087
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftse100_SRP.L_7'

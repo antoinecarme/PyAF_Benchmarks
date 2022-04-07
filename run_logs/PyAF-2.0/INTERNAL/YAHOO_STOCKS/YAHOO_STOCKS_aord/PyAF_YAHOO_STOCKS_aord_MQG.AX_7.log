@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aord
+TIME :  Date N= 1299 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  MQG.AX N= 1299 H= 7 HEAD= [25.97923 25.58934 25.61718 25.06034 23.8166 ] TAIL= [71.33 71.25 71.99 72.55 72.73]
+     MQG.AX       Date
+0  25.97923 2011-07-28
+1  25.58934 2011-07-29
+2  25.61718 2011-08-01
+3  25.06034 2011-08-02
+4  23.81660 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1299 entries, 0 to 1298
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   MQG.AX  1299 non-null   float64       
+ 1   Date    1299 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _MQG.AX   _MQG.AX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.210000e-02  1.340000e-02  1.150000e-02
+1   None         _MQG.AX  _MQG.AX_Lag1Trend_residue_bestCycle_byL2_resid...  ...  1.210000e-02  1.340000e-02  1.070000e-02
+2   None   CumSum_MQG.AX  CumSum_MQG.AX_Lag1Trend_residue_zeroCycle_resi...  ...  1.300000e-02  1.340000e-02  1.150000e-02
+3   None     Diff_MQG.AX  Diff_MQG.AX_Lag1Trend_residue_zeroCycle_residu...  ...  1.210000e-02  1.340000e-02  1.150000e-02
+4   None  RelDiff_MQG.AX  RelDiff_MQG.AX_Lag1Trend_residue_zeroCycle_res...  ...  1.210000e-02  1.340000e-02  1.150000e-02
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_MQG.AX  RelDiff_MQG.AX_Lag1Trend_residue_bestCycle_byL...  ...  2.005387e+07  1.006081e+07  1.038598e+07
+92  None  RelDiff_MQG.AX  RelDiff_MQG.AX_PolyTrend_residue_zeroCycle_res...  ...  2.010962e+07  1.006081e+07  1.038599e+07
+93  None  RelDiff_MQG.AX  RelDiff_MQG.AX_PolyTrend_residue_zeroCycle_res...  ...  2.010962e+07  1.006081e+07  1.038599e+07
+94  None  RelDiff_MQG.AX  RelDiff_MQG.AX_PolyTrend_residue_Seasonal_DayO...  ...  2.010962e+07  1.006081e+07  1.038599e+07
+95  None  RelDiff_MQG.AX  RelDiff_MQG.AX_PolyTrend_residue_bestCycle_byL...  ...  2.010962e+07  1.006081e+07  1.038599e+07
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _MQG.AX   _MQG.AX_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0121        0.0134    0.0115
+1  None         _MQG.AX  _MQG.AX_Lag1Trend_residue_bestCycle_byL2_resid...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0121        0.0134    0.0107
+2  None   CumSum_MQG.AX  CumSum_MQG.AX_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0130        0.0134    0.0115
+3  None     Diff_MQG.AX  Diff_MQG.AX_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0121        0.0134    0.0115
+4  None  RelDiff_MQG.AX  RelDiff_MQG.AX_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0121        0.0134    0.0115
+7 0    73.24
+1    74.05
+2    73.80
+3    73.81
+4    73.75
+5    73.80
+6    74.80
+Name: MQG.AX, dtype: float64
+7 0    72.73
+1    72.73
+2    72.73
+3    72.73
+4    72.73
+5    72.73
+6    72.73
+Name: MQG.AX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_MQG.AX MQG.AX [73.24, 74.05, 73.8, 73.81, 73.75, 73.8, 74.8]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_MQG.AX MQG.AX [72.73, 72.73, 72.73, 72.73, 72.73, 72.73, 72.73]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_MQG.AX MQG.AX 1299 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_MQG.AX MQG.AX 11.234226703643799
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_MQG.AX MQG.AX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_MQG.AX MQG.AX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_MQG.AX MQG.AX 0.0157 0.0158 3.2005
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_MQG.AX MQG.AX 1.1628571428571368 1.2411975783780014 -7.179966190701883
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aord_MQG.AX_7'

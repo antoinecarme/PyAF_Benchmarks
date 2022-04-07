@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1294 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  CSN.L N= 1294 H= 7 HEAD= [234.5  231.75 232.   229.   227.  ] TAIL= [288.   285.75 275.25 275.25 284.  ]
+    CSN.L       Date
+0  234.50 2011-07-28
+1  231.75 2011-07-29
+2  232.00 2011-08-01
+3  229.00 2011-08-02
+4  227.00 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1294 entries, 0 to 1293
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   CSN.L   1294 non-null   float64       
+ 1   Date    1294 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _CSN.L  _CSN.L_Lag1Trend_residue_bestCycle_byL2_residu...  ...  1.270000e-02  1.400000e-02  1.950000e-02
+1   None         _CSN.L    _CSN.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.280000e-02  1.410000e-02  1.930000e-02
+2   None   CumSum_CSN.L  CumSum_CSN.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.370000e-02  1.410000e-02  1.930000e-02
+3   None     Diff_CSN.L  Diff_CSN.L_Lag1Trend_residue_zeroCycle_residue...  ...  1.280000e-02  1.410000e-02  1.930000e-02
+4   None  RelDiff_CSN.L  RelDiff_CSN.L_Lag1Trend_residue_zeroCycle_resi...  ...  1.280000e-02  1.410000e-02  1.930000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_CSN.L  RelDiff_CSN.L_PolyTrend_residue_bestCycle_byL2...  ...  3.269490e+07  2.455768e+07  2.816366e+07
+92  None  RelDiff_CSN.L  RelDiff_CSN.L_LinearTrend_residue_bestCycle_by...  ...  3.270038e+07  2.455768e+07  2.816366e+07
+93  None  RelDiff_CSN.L  RelDiff_CSN.L_PolyTrend_residue_bestCycle_byL2...  ...  3.269796e+07  2.455768e+07  2.816366e+07
+94  None  RelDiff_CSN.L  RelDiff_CSN.L_PolyTrend_residue_zeroCycle_resi...  ...  3.271821e+07  2.455768e+07  2.816366e+07
+95  None  RelDiff_CSN.L  RelDiff_CSN.L_ConstantTrend_residue_zeroCycle_...  ...  3.268990e+07  2.455768e+07  2.816366e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _CSN.L  _CSN.L_Lag1Trend_residue_bestCycle_byL2_residu...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0127        0.0140    0.0195
+1  None         _CSN.L    _CSN.L_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0128        0.0141    0.0193
+2  None   CumSum_CSN.L  CumSum_CSN.L_Lag1Trend_residue_zeroCycle_resid...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0137        0.0141    0.0193
+3  None     Diff_CSN.L  Diff_CSN.L_Lag1Trend_residue_zeroCycle_residue...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0128        0.0141    0.0193
+4  None  RelDiff_CSN.L  RelDiff_CSN.L_Lag1Trend_residue_zeroCycle_resi...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0128        0.0141    0.0193
+7 0    280.00
+1    286.00
+2    297.25
+3    296.75
+4    301.75
+5    300.75
+6    319.00
+Name: CSN.L, dtype: float64
+7 0    284.0
+1    284.0
+2    284.0
+3    284.0
+4    284.0
+5    284.0
+6    284.0
+Name: CSN.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_CSN.L CSN.L [280.0, 286.0, 297.25, 296.75, 301.75, 300.75, 319.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_CSN.L CSN.L [284.0, 284.0, 284.0, 284.0, 284.0, 284.0, 284.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_CSN.L CSN.L 1294 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_CSN.L CSN.L 11.228039264678955
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_CSN.L CSN.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_CSN.L CSN.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_CSN.L CSN.L 0.0476 0.0492 2.0714
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_CSN.L CSN.L 14.5 17.64227876437735 -1.3431018589642587
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_CSN.L_7'

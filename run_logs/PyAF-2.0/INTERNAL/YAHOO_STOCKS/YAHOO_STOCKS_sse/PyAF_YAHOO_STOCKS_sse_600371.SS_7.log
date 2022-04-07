@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_sse
+TIME :  Date N= 1291 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  600371.SS N= 1291 H= 7 HEAD= [11.82001 11.81    11.92    11.99    12.31   ] TAIL= [16.3  16.07 16.66 16.26 16.23]
+   600371.SS       Date
+0   11.82001 2011-07-28
+1   11.81000 2011-07-29
+2   11.92000 2011-08-01
+3   11.99000 2011-08-02
+4   12.31000 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1291 entries, 0 to 1290
+Data columns (total 2 columns):
+ #   Column     Non-Null Count  Dtype         
+---  ------     --------------  -----         
+ 0   600371.SS  1291 non-null   float64       
+ 1   Date       1291 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split     Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _600371.SS  _600371.SS_Lag1Trend_residue_bestCycle_byL2_re...  ...  2.210000e-02  3.150000e-02  2.000000e-02
+1   None         _600371.SS  _600371.SS_Lag1Trend_residue_zeroCycle_residue...  ...  2.140000e-02  3.180000e-02  1.670000e-02
+2   None   CumSum_600371.SS  CumSum_600371.SS_Lag1Trend_residue_zeroCycle_r...  ...  2.230000e-02  3.180000e-02  1.670000e-02
+3   None     Diff_600371.SS  Diff_600371.SS_Lag1Trend_residue_zeroCycle_res...  ...  2.140000e-02  3.180000e-02  1.670000e-02
+4   None  RelDiff_600371.SS  RelDiff_600371.SS_Lag1Trend_residue_zeroCycle_...  ...  2.140000e-02  3.180000e-02  1.670000e-02
+..   ...                ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_600371.SS  RelDiff_600371.SS_Lag1Trend_residue_Seasonal_D...  ...  3.142902e+07  2.541403e+07  2.548290e+07
+92  None  RelDiff_600371.SS  RelDiff_600371.SS_Lag1Trend_residue_bestCycle_...  ...  3.141386e+07  2.541403e+07  2.548290e+07
+93  None  RelDiff_600371.SS  RelDiff_600371.SS_LinearTrend_residue_Seasonal...  ...  3.144935e+07  2.541403e+07  2.548290e+07
+94  None  RelDiff_600371.SS  RelDiff_600371.SS_LinearTrend_residue_bestCycl...  ...  3.144793e+07  2.541403e+07  2.548290e+07
+95  None  RelDiff_600371.SS  RelDiff_600371.SS_ConstantTrend_residue_Season...  ...  3.133168e+07  2.541403e+07  2.548290e+07
+
+[96 rows x 8 columns]
+  Split     Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _600371.SS  _600371.SS_Lag1Trend_residue_bestCycle_byL2_re...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0221        0.0315    0.0200
+1  None         _600371.SS  _600371.SS_Lag1Trend_residue_zeroCycle_residue...            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0214        0.0318    0.0167
+2  None   CumSum_600371.SS  CumSum_600371.SS_Lag1Trend_residue_zeroCycle_r...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0223        0.0318    0.0167
+3  None     Diff_600371.SS  Diff_600371.SS_Lag1Trend_residue_zeroCycle_res...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0214        0.0318    0.0167
+4  None  RelDiff_600371.SS  RelDiff_600371.SS_Lag1Trend_residue_zeroCycle_...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0214        0.0318    0.0167
+7 0    16.32
+1    16.38
+2    16.07
+3    16.00
+4    16.27
+5    15.29
+6    15.14
+Name: 600371.SS, dtype: float64
+7 0    16.23
+1    16.23
+2    16.23
+3    16.23
+4    16.23
+5    16.23
+6    16.23
+Name: 600371.SS_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_600371.SS 600371.SS [16.32, 16.38, 16.07, 16.0, 16.27, 15.29, 15.14]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_600371.SS 600371.SS [16.23, 16.23, 16.23, 16.23, 16.23, 16.23, 16.23]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_600371.SS 600371.SS 1291 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_600371.SS 600371.SS 11.428394794464111
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_600371.SS 600371.SS Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_600371.SS 600371.SS 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_600371.SS 600371.SS 0.025 0.0244 1.2578
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_600371.SS 600371.SS 0.3857142857142856 0.5583649600139937 -0.42811202922263236
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_sse_600371.SS_7'

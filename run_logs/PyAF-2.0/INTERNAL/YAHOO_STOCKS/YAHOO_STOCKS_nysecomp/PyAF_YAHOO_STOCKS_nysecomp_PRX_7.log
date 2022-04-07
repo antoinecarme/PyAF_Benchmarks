@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 299 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2012-09-13T00:00:00.000000000' '2012-09-14T00:00:00.000000000'
+ '2012-09-17T00:00:00.000000000' '2012-09-18T00:00:00.000000000'
+ '2012-09-19T00:00:00.000000000']
+SIGNAL :  PRX N= 299 H= 7 HEAD= [32.7  32.39 31.1  29.86 31.12] TAIL= [49.87 49.83 49.87 49.93 49.94]
+     PRX       Date
+0  32.70 2011-07-28
+1  32.39 2011-07-29
+2  31.10 2011-08-01
+3  29.86 2011-08-02
+4  31.12 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 299 entries, 0 to 298
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   PRX     299 non-null    float64       
+ 1   Date    299 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 7.0 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _PRX      _PRX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.760000e-02  9.300000e-03  6.000000e-04
+1   None           _PRX  _PRX_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  ...  1.760000e-02  9.300000e-03  8.000000e-04
+2   None     CumSum_PRX  CumSum_PRX_Lag1Trend_residue_zeroCycle_residue...  ...  2.180000e-02  9.300000e-03  6.000000e-04
+3   None       Diff_PRX  Diff_PRX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.760000e-02  9.300000e-03  6.000000e-04
+4   None    RelDiff_PRX  RelDiff_PRX_Lag1Trend_residue_zeroCycle_residu...  ...  1.760000e-02  9.300000e-03  6.000000e-04
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_PRX  RelDiff_PRX_LinearTrend_residue_zeroCycle_resi...  ...  2.238016e+07  1.687267e+07  1.495848e+07
+92  None    RelDiff_PRX  RelDiff_PRX_Lag1Trend_residue_bestCycle_byL2_r...  ...  2.238039e+07  1.687267e+07  1.495848e+07
+93  None    RelDiff_PRX  RelDiff_PRX_PolyTrend_residue_zeroCycle_residu...  ...  2.238014e+07  1.687267e+07  1.495848e+07
+94  None    RelDiff_PRX  RelDiff_PRX_Lag1Trend_residue_Seasonal_DayOfWe...  ...  2.228162e+07  1.687267e+07  1.495848e+07
+95  None    RelDiff_PRX  RelDiff_PRX_ConstantTrend_residue_Seasonal_Day...  ...  2.229997e+07  1.687267e+07  1.495848e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _PRX      _PRX_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0176        0.0093    0.0006
+1  None           _PRX  _PRX_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0176        0.0093    0.0008
+2  None     CumSum_PRX  CumSum_PRX_Lag1Trend_residue_zeroCycle_residue...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0218        0.0093    0.0006
+3  None       Diff_PRX  Diff_PRX_Lag1Trend_residue_zeroCycle_residue_NoAR           Difference_Lag1Trend_NoCycle_NoAR          64   0.0176        0.0093    0.0006
+4  None    RelDiff_PRX  RelDiff_PRX_Lag1Trend_residue_zeroCycle_residu...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0176        0.0093    0.0006
+7 0    49.94
+1    49.93
+2    49.91
+3    49.91
+4    49.93
+5    49.96
+6    49.98
+Name: PRX, dtype: float64
+7 0    49.94
+1    49.94
+2    49.94
+3    49.94
+4    49.94
+5    49.94
+6    49.94
+Name: PRX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_PRX PRX [49.94, 49.93, 49.91, 49.91, 49.93, 49.96, 49.98]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_PRX PRX [49.94, 49.94, 49.94, 49.94, 49.94, 49.94, 49.94]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_PRX PRX 299 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_PRX PRX 11.188956260681152
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_PRX PRX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_PRX PRX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_PRX PRX 0.0004 0.0004 1.2
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_PRX PRX 0.02000000000000008 0.023904572186688212 -0.014492727893294255
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_PRX_7'

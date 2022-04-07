@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nasdaqbio
+TIME :  Date N= 282 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2012-08-21T00:00:00.000000000' '2012-08-22T00:00:00.000000000'
+ '2012-08-23T00:00:00.000000000' '2012-08-24T00:00:00.000000000'
+ '2012-08-27T00:00:00.000000000']
+SIGNAL :  ALTH N= 282 H= 7 HEAD= [1.88 1.86 1.86 1.78 1.78] TAIL= [1.77 1.78 1.78 1.78 1.79]
+   ALTH       Date
+0  1.88 2011-07-28
+1  1.86 2011-07-29
+2  1.86 2011-08-01
+3  1.78 2011-08-02
+4  1.78 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 282 entries, 0 to 281
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   ALTH    282 non-null    float64       
+ 1   Date    282 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 6.6 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None      Diff_ALTH  Diff_ALTH_ConstantTrend_residue_bestCycle_byL2...  ...  1.687000e-01  1.150000e-02  6.200000e-03
+1   None          _ALTH     _ALTH_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.440000e-02  1.310000e-02  2.400000e-03
+2   None    CumSum_ALTH  CumSum_ALTH_Lag1Trend_residue_zeroCycle_residu...  ...  2.890000e-02  1.310000e-02  2.400000e-03
+3   None      Diff_ALTH  Diff_ALTH_Lag1Trend_residue_zeroCycle_residue_...  ...  2.440000e-02  1.310000e-02  2.400000e-03
+4   None   RelDiff_ALTH  RelDiff_ALTH_Lag1Trend_residue_zeroCycle_resid...  ...  2.440000e-02  1.310000e-02  2.400000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None   RelDiff_ALTH  RelDiff_ALTH_PolyTrend_residue_Seasonal_DayOfW...  ...  3.986882e+07  3.558251e+07  3.545071e+07
+92  None   RelDiff_ALTH  RelDiff_ALTH_LinearTrend_residue_Seasonal_DayO...  ...  3.985444e+07  3.558251e+07  3.545071e+07
+93  None   RelDiff_ALTH  RelDiff_ALTH_LinearTrend_residue_bestCycle_byL...  ...  3.985441e+07  3.558251e+07  3.545071e+07
+94  None   RelDiff_ALTH  RelDiff_ALTH_Lag1Trend_residue_Seasonal_DayOfW...  ...  3.986920e+07  3.558251e+07  3.545071e+07
+95  None   RelDiff_ALTH  RelDiff_ALTH_Lag1Trend_residue_bestCycle_byL2_...  ...  3.971919e+07  3.558251e+07  3.545071e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None      Diff_ALTH  Diff_ALTH_ConstantTrend_residue_bestCycle_byL2...        Difference_ConstantTrend_Cycle_NoAR          40   0.1687        0.0115    0.0062
+1  None          _ALTH     _ALTH_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0244        0.0131    0.0024
+2  None    CumSum_ALTH  CumSum_ALTH_Lag1Trend_residue_zeroCycle_residu...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0289        0.0131    0.0024
+3  None      Diff_ALTH  Diff_ALTH_Lag1Trend_residue_zeroCycle_residue_...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0244        0.0131    0.0024
+4  None   RelDiff_ALTH  RelDiff_ALTH_Lag1Trend_residue_zeroCycle_resid...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0244        0.0131    0.0024
+7 0    1.80
+1    1.81
+2    1.82
+3    1.81
+4    1.81
+5    1.83
+6    1.84
+Name: ALTH, dtype: float64
+7 0    1.79
+1    1.79
+2    1.79
+3    1.79
+4    1.79
+5    1.79
+6    1.79
+Name: ALTH_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_ALTH ALTH [1.8, 1.81, 1.82, 1.81, 1.81, 1.83, 1.84]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_ALTH ALTH [1.79, 1.79, 1.79, 1.79, 1.79, 1.79, 1.79]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_ALTH ALTH 282 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_ALTH ALTH 11.239782810211182
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_ALTH ALTH Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_ALTH ALTH 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_ALTH ALTH 0.0149 0.015 2.7143
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_ALTH ALTH 0.027142857142857166 0.030000000000000023 -4.512499517656291
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nasdaqbio_ALTH_7'

@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aord
+TIME :  Date N= 1299 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  CSR.AX N= 1299 H= 7 HEAD= [2.65 2.63 2.66 2.65 2.6 ] TAIL= [3.87 3.82 3.85 3.94 3.89]
+   CSR.AX       Date
+0    2.65 2011-07-28
+1    2.63 2011-07-29
+2    2.66 2011-08-01
+3    2.65 2011-08-02
+4    2.60 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1299 entries, 0 to 1298
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   CSR.AX  1299 non-null   float64       
+ 1   Date    1299 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _CSR.AX   _CSR.AX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.380000e-02  1.610000e-02  1.410000e-02
+1   None         _CSR.AX  _CSR.AX_Lag1Trend_residue_bestCycle_byL2_resid...  ...  1.380000e-02  1.610000e-02  1.410000e-02
+2   None   CumSum_CSR.AX  CumSum_CSR.AX_Lag1Trend_residue_zeroCycle_resi...  ...  1.480000e-02  1.610000e-02  1.410000e-02
+3   None     Diff_CSR.AX  Diff_CSR.AX_Lag1Trend_residue_zeroCycle_residu...  ...  1.380000e-02  1.610000e-02  1.410000e-02
+4   None  RelDiff_CSR.AX  RelDiff_CSR.AX_Lag1Trend_residue_zeroCycle_res...  ...  1.380000e-02  1.610000e-02  1.410000e-02
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_CSR.AX  RelDiff_CSR.AX_PolyTrend_residue_bestCycle_byL...  ...  6.261128e+07  4.772292e+07  3.841960e+07
+92  None  RelDiff_CSR.AX  RelDiff_CSR.AX_PolyTrend_residue_Seasonal_DayO...  ...  6.261151e+07  4.772292e+07  3.841960e+07
+93  None  RelDiff_CSR.AX  RelDiff_CSR.AX_PolyTrend_residue_bestCycle_byL...  ...  6.261151e+07  4.772292e+07  3.841960e+07
+94  None  RelDiff_CSR.AX  RelDiff_CSR.AX_Lag1Trend_residue_Seasonal_DayO...  ...  6.266546e+07  4.772292e+07  3.841960e+07
+95  None  RelDiff_CSR.AX  RelDiff_CSR.AX_Lag1Trend_residue_bestCycle_byL...  ...  6.266546e+07  4.772292e+07  3.841960e+07
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _CSR.AX   _CSR.AX_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0138        0.0161    0.0141
+1  None         _CSR.AX  _CSR.AX_Lag1Trend_residue_bestCycle_byL2_resid...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0138        0.0161    0.0141
+2  None   CumSum_CSR.AX  CumSum_CSR.AX_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0148        0.0161    0.0141
+3  None     Diff_CSR.AX  Diff_CSR.AX_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0138        0.0161    0.0141
+4  None  RelDiff_CSR.AX  RelDiff_CSR.AX_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0138        0.0161    0.0141
+7 0    3.80
+1    3.90
+2    3.83
+3    3.90
+4    3.96
+5    3.92
+6    3.89
+Name: CSR.AX, dtype: float64
+7 0    3.89
+1    3.89
+2    3.89
+3    3.89
+4    3.89
+5    3.89
+6    3.89
+Name: CSR.AX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_CSR.AX CSR.AX [3.8, 3.9, 3.83, 3.9, 3.96, 3.92, 3.89]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_CSR.AX CSR.AX [3.89, 3.89, 3.89, 3.89, 3.89, 3.89, 3.89]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_CSR.AX CSR.AX 1299 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_CSR.AX CSR.AX 12.071979522705078
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_CSR.AX CSR.AX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_CSR.AX CSR.AX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_CSR.AX CSR.AX 0.01 0.0099 0.6255
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_CSR.AX CSR.AX 0.038571428571428513 0.050284902590851575 -0.007317067438033398
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aord_CSR.AX_7'

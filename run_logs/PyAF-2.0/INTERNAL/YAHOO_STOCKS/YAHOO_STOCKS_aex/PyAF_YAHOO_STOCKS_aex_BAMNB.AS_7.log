@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aex
+TIME :  Date N= 1298 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  BAMNB.AS N= 1298 H= 7 HEAD= [3.959 3.94  3.835 3.601 3.571] TAIL= [3.443 3.42  3.44  3.401 3.405]
+   BAMNB.AS       Date
+0     3.959 2011-07-28
+1     3.940 2011-07-29
+2     3.835 2011-08-01
+3     3.601 2011-08-02
+4     3.571 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1298 entries, 0 to 1297
+Data columns (total 2 columns):
+ #   Column    Non-Null Count  Dtype         
+---  ------    --------------  -----         
+ 0   BAMNB.AS  1298 non-null   float64       
+ 1   Date      1298 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split    Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _BAMNB.AS  _BAMNB.AS_Lag1Trend_residue_zeroCycle_residue_...  ...  2.110000e-02  1.760000e-02  1.800000e-02
+1   None         _BAMNB.AS  _BAMNB.AS_Lag1Trend_residue_Seasonal_DayOfWeek...  ...  2.110000e-02  1.760000e-02  1.800000e-02
+2   None   CumSum_BAMNB.AS  CumSum_BAMNB.AS_Lag1Trend_residue_zeroCycle_re...  ...  2.210000e-02  1.760000e-02  1.800000e-02
+3   None     Diff_BAMNB.AS  Diff_BAMNB.AS_Lag1Trend_residue_zeroCycle_resi...  ...  2.110000e-02  1.760000e-02  1.800000e-02
+4   None  RelDiff_BAMNB.AS  RelDiff_BAMNB.AS_Lag1Trend_residue_zeroCycle_r...  ...  2.110000e-02  1.760000e-02  1.800000e-02
+..   ...               ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_BAMNB.AS  RelDiff_BAMNB.AS_Lag1Trend_residue_Seasonal_Da...  ...  7.539393e+07  5.286483e+07  6.807563e+07
+92  None  RelDiff_BAMNB.AS  RelDiff_BAMNB.AS_Lag1Trend_residue_bestCycle_b...  ...  7.539393e+07  5.286483e+07  6.807563e+07
+93  None  RelDiff_BAMNB.AS  RelDiff_BAMNB.AS_PolyTrend_residue_zeroCycle_r...  ...  7.548517e+07  5.286483e+07  6.807563e+07
+94  None  RelDiff_BAMNB.AS  RelDiff_BAMNB.AS_PolyTrend_residue_zeroCycle_r...  ...  7.549531e+07  5.286483e+07  6.807563e+07
+95  None  RelDiff_BAMNB.AS  RelDiff_BAMNB.AS_ConstantTrend_residue_zeroCyc...  ...  7.550819e+07  5.286483e+07  6.807563e+07
+
+[96 rows x 8 columns]
+  Split    Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _BAMNB.AS  _BAMNB.AS_Lag1Trend_residue_zeroCycle_residue_...             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0211        0.0176     0.018
+1  None         _BAMNB.AS  _BAMNB.AS_Lag1Trend_residue_Seasonal_DayOfWeek...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0211        0.0176     0.018
+2  None   CumSum_BAMNB.AS  CumSum_BAMNB.AS_Lag1Trend_residue_zeroCycle_re...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0221        0.0176     0.018
+3  None     Diff_BAMNB.AS  Diff_BAMNB.AS_Lag1Trend_residue_zeroCycle_resi...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0211        0.0176     0.018
+4  None  RelDiff_BAMNB.AS  RelDiff_BAMNB.AS_Lag1Trend_residue_zeroCycle_r...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0211        0.0176     0.018
+7 0    3.381
+1    3.401
+2    3.415
+3    3.419
+4    3.450
+5    3.458
+6    3.565
+Name: BAMNB.AS, dtype: float64
+7 0    3.405
+1    3.405
+2    3.405
+3    3.405
+4    3.405
+5    3.405
+6    3.405
+Name: BAMNB.AS_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_BAMNB.AS BAMNB.AS [3.3810000000000002, 3.4010000000000002, 3.415, 3.4189999999999996, 3.45, 3.458, 3.565]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_BAMNB.AS BAMNB.AS [3.405, 3.405, 3.405, 3.405, 3.405, 3.405, 3.405]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_BAMNB.AS BAMNB.AS 1298 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_BAMNB.AS BAMNB.AS 11.413349866867065
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_BAMNB.AS BAMNB.AS Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_BAMNB.AS BAMNB.AS 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_BAMNB.AS BAMNB.AS 0.0126 0.0128 1.4441
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_BAMNB.AS BAMNB.AS 0.044285714285714296 0.06689223743134506 -0.41693700970766745
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aex_BAMNB.AS_7'

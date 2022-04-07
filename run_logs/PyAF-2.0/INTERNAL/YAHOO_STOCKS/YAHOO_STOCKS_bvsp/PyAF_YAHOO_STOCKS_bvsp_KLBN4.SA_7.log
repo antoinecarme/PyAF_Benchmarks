@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_bvsp
+TIME :  Date N= 684 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  KLBN4.SA N= 684 H= 7 HEAD= [5.13 5.15 5.13 4.97 4.84] TAIL= [2.39 2.37 2.41 2.38 2.43]
+   KLBN4.SA       Date
+0      5.13 2011-07-28
+1      5.15 2011-07-29
+2      5.13 2011-08-01
+3      4.97 2011-08-02
+4      4.84 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 684 entries, 0 to 683
+Data columns (total 2 columns):
+ #   Column    Non-Null Count  Dtype         
+---  ------    --------------  -----         
+ 0   KLBN4.SA  684 non-null    float64       
+ 1   Date      684 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 16.0 KB
+None
+   Split    Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _KLBN4.SA  _KLBN4.SA_Lag1Trend_residue_zeroCycle_residue_...  ...  0.0154  4.440000e-02  1.870000e-02
+1   None   CumSum_KLBN4.SA  CumSum_KLBN4.SA_Lag1Trend_residue_zeroCycle_re...  ...  0.0172  4.440000e-02  1.870000e-02
+2   None     Diff_KLBN4.SA  Diff_KLBN4.SA_Lag1Trend_residue_zeroCycle_resi...  ...  0.0154  4.440000e-02  1.870000e-02
+3   None  RelDiff_KLBN4.SA  RelDiff_KLBN4.SA_Lag1Trend_residue_zeroCycle_r...  ...  0.0154  4.440000e-02  1.870000e-02
+4   None         _KLBN4.SA  _KLBN4.SA_Lag1Trend_residue_Seasonal_DayOfWeek...  ...  0.0152  4.510000e-02  2.250000e-02
+..   ...               ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_KLBN4.SA  RelDiff_KLBN4.SA_PolyTrend_residue_zeroCycle_r...  ...  0.1247  2.107756e+07  1.251809e+08
+92  None  RelDiff_KLBN4.SA  RelDiff_KLBN4.SA_LinearTrend_residue_zeroCycle...  ...  0.1197  2.107758e+07  1.251809e+08
+93  None  RelDiff_KLBN4.SA  RelDiff_KLBN4.SA_ConstantTrend_residue_bestCyc...  ...  0.1775  2.107776e+07  1.251809e+08
+94  None  RelDiff_KLBN4.SA  RelDiff_KLBN4.SA_ConstantTrend_residue_Seasona...  ...  0.1776  2.107781e+07  1.251809e+08
+95  None  RelDiff_KLBN4.SA  RelDiff_KLBN4.SA_ConstantTrend_residue_zeroCyc...  ...  0.1766  2.107784e+07  1.251809e+08
+
+[96 rows x 8 columns]
+  Split    Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _KLBN4.SA  _KLBN4.SA_Lag1Trend_residue_zeroCycle_residue_...             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0154        0.0444    0.0187
+1  None   CumSum_KLBN4.SA  CumSum_KLBN4.SA_Lag1Trend_residue_zeroCycle_re...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0172        0.0444    0.0187
+2  None     Diff_KLBN4.SA  Diff_KLBN4.SA_Lag1Trend_residue_zeroCycle_resi...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0154        0.0444    0.0187
+3  None  RelDiff_KLBN4.SA  RelDiff_KLBN4.SA_Lag1Trend_residue_zeroCycle_r...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0154        0.0444    0.0187
+4  None         _KLBN4.SA  _KLBN4.SA_Lag1Trend_residue_Seasonal_DayOfWeek...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0152        0.0451    0.0225
+7 0    2.49
+1    2.57
+2    2.63
+3    2.74
+4    2.63
+5    2.63
+6    2.60
+Name: KLBN4.SA, dtype: float64
+7 0    2.43
+1    2.43
+2    2.43
+3    2.43
+4    2.43
+5    2.43
+6    2.43
+Name: KLBN4.SA_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_KLBN4.SA KLBN4.SA [2.49, 2.57, 2.63, 2.74, 2.63, 2.63, 2.6]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_KLBN4.SA KLBN4.SA [2.43, 2.43, 2.43, 2.43, 2.43, 2.43, 2.43]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_KLBN4.SA KLBN4.SA 684 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_KLBN4.SA KLBN4.SA 9.967137098312378
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_KLBN4.SA KLBN4.SA Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_KLBN4.SA KLBN4.SA 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_KLBN4.SA KLBN4.SA 0.0693 0.0722 2.8132
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_KLBN4.SA KLBN4.SA 0.1828571428571427 0.1957403528000439 -6.855230102516051
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_bvsp_KLBN4.SA_7'

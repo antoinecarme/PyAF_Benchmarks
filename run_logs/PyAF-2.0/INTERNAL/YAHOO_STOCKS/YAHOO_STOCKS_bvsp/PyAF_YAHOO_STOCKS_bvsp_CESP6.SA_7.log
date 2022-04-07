@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_bvsp
+TIME :  Date N= 1255 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  CESP6.SA N= 1255 H= 7 HEAD= [31.9  30.7  31.9  31.35 30.  ] TAIL= [12.7  12.86 12.7  15.09 14.69]
+   CESP6.SA       Date
+0     31.90 2011-07-28
+1     30.70 2011-07-29
+2     31.90 2011-08-01
+3     31.35 2011-08-02
+4     30.00 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1255 entries, 0 to 1254
+Data columns (total 2 columns):
+ #   Column    Non-Null Count  Dtype         
+---  ------    --------------  -----         
+ 0   CESP6.SA  1255 non-null   float64       
+ 1   Date      1255 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.4 KB
+None
+   Split    Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _CESP6.SA  _CESP6.SA_Lag1Trend_residue_Seasonal_DayOfWeek...  ...  0.0160  2.080000e-02  4.260000e-02
+1   None         _CESP6.SA  _CESP6.SA_Lag1Trend_residue_zeroCycle_residue_...  ...  0.0160  2.090000e-02  4.240000e-02
+2   None   CumSum_CESP6.SA  CumSum_CESP6.SA_Lag1Trend_residue_zeroCycle_re...  ...  0.0169  2.090000e-02  4.240000e-02
+3   None     Diff_CESP6.SA  Diff_CESP6.SA_Lag1Trend_residue_zeroCycle_resi...  ...  0.0160  2.090000e-02  4.240000e-02
+4   None  RelDiff_CESP6.SA  RelDiff_CESP6.SA_Lag1Trend_residue_zeroCycle_r...  ...  0.0160  2.090000e-02  4.240000e-02
+..   ...               ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_CESP6.SA  RelDiff_CESP6.SA_ConstantTrend_residue_Seasona...  ...  0.3636  4.097134e+06  1.553886e+08
+92  None  RelDiff_CESP6.SA  RelDiff_CESP6.SA_ConstantTrend_residue_zeroCyc...  ...  0.3609  4.097940e+06  1.553886e+08
+93  None  RelDiff_CESP6.SA  RelDiff_CESP6.SA_Lag1Trend_residue_Seasonal_Da...  ...  0.1944  4.751651e+06  1.553886e+08
+94  None  RelDiff_CESP6.SA  RelDiff_CESP6.SA_Lag1Trend_residue_zeroCycle_r...  ...  0.1919  4.751658e+06  1.553886e+08
+95  None  RelDiff_CESP6.SA  RelDiff_CESP6.SA_Lag1Trend_residue_bestCycle_b...  ...  0.1932  4.751670e+06  1.553886e+08
+
+[96 rows x 8 columns]
+  Split    Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _CESP6.SA  _CESP6.SA_Lag1Trend_residue_Seasonal_DayOfWeek...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0160        0.0208    0.0426
+1  None         _CESP6.SA  _CESP6.SA_Lag1Trend_residue_zeroCycle_residue_...             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0160        0.0209    0.0424
+2  None   CumSum_CESP6.SA  CumSum_CESP6.SA_Lag1Trend_residue_zeroCycle_re...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0169        0.0209    0.0424
+3  None     Diff_CESP6.SA  Diff_CESP6.SA_Lag1Trend_residue_zeroCycle_resi...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0160        0.0209    0.0424
+4  None  RelDiff_CESP6.SA  RelDiff_CESP6.SA_Lag1Trend_residue_zeroCycle_r...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0160        0.0209    0.0424
+7 0    14.76
+1    14.51
+2    14.93
+3    15.38
+4    15.10
+5    14.95
+6    14.57
+Name: CESP6.SA, dtype: float64
+7 0    14.69
+1    14.69
+2    14.69
+3    14.69
+4    14.69
+5    14.69
+6    14.69
+Name: CESP6.SA_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_CESP6.SA CESP6.SA [14.76, 14.51, 14.93, 15.38, 15.1, 14.95, 14.57]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_CESP6.SA CESP6.SA [14.69, 14.69, 14.69, 14.69, 14.69, 14.69, 14.69]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_CESP6.SA CESP6.SA 1255 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_CESP6.SA CESP6.SA 11.520758390426636
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_CESP6.SA CESP6.SA Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_CESP6.SA CESP6.SA 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_CESP6.SA CESP6.SA 0.0187 0.0189 0.8749
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_CESP6.SA CESP6.SA 0.28142857142857153 0.3424908757908745 -0.48488684482809363
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_bvsp_CESP6.SA_7'

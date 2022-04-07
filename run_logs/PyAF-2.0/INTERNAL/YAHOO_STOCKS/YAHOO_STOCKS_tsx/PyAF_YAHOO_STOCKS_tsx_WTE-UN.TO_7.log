@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_tsx
+TIME :  Date N= 1247 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  WTE-UN.TO N= 1247 H= 7 HEAD= [22.42     22.360001 21.870001 22.049999 21.6     ] TAIL= [19.370001 19.23     19.18     19.01     18.91    ]
+   WTE-UN.TO       Date
+0  22.420000 2011-07-28
+1  22.360001 2011-07-29
+2  21.870001 2011-08-02
+3  22.049999 2011-08-03
+4  21.600000 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1247 entries, 0 to 1246
+Data columns (total 2 columns):
+ #   Column     Non-Null Count  Dtype         
+---  ------     --------------  -----         
+ 0   WTE-UN.TO  1247 non-null   float64       
+ 1   Date       1247 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.2 KB
+None
+   Split     Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _WTE-UN.TO  _WTE-UN.TO_Lag1Trend_residue_Seasonal_DayOfWee...  ...  0.0092  1.940000e-02  6.500000e-03
+1   None         _WTE-UN.TO  _WTE-UN.TO_Lag1Trend_residue_zeroCycle_residue...  ...  0.0092  1.950000e-02  6.200000e-03
+2   None         _WTE-UN.TO  _WTE-UN.TO_Lag1Trend_residue_bestCycle_byL2_re...  ...  0.0093  1.950000e-02  6.000000e-03
+3   None   CumSum_WTE-UN.TO  CumSum_WTE-UN.TO_Lag1Trend_residue_zeroCycle_r...  ...  0.0102  1.950000e-02  6.200000e-03
+4   None     Diff_WTE-UN.TO  Diff_WTE-UN.TO_Lag1Trend_residue_zeroCycle_res...  ...  0.0092  1.950000e-02  6.200000e-03
+..   ...                ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_WTE-UN.TO  RelDiff_WTE-UN.TO_LinearTrend_residue_zeroCycl...  ...  0.0879  3.830555e+07  6.476572e+07
+92  None  RelDiff_WTE-UN.TO  RelDiff_WTE-UN.TO_LinearTrend_residue_Seasonal...  ...  0.0890  3.830556e+07  6.476572e+07
+93  None  RelDiff_WTE-UN.TO  RelDiff_WTE-UN.TO_ConstantTrend_residue_bestCy...  ...  0.0855  3.830557e+07  6.476572e+07
+94  None  RelDiff_WTE-UN.TO  RelDiff_WTE-UN.TO_ConstantTrend_residue_zeroCy...  ...  0.0851  3.830557e+07  6.476572e+07
+95  None  RelDiff_WTE-UN.TO  RelDiff_WTE-UN.TO_ConstantTrend_residue_Season...  ...  0.0843  3.830557e+07  6.476572e+07
+
+[96 rows x 8 columns]
+  Split    Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _WTE-UN.TO  _WTE-UN.TO_Lag1Trend_residue_Seasonal_DayOfWee...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0092        0.0194    0.0065
+1  None        _WTE-UN.TO  _WTE-UN.TO_Lag1Trend_residue_zeroCycle_residue...             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0092        0.0195    0.0062
+2  None        _WTE-UN.TO  _WTE-UN.TO_Lag1Trend_residue_bestCycle_byL2_re...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0093        0.0195    0.0060
+3  None  CumSum_WTE-UN.TO  CumSum_WTE-UN.TO_Lag1Trend_residue_zeroCycle_r...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0102        0.0195    0.0062
+4  None    Diff_WTE-UN.TO  Diff_WTE-UN.TO_Lag1Trend_residue_zeroCycle_res...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0092        0.0195    0.0062
+7 0    18.860001
+1    18.700001
+2    18.660000
+3    18.559999
+4    18.700001
+5    18.200001
+6    18.370001
+Name: WTE-UN.TO, dtype: float64
+7 0    18.91
+1    18.91
+2    18.91
+3    18.91
+4    18.91
+5    18.91
+6    18.91
+Name: WTE-UN.TO_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_WTE-UN.TO WTE-UN.TO [18.860001, 18.700001, 18.66, 18.559998999999998, 18.700001, 18.200001, 18.370001000000002]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_WTE-UN.TO WTE-UN.TO [18.91, 18.91, 18.91, 18.91, 18.91, 18.91, 18.91]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_WTE-UN.TO WTE-UN.TO 1247 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_WTE-UN.TO WTE-UN.TO 10.865456342697144
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_WTE-UN.TO WTE-UN.TO Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_WTE-UN.TO WTE-UN.TO 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_WTE-UN.TO WTE-UN.TO 0.018 0.0177 1.7915
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_WTE-UN.TO WTE-UN.TO 0.33142799999999994 0.3912246815187258 -2.541977431518154
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_tsx_WTE-UN.TO_7'

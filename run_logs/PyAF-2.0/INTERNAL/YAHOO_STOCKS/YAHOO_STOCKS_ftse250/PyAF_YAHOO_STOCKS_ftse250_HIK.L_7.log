@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftse250
+TIME :  Date N= 1294 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  HIK.L N= 1294 H= 7 HEAD= [715.  683.  680.5 670.5 630. ] TAIL= [2505. 2540. 2508. 2541. 2561.]
+   HIK.L       Date
+0  715.0 2011-07-28
+1  683.0 2011-07-29
+2  680.5 2011-08-01
+3  670.5 2011-08-02
+4  630.0 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1294 entries, 0 to 1293
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   HIK.L   1294 non-null   float64       
+ 1   Date    1294 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _HIK.L    _HIK.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.210000e-02  1.440000e-02  1.470000e-02
+1   None   CumSum_HIK.L  CumSum_HIK.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.300000e-02  1.440000e-02  1.470000e-02
+2   None     Diff_HIK.L  Diff_HIK.L_Lag1Trend_residue_zeroCycle_residue...  ...  1.210000e-02  1.440000e-02  1.470000e-02
+3   None  RelDiff_HIK.L  RelDiff_HIK.L_Lag1Trend_residue_zeroCycle_resi...  ...  1.210000e-02  1.440000e-02  1.470000e-02
+4   None         _HIK.L  _HIK.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  1.210000e-02  1.450000e-02  1.500000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_HIK.L  RelDiff_HIK.L_LinearTrend_residue_bestCycle_by...  ...  1.596040e+07  7.426509e+06  6.234789e+06
+92  None  RelDiff_HIK.L  RelDiff_HIK.L_PolyTrend_residue_bestCycle_byL2...  ...  1.596220e+07  7.426509e+06  6.234790e+06
+93  None  RelDiff_HIK.L  RelDiff_HIK.L_ConstantTrend_residue_zeroCycle_...  ...  1.595944e+07  7.426509e+06  6.234790e+06
+94  None  RelDiff_HIK.L  RelDiff_HIK.L_ConstantTrend_residue_bestCycle_...  ...  1.581062e+07  7.426509e+06  6.234790e+06
+95  None  RelDiff_HIK.L  RelDiff_HIK.L_PolyTrend_residue_bestCycle_byL2...  ...  1.596585e+07  7.426509e+06  6.234790e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _HIK.L    _HIK.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0121        0.0144    0.0147
+1  None   CumSum_HIK.L  CumSum_HIK.L_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0130        0.0144    0.0147
+2  None     Diff_HIK.L  Diff_HIK.L_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0121        0.0144    0.0147
+3  None  RelDiff_HIK.L  RelDiff_HIK.L_Lag1Trend_residue_zeroCycle_resi...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0121        0.0144    0.0147
+4  None         _HIK.L  _HIK.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0121        0.0145    0.0150
+7 0    2551.0
+1    2580.0
+2    2522.0
+3    2590.0
+4    2569.0
+5    2641.0
+6    2561.0
+Name: HIK.L, dtype: float64
+7 0    2561.0
+1    2561.0
+2    2561.0
+3    2561.0
+4    2561.0
+5    2561.0
+6    2561.0
+Name: HIK.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_HIK.L HIK.L [2551.0, 2580.0, 2522.0, 2590.0, 2569.0, 2641.0, 2561.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_HIK.L HIK.L [2561.0, 2561.0, 2561.0, 2561.0, 2561.0, 2561.0, 2561.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_HIK.L HIK.L 1294 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_HIK.L HIK.L 11.17391324043274
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_HIK.L HIK.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_HIK.L HIK.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_HIK.L HIK.L 0.0102 0.0103 0.4834
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_HIK.L HIK.L 26.428571428571427 36.42408936012383 -0.13177228412254882
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftse250_HIK.L_7'

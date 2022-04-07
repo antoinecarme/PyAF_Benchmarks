@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nyworldlead
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  STO N= 1251 H= 7 HEAD= [24.700001 24.57     24.49     23.9      23.93    ] TAIL= [17.66     17.469999 17.73     17.74     17.6     ]
+         STO       Date
+0  24.700001 2011-07-28
+1  24.570000 2011-07-29
+2  24.490000 2011-08-01
+3  23.900000 2011-08-02
+4  23.930000 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   STO     1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None           _STO      _STO_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0129  2.060000e-02  9.900000e-03
+1   None           _STO  _STO_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  ...  0.0129  2.060000e-02  9.800000e-03
+2   None     CumSum_STO  CumSum_STO_Lag1Trend_residue_zeroCycle_residue...  ...  0.0139  2.060000e-02  9.900000e-03
+3   None       Diff_STO  Diff_STO_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0129  2.060000e-02  9.900000e-03
+4   None    RelDiff_STO  RelDiff_STO_Lag1Trend_residue_zeroCycle_residu...  ...  0.0129  2.060000e-02  9.900000e-03
+..   ...            ...                                                ...  ...     ...           ...           ...
+91  None    RelDiff_STO  RelDiff_STO_LinearTrend_residue_bestCycle_byL2...  ...  0.1967  3.973256e+07  7.611588e+07
+92  None    RelDiff_STO  RelDiff_STO_ConstantTrend_residue_bestCycle_by...  ...  0.1083  3.973258e+07  7.611588e+07
+93  None    RelDiff_STO  RelDiff_STO_Lag1Trend_residue_bestCycle_byL2_r...  ...  0.0979  3.973313e+07  7.611588e+07
+94  None    RelDiff_STO  RelDiff_STO_Lag1Trend_residue_Seasonal_DayOfWe...  ...  0.1094  3.973314e+07  7.611588e+07
+95  None    RelDiff_STO  RelDiff_STO_Lag1Trend_residue_zeroCycle_residu...  ...  0.1006  3.973314e+07  7.611588e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _STO      _STO_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0129        0.0206    0.0099
+1  None           _STO  _STO_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0129        0.0206    0.0098
+2  None     CumSum_STO  CumSum_STO_Lag1Trend_residue_zeroCycle_residue...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0139        0.0206    0.0099
+3  None       Diff_STO  Diff_STO_Lag1Trend_residue_zeroCycle_residue_NoAR           Difference_Lag1Trend_NoCycle_NoAR          64   0.0129        0.0206    0.0099
+4  None    RelDiff_STO  RelDiff_STO_Lag1Trend_residue_zeroCycle_residu...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0129        0.0206    0.0099
+7 0    17.290001
+1    17.360001
+2    17.320000
+3    16.860001
+4    16.490000
+5    16.660000
+6    16.110001
+Name: STO, dtype: float64
+7 0    17.6
+1    17.6
+2    17.6
+3    17.6
+4    17.6
+5    17.6
+6    17.6
+Name: STO_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_STO STO [17.290001, 17.360001, 17.32, 16.860001, 16.49, 16.66, 16.110001]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_STO STO [17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_STO STO 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_STO STO 10.769580125808716
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_STO STO Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_STO STO 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_STO STO 0.044 0.0427 2.6386
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_STO STO 0.72999942857143 0.8548595908104287 -2.692963763787561
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nyworldlead_STO_7'

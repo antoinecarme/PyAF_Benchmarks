@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_mc
+TIME :  Date N= 1298 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  ZOT.MC N= 1298 H= 7 HEAD= [9.6598  9.73708 9.48592 9.18648 9.24442] TAIL= [8.29777 8.36539 8.35    8.31    8.3    ]
+    ZOT.MC       Date
+0  9.65980 2011-07-28
+1  9.73708 2011-07-29
+2  9.48592 2011-08-01
+3  9.18648 2011-08-02
+4  9.24442 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1298 entries, 0 to 1297
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   ZOT.MC  1298 non-null   float64       
+ 1   Date    1298 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _ZOT.MC   _ZOT.MC_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0107        0.0138  7.800000e-03
+1   None   CumSum_ZOT.MC  CumSum_ZOT.MC_Lag1Trend_residue_zeroCycle_resi...  ...  0.0116        0.0138  7.800000e-03
+2   None     Diff_ZOT.MC  Diff_ZOT.MC_Lag1Trend_residue_zeroCycle_residu...  ...  0.0107        0.0138  7.800000e-03
+3   None  RelDiff_ZOT.MC  RelDiff_ZOT.MC_Lag1Trend_residue_zeroCycle_res...  ...  0.0107        0.0138  7.800000e-03
+4   None         _ZOT.MC  _ZOT.MC_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  0.0106        0.0139  8.500000e-03
+..   ...             ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_ZOT.MC  RelDiff_ZOT.MC_Lag1Trend_residue_bestCycle_byL...  ...  4.2911   586052.0336  2.377902e+07
+92  None  RelDiff_ZOT.MC  RelDiff_ZOT.MC_Lag1Trend_residue_zeroCycle_res...  ...  4.4345   587844.5262  2.377902e+07
+93  None  RelDiff_ZOT.MC  RelDiff_ZOT.MC_ConstantTrend_residue_Seasonal_...  ...  2.6233   592459.2599  2.377902e+07
+94  None  RelDiff_ZOT.MC  RelDiff_ZOT.MC_ConstantTrend_residue_bestCycle...  ...  2.6233   592459.2599  2.377902e+07
+95  None  RelDiff_ZOT.MC  RelDiff_ZOT.MC_ConstantTrend_residue_zeroCycle...  ...  2.7636   595810.5310  2.377902e+07
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _ZOT.MC   _ZOT.MC_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0107        0.0138    0.0078
+1  None   CumSum_ZOT.MC  CumSum_ZOT.MC_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0116        0.0138    0.0078
+2  None     Diff_ZOT.MC  Diff_ZOT.MC_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0107        0.0138    0.0078
+3  None  RelDiff_ZOT.MC  RelDiff_ZOT.MC_Lag1Trend_residue_zeroCycle_res...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0107        0.0138    0.0078
+4  None         _ZOT.MC  _ZOT.MC_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0106        0.0139    0.0085
+7 0    8.35
+1    8.42
+2    8.39
+3    8.45
+4    8.58
+5    8.60
+6    8.72
+Name: ZOT.MC, dtype: float64
+7 0    8.3
+1    8.3
+2    8.3
+3    8.3
+4    8.3
+5    8.3
+6    8.3
+Name: ZOT.MC_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_ZOT.MC ZOT.MC [8.35, 8.42, 8.39, 8.45, 8.58, 8.6, 8.72]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_ZOT.MC ZOT.MC [8.3, 8.3, 8.3, 8.3, 8.3, 8.3, 8.3]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_ZOT.MC ZOT.MC 1298 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_ZOT.MC ZOT.MC 10.614030838012695
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_ZOT.MC ZOT.MC Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_ZOT.MC ZOT.MC 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_ZOT.MC ZOT.MC 0.0235 0.0239 2.8106
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_ZOT.MC ZOT.MC 0.20142857142857068 0.23673372624714226 -2.6228232156517204
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_mc_ZOT.MC_7'

@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 306 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2012-09-24T00:00:00.000000000' '2012-09-25T00:00:00.000000000'
+ '2012-09-26T00:00:00.000000000' '2012-09-27T00:00:00.000000000'
+ '2012-09-28T00:00:00.000000000']
+SIGNAL :  PSS N= 306 H= 7 HEAD= [11.82 11.78 11.66 11.07 11.64] TAIL= [21.69 21.7  21.73 21.73 21.71]
+     PSS       Date
+0  11.82 2011-07-28
+1  11.78 2011-07-29
+2  11.66 2011-08-01
+3  11.07 2011-08-02
+4  11.64 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 306 entries, 0 to 305
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   PSS     306 non-null    float64       
+ 1   Date    306 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 7.2 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _PSS      _PSS_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.880000e-02  1.000000e-03  7.000000e-04
+1   None     CumSum_PSS  CumSum_PSS_Lag1Trend_residue_zeroCycle_residue...  ...  2.290000e-02  1.000000e-03  7.000000e-04
+2   None       Diff_PSS  Diff_PSS_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.880000e-02  1.000000e-03  7.000000e-04
+3   None    RelDiff_PSS  RelDiff_PSS_Lag1Trend_residue_zeroCycle_residu...  ...  1.880000e-02  1.000000e-03  7.000000e-04
+4   None           _PSS  _PSS_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  ...  1.880000e-02  1.900000e-03  1.900000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_PSS  RelDiff_PSS_Lag1Trend_residue_Seasonal_DayOfWe...  ...  1.578874e+07  1.144411e+07  1.138025e+07
+92  None    RelDiff_PSS  RelDiff_PSS_PolyTrend_residue_Seasonal_DayOfWe...  ...  1.587210e+07  1.144411e+07  1.138025e+07
+93  None    RelDiff_PSS  RelDiff_PSS_PolyTrend_residue_Seasonal_DayOfWe...  ...  1.587208e+07  1.144411e+07  1.138025e+07
+94  None    RelDiff_PSS  RelDiff_PSS_PolyTrend_residue_bestCycle_byL2_r...  ...  1.587210e+07  1.144411e+07  1.138025e+07
+95  None    RelDiff_PSS  RelDiff_PSS_ConstantTrend_residue_bestCycle_by...  ...  1.577936e+07  1.144411e+07  1.138025e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _PSS      _PSS_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0188        0.0010    0.0007
+1  None     CumSum_PSS  CumSum_PSS_Lag1Trend_residue_zeroCycle_residue...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0229        0.0010    0.0007
+2  None       Diff_PSS  Diff_PSS_Lag1Trend_residue_zeroCycle_residue_NoAR           Difference_Lag1Trend_NoCycle_NoAR          64   0.0188        0.0010    0.0007
+3  None    RelDiff_PSS  RelDiff_PSS_Lag1Trend_residue_zeroCycle_residu...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0188        0.0010    0.0007
+4  None           _PSS  _PSS_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0188        0.0019    0.0019
+7 0    21.73
+1    21.73
+2    21.74
+3    21.75
+4    21.72
+5    21.72
+6    21.72
+Name: PSS, dtype: float64
+7 0    21.71
+1    21.71
+2    21.71
+3    21.71
+4    21.71
+5    21.71
+6    21.71
+Name: PSS_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_PSS PSS [21.73, 21.73, 21.74, 21.75, 21.72, 21.72, 21.72]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_PSS PSS [21.71, 21.71, 21.71, 21.71, 21.71, 21.71, 21.71]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_PSS PSS 306 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_PSS PSS 10.310535192489624
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_PSS PSS Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_PSS PSS 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_PSS PSS 0.0009 0.0009 2.4
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_PSS PSS 0.019999999999998557 0.02267786838055248 -3.4999994374994037
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_PSS_7'

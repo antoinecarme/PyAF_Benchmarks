@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 668 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2014-03-19T00:00:00.000000000' '2014-03-20T00:00:00.000000000'
+ '2014-03-21T00:00:00.000000000' '2014-03-24T00:00:00.000000000'
+ '2014-03-25T00:00:00.000000000']
+SIGNAL :  CSE N= 668 H= 7 HEAD= [6.22 6.46 6.51 6.24 6.32] TAIL= [14.92 15.05 14.85 14.7  14.69]
+    CSE       Date
+0  6.22 2011-07-28
+1  6.46 2011-07-29
+2  6.51 2011-08-01
+3  6.24 2011-08-02
+4  6.32 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 668 entries, 0 to 667
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   CSE     668 non-null    float64       
+ 1   Date    668 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 15.7 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _CSE      _CSE_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.350000e-02  8.900000e-03  6.900000e-03
+1   None           _CSE  _CSE_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  ...  1.340000e-02  8.900000e-03  6.700000e-03
+2   None     CumSum_CSE  CumSum_CSE_Lag1Trend_residue_zeroCycle_residue...  ...  1.530000e-02  8.900000e-03  6.900000e-03
+3   None       Diff_CSE  Diff_CSE_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.350000e-02  8.900000e-03  6.900000e-03
+4   None    RelDiff_CSE  RelDiff_CSE_Lag1Trend_residue_zeroCycle_residu...  ...  1.350000e-02  8.900000e-03  6.900000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_CSE  RelDiff_CSE_Lag1Trend_residue_bestCycle_byL2_r...  ...  1.437580e+07  7.980748e+06  7.223966e+06
+92  None    RelDiff_CSE  RelDiff_CSE_PolyTrend_residue_bestCycle_byL2_r...  ...  1.440710e+07  7.980748e+06  7.223966e+06
+93  None    RelDiff_CSE  RelDiff_CSE_ConstantTrend_residue_zeroCycle_re...  ...  1.440619e+07  7.980748e+06  7.223966e+06
+94  None    RelDiff_CSE  RelDiff_CSE_ConstantTrend_residue_bestCycle_by...  ...  1.431657e+07  7.980748e+06  7.223966e+06
+95  None    RelDiff_CSE  RelDiff_CSE_PolyTrend_residue_Seasonal_DayOfWe...  ...  1.440712e+07  7.980748e+06  7.223966e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _CSE      _CSE_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0135        0.0089    0.0069
+1  None           _CSE  _CSE_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0134        0.0089    0.0067
+2  None     CumSum_CSE  CumSum_CSE_Lag1Trend_residue_zeroCycle_residue...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0153        0.0089    0.0069
+3  None       Diff_CSE  Diff_CSE_Lag1Trend_residue_zeroCycle_residue_NoAR           Difference_Lag1Trend_NoCycle_NoAR          64   0.0135        0.0089    0.0069
+4  None    RelDiff_CSE  RelDiff_CSE_Lag1Trend_residue_zeroCycle_residu...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0135        0.0089    0.0069
+7 0    14.61
+1    14.19
+2    14.23
+3    14.59
+4    15.15
+5    15.43
+6    15.81
+Name: CSE, dtype: float64
+7 0    14.69
+1    14.69
+2    14.69
+3    14.69
+4    14.69
+5    14.69
+6    14.69
+Name: CSE_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_CSE CSE [14.61, 14.19, 14.23, 14.59, 15.15, 15.43, 15.81]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_CSE CSE [14.69, 14.69, 14.69, 14.69, 14.69, 14.69, 14.69]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_CSE CSE 668 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_CSE CSE 11.26535177230835
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_CSE CSE Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_CSE CSE 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_CSE CSE 0.0327 0.0332 1.4538
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_CSE CSE 0.4942857142857144 0.5966094678622336 -0.0867603807910422
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_CSE_7'

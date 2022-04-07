@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1294 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  DPH.L N= 1294 H= 7 HEAD= [426.033 426.033 427.846 425.127 423.767] TAIL= [1230. 1216. 1200. 1189. 1205.]
+     DPH.L       Date
+0  426.033 2011-07-28
+1  426.033 2011-07-29
+2  427.846 2011-08-01
+3  425.127 2011-08-02
+4  423.767 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1294 entries, 0 to 1293
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   DPH.L   1294 non-null   float64       
+ 1   Date    1294 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _DPH.L    _DPH.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.010000e-02  1.110000e-02  1.430000e-02
+1   None         _DPH.L  _DPH.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  1.020000e-02  1.110000e-02  1.480000e-02
+2   None   CumSum_DPH.L  CumSum_DPH.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.110000e-02  1.110000e-02  1.430000e-02
+3   None     Diff_DPH.L  Diff_DPH.L_Lag1Trend_residue_zeroCycle_residue...  ...  1.010000e-02  1.110000e-02  1.430000e-02
+4   None  RelDiff_DPH.L  RelDiff_DPH.L_Lag1Trend_residue_zeroCycle_resi...  ...  1.010000e-02  1.110000e-02  1.430000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_DPH.L  RelDiff_DPH.L_Lag1Trend_residue_bestCycle_byL2...  ...  5.335582e+06  3.223803e+06  2.793054e+06
+92  None  RelDiff_DPH.L  RelDiff_DPH.L_PolyTrend_residue_zeroCycle_resi...  ...  5.343973e+06  3.223803e+06  2.793054e+06
+93  None  RelDiff_DPH.L  RelDiff_DPH.L_ConstantTrend_residue_Seasonal_D...  ...  5.284718e+06  3.223803e+06  2.793054e+06
+94  None  RelDiff_DPH.L  RelDiff_DPH.L_ConstantTrend_residue_bestCycle_...  ...  5.286984e+06  3.223803e+06  2.793054e+06
+95  None  RelDiff_DPH.L  RelDiff_DPH.L_PolyTrend_residue_zeroCycle_resi...  ...  5.345368e+06  3.223803e+06  2.793054e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _DPH.L    _DPH.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0101        0.0111    0.0143
+1  None         _DPH.L  _DPH.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0102        0.0111    0.0148
+2  None   CumSum_DPH.L  CumSum_DPH.L_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0111        0.0111    0.0143
+3  None     Diff_DPH.L  Diff_DPH.L_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0101        0.0111    0.0143
+4  None  RelDiff_DPH.L  RelDiff_DPH.L_Lag1Trend_residue_zeroCycle_resi...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0101        0.0111    0.0143
+7 0    1241.0
+1    1259.0
+2    1256.0
+3    1269.0
+4    1277.0
+5    1296.0
+6    1292.0
+Name: DPH.L, dtype: float64
+7 0    1205.0
+1    1205.0
+2    1205.0
+3    1205.0
+4    1205.0
+5    1205.0
+6    1205.0
+Name: DPH.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_DPH.L DPH.L [1241.0, 1259.0, 1256.0, 1269.0, 1277.0, 1296.0, 1292.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_DPH.L DPH.L [1205.0, 1205.0, 1205.0, 1205.0, 1205.0, 1205.0, 1205.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_DPH.L DPH.L 1294 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_DPH.L DPH.L 11.265563249588013
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_DPH.L DPH.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_DPH.L DPH.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_DPH.L DPH.L 0.051 0.0524 6.0
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_DPH.L DPH.L 65.0 67.55209629823278 -12.489442567566998
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_DPH.L_7'

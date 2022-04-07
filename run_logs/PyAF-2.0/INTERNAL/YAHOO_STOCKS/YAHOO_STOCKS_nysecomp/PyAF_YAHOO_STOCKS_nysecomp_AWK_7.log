@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  AWK N= 1251 H= 7 HEAD= [28.27     28.       28.049999 27.639999 28.290001] TAIL= [81.290001 82.       81.730003 81.589996 81.449997]
+         AWK       Date
+0  28.270000 2011-07-28
+1  28.000000 2011-07-29
+2  28.049999 2011-08-01
+3  27.639999 2011-08-02
+4  28.290001 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   AWK     1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None       Diff_AWK  Diff_AWK_Lag1Trend_residue_bestCycle_byL2_resi...  ...  7.900000e-03  8.800000e-03  8.300000e-03
+1   None       Diff_AWK  Diff_AWK_Lag1Trend_residue_Seasonal_DayOfWeek_...  ...  8.500000e-03  8.900000e-03  9.600000e-03
+2   None           _AWK  _AWK_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  ...  7.800000e-03  9.000000e-03  7.300000e-03
+3   None           _AWK  _AWK_Lag1Trend_residue_bestCycle_byL2_residue_...  ...  7.800000e-03  9.000000e-03  7.300000e-03
+4   None           _AWK      _AWK_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  7.900000e-03  9.100000e-03  7.200000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_AWK  RelDiff_AWK_Lag1Trend_residue_bestCycle_byL2_r...  ...  6.723353e+06  4.399880e+06  3.316277e+06
+92  None    RelDiff_AWK  RelDiff_AWK_PolyTrend_residue_zeroCycle_residu...  ...  6.742633e+06  4.399881e+06  3.316278e+06
+93  None    RelDiff_AWK  RelDiff_AWK_PolyTrend_residue_bestCycle_byL2_r...  ...  6.742633e+06  4.399881e+06  3.316278e+06
+94  None    RelDiff_AWK  RelDiff_AWK_ConstantTrend_residue_zeroCycle_re...  ...  6.734568e+06  4.399881e+06  3.316278e+06
+95  None    RelDiff_AWK  RelDiff_AWK_PolyTrend_residue_bestCycle_byL2_r...  ...  6.742634e+06  4.399881e+06  3.316278e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                      Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None       Diff_AWK  Diff_AWK_Lag1Trend_residue_bestCycle_byL2_resi...               Difference_Lag1Trend_Cycle_NoAR          72   0.0079        0.0088    0.0083
+1  None       Diff_AWK  Diff_AWK_Lag1Trend_residue_Seasonal_DayOfWeek_...  Difference_Lag1Trend_Seasonal_DayOfWeek_NoAR          68   0.0085        0.0089    0.0096
+2  None           _AWK  _AWK_Lag1Trend_residue_Seasonal_DayOfWeek_resi...    NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0078        0.0090    0.0073
+3  None           _AWK  _AWK_Lag1Trend_residue_bestCycle_byL2_residue_...                 NoTransf_Lag1Trend_Cycle_NoAR          40   0.0078        0.0090    0.0073
+4  None           _AWK      _AWK_Lag1Trend_residue_zeroCycle_residue_NoAR               NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0079        0.0091    0.0072
+7 0    81.720001
+1    81.589996
+2    81.150002
+3    82.839996
+4    82.830002
+5    82.230003
+6    81.470001
+Name: AWK, dtype: float64
+7 0    81.449997
+1    81.449997
+2    81.449997
+3    81.449997
+4    81.449997
+5    81.449997
+6    81.449997
+Name: AWK_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_AWK AWK [81.720001, 81.589996, 81.150002, 82.839996, 82.83000200000001, 82.230003, 81.470001]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_AWK AWK [81.449997, 81.449997, 81.449997, 81.449997, 81.449997, 81.449997, 81.449997]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_AWK AWK 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_AWK AWK 12.48859691619873
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_AWK AWK Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_AWK AWK 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_AWK AWK 0.0074 0.0075 1.0106
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_AWK AWK 0.6114302857142876 0.8130910527223556 -0.7183554482712926
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_AWK_7'

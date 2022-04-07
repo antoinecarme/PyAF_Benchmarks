@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftse250
+TIME :  Date N= 1294 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  AGK.L N= 1294 H= 7 HEAD= [1933.996 1932.996 1902.995 1872.994 1820.997] TAIL= [1236. 1246. 1257. 1259. 1248.]
+      AGK.L       Date
+0  1933.996 2011-07-28
+1  1932.996 2011-07-29
+2  1902.995 2011-08-01
+3  1872.994 2011-08-02
+4  1820.997 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1294 entries, 0 to 1293
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   AGK.L   1294 non-null   float64       
+ 1   Date    1294 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _AGK.L    _AGK.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0124  1.880000e-02  8.000000e-03
+1   None   CumSum_AGK.L  CumSum_AGK.L_Lag1Trend_residue_zeroCycle_resid...  ...  0.0134  1.880000e-02  8.000000e-03
+2   None     Diff_AGK.L  Diff_AGK.L_Lag1Trend_residue_zeroCycle_residue...  ...  0.0124  1.880000e-02  8.000000e-03
+3   None  RelDiff_AGK.L  RelDiff_AGK.L_Lag1Trend_residue_zeroCycle_resi...  ...  0.0124  1.880000e-02  8.000000e-03
+4   None         _AGK.L  _AGK.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  0.0125  1.900000e-02  7.900000e-03
+..   ...            ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_AGK.L  RelDiff_AGK.L_LinearTrend_residue_bestCycle_by...  ...  0.2422  5.147195e+07  9.385543e+07
+92  None  RelDiff_AGK.L  RelDiff_AGK.L_LinearTrend_residue_Seasonal_Day...  ...  0.2471  5.147196e+07  9.385543e+07
+93  None  RelDiff_AGK.L  RelDiff_AGK.L_ConstantTrend_residue_zeroCycle_...  ...  0.1489  5.147198e+07  9.385543e+07
+94  None  RelDiff_AGK.L  RelDiff_AGK.L_ConstantTrend_residue_bestCycle_...  ...  0.1470  5.147199e+07  9.385543e+07
+95  None  RelDiff_AGK.L  RelDiff_AGK.L_ConstantTrend_residue_Seasonal_D...  ...  0.1498  5.147199e+07  9.385543e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _AGK.L    _AGK.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0124        0.0188    0.0080
+1  None   CumSum_AGK.L  CumSum_AGK.L_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0134        0.0188    0.0080
+2  None     Diff_AGK.L  Diff_AGK.L_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0124        0.0188    0.0080
+3  None  RelDiff_AGK.L  RelDiff_AGK.L_Lag1Trend_residue_zeroCycle_resi...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0124        0.0188    0.0080
+4  None         _AGK.L  _AGK.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0125        0.0190    0.0079
+7 0    1238.0
+1    1257.0
+2    1264.0
+3    1262.0
+4    1278.0
+5    1261.0
+6    1279.0
+Name: AGK.L, dtype: float64
+7 0    1248.0
+1    1248.0
+2    1248.0
+3    1248.0
+4    1248.0
+5    1248.0
+6    1248.0
+Name: AGK.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_AGK.L AGK.L [1238.0, 1257.0, 1264.0, 1262.0, 1278.0, 1261.0, 1279.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_AGK.L AGK.L [1248.0, 1248.0, 1248.0, 1248.0, 1248.0, 1248.0, 1248.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_AGK.L AGK.L 1294 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_AGK.L AGK.L 12.551229476928711
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_AGK.L AGK.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_AGK.L AGK.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_AGK.L AGK.L 0.0139 0.014 1.3345
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_AGK.L AGK.L 17.571428571428573 19.504578217141006 -1.3208416334659328
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftse250_AGK.L_7'

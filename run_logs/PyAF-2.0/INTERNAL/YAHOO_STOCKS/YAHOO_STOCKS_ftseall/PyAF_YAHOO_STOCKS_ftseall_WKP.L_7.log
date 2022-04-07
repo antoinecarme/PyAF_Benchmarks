@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1294 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  WKP.L N= 1294 H= 7 HEAD= [27.75 27.   27.5  26.5  25.5 ] TAIL= [671.  674.5 680.  680.  679. ]
+   WKP.L       Date
+0  27.75 2011-07-28
+1  27.00 2011-07-29
+2  27.50 2011-08-01
+3  26.50 2011-08-02
+4  25.50 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1294 entries, 0 to 1293
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   WKP.L   1294 non-null   float64       
+ 1   Date    1294 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model                                    Category  Complexity       FitMAPE  ForecastMAPE     TestMAPE
+0   None         _WKP.L    _WKP.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32  1.320000e-02        0.0135       0.0222
+1   None   CumSum_WKP.L  CumSum_WKP.L_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64  1.410000e-02        0.0135       0.0222
+2   None     Diff_WKP.L  Diff_WKP.L_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64  1.320000e-02        0.0135       0.0222
+3   None  RelDiff_WKP.L  RelDiff_WKP.L_Lag1Trend_residue_zeroCycle_resi...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64  1.320000e-02        0.0135       0.0222
+4   None         _WKP.L  _WKP.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36  1.340000e-02        0.0136       0.0215
+..   ...            ...                                                ...                                         ...         ...           ...           ...          ...
+91  None  RelDiff_WKP.L  RelDiff_WKP.L_LinearTrend_residue_bestCycle_by...   RelativeDifference_LinearTrend_Cycle_NoAR          56  1.007635e+06   409706.8807  526951.4744
+92  None  RelDiff_WKP.L  RelDiff_WKP.L_PolyTrend_residue_zeroCycle_resi...   RelativeDifference_PolyTrend_NoCycle_NoAR          48  1.007645e+06   409707.6564  526952.3006
+93  None  RelDiff_WKP.L  RelDiff_WKP.L_PolyTrend_residue_bestCycle_byL2...     RelativeDifference_PolyTrend_Cycle_NoAR          56  1.007643e+06   409707.6564  526952.3006
+94  None  RelDiff_WKP.L  RelDiff_WKP.L_ConstantTrend_residue_bestCycle_...   RelativeDifference_ConstantTrend_Cycle_AR         104  9.399388e+05   409707.6564  526952.3006
+95  None  RelDiff_WKP.L  RelDiff_WKP.L_PolyTrend_residue_bestCycle_byL2...       RelativeDifference_PolyTrend_Cycle_AR         120  1.007652e+06   409707.6564  526952.3006
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _WKP.L    _WKP.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0132        0.0135    0.0222
+1  None   CumSum_WKP.L  CumSum_WKP.L_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0141        0.0135    0.0222
+2  None     Diff_WKP.L  Diff_WKP.L_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0132        0.0135    0.0222
+3  None  RelDiff_WKP.L  RelDiff_WKP.L_Lag1Trend_residue_zeroCycle_resi...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0132        0.0135    0.0222
+4  None         _WKP.L  _WKP.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0134        0.0136    0.0215
+7 0    679.5
+1    711.0
+2    694.5
+3    691.0
+4    687.0
+5    681.0
+6    693.0
+Name: WKP.L, dtype: float64
+7 0    679.0
+1    679.0
+2    679.0
+3    679.0
+4    679.0
+5    679.0
+6    679.0
+Name: WKP.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_WKP.L WKP.L [679.5, 711.0, 694.5, 691.0, 687.0, 681.0, 693.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_WKP.L WKP.L [679.0, 679.0, 679.0, 679.0, 679.0, 679.0, 679.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_WKP.L WKP.L 1294 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_WKP.L WKP.L 11.066210269927979
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_WKP.L WKP.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_WKP.L WKP.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_WKP.L WKP.L 0.0172 0.0174 0.9796
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_WKP.L WKP.L 12.0 15.45731449601034 -1.5169300225729847
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_WKP.L_7'

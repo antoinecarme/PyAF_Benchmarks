@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_tsx
+TIME :  Date N= 1248 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  SSO.TO N= 1248 H= 7 HEAD= [26.65     26.139999 27.4      27.66     25.889999] TAIL= [18.65 19.07 18.75 18.43 18.5 ]
+      SSO.TO       Date
+0  26.650000 2011-07-28
+1  26.139999 2011-07-29
+2  27.400000 2011-08-02
+3  27.660000 2011-08-03
+4  25.889999 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1248 entries, 0 to 1247
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   SSO.TO  1248 non-null   float64       
+ 1   Date    1248 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.2 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _SSO.TO   _SSO.TO_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.830000e-02  3.080000e-02  2.300000e-02
+1   None   CumSum_SSO.TO  CumSum_SSO.TO_Lag1Trend_residue_zeroCycle_resi...  ...  2.930000e-02  3.080000e-02  2.300000e-02
+2   None     Diff_SSO.TO  Diff_SSO.TO_Lag1Trend_residue_zeroCycle_residu...  ...  2.830000e-02  3.080000e-02  2.300000e-02
+3   None  RelDiff_SSO.TO  RelDiff_SSO.TO_Lag1Trend_residue_zeroCycle_res...  ...  2.830000e-02  3.080000e-02  2.300000e-02
+4   None         _SSO.TO  _SSO.TO_Lag1Trend_residue_bestCycle_byL2_resid...  ...  2.810000e-02  3.110000e-02  2.370000e-02
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_SSO.TO  RelDiff_SSO.TO_ConstantTrend_residue_Seasonal_...  ...  2.345543e+08  2.632469e+08  1.176183e+08
+92  None  RelDiff_SSO.TO  RelDiff_SSO.TO_Lag1Trend_residue_bestCycle_byL...  ...  2.343844e+08  2.632469e+08  1.176183e+08
+93  None  RelDiff_SSO.TO  RelDiff_SSO.TO_PolyTrend_residue_zeroCycle_res...  ...  2.345516e+08  2.632469e+08  1.176183e+08
+94  None  RelDiff_SSO.TO  RelDiff_SSO.TO_LinearTrend_residue_Seasonal_Da...  ...  2.345666e+08  2.632469e+08  1.176183e+08
+95  None  RelDiff_SSO.TO  RelDiff_SSO.TO_PolyTrend_residue_Seasonal_DayO...  ...  2.345585e+08  2.632469e+08  1.176183e+08
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _SSO.TO   _SSO.TO_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0283        0.0308    0.0230
+1  None   CumSum_SSO.TO  CumSum_SSO.TO_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0293        0.0308    0.0230
+2  None     Diff_SSO.TO  Diff_SSO.TO_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0283        0.0308    0.0230
+3  None  RelDiff_SSO.TO  RelDiff_SSO.TO_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0283        0.0308    0.0230
+4  None         _SSO.TO  _SSO.TO_Lag1Trend_residue_bestCycle_byL2_resid...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0281        0.0311    0.0237
+7 0    18.219999
+1    17.049999
+2    17.610001
+3    17.360001
+4    16.719999
+5    17.160000
+6    17.900000
+Name: SSO.TO, dtype: float64
+7 0    18.5
+1    18.5
+2    18.5
+3    18.5
+4    18.5
+5    18.5
+6    18.5
+Name: SSO.TO_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_SSO.TO SSO.TO [18.219998999999998, 17.049999, 17.610001, 17.360001, 16.719998999999998, 17.16, 17.9]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_SSO.TO SSO.TO [18.5, 18.5, 18.5, 18.5, 18.5, 18.5, 18.5]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_SSO.TO SSO.TO 1248 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_SSO.TO SSO.TO 11.312341213226318
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_SSO.TO SSO.TO Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_SSO.TO SSO.TO 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_SSO.TO SSO.TO 0.0621 0.0598 1.6872
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_SSO.TO SSO.TO 1.0685715714285722 1.170872870981609 -4.984088995643089
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_tsx_SSO.TO_7'

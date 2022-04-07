@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_mibtel
+TIME :  Date N= 1297 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  FM.MI N= 1297 H= 7 HEAD= [3.42877 3.46959 3.42877 3.28835 3.28998] TAIL= [1.589 1.57  1.594 1.601 1.61 ]
+     FM.MI       Date
+0  3.42877 2011-07-28
+1  3.46959 2011-07-29
+2  3.42877 2011-08-01
+3  3.28835 2011-08-02
+4  3.28998 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1297 entries, 0 to 1296
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   FM.MI   1297 non-null   float64       
+ 1   Date    1297 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _FM.MI    _FM.MI_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0138  2.150000e-02  1.340000e-02
+1   None   CumSum_FM.MI  CumSum_FM.MI_Lag1Trend_residue_zeroCycle_resid...  ...  0.0148  2.150000e-02  1.340000e-02
+2   None     Diff_FM.MI  Diff_FM.MI_Lag1Trend_residue_zeroCycle_residue...  ...  0.0138  2.150000e-02  1.340000e-02
+3   None  RelDiff_FM.MI  RelDiff_FM.MI_Lag1Trend_residue_zeroCycle_resi...  ...  0.0138  2.150000e-02  1.340000e-02
+4   None         _FM.MI  _FM.MI_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  0.0139  2.170000e-02  1.410000e-02
+..   ...            ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_FM.MI  RelDiff_FM.MI_LinearTrend_residue_zeroCycle_re...  ...  0.2644  4.830668e+07  1.314707e+08
+92  None  RelDiff_FM.MI  RelDiff_FM.MI_ConstantTrend_residue_zeroCycle_...  ...  0.2019  4.833037e+07  1.314707e+08
+93  None  RelDiff_FM.MI  RelDiff_FM.MI_Lag1Trend_residue_zeroCycle_resi...  ...  0.1723  4.865100e+07  1.314707e+08
+94  None  RelDiff_FM.MI  RelDiff_FM.MI_Lag1Trend_residue_bestCycle_byL2...  ...  0.1791  4.865101e+07  1.314707e+08
+95  None  RelDiff_FM.MI  RelDiff_FM.MI_Lag1Trend_residue_Seasonal_DayOf...  ...  0.1655  4.865101e+07  1.314707e+08
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _FM.MI    _FM.MI_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0138        0.0215    0.0134
+1  None   CumSum_FM.MI  CumSum_FM.MI_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0148        0.0215    0.0134
+2  None     Diff_FM.MI  Diff_FM.MI_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0138        0.0215    0.0134
+3  None  RelDiff_FM.MI  RelDiff_FM.MI_Lag1Trend_residue_zeroCycle_resi...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0138        0.0215    0.0134
+4  None         _FM.MI  _FM.MI_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0139        0.0217    0.0141
+7 0    1.605
+1    1.588
+2    1.620
+3    1.608
+4    1.619
+5    1.607
+6    1.640
+Name: FM.MI, dtype: float64
+7 0    1.61
+1    1.61
+2    1.61
+3    1.61
+4    1.61
+5    1.61
+6    1.61
+Name: FM.MI_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_FM.MI FM.MI [1.605, 1.588, 1.62, 1.608, 1.619, 1.607, 1.64]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_FM.MI FM.MI [1.61, 1.61, 1.61, 1.61, 1.61, 1.61, 1.61]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_FM.MI FM.MI 1297 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_FM.MI FM.MI 11.524309158325195
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_FM.MI FM.MI Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_FM.MI FM.MI 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_FM.MI FM.MI 0.0072 0.0072 0.5934
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_FM.MI FM.MI 0.011571428571428566 0.015132745950421507 -0.026436085025130174
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_mibtel_FM.MI_7'

@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_mc
+TIME :  Date N= 1298 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  ECR.MC N= 1298 H= 7 HEAD= [0.976 0.974 0.97  0.922 0.91 ] TAIL= [1.39  1.611 1.575 1.679 1.765]
+   ECR.MC       Date
+0   0.976 2011-07-28
+1   0.974 2011-07-29
+2   0.970 2011-08-01
+3   0.922 2011-08-02
+4   0.910 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1298 entries, 0 to 1297
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   ECR.MC  1298 non-null   float64       
+ 1   Date    1298 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _ECR.MC   _ECR.MC_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.750000e-02  2.920000e-02  6.000000e-02
+1   None         _ECR.MC  _ECR.MC_Lag1Trend_residue_bestCycle_byL2_resid...  ...  1.770000e-02  2.920000e-02  6.050000e-02
+2   None   CumSum_ECR.MC  CumSum_ECR.MC_Lag1Trend_residue_zeroCycle_resi...  ...  1.850000e-02  2.920000e-02  6.000000e-02
+3   None     Diff_ECR.MC  Diff_ECR.MC_Lag1Trend_residue_zeroCycle_residu...  ...  1.750000e-02  2.920000e-02  6.000000e-02
+4   None  RelDiff_ECR.MC  RelDiff_ECR.MC_Lag1Trend_residue_zeroCycle_res...  ...  1.750000e-02  2.920000e-02  6.000000e-02
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_ECR.MC  RelDiff_ECR.MC_LinearTrend_residue_bestCycle_b...  ...  1.247488e+08  9.637973e+07  4.142291e+07
+92  None  RelDiff_ECR.MC  RelDiff_ECR.MC_LinearTrend_residue_Seasonal_Da...  ...  1.247613e+08  9.637973e+07  4.142291e+07
+93  None  RelDiff_ECR.MC  RelDiff_ECR.MC_LinearTrend_residue_bestCycle_b...  ...  1.247613e+08  9.637973e+07  4.142291e+07
+94  None  RelDiff_ECR.MC  RelDiff_ECR.MC_Lag1Trend_residue_Seasonal_DayO...  ...  1.246660e+08  9.637973e+07  4.142291e+07
+95  None  RelDiff_ECR.MC  RelDiff_ECR.MC_Lag1Trend_residue_bestCycle_byL...  ...  1.246660e+08  9.637973e+07  4.142291e+07
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _ECR.MC   _ECR.MC_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0175        0.0292    0.0600
+1  None         _ECR.MC  _ECR.MC_Lag1Trend_residue_bestCycle_byL2_resid...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0177        0.0292    0.0605
+2  None   CumSum_ECR.MC  CumSum_ECR.MC_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0185        0.0292    0.0600
+3  None     Diff_ECR.MC  Diff_ECR.MC_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0175        0.0292    0.0600
+4  None  RelDiff_ECR.MC  RelDiff_ECR.MC_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0175        0.0292    0.0600
+7 0    1.819
+1    1.958
+2    1.928
+3    1.574
+4    1.761
+5    1.730
+6    1.673
+Name: ECR.MC, dtype: float64
+7 0    1.765
+1    1.765
+2    1.765
+3    1.765
+4    1.765
+5    1.765
+6    1.765
+Name: ECR.MC_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_ECR.MC ECR.MC [1.819, 1.9580000000000002, 1.9280000000000002, 1.574, 1.761, 1.73, 1.673]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_ECR.MC ECR.MC [1.765, 1.765, 1.765, 1.765, 1.765, 1.765, 1.765]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_ECR.MC ECR.MC 1298 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_ECR.MC ECR.MC 11.466070413589478
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_ECR.MC ECR.MC Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_ECR.MC ECR.MC 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_ECR.MC ECR.MC 0.0588 0.0589 0.7863
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_ECR.MC ECR.MC 0.1045714285714286 0.1270095609449485 -0.009894006476428352
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_mc_ECR.MC_7'

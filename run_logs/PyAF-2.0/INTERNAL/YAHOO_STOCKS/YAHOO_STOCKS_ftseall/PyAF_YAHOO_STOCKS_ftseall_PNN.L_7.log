@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1295 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  PNN.L N= 1295 H= 7 HEAD= [720.998 724.498 713.998 735.498 737.498] TAIL= [916.5 904.  906.  905.5 911.5]
+     PNN.L       Date
+0  720.998 2011-07-28
+1  724.498 2011-07-29
+2  713.998 2011-08-01
+3  735.498 2011-08-02
+4  737.498 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1295 entries, 0 to 1294
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   PNN.L   1295 non-null   float64       
+ 1   Date    1295 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _PNN.L    _PNN.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  7.700000e-03  1.000000e-02  1.010000e-02
+1   None         _PNN.L  _PNN.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  7.800000e-03  1.000000e-02  1.000000e-02
+2   None         _PNN.L  _PNN.L_Lag1Trend_residue_bestCycle_byL2_residu...  ...  7.700000e-03  1.000000e-02  1.020000e-02
+3   None   CumSum_PNN.L  CumSum_PNN.L_Lag1Trend_residue_zeroCycle_resid...  ...  8.700000e-03  1.000000e-02  1.010000e-02
+4   None     Diff_PNN.L  Diff_PNN.L_Lag1Trend_residue_zeroCycle_residue...  ...  7.700000e-03  1.000000e-02  1.010000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_PNN.L  RelDiff_PNN.L_LinearTrend_residue_zeroCycle_re...  ...  1.687221e+07  1.507476e+07  1.353488e+07
+92  None  RelDiff_PNN.L  RelDiff_PNN.L_LinearTrend_residue_Seasonal_Day...  ...  1.687050e+07  1.507476e+07  1.353488e+07
+93  None  RelDiff_PNN.L  RelDiff_PNN.L_LinearTrend_residue_Seasonal_Day...  ...  1.687058e+07  1.507476e+07  1.353488e+07
+94  None  RelDiff_PNN.L  RelDiff_PNN.L_PolyTrend_residue_Seasonal_DayOf...  ...  1.687009e+07  1.507476e+07  1.353488e+07
+95  None  RelDiff_PNN.L  RelDiff_PNN.L_ConstantTrend_residue_zeroCycle_...  ...  1.687058e+07  1.507476e+07  1.353488e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _PNN.L    _PNN.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0077          0.01    0.0101
+1  None         _PNN.L  _PNN.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0078          0.01    0.0100
+2  None         _PNN.L  _PNN.L_Lag1Trend_residue_bestCycle_byL2_residu...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0077          0.01    0.0102
+3  None   CumSum_PNN.L  CumSum_PNN.L_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0087          0.01    0.0101
+4  None     Diff_PNN.L  Diff_PNN.L_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0077          0.01    0.0101
+7 0    918.0
+1    915.0
+2    915.0
+3    917.0
+4    913.0
+5    911.0
+6    912.5
+Name: PNN.L, dtype: float64
+7 0    911.5
+1    911.5
+2    911.5
+3    911.5
+4    911.5
+5    911.5
+6    911.5
+Name: PNN.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_PNN.L PNN.L [918.0, 915.0, 915.0, 917.0, 913.0, 911.0, 912.5]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_PNN.L PNN.L [911.5, 911.5, 911.5, 911.5, 911.5, 911.5, 911.5]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_PNN.L PNN.L 1295 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_PNN.L PNN.L 10.777749300003052
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_PNN.L PNN.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_PNN.L PNN.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_PNN.L PNN.L 0.0034 0.0034 1.5086
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_PNN.L PNN.L 3.142857142857143 3.789082059964241 -1.679999999992853
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_PNN.L_7'

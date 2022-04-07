@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1292 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  SCF.L N= 1292 H= 7 HEAD= [2.005  2.0495 1.985  1.9725 1.95  ] TAIL= [2.70743 2.71599 2.71155 2.72313 2.73643]
+    SCF.L       Date
+0  2.0050 2011-07-28
+1  2.0495 2011-07-29
+2  1.9850 2011-08-01
+3  1.9725 2011-08-02
+4  1.9500 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1292 entries, 0 to 1291
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   SCF.L   1292 non-null   float64       
+ 1   Date    1292 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _SCF.L    _SCF.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  9.400000e-03  1.290000e-02  6.400000e-03
+1   None         _SCF.L  _SCF.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  9.400000e-03  1.290000e-02  6.000000e-03
+2   None         _SCF.L  _SCF.L_Lag1Trend_residue_bestCycle_byL2_residu...  ...  9.400000e-03  1.290000e-02  6.300000e-03
+3   None   CumSum_SCF.L  CumSum_SCF.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.030000e-02  1.290000e-02  6.400000e-03
+4   None     Diff_SCF.L  Diff_SCF.L_Lag1Trend_residue_zeroCycle_residue...  ...  9.400000e-03  1.290000e-02  6.400000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_SCF.L  RelDiff_SCF.L_LinearTrend_residue_zeroCycle_re...  ...  1.066849e+07  9.335296e+06  9.141370e+06
+92  None  RelDiff_SCF.L  RelDiff_SCF.L_Lag1Trend_residue_bestCycle_byL2...  ...  1.063491e+07  9.335296e+06  9.141370e+06
+93  None  RelDiff_SCF.L  RelDiff_SCF.L_ConstantTrend_residue_Seasonal_D...  ...  1.062989e+07  9.335296e+06  9.141370e+06
+94  None  RelDiff_SCF.L  RelDiff_SCF.L_PolyTrend_residue_Seasonal_DayOf...  ...  1.066307e+07  9.335296e+06  9.141370e+06
+95  None  RelDiff_SCF.L  RelDiff_SCF.L_Lag1Trend_residue_bestCycle_byL2...  ...  1.067100e+07  9.335296e+06  9.141370e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _SCF.L    _SCF.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0094        0.0129    0.0064
+1  None         _SCF.L  _SCF.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0094        0.0129    0.0060
+2  None         _SCF.L  _SCF.L_Lag1Trend_residue_bestCycle_byL2_residu...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0094        0.0129    0.0063
+3  None   CumSum_SCF.L  CumSum_SCF.L_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0103        0.0129    0.0064
+4  None     Diff_SCF.L  Diff_SCF.L_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0094        0.0129    0.0064
+7 0    2.72931
+1    2.73881
+2    2.73912
+3    2.49500
+4    2.49500
+5    2.51000
+6    2.55000
+Name: SCF.L, dtype: float64
+7 0    2.73643
+1    2.73643
+2    2.73643
+3    2.73643
+4    2.73643
+5    2.73643
+6    2.73643
+Name: SCF.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_SCF.L SCF.L [2.72931, 2.73881, 2.73912, 2.495, 2.495, 2.51, 2.55]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_SCF.L SCF.L [2.73643, 2.73643, 2.73643, 2.73643, 2.73643, 2.73643, 2.73643]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_SCF.L SCF.L 1292 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_SCF.L SCF.L 10.775620698928833
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_SCF.L SCF.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_SCF.L SCF.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_SCF.L SCF.L 0.0516 0.0494 2.519
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_SCF.L SCF.L 0.1297014285714286 0.17015420506117382 -1.3155186390282712
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_SCF.L_7'

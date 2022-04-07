@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1295 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  PRM N= 1295 H= 7 HEAD= [21.3    0.035 21.14   0.03   0.03 ] TAIL= [16.99 16.98 16.95 17.17 17.  ]
+      PRM       Date
+0  21.300 2011-07-28
+1   0.035 2011-07-29
+2  21.140 2011-08-01
+3   0.030 2011-08-02
+4   0.030 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1295 entries, 0 to 1294
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   PRM     1295 non-null   float64       
+ 1   Date    1295 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _PRM      _PRM_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  9.034900e+00  1.050000e-02  5.400000e-03
+1   None     CumSum_PRM  CumSum_PRM_Lag1Trend_residue_zeroCycle_residue...  ...  8.446000e+00  1.050000e-02  5.400000e-03
+2   None       Diff_PRM  Diff_PRM_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  9.034900e+00  1.050000e-02  5.400000e-03
+3   None    RelDiff_PRM  RelDiff_PRM_Lag1Trend_residue_zeroCycle_residu...  ...  9.034900e+00  1.050000e-02  5.400000e-03
+4   None     CumSum_PRM  CumSum_PRM_Lag1Trend_residue_Seasonal_DayOfWee...  ...  1.266330e+01  1.190000e-02  6.600000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_PRM  RelDiff_PRM_PolyTrend_residue_bestCycle_byL2_r...  ...  1.616512e+11  1.217145e+08  1.250379e+08
+92  None    RelDiff_PRM  RelDiff_PRM_LinearTrend_residue_zeroCycle_resi...  ...  1.616512e+11  1.217145e+08  1.250379e+08
+93  None    RelDiff_PRM  RelDiff_PRM_PolyTrend_residue_Seasonal_DayOfWe...  ...  1.616512e+11  1.217145e+08  1.250379e+08
+94  None    RelDiff_PRM  RelDiff_PRM_LinearTrend_residue_bestCycle_byL2...  ...  1.616158e+11  1.217145e+08  1.250379e+08
+95  None    RelDiff_PRM  RelDiff_PRM_Lag1Trend_residue_zeroCycle_residu...  ...  1.612097e+11  1.217145e+08  1.250379e+08
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                       Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _PRM      _PRM_Lag1Trend_residue_zeroCycle_residue_NoAR                NoTransf_Lag1Trend_NoCycle_NoAR          32   9.0349        0.0105    0.0054
+1  None     CumSum_PRM  CumSum_PRM_Lag1Trend_residue_zeroCycle_residue...             Integration_Lag1Trend_NoCycle_NoAR          64   8.4460        0.0105    0.0054
+2  None       Diff_PRM  Diff_PRM_Lag1Trend_residue_zeroCycle_residue_NoAR              Difference_Lag1Trend_NoCycle_NoAR          64   9.0349        0.0105    0.0054
+3  None    RelDiff_PRM  RelDiff_PRM_Lag1Trend_residue_zeroCycle_residu...      RelativeDifference_Lag1Trend_NoCycle_NoAR          64   9.0349        0.0105    0.0054
+4  None     CumSum_PRM  CumSum_PRM_Lag1Trend_residue_Seasonal_DayOfWee...  Integration_Lag1Trend_Seasonal_DayOfWeek_NoAR          68  12.6633        0.0119    0.0066
+7 0    17.20
+1    17.25
+2    17.25
+3    17.25
+4    17.05
+5    17.05
+6    17.25
+Name: PRM, dtype: float64
+7 0    17.0
+1    17.0
+2    17.0
+3    17.0
+4    17.0
+5    17.0
+6    17.0
+Name: PRM_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_PRM PRM [17.2, 17.25, 17.25, 17.25, 17.05, 17.05, 17.25]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_PRM PRM [17.0, 17.0, 17.0, 17.0, 17.0, 17.0, 17.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_PRM PRM 1295 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_PRM PRM 12.121708393096924
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_PRM PRM Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_PRM PRM 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_PRM PRM 0.0108 0.0109 2.4762
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_PRM PRM 0.1857142857142858 0.20528725518857013 -4.506666656387594
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_PRM_7'

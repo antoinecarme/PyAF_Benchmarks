@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aord
+TIME :  Date N= 1289 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  WCB.AX N= 1289 H= 7 HEAD= [3.86887 3.85946 3.90653 3.85946 3.76533] TAIL= [6.68 6.68 6.75 6.75 6.82]
+    WCB.AX       Date
+0  3.86887 2011-07-28
+1  3.85946 2011-07-29
+2  3.90653 2011-08-01
+3  3.85946 2011-08-02
+4  3.76533 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1289 entries, 0 to 1288
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   WCB.AX  1289 non-null   float64       
+ 1   Date    1289 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.2 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _WCB.AX   _WCB.AX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  9.100000e-03  6.600000e-03  1.250000e-02
+1   None   CumSum_WCB.AX  CumSum_WCB.AX_Lag1Trend_residue_zeroCycle_resi...  ...  1.010000e-02  6.600000e-03  1.250000e-02
+2   None     Diff_WCB.AX  Diff_WCB.AX_Lag1Trend_residue_zeroCycle_residu...  ...  9.100000e-03  6.600000e-03  1.250000e-02
+3   None  RelDiff_WCB.AX  RelDiff_WCB.AX_Lag1Trend_residue_zeroCycle_res...  ...  9.100000e-03  6.600000e-03  1.250000e-02
+4   None         _WCB.AX  _WCB.AX_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  9.600000e-03  7.200000e-03  1.230000e-02
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_WCB.AX  RelDiff_WCB.AX_PolyTrend_residue_Seasonal_DayO...  ...  1.778597e+07  9.972176e+06  1.277674e+07
+92  None  RelDiff_WCB.AX  RelDiff_WCB.AX_ConstantTrend_residue_Seasonal_...  ...  1.778457e+07  9.972176e+06  1.277674e+07
+93  None  RelDiff_WCB.AX  RelDiff_WCB.AX_PolyTrend_residue_bestCycle_byL...  ...  1.778710e+07  9.972176e+06  1.277674e+07
+94  None  RelDiff_WCB.AX  RelDiff_WCB.AX_Lag1Trend_residue_Seasonal_DayO...  ...  1.780596e+07  9.972176e+06  1.277674e+07
+95  None  RelDiff_WCB.AX  RelDiff_WCB.AX_Lag1Trend_residue_bestCycle_byL...  ...  1.780596e+07  9.972176e+06  1.277674e+07
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _WCB.AX   _WCB.AX_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0091        0.0066    0.0125
+1  None   CumSum_WCB.AX  CumSum_WCB.AX_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0101        0.0066    0.0125
+2  None     Diff_WCB.AX  Diff_WCB.AX_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0091        0.0066    0.0125
+3  None  RelDiff_WCB.AX  RelDiff_WCB.AX_Lag1Trend_residue_zeroCycle_res...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0091        0.0066    0.0125
+4  None         _WCB.AX  _WCB.AX_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0096        0.0072    0.0123
+7 0    6.60
+1    6.60
+2    6.31
+3    6.37
+4    6.70
+5    6.70
+6    6.70
+Name: WCB.AX, dtype: float64
+7 0    6.82
+1    6.82
+2    6.82
+3    6.82
+4    6.82
+5    6.82
+6    6.82
+Name: WCB.AX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_WCB.AX WCB.AX [6.6, 6.6, 6.31, 6.37, 6.7, 6.7, 6.7]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_WCB.AX WCB.AX [6.82, 6.82, 6.82, 6.82, 6.82, 6.82, 6.82]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_WCB.AX WCB.AX 1289 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_WCB.AX WCB.AX 10.760597229003906
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_WCB.AX WCB.AX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_WCB.AX WCB.AX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_WCB.AX WCB.AX 0.0388 0.0378 2.2185
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_WCB.AX WCB.AX 0.2514285714285718 0.29340367122058053 -2.764233444016635
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aord_WCB.AX_7'
