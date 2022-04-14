@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1292 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  BHMG.L N= 1292 H= 7 HEAD= [17.8  18.58 17.77 17.75 17.9 ] TAIL= [21.8915 21.9306 22.0338 21.9458 21.9954]
+   BHMG.L       Date
+0   17.80 2011-07-28
+1   18.58 2011-07-29
+2   17.77 2011-08-01
+3   17.75 2011-08-02
+4   17.90 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1292 entries, 0 to 1291
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   BHMG.L  1292 non-null   float64       
+ 1   Date    1292 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split  Transformation                                              Model  ...      FitMAPE  ForecastMAPE     TestMAPE
+0   None         _BHMG.L   _BHMG.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...       0.0069        0.0048       0.0070
+1   None   CumSum_BHMG.L  CumSum_BHMG.L_Lag1Trend_residue_zeroCycle_resi...  ...       0.0078        0.0048       0.0070
+2   None     Diff_BHMG.L  Diff_BHMG.L_Lag1Trend_residue_zeroCycle_residu...  ...       0.0069        0.0048       0.0070
+3   None  RelDiff_BHMG.L  RelDiff_BHMG.L_Lag1Trend_residue_zeroCycle_res...  ...       0.0069        0.0048       0.0070
+4   None         _BHMG.L  _BHMG.L_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...       0.0069        0.0049       0.0068
+..   ...             ...                                                ...  ...          ...           ...          ...
+91  None  RelDiff_BHMG.L  RelDiff_BHMG.L_Lag1Trend_residue_bestCycle_byL...  ...  242344.0996   233690.9592  230198.3230
+92  None  RelDiff_BHMG.L  RelDiff_BHMG.L_PolyTrend_residue_Seasonal_DayO...  ...  242343.8274   233691.0940  230198.4774
+93  None  RelDiff_BHMG.L  RelDiff_BHMG.L_ConstantTrend_residue_zeroCycle...  ...  242097.9335   233691.0940  230198.4774
+94  None  RelDiff_BHMG.L  RelDiff_BHMG.L_PolyTrend_residue_zeroCycle_res...  ...  242343.9733   233691.0940  230198.4774
+95  None  RelDiff_BHMG.L  RelDiff_BHMG.L_PolyTrend_residue_Seasonal_DayO...  ...  242343.9578   233691.0940  230198.4774
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _BHMG.L   _BHMG.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0069        0.0048    0.0070
+1  None   CumSum_BHMG.L  CumSum_BHMG.L_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0078        0.0048    0.0070
+2  None     Diff_BHMG.L  Diff_BHMG.L_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0069        0.0048    0.0070
+3  None  RelDiff_BHMG.L  RelDiff_BHMG.L_Lag1Trend_residue_zeroCycle_res...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0069        0.0048    0.0070
+4  None         _BHMG.L  _BHMG.L_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0069        0.0049    0.0068
+7 0    21.4604
+1    21.5053
+2    21.5562
+3    21.4179
+4    21.4633
+5    21.6357
+6    19.4400
+Name: BHMG.L, dtype: float64
+7 0    21.9954
+1    21.9954
+2    21.9954
+3    21.9954
+4    21.9954
+5    21.9954
+6    21.9954
+Name: BHMG.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_BHMG.L BHMG.L [21.4604, 21.5053, 21.5562, 21.4179, 21.4633, 21.6357, 19.44]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_BHMG.L BHMG.L [21.9954, 21.9954, 21.9954, 21.9954, 21.9954, 21.9954, 21.9954]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_BHMG.L BHMG.L 1292 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_BHMG.L BHMG.L 11.082323551177979
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_BHMG.L BHMG.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_BHMG.L BHMG.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_BHMG.L BHMG.L 0.0383 0.0369 1.777
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_BHMG.L BHMG.L 0.7841428571428573 1.0687382119650655 -1.1660442457914701
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_BHMG.L_7'

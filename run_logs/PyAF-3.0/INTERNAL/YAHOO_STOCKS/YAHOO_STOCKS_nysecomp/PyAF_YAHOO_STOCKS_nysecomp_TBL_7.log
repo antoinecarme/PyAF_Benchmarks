@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1291 H= 7 HEAD= ['2011-07-29T00:00:00.000000000' '2011-08-01T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  TBL N= 1291 H= 7 HEAD= [1.82e+03 1.82e+03 7.00e-01 7.50e-01 1.82e+03] TAIL= [1.375e+04 1.388e+04 8.500e-01 1.381e+04 1.375e+04]
+       TBL       Date
+0  1820.00 2011-07-29
+1  1820.00 2011-08-01
+2     0.70 2011-08-02
+3     0.75 2011-08-03
+4  1820.00 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1291 entries, 0 to 1290
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   TBL     1291 non-null   float64       
+ 1   Date    1291 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None     CumSum_TBL  CumSum_TBL_ConstantTrend_residue_zeroCycle_res...  ...  2.072800e+00  1.000000e+00  1.000000e+00
+1   None           _TBL      _TBL_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.032686e+02  1.611583e+03  2.332775e+03
+2   None     CumSum_TBL  CumSum_TBL_Lag1Trend_residue_zeroCycle_residue...  ...  2.032695e+02  1.611583e+03  2.332775e+03
+3   None       Diff_TBL  Diff_TBL_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.032686e+02  1.611583e+03  2.332775e+03
+4   None    RelDiff_TBL  RelDiff_TBL_Lag1Trend_residue_zeroCycle_residu...  ...  2.032686e+02  1.611583e+03  2.332775e+03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_TBL  RelDiff_TBL_PolyTrend_residue_bestCycle_byL2_r...  ...  9.659064e+09  1.164353e+11  3.059552e+10
+92  None    RelDiff_TBL  RelDiff_TBL_PolyTrend_residue_zeroCycle_residu...  ...  9.659064e+09  1.164353e+11  3.059552e+10
+93  None    RelDiff_TBL  RelDiff_TBL_LinearTrend_residue_Seasonal_DayOf...  ...  9.659064e+09  1.164353e+11  3.059552e+10
+94  None    RelDiff_TBL  RelDiff_TBL_LinearTrend_residue_bestCycle_byL2...  ...  9.659064e+09  1.164353e+11  3.059552e+10
+95  None    RelDiff_TBL  RelDiff_TBL_LinearTrend_residue_bestCycle_byL2...  ...  9.659064e+09  1.164353e+11  3.059552e+10
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity   FitMAPE  ForecastMAPE   TestMAPE
+0  None     CumSum_TBL  CumSum_TBL_ConstantTrend_residue_zeroCycle_res...     Integration_ConstantTrend_NoCycle_NoAR          32    2.0728        1.0000     1.0000
+1  None           _TBL      _TBL_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32  203.2686     1611.5827  2332.7754
+2  None     CumSum_TBL  CumSum_TBL_Lag1Trend_residue_zeroCycle_residue...         Integration_Lag1Trend_NoCycle_NoAR          64  203.2695     1611.5827  2332.7754
+3  None       Diff_TBL  Diff_TBL_Lag1Trend_residue_zeroCycle_residue_NoAR          Difference_Lag1Trend_NoCycle_NoAR          64  203.2686     1611.5827  2332.7754
+4  None    RelDiff_TBL  RelDiff_TBL_Lag1Trend_residue_zeroCycle_residu...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64  203.2686     1611.5827  2332.7754
+7 0    13750.0
+1    13750.0
+2    13750.0
+3    13750.0
+4    13750.0
+5    13750.0
+6    13740.0
+Name: TBL, dtype: float64
+7 0    0.0
+1    0.0
+2    0.0
+3    0.0
+4    0.0
+5    0.0
+6    0.0
+Name: TBL_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_TBL TBL [13750.0, 13750.0, 13750.0, 13750.0, 13750.0, 13750.0, 13740.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_TBL TBL [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_TBL TBL 1291 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_TBL TBL 11.568645477294922
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_TBL TBL ConstantTrend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_TBL TBL 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_TBL TBL 1.0 2.0 8249.1429
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_TBL TBL 13748.57142857143 13748.571873886704 -15436895.999981992
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_TBL_7'

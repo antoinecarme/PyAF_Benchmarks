@@ -1,0 +1,66 @@
+BENCH_DATA M4_COMP_FINANCE
+TIME :  Date N= 178 H= 8 HEAD= [0 1 2 3 4] TAIL= [173 174 175 176 177]
+SIGNAL :  FIN5 N= 178 H= 8 HEAD= [4.39  4.14  3.828 3.871 3.811] TAIL= [1.605 1.71  1.663 1.732 1.756]
+    FIN5  Date
+0  4.390     0
+1  4.140     1
+2  3.828     2
+3  3.871     3
+4  3.811     4
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 178 entries, 0 to 177
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   FIN5    178 non-null    float64
+ 1   Date    178 non-null    int64  
+dtypes: float64(1), int64(1)
+memory usage: 4.2 KB
+None
+   Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE      TestMAPE
+0   None          _FIN5  _FIN5_Lag1Trend_residue_bestCycle_byL2_residue...                NoTransf_Lag1Trend_Cycle_AR          74   0.0286  3.700000e-02  2.880000e-02
+1   None          _FIN5  _FIN5_Lag1Trend_residue_bestCycle_byL2_residue...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0421  3.800000e-02  2.910000e-02
+2   None          _FIN5  _FIN5_PolyTrend_residue_bestCycle_byL2_residue...                NoTransf_PolyTrend_Cycle_AR          58   0.0312  3.860000e-02  2.650000e-02
+3   None          _FIN5  _FIN5_ConstantTrend_residue_bestCycle_byL2_res...            NoTransf_ConstantTrend_Cycle_AR          42   0.0345  3.960000e-02  2.810000e-02
+4   None          _FIN5  _FIN5_ConstantTrend_residue_zeroCycle_residue_...          NoTransf_ConstantTrend_NoCycle_AR          34   0.0308  4.440000e-02  2.460000e-02
+..   ...            ...                                                ...                                        ...         ...      ...           ...           ...
+59  None   RelDiff_FIN5  RelDiff_FIN5_Lag1Trend_residue_bestCycle_byL2_...      RelativeDifference_Lag1Trend_Cycle_AR         106   0.1266  1.443298e+08  1.893078e+08
+60  None   RelDiff_FIN5  RelDiff_FIN5_LinearTrend_residue_bestCycle_byL...    RelativeDifference_LinearTrend_Cycle_AR          90   0.4031  1.443454e+08  1.893078e+08
+61  None   RelDiff_FIN5  RelDiff_FIN5_ConstantTrend_residue_bestCycle_b...  RelativeDifference_ConstantTrend_Cycle_AR          74   0.6366  1.443463e+08  1.893078e+08
+62  None   RelDiff_FIN5  RelDiff_FIN5_PolyTrend_residue_zeroCycle_resid...    RelativeDifference_PolyTrend_NoCycle_AR          82   0.2711  1.443517e+08  1.893078e+08
+63  None   RelDiff_FIN5  RelDiff_FIN5_PolyTrend_residue_bestCycle_byL2_...      RelativeDifference_PolyTrend_Cycle_AR          90   0.2515  1.443995e+08  1.893078e+08
+
+[64 rows x 8 columns]
+  Split Transformation                                              Model                           Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None          _FIN5  _FIN5_Lag1Trend_residue_bestCycle_byL2_residue...        NoTransf_Lag1Trend_Cycle_AR          74   0.0286        0.0370    0.0288
+1  None          _FIN5  _FIN5_Lag1Trend_residue_bestCycle_byL2_residue...      NoTransf_Lag1Trend_Cycle_NoAR          40   0.0421        0.0380    0.0291
+2  None          _FIN5  _FIN5_PolyTrend_residue_bestCycle_byL2_residue...        NoTransf_PolyTrend_Cycle_AR          58   0.0312        0.0386    0.0265
+3  None          _FIN5  _FIN5_ConstantTrend_residue_bestCycle_byL2_res...    NoTransf_ConstantTrend_Cycle_AR          42   0.0345        0.0396    0.0281
+4  None          _FIN5  _FIN5_ConstantTrend_residue_zeroCycle_residue_...  NoTransf_ConstantTrend_NoCycle_AR          34   0.0308        0.0444    0.0246
+8 0    1.624
+1    1.662
+2    1.737
+3    1.591
+4    1.629
+5    1.592
+6    1.461
+7    1.509
+Name: FIN5, dtype: float64
+8 0    1.685249
+1    1.700189
+2    1.783624
+3    1.694092
+4    1.696922
+5    1.752919
+6    1.675811
+7    1.677437
+Name: FIN5_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL FIN5 FIN5 [1.624, 1.662, 1.737, 1.591, 1.629, 1.592, 1.461, 1.509]
+FORECAST_DETAIL_PREDICTED FIN5 FIN5 [1.6852492317208734, 1.7001888842474182, 1.7836244207749303, 1.6940920129023174, 1.6969215731119283, 1.752919431969878, 1.675811420025072, 1.677436613256632]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON FIN5 FIN5 178 8
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ FIN5 FIN5 8.66361379623413
+BENCHMARK_PERF_DETAIL_BEST_MODEL FIN5 FIN5 ConstantTrend + NoCycle + AR
+BENCHMARK_PERF_DETAIL_PERF_COUNT FIN5 FIN5 8
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE FIN5 FIN5 0.0692 0.0661 1.469
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 FIN5 FIN5 0.10765544850113118 0.12401355850337928 -1.3763896618464342
+BENCHMARK_SUCCESS 'M4_COMP_FINANCE_FIN5_8'

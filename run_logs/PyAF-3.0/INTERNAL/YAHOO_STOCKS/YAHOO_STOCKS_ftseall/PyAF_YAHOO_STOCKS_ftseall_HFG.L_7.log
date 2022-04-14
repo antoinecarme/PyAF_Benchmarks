@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1294 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  HFG.L N= 1294 H= 7 HEAD= [266.  266.  266.  266.  266.5] TAIL= [586.  589.  580.  577.5 580. ]
+   HFG.L       Date
+0  266.0 2011-07-28
+1  266.0 2011-07-29
+2  266.0 2011-08-01
+3  266.0 2011-08-02
+4  266.5 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1294 entries, 0 to 1293
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   HFG.L   1294 non-null   float64       
+ 1   Date    1294 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _HFG.L    _HFG.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.150000e-02  1.490000e-02  6.500000e-03
+1   None   CumSum_HFG.L  CumSum_HFG.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.250000e-02  1.490000e-02  6.500000e-03
+2   None     Diff_HFG.L  Diff_HFG.L_Lag1Trend_residue_zeroCycle_residue...  ...  1.150000e-02  1.490000e-02  6.500000e-03
+3   None  RelDiff_HFG.L  RelDiff_HFG.L_Lag1Trend_residue_zeroCycle_resi...  ...  1.150000e-02  1.490000e-02  6.500000e-03
+4   None         _HFG.L  _HFG.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  1.160000e-02  1.500000e-02  6.900000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_HFG.L  RelDiff_HFG.L_PolyTrend_residue_Seasonal_DayOf...  ...  8.754104e+06  6.038860e+06  5.257482e+06
+92  None  RelDiff_HFG.L  RelDiff_HFG.L_ConstantTrend_residue_Seasonal_D...  ...  8.721842e+06  6.038860e+06  5.257482e+06
+93  None  RelDiff_HFG.L  RelDiff_HFG.L_PolyTrend_residue_bestCycle_byL2...  ...  8.759629e+06  6.038860e+06  5.257482e+06
+94  None  RelDiff_HFG.L  RelDiff_HFG.L_Lag1Trend_residue_bestCycle_byL2...  ...  8.752098e+06  6.038860e+06  5.257482e+06
+95  None  RelDiff_HFG.L  RelDiff_HFG.L_ConstantTrend_residue_zeroCycle_...  ...  8.752961e+06  6.038860e+06  5.257483e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _HFG.L    _HFG.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0115        0.0149    0.0065
+1  None   CumSum_HFG.L  CumSum_HFG.L_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0125        0.0149    0.0065
+2  None     Diff_HFG.L  Diff_HFG.L_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0115        0.0149    0.0065
+3  None  RelDiff_HFG.L  RelDiff_HFG.L_Lag1Trend_residue_zeroCycle_resi...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0115        0.0149    0.0065
+4  None         _HFG.L  _HFG.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0116        0.0150    0.0069
+7 0    585.0
+1    579.5
+2    589.5
+3    585.5
+4    591.0
+5    580.0
+6    593.5
+Name: HFG.L, dtype: float64
+7 0    580.0
+1    580.0
+2    580.0
+3    580.0
+4    580.0
+5    580.0
+6    580.0
+Name: HFG.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_HFG.L HFG.L [585.0, 579.5, 589.5, 585.5, 591.0, 580.0, 593.5]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_HFG.L HFG.L [580.0, 580.0, 580.0, 580.0, 580.0, 580.0, 580.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_HFG.L HFG.L 1294 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_HFG.L HFG.L 11.220645427703857
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_HFG.L HFG.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_HFG.L HFG.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_HFG.L HFG.L 0.0109 0.011 0.7792
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_HFG.L HFG.L 6.428571428571429 8.008923594519874 -1.603976801986891
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_HFG.L_7'

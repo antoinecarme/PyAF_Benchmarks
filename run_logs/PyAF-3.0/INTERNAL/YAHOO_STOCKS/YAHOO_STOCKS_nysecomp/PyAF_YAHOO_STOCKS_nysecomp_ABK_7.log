@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1265 H= 7 HEAD= ['2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000' '2011-08-04T00:00:00.000000000'
+ '2011-08-05T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  ABK N= 1265 H= 7 HEAD= [1.62 0.67 1.58 0.67 1.78] TAIL= [0.32  0.31  0.315 1.64  0.33 ]
+    ABK       Date
+0  1.62 2011-08-01
+1  0.67 2011-08-02
+2  1.58 2011-08-03
+3  0.67 2011-08-04
+4  1.78 2011-08-05
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1265 entries, 0 to 1264
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   ABK     1265 non-null   float64       
+ 1   Date    1265 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.6 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _ABK  _ABK_PolyTrend_residue_bestCycle_byL2_residue_...  ...  1.304000e-01  1.514000e-01  3.582000e-01
+1   None           _ABK  _ABK_LinearTrend_residue_bestCycle_byL2_residu...  ...  1.302000e-01  1.523000e-01  3.562000e-01
+2   None           _ABK    _ABK_PolyTrend_residue_zeroCycle_residue_AR(64)  ...  1.322000e-01  1.582000e-01  3.166000e-01
+3   None           _ABK  _ABK_LinearTrend_residue_zeroCycle_residue_AR(64)  ...  1.322000e-01  1.588000e-01  3.145000e-01
+4   None           _ABK  _ABK_PolyTrend_residue_Seasonal_DayOfWeek_resi...  ...  9.170000e-02  1.591000e-01  5.285000e-01
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_ABK  RelDiff_ABK_PolyTrend_residue_zeroCycle_residu...  ...  2.127779e+08  3.116678e+08  3.167844e+08
+92  None    RelDiff_ABK  RelDiff_ABK_PolyTrend_residue_Seasonal_DayOfWe...  ...  1.848926e+08  3.116678e+08  3.167844e+08
+93  None    RelDiff_ABK  RelDiff_ABK_LinearTrend_residue_zeroCycle_resi...  ...  1.989912e+08  3.116678e+08  3.167844e+08
+94  None    RelDiff_ABK  RelDiff_ABK_PolyTrend_residue_Seasonal_DayOfWe...  ...  4.761344e+06  3.116678e+08  3.167844e+08
+95  None    RelDiff_ABK  RelDiff_ABK_LinearTrend_residue_bestCycle_byL2...  ...  9.466350e+07  3.116678e+08  3.167844e+08
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                  Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _ABK  _ABK_PolyTrend_residue_bestCycle_byL2_residue_...               NoTransf_PolyTrend_Cycle_AR          88   0.1304        0.1514    0.3582
+1  None           _ABK  _ABK_LinearTrend_residue_bestCycle_byL2_residu...             NoTransf_LinearTrend_Cycle_AR          88   0.1302        0.1523    0.3562
+2  None           _ABK    _ABK_PolyTrend_residue_zeroCycle_residue_AR(64)             NoTransf_PolyTrend_NoCycle_AR          80   0.1322        0.1582    0.3166
+3  None           _ABK  _ABK_LinearTrend_residue_zeroCycle_residue_AR(64)           NoTransf_LinearTrend_NoCycle_AR          80   0.1322        0.1588    0.3145
+4  None           _ABK  _ABK_PolyTrend_residue_Seasonal_DayOfWeek_resi...  NoTransf_PolyTrend_Seasonal_DayOfWeek_AR          84   0.0917        0.1591    0.5285
+7 0    0.320
+1    0.330
+2    0.330
+3    3.080
+4    0.320
+5    0.325
+6    0.320
+Name: ABK, dtype: float64
+7 0    0.279327
+1    0.348436
+2    0.242123
+3    1.520917
+4    0.157810
+5    0.135145
+6   -0.031116
+Name: ABK_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_ABK ABK [0.32, 0.33, 0.33, 3.08, 0.32, 0.325, 0.32]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_ABK ABK [0.279327215725278, 0.34843597416417904, 0.24212281985015685, 1.5209173263102178, 0.15781039114446715, 0.1351448797354764, -0.031116050371155057]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_ABK ABK 1265 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_ABK ABK 13.185956954956055
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_ABK ABK PolyTrend + NoCycle + AR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_ABK ABK 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_ABK ABK 0.4491 0.6684 0.3734
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_ABK ABK 0.3441756273956768 0.6124993597028041 0.5965941901618874
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_ABK_7'

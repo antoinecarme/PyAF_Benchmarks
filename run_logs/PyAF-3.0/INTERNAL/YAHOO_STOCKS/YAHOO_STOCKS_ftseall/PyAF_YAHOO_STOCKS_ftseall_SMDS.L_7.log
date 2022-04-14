@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1295 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  SMDS.L N= 1295 H= 7 HEAD= [162.714 162.3   160.647 159.476 154.998] TAIL= [390.9 389.6 391.2 391.9 388.2]
+    SMDS.L       Date
+0  162.714 2011-07-28
+1  162.300 2011-07-29
+2  160.647 2011-08-01
+3  159.476 2011-08-02
+4  154.998 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1295 entries, 0 to 1294
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   SMDS.L  1295 non-null   float64       
+ 1   Date    1295 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _SMDS.L  _SMDS.L_Lag1Trend_residue_bestCycle_byL2_resid...  ...  1.370000e-02  1.300000e-02  1.000000e-02
+1   None   CumSum_SMDS.L  CumSum_SMDS.L_Lag1Trend_residue_Seasonal_DayOf...  ...  1.630000e-02  1.300000e-02  8.000000e-03
+2   None         _SMDS.L   _SMDS.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.360000e-02  1.310000e-02  9.000000e-03
+3   None         _SMDS.L  _SMDS.L_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  1.370000e-02  1.310000e-02  9.300000e-03
+4   None   CumSum_SMDS.L  CumSum_SMDS.L_Lag1Trend_residue_zeroCycle_resi...  ...  1.460000e-02  1.310000e-02  9.000000e-03
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_SMDS.L  RelDiff_SMDS.L_Lag1Trend_residue_bestCycle_byL...  ...  2.229994e+07  1.275149e+07  1.265080e+07
+92  None  RelDiff_SMDS.L  RelDiff_SMDS.L_PolyTrend_residue_Seasonal_DayO...  ...  2.234658e+07  1.275149e+07  1.265080e+07
+93  None  RelDiff_SMDS.L  RelDiff_SMDS.L_ConstantTrend_residue_Seasonal_...  ...  2.211119e+07  1.275149e+07  1.265080e+07
+94  None  RelDiff_SMDS.L  RelDiff_SMDS.L_ConstantTrend_residue_bestCycle...  ...  2.214666e+07  1.275149e+07  1.265080e+07
+95  None  RelDiff_SMDS.L  RelDiff_SMDS.L_PolyTrend_residue_zeroCycle_res...  ...  2.235583e+07  1.275149e+07  1.265080e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                       Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _SMDS.L  _SMDS.L_Lag1Trend_residue_bestCycle_byL2_resid...                  NoTransf_Lag1Trend_Cycle_NoAR          40   0.0137        0.0130    0.0100
+1  None  CumSum_SMDS.L  CumSum_SMDS.L_Lag1Trend_residue_Seasonal_DayOf...  Integration_Lag1Trend_Seasonal_DayOfWeek_NoAR          68   0.0163        0.0130    0.0080
+2  None        _SMDS.L   _SMDS.L_Lag1Trend_residue_zeroCycle_residue_NoAR                NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0136        0.0131    0.0090
+3  None        _SMDS.L  _SMDS.L_Lag1Trend_residue_Seasonal_DayOfWeek_r...     NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0137        0.0131    0.0093
+4  None  CumSum_SMDS.L  CumSum_SMDS.L_Lag1Trend_residue_zeroCycle_resi...             Integration_Lag1Trend_NoCycle_NoAR          64   0.0146        0.0131    0.0090
+7 0    396.6
+1    397.1
+2    398.5
+3    397.5
+4    400.9
+5    402.5
+6    392.5
+Name: SMDS.L, dtype: float64
+7 0    388.2
+1    388.2
+2    388.2
+3    388.2
+4    388.2
+5    388.2
+6    388.2
+Name: SMDS.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_SMDS.L SMDS.L [396.6, 397.1, 398.5, 397.5, 400.9, 402.5, 392.5]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_SMDS.L SMDS.L [388.2, 388.2, 388.2, 388.2, 388.2, 388.2, 388.2]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_SMDS.L SMDS.L 1295 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_SMDS.L SMDS.L 11.017345666885376
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_SMDS.L SMDS.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_SMDS.L SMDS.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_SMDS.L SMDS.L 0.0244 0.0248 3.2658
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_SMDS.L SMDS.L 9.742857142857158 10.18836871843856 -10.690048264747986
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_SMDS.L_7'

@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_tsx
+TIME :  Date N= 1248 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  RBA.TO N= 1248 H= 7 HEAD= [26.07     26.24     26.139999 26.360001 25.530001] TAIL= [45.380001 45.       44.740002 43.299999 43.599998]
+      RBA.TO       Date
+0  26.070000 2011-07-28
+1  26.240000 2011-07-29
+2  26.139999 2011-08-02
+3  26.360001 2011-08-03
+4  25.530001 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1248 entries, 0 to 1247
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   RBA.TO  1248 non-null   float64       
+ 1   Date    1248 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.2 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _RBA.TO  _RBA.TO_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  1.180000e-02  1.180000e-02  1.430000e-02
+1   None         _RBA.TO  _RBA.TO_Lag1Trend_residue_bestCycle_byL2_resid...  ...  1.180000e-02  1.180000e-02  1.400000e-02
+2   None         _RBA.TO   _RBA.TO_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.180000e-02  1.190000e-02  1.390000e-02
+3   None   CumSum_RBA.TO  CumSum_RBA.TO_Lag1Trend_residue_zeroCycle_resi...  ...  1.280000e-02  1.190000e-02  1.390000e-02
+4   None     Diff_RBA.TO  Diff_RBA.TO_Lag1Trend_residue_zeroCycle_residu...  ...  1.180000e-02  1.190000e-02  1.390000e-02
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_RBA.TO  RelDiff_RBA.TO_ConstantTrend_residue_Seasonal_...  ...  3.348175e+07  2.216832e+07  1.754014e+07
+92  None  RelDiff_RBA.TO  RelDiff_RBA.TO_PolyTrend_residue_bestCycle_byL...  ...  3.355154e+07  2.216832e+07  1.754014e+07
+93  None  RelDiff_RBA.TO  RelDiff_RBA.TO_Lag1Trend_residue_Seasonal_DayO...  ...  3.355410e+07  2.216832e+07  1.754014e+07
+94  None  RelDiff_RBA.TO  RelDiff_RBA.TO_ConstantTrend_residue_bestCycle...  ...  3.355130e+07  2.216833e+07  1.754014e+07
+95  None  RelDiff_RBA.TO  RelDiff_RBA.TO_ConstantTrend_residue_zeroCycle...  ...  3.355103e+07  2.216833e+07  1.754014e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _RBA.TO  _RBA.TO_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0118        0.0118    0.0143
+1  None        _RBA.TO  _RBA.TO_Lag1Trend_residue_bestCycle_byL2_resid...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0118        0.0118    0.0140
+2  None        _RBA.TO   _RBA.TO_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0118        0.0119    0.0139
+3  None  CumSum_RBA.TO  CumSum_RBA.TO_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0128        0.0119    0.0139
+4  None    Diff_RBA.TO  Diff_RBA.TO_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0118        0.0119    0.0139
+7 0    43.130001
+1    43.630001
+2    44.270000
+3    43.700001
+4    43.380001
+5    43.860001
+6    43.310001
+Name: RBA.TO, dtype: float64
+7 0    43.599998
+1    43.599998
+2    43.599998
+3    43.599998
+4    43.599998
+5    43.599998
+6    43.599998
+Name: RBA.TO_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_RBA.TO RBA.TO [43.130001, 43.630001, 44.27, 43.700001, 43.380001, 43.860001000000004, 43.310001]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_RBA.TO RBA.TO [43.599998, 43.599998, 43.599998, 43.599998, 43.599998, 43.599998, 43.599998]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_RBA.TO RBA.TO 1248 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_RBA.TO RBA.TO 10.6591796875
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_RBA.TO RBA.TO Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_RBA.TO RBA.TO 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_RBA.TO RBA.TO 0.0067 0.0067 0.5714
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_RBA.TO RBA.TO 0.2914288571428583 0.3547230589906938 -0.0010396170419106898
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_tsx_RBA.TO_7'

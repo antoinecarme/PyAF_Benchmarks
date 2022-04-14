@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 215 H= 7 HEAD= ['2011-11-17T00:00:00.000000000' '2011-11-18T00:00:00.000000000'
+ '2011-11-21T00:00:00.000000000' '2011-11-22T00:00:00.000000000'
+ '2011-11-23T00:00:00.000000000'] TAIL= ['2012-09-06T00:00:00.000000000' '2012-09-07T00:00:00.000000000'
+ '2012-09-10T00:00:00.000000000' '2012-09-11T00:00:00.000000000'
+ '2012-09-12T00:00:00.000000000']
+SIGNAL :  PCU N= 215 H= 7 HEAD= [25.94 25.94 25.94 25.94 25.94] TAIL= [25.6654 25.6654 25.6654 25.6654 25.6654]
+     PCU       Date
+0  25.94 2011-11-17
+1  25.94 2011-11-18
+2  25.94 2011-11-21
+3  25.94 2011-11-22
+4  25.94 2011-11-23
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 215 entries, 0 to 214
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   PCU     215 non-null    float64       
+ 1   Date    215 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 5.0 KB
+None
+   Split Transformation                                              Model                                           Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0   None           _PCU      _PCU_Lag1Trend_residue_zeroCycle_residue_NoAR                    NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0001        0.0000    0.0000
+1   None           _PCU  _PCU_ConstantTrend_residue_zeroCycle_residue_A...                  NoTransf_ConstantTrend_NoCycle_AR          41   0.0005        0.0000    0.0000
+2   None     CumSum_PCU  CumSum_PCU_Lag1Trend_residue_zeroCycle_residue...                 Integration_Lag1Trend_NoCycle_NoAR          64   0.0061        0.0000    0.0000
+3   None       Diff_PCU  Diff_PCU_Lag1Trend_residue_zeroCycle_residue_NoAR                  Difference_Lag1Trend_NoCycle_NoAR          64   0.0001        0.0000    0.0000
+4   None    RelDiff_PCU  RelDiff_PCU_Lag1Trend_residue_zeroCycle_residu...          RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0001        0.0000    0.0000
+..   ...            ...                                                ...                                                ...         ...      ...           ...       ...
+91  None     CumSum_PCU  CumSum_PCU_PolyTrend_residue_bestCycle_byL2_re...                   Integration_PolyTrend_Cycle_NoAR          56   0.3251        0.4928    0.5526
+92  None     CumSum_PCU  CumSum_PCU_PolyTrend_residue_zeroCycle_residue...                 Integration_PolyTrend_NoCycle_NoAR          48   0.5361        0.4946    0.4630
+93  None     CumSum_PCU  CumSum_PCU_ConstantTrend_residue_zeroCycle_res...             Integration_ConstantTrend_NoCycle_NoAR          32   1.4889        1.0000    1.0000
+94  None     CumSum_PCU  CumSum_PCU_ConstantTrend_residue_bestCycle_byL...               Integration_ConstantTrend_Cycle_NoAR          40   1.4564        1.0056    1.0056
+95  None     CumSum_PCU  CumSum_PCU_ConstantTrend_residue_Seasonal_DayO...  Integration_ConstantTrend_Seasonal_DayOfWeek_NoAR          36   1.4917        1.0164    0.7187
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _PCU      _PCU_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0001           0.0       0.0
+1  None           _PCU  _PCU_ConstantTrend_residue_zeroCycle_residue_A...          NoTransf_ConstantTrend_NoCycle_AR          41   0.0005           0.0       0.0
+2  None     CumSum_PCU  CumSum_PCU_Lag1Trend_residue_zeroCycle_residue...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0061           0.0       0.0
+3  None       Diff_PCU  Diff_PCU_Lag1Trend_residue_zeroCycle_residue_NoAR          Difference_Lag1Trend_NoCycle_NoAR          64   0.0001           0.0       0.0
+4  None    RelDiff_PCU  RelDiff_PCU_Lag1Trend_residue_zeroCycle_residu...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0001           0.0       0.0
+7 0    25.6654
+1    25.6654
+2    25.6654
+3    25.6654
+4    25.6654
+5    25.6654
+6    25.6654
+Name: PCU, dtype: float64
+7 0    25.767961
+1    25.767961
+2    25.767961
+3    25.767961
+4    25.767961
+5    25.767961
+6    25.767961
+Name: PCU_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_PCU PCU [25.6654, 25.6654, 25.6654, 25.6654, 25.6654, 25.6654, 25.6654]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_PCU PCU [25.76796144578313, 25.76796144578313, 25.76796144578313, 25.76796144578313, 25.76796144578313, 25.76796144578313, 25.76796144578313]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_PCU PCU 215 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_PCU PCU 10.495850563049316
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_PCU PCU ConstantTrend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_PCU PCU 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_PCU PCU 0.004 0.004 1025614457.8313
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_PCU PCU 0.10256144578312743 0.10256144578312743 -736319510.2787771
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_PCU_7'

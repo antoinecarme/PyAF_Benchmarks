@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_mc
+TIME :  Date N= 1298 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  CPL.MC N= 1298 H= 7 HEAD= [11.55 11.54 11.5  10.7  10.63] TAIL= [5.98 5.98 5.99 5.99 6.  ]
+   CPL.MC       Date
+0   11.55 2011-07-28
+1   11.54 2011-07-29
+2   11.50 2011-08-01
+3   10.70 2011-08-02
+4   10.63 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1298 entries, 0 to 1297
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   CPL.MC  1298 non-null   float64       
+ 1   Date    1298 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _CPL.MC   _CPL.MC_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.230000e-02  1.400000e-02  1.400000e-03
+1   None   CumSum_CPL.MC  CumSum_CPL.MC_Lag1Trend_residue_zeroCycle_resi...  ...  2.330000e-02  1.400000e-02  1.400000e-03
+2   None     Diff_CPL.MC  Diff_CPL.MC_Lag1Trend_residue_zeroCycle_residu...  ...  2.230000e-02  1.400000e-02  1.400000e-03
+3   None  RelDiff_CPL.MC  RelDiff_CPL.MC_Lag1Trend_residue_zeroCycle_res...  ...  2.230000e-02  1.400000e-02  1.400000e-03
+4   None         _CPL.MC  _CPL.MC_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  2.220000e-02  1.410000e-02  1.700000e-03
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_CPL.MC  RelDiff_CPL.MC_PolyTrend_residue_zeroCycle_res...  ...  1.658273e+08  1.605973e+08  1.489053e+08
+92  None  RelDiff_CPL.MC  RelDiff_CPL.MC_Lag1Trend_residue_Seasonal_DayO...  ...  1.655757e+08  1.605973e+08  1.489053e+08
+93  None  RelDiff_CPL.MC  RelDiff_CPL.MC_Lag1Trend_residue_bestCycle_byL...  ...  1.655757e+08  1.605973e+08  1.489053e+08
+94  None  RelDiff_CPL.MC  RelDiff_CPL.MC_PolyTrend_residue_Seasonal_DayO...  ...  1.658612e+08  1.605973e+08  1.489053e+08
+95  None  RelDiff_CPL.MC  RelDiff_CPL.MC_PolyTrend_residue_bestCycle_byL...  ...  1.658612e+08  1.605973e+08  1.489053e+08
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _CPL.MC   _CPL.MC_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0223        0.0140    0.0014
+1  None   CumSum_CPL.MC  CumSum_CPL.MC_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0233        0.0140    0.0014
+2  None     Diff_CPL.MC  Diff_CPL.MC_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0223        0.0140    0.0014
+3  None  RelDiff_CPL.MC  RelDiff_CPL.MC_Lag1Trend_residue_zeroCycle_res...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0223        0.0140    0.0014
+4  None         _CPL.MC  _CPL.MC_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0222        0.0141    0.0017
+7 0    6.00
+1    5.97
+2    5.98
+3    5.98
+4    6.00
+5    6.00
+6    6.00
+Name: CPL.MC, dtype: float64
+7 0    6.0
+1    6.0
+2    6.0
+3    6.0
+4    6.0
+5    6.0
+6    6.0
+Name: CPL.MC_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_CPL.MC CPL.MC [6.0, 5.97, 5.98, 5.98, 6.0, 6.0, 6.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_CPL.MC CPL.MC [6.0, 6.0, 6.0, 6.0, 6.0, 6.0, 6.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_CPL.MC CPL.MC 1298 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_CPL.MC CPL.MC 10.840511083602905
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_CPL.MC CPL.MC Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_CPL.MC CPL.MC 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_CPL.MC CPL.MC 0.0017 0.0017 1.0
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_CPL.MC CPL.MC 0.009999999999999913 0.015583874449479503 -0.6999998300000096
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_mc_CPL.MC_7'

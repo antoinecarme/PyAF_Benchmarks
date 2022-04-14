@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_tsx
+TIME :  Date N= 1248 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  RON.TO N= 1248 H= 7 HEAD= [11.05 11.02 10.97 11.12 11.12] TAIL= [23.99 23.99 23.99 23.99 23.99]
+   RON.TO       Date
+0   11.05 2011-07-28
+1   11.02 2011-07-29
+2   10.97 2011-08-02
+3   11.12 2011-08-03
+4   11.12 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1248 entries, 0 to 1247
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   RON.TO  1248 non-null   float64       
+ 1   Date    1248 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.2 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _RON.TO   _RON.TO_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.110000e-02  1.040000e-02  0.000000e+00
+1   None   CumSum_RON.TO  CumSum_RON.TO_Lag1Trend_residue_zeroCycle_resi...  ...  1.210000e-02  1.040000e-02  0.000000e+00
+2   None     Diff_RON.TO  Diff_RON.TO_Lag1Trend_residue_zeroCycle_residu...  ...  1.110000e-02  1.040000e-02  0.000000e+00
+3   None  RelDiff_RON.TO  RelDiff_RON.TO_Lag1Trend_residue_zeroCycle_res...  ...  1.110000e-02  1.040000e-02  0.000000e+00
+4   None         _RON.TO  _RON.TO_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  1.120000e-02  1.060000e-02  8.000000e-04
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_RON.TO  RelDiff_RON.TO_PolyTrend_residue_Seasonal_DayO...  ...  2.036043e+07  1.426515e+07  9.795749e+06
+92  None  RelDiff_RON.TO  RelDiff_RON.TO_PolyTrend_residue_bestCycle_byL...  ...  2.036044e+07  1.426515e+07  9.795749e+06
+93  None  RelDiff_RON.TO  RelDiff_RON.TO_PolyTrend_residue_zeroCycle_res...  ...  2.036076e+07  1.426515e+07  9.795749e+06
+94  None  RelDiff_RON.TO  RelDiff_RON.TO_PolyTrend_residue_zeroCycle_res...  ...  2.036144e+07  1.426515e+07  9.795749e+06
+95  None  RelDiff_RON.TO  RelDiff_RON.TO_PolyTrend_residue_Seasonal_DayO...  ...  2.036090e+07  1.426515e+07  9.795749e+06
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _RON.TO   _RON.TO_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0111        0.0104    0.0000
+1  None   CumSum_RON.TO  CumSum_RON.TO_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0121        0.0104    0.0000
+2  None     Diff_RON.TO  Diff_RON.TO_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0111        0.0104    0.0000
+3  None  RelDiff_RON.TO  RelDiff_RON.TO_Lag1Trend_residue_zeroCycle_res...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0111        0.0104    0.0000
+4  None         _RON.TO  _RON.TO_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0112        0.0106    0.0008
+7 0    23.99
+1    23.99
+2    23.99
+3    23.99
+4    23.99
+5    23.99
+6    23.99
+Name: RON.TO, dtype: float64
+7 0    23.99
+1    23.99
+2    23.99
+3    23.99
+4    23.99
+5    23.99
+6    23.99
+Name: RON.TO_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_RON.TO RON.TO [23.99, 23.99, 23.99, 23.99, 23.99, 23.99, 23.99]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_RON.TO RON.TO [23.99, 23.99, 23.99, 23.99, 23.99, 23.99, 23.99]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_RON.TO RON.TO 1248 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_RON.TO RON.TO 10.820642232894897
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_RON.TO RON.TO Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_RON.TO RON.TO 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_RON.TO RON.TO 0.0 0.0 0.0
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_RON.TO RON.TO 0.0 0.0 1.0
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_tsx_RON.TO_7'

@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aord
+TIME :  Date N= 1298 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  FBU.AX N= 1298 H= 7 HEAD= [6.41 6.41 6.57 6.44 6.42] TAIL= [8.58 8.57 8.54 8.53 8.62]
+   FBU.AX       Date
+0    6.41 2011-07-28
+1    6.41 2011-07-29
+2    6.57 2011-08-01
+3    6.44 2011-08-02
+4    6.42 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1298 entries, 0 to 1297
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   FBU.AX  1298 non-null   float64       
+ 1   Date    1298 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _FBU.AX   _FBU.AX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.070000e-02  1.030000e-02  7.400000e-03
+1   None         _FBU.AX  _FBU.AX_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  1.070000e-02  1.030000e-02  7.600000e-03
+2   None         _FBU.AX  _FBU.AX_Lag1Trend_residue_bestCycle_byL2_resid...  ...  1.070000e-02  1.030000e-02  7.700000e-03
+3   None   CumSum_FBU.AX  CumSum_FBU.AX_Lag1Trend_residue_zeroCycle_resi...  ...  1.160000e-02  1.030000e-02  7.400000e-03
+4   None     Diff_FBU.AX  Diff_FBU.AX_Lag1Trend_residue_zeroCycle_residu...  ...  1.070000e-02  1.030000e-02  7.400000e-03
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_FBU.AX  RelDiff_FBU.AX_LinearTrend_residue_Seasonal_Da...  ...  3.005556e+07  2.888667e+07  2.340825e+07
+92  None  RelDiff_FBU.AX  RelDiff_FBU.AX_LinearTrend_residue_bestCycle_b...  ...  3.004924e+07  2.888667e+07  2.340825e+07
+93  None  RelDiff_FBU.AX  RelDiff_FBU.AX_PolyTrend_residue_bestCycle_byL...  ...  3.004334e+07  2.888667e+07  2.340825e+07
+94  None  RelDiff_FBU.AX  RelDiff_FBU.AX_PolyTrend_residue_bestCycle_byL...  ...  3.005017e+07  2.888667e+07  2.340825e+07
+95  None  RelDiff_FBU.AX  RelDiff_FBU.AX_Lag1Trend_residue_bestCycle_byL...  ...  3.006550e+07  2.888667e+07  2.340825e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _FBU.AX   _FBU.AX_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0107        0.0103    0.0074
+1  None        _FBU.AX  _FBU.AX_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0107        0.0103    0.0076
+2  None        _FBU.AX  _FBU.AX_Lag1Trend_residue_bestCycle_byL2_resid...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0107        0.0103    0.0077
+3  None  CumSum_FBU.AX  CumSum_FBU.AX_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0116        0.0103    0.0074
+4  None    Diff_FBU.AX  Diff_FBU.AX_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0107        0.0103    0.0074
+7 0    8.60
+1    8.66
+2    8.64
+3    8.74
+4    8.83
+5    8.97
+6    8.95
+Name: FBU.AX, dtype: float64
+7 0    8.62
+1    8.62
+2    8.62
+3    8.62
+4    8.62
+5    8.62
+6    8.62
+Name: FBU.AX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_FBU.AX FBU.AX [8.6, 8.66, 8.64, 8.74, 8.83, 8.97, 8.95]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_FBU.AX FBU.AX [8.62, 8.62, 8.62, 8.62, 8.62, 8.62, 8.62]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_FBU.AX FBU.AX 1298 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_FBU.AX FBU.AX 11.900303363800049
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_FBU.AX FBU.AX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_FBU.AX FBU.AX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_FBU.AX FBU.AX 0.0175 0.0178 2.1728
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_FBU.AX FBU.AX 0.15571428571428644 0.20434564555464135 -1.1683976245041698
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aord_FBU.AX_7'

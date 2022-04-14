@@ -1,0 +1,66 @@
+BENCH_DATA M4_COMP_ECONOMICS
+TIME :  Date N= 235 H= 8 HEAD= [0 1 2 3 4] TAIL= [230 231 232 233 234]
+SIGNAL :  ECON0512 N= 235 H= 8 HEAD= [28.  26.5 31.4 31.  36.7] TAIL= [1916.2 1857.2 1862.7 1887.6 1905.1]
+   ECON0512  Date
+0      28.0     0
+1      26.5     1
+2      31.4     2
+3      31.0     3
+4      36.7     4
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 235 entries, 0 to 234
+Data columns (total 2 columns):
+ #   Column    Non-Null Count  Dtype  
+---  ------    --------------  -----  
+ 0   ECON0512  235 non-null    float64
+ 1   Date      235 non-null    int64  
+dtypes: float64(1), int64(1)
+memory usage: 5.5 KB
+None
+   Split    Transformation                                              Model  ...       FitMAPE  ForecastMAPE    TestMAPE
+0   None         _ECON0512  _ECON0512_Lag1Trend_residue_bestCycle_byL2_res...  ...  5.500000e-02        0.0266      0.0133
+1   None         _ECON0512  _ECON0512_Lag1Trend_residue_zeroCycle_residue_...  ...  3.830000e-02        0.0275      0.0156
+2   None   CumSum_ECON0512  CumSum_ECON0512_Lag1Trend_residue_zeroCycle_re...  ...  4.350000e-02        0.0275      0.0156
+3   None     Diff_ECON0512  Diff_ECON0512_Lag1Trend_residue_zeroCycle_resi...  ...  3.830000e-02        0.0275      0.0156
+4   None  RelDiff_ECON0512  RelDiff_ECON0512_Lag1Trend_residue_zeroCycle_r...  ...  3.830000e-02        0.0275      0.0156
+..   ...               ...                                                ...  ...           ...           ...         ...
+59  None  RelDiff_ECON0512  RelDiff_ECON0512_PolyTrend_residue_bestCycle_b...  ...  1.215323e+06   113001.6509  80170.1774
+60  None  RelDiff_ECON0512  RelDiff_ECON0512_PolyTrend_residue_zeroCycle_r...  ...  1.215324e+06   113001.6934  80170.1774
+61  None  RelDiff_ECON0512  RelDiff_ECON0512_PolyTrend_residue_bestCycle_b...  ...  1.194305e+06   113001.7358  80170.1774
+62  None  RelDiff_ECON0512  RelDiff_ECON0512_PolyTrend_residue_zeroCycle_r...  ...  1.200298e+06   113001.8207  80170.1774
+63  None  RelDiff_ECON0512  RelDiff_ECON0512_ConstantTrend_residue_zeroCyc...  ...  1.185183e+06   113001.8207  80170.1774
+
+[64 rows x 8 columns]
+  Split    Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _ECON0512  _ECON0512_Lag1Trend_residue_bestCycle_byL2_res...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0550        0.0266    0.0133
+1  None         _ECON0512  _ECON0512_Lag1Trend_residue_zeroCycle_residue_...            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0383        0.0275    0.0156
+2  None   CumSum_ECON0512  CumSum_ECON0512_Lag1Trend_residue_zeroCycle_re...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0435        0.0275    0.0156
+3  None     Diff_ECON0512  Diff_ECON0512_Lag1Trend_residue_zeroCycle_resi...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0383        0.0275    0.0156
+4  None  RelDiff_ECON0512  RelDiff_ECON0512_Lag1Trend_residue_zeroCycle_r...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0383        0.0275    0.0156
+8 0    1984.2
+1    2033.0
+2    2058.2
+3    2062.2
+4    2078.0
+5    1920.5
+6    1995.1
+7    1974.6
+Name: ECON0512, dtype: float64
+8 0    1905.1
+1    1905.1
+2    1905.1
+3    1905.1
+4    1905.1
+5    1905.1
+6    1905.1
+7    1905.1
+Name: ECON0512_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL ECON0512 ECON0512 [1984.2, 2033.0, 2058.2, 2062.2, 2078.0, 1920.5, 1995.1, 1974.6]
+FORECAST_DETAIL_PREDICTED ECON0512 ECON0512 [1905.1, 1905.1, 1905.1, 1905.1, 1905.1, 1905.1, 1905.1, 1905.1]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON ECON0512 ECON0512 235 8
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ ECON0512 ECON0512 7.433906078338623
+BENCHMARK_PERF_DETAIL_BEST_MODEL ECON0512 ECON0512 Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT ECON0512 ECON0512 8
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE ECON0512 ECON0512 0.0531 0.0549 2.185
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 ECON0512 ECON0512 108.12500000000003 119.26706376867003 -4.614358129817853
+BENCHMARK_SUCCESS 'M4_COMP_ECONOMICS_ECON0512_8'

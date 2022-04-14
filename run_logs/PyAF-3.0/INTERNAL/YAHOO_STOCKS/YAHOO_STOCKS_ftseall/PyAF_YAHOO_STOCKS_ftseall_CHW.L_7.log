@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1094 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2015-10-01T00:00:00.000000000' '2015-10-02T00:00:00.000000000'
+ '2015-10-05T00:00:00.000000000' '2015-10-06T00:00:00.000000000'
+ '2015-10-07T00:00:00.000000000']
+SIGNAL :  CHW.L N= 1094 H= 7 HEAD= [252.   253.   252.5  249.25 241.25] TAIL= [364.5  364.5  364.75 364.75 364.5 ]
+    CHW.L       Date
+0  252.00 2011-07-28
+1  253.00 2011-07-29
+2  252.50 2011-08-01
+3  249.25 2011-08-02
+4  241.25 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1094 entries, 0 to 1093
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   CHW.L   1094 non-null   float64       
+ 1   Date    1094 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 25.6 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _CHW.L    _CHW.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.190000e-02  1.150000e-02  8.000000e-04
+1   None   CumSum_CHW.L  CumSum_CHW.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.300000e-02  1.150000e-02  8.000000e-04
+2   None     Diff_CHW.L  Diff_CHW.L_Lag1Trend_residue_zeroCycle_residue...  ...  1.190000e-02  1.150000e-02  8.000000e-04
+3   None  RelDiff_CHW.L  RelDiff_CHW.L_Lag1Trend_residue_zeroCycle_resi...  ...  1.190000e-02  1.150000e-02  8.000000e-04
+4   None         _CHW.L  _CHW.L_Lag1Trend_residue_bestCycle_byL2_residu...  ...  1.200000e-02  1.160000e-02  7.000000e-04
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_CHW.L  RelDiff_CHW.L_LinearTrend_residue_Seasonal_Day...  ...  4.478974e+07  3.806897e+07  2.992163e+07
+92  None  RelDiff_CHW.L  RelDiff_CHW.L_PolyTrend_residue_Seasonal_DayOf...  ...  4.478059e+07  3.806897e+07  2.992163e+07
+93  None  RelDiff_CHW.L  RelDiff_CHW.L_LinearTrend_residue_bestCycle_by...  ...  4.478986e+07  3.806897e+07  2.992163e+07
+94  None  RelDiff_CHW.L  RelDiff_CHW.L_PolyTrend_residue_bestCycle_byL2...  ...  4.478067e+07  3.806897e+07  2.992163e+07
+95  None  RelDiff_CHW.L  RelDiff_CHW.L_ConstantTrend_residue_zeroCycle_...  ...  4.477806e+07  3.806897e+07  2.992163e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _CHW.L    _CHW.L_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0119        0.0115    0.0008
+1  None   CumSum_CHW.L  CumSum_CHW.L_Lag1Trend_residue_zeroCycle_resid...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0130        0.0115    0.0008
+2  None     Diff_CHW.L  Diff_CHW.L_Lag1Trend_residue_zeroCycle_residue...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0119        0.0115    0.0008
+3  None  RelDiff_CHW.L  RelDiff_CHW.L_Lag1Trend_residue_zeroCycle_resi...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0119        0.0115    0.0008
+4  None         _CHW.L  _CHW.L_Lag1Trend_residue_bestCycle_byL2_residu...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0120        0.0116    0.0007
+7 0    364.5
+1    364.5
+2    364.5
+3    364.5
+4    364.5
+5    364.5
+6    364.5
+Name: CHW.L, dtype: float64
+7 0    364.5
+1    364.5
+2    364.5
+3    364.5
+4    364.5
+5    364.5
+6    364.5
+Name: CHW.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_CHW.L CHW.L [364.5, 364.5, 364.5, 364.5, 364.5, 364.5, 364.5]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_CHW.L CHW.L [364.5, 364.5, 364.5, 364.5, 364.5, 364.5, 364.5]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_CHW.L CHW.L 1094 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_CHW.L CHW.L 11.170392990112305
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_CHW.L CHW.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_CHW.L CHW.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_CHW.L CHW.L 0.0 0.0 0.0
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_CHW.L CHW.L 0.0 0.0 1.0
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_CHW.L_7'

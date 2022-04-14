@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_bvsp
+TIME :  Date N= 1218 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-08-17T00:00:00.000000000'
+ '2011-08-18T00:00:00.000000000' '2011-08-19T00:00:00.000000000'
+ '2011-08-22T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  PETR4.SA N= 1218 H= 7 HEAD= [23.5  20.87 20.3  19.7  19.65] TAIL= [10.65 10.63 10.93 11.02 11.55]
+   PETR4.SA       Date
+0     23.50 2011-07-28
+1     20.87 2011-08-17
+2     20.30 2011-08-18
+3     19.70 2011-08-19
+4     19.65 2011-08-22
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1218 entries, 0 to 1217
+Data columns (total 2 columns):
+ #   Column    Non-Null Count  Dtype         
+---  ------    --------------  -----         
+ 0   PETR4.SA  1218 non-null   float64       
+ 1   Date      1218 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 28.5 KB
+None
+   Split    Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _PETR4.SA  _PETR4.SA_Lag1Trend_residue_zeroCycle_residue_...  ...  0.0209  3.210000e-02  2.700000e-02
+1   None   CumSum_PETR4.SA  CumSum_PETR4.SA_Lag1Trend_residue_zeroCycle_re...  ...  0.0218  3.210000e-02  2.700000e-02
+2   None     Diff_PETR4.SA  Diff_PETR4.SA_Lag1Trend_residue_zeroCycle_resi...  ...  0.0209  3.210000e-02  2.700000e-02
+3   None  RelDiff_PETR4.SA  RelDiff_PETR4.SA_Lag1Trend_residue_zeroCycle_r...  ...  0.0209  3.210000e-02  2.700000e-02
+4   None         _PETR4.SA  _PETR4.SA_Lag1Trend_residue_bestCycle_byL2_res...  ...  0.0208  3.220000e-02  2.840000e-02
+..   ...               ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_PETR4.SA  RelDiff_PETR4.SA_LinearTrend_residue_Seasonal_...  ...  0.2403  1.234888e+08  1.805754e+08
+92  None  RelDiff_PETR4.SA  RelDiff_PETR4.SA_ConstantTrend_residue_Seasona...  ...  0.2122  1.234888e+08  1.805754e+08
+93  None  RelDiff_PETR4.SA  RelDiff_PETR4.SA_Lag1Trend_residue_zeroCycle_r...  ...  0.0998  1.234888e+08  1.805754e+08
+94  None  RelDiff_PETR4.SA  RelDiff_PETR4.SA_Lag1Trend_residue_bestCycle_b...  ...  0.0951  1.234888e+08  1.805754e+08
+95  None  RelDiff_PETR4.SA  RelDiff_PETR4.SA_Lag1Trend_residue_Seasonal_Da...  ...  0.1068  1.234888e+08  1.805754e+08
+
+[96 rows x 8 columns]
+  Split    Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _PETR4.SA  _PETR4.SA_Lag1Trend_residue_zeroCycle_residue_...            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0209        0.0321    0.0270
+1  None   CumSum_PETR4.SA  CumSum_PETR4.SA_Lag1Trend_residue_zeroCycle_re...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0218        0.0321    0.0270
+2  None     Diff_PETR4.SA  Diff_PETR4.SA_Lag1Trend_residue_zeroCycle_resi...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0209        0.0321    0.0270
+3  None  RelDiff_PETR4.SA  RelDiff_PETR4.SA_Lag1Trend_residue_zeroCycle_r...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0209        0.0321    0.0270
+4  None         _PETR4.SA  _PETR4.SA_Lag1Trend_residue_bestCycle_byL2_res...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0208        0.0322    0.0284
+7 0    11.78
+1    11.82
+2    11.85
+3    11.94
+4    12.03
+5    11.88
+6    11.51
+Name: PETR4.SA, dtype: float64
+7 0    11.55
+1    11.55
+2    11.55
+3    11.55
+4    11.55
+5    11.55
+6    11.55
+Name: PETR4.SA_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_PETR4.SA PETR4.SA [11.78, 11.82, 11.85, 11.94, 12.03, 11.88, 11.51]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_PETR4.SA PETR4.SA [11.55, 11.55, 11.55, 11.55, 11.55, 11.55, 11.55]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_PETR4.SA PETR4.SA 1218 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_PETR4.SA PETR4.SA 10.462979555130005
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_PETR4.SA PETR4.SA Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_PETR4.SA PETR4.SA 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_PETR4.SA PETR4.SA 0.0245 0.0249 2.2709
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_PETR4.SA PETR4.SA 0.2914285714285708 0.31820927525316156 -3.4299999972312296
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_bvsp_PETR4.SA_7'

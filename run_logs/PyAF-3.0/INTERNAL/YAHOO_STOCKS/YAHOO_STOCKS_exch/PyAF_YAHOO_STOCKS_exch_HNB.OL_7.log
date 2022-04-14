@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_exch
+TIME :  Date N= 1294 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-08-01T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  HNB.OL N= 1294 H= 7 HEAD= [63.25 61.5  61.   61.25 60.  ] TAIL= [74.   73.75 73.   73.   74.  ]
+   HNB.OL       Date
+0   63.25 2011-07-28
+1   61.50 2011-08-01
+2   61.00 2011-08-02
+3   61.25 2011-08-03
+4   60.00 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1294 entries, 0 to 1293
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   HNB.OL  1294 non-null   float64       
+ 1   Date    1294 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _HNB.OL   _HNB.OL_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  9.200000e-03  9.900000e-03  8.300000e-03
+1   None   CumSum_HNB.OL  CumSum_HNB.OL_Lag1Trend_residue_zeroCycle_resi...  ...  1.010000e-02  9.900000e-03  8.300000e-03
+2   None     Diff_HNB.OL  Diff_HNB.OL_Lag1Trend_residue_zeroCycle_residu...  ...  9.200000e-03  9.900000e-03  8.300000e-03
+3   None  RelDiff_HNB.OL  RelDiff_HNB.OL_Lag1Trend_residue_zeroCycle_res...  ...  9.200000e-03  9.900000e-03  8.300000e-03
+4   None         _HNB.OL  _HNB.OL_Lag1Trend_residue_zeroCycle_residue_AR...  ...  9.000000e-03  1.000000e-02  9.300000e-03
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_HNB.OL  RelDiff_HNB.OL_Lag1Trend_residue_bestCycle_byL...  ...  3.690106e+07  3.116911e+07  2.559941e+07
+92  None  RelDiff_HNB.OL  RelDiff_HNB.OL_ConstantTrend_residue_Seasonal_...  ...  3.676275e+07  3.116911e+07  2.559941e+07
+93  None  RelDiff_HNB.OL  RelDiff_HNB.OL_LinearTrend_residue_Seasonal_Da...  ...  3.687179e+07  3.116911e+07  2.559941e+07
+94  None  RelDiff_HNB.OL  RelDiff_HNB.OL_ConstantTrend_residue_zeroCycle...  ...  3.687272e+07  3.116911e+07  2.559941e+07
+95  None  RelDiff_HNB.OL  RelDiff_HNB.OL_LinearTrend_residue_Seasonal_Da...  ...  3.687184e+07  3.116911e+07  2.559941e+07
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _HNB.OL   _HNB.OL_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0092        0.0099    0.0083
+1  None   CumSum_HNB.OL  CumSum_HNB.OL_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0101        0.0099    0.0083
+2  None     Diff_HNB.OL  Diff_HNB.OL_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0092        0.0099    0.0083
+3  None  RelDiff_HNB.OL  RelDiff_HNB.OL_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0092        0.0099    0.0083
+4  None         _HNB.OL  _HNB.OL_Lag1Trend_residue_zeroCycle_residue_AR...              NoTransf_Lag1Trend_NoCycle_AR          96   0.0090        0.0100    0.0093
+7 0    74.50
+1    78.00
+2    77.25
+3    76.75
+4    77.50
+5    77.75
+6    77.50
+Name: HNB.OL, dtype: float64
+7 0    74.0
+1    74.0
+2    74.0
+3    74.0
+4    74.0
+5    74.0
+6    74.0
+Name: HNB.OL_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_HNB.OL HNB.OL [74.5, 78.0, 77.25, 76.75, 77.5, 77.75, 77.5]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_HNB.OL HNB.OL [74.0, 74.0, 74.0, 74.0, 74.0, 74.0, 74.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_HNB.OL HNB.OL 1294 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_HNB.OL HNB.OL 10.855558633804321
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_HNB.OL HNB.OL Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_HNB.OL HNB.OL 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_HNB.OL HNB.OL 0.0392 0.0401 3.0357
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_HNB.OL HNB.OL 3.0357142857142856 3.2279471583566632 -7.6536016948125845
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_exch_HNB.OL_7'

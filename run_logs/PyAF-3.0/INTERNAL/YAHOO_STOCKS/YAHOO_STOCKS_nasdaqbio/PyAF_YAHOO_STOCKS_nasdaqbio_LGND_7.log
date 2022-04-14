@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nasdaqbio
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  LGND N= 1251 H= 7 HEAD= [13.16 13.62 13.53 13.13 13.09] TAIL= [128.330002 124.919998 128.720001 126.029999 126.      ]
+    LGND       Date
+0  13.16 2011-07-28
+1  13.62 2011-07-29
+2  13.53 2011-08-01
+3  13.13 2011-08-02
+4  13.09 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   LGND    1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None          _LGND  _LGND_Lag1Trend_residue_bestCycle_byL2_residue...  ...  2.270000e-02  2.120000e-02  1.630000e-02
+1   None          _LGND     _LGND_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.230000e-02  2.130000e-02  1.640000e-02
+2   None          _LGND  _LGND_Lag1Trend_residue_Seasonal_DayOfWeek_res...  ...  2.270000e-02  2.130000e-02  1.630000e-02
+3   None    CumSum_LGND  CumSum_LGND_Lag1Trend_residue_zeroCycle_residu...  ...  2.320000e-02  2.130000e-02  1.640000e-02
+4   None      Diff_LGND  Diff_LGND_Lag1Trend_residue_zeroCycle_residue_...  ...  2.230000e-02  2.130000e-02  1.640000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None   RelDiff_LGND  RelDiff_LGND_ConstantTrend_residue_Seasonal_Da...  ...  9.686333e+06  2.509076e+06  2.029263e+06
+92  None   RelDiff_LGND  RelDiff_LGND_LinearTrend_residue_bestCycle_byL...  ...  9.886295e+06  2.509076e+06  2.029262e+06
+93  None   RelDiff_LGND  RelDiff_LGND_PolyTrend_residue_Seasonal_DayOfW...  ...  9.886330e+06  2.509076e+06  2.029263e+06
+94  None   RelDiff_LGND  RelDiff_LGND_PolyTrend_residue_bestCycle_byL2_...  ...  9.886331e+06  2.509076e+06  2.029263e+06
+95  None   RelDiff_LGND  RelDiff_LGND_PolyTrend_residue_Seasonal_DayOfW...  ...  9.886389e+06  2.509076e+06  2.029263e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None          _LGND  _LGND_Lag1Trend_residue_bestCycle_byL2_residue...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0227        0.0212    0.0163
+1  None          _LGND     _LGND_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0223        0.0213    0.0164
+2  None          _LGND  _LGND_Lag1Trend_residue_Seasonal_DayOfWeek_res...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0227        0.0213    0.0163
+3  None    CumSum_LGND  CumSum_LGND_Lag1Trend_residue_zeroCycle_residu...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0232        0.0213    0.0164
+4  None      Diff_LGND  Diff_LGND_Lag1Trend_residue_zeroCycle_residue_...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0223        0.0213    0.0164
+7 0    128.050003
+1    135.119995
+2    131.960007
+3    132.550003
+4    133.600006
+5    134.250000
+6    136.070007
+Name: LGND, dtype: float64
+7 0    126.0
+1    126.0
+2    126.0
+3    126.0
+4    126.0
+5    126.0
+6    126.0
+Name: LGND_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_LGND LGND [128.050003, 135.119995, 131.96000700000002, 132.550003, 133.600006, 134.25, 136.070007]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_LGND LGND [126.0, 126.0, 126.0, 126.0, 126.0, 126.0, 126.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_LGND LGND 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_LGND LGND 10.973645448684692
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_LGND LGND Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_LGND LGND 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_LGND LGND 0.0529 0.0545 2.9647
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_LGND LGND 7.085717285714289 7.493127098693054 -8.453042550009464
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nasdaqbio_LGND_7'

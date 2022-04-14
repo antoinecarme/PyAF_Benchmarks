@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_eurostoxx50
+TIME :  Date N= 274 H= 7 HEAD= ['2015-07-01T00:00:00.000000000' '2015-07-02T00:00:00.000000000'
+ '2015-07-03T00:00:00.000000000' '2015-07-06T00:00:00.000000000'
+ '2015-07-07T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  NOA3.DE N= 274 H= 7 HEAD= [6.272 6.086 6.03  5.907 5.772] TAIL= [5.07  5.305 5.338 5.345 5.251]
+   NOA3.DE       Date
+0    6.272 2015-07-01
+1    6.086 2015-07-02
+2    6.030 2015-07-03
+3    5.907 2015-07-06
+4    5.772 2015-07-07
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 274 entries, 0 to 273
+Data columns (total 2 columns):
+ #   Column   Non-Null Count  Dtype         
+---  ------   --------------  -----         
+ 0   NOA3.DE  274 non-null    float64       
+ 1   Date     274 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 6.4 KB
+None
+   Split   Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _NOA3.DE  _NOA3.DE_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0159  1.700000e-02  1.840000e-02
+1   None   CumSum_NOA3.DE  CumSum_NOA3.DE_Lag1Trend_residue_zeroCycle_res...  ...  0.0205  1.700000e-02  1.840000e-02
+2   None     Diff_NOA3.DE  Diff_NOA3.DE_Lag1Trend_residue_zeroCycle_resid...  ...  0.0159  1.700000e-02  1.840000e-02
+3   None  RelDiff_NOA3.DE  RelDiff_NOA3.DE_Lag1Trend_residue_zeroCycle_re...  ...  0.0159  1.700000e-02  1.840000e-02
+4   None         _NOA3.DE  _NOA3.DE_Lag1Trend_residue_Seasonal_DayOfWeek_...  ...  0.0160  1.730000e-02  1.860000e-02
+..   ...              ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_NOA3.DE  RelDiff_NOA3.DE_PolyTrend_residue_zeroCycle_re...  ...  0.1581  2.284983e+07  3.364201e+07
+92  None  RelDiff_NOA3.DE  RelDiff_NOA3.DE_ConstantTrend_residue_zeroCycl...  ...  0.1208  2.285001e+07  3.364201e+07
+93  None  RelDiff_NOA3.DE  RelDiff_NOA3.DE_Lag1Trend_residue_Seasonal_Day...  ...  0.1293  2.285063e+07  3.364201e+07
+94  None  RelDiff_NOA3.DE  RelDiff_NOA3.DE_Lag1Trend_residue_bestCycle_by...  ...  0.1293  2.285063e+07  3.364201e+07
+95  None  RelDiff_NOA3.DE  RelDiff_NOA3.DE_Lag1Trend_residue_zeroCycle_re...  ...  0.1345  2.285110e+07  3.364201e+07
+
+[96 rows x 8 columns]
+  Split   Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _NOA3.DE  _NOA3.DE_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0159        0.0170    0.0184
+1  None   CumSum_NOA3.DE  CumSum_NOA3.DE_Lag1Trend_residue_zeroCycle_res...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0205        0.0170    0.0184
+2  None     Diff_NOA3.DE  Diff_NOA3.DE_Lag1Trend_residue_zeroCycle_resid...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0159        0.0170    0.0184
+3  None  RelDiff_NOA3.DE  RelDiff_NOA3.DE_Lag1Trend_residue_zeroCycle_re...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0159        0.0170    0.0184
+4  None         _NOA3.DE  _NOA3.DE_Lag1Trend_residue_Seasonal_DayOfWeek_...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0160        0.0173    0.0186
+7 0    5.189
+1    5.290
+2    5.285
+3    5.291
+4    5.281
+5    5.224
+6    5.261
+Name: NOA3.DE, dtype: float64
+7 0    5.251
+1    5.251
+2    5.251
+3    5.251
+4    5.251
+5    5.251
+6    5.251
+Name: NOA3.DE_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_NOA3.DE NOA3.DE [5.189, 5.29, 5.285, 5.291, 5.281000000000001, 5.224, 5.261]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_NOA3.DE NOA3.DE [5.251, 5.251, 5.251, 5.251, 5.251, 5.251, 5.251]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_NOA3.DE NOA3.DE 274 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_NOA3.DE NOA3.DE 9.141223907470703
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_NOA3.DE NOA3.DE Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_NOA3.DE NOA3.DE 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_NOA3.DE NOA3.DE 0.0066 0.0066 0.9603
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_NOA3.DE NOA3.DE 0.03457142857142857 0.0375119028728597 -0.06315723403012652
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_eurostoxx50_NOA3.DE_7'

@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_eurindex
+TIME :  Date N= 882 H= 7 HEAD= ['2012-12-13T00:00:00.000000000' '2012-12-14T00:00:00.000000000'
+ '2012-12-17T00:00:00.000000000' '2012-12-18T00:00:00.000000000'
+ '2012-12-20T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  ^ATXPRIME N= 882 H= 7 HEAD= [1160.699951 1159.369995 1160.439941 1177.26001  1180.449951] TAIL= [1112.290039 1098.640015 1131.589966 1136.099976 1135.040039]
+     ^ATXPRIME       Date
+0  1160.699951 2012-12-13
+1  1159.369995 2012-12-14
+2  1160.439941 2012-12-17
+3  1177.260010 2012-12-18
+4  1180.449951 2012-12-20
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 882 entries, 0 to 881
+Data columns (total 2 columns):
+ #   Column     Non-Null Count  Dtype         
+---  ------     --------------  -----         
+ 0   ^ATXPRIME  882 non-null    float64       
+ 1   Date       882 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 20.7 KB
+None
+   Split     Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _^ATXPRIME  _^ATXPRIME_Lag1Trend_residue_Seasonal_DayOfWee...  ...  0.0080  1.070000e-02  1.420000e-02
+1   None         _^ATXPRIME  _^ATXPRIME_Lag1Trend_residue_bestCycle_byL2_re...  ...  0.0080  1.070000e-02  1.410000e-02
+2   None         _^ATXPRIME  _^ATXPRIME_Lag1Trend_residue_zeroCycle_residue...  ...  0.0080  1.080000e-02  1.400000e-02
+3   None   CumSum_^ATXPRIME  CumSum_^ATXPRIME_Lag1Trend_residue_zeroCycle_r...  ...  0.0094  1.080000e-02  1.400000e-02
+4   None     Diff_^ATXPRIME  Diff_^ATXPRIME_Lag1Trend_residue_zeroCycle_res...  ...  0.0080  1.080000e-02  1.400000e-02
+..   ...                ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_^ATXPRIME  RelDiff_^ATXPRIME_LinearTrend_residue_Seasonal...  ...  0.8066  7.646525e+06  1.385353e+07
+92  None  RelDiff_^ATXPRIME  RelDiff_^ATXPRIME_LinearTrend_residue_zeroCycl...  ...  0.8056  7.646866e+06  1.385353e+07
+93  None  RelDiff_^ATXPRIME  RelDiff_^ATXPRIME_Lag1Trend_residue_bestCycle_...  ...  0.5769  7.658152e+06  1.385353e+07
+94  None  RelDiff_^ATXPRIME  RelDiff_^ATXPRIME_Lag1Trend_residue_Seasonal_D...  ...  0.6975  7.660031e+06  1.385353e+07
+95  None  RelDiff_^ATXPRIME  RelDiff_^ATXPRIME_Lag1Trend_residue_zeroCycle_...  ...  0.6814  7.661941e+06  1.385353e+07
+
+[96 rows x 8 columns]
+  Split    Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _^ATXPRIME  _^ATXPRIME_Lag1Trend_residue_Seasonal_DayOfWee...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0080        0.0107    0.0142
+1  None        _^ATXPRIME  _^ATXPRIME_Lag1Trend_residue_bestCycle_byL2_re...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0080        0.0107    0.0141
+2  None        _^ATXPRIME  _^ATXPRIME_Lag1Trend_residue_zeroCycle_residue...             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0080        0.0108    0.0140
+3  None  CumSum_^ATXPRIME  CumSum_^ATXPRIME_Lag1Trend_residue_zeroCycle_r...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0094        0.0108    0.0140
+4  None    Diff_^ATXPRIME  Diff_^ATXPRIME_Lag1Trend_residue_zeroCycle_res...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0080        0.0108    0.0140
+7 0    1130.989990
+1    1136.430054
+2    1134.550049
+3    1141.489990
+4    1139.540039
+5    1144.060059
+6    1151.040039
+Name: ^ATXPRIME, dtype: float64
+7 0    1135.040039
+1    1135.040039
+2    1135.040039
+3    1135.040039
+4    1135.040039
+5    1135.040039
+6    1135.040039
+Name: ^ATXPRIME_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_^ATXPRIME ^ATXPRIME [1130.98999, 1136.430054, 1134.550049, 1141.48999, 1139.540039, 1144.060059, 1151.040039]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_^ATXPRIME ^ATXPRIME [1135.040039, 1135.040039, 1135.040039, 1135.040039, 1135.040039, 1135.040039, 1135.040039]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_^ATXPRIME ^ATXPRIME 882 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_^ATXPRIME ^ATXPRIME 10.46604323387146
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_^ATXPRIME ^ATXPRIME Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_^ATXPRIME ^ATXPRIME 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_^ATXPRIME ^ATXPRIME 0.0052 0.0053 1.2961
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_^ATXPRIME ^ATXPRIME 5.985717857142845 7.725539810131863 -0.5830730249111937
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_eurindex_^ATXPRIME_7'

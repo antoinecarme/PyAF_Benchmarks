@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aord
+TIME :  Date N= 1299 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  LYC.AX N= 1299 H= 7 HEAD= [2.09 2.15 2.23 2.13 2.07] TAIL= [0.069 0.071 0.076 0.084 0.075]
+   LYC.AX       Date
+0    2.09 2011-07-28
+1    2.15 2011-07-29
+2    2.23 2011-08-01
+3    2.13 2011-08-02
+4    2.07 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1299 entries, 0 to 1298
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   LYC.AX  1299 non-null   float64       
+ 1   Date    1299 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _LYC.AX   _LYC.AX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0319  3.780000e-02  5.480000e-02
+1   None   CumSum_LYC.AX  CumSum_LYC.AX_Lag1Trend_residue_zeroCycle_resi...  ...  0.0328  3.780000e-02  5.480000e-02
+2   None     Diff_LYC.AX  Diff_LYC.AX_Lag1Trend_residue_zeroCycle_residu...  ...  0.0319  3.780000e-02  5.480000e-02
+3   None  RelDiff_LYC.AX  RelDiff_LYC.AX_Lag1Trend_residue_zeroCycle_res...  ...  0.0319  3.780000e-02  5.480000e-02
+4   None   CumSum_LYC.AX  CumSum_LYC.AX_ConstantTrend_residue_zeroCycle_...  ...  0.0384  4.410000e-02  5.170000e-02
+..   ...             ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_LYC.AX  RelDiff_LYC.AX_PolyTrend_residue_Seasonal_DayO...  ...  1.1159  2.134468e+09  2.846821e+09
+92  None  RelDiff_LYC.AX  RelDiff_LYC.AX_PolyTrend_residue_bestCycle_byL...  ...  0.8510  2.151557e+09  2.846821e+09
+93  None  RelDiff_LYC.AX  RelDiff_LYC.AX_Lag1Trend_residue_zeroCycle_res...  ...  1.8925  2.152767e+09  2.846821e+09
+94  None  RelDiff_LYC.AX  RelDiff_LYC.AX_Lag1Trend_residue_Seasonal_DayO...  ...  1.9175  2.152880e+09  2.846821e+09
+95  None  RelDiff_LYC.AX  RelDiff_LYC.AX_Lag1Trend_residue_bestCycle_byL...  ...  0.9391  2.153701e+09  2.846821e+09
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _LYC.AX   _LYC.AX_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0319        0.0378    0.0548
+1  None   CumSum_LYC.AX  CumSum_LYC.AX_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0328        0.0378    0.0548
+2  None     Diff_LYC.AX  Diff_LYC.AX_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0319        0.0378    0.0548
+3  None  RelDiff_LYC.AX  RelDiff_LYC.AX_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0319        0.0378    0.0548
+4  None   CumSum_LYC.AX  CumSum_LYC.AX_ConstantTrend_residue_zeroCycle_...       Integration_ConstantTrend_NoCycle_AR          96   0.0384        0.0441    0.0517
+7 0    0.073
+1    0.072
+2    0.072
+3    0.068
+4    0.071
+5    0.072
+6    0.076
+Name: LYC.AX, dtype: float64
+7 0    0.075
+1    0.075
+2    0.075
+3    0.075
+4    0.075
+5    0.075
+6    0.075
+Name: LYC.AX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_LYC.AX LYC.AX [0.073, 0.07200000000000001, 0.07200000000000001, 0.068, 0.071, 0.07200000000000001, 0.076]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_LYC.AX LYC.AX [0.075, 0.075, 0.075, 0.075, 0.075, 0.075, 0.075]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_LYC.AX LYC.AX 1299 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_LYC.AX LYC.AX 11.44014048576355
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_LYC.AX LYC.AX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_LYC.AX LYC.AX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_LYC.AX LYC.AX 0.0464 0.0451 1.5165
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_LYC.AX LYC.AX 0.0032857142857142807 0.0037225183487986755 -1.8529327854918036
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aord_LYC.AX_7'

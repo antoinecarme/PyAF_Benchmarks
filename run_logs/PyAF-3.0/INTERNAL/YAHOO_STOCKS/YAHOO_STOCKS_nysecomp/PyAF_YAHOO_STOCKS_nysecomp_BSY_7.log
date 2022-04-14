@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1298 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  BSY N= 1298 H= 7 HEAD= [0.226 0.22  0.23  0.22  0.215] TAIL= [0.011 0.02  0.016 0.018 0.018]
+     BSY       Date
+0  0.226 2011-07-28
+1  0.220 2011-07-29
+2  0.230 2011-08-01
+3  0.220 2011-08-02
+4  0.215 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1298 entries, 0 to 1297
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   BSY     1298 non-null   float64       
+ 1   Date    1298 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split Transformation                                              Model  ...   FitMAPE  ForecastMAPE      TestMAPE
+0   None           _BSY      _BSY_Lag1Trend_residue_zeroCycle_residue_NoAR  ...    0.0482  4.060000e-02  1.159000e-01
+1   None     CumSum_BSY  CumSum_BSY_Lag1Trend_residue_zeroCycle_residue...  ...    0.0491  4.060000e-02  1.159000e-01
+2   None       Diff_BSY  Diff_BSY_Lag1Trend_residue_zeroCycle_residue_NoAR  ...    0.0482  4.060000e-02  1.159000e-01
+3   None    RelDiff_BSY  RelDiff_BSY_Lag1Trend_residue_zeroCycle_residu...  ...    0.0482  4.060000e-02  1.159000e-01
+4   None       Diff_BSY  Diff_BSY_Lag1Trend_residue_zeroCycle_residue_A...  ...    0.0498  4.450000e-02  1.043000e-01
+..   ...            ...                                                ...  ...       ...           ...           ...
+91  None    RelDiff_BSY  RelDiff_BSY_ConstantTrend_residue_Seasonal_Day...  ...  852.3529  2.489273e+04  6.707315e+04
+92  None    RelDiff_BSY  RelDiff_BSY_ConstantTrend_residue_zeroCycle_re...  ...  875.7741  2.576741e+04  6.965401e+04
+93  None    RelDiff_BSY  RelDiff_BSY_Lag1Trend_residue_bestCycle_byL2_r...  ...  285.1327  4.594300e+06  5.340854e+08
+94  None    RelDiff_BSY  RelDiff_BSY_Lag1Trend_residue_Seasonal_DayOfWe...  ...  473.7930  9.947223e+06  5.353483e+08
+95  None    RelDiff_BSY  RelDiff_BSY_Lag1Trend_residue_zeroCycle_residu...  ...  486.0852  1.002414e+07  5.352766e+08
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _BSY      _BSY_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0482        0.0406    0.1159
+1  None     CumSum_BSY  CumSum_BSY_Lag1Trend_residue_zeroCycle_residue...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0491        0.0406    0.1159
+2  None       Diff_BSY  Diff_BSY_Lag1Trend_residue_zeroCycle_residue_NoAR          Difference_Lag1Trend_NoCycle_NoAR          64   0.0482        0.0406    0.1159
+3  None    RelDiff_BSY  RelDiff_BSY_Lag1Trend_residue_zeroCycle_residu...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0482        0.0406    0.1159
+4  None       Diff_BSY  Diff_BSY_Lag1Trend_residue_zeroCycle_residue_A...            Difference_Lag1Trend_NoCycle_AR         128   0.0498        0.0445    0.1043
+7 0    0.018
+1    0.018
+2    0.018
+3    0.018
+4    0.018
+5    0.018
+6    0.018
+Name: BSY, dtype: float64
+7 0    0.018
+1    0.018
+2    0.018
+3    0.018
+4    0.018
+5    0.018
+6    0.018
+Name: BSY_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_BSY BSY [0.018000000000000002, 0.018000000000000002, 0.018000000000000002, 0.018000000000000002, 0.018000000000000002, 0.018000000000000002, 0.018000000000000002]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_BSY BSY [0.018000000000000002, 0.018000000000000002, 0.018000000000000002, 0.018000000000000002, 0.018000000000000002, 0.018000000000000002, 0.018000000000000002]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_BSY BSY 1298 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_BSY BSY 12.106378316879272
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_BSY BSY Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_BSY BSY 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_BSY BSY 0.0 0.0 0.0
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_BSY BSY 0.0 0.0 1.0
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_BSY_7'

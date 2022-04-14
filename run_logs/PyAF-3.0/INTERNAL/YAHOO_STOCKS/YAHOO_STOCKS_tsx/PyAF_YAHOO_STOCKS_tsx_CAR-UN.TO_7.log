@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_tsx
+TIME :  Date N= 1248 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  CAR-UN.TO N= 1248 H= 7 HEAD= [19.780001 19.59     19.6      19.530001 19.25    ] TAIL= [32.93     32.950001 32.720001 32.709999 32.5     ]
+   CAR-UN.TO       Date
+0  19.780001 2011-07-28
+1  19.590000 2011-07-29
+2  19.600000 2011-08-02
+3  19.530001 2011-08-03
+4  19.250000 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1248 entries, 0 to 1247
+Data columns (total 2 columns):
+ #   Column     Non-Null Count  Dtype         
+---  ------     --------------  -----         
+ 0   CAR-UN.TO  1248 non-null   float64       
+ 1   Date       1248 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.2 KB
+None
+   Split     Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _CAR-UN.TO  _CAR-UN.TO_Lag1Trend_residue_zeroCycle_residue...  ...  7.400000e-03  9.400000e-03  4.000000e-03
+1   None         _CAR-UN.TO  _CAR-UN.TO_Lag1Trend_residue_Seasonal_DayOfWee...  ...  7.400000e-03  9.400000e-03  4.100000e-03
+2   None   CumSum_CAR-UN.TO  CumSum_CAR-UN.TO_Lag1Trend_residue_zeroCycle_r...  ...  8.400000e-03  9.400000e-03  4.000000e-03
+3   None     Diff_CAR-UN.TO  Diff_CAR-UN.TO_Lag1Trend_residue_zeroCycle_res...  ...  7.400000e-03  9.400000e-03  4.000000e-03
+4   None  RelDiff_CAR-UN.TO  RelDiff_CAR-UN.TO_Lag1Trend_residue_zeroCycle_...  ...  7.400000e-03  9.400000e-03  4.000000e-03
+..   ...                ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_CAR-UN.TO  RelDiff_CAR-UN.TO_Lag1Trend_residue_Seasonal_D...  ...  7.915490e+06  6.473592e+06  5.625129e+06
+92  None  RelDiff_CAR-UN.TO  RelDiff_CAR-UN.TO_PolyTrend_residue_zeroCycle_...  ...  7.925008e+06  6.473592e+06  5.625129e+06
+93  None  RelDiff_CAR-UN.TO  RelDiff_CAR-UN.TO_ConstantTrend_residue_bestCy...  ...  7.866477e+06  6.473592e+06  5.625129e+06
+94  None  RelDiff_CAR-UN.TO  RelDiff_CAR-UN.TO_PolyTrend_residue_zeroCycle_...  ...  7.925009e+06  6.473592e+06  5.625129e+06
+95  None  RelDiff_CAR-UN.TO  RelDiff_CAR-UN.TO_PolyTrend_residue_bestCycle_...  ...  7.925009e+06  6.473592e+06  5.625129e+06
+
+[96 rows x 8 columns]
+  Split     Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _CAR-UN.TO  _CAR-UN.TO_Lag1Trend_residue_zeroCycle_residue...             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0074        0.0094    0.0040
+1  None         _CAR-UN.TO  _CAR-UN.TO_Lag1Trend_residue_Seasonal_DayOfWee...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0074        0.0094    0.0041
+2  None   CumSum_CAR-UN.TO  CumSum_CAR-UN.TO_Lag1Trend_residue_zeroCycle_r...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0084        0.0094    0.0040
+3  None     Diff_CAR-UN.TO  Diff_CAR-UN.TO_Lag1Trend_residue_zeroCycle_res...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0074        0.0094    0.0040
+4  None  RelDiff_CAR-UN.TO  RelDiff_CAR-UN.TO_Lag1Trend_residue_zeroCycle_...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0074        0.0094    0.0040
+7 0    32.720001
+1    33.000000
+2    32.990002
+3    32.759998
+4    32.939999
+5    32.790001
+6    32.110001
+Name: CAR-UN.TO, dtype: float64
+7 0    32.5
+1    32.5
+2    32.5
+3    32.5
+4    32.5
+5    32.5
+6    32.5
+Name: CAR-UN.TO_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_CAR-UN.TO CAR-UN.TO [32.720001, 33.0, 32.990002000000004, 32.759997999999996, 32.939999, 32.790001000000004, 32.110001000000004]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_CAR-UN.TO CAR-UN.TO [32.5, 32.5, 32.5, 32.5, 32.5, 32.5, 32.5]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_CAR-UN.TO CAR-UN.TO 1248 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_CAR-UN.TO CAR-UN.TO 10.922888994216919
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_CAR-UN.TO CAR-UN.TO Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_CAR-UN.TO CAR-UN.TO 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_CAR-UN.TO CAR-UN.TO 0.0113 0.0113 1.451
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_CAR-UN.TO CAR-UN.TO 0.3700000000000005 0.3846891658045869 -0.8241375503389765
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_tsx_CAR-UN.TO_7'

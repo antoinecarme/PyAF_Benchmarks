@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nasdaqbio
+TIME :  Date N= 781 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2014-07-21T00:00:00.000000000' '2014-07-22T00:00:00.000000000'
+ '2014-07-23T00:00:00.000000000' '2014-07-24T00:00:00.000000000'
+ '2014-07-25T00:00:00.000000000']
+SIGNAL :  IDIX N= 781 H= 7 HEAD= [6.46 6.68 6.79 6.63 6.59] TAIL= [24.28 24.31 24.32 24.33 24.33]
+   IDIX       Date
+0  6.46 2011-07-28
+1  6.68 2011-07-29
+2  6.79 2011-08-01
+3  6.63 2011-08-02
+4  6.59 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 781 entries, 0 to 780
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   IDIX    781 non-null    float64       
+ 1   Date    781 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 18.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None          _IDIX  _IDIX_Lag1Trend_residue_Seasonal_DayOfWeek_res...  ...  3.200000e-02  3.490000e-02  2.200000e-03
+1   None          _IDIX  _IDIX_Lag1Trend_residue_bestCycle_byL2_residue...  ...  3.270000e-02  3.530000e-02  3.600000e-03
+2   None          _IDIX     _IDIX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  3.170000e-02  3.540000e-02  1.900000e-03
+3   None    CumSum_IDIX  CumSum_IDIX_Lag1Trend_residue_zeroCycle_residu...  ...  3.320000e-02  3.540000e-02  1.900000e-03
+4   None      Diff_IDIX  Diff_IDIX_Lag1Trend_residue_zeroCycle_residue_...  ...  3.170000e-02  3.540000e-02  1.900000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None   RelDiff_IDIX  RelDiff_IDIX_LinearTrend_residue_Seasonal_DayO...  ...  5.943175e+07  4.473453e+07  1.336746e+07
+92  None   RelDiff_IDIX  RelDiff_IDIX_PolyTrend_residue_Seasonal_DayOfW...  ...  5.943153e+07  4.473453e+07  1.336746e+07
+93  None   RelDiff_IDIX  RelDiff_IDIX_PolyTrend_residue_zeroCycle_resid...  ...  5.938091e+07  4.473453e+07  1.336746e+07
+94  None   RelDiff_IDIX  RelDiff_IDIX_PolyTrend_residue_Seasonal_DayOfW...  ...  5.937116e+07  4.473453e+07  1.336746e+07
+95  None   RelDiff_IDIX  RelDiff_IDIX_PolyTrend_residue_bestCycle_byL2_...  ...  5.943107e+07  4.473453e+07  1.336746e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None          _IDIX  _IDIX_Lag1Trend_residue_Seasonal_DayOfWeek_res...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0320        0.0349    0.0022
+1  None          _IDIX  _IDIX_Lag1Trend_residue_bestCycle_byL2_residue...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0327        0.0353    0.0036
+2  None          _IDIX     _IDIX_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0317        0.0354    0.0019
+3  None    CumSum_IDIX  CumSum_IDIX_Lag1Trend_residue_zeroCycle_residu...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0332        0.0354    0.0019
+4  None      Diff_IDIX  Diff_IDIX_Lag1Trend_residue_zeroCycle_residue_...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0317        0.0354    0.0019
+7 0    24.32
+1    24.37
+2    24.45
+3    24.42
+4    24.44
+5    24.45
+6    24.50
+Name: IDIX, dtype: float64
+7 0    24.33
+1    24.33
+2    24.33
+3    24.33
+4    24.33
+5    24.33
+6    24.33
+Name: IDIX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_IDIX IDIX [24.32, 24.37, 24.45, 24.42, 24.44, 24.45, 24.5]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_IDIX IDIX [24.33, 24.33, 24.33, 24.33, 24.33, 24.33, 24.33]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_IDIX IDIX 781 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_IDIX IDIX 10.313480377197266
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_IDIX IDIX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_IDIX IDIX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_IDIX IDIX 0.0039 0.0039 2.3571
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_IDIX IDIX 0.09428571428571583 0.1066369006086961 -2.775067732774223
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nasdaqbio_IDIX_7'

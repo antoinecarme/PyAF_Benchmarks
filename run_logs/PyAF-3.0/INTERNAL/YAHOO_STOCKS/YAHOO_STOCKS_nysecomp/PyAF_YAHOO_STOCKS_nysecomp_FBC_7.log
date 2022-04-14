@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  FBC N= 1251 H= 7 HEAD= [0.73 0.73 0.77 0.74 0.74] TAIL= [25.639999 25.93     25.940001 26.059999 26.209999]
+    FBC       Date
+0  0.73 2011-07-28
+1  0.73 2011-07-29
+2  0.77 2011-08-01
+3  0.74 2011-08-02
+4  0.74 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   FBC     1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None     CumSum_FBC  CumSum_FBC_Lag1Trend_residue_bestCycle_byL2_re...  ...  4.080000e-02  1.310000e-02  8.300000e-03
+1   None           _FBC      _FBC_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.230000e-02  1.320000e-02  8.100000e-03
+2   None     CumSum_FBC  CumSum_FBC_Lag1Trend_residue_zeroCycle_residue...  ...  2.330000e-02  1.320000e-02  8.100000e-03
+3   None       Diff_FBC  Diff_FBC_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.230000e-02  1.320000e-02  8.100000e-03
+4   None    RelDiff_FBC  RelDiff_FBC_Lag1Trend_residue_zeroCycle_residu...  ...  2.230000e-02  1.320000e-02  8.100000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_FBC  RelDiff_FBC_LinearTrend_residue_zeroCycle_resi...  ...  1.225284e+07  1.259162e+06  1.049551e+06
+92  None    RelDiff_FBC  RelDiff_FBC_LinearTrend_residue_Seasonal_DayOf...  ...  1.224871e+07  1.259162e+06  1.049552e+06
+93  None    RelDiff_FBC  RelDiff_FBC_ConstantTrend_residue_Seasonal_Day...  ...  1.184857e+07  1.259163e+06  1.049552e+06
+94  None    RelDiff_FBC  RelDiff_FBC_PolyTrend_residue_bestCycle_byL2_r...  ...  1.226378e+07  1.259163e+06  1.049552e+06
+95  None    RelDiff_FBC  RelDiff_FBC_PolyTrend_residue_zeroCycle_residu...  ...  1.226094e+07  1.259163e+06  1.049552e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None     CumSum_FBC  CumSum_FBC_Lag1Trend_residue_bestCycle_byL2_re...           Integration_Lag1Trend_Cycle_NoAR          72   0.0408        0.0131    0.0083
+1  None           _FBC      _FBC_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0223        0.0132    0.0081
+2  None     CumSum_FBC  CumSum_FBC_Lag1Trend_residue_zeroCycle_residue...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0233        0.0132    0.0081
+3  None       Diff_FBC  Diff_FBC_Lag1Trend_residue_zeroCycle_residue_NoAR          Difference_Lag1Trend_NoCycle_NoAR          64   0.0223        0.0132    0.0081
+4  None    RelDiff_FBC  RelDiff_FBC_Lag1Trend_residue_zeroCycle_residu...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0223        0.0132    0.0081
+7 0    26.389999
+1    26.219999
+2    26.200001
+3    26.650000
+4    26.820000
+5    26.469999
+6    26.299999
+Name: FBC, dtype: float64
+7 0    26.209999
+1    26.209999
+2    26.209999
+3    26.209999
+4    26.209999
+5    26.209999
+6    26.209999
+Name: FBC_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_FBC FBC [26.389999, 26.219998999999998, 26.200001, 26.65, 26.82, 26.469998999999998, 26.299999]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_FBC FBC [26.209999, 26.209999, 26.209999, 26.209999, 26.209999, 26.209999, 26.209999]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_FBC FBC 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_FBC FBC 11.69286322593689
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_FBC FBC Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_FBC FBC 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_FBC FBC 0.0086 0.0087 1.0312
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_FBC FBC 0.22857142857142776 0.31029986879192434 -1.123699423080304
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_FBC_7'

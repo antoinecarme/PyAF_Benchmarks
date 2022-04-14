@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  CRH N= 1251 H= 7 HEAD= [19.49     19.83     18.790001 18.049999 18.48    ] TAIL= [29.120001 29.190001 29.9      29.48     29.629999]
+         CRH       Date
+0  19.490000 2011-07-28
+1  19.830000 2011-07-29
+2  18.790001 2011-08-01
+3  18.049999 2011-08-02
+4  18.480000 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   CRH     1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _CRH      _CRH_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.550000e-02  1.420000e-02  1.390000e-02
+1   None           _CRH  _CRH_Lag1Trend_residue_bestCycle_byL2_residue_...  ...  1.550000e-02  1.420000e-02  1.380000e-02
+2   None     CumSum_CRH  CumSum_CRH_Lag1Trend_residue_zeroCycle_residue...  ...  1.650000e-02  1.420000e-02  1.390000e-02
+3   None       Diff_CRH  Diff_CRH_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.550000e-02  1.420000e-02  1.390000e-02
+4   None    RelDiff_CRH  RelDiff_CRH_Lag1Trend_residue_zeroCycle_residu...  ...  1.550000e-02  1.420000e-02  1.390000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_CRH  RelDiff_CRH_Lag1Trend_residue_bestCycle_byL2_r...  ...  2.337173e+07  1.816072e+07  1.751152e+07
+92  None    RelDiff_CRH  RelDiff_CRH_PolyTrend_residue_Seasonal_DayOfWe...  ...  2.337170e+07  1.816072e+07  1.751152e+07
+93  None    RelDiff_CRH  RelDiff_CRH_PolyTrend_residue_bestCycle_byL2_r...  ...  2.337171e+07  1.816072e+07  1.751152e+07
+94  None    RelDiff_CRH  RelDiff_CRH_PolyTrend_residue_zeroCycle_residu...  ...  2.337171e+07  1.816072e+07  1.751152e+07
+95  None    RelDiff_CRH  RelDiff_CRH_PolyTrend_residue_Seasonal_DayOfWe...  ...  2.337170e+07  1.816072e+07  1.751152e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _CRH      _CRH_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0155        0.0142    0.0139
+1  None           _CRH  _CRH_Lag1Trend_residue_bestCycle_byL2_residue_...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0155        0.0142    0.0138
+2  None     CumSum_CRH  CumSum_CRH_Lag1Trend_residue_zeroCycle_residue...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0165        0.0142    0.0139
+3  None       Diff_CRH  Diff_CRH_Lag1Trend_residue_zeroCycle_residue_NoAR          Difference_Lag1Trend_NoCycle_NoAR          64   0.0155        0.0142    0.0139
+4  None    RelDiff_CRH  RelDiff_CRH_Lag1Trend_residue_zeroCycle_residu...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0155        0.0142    0.0139
+7 0    29.350000
+1    29.510000
+2    29.389999
+3    29.770000
+4    29.770000
+5    29.930000
+6    30.350000
+Name: CRH, dtype: float64
+7 0    29.629999
+1    29.629999
+2    29.629999
+3    29.629999
+4    29.629999
+5    29.629999
+6    29.629999
+Name: CRH_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_CRH CRH [29.35, 29.51, 29.389999, 29.77, 29.77, 29.93, 30.35]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_CRH CRH [29.629998999999998, 29.629998999999998, 29.629998999999998, 29.629998999999998, 29.629998999999998, 29.629998999999998, 29.629998999999998]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_CRH CRH 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_CRH CRH 12.736464977264404
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_CRH CRH Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_CRH CRH 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_CRH CRH 0.0093 0.0093 1.341
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_CRH CRH 0.2771431428571428 0.3376392411194451 -0.08457741601700897
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_CRH_7'

@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_exch
+TIME :  Date N= 1296 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  AFG.OL N= 1296 H= 7 HEAD= [49.5 49.5 50.5 49.5 48.7] TAIL= [151.  152.  152.  153.5 153. ]
+   AFG.OL       Date
+0    49.5 2011-07-28
+1    49.5 2011-07-29
+2    50.5 2011-08-01
+3    49.5 2011-08-02
+4    48.7 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1296 entries, 0 to 1295
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   AFG.OL  1296 non-null   float64       
+ 1   Date    1296 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _AFG.OL   _AFG.OL_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  9.700000e-03  1.050000e-02  7.600000e-03
+1   None         _AFG.OL  _AFG.OL_Lag1Trend_residue_bestCycle_byL2_resid...  ...  1.010000e-02  1.050000e-02  7.700000e-03
+2   None   CumSum_AFG.OL  CumSum_AFG.OL_Lag1Trend_residue_zeroCycle_resi...  ...  1.070000e-02  1.050000e-02  7.600000e-03
+3   None     Diff_AFG.OL  Diff_AFG.OL_Lag1Trend_residue_zeroCycle_residu...  ...  9.700000e-03  1.050000e-02  7.600000e-03
+4   None  RelDiff_AFG.OL  RelDiff_AFG.OL_Lag1Trend_residue_zeroCycle_res...  ...  9.700000e-03  1.050000e-02  7.600000e-03
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_AFG.OL  RelDiff_AFG.OL_Lag1Trend_residue_Seasonal_DayO...  ...  1.285397e+07  6.456581e+06  5.299136e+06
+92  None  RelDiff_AFG.OL  RelDiff_AFG.OL_Lag1Trend_residue_bestCycle_byL...  ...  1.282110e+07  6.456581e+06  5.299136e+06
+93  None  RelDiff_AFG.OL  RelDiff_AFG.OL_PolyTrend_residue_Seasonal_DayO...  ...  1.284336e+07  6.456582e+06  5.299136e+06
+94  None  RelDiff_AFG.OL  RelDiff_AFG.OL_PolyTrend_residue_bestCycle_byL...  ...  1.284013e+07  6.456582e+06  5.299136e+06
+95  None  RelDiff_AFG.OL  RelDiff_AFG.OL_ConstantTrend_residue_zeroCycle...  ...  1.283842e+07  6.456582e+06  5.299136e+06
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _AFG.OL   _AFG.OL_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0097        0.0105    0.0076
+1  None         _AFG.OL  _AFG.OL_Lag1Trend_residue_bestCycle_byL2_resid...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0101        0.0105    0.0077
+2  None   CumSum_AFG.OL  CumSum_AFG.OL_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0107        0.0105    0.0076
+3  None     Diff_AFG.OL  Diff_AFG.OL_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0097        0.0105    0.0076
+4  None  RelDiff_AFG.OL  RelDiff_AFG.OL_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0097        0.0105    0.0076
+7 0    150.0
+1    150.0
+2    150.0
+3    150.5
+4    151.5
+5    151.5
+6    154.0
+Name: AFG.OL, dtype: float64
+7 0    153.0
+1    153.0
+2    153.0
+3    153.0
+4    153.0
+5    153.0
+6    153.0
+Name: AFG.OL_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_AFG.OL AFG.OL [150.0, 150.0, 150.0, 150.5, 151.5, 151.5, 154.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_AFG.OL AFG.OL [153.0, 153.0, 153.0, 153.0, 153.0, 153.0, 153.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_AFG.OL AFG.OL 1296 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_AFG.OL AFG.OL 11.316058874130249
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_AFG.OL AFG.OL Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_AFG.OL AFG.OL 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_AFG.OL AFG.OL 0.0147 0.0146 3.3214
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_AFG.OL AFG.OL 2.2142857142857144 2.3528098702858005 -2.0477528089647925
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_exch_AFG.OL_7'

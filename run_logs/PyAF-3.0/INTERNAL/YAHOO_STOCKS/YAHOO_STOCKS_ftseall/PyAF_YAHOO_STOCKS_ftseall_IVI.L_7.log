@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1292 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  IVI.L N= 1292 H= 7 HEAD= [1.995   2.1034  1.96875 1.965   1.91625] TAIL= [3.03126 3.03762 3.03095 3.039   3.05064]
+     IVI.L       Date
+0  1.99500 2011-07-28
+1  2.10340 2011-07-29
+2  1.96875 2011-08-01
+3  1.96500 2011-08-02
+4  1.91625 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1292 entries, 0 to 1291
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   IVI.L   1292 non-null   float64       
+ 1   Date    1292 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _IVI.L    _IVI.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  9.900000e-03  1.140000e-02  4.900000e-03
+1   None         _IVI.L  _IVI.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  9.900000e-03  1.140000e-02  4.700000e-03
+2   None   CumSum_IVI.L  CumSum_IVI.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.080000e-02  1.140000e-02  4.900000e-03
+3   None     Diff_IVI.L  Diff_IVI.L_Lag1Trend_residue_zeroCycle_residue...  ...  9.900000e-03  1.140000e-02  4.900000e-03
+4   None  RelDiff_IVI.L  RelDiff_IVI.L_Lag1Trend_residue_zeroCycle_resi...  ...  9.900000e-03  1.140000e-02  4.900000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_IVI.L  RelDiff_IVI.L_Lag1Trend_residue_bestCycle_byL2...  ...  7.785369e+06  6.625120e+06  6.350361e+06
+92  None  RelDiff_IVI.L  RelDiff_IVI.L_LinearTrend_residue_Seasonal_Day...  ...  7.785315e+06  6.625120e+06  6.350361e+06
+93  None  RelDiff_IVI.L  RelDiff_IVI.L_PolyTrend_residue_zeroCycle_resi...  ...  7.785315e+06  6.625120e+06  6.350361e+06
+94  None  RelDiff_IVI.L  RelDiff_IVI.L_PolyTrend_residue_Seasonal_DayOf...  ...  7.785318e+06  6.625120e+06  6.350361e+06
+95  None  RelDiff_IVI.L  RelDiff_IVI.L_PolyTrend_residue_Seasonal_DayOf...  ...  7.785324e+06  6.625120e+06  6.350361e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _IVI.L    _IVI.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0099        0.0114    0.0049
+1  None         _IVI.L  _IVI.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0099        0.0114    0.0047
+2  None   CumSum_IVI.L  CumSum_IVI.L_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0108        0.0114    0.0049
+3  None     Diff_IVI.L  Diff_IVI.L_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0099        0.0114    0.0049
+4  None  RelDiff_IVI.L  RelDiff_IVI.L_Lag1Trend_residue_zeroCycle_resi...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0099        0.0114    0.0049
+7 0    3.04968
+1    3.06629
+2    3.05482
+3    3.06175
+4    3.05494
+5    3.07684
+6    2.83500
+Name: IVI.L, dtype: float64
+7 0    3.05064
+1    3.05064
+2    3.05064
+3    3.05064
+4    3.05064
+5    3.05064
+6    3.05064
+Name: IVI.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_IVI.L IVI.L [3.04968, 3.06629, 3.05482, 3.06175, 3.05494, 3.0768400000000002, 2.835]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_IVI.L IVI.L [3.05064, 3.05064, 3.05064, 3.05064, 3.05064, 3.05064, 3.05064]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_IVI.L IVI.L 1292 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_IVI.L IVI.L 11.228232145309448
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_IVI.L IVI.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_IVI.L IVI.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_IVI.L IVI.L 0.0138 0.0134 0.7799
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_IVI.L IVI.L 0.03972000000000004 0.08245543229093956 -0.0778934106623923
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_IVI.L_7'

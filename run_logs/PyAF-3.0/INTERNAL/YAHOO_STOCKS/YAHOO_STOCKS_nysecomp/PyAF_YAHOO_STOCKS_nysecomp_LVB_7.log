@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 553 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2013-09-04T00:00:00.000000000' '2013-09-05T00:00:00.000000000'
+ '2013-09-06T00:00:00.000000000' '2013-09-09T00:00:00.000000000'
+ '2013-09-10T00:00:00.000000000']
+SIGNAL :  LVB N= 553 H= 7 HEAD= [29.08 28.99 29.03 27.12 26.83] TAIL= [40.16 40.23 40.16 40.2  39.98]
+     LVB       Date
+0  29.08 2011-07-28
+1  28.99 2011-07-29
+2  29.03 2011-08-01
+3  27.12 2011-08-02
+4  26.83 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 553 entries, 0 to 552
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   LVB     553 non-null    float64       
+ 1   Date    553 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 13.0 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _LVB      _LVB_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.500000e-02  1.020000e-02  1.800000e-03
+1   None     CumSum_LVB  CumSum_LVB_Lag1Trend_residue_zeroCycle_residue...  ...  1.730000e-02  1.020000e-02  1.800000e-03
+2   None       Diff_LVB  Diff_LVB_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.500000e-02  1.020000e-02  1.800000e-03
+3   None    RelDiff_LVB  RelDiff_LVB_Lag1Trend_residue_zeroCycle_residu...  ...  1.500000e-02  1.020000e-02  1.800000e-03
+4   None       Diff_LVB  Diff_LVB_Lag1Trend_residue_bestCycle_byL2_resi...  ...  1.540000e-02  1.050000e-02  3.000000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_LVB  RelDiff_LVB_PolyTrend_residue_bestCycle_byL2_r...  ...  3.418608e+07  2.761132e+07  2.053635e+07
+92  None    RelDiff_LVB  RelDiff_LVB_PolyTrend_residue_Seasonal_DayOfWe...  ...  3.418606e+07  2.761132e+07  2.053635e+07
+93  None    RelDiff_LVB  RelDiff_LVB_PolyTrend_residue_Seasonal_DayOfWe...  ...  3.418606e+07  2.761132e+07  2.053635e+07
+94  None    RelDiff_LVB  RelDiff_LVB_PolyTrend_residue_zeroCycle_residu...  ...  3.418606e+07  2.761132e+07  2.053635e+07
+95  None    RelDiff_LVB  RelDiff_LVB_ConstantTrend_residue_zeroCycle_re...  ...  3.413539e+07  2.761132e+07  2.053635e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _LVB      _LVB_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0150        0.0102    0.0018
+1  None     CumSum_LVB  CumSum_LVB_Lag1Trend_residue_zeroCycle_residue...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0173        0.0102    0.0018
+2  None       Diff_LVB  Diff_LVB_Lag1Trend_residue_zeroCycle_residue_NoAR          Difference_Lag1Trend_NoCycle_NoAR          64   0.0150        0.0102    0.0018
+3  None    RelDiff_LVB  RelDiff_LVB_Lag1Trend_residue_zeroCycle_residu...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0150        0.0102    0.0018
+4  None       Diff_LVB  Diff_LVB_Lag1Trend_residue_bestCycle_byL2_resi...            Difference_Lag1Trend_Cycle_NoAR          72   0.0154        0.0105    0.0030
+7 0    39.96
+1    39.96
+2    39.97
+3    39.97
+4    39.97
+5    39.95
+6    39.95
+Name: LVB, dtype: float64
+7 0    39.98
+1    39.98
+2    39.98
+3    39.98
+4    39.98
+5    39.98
+6    39.98
+Name: LVB_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_LVB LVB [39.96, 39.96, 39.97, 39.97, 39.97, 39.95, 39.95]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_LVB LVB [39.98, 39.98, 39.98, 39.98, 39.98, 39.98, 39.98]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_LVB LVB 553 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_LVB LVB 10.903708457946777
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_LVB LVB Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_LVB LVB 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_LVB LVB 0.0005 0.0005 3.7143
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_LVB LVB 0.018571428571424877 0.020354009783960247 -4.970587006055617
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_LVB_7'

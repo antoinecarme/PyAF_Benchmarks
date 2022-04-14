@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1276 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  RCP.L N= 1276 H= 7 HEAD= [12.92 12.8  12.76 12.57 12.3 ] TAIL= [17.1293 17.1192 17.0033 17.0943 17.0272]
+   RCP.L       Date
+0  12.92 2011-07-28
+1  12.80 2011-07-29
+2  12.76 2011-08-01
+3  12.57 2011-08-02
+4  12.30 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1276 entries, 0 to 1275
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   RCP.L   1276 non-null   float64       
+ 1   Date    1276 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.9 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _RCP.L  _RCP.L_LinearTrend_residue_zeroCycle_residue_A...  ...  9.500000e-03  1.130000e-02  6.100000e-03
+1   None         _RCP.L  _RCP.L_LinearTrend_residue_Seasonal_DayOfWeek_...  ...  9.500000e-03  1.130000e-02  6.100000e-03
+2   None         _RCP.L    _RCP.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  9.700000e-03  1.140000e-02  4.600000e-03
+3   None         _RCP.L  _RCP.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  9.700000e-03  1.140000e-02  4.500000e-03
+4   None         _RCP.L  _RCP.L_Lag1Trend_residue_bestCycle_byL2_residu...  ...  9.700000e-03  1.140000e-02  5.000000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_RCP.L  RelDiff_RCP.L_Lag1Trend_residue_bestCycle_byL2...  ...  1.524167e+07  1.251690e+07  1.142684e+07
+92  None  RelDiff_RCP.L  RelDiff_RCP.L_PolyTrend_residue_bestCycle_byL2...  ...  1.524096e+07  1.251690e+07  1.142684e+07
+93  None  RelDiff_RCP.L  RelDiff_RCP.L_LinearTrend_residue_Seasonal_Day...  ...  1.523556e+07  1.251690e+07  1.142684e+07
+94  None  RelDiff_RCP.L  RelDiff_RCP.L_LinearTrend_residue_bestCycle_by...  ...  1.523566e+07  1.251690e+07  1.142684e+07
+95  None  RelDiff_RCP.L  RelDiff_RCP.L_PolyTrend_residue_zeroCycle_resi...  ...  1.523290e+07  1.251691e+07  1.142684e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _RCP.L  _RCP.L_LinearTrend_residue_zeroCycle_residue_A...             NoTransf_LinearTrend_NoCycle_AR          80   0.0095        0.0113    0.0061
+1  None         _RCP.L  _RCP.L_LinearTrend_residue_Seasonal_DayOfWeek_...  NoTransf_LinearTrend_Seasonal_DayOfWeek_AR          84   0.0095        0.0113    0.0061
+2  None         _RCP.L    _RCP.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0097        0.0114    0.0046
+3  None         _RCP.L  _RCP.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0097        0.0114    0.0045
+4  None         _RCP.L  _RCP.L_Lag1Trend_residue_bestCycle_byL2_residu...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0097        0.0114    0.0050
+7 0    17.1658
+1    17.1514
+2    17.2700
+3    17.2700
+4    17.4900
+5    17.7400
+6    17.4600
+Name: RCP.L, dtype: float64
+7 0    17.0272
+1    17.0272
+2    17.0272
+3    17.0272
+4    17.0272
+5    17.0272
+6    17.0272
+Name: RCP.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_RCP.L RCP.L [17.1658, 17.1514, 17.27, 17.27, 17.49, 17.74, 17.46]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_RCP.L RCP.L [17.0272, 17.0272, 17.0272, 17.0272, 17.0272, 17.0272, 17.0272]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_RCP.L RCP.L 1276 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_RCP.L RCP.L 11.992335319519043
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_RCP.L RCP.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_RCP.L RCP.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_RCP.L RCP.L 0.0193 0.0195 2.2878
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_RCP.L RCP.L 0.33668571428571326 0.38952769936350834 -2.9539693737310158
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_RCP.L_7'

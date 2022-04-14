@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  BDC N= 1251 H= 7 HEAD= [37.330002 36.849998 36.619999 35.169998 35.18    ] TAIL= [67.629997 68.110001 69.18     69.470001 69.059998]
+         BDC       Date
+0  37.330002 2011-07-28
+1  36.849998 2011-07-29
+2  36.619999 2011-08-01
+3  35.169998 2011-08-02
+4  35.180000 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   BDC     1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _BDC      _BDC_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.450000e-02  2.190000e-02  2.000000e-02
+1   None           _BDC  _BDC_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  ...  1.440000e-02  2.190000e-02  1.930000e-02
+2   None     CumSum_BDC  CumSum_BDC_Lag1Trend_residue_zeroCycle_residue...  ...  1.550000e-02  2.190000e-02  2.000000e-02
+3   None       Diff_BDC  Diff_BDC_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.450000e-02  2.190000e-02  2.000000e-02
+4   None    RelDiff_BDC  RelDiff_BDC_Lag1Trend_residue_zeroCycle_residu...  ...  1.450000e-02  2.190000e-02  2.000000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_BDC  RelDiff_BDC_Lag1Trend_residue_Seasonal_DayOfWe...  ...  2.693630e+07  2.454582e+07  1.990197e+07
+92  None    RelDiff_BDC  RelDiff_BDC_LinearTrend_residue_bestCycle_byL2...  ...  2.698777e+07  2.454582e+07  1.990197e+07
+93  None    RelDiff_BDC  RelDiff_BDC_PolyTrend_residue_Seasonal_DayOfWe...  ...  2.700790e+07  2.454582e+07  1.990197e+07
+94  None    RelDiff_BDC  RelDiff_BDC_ConstantTrend_residue_bestCycle_by...  ...  2.678598e+07  2.454582e+07  1.990197e+07
+95  None    RelDiff_BDC  RelDiff_BDC_PolyTrend_residue_zeroCycle_residu...  ...  2.700956e+07  2.454582e+07  1.990197e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _BDC      _BDC_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0145        0.0219    0.0200
+1  None           _BDC  _BDC_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0144        0.0219    0.0193
+2  None     CumSum_BDC  CumSum_BDC_Lag1Trend_residue_zeroCycle_residue...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0155        0.0219    0.0200
+3  None       Diff_BDC  Diff_BDC_Lag1Trend_residue_zeroCycle_residue_NoAR           Difference_Lag1Trend_NoCycle_NoAR          64   0.0145        0.0219    0.0200
+4  None    RelDiff_BDC  RelDiff_BDC_Lag1Trend_residue_zeroCycle_residu...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0145        0.0219    0.0200
+7 0    72.010002
+1    75.470001
+2    71.720001
+3    72.500000
+4    72.889999
+5    73.879997
+6    74.529999
+Name: BDC, dtype: float64
+7 0    69.059998
+1    69.059998
+2    69.059998
+3    69.059998
+4    69.059998
+5    69.059998
+6    69.059998
+Name: BDC_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_BDC BDC [72.010002, 75.470001, 71.720001, 72.5, 72.889999, 73.879997, 74.529999]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_BDC BDC [69.059998, 69.059998, 69.059998, 69.059998, 69.059998, 69.059998, 69.059998]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_BDC BDC 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_BDC BDC 11.933800220489502
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_BDC BDC Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_BDC BDC 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_BDC BDC 0.0574 0.0592 2.5304
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_BDC BDC 4.22571614285715 4.416237906700379 -10.845363051073644
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_BDC_7'

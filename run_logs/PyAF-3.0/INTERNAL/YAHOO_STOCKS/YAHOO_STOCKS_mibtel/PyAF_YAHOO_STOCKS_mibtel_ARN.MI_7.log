@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_mibtel
+TIME :  Date N= 1297 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  ARN.MI N= 1297 H= 7 HEAD= [5.046 5.302 5.227 5.151 5.151] TAIL= [1.641 1.59  1.59  1.573 1.57 ]
+   ARN.MI       Date
+0   5.046 2011-07-28
+1   5.302 2011-07-29
+2   5.227 2011-08-01
+3   5.151 2011-08-02
+4   5.151 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1297 entries, 0 to 1296
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   ARN.MI  1297 non-null   float64       
+ 1   Date    1297 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _ARN.MI  _ARN.MI_Lag1Trend_residue_bestCycle_byL2_resid...  ...  0.0128  1.380000e-02  6.800000e-03
+1   None         _ARN.MI   _ARN.MI_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0128  1.390000e-02  8.600000e-03
+2   None   CumSum_ARN.MI  CumSum_ARN.MI_Lag1Trend_residue_zeroCycle_resi...  ...  0.0137  1.390000e-02  8.600000e-03
+3   None     Diff_ARN.MI  Diff_ARN.MI_Lag1Trend_residue_zeroCycle_residu...  ...  0.0128  1.390000e-02  8.600000e-03
+4   None  RelDiff_ARN.MI  RelDiff_ARN.MI_Lag1Trend_residue_zeroCycle_res...  ...  0.0128  1.390000e-02  8.600000e-03
+..   ...             ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_ARN.MI  RelDiff_ARN.MI_ConstantTrend_residue_Seasonal_...  ...  0.2444  4.996111e+06  2.180650e+08
+92  None  RelDiff_ARN.MI  RelDiff_ARN.MI_ConstantTrend_residue_bestCycle...  ...  0.2353  4.996114e+06  2.180650e+08
+93  None  RelDiff_ARN.MI  RelDiff_ARN.MI_LinearTrend_residue_zeroCycle_r...  ...  0.2052  4.996121e+06  2.180650e+08
+94  None  RelDiff_ARN.MI  RelDiff_ARN.MI_LinearTrend_residue_Seasonal_Da...  ...  0.2013  4.996126e+06  2.180650e+08
+95  None  RelDiff_ARN.MI  RelDiff_ARN.MI_LinearTrend_residue_bestCycle_b...  ...  0.1923  4.996129e+06  2.180650e+08
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _ARN.MI  _ARN.MI_Lag1Trend_residue_bestCycle_byL2_resid...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0128        0.0138    0.0068
+1  None         _ARN.MI   _ARN.MI_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0128        0.0139    0.0086
+2  None   CumSum_ARN.MI  CumSum_ARN.MI_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0137        0.0139    0.0086
+3  None     Diff_ARN.MI  Diff_ARN.MI_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0128        0.0139    0.0086
+4  None  RelDiff_ARN.MI  RelDiff_ARN.MI_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0128        0.0139    0.0086
+7 0    1.570
+1    1.601
+2    1.610
+3    1.545
+4    1.550
+5    1.550
+6    1.569
+Name: ARN.MI, dtype: float64
+7 0    1.57
+1    1.57
+2    1.57
+3    1.57
+4    1.57
+5    1.57
+6    1.57
+Name: ARN.MI_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_ARN.MI ARN.MI [1.57, 1.601, 1.61, 1.545, 1.55, 1.55, 1.569]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_ARN.MI ARN.MI [1.57, 1.57, 1.57, 1.57, 1.57, 1.57, 1.57]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_ARN.MI ARN.MI 1297 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_ARN.MI ARN.MI 10.874435186386108
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_ARN.MI ARN.MI Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_ARN.MI ARN.MI 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_ARN.MI ARN.MI 0.0124 0.0124 0.9103
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_ARN.MI ARN.MI 0.019571428571428604 0.023865695643987196 -0.000896546384034469
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_mibtel_ARN.MI_7'

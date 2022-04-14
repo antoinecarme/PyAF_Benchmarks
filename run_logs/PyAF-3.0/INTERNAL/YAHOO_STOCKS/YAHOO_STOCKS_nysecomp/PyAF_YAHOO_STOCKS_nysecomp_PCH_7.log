@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  PCH N= 1251 H= 7 HEAD= [33.48     33.220001 32.740002 32.700001 32.860001] TAIL= [37.060001 37.060001 36.639999 36.869999 36.66    ]
+         PCH       Date
+0  33.480000 2011-07-28
+1  33.220001 2011-07-29
+2  32.740002 2011-08-01
+3  32.700001 2011-08-02
+4  32.860001 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   PCH     1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None           _PCH      _PCH_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0103  1.280000e-02  1.560000e-02
+1   None           _PCH  _PCH_Lag1Trend_residue_bestCycle_byL2_residue_...  ...  0.0102  1.280000e-02  1.550000e-02
+2   None     CumSum_PCH  CumSum_PCH_Lag1Trend_residue_zeroCycle_residue...  ...  0.0113  1.280000e-02  1.560000e-02
+3   None       Diff_PCH  Diff_PCH_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0103  1.280000e-02  1.560000e-02
+4   None    RelDiff_PCH  RelDiff_PCH_Lag1Trend_residue_zeroCycle_residu...  ...  0.0103  1.280000e-02  1.560000e-02
+..   ...            ...                                                ...  ...     ...           ...           ...
+91  None    RelDiff_PCH  RelDiff_PCH_PolyTrend_residue_bestCycle_byL2_r...  ...  0.9596  1.282416e+07  2.447901e+07
+92  None    RelDiff_PCH  RelDiff_PCH_PolyTrend_residue_zeroCycle_residu...  ...  0.9468  1.282427e+07  2.447901e+07
+93  None    RelDiff_PCH  RelDiff_PCH_ConstantTrend_residue_Seasonal_Day...  ...  0.1829  1.283420e+07  2.447901e+07
+94  None    RelDiff_PCH  RelDiff_PCH_ConstantTrend_residue_zeroCycle_re...  ...  0.1864  1.283493e+07  2.447901e+07
+95  None    RelDiff_PCH  RelDiff_PCH_ConstantTrend_residue_bestCycle_by...  ...  0.1838  1.283499e+07  2.447901e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _PCH      _PCH_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0103        0.0128    0.0156
+1  None           _PCH  _PCH_Lag1Trend_residue_bestCycle_byL2_residue_...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0102        0.0128    0.0155
+2  None     CumSum_PCH  CumSum_PCH_Lag1Trend_residue_zeroCycle_residue...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0113        0.0128    0.0156
+3  None       Diff_PCH  Diff_PCH_Lag1Trend_residue_zeroCycle_residue_NoAR          Difference_Lag1Trend_NoCycle_NoAR          64   0.0103        0.0128    0.0156
+4  None    RelDiff_PCH  RelDiff_PCH_Lag1Trend_residue_zeroCycle_residu...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0103        0.0128    0.0156
+7 0    36.610001
+1    36.680000
+2    36.900002
+3    37.430000
+4    36.970001
+5    37.419998
+6    37.020000
+Name: PCH, dtype: float64
+7 0    36.66
+1    36.66
+2    36.66
+3    36.66
+4    36.66
+5    36.66
+6    36.66
+Name: PCH_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_PCH PCH [36.610001000000004, 36.68, 36.900002, 37.43, 36.970001, 37.419998, 37.02]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_PCH PCH [36.66, 36.66, 36.66, 36.66, 36.66, 36.66, 36.66]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_PCH PCH 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_PCH PCH 11.29794716835022
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_PCH PCH Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_PCH PCH 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_PCH PCH 0.0096 0.0097 1.0101
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_PCH PCH 0.3585714285714313 0.45617954485519024 -1.3233997556027735
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_PCH_7'

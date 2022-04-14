@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1294 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  IHG.L N= 1294 H= 7 HEAD= [1228.002 1207.999 1210.002 1147.002 1116.001] TAIL= [2880. 2878. 2850. 2864. 2903.]
+      IHG.L       Date
+0  1228.002 2011-07-28
+1  1207.999 2011-07-29
+2  1210.002 2011-08-01
+3  1147.002 2011-08-02
+4  1116.001 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1294 entries, 0 to 1293
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   IHG.L   1294 non-null   float64       
+ 1   Date    1294 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _IHG.L    _IHG.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.060000e-02  1.530000e-02  6.900000e-03
+1   None         _IHG.L  _IHG.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  1.060000e-02  1.530000e-02  6.600000e-03
+2   None         _IHG.L  _IHG.L_Lag1Trend_residue_bestCycle_byL2_residu...  ...  1.070000e-02  1.530000e-02  7.000000e-03
+3   None   CumSum_IHG.L  CumSum_IHG.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.160000e-02  1.530000e-02  6.900000e-03
+4   None     Diff_IHG.L  Diff_IHG.L_Lag1Trend_residue_zeroCycle_residue...  ...  1.060000e-02  1.530000e-02  6.900000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_IHG.L  RelDiff_IHG.L_LinearTrend_residue_bestCycle_by...  ...  1.543947e+07  1.056147e+07  9.515083e+06
+92  None  RelDiff_IHG.L  RelDiff_IHG.L_PolyTrend_residue_zeroCycle_resi...  ...  1.544172e+07  1.056147e+07  9.515084e+06
+93  None  RelDiff_IHG.L  RelDiff_IHG.L_PolyTrend_residue_Seasonal_DayOf...  ...  1.544091e+07  1.056147e+07  9.515084e+06
+94  None  RelDiff_IHG.L  RelDiff_IHG.L_ConstantTrend_residue_bestCycle_...  ...  1.517148e+07  1.056147e+07  9.515084e+06
+95  None  RelDiff_IHG.L  RelDiff_IHG.L_PolyTrend_residue_bestCycle_byL2...  ...  1.544400e+07  1.056147e+07  9.515084e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _IHG.L    _IHG.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0106        0.0153    0.0069
+1  None         _IHG.L  _IHG.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0106        0.0153    0.0066
+2  None         _IHG.L  _IHG.L_Lag1Trend_residue_bestCycle_byL2_residu...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0107        0.0153    0.0070
+3  None   CumSum_IHG.L  CumSum_IHG.L_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0116        0.0153    0.0069
+4  None     Diff_IHG.L  Diff_IHG.L_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0106        0.0153    0.0069
+7 0    2914.0
+1    2935.0
+2    2946.0
+3    2962.0
+4    2995.0
+5    3026.0
+6    3017.0
+Name: IHG.L, dtype: float64
+7 0    2903.0
+1    2903.0
+2    2903.0
+3    2903.0
+4    2903.0
+5    2903.0
+6    2903.0
+Name: IHG.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_IHG.L IHG.L [2914.0, 2935.0, 2946.0, 2962.0, 2995.0, 3026.0, 3017.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_IHG.L IHG.L [2903.0, 2903.0, 2903.0, 2903.0, 2903.0, 2903.0, 2903.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_IHG.L IHG.L 1294 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_IHG.L IHG.L 11.037889242172241
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_IHG.L IHG.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_IHG.L IHG.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_IHG.L IHG.L 0.0226 0.023 3.3577
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_IHG.L IHG.L 67.71428571428571 78.43468620451031 -2.9265357161464753
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_IHG.L_7'

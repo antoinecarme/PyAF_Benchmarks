@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ta100
+TIME :  Date N= 1019 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-08-01T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-07T00:00:00.000000000' '2016-07-11T00:00:00.000000000'
+ '2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000']
+SIGNAL :  SKBN.TA N= 1019 H= 7 HEAD= [7.91  7.487 7.26  7.345 7.29 ] TAIL= [6.621 6.704 6.8   6.843 6.792]
+   SKBN.TA       Date
+0    7.910 2011-07-28
+1    7.487 2011-08-01
+2    7.260 2011-08-02
+3    7.345 2011-08-03
+4    7.290 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1019 entries, 0 to 1018
+Data columns (total 2 columns):
+ #   Column   Non-Null Count  Dtype         
+---  ------   --------------  -----         
+ 0   SKBN.TA  1019 non-null   float64       
+ 1   Date     1019 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 23.9 KB
+None
+   Split   Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _SKBN.TA  _SKBN.TA_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.360000e-02  1.530000e-02  9.800000e-03
+1   None         _SKBN.TA  _SKBN.TA_Lag1Trend_residue_Seasonal_DayOfWeek_...  ...  1.370000e-02  1.530000e-02  9.800000e-03
+2   None         _SKBN.TA  _SKBN.TA_Lag1Trend_residue_bestCycle_byL2_resi...  ...  1.370000e-02  1.530000e-02  1.000000e-02
+3   None   CumSum_SKBN.TA  CumSum_SKBN.TA_Lag1Trend_residue_zeroCycle_res...  ...  1.480000e-02  1.530000e-02  9.800000e-03
+4   None     Diff_SKBN.TA  Diff_SKBN.TA_Lag1Trend_residue_zeroCycle_resid...  ...  1.360000e-02  1.530000e-02  9.800000e-03
+..   ...              ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_SKBN.TA  RelDiff_SKBN.TA_LinearTrend_residue_Seasonal_D...  ...  3.906758e+07  4.338042e+07  4.365321e+07
+92  None  RelDiff_SKBN.TA  RelDiff_SKBN.TA_LinearTrend_residue_zeroCycle_...  ...  3.906757e+07  4.338042e+07  4.365321e+07
+93  None  RelDiff_SKBN.TA  RelDiff_SKBN.TA_Lag1Trend_residue_Seasonal_Day...  ...  3.906758e+07  4.338042e+07  4.365321e+07
+94  None  RelDiff_SKBN.TA  RelDiff_SKBN.TA_ConstantTrend_residue_Seasonal...  ...  3.904377e+07  4.338042e+07  4.365321e+07
+95  None  RelDiff_SKBN.TA  RelDiff_SKBN.TA_Lag1Trend_residue_Seasonal_Day...  ...  3.906768e+07  4.338042e+07  4.365321e+07
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _SKBN.TA  _SKBN.TA_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0136        0.0153    0.0098
+1  None        _SKBN.TA  _SKBN.TA_Lag1Trend_residue_Seasonal_DayOfWeek_...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0137        0.0153    0.0098
+2  None        _SKBN.TA  _SKBN.TA_Lag1Trend_residue_bestCycle_byL2_resi...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0137        0.0153    0.0100
+3  None  CumSum_SKBN.TA  CumSum_SKBN.TA_Lag1Trend_residue_zeroCycle_res...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0148        0.0153    0.0098
+4  None    Diff_SKBN.TA  Diff_SKBN.TA_Lag1Trend_residue_zeroCycle_resid...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0136        0.0153    0.0098
+7 0    6.815
+1    6.785
+2    6.882
+3    6.823
+4    6.956
+5    6.819
+6    6.798
+Name: SKBN.TA, dtype: float64
+7 0    6.792
+1    6.792
+2    6.792
+3    6.792
+4    6.792
+5    6.792
+6    6.792
+Name: SKBN.TA_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_SKBN.TA SKBN.TA [6.815, 6.785, 6.882000000000001, 6.8229999999999995, 6.956, 6.819, 6.797999999999999]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_SKBN.TA SKBN.TA [6.792000000000001, 6.792000000000001, 6.792000000000001, 6.792000000000001, 6.792000000000001, 6.792000000000001, 6.792000000000001]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_SKBN.TA SKBN.TA 1019 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_SKBN.TA SKBN.TA 9.829440116882324
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_SKBN.TA SKBN.TA Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_SKBN.TA SKBN.TA 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_SKBN.TA SKBN.TA 0.0072 0.0073 0.6253
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_SKBN.TA SKBN.TA 0.04971428571428519 0.07299706452023527 -0.7459744207578616
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ta100_SKBN.TA_7'

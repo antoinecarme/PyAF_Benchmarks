@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ta100
+TIME :  Date N= 1019 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-08-01T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-07T00:00:00.000000000' '2016-07-11T00:00:00.000000000'
+ '2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000']
+SIGNAL :  CRNT.TA N= 1019 H= 7 HEAD= [43.31 42.47 41.42 40.72 40.02] TAIL= [6.299 7.    7.144 7.396 7.594]
+   CRNT.TA       Date
+0    43.31 2011-07-28
+1    42.47 2011-08-01
+2    41.42 2011-08-02
+3    40.72 2011-08-03
+4    40.02 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1019 entries, 0 to 1018
+Data columns (total 2 columns):
+ #   Column   Non-Null Count  Dtype         
+---  ------   --------------  -----         
+ 0   CRNT.TA  1019 non-null   float64       
+ 1   Date     1019 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 23.9 KB
+None
+   Split   Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _CRNT.TA  _CRNT.TA_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.220000e-02  2.800000e-02  3.020000e-02
+1   None   CumSum_CRNT.TA  CumSum_CRNT.TA_Lag1Trend_residue_zeroCycle_res...  ...  2.340000e-02  2.800000e-02  3.020000e-02
+2   None     Diff_CRNT.TA  Diff_CRNT.TA_Lag1Trend_residue_zeroCycle_resid...  ...  2.220000e-02  2.800000e-02  3.020000e-02
+3   None  RelDiff_CRNT.TA  RelDiff_CRNT.TA_Lag1Trend_residue_zeroCycle_re...  ...  2.220000e-02  2.800000e-02  3.020000e-02
+4   None         _CRNT.TA  _CRNT.TA_Lag1Trend_residue_Seasonal_DayOfWeek_...  ...  2.250000e-02  3.040000e-02  3.310000e-02
+..   ...              ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_CRNT.TA  RelDiff_CRNT.TA_LinearTrend_residue_Seasonal_D...  ...  3.816363e+08  7.811972e+08  5.813621e+08
+92  None  RelDiff_CRNT.TA  RelDiff_CRNT.TA_LinearTrend_residue_zeroCycle_...  ...  3.816359e+08  7.811972e+08  5.813621e+08
+93  None  RelDiff_CRNT.TA  RelDiff_CRNT.TA_PolyTrend_residue_zeroCycle_re...  ...  3.815222e+08  7.811972e+08  5.813621e+08
+94  None  RelDiff_CRNT.TA  RelDiff_CRNT.TA_LinearTrend_residue_bestCycle_...  ...  3.816368e+08  7.811972e+08  5.813621e+08
+95  None  RelDiff_CRNT.TA  RelDiff_CRNT.TA_PolyTrend_residue_bestCycle_by...  ...  3.815863e+08  7.811972e+08  5.813621e+08
+
+[96 rows x 8 columns]
+  Split   Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _CRNT.TA  _CRNT.TA_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0222        0.0280    0.0302
+1  None   CumSum_CRNT.TA  CumSum_CRNT.TA_Lag1Trend_residue_zeroCycle_res...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0234        0.0280    0.0302
+2  None     Diff_CRNT.TA  Diff_CRNT.TA_Lag1Trend_residue_zeroCycle_resid...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0222        0.0280    0.0302
+3  None  RelDiff_CRNT.TA  RelDiff_CRNT.TA_Lag1Trend_residue_zeroCycle_re...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0222        0.0280    0.0302
+4  None         _CRNT.TA  _CRNT.TA_Lag1Trend_residue_Seasonal_DayOfWeek_...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0225        0.0304    0.0331
+7 0    8.129
+1    8.808
+2    9.416
+3    8.419
+4    8.792
+5    8.562
+6    8.556
+Name: CRNT.TA, dtype: float64
+7 0    7.594
+1    7.594
+2    7.594
+3    7.594
+4    7.594
+5    7.594
+6    7.594
+Name: CRNT.TA_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_CRNT.TA CRNT.TA [8.129, 8.808, 9.416, 8.419, 8.792, 8.562000000000001, 8.556000000000001]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_CRNT.TA CRNT.TA [7.593999999999999, 7.593999999999999, 7.593999999999999, 7.593999999999999, 7.593999999999999, 7.593999999999999, 7.593999999999999]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_CRNT.TA CRNT.TA 1019 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_CRNT.TA CRNT.TA 10.549534320831299
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_CRNT.TA CRNT.TA Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_CRNT.TA CRNT.TA 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_CRNT.TA CRNT.TA 0.1224 0.1312 2.2292
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_CRNT.TA CRNT.TA 1.0748571428571438 1.1375413336289313 -8.330673606832791
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ta100_CRNT.TA_7'

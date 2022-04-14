@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftse100
+TIME :  Date N= 1295 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  IAP.L N= 1295 H= 7 HEAD= [452.6 447.8 441.7 432.5 425.4] TAIL= [450.  450.7 446.6 449.2 451.2]
+   IAP.L       Date
+0  452.6 2011-07-28
+1  447.8 2011-07-29
+2  441.7 2011-08-01
+3  432.5 2011-08-02
+4  425.4 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1295 entries, 0 to 1294
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   IAP.L   1295 non-null   float64       
+ 1   Date    1295 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _IAP.L    _IAP.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.360000e-02  1.360000e-02  1.230000e-02
+1   None   CumSum_IAP.L  CumSum_IAP.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.450000e-02  1.360000e-02  1.230000e-02
+2   None     Diff_IAP.L  Diff_IAP.L_Lag1Trend_residue_zeroCycle_residue...  ...  1.360000e-02  1.360000e-02  1.230000e-02
+3   None  RelDiff_IAP.L  RelDiff_IAP.L_Lag1Trend_residue_zeroCycle_resi...  ...  1.360000e-02  1.360000e-02  1.230000e-02
+4   None         _IAP.L  _IAP.L_Lag1Trend_residue_bestCycle_byL2_residu...  ...  1.370000e-02  1.370000e-02  1.130000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_IAP.L  RelDiff_IAP.L_Lag1Trend_residue_Seasonal_DayOf...  ...  4.488144e+07  3.722910e+07  3.831631e+07
+92  None  RelDiff_IAP.L  RelDiff_IAP.L_LinearTrend_residue_Seasonal_Day...  ...  4.500149e+07  3.722910e+07  3.831631e+07
+93  None  RelDiff_IAP.L  RelDiff_IAP.L_LinearTrend_residue_Seasonal_Day...  ...  4.500151e+07  3.722910e+07  3.831631e+07
+94  None  RelDiff_IAP.L  RelDiff_IAP.L_PolyTrend_residue_Seasonal_DayOf...  ...  4.500424e+07  3.722910e+07  3.831631e+07
+95  None  RelDiff_IAP.L  RelDiff_IAP.L_LinearTrend_residue_zeroCycle_re...  ...  4.500387e+07  3.722910e+07  3.831631e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _IAP.L    _IAP.L_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0136        0.0136    0.0123
+1  None   CumSum_IAP.L  CumSum_IAP.L_Lag1Trend_residue_zeroCycle_resid...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0145        0.0136    0.0123
+2  None     Diff_IAP.L  Diff_IAP.L_Lag1Trend_residue_zeroCycle_residue...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0136        0.0136    0.0123
+3  None  RelDiff_IAP.L  RelDiff_IAP.L_Lag1Trend_residue_zeroCycle_resi...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0136        0.0136    0.0123
+4  None         _IAP.L  _IAP.L_Lag1Trend_residue_bestCycle_byL2_residu...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0137        0.0137    0.0113
+7 0    451.2
+1    452.8
+2    459.6
+3    458.9
+4    450.5
+5    449.2
+6    441.1
+Name: IAP.L, dtype: float64
+7 0    451.2
+1    451.2
+2    451.2
+3    451.2
+4    451.2
+5    451.2
+6    451.2
+Name: IAP.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_IAP.L IAP.L [451.2, 452.8, 459.6, 458.9, 450.5, 449.2, 441.1]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_IAP.L IAP.L [451.2, 451.2, 451.2, 451.2, 451.2, 451.2, 451.2]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_IAP.L IAP.L 1295 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_IAP.L IAP.L 11.156633138656616
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_IAP.L IAP.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_IAP.L IAP.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_IAP.L IAP.L 0.0096 0.0096 0.9719
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_IAP.L IAP.L 4.357142857142857 5.842088667591409 -0.01456599286520599
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftse100_IAP.L_7'

@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_kospi
+TIME :  Date N= 1269 H= 7 HEAD= ['2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000' '2011-08-04T00:00:00.000000000'
+ '2011-08-05T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  083350.KS N= 1269 H= 7 HEAD= [4870. 4890. 4900. 4855. 4930.] TAIL= [4075. 4075. 4340. 4295. 4280.]
+   083350.KS       Date
+0     4870.0 2011-08-01
+1     4890.0 2011-08-02
+2     4900.0 2011-08-03
+3     4855.0 2011-08-04
+4     4930.0 2011-08-05
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1269 entries, 0 to 1268
+Data columns (total 2 columns):
+ #   Column     Non-Null Count  Dtype         
+---  ------     --------------  -----         
+ 0   083350.KS  1269 non-null   float64       
+ 1   Date       1269 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.7 KB
+None
+   Split     Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _083350.KS  _083350.KS_Lag1Trend_residue_zeroCycle_residue...  ...  0.0073  1.720000e-02  1.160000e-02
+1   None   CumSum_083350.KS  CumSum_083350.KS_Lag1Trend_residue_zeroCycle_r...  ...  0.0083  1.720000e-02  1.160000e-02
+2   None     Diff_083350.KS  Diff_083350.KS_Lag1Trend_residue_zeroCycle_res...  ...  0.0073  1.720000e-02  1.160000e-02
+3   None  RelDiff_083350.KS  RelDiff_083350.KS_Lag1Trend_residue_zeroCycle_...  ...  0.0073  1.720000e-02  1.160000e-02
+4   None         _083350.KS  _083350.KS_Lag1Trend_residue_bestCycle_byL2_re...  ...  0.0078  1.760000e-02  1.250000e-02
+..   ...                ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_083350.KS  RelDiff_083350.KS_LinearTrend_residue_bestCycl...  ...  0.1809  1.369385e+07  5.529120e+07
+92  None  RelDiff_083350.KS  RelDiff_083350.KS_PolyTrend_residue_Seasonal_D...  ...  0.1937  1.369905e+07  5.529120e+07
+93  None  RelDiff_083350.KS  RelDiff_083350.KS_PolyTrend_residue_zeroCycle_...  ...  0.1937  1.370216e+07  5.529120e+07
+94  None  RelDiff_083350.KS  RelDiff_083350.KS_LinearTrend_residue_Seasonal...  ...  0.1966  1.370217e+07  5.529120e+07
+95  None  RelDiff_083350.KS  RelDiff_083350.KS_LinearTrend_residue_zeroCycl...  ...  0.1967  1.370528e+07  5.529120e+07
+
+[96 rows x 8 columns]
+  Split     Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _083350.KS  _083350.KS_Lag1Trend_residue_zeroCycle_residue...            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0073        0.0172    0.0116
+1  None   CumSum_083350.KS  CumSum_083350.KS_Lag1Trend_residue_zeroCycle_r...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0083        0.0172    0.0116
+2  None     Diff_083350.KS  Diff_083350.KS_Lag1Trend_residue_zeroCycle_res...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0073        0.0172    0.0116
+3  None  RelDiff_083350.KS  RelDiff_083350.KS_Lag1Trend_residue_zeroCycle_...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0073        0.0172    0.0116
+4  None         _083350.KS  _083350.KS_Lag1Trend_residue_bestCycle_byL2_re...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0078        0.0176    0.0125
+7 0    4280.0
+1    4395.0
+2    4390.0
+3    4350.0
+4    4350.0
+5    4300.0
+6    4295.0
+Name: 083350.KS, dtype: float64
+7 0    4280.0
+1    4280.0
+2    4280.0
+3    4280.0
+4    4280.0
+5    4280.0
+6    4280.0
+Name: 083350.KS_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_083350.KS 083350.KS [4280.0, 4395.0, 4390.0, 4350.0, 4350.0, 4300.0, 4295.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_083350.KS 083350.KS [4280.0, 4280.0, 4280.0, 4280.0, 4280.0, 4280.0, 4280.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_083350.KS 083350.KS 1269 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_083350.KS 083350.KS 12.65731430053711
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_083350.KS 083350.KS Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_083350.KS 083350.KS 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_083350.KS 083350.KS 0.0131 0.0132 1.5947
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_083350.KS 083350.KS 57.142857142857146 71.46427679017579 -1.7728531855955465
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_kospi_083350.KS_7'

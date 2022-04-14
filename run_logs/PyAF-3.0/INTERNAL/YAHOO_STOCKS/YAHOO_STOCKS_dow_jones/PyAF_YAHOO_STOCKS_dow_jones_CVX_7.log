@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_dow_jones
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  CVX N= 1251 H= 7 HEAD= [105.029999 104.019997 105.379997 103.449997 102.760002] TAIL= [106.779999 106.650002 106.699997 107.029999 106.089996]
+          CVX       Date
+0  105.029999 2011-07-28
+1  104.019997 2011-07-29
+2  105.379997 2011-08-01
+3  103.449997 2011-08-02
+4  102.760002 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   CVX     1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None           _CVX      _CVX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0092  1.520000e-02  7.000000e-03
+1   None           _CVX  _CVX_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  ...  0.0092  1.520000e-02  6.800000e-03
+2   None           _CVX  _CVX_Lag1Trend_residue_bestCycle_byL2_residue_...  ...  0.0092  1.520000e-02  7.300000e-03
+3   None     CumSum_CVX  CumSum_CVX_Lag1Trend_residue_zeroCycle_residue...  ...  0.0102  1.520000e-02  7.000000e-03
+4   None       Diff_CVX  Diff_CVX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0092  1.520000e-02  7.000000e-03
+..   ...            ...                                                ...  ...     ...           ...           ...
+91  None    RelDiff_CVX  RelDiff_CVX_ConstantTrend_residue_zeroCycle_re...  ...  0.0830  3.349920e+07  3.296742e+07
+92  None    RelDiff_CVX  RelDiff_CVX_LinearTrend_residue_zeroCycle_resi...  ...  0.2564  3.349921e+07  3.296742e+07
+93  None    RelDiff_CVX  RelDiff_CVX_Lag1Trend_residue_bestCycle_byL2_r...  ...  0.1411  3.349921e+07  3.296742e+07
+94  None    RelDiff_CVX  RelDiff_CVX_Lag1Trend_residue_Seasonal_DayOfWe...  ...  0.1411  3.349921e+07  3.296742e+07
+95  None    RelDiff_CVX  RelDiff_CVX_Lag1Trend_residue_zeroCycle_residu...  ...  0.1433  3.349922e+07  3.296742e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _CVX      _CVX_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0092        0.0152    0.0070
+1  None           _CVX  _CVX_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0092        0.0152    0.0068
+2  None           _CVX  _CVX_Lag1Trend_residue_bestCycle_byL2_residue_...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0092        0.0152    0.0073
+3  None     CumSum_CVX  CumSum_CVX_Lag1Trend_residue_zeroCycle_residue...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0102        0.0152    0.0070
+4  None       Diff_CVX  Diff_CVX_Lag1Trend_residue_zeroCycle_residue_NoAR           Difference_Lag1Trend_NoCycle_NoAR          64   0.0092        0.0152    0.0070
+7 0    106.040001
+1    105.589996
+2    105.389999
+3    105.660004
+4    103.070000
+5    102.680000
+6    102.260002
+Name: CVX, dtype: float64
+7 0    106.089996
+1    106.089996
+2    106.089996
+3    106.089996
+4    106.089996
+5    106.089996
+6    106.089996
+Name: CVX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_CVX CVX [106.040001, 105.589996, 105.389999, 105.660004, 103.07, 102.68, 102.260002]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_CVX CVX [106.089996, 106.089996, 106.089996, 106.089996, 106.089996, 106.089996, 106.089996]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_CVX CVX 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_CVX CVX 11.993754625320435
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_CVX CVX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_CVX CVX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_CVX CVX 0.0166 0.0163 2.369
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_CVX CVX 1.7057099999999983 2.2786177207172265 -1.2745904587970154
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_dow_jones_CVX_7'

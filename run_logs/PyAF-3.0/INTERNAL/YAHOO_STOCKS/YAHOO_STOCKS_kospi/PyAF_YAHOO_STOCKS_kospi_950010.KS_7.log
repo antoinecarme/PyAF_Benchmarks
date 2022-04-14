@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_kospi
+TIME :  Date N= 1102 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2015-10-20T00:00:00.000000000' '2015-10-21T00:00:00.000000000'
+ '2015-10-22T00:00:00.000000000' '2015-10-23T00:00:00.000000000'
+ '2015-10-26T00:00:00.000000000']
+SIGNAL :  950010.KS N= 1102 H= 7 HEAD= [2170. 2170. 2135. 2115. 1985.] TAIL= [690. 690. 690. 690. 690.]
+   950010.KS       Date
+0     2170.0 2011-07-28
+1     2170.0 2011-07-29
+2     2135.0 2011-08-01
+3     2115.0 2011-08-02
+4     1985.0 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1102 entries, 0 to 1101
+Data columns (total 2 columns):
+ #   Column     Non-Null Count  Dtype         
+---  ------     --------------  -----         
+ 0   950010.KS  1102 non-null   float64       
+ 1   Date       1102 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 25.8 KB
+None
+   Split     Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _950010.KS  _950010.KS_Lag1Trend_residue_zeroCycle_residue...  ...  2.690000e-02  0.000000e+00  0.000000e+00
+1   None   CumSum_950010.KS  CumSum_950010.KS_Lag1Trend_residue_zeroCycle_r...  ...  2.800000e-02  0.000000e+00  0.000000e+00
+2   None     Diff_950010.KS  Diff_950010.KS_Lag1Trend_residue_zeroCycle_res...  ...  2.690000e-02  0.000000e+00  0.000000e+00
+3   None  RelDiff_950010.KS  RelDiff_950010.KS_Lag1Trend_residue_zeroCycle_...  ...  2.690000e-02  0.000000e+00  0.000000e+00
+4   None   CumSum_950010.KS  CumSum_950010.KS_Lag1Trend_residue_zeroCycle_r...  ...  4.150000e-02  0.000000e+00  0.000000e+00
+..   ...                ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_950010.KS  RelDiff_950010.KS_LinearTrend_residue_zeroCycl...  ...  1.286734e+08  2.275362e+08  2.275362e+08
+92  None  RelDiff_950010.KS  RelDiff_950010.KS_LinearTrend_residue_Seasonal...  ...  1.286738e+08  2.275362e+08  2.275362e+08
+93  None  RelDiff_950010.KS  RelDiff_950010.KS_PolyTrend_residue_Seasonal_D...  ...  1.286513e+08  2.275362e+08  2.275362e+08
+94  None  RelDiff_950010.KS  RelDiff_950010.KS_ConstantTrend_residue_zeroCy...  ...  1.286323e+08  2.275362e+08  2.275362e+08
+95  None  RelDiff_950010.KS  RelDiff_950010.KS_LinearTrend_residue_zeroCycl...  ...  1.286738e+08  2.275362e+08  2.275362e+08
+
+[96 rows x 8 columns]
+  Split     Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _950010.KS  _950010.KS_Lag1Trend_residue_zeroCycle_residue...            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0269           0.0       0.0
+1  None   CumSum_950010.KS  CumSum_950010.KS_Lag1Trend_residue_zeroCycle_r...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0280           0.0       0.0
+2  None     Diff_950010.KS  Diff_950010.KS_Lag1Trend_residue_zeroCycle_res...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0269           0.0       0.0
+3  None  RelDiff_950010.KS  RelDiff_950010.KS_Lag1Trend_residue_zeroCycle_...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0269           0.0       0.0
+4  None   CumSum_950010.KS  CumSum_950010.KS_Lag1Trend_residue_zeroCycle_r...           Integration_Lag1Trend_NoCycle_AR         128   0.0415           0.0       0.0
+7 0    4500.0
+1    3795.0
+2    2200.0
+3    1300.0
+4     950.0
+5     500.0
+6     295.0
+Name: 950010.KS, dtype: float64
+7 0    690.0
+1    690.0
+2    690.0
+3    690.0
+4    690.0
+5    690.0
+6    690.0
+Name: 950010.KS_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_950010.KS 950010.KS [4500.0, 3795.0, 2200.0, 1300.0, 950.0, 500.0, 295.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_950010.KS 950010.KS [690.0, 690.0, 690.0, 690.0, 690.0, 690.0, 690.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_950010.KS 950010.KS 1102 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_950010.KS 950010.KS 10.313152551651001
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_950010.KS 950010.KS Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_950010.KS 950010.KS 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_950010.KS 950010.KS 0.6876 0.8499 2.0139
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_950010.KS 950010.KS 1411.4285714285713 1966.4707327741094 -0.6677046363182297
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_kospi_950010.KS_7'

@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nasdaq
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  SRCL N= 1251 H= 7 HEAD= [84.360001 82.120003 81.489998 80.440002 82.639999] TAIL= [105.209999 104.900002 106.190002 105.910004 105.860001]
+        SRCL       Date
+0  84.360001 2011-07-28
+1  82.120003 2011-07-29
+2  81.489998 2011-08-01
+3  80.440002 2011-08-02
+4  82.639999 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   SRCL    1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None          _SRCL     _SRCL_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  7.800000e-03  1.230000e-02  7.700000e-03
+1   None          _SRCL  _SRCL_Lag1Trend_residue_Seasonal_DayOfWeek_res...  ...  7.800000e-03  1.230000e-02  7.500000e-03
+2   None          _SRCL  _SRCL_Lag1Trend_residue_bestCycle_byL2_residue...  ...  7.700000e-03  1.230000e-02  7.000000e-03
+3   None    CumSum_SRCL  CumSum_SRCL_Lag1Trend_residue_zeroCycle_residu...  ...  8.800000e-03  1.230000e-02  7.700000e-03
+4   None      Diff_SRCL  Diff_SRCL_Lag1Trend_residue_zeroCycle_residue_...  ...  7.800000e-03  1.230000e-02  7.700000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None   RelDiff_SRCL  RelDiff_SRCL_Lag1Trend_residue_bestCycle_byL2_...  ...  9.849940e+06  8.565110e+06  9.752250e+06
+92  None   RelDiff_SRCL  RelDiff_SRCL_PolyTrend_residue_zeroCycle_resid...  ...  9.874084e+06  8.565110e+06  9.752250e+06
+93  None   RelDiff_SRCL  RelDiff_SRCL_PolyTrend_residue_bestCycle_byL2_...  ...  9.874083e+06  8.565110e+06  9.752250e+06
+94  None   RelDiff_SRCL  RelDiff_SRCL_ConstantTrend_residue_zeroCycle_r...  ...  9.866790e+06  8.565110e+06  9.752250e+06
+95  None   RelDiff_SRCL  RelDiff_SRCL_PolyTrend_residue_bestCycle_byL2_...  ...  9.874086e+06  8.565110e+06  9.752250e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None          _SRCL     _SRCL_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0078        0.0123    0.0077
+1  None          _SRCL  _SRCL_Lag1Trend_residue_Seasonal_DayOfWeek_res...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0078        0.0123    0.0075
+2  None          _SRCL  _SRCL_Lag1Trend_residue_bestCycle_byL2_residue...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0077        0.0123    0.0070
+3  None    CumSum_SRCL  CumSum_SRCL_Lag1Trend_residue_zeroCycle_residu...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0088        0.0123    0.0077
+4  None      Diff_SRCL  Diff_SRCL_Lag1Trend_residue_zeroCycle_residue_...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0078        0.0123    0.0077
+7 0    106.370003
+1    106.519997
+2    106.269997
+3    107.250000
+4    106.410004
+5    107.080002
+6    106.480003
+Name: SRCL, dtype: float64
+7 0    105.860001
+1    105.860001
+2    105.860001
+3    105.860001
+4    105.860001
+5    105.860001
+6    105.860001
+Name: SRCL_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_SRCL SRCL [106.370003, 106.519997, 106.269997, 107.25, 106.410004, 107.08000200000001, 106.480003]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_SRCL SRCL [105.860001, 105.860001, 105.860001, 105.860001, 105.860001, 105.860001, 105.860001]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_SRCL SRCL 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_SRCL SRCL 10.969289064407349
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_SRCL SRCL Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_SRCL SRCL 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_SRCL SRCL 0.0072 0.0072 1.3164
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_SRCL SRCL 0.7657141428571472 0.8427166037838625 -4.733979421784716
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nasdaq_SRCL_7'

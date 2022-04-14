@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nasdaq
+TIME :  Date N= 867 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2014-11-18T00:00:00.000000000' '2014-11-19T00:00:00.000000000'
+ '2014-11-20T00:00:00.000000000' '2014-11-21T00:00:00.000000000'
+ '2014-11-24T00:00:00.000000000']
+SIGNAL :  FWLT N= 867 H= 7 HEAD= [27.05 27.1  26.46 27.02 27.11] TAIL= [30.24 29.78 29.42 30.08 29.8 ]
+    FWLT       Date
+0  27.05 2011-07-28
+1  27.10 2011-07-29
+2  26.46 2011-08-01
+3  27.02 2011-08-02
+4  27.11 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 867 entries, 0 to 866
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   FWLT    867 non-null    float64       
+ 1   Date    867 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 20.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None          _FWLT     _FWLT_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.790000e-02  6.500000e-03  1.560000e-02
+1   None    CumSum_FWLT  CumSum_FWLT_Lag1Trend_residue_zeroCycle_residu...  ...  1.930000e-02  6.500000e-03  1.560000e-02
+2   None      Diff_FWLT  Diff_FWLT_Lag1Trend_residue_zeroCycle_residue_...  ...  1.790000e-02  6.500000e-03  1.560000e-02
+3   None   RelDiff_FWLT  RelDiff_FWLT_Lag1Trend_residue_zeroCycle_resid...  ...  1.790000e-02  6.500000e-03  1.560000e-02
+4   None          _FWLT  _FWLT_Lag1Trend_residue_Seasonal_DayOfWeek_res...  ...  1.780000e-02  6.600000e-03  1.540000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None   RelDiff_FWLT  RelDiff_FWLT_LinearTrend_residue_bestCycle_byL...  ...  5.004258e+07  3.508049e+07  3.786352e+07
+92  None   RelDiff_FWLT  RelDiff_FWLT_ConstantTrend_residue_Seasonal_Da...  ...  5.003758e+07  3.508049e+07  3.786352e+07
+93  None   RelDiff_FWLT  RelDiff_FWLT_LinearTrend_residue_bestCycle_byL...  ...  5.004768e+07  3.508049e+07  3.786352e+07
+94  None   RelDiff_FWLT  RelDiff_FWLT_Lag1Trend_residue_Seasonal_DayOfW...  ...  5.016279e+07  3.508049e+07  3.786352e+07
+95  None   RelDiff_FWLT  RelDiff_FWLT_Lag1Trend_residue_bestCycle_byL2_...  ...  5.016313e+07  3.508049e+07  3.786352e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None          _FWLT     _FWLT_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0179        0.0065    0.0156
+1  None    CumSum_FWLT  CumSum_FWLT_Lag1Trend_residue_zeroCycle_residu...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0193        0.0065    0.0156
+2  None      Diff_FWLT  Diff_FWLT_Lag1Trend_residue_zeroCycle_residue_...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0179        0.0065    0.0156
+3  None   RelDiff_FWLT  RelDiff_FWLT_Lag1Trend_residue_zeroCycle_resid...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0179        0.0065    0.0156
+4  None          _FWLT  _FWLT_Lag1Trend_residue_Seasonal_DayOfWeek_res...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0178        0.0066    0.0154
+7 0    29.47
+1    29.44
+2    29.44
+3    28.50
+4    28.09
+5    28.39
+6    27.52
+Name: FWLT, dtype: float64
+7 0    29.8
+1    29.8
+2    29.8
+3    29.8
+4    29.8
+5    29.8
+6    29.8
+Name: FWLT_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_FWLT FWLT [29.47, 29.44, 29.44, 28.5, 28.09, 28.39, 27.52]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_FWLT FWLT [29.8, 29.8, 29.8, 29.8, 29.8, 29.8, 29.8]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_FWLT FWLT 867 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_FWLT FWLT 10.826775312423706
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_FWLT FWLT Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_FWLT FWLT 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_FWLT FWLT 0.0392 0.0382 2.605
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_FWLT FWLT 1.1071428571428577 1.318478560419439 -2.39117539324265
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nasdaq_FWLT_7'

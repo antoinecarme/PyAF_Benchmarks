@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_mc
+TIME :  Date N= 1298 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  SAN.MC N= 1298 H= 7 HEAD= [7.59228 7.54695 7.15234 6.9504  6.86592] TAIL= [3.801 3.724 3.824 3.812 3.806]
+    SAN.MC       Date
+0  7.59228 2011-07-28
+1  7.54695 2011-07-29
+2  7.15234 2011-08-01
+3  6.95040 2011-08-02
+4  6.86592 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1298 entries, 0 to 1297
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   SAN.MC  1298 non-null   float64       
+ 1   Date    1298 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _SAN.MC  _SAN.MC_Lag1Trend_residue_bestCycle_byL2_resid...  ...  0.0145  2.040000e-02  2.800000e-02
+1   None         _SAN.MC  _SAN.MC_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  0.0145  2.050000e-02  2.560000e-02
+2   None         _SAN.MC   _SAN.MC_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0145  2.060000e-02  2.490000e-02
+3   None   CumSum_SAN.MC  CumSum_SAN.MC_Lag1Trend_residue_zeroCycle_resi...  ...  0.0155  2.060000e-02  2.490000e-02
+4   None     Diff_SAN.MC  Diff_SAN.MC_Lag1Trend_residue_zeroCycle_residu...  ...  0.0145  2.060000e-02  2.490000e-02
+..   ...             ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_SAN.MC  RelDiff_SAN.MC_ConstantTrend_residue_Seasonal_...  ...  0.6581  2.432133e+06  1.154155e+08
+92  None  RelDiff_SAN.MC  RelDiff_SAN.MC_LinearTrend_residue_Seasonal_Da...  ...  0.5882  2.432134e+06  1.154155e+08
+93  None  RelDiff_SAN.MC  RelDiff_SAN.MC_Lag1Trend_residue_zeroCycle_res...  ...  0.4144  2.844335e+06  1.154155e+08
+94  None  RelDiff_SAN.MC  RelDiff_SAN.MC_Lag1Trend_residue_Seasonal_DayO...  ...  0.4078  2.915496e+06  1.154155e+08
+95  None  RelDiff_SAN.MC  RelDiff_SAN.MC_Lag1Trend_residue_bestCycle_byL...  ...  0.4078  2.915496e+06  1.154155e+08
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _SAN.MC  _SAN.MC_Lag1Trend_residue_bestCycle_byL2_resid...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0145        0.0204    0.0280
+1  None        _SAN.MC  _SAN.MC_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0145        0.0205    0.0256
+2  None        _SAN.MC   _SAN.MC_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0145        0.0206    0.0249
+3  None  CumSum_SAN.MC  CumSum_SAN.MC_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0155        0.0206    0.0249
+4  None    Diff_SAN.MC  Diff_SAN.MC_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0145        0.0206    0.0249
+7 0    3.763
+1    3.811
+2    3.861
+3    3.878
+4    3.789
+5    3.754
+6    3.863
+Name: SAN.MC, dtype: float64
+7 0    3.806
+1    3.806
+2    3.806
+3    3.806
+4    3.806
+5    3.806
+6    3.806
+Name: SAN.MC_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_SAN.MC SAN.MC [3.763, 3.8110000000000004, 3.861, 3.878, 3.7889999999999997, 3.7539999999999996, 3.863]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_SAN.MC SAN.MC [3.806, 3.806, 3.806, 3.806, 3.806, 3.806, 3.806]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_SAN.MC SAN.MC 1298 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_SAN.MC SAN.MC 10.975042581558228
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_SAN.MC SAN.MC Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_SAN.MC SAN.MC 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_SAN.MC SAN.MC 0.0112 0.0113 0.7414
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_SAN.MC SAN.MC 0.04300000000000021 0.04829226498252977 -0.054722825592951274
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_mc_SAN.MC_7'

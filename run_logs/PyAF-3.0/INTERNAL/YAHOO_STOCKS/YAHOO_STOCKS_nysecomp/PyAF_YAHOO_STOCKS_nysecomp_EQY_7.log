@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  EQY N= 1251 H= 7 HEAD= [19.34 19.4  19.27 18.32 18.24] TAIL= [32.02     32.290001 31.799999 31.75     31.809999]
+     EQY       Date
+0  19.34 2011-07-28
+1  19.40 2011-07-29
+2  19.27 2011-08-01
+3  18.32 2011-08-02
+4  18.24 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   EQY     1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _EQY      _EQY_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  9.500000e-03  9.600000e-03  7.100000e-03
+1   None           _EQY  _EQY_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  ...  9.500000e-03  9.600000e-03  7.300000e-03
+2   None           _EQY  _EQY_Lag1Trend_residue_bestCycle_byL2_residue_...  ...  9.500000e-03  9.600000e-03  6.900000e-03
+3   None     CumSum_EQY  CumSum_EQY_Lag1Trend_residue_zeroCycle_residue...  ...  1.050000e-02  9.600000e-03  7.100000e-03
+4   None       Diff_EQY  Diff_EQY_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  9.500000e-03  9.600000e-03  7.100000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_EQY  RelDiff_EQY_Lag1Trend_residue_bestCycle_byL2_r...  ...  2.041027e+07  1.655601e+07  1.388054e+07
+92  None    RelDiff_EQY  RelDiff_EQY_PolyTrend_residue_Seasonal_DayOfWe...  ...  2.043288e+07  1.655601e+07  1.388054e+07
+93  None    RelDiff_EQY  RelDiff_EQY_PolyTrend_residue_bestCycle_byL2_r...  ...  2.043288e+07  1.655601e+07  1.388054e+07
+94  None    RelDiff_EQY  RelDiff_EQY_ConstantTrend_residue_zeroCycle_re...  ...  2.041303e+07  1.655601e+07  1.388054e+07
+95  None    RelDiff_EQY  RelDiff_EQY_PolyTrend_residue_bestCycle_byL2_r...  ...  2.043289e+07  1.655601e+07  1.388054e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _EQY      _EQY_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0095        0.0096    0.0071
+1  None           _EQY  _EQY_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0095        0.0096    0.0073
+2  None           _EQY  _EQY_Lag1Trend_residue_bestCycle_byL2_residue_...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0095        0.0096    0.0069
+3  None     CumSum_EQY  CumSum_EQY_Lag1Trend_residue_zeroCycle_residue...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0105        0.0096    0.0071
+4  None       Diff_EQY  Diff_EQY_Lag1Trend_residue_zeroCycle_residue_NoAR           Difference_Lag1Trend_NoCycle_NoAR          64   0.0095        0.0096    0.0071
+7 0    32.000000
+1    32.009998
+2    32.209999
+3    32.330002
+4    32.389999
+5    32.200001
+6    32.189999
+Name: EQY, dtype: float64
+7 0    31.809999
+1    31.809999
+2    31.809999
+3    31.809999
+4    31.809999
+5    31.809999
+6    31.809999
+Name: EQY_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_EQY EQY [32.0, 32.009997999999996, 32.209998999999996, 32.330002, 32.389998999999996, 32.200001, 32.189999]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_EQY EQY [31.809998999999998, 31.809998999999998, 31.809998999999998, 31.809998999999998, 31.809998999999998, 31.809998999999998, 31.809998999999998]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_EQY EQY 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_EQY EQY 11.801526308059692
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_EQY EQY Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_EQY EQY 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_EQY EQY 0.0118 0.0119 3.8644
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_EQY EQY 0.380000714285715 0.40345023768472077 -7.860008082587843
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_EQY_7'

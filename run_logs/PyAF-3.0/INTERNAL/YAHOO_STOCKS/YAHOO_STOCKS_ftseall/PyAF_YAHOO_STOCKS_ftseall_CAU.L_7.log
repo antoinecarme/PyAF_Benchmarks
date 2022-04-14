@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1294 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  CAU.L N= 1294 H= 7 HEAD= [50.875 51.75  51.25  49.25  47.375] TAIL= [40.5   40.375 41.    39.    37.5  ]
+    CAU.L       Date
+0  50.875 2011-07-28
+1  51.750 2011-07-29
+2  51.250 2011-08-01
+3  49.250 2011-08-02
+4  47.375 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1294 entries, 0 to 1293
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   CAU.L   1294 non-null   float64       
+ 1   Date    1294 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _CAU.L    _CAU.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.870000e-02  2.090000e-02  4.080000e-02
+1   None   CumSum_CAU.L  CumSum_CAU.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.960000e-02  2.090000e-02  4.080000e-02
+2   None     Diff_CAU.L  Diff_CAU.L_Lag1Trend_residue_zeroCycle_residue...  ...  1.870000e-02  2.090000e-02  4.080000e-02
+3   None  RelDiff_CAU.L  RelDiff_CAU.L_Lag1Trend_residue_zeroCycle_resi...  ...  1.870000e-02  2.090000e-02  4.080000e-02
+4   None         _CAU.L  _CAU.L_ConstantTrend_residue_zeroCycle_residue...  ...  1.840000e-02  2.090000e-02  4.310000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_CAU.L  RelDiff_CAU.L_PolyTrend_residue_Seasonal_DayOf...  ...  4.683953e+07  3.601574e+07  5.743463e+07
+92  None  RelDiff_CAU.L  RelDiff_CAU.L_LinearTrend_residue_Seasonal_Day...  ...  4.683953e+07  3.601574e+07  5.743463e+07
+93  None  RelDiff_CAU.L  RelDiff_CAU.L_PolyTrend_residue_bestCycle_byL2...  ...  4.681193e+07  3.601574e+07  5.743463e+07
+94  None  RelDiff_CAU.L  RelDiff_CAU.L_Lag1Trend_residue_bestCycle_byL2...  ...  4.683960e+07  3.601574e+07  5.743463e+07
+95  None  RelDiff_CAU.L  RelDiff_CAU.L_PolyTrend_residue_zeroCycle_resi...  ...  4.682817e+07  3.601574e+07  5.743463e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _CAU.L    _CAU.L_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0187        0.0209    0.0408
+1  None   CumSum_CAU.L  CumSum_CAU.L_Lag1Trend_residue_zeroCycle_resid...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0196        0.0209    0.0408
+2  None     Diff_CAU.L  Diff_CAU.L_Lag1Trend_residue_zeroCycle_residue...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0187        0.0209    0.0408
+3  None  RelDiff_CAU.L  RelDiff_CAU.L_Lag1Trend_residue_zeroCycle_resi...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0187        0.0209    0.0408
+4  None         _CAU.L  _CAU.L_ConstantTrend_residue_zeroCycle_residue...          NoTransf_ConstantTrend_NoCycle_AR          64   0.0184        0.0209    0.0431
+7 0    37.50
+1    37.75
+2    39.00
+3    38.50
+4    37.50
+5    37.50
+6    37.50
+Name: CAU.L, dtype: float64
+7 0    37.5
+1    37.5
+2    37.5
+3    37.5
+4    37.5
+5    37.5
+6    37.5
+Name: CAU.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_CAU.L CAU.L [37.5, 37.75, 39.0, 38.5, 37.5, 37.5, 37.5]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_CAU.L CAU.L [37.5, 37.5, 37.5, 37.5, 37.5, 37.5, 37.5]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_CAU.L CAU.L 1294 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_CAU.L CAU.L 11.040986061096191
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_CAU.L CAU.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_CAU.L CAU.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_CAU.L CAU.L 0.0102 0.0103 0.7857
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_CAU.L CAU.L 0.39285714285714285 0.6879057244377936 -0.4839999999335167
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_CAU.L_7'

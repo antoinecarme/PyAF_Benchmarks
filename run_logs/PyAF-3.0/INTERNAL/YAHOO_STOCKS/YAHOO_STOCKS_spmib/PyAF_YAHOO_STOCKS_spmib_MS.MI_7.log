@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_spmib
+TIME :  Date N= 1297 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  MS.MI N= 1297 H= 7 HEAD= [3.076 2.992 2.864 2.764 2.678] TAIL= [3.428 3.364 3.324 3.292 3.29 ]
+   MS.MI       Date
+0  3.076 2011-07-28
+1  2.992 2011-07-29
+2  2.864 2011-08-01
+3  2.764 2011-08-02
+4  2.678 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1297 entries, 0 to 1296
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   MS.MI   1297 non-null   float64       
+ 1   Date    1297 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _MS.MI  _MS.MI_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  2.170000e-02  2.110000e-02  1.930000e-02
+1   None         _MS.MI    _MS.MI_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.170000e-02  2.120000e-02  1.920000e-02
+2   None         _MS.MI  _MS.MI_Lag1Trend_residue_bestCycle_byL2_residu...  ...  2.170000e-02  2.120000e-02  1.900000e-02
+3   None   CumSum_MS.MI  CumSum_MS.MI_Lag1Trend_residue_zeroCycle_resid...  ...  2.260000e-02  2.120000e-02  1.920000e-02
+4   None     Diff_MS.MI  Diff_MS.MI_Lag1Trend_residue_zeroCycle_residue...  ...  2.170000e-02  2.120000e-02  1.920000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_MS.MI  RelDiff_MS.MI_PolyTrend_residue_zeroCycle_resi...  ...  7.922260e+07  4.957852e+07  5.757534e+07
+92  None  RelDiff_MS.MI  RelDiff_MS.MI_PolyTrend_residue_zeroCycle_resi...  ...  7.922234e+07  4.957852e+07  5.757534e+07
+93  None  RelDiff_MS.MI  RelDiff_MS.MI_LinearTrend_residue_zeroCycle_re...  ...  7.922897e+07  4.957852e+07  5.757534e+07
+94  None  RelDiff_MS.MI  RelDiff_MS.MI_PolyTrend_residue_bestCycle_byL2...  ...  7.922315e+07  4.957852e+07  5.757534e+07
+95  None  RelDiff_MS.MI  RelDiff_MS.MI_ConstantTrend_residue_zeroCycle_...  ...  7.922322e+07  4.957852e+07  5.757534e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _MS.MI  _MS.MI_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0217        0.0211    0.0193
+1  None         _MS.MI    _MS.MI_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0217        0.0212    0.0192
+2  None         _MS.MI  _MS.MI_Lag1Trend_residue_bestCycle_byL2_residu...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0217        0.0212    0.0190
+3  None   CumSum_MS.MI  CumSum_MS.MI_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0226        0.0212    0.0192
+4  None     Diff_MS.MI  Diff_MS.MI_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0217        0.0212    0.0192
+7 0    3.230
+1    3.264
+2    3.250
+3    3.216
+4    3.230
+5    3.006
+6    3.040
+Name: MS.MI, dtype: float64
+7 0    3.29
+1    3.29
+2    3.29
+3    3.29
+4    3.29
+5    3.29
+6    3.29
+Name: MS.MI_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_MS.MI MS.MI [3.23, 3.264, 3.25, 3.216, 3.23, 3.0060000000000002, 3.04]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_MS.MI MS.MI [3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_MS.MI MS.MI 1297 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_MS.MI MS.MI 11.264627456665039
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_MS.MI MS.MI Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_MS.MI MS.MI 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_MS.MI MS.MI 0.0367 0.0356 1.9225
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_MS.MI MS.MI 0.11342857142857143 0.15028924493408413 -1.3235555894640414
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_spmib_MS.MI_7'

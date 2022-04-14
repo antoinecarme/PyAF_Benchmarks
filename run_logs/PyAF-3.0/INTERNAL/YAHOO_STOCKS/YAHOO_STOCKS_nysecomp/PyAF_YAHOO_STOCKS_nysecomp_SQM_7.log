@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 747 H= 7 HEAD= ['2012-07-26T00:00:00.000000000' '2012-07-27T00:00:00.000000000'
+ '2012-07-30T00:00:00.000000000' '2012-07-31T00:00:00.000000000'
+ '2012-08-01T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  SQM N= 747 H= 7 HEAD= [59.29     60.289999 60.469997 59.929998 59.04    ] TAIL= [26.200001 25.459999 25.719999 25.620001 25.25    ]
+         SQM       Date
+0  59.290000 2012-07-26
+1  60.289999 2012-07-27
+2  60.469997 2012-07-30
+3  59.929998 2012-07-31
+4  59.040000 2012-08-01
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 747 entries, 0 to 746
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   SQM     747 non-null    float64       
+ 1   Date    747 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 17.5 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _SQM      _SQM_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.510000e-02  2.060000e-02  1.220000e-02
+1   None     CumSum_SQM  CumSum_SQM_Lag1Trend_residue_zeroCycle_residue...  ...  1.680000e-02  2.060000e-02  1.220000e-02
+2   None       Diff_SQM  Diff_SQM_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.510000e-02  2.060000e-02  1.220000e-02
+3   None    RelDiff_SQM  RelDiff_SQM_Lag1Trend_residue_zeroCycle_residu...  ...  1.510000e-02  2.060000e-02  1.220000e-02
+4   None           _SQM  _SQM_Lag1Trend_residue_bestCycle_byL2_residue_...  ...  1.510000e-02  2.110000e-02  1.320000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_SQM  RelDiff_SQM_Lag1Trend_residue_Seasonal_DayOfWe...  ...  1.476829e+08  2.382765e+08  1.793220e+08
+92  None    RelDiff_SQM  RelDiff_SQM_Lag1Trend_residue_bestCycle_byL2_r...  ...  1.477857e+08  2.382765e+08  1.793220e+08
+93  None    RelDiff_SQM  RelDiff_SQM_LinearTrend_residue_zeroCycle_resi...  ...  1.481657e+08  2.382765e+08  1.793220e+08
+94  None    RelDiff_SQM  RelDiff_SQM_PolyTrend_residue_zeroCycle_residu...  ...  1.480460e+08  2.382765e+08  1.793220e+08
+95  None    RelDiff_SQM  RelDiff_SQM_PolyTrend_residue_zeroCycle_residu...  ...  1.480459e+08  2.382765e+08  1.793220e+08
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _SQM      _SQM_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0151        0.0206    0.0122
+1  None     CumSum_SQM  CumSum_SQM_Lag1Trend_residue_zeroCycle_residue...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0168        0.0206    0.0122
+2  None       Diff_SQM  Diff_SQM_Lag1Trend_residue_zeroCycle_residue_NoAR          Difference_Lag1Trend_NoCycle_NoAR          64   0.0151        0.0206    0.0122
+3  None    RelDiff_SQM  RelDiff_SQM_Lag1Trend_residue_zeroCycle_residu...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0151        0.0206    0.0122
+4  None           _SQM  _SQM_Lag1Trend_residue_bestCycle_byL2_residue_...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0151        0.0211    0.0132
+7 0    24.790001
+1    25.059999
+2    24.740000
+3    24.930000
+4    24.870001
+5    24.690001
+6    24.830000
+Name: SQM, dtype: float64
+7 0    25.25
+1    25.25
+2    25.25
+3    25.25
+4    25.25
+5    25.25
+6    25.25
+Name: SQM_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_SQM SQM [24.790001, 25.059998999999998, 24.74, 24.93, 24.870001000000002, 24.690001000000002, 24.83]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_SQM SQM [25.25, 25.25, 25.25, 25.25, 25.25, 25.25, 25.25]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_SQM SQM 747 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_SQM SQM 11.375105619430542
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_SQM SQM Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_SQM SQM 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_SQM SQM 0.0164 0.0162 2.0985
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_SQM SQM 0.4057140000000002 0.42166296290554817 -12.473953348179187
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_SQM_7'

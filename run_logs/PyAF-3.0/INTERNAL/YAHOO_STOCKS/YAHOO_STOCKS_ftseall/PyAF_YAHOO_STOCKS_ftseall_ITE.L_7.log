@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1295 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  ITE.L N= 1295 H= 7 HEAD= [215.2 224.3 219.1 214.5 210.8] TAIL= [144.25 144.5  155.   150.5  151.5 ]
+   ITE.L       Date
+0  215.2 2011-07-28
+1  224.3 2011-07-29
+2  219.1 2011-08-01
+3  214.5 2011-08-02
+4  210.8 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1295 entries, 0 to 1294
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   ITE.L   1295 non-null   float64       
+ 1   Date    1295 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _ITE.L    _ITE.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.460000e-02  1.500000e-02  1.910000e-02
+1   None         _ITE.L  _ITE.L_Lag1Trend_residue_bestCycle_byL2_residu...  ...  1.460000e-02  1.500000e-02  1.850000e-02
+2   None   CumSum_ITE.L  CumSum_ITE.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.550000e-02  1.500000e-02  1.910000e-02
+3   None     Diff_ITE.L  Diff_ITE.L_Lag1Trend_residue_zeroCycle_residue...  ...  1.460000e-02  1.500000e-02  1.910000e-02
+4   None  RelDiff_ITE.L  RelDiff_ITE.L_Lag1Trend_residue_zeroCycle_resi...  ...  1.460000e-02  1.500000e-02  1.910000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_ITE.L  RelDiff_ITE.L_Lag1Trend_residue_Seasonal_DayOf...  ...  4.086636e+07  5.944522e+07  5.915595e+07
+92  None  RelDiff_ITE.L  RelDiff_ITE.L_LinearTrend_residue_zeroCycle_re...  ...  4.095252e+07  5.944522e+07  5.915595e+07
+93  None  RelDiff_ITE.L  RelDiff_ITE.L_LinearTrend_residue_Seasonal_Day...  ...  4.096917e+07  5.944522e+07  5.915595e+07
+94  None  RelDiff_ITE.L  RelDiff_ITE.L_LinearTrend_residue_zeroCycle_re...  ...  4.095616e+07  5.944522e+07  5.915595e+07
+95  None  RelDiff_ITE.L  RelDiff_ITE.L_LinearTrend_residue_Seasonal_Day...  ...  4.098027e+07  5.944522e+07  5.915595e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _ITE.L    _ITE.L_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0146         0.015    0.0191
+1  None         _ITE.L  _ITE.L_Lag1Trend_residue_bestCycle_byL2_residu...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0146         0.015    0.0185
+2  None   CumSum_ITE.L  CumSum_ITE.L_Lag1Trend_residue_zeroCycle_resid...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0155         0.015    0.0191
+3  None     Diff_ITE.L  Diff_ITE.L_Lag1Trend_residue_zeroCycle_residue...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0146         0.015    0.0191
+4  None  RelDiff_ITE.L  RelDiff_ITE.L_Lag1Trend_residue_zeroCycle_resi...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0146         0.015    0.0191
+7 0    153.25
+1    164.00
+2    167.50
+3    167.00
+4    155.00
+5    170.50
+6    165.00
+Name: ITE.L, dtype: float64
+7 0    151.5
+1    151.5
+2    151.5
+3    151.5
+4    151.5
+5    151.5
+6    151.5
+Name: ITE.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_ITE.L ITE.L [153.25, 164.0, 167.5, 167.0, 155.0, 170.5, 165.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_ITE.L ITE.L [151.5, 151.5, 151.5, 151.5, 151.5, 151.5, 151.5]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_ITE.L ITE.L 1295 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_ITE.L ITE.L 11.1938316822052
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_ITE.L ITE.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_ITE.L ITE.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_ITE.L ITE.L 0.0703 0.0735 1.4675
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_ITE.L ITE.L 11.678571428571429 13.153285846944428 -3.7244514106564646
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_ITE.L_7'

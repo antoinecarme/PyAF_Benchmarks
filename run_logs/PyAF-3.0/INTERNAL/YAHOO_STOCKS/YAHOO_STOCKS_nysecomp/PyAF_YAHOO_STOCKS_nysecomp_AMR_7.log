@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 724 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2014-07-10T00:00:00.000000000' '2014-07-11T00:00:00.000000000'
+ '2014-07-14T00:00:00.000000000' '2014-07-15T00:00:00.000000000'
+ '2014-07-16T00:00:00.000000000']
+SIGNAL :  AMR N= 724 H= 7 HEAD= [2.13331 2.09404 2.18709 2.13843 2.05904] TAIL= [1.03977 1.03379 1.00818 1.01757 1.00476]
+       AMR       Date
+0  2.13331 2011-07-28
+1  2.09404 2011-07-29
+2  2.18709 2011-08-01
+3  2.13843 2011-08-02
+4  2.05904 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 724 entries, 0 to 723
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   AMR     724 non-null    float64       
+ 1   Date    724 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 17.0 KB
+None
+   Split Transformation                                              Model  ...  FitMAPE  ForecastMAPE      TestMAPE
+0   None           _AMR      _AMR_Lag1Trend_residue_zeroCycle_residue_NoAR  ...   0.0211  2.020000e-02  1.080000e-02
+1   None     CumSum_AMR  CumSum_AMR_Lag1Trend_residue_zeroCycle_residue...  ...   0.0228  2.020000e-02  1.080000e-02
+2   None       Diff_AMR  Diff_AMR_Lag1Trend_residue_zeroCycle_residue_NoAR  ...   0.0211  2.020000e-02  1.080000e-02
+3   None    RelDiff_AMR  RelDiff_AMR_Lag1Trend_residue_zeroCycle_residu...  ...   0.0211  2.020000e-02  1.080000e-02
+4   None           _AMR  _AMR_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  ...   0.0212  2.100000e-02  1.270000e-02
+..   ...            ...                                                ...  ...      ...           ...           ...
+91  None    RelDiff_AMR  RelDiff_AMR_ConstantTrend_residue_zeroCycle_re...  ...  13.4012  1.101135e+08  1.333028e+08
+92  None    RelDiff_AMR  RelDiff_AMR_PolyTrend_residue_Seasonal_DayOfWe...  ...   1.9916  1.101152e+08  1.333028e+08
+93  None    RelDiff_AMR  RelDiff_AMR_LinearTrend_residue_zeroCycle_resi...  ...   3.6878  1.101173e+08  1.333028e+08
+94  None    RelDiff_AMR  RelDiff_AMR_PolyTrend_residue_bestCycle_byL2_r...  ...   1.7057  1.101193e+08  1.333028e+08
+95  None    RelDiff_AMR  RelDiff_AMR_PolyTrend_residue_zeroCycle_residu...  ...   2.5974  1.101266e+08  1.333028e+08
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _AMR      _AMR_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0211        0.0202    0.0108
+1  None     CumSum_AMR  CumSum_AMR_Lag1Trend_residue_zeroCycle_residue...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0228        0.0202    0.0108
+2  None       Diff_AMR  Diff_AMR_Lag1Trend_residue_zeroCycle_residue_NoAR           Difference_Lag1Trend_NoCycle_NoAR          64   0.0211        0.0202    0.0108
+3  None    RelDiff_AMR  RelDiff_AMR_Lag1Trend_residue_zeroCycle_residu...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0211        0.0202    0.0108
+4  None           _AMR  _AMR_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0212        0.0210    0.0127
+7 0    1.02355
+1    1.01330
+2    1.01159
+3    1.00989
+4    1.00733
+5    1.01330
+6    1.00220
+Name: AMR, dtype: float64
+7 0    1.00476
+1    1.00476
+2    1.00476
+3    1.00476
+4    1.00476
+5    1.00476
+6    1.00476
+Name: AMR_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_AMR AMR [1.02355, 1.0133, 1.01159, 1.00989, 1.0073299999999998, 1.0133, 1.0022]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_AMR AMR [1.00476, 1.00476, 1.00476, 1.00476, 1.00476, 1.00476, 1.00476]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_AMR AMR 724 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_AMR AMR 11.323345422744751
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_AMR AMR Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_AMR AMR 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_AMR AMR 0.0075 0.0075 1.3636
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_AMR AMR 0.007565714285714208 0.00914214416862908 -1.2667679122384379
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_AMR_7'

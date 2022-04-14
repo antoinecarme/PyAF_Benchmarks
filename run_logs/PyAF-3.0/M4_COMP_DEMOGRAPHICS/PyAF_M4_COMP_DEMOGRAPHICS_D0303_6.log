@@ -1,0 +1,62 @@
+BENCH_DATA M4_COMP_DEMOGRAPHICS
+TIME :  Date N= 15 H= 6 HEAD= [0 1 2 3 4] TAIL= [10 11 12 13 14]
+SIGNAL :  D0303 N= 15 H= 6 HEAD= [15. 15. 14. 14. 14.] TAIL= [15. 13. 13. 13. 13.]
+   D0303  Date
+0   15.0     0
+1   15.0     1
+2   14.0     2
+3   14.0     3
+4   14.0     4
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 15 entries, 0 to 14
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   D0303   15 non-null     float64
+ 1   Date    15 non-null     int64  
+dtypes: float64(1), int64(1)
+memory usage: 360.0 bytes
+None
+   Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0   None         _D0303    _D0303_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0195        0.0195    0.0195
+1   None         _D0303  _D0303_Lag1Trend_residue_bestCycle_byL2_residu...         NoTransf_Lag1Trend_Cycle_None_NoAR          40   0.0195        0.0195    0.0195
+2   None     Diff_D0303  Diff_D0303_Lag1Trend_residue_zeroCycle_residue...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0195        0.0195    0.0195
+3   None  RelDiff_D0303  RelDiff_D0303_Lag1Trend_residue_zeroCycle_resi...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0195        0.0195    0.0195
+4   None     Diff_D0303  Diff_D0303_Lag1Trend_residue_bestCycle_byL2_re...       Difference_Lag1Trend_Cycle_None_NoAR          72   0.0195        0.0195    0.0195
+..   ...            ...                                                ...                                        ...         ...      ...           ...       ...
+59  None   CumSum_D0303  CumSum_D0303_PolyTrend_residue_bestCycle_byL2_...      Integration_PolyTrend_Cycle_None_NoAR          56   0.5231        0.5231    0.5231
+60  None   CumSum_D0303  CumSum_D0303_LinearTrend_residue_zeroCycle_res...       Integration_LinearTrend_NoCycle_NoAR          48   0.5641        0.5641    0.5641
+61  None   CumSum_D0303  CumSum_D0303_LinearTrend_residue_bestCycle_byL...    Integration_LinearTrend_Cycle_None_NoAR          56   0.5641        0.5641    0.5641
+62  None   CumSum_D0303  CumSum_D0303_ConstantTrend_residue_zeroCycle_r...     Integration_ConstantTrend_NoCycle_NoAR          32   1.3733        1.3733    1.3733
+63  None   CumSum_D0303  CumSum_D0303_ConstantTrend_residue_bestCycle_b...  Integration_ConstantTrend_Cycle_None_NoAR          40   1.3733        1.3733    1.3733
+
+[64 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _D0303    _D0303_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0195        0.0195    0.0195
+1  None         _D0303  _D0303_Lag1Trend_residue_bestCycle_byL2_residu...         NoTransf_Lag1Trend_Cycle_None_NoAR          40   0.0195        0.0195    0.0195
+2  None     Diff_D0303  Diff_D0303_Lag1Trend_residue_zeroCycle_residue...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0195        0.0195    0.0195
+3  None  RelDiff_D0303  RelDiff_D0303_Lag1Trend_residue_zeroCycle_resi...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0195        0.0195    0.0195
+4  None     Diff_D0303  Diff_D0303_Lag1Trend_residue_bestCycle_byL2_re...       Difference_Lag1Trend_Cycle_None_NoAR          72   0.0195        0.0195    0.0195
+6 0    14.0
+1    14.0
+2    13.0
+3    13.0
+4    12.0
+5    12.0
+Name: D0303, dtype: float64
+6 0    13.313752
+1    13.513397
+2    13.591507
+3    13.646520
+4    13.692536
+5    13.722310
+Name: D0303_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL D0303 D0303 [14.0, 14.0, 13.0, 13.0, 12.0, 12.0]
+FORECAST_DETAIL_PREDICTED D0303 D0303 [13.313751668891856, 13.513396589310892, 13.591506835165557, 13.646520468894504, 13.69253559465665, 13.722309704013197]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON D0303 D0303 15 6
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ D0303 D0303 5.132030725479126
+BENCHMARK_PERF_DETAIL_BEST_MODEL D0303 D0303 ConstantTrend + NoCycle + AR
+BENCHMARK_PERF_DETAIL_PERF_COUNT D0303 D0303 6
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE D0303 D0303 0.0773 0.0741 2.4274
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 D0303 D0303 0.9709540574211936 1.1035258764303248 -0.8266540398813083
+BENCHMARK_SUCCESS 'M4_COMP_DEMOGRAPHICS_D0303_6'

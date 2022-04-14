@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_exch
+TIME :  Date N= 537 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2013-08-13T00:00:00.000000000' '2013-08-14T00:00:00.000000000'
+ '2013-08-15T00:00:00.000000000' '2013-08-16T00:00:00.000000000'
+ '2013-08-19T00:00:00.000000000']
+SIGNAL :  NORD.OL N= 537 H= 7 HEAD= [0.96 0.96 0.96 0.89 0.83] TAIL= [5.   5.   4.75 4.75 4.85]
+   NORD.OL       Date
+0     0.96 2011-07-28
+1     0.96 2011-07-29
+2     0.96 2011-08-01
+3     0.89 2011-08-02
+4     0.83 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 537 entries, 0 to 536
+Data columns (total 2 columns):
+ #   Column   Non-Null Count  Dtype         
+---  ------   --------------  -----         
+ 0   NORD.OL  537 non-null    float64       
+ 1   Date     537 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 12.6 KB
+None
+   Split   Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _NORD.OL  _NORD.OL_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  5.460000e-02  1.120000e-02  2.200000e-02
+1   None   CumSum_NORD.OL  CumSum_NORD.OL_Lag1Trend_residue_zeroCycle_res...  ...  5.690000e-02  1.120000e-02  2.200000e-02
+2   None     Diff_NORD.OL  Diff_NORD.OL_Lag1Trend_residue_zeroCycle_resid...  ...  5.460000e-02  1.120000e-02  2.200000e-02
+3   None  RelDiff_NORD.OL  RelDiff_NORD.OL_Lag1Trend_residue_zeroCycle_re...  ...  5.460000e-02  1.120000e-02  2.200000e-02
+4   None         _NORD.OL  _NORD.OL_Lag1Trend_residue_Seasonal_DayOfWeek_...  ...  1.390000e-01  1.440000e-02  2.550000e-02
+..   ...              ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_NORD.OL  RelDiff_NORD.OL_LinearTrend_residue_Seasonal_D...  ...  4.271516e+08  1.555853e+07  1.873730e+07
+92  None  RelDiff_NORD.OL  RelDiff_NORD.OL_LinearTrend_residue_bestCycle_...  ...  4.271516e+08  1.555853e+07  1.873730e+07
+93  None  RelDiff_NORD.OL  RelDiff_NORD.OL_PolyTrend_residue_bestCycle_by...  ...  4.271537e+08  1.555853e+07  1.873730e+07
+94  None  RelDiff_NORD.OL  RelDiff_NORD.OL_PolyTrend_residue_bestCycle_by...  ...  4.271542e+08  1.555853e+07  1.873730e+07
+95  None  RelDiff_NORD.OL  RelDiff_NORD.OL_Lag1Trend_residue_bestCycle_by...  ...  4.269737e+08  1.555853e+07  1.873730e+07
+
+[96 rows x 8 columns]
+  Split   Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _NORD.OL  _NORD.OL_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0546        0.0112    0.0220
+1  None   CumSum_NORD.OL  CumSum_NORD.OL_Lag1Trend_residue_zeroCycle_res...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0569        0.0112    0.0220
+2  None     Diff_NORD.OL  Diff_NORD.OL_Lag1Trend_residue_zeroCycle_resid...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0546        0.0112    0.0220
+3  None  RelDiff_NORD.OL  RelDiff_NORD.OL_Lag1Trend_residue_zeroCycle_re...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0546        0.0112    0.0220
+4  None         _NORD.OL  _NORD.OL_Lag1Trend_residue_Seasonal_DayOfWeek_...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.1390        0.0144    0.0255
+7 0    4.85
+1    4.85
+2    4.85
+3    4.90
+4    4.90
+5    4.40
+6    4.45
+Name: NORD.OL, dtype: float64
+7 0    4.85
+1    4.85
+2    4.85
+3    4.85
+4    4.85
+5    4.85
+6    4.85
+Name: NORD.OL_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_NORD.OL NORD.OL [4.85, 4.85, 4.85, 4.9, 4.9, 4.4, 4.45]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_NORD.OL NORD.OL [4.85, 4.85, 4.85, 4.85, 4.85, 4.85, 4.85]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_NORD.OL NORD.OL 537 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_NORD.OL NORD.OL 9.98860239982605
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_NORD.OL NORD.OL Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_NORD.OL NORD.OL 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_NORD.OL NORD.OL 0.0304 0.0291 1.3571
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_NORD.OL NORD.OL 0.13571428571428573 0.22912878474779172 -0.279850745822936
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_exch_NORD.OL_7'

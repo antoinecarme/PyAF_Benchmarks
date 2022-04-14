@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1292 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  MRCH.L N= 1292 H= 7 HEAD= [3.98  4.144 3.954 3.878 3.79 ] TAIL= [4.53122 4.5489  4.54385 4.55942 4.56552]
+   MRCH.L       Date
+0   3.980 2011-07-28
+1   4.144 2011-07-29
+2   3.954 2011-08-01
+3   3.878 2011-08-02
+4   3.790 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1292 entries, 0 to 1291
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   MRCH.L  1292 non-null   float64       
+ 1   Date    1292 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _MRCH.L   _MRCH.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.270000e-02  1.540000e-02  6.300000e-03
+1   None   CumSum_MRCH.L  CumSum_MRCH.L_Lag1Trend_residue_zeroCycle_resi...  ...  1.360000e-02  1.540000e-02  6.300000e-03
+2   None     Diff_MRCH.L  Diff_MRCH.L_Lag1Trend_residue_zeroCycle_residu...  ...  1.270000e-02  1.540000e-02  6.300000e-03
+3   None  RelDiff_MRCH.L  RelDiff_MRCH.L_Lag1Trend_residue_zeroCycle_res...  ...  1.270000e-02  1.540000e-02  6.300000e-03
+4   None         _MRCH.L  _MRCH.L_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  1.260000e-02  1.550000e-02  6.500000e-03
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_MRCH.L  RelDiff_MRCH.L_PolyTrend_residue_Seasonal_DayO...  ...  1.287550e+07  1.253616e+07  1.247025e+07
+92  None  RelDiff_MRCH.L  RelDiff_MRCH.L_PolyTrend_residue_bestCycle_byL...  ...  1.287550e+07  1.253616e+07  1.247025e+07
+93  None  RelDiff_MRCH.L  RelDiff_MRCH.L_PolyTrend_residue_zeroCycle_res...  ...  1.287465e+07  1.253616e+07  1.247025e+07
+94  None  RelDiff_MRCH.L  RelDiff_MRCH.L_PolyTrend_residue_Seasonal_DayO...  ...  1.287701e+07  1.253616e+07  1.247025e+07
+95  None  RelDiff_MRCH.L  RelDiff_MRCH.L_PolyTrend_residue_bestCycle_byL...  ...  1.287701e+07  1.253616e+07  1.247025e+07
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _MRCH.L   _MRCH.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0127        0.0154    0.0063
+1  None   CumSum_MRCH.L  CumSum_MRCH.L_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0136        0.0154    0.0063
+2  None     Diff_MRCH.L  Diff_MRCH.L_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0127        0.0154    0.0063
+3  None  RelDiff_MRCH.L  RelDiff_MRCH.L_Lag1Trend_residue_zeroCycle_res...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0127        0.0154    0.0063
+4  None         _MRCH.L  _MRCH.L_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0126        0.0155    0.0065
+7 0    4.58068
+1    4.60558
+2    4.58392
+3    4.19750
+4    4.19000
+5    4.19250
+6    4.24750
+Name: MRCH.L, dtype: float64
+7 0    4.56552
+1    4.56552
+2    4.56552
+3    4.56552
+4    4.56552
+5    4.56552
+6    4.56552
+Name: MRCH.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_MRCH.L MRCH.L [4.58068, 4.605580000000001, 4.58392, 4.1975, 4.19, 4.1925, 4.2475]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_MRCH.L MRCH.L [4.565519999999999, 4.565519999999999, 4.565519999999999, 4.565519999999999, 4.565519999999999, 4.565519999999999, 4.565519999999999]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_MRCH.L MRCH.L 1292 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_MRCH.L MRCH.L 10.972569942474365
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_MRCH.L MRCH.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_MRCH.L MRCH.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_MRCH.L MRCH.L 0.051 0.049 2.596
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_MRCH.L MRCH.L 0.21545714285714293 0.27226767837133015 -1.0404852370815676
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_MRCH.L_7'

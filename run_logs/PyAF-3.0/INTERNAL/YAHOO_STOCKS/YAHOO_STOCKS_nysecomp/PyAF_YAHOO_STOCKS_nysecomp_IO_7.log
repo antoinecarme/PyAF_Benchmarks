@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  IO N= 1251 H= 7 HEAD= [10.270005 10.140005 10.020005  9.590005  6.760003] TAIL= [6.41 6.11 6.16 6.13 6.09]
+          IO       Date
+0  10.270005 2011-07-28
+1  10.140005 2011-07-29
+2  10.020005 2011-08-01
+3   9.590005 2011-08-02
+4   6.760003 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   IO      1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None            _IO       _IO_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0259  6.300000e-02  1.790000e-02
+1   None      CumSum_IO  CumSum_IO_Lag1Trend_residue_zeroCycle_residue_...  ...  0.0269  6.300000e-02  1.790000e-02
+2   None        Diff_IO   Diff_IO_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0259  6.300000e-02  1.790000e-02
+3   None     RelDiff_IO  RelDiff_IO_Lag1Trend_residue_zeroCycle_residue...  ...  0.0259  6.300000e-02  1.790000e-02
+4   None            _IO  _IO_Lag1Trend_residue_Seasonal_DayOfWeek_resid...  ...  0.0259  6.700000e-02  1.520000e-02
+..   ...            ...                                                ...  ...     ...           ...           ...
+91  None     RelDiff_IO  RelDiff_IO_ConstantTrend_residue_Seasonal_DayO...  ...  0.2269  6.218365e+08  1.622792e+08
+92  None     RelDiff_IO  RelDiff_IO_ConstantTrend_residue_zeroCycle_res...  ...  0.2275  6.218508e+08  1.622792e+08
+93  None     RelDiff_IO  RelDiff_IO_Lag1Trend_residue_zeroCycle_residue...  ...  0.3023  6.305474e+08  1.622792e+08
+94  None     RelDiff_IO  RelDiff_IO_Lag1Trend_residue_Seasonal_DayOfWee...  ...  0.3092  6.305474e+08  1.622792e+08
+95  None     RelDiff_IO  RelDiff_IO_Lag1Trend_residue_bestCycle_byL2_re...  ...  0.2903  6.305474e+08  1.622792e+08
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None            _IO       _IO_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0259         0.063    0.0179
+1  None      CumSum_IO  CumSum_IO_Lag1Trend_residue_zeroCycle_residue_...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0269         0.063    0.0179
+2  None        Diff_IO   Diff_IO_Lag1Trend_residue_zeroCycle_residue_NoAR           Difference_Lag1Trend_NoCycle_NoAR          64   0.0259         0.063    0.0179
+3  None     RelDiff_IO  RelDiff_IO_Lag1Trend_residue_zeroCycle_residue...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0259         0.063    0.0179
+4  None            _IO  _IO_Lag1Trend_residue_Seasonal_DayOfWeek_resid...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0259         0.067    0.0152
+7 0    5.76
+1    5.74
+2    5.53
+3    5.55
+4    5.27
+5    5.25
+6    5.04
+Name: IO, dtype: float64
+7 0    6.09
+1    6.09
+2    6.09
+3    6.09
+4    6.09
+5    6.09
+6    6.09
+Name: IO_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_IO IO [5.76, 5.74, 5.53, 5.55, 5.27, 5.25, 5.04]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_IO IO [6.09, 6.09, 6.09, 6.09, 6.09, 6.09, 6.09]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_IO IO 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_IO IO 11.642369747161865
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_IO IO Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_IO IO 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_IO IO 0.1201 0.1122 5.0639
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_IO IO 0.6414285714285713 0.6883831989316913 -6.589129296211138
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_IO_7'

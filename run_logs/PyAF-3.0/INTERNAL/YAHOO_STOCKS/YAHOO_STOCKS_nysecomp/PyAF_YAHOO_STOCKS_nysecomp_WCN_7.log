@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  WCN N= 1251 H= 7 HEAD= [32.450001 32.240002 32.18     31.620001 32.18    ] TAIL= [72.68     73.18     73.489998 73.209999 73.050003]
+         WCN       Date
+0  32.450001 2011-07-28
+1  32.240002 2011-07-29
+2  32.180000 2011-08-01
+3  31.620001 2011-08-02
+4  32.180000 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   WCN     1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _WCN  _WCN_Lag1Trend_residue_bestCycle_byL2_residue_...  ...  8.100000e-03  1.020000e-02  4.400000e-03
+1   None           _WCN      _WCN_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  8.100000e-03  1.030000e-02  4.400000e-03
+2   None           _WCN  _WCN_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  ...  8.100000e-03  1.030000e-02  4.600000e-03
+3   None     CumSum_WCN  CumSum_WCN_Lag1Trend_residue_zeroCycle_residue...  ...  9.100000e-03  1.030000e-02  4.400000e-03
+4   None       Diff_WCN  Diff_WCN_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  8.100000e-03  1.030000e-02  4.400000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_WCN  RelDiff_WCN_PolyTrend_residue_bestCycle_byL2_r...  ...  9.197611e+06  6.187524e+06  4.838383e+06
+92  None    RelDiff_WCN  RelDiff_WCN_Lag1Trend_residue_bestCycle_byL2_r...  ...  9.176217e+06  6.187524e+06  4.838383e+06
+93  None    RelDiff_WCN  RelDiff_WCN_PolyTrend_residue_zeroCycle_residu...  ...  9.197694e+06  6.187524e+06  4.838383e+06
+94  None    RelDiff_WCN  RelDiff_WCN_Lag1Trend_residue_Seasonal_DayOfWe...  ...  9.192331e+06  6.187524e+06  4.838382e+06
+95  None    RelDiff_WCN  RelDiff_WCN_ConstantTrend_residue_zeroCycle_re...  ...  9.197581e+06  6.187524e+06  4.838383e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _WCN  _WCN_Lag1Trend_residue_bestCycle_byL2_residue_...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0081        0.0102    0.0044
+1  None           _WCN      _WCN_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0081        0.0103    0.0044
+2  None           _WCN  _WCN_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0081        0.0103    0.0046
+3  None     CumSum_WCN  CumSum_WCN_Lag1Trend_residue_zeroCycle_residue...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0091        0.0103    0.0044
+4  None       Diff_WCN  Diff_WCN_Lag1Trend_residue_zeroCycle_residue_NoAR           Difference_Lag1Trend_NoCycle_NoAR          64   0.0081        0.0103    0.0044
+7 0    73.419998
+1    74.199997
+2    74.199997
+3    74.029999
+4    74.000000
+5    74.440002
+6    73.900002
+Name: WCN, dtype: float64
+7 0    73.050003
+1    73.050003
+2    73.050003
+3    73.050003
+4    73.050003
+5    73.050003
+6    73.050003
+Name: WCN_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_WCN WCN [73.41999799999999, 74.199997, 74.199997, 74.029999, 74.0, 74.440002, 73.900002]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_WCN WCN [73.050003, 73.050003, 73.050003, 73.050003, 73.050003, 73.050003, 73.050003]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_WCN WCN 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_WCN WCN 11.914644479751587
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_WCN WCN Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_WCN WCN 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_WCN WCN 0.0132 0.0133 2.9912
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_WCN WCN 0.9771391428571385 1.0211583534765067 -10.854515101191312
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_WCN_7'

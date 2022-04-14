@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aord
+TIME :  Date N= 1068 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2015-08-25T00:00:00.000000000' '2015-08-27T00:00:00.000000000'
+ '2015-08-28T00:00:00.000000000' '2015-08-31T00:00:00.000000000'
+ '2015-09-01T00:00:00.000000000']
+SIGNAL :  IIN.AX N= 1068 H= 7 HEAD= [2.41 2.41 2.4  2.44 2.38] TAIL= [9.52 9.52 9.52 9.52 9.52]
+   IIN.AX       Date
+0    2.41 2011-07-28
+1    2.41 2011-07-29
+2    2.40 2011-08-01
+3    2.44 2011-08-02
+4    2.38 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1068 entries, 0 to 1067
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   IIN.AX  1068 non-null   float64       
+ 1   Date    1068 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 25.0 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _IIN.AX   _IIN.AX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.260000e-02  1.040000e-02  2.000000e-04
+1   None   CumSum_IIN.AX  CumSum_IIN.AX_Lag1Trend_residue_zeroCycle_resi...  ...  1.380000e-02  1.040000e-02  2.000000e-04
+2   None     Diff_IIN.AX  Diff_IIN.AX_Lag1Trend_residue_zeroCycle_residu...  ...  1.260000e-02  1.040000e-02  2.000000e-04
+3   None  RelDiff_IIN.AX  RelDiff_IIN.AX_Lag1Trend_residue_zeroCycle_res...  ...  1.260000e-02  1.040000e-02  2.000000e-04
+4   None         _IIN.AX  _IIN.AX_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  1.280000e-02  1.050000e-02  9.000000e-04
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_IIN.AX  RelDiff_IIN.AX_Lag1Trend_residue_bestCycle_byL...  ...  5.784794e+06  2.964319e+06  2.625657e+06
+92  None  RelDiff_IIN.AX  RelDiff_IIN.AX_PolyTrend_residue_zeroCycle_res...  ...  5.822734e+06  2.964319e+06  2.625658e+06
+93  None  RelDiff_IIN.AX  RelDiff_IIN.AX_PolyTrend_residue_Seasonal_DayO...  ...  5.822249e+06  2.964319e+06  2.625658e+06
+94  None  RelDiff_IIN.AX  RelDiff_IIN.AX_PolyTrend_residue_bestCycle_byL...  ...  5.822247e+06  2.964319e+06  2.625658e+06
+95  None  RelDiff_IIN.AX  RelDiff_IIN.AX_Lag1Trend_residue_zeroCycle_res...  ...  5.573915e+06  2.964319e+06  2.625658e+06
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _IIN.AX   _IIN.AX_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0126        0.0104    0.0002
+1  None   CumSum_IIN.AX  CumSum_IIN.AX_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0138        0.0104    0.0002
+2  None     Diff_IIN.AX  Diff_IIN.AX_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0126        0.0104    0.0002
+3  None  RelDiff_IIN.AX  RelDiff_IIN.AX_Lag1Trend_residue_zeroCycle_res...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0126        0.0104    0.0002
+4  None         _IIN.AX  _IIN.AX_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0128        0.0105    0.0009
+7 0    9.52
+1    9.52
+2    9.52
+3    9.52
+4    9.52
+5    9.52
+6    9.52
+Name: IIN.AX, dtype: float64
+7 0    9.52
+1    9.52
+2    9.52
+3    9.52
+4    9.52
+5    9.52
+6    9.52
+Name: IIN.AX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_IIN.AX IIN.AX [9.52, 9.52, 9.52, 9.52, 9.52, 9.52, 9.52]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_IIN.AX IIN.AX [9.52, 9.52, 9.52, 9.52, 9.52, 9.52, 9.52]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_IIN.AX IIN.AX 1068 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_IIN.AX IIN.AX 10.745983123779297
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_IIN.AX IIN.AX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_IIN.AX IIN.AX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_IIN.AX IIN.AX 0.0 0.0 0.0
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_IIN.AX IIN.AX 0.0 0.0 1.0
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aord_IIN.AX_7'

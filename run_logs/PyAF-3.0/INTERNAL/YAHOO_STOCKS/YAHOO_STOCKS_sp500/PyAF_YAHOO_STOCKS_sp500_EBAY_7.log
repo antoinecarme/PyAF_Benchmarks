@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_sp500
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  EBAY N= 1251 H= 7 HEAD= [33.349998 32.75     33.019999 31.75     32.25    ] TAIL= [25.129999 25.120001 26.08     26.34     26.49    ]
+        EBAY       Date
+0  33.349998 2011-07-28
+1  32.750000 2011-07-29
+2  33.019999 2011-08-01
+3  31.750000 2011-08-02
+4  32.250000 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   EBAY    1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None          _EBAY     _EBAY_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0130  1.820000e-02  1.450000e-02
+1   None    CumSum_EBAY  CumSum_EBAY_Lag1Trend_residue_zeroCycle_residu...  ...  0.0140  1.820000e-02  1.450000e-02
+2   None      Diff_EBAY  Diff_EBAY_Lag1Trend_residue_zeroCycle_residue_...  ...  0.0130  1.820000e-02  1.450000e-02
+3   None   RelDiff_EBAY  RelDiff_EBAY_Lag1Trend_residue_zeroCycle_resid...  ...  0.0130  1.820000e-02  1.450000e-02
+4   None          _EBAY  _EBAY_Lag1Trend_residue_Seasonal_DayOfWeek_res...  ...  0.0129  1.870000e-02  1.330000e-02
+..   ...            ...                                                ...  ...     ...           ...           ...
+91  None   RelDiff_EBAY  RelDiff_EBAY_ConstantTrend_residue_bestCycle_b...  ...  0.3754  1.914538e+07  4.447221e+07
+92  None   RelDiff_EBAY  RelDiff_EBAY_ConstantTrend_residue_zeroCycle_r...  ...  0.3857  1.914551e+07  4.447221e+07
+93  None   RelDiff_EBAY  RelDiff_EBAY_PolyTrend_residue_Seasonal_DayOfW...  ...  0.8959  1.914624e+07  4.447221e+07
+94  None   RelDiff_EBAY  RelDiff_EBAY_PolyTrend_residue_bestCycle_byL2_...  ...  0.8717  1.914638e+07  4.447221e+07
+95  None   RelDiff_EBAY  RelDiff_EBAY_PolyTrend_residue_zeroCycle_resid...  ...  0.8747  1.914662e+07  4.447221e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None          _EBAY     _EBAY_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0130        0.0182    0.0145
+1  None    CumSum_EBAY  CumSum_EBAY_Lag1Trend_residue_zeroCycle_residu...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0140        0.0182    0.0145
+2  None      Diff_EBAY  Diff_EBAY_Lag1Trend_residue_zeroCycle_residue_...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0130        0.0182    0.0145
+3  None   RelDiff_EBAY  RelDiff_EBAY_Lag1Trend_residue_zeroCycle_resid...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0130        0.0182    0.0145
+4  None          _EBAY  _EBAY_Lag1Trend_residue_Seasonal_DayOfWeek_res...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0129        0.0187    0.0133
+7 0    26.500000
+1    26.990000
+2    29.930000
+3    30.490000
+4    30.680000
+5    31.400000
+6    31.309999
+Name: EBAY, dtype: float64
+7 0    26.49
+1    26.49
+2    26.49
+3    26.49
+4    26.49
+5    26.49
+6    26.49
+Name: EBAY_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_EBAY EBAY [26.5, 26.99, 29.93, 30.49, 30.68, 31.4, 31.309998999999998]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_EBAY EBAY [26.49, 26.49, 26.49, 26.49, 26.49, 26.49, 26.49]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_EBAY EBAY 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_EBAY EBAY 11.789239645004272
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_EBAY EBAY Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_EBAY EBAY 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_EBAY EBAY 0.1017 0.1092 3.7567
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_EBAY EBAY 3.124285571428572 3.6445711164494083 -2.7716881622553178
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_sp500_EBAY_7'

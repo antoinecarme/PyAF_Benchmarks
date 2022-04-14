@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftse250
+TIME :  Date N= 930 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2015-02-13T00:00:00.000000000' '2015-02-16T00:00:00.000000000'
+ '2015-02-17T00:00:00.000000000' '2015-02-18T00:00:00.000000000'
+ '2015-02-19T00:00:00.000000000']
+SIGNAL :  SMDR.L N= 930 H= 7 HEAD= [227.378 227.459 225.51  224.942 221.369] TAIL= [80.75 82.5  82.   83.   79.5 ]
+    SMDR.L       Date
+0  227.378 2011-07-28
+1  227.459 2011-07-29
+2  225.510 2011-08-01
+3  224.942 2011-08-02
+4  221.369 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 930 entries, 0 to 929
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   SMDR.L  930 non-null    float64       
+ 1   Date    930 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 21.8 KB
+None
+   Split  Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None     Diff_SMDR.L  Diff_SMDR.L_Lag1Trend_residue_Seasonal_DayOfWe...  ...  0.0161  2.560000e-02  2.270000e-02
+1   None     Diff_SMDR.L  Diff_SMDR.L_Lag1Trend_residue_bestCycle_byL2_r...  ...  0.0161  2.560000e-02  2.170000e-02
+2   None         _SMDR.L  _SMDR.L_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  0.0161  2.570000e-02  2.150000e-02
+3   None         _SMDR.L  _SMDR.L_Lag1Trend_residue_bestCycle_byL2_resid...  ...  0.0161  2.570000e-02  2.130000e-02
+4   None         _SMDR.L   _SMDR.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0161  2.580000e-02  2.130000e-02
+..   ...             ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_SMDR.L  RelDiff_SMDR.L_LinearTrend_residue_Seasonal_Da...  ...  0.2738  5.364499e+07  2.103843e+08
+92  None  RelDiff_SMDR.L  RelDiff_SMDR.L_LinearTrend_residue_zeroCycle_r...  ...  0.2746  5.364500e+07  2.103843e+08
+93  None  RelDiff_SMDR.L  RelDiff_SMDR.L_PolyTrend_residue_bestCycle_byL...  ...  0.2413  5.364577e+07  2.103843e+08
+94  None  RelDiff_SMDR.L  RelDiff_SMDR.L_PolyTrend_residue_Seasonal_DayO...  ...  0.2478  5.364602e+07  2.103843e+08
+95  None  RelDiff_SMDR.L  RelDiff_SMDR.L_PolyTrend_residue_zeroCycle_res...  ...  0.2476  5.364609e+07  2.103843e+08
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                      Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None    Diff_SMDR.L  Diff_SMDR.L_Lag1Trend_residue_Seasonal_DayOfWe...  Difference_Lag1Trend_Seasonal_DayOfWeek_NoAR          68   0.0161        0.0256    0.0227
+1  None    Diff_SMDR.L  Diff_SMDR.L_Lag1Trend_residue_bestCycle_byL2_r...               Difference_Lag1Trend_Cycle_NoAR          72   0.0161        0.0256    0.0217
+2  None        _SMDR.L  _SMDR.L_Lag1Trend_residue_Seasonal_DayOfWeek_r...    NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0161        0.0257    0.0215
+3  None        _SMDR.L  _SMDR.L_Lag1Trend_residue_bestCycle_byL2_resid...                 NoTransf_Lag1Trend_Cycle_NoAR          40   0.0161        0.0257    0.0213
+4  None        _SMDR.L   _SMDR.L_Lag1Trend_residue_zeroCycle_residue_NoAR               NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0161        0.0258    0.0213
+7 0    81.50
+1    76.75
+2    77.25
+3    78.75
+4    80.00
+5    79.50
+6    79.50
+Name: SMDR.L, dtype: float64
+7 0    79.5
+1    79.5
+2    79.5
+3    79.5
+4    79.5
+5    79.5
+6    79.5
+Name: SMDR.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_SMDR.L SMDR.L [81.5, 76.75, 77.25, 78.75, 80.0, 79.5, 79.5]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_SMDR.L SMDR.L [79.5, 79.5, 79.5, 79.5, 79.5, 79.5, 79.5]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_SMDR.L SMDR.L 930 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_SMDR.L SMDR.L 11.134306907653809
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_SMDR.L SMDR.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_SMDR.L SMDR.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_SMDR.L SMDR.L 0.015 0.0149 0.8319
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_SMDR.L SMDR.L 1.1785714285714286 1.5783128424274537 -0.09473094169716312
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftse250_SMDR.L_7'

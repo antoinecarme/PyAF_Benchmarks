@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  SHG N= 1251 H= 7 HEAD= [96.739998 96.019997 95.660004 92.690002 91.129997] TAIL= [33.369999 33.400002 33.57     34.060001 33.990002]
+         SHG       Date
+0  96.739998 2011-07-28
+1  96.019997 2011-07-29
+2  95.660004 2011-08-01
+3  92.690002 2011-08-02
+4  91.129997 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   SHG     1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None           _SHG      _SHG_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0155  1.470000e-02  9.900000e-03
+1   None     CumSum_SHG  CumSum_SHG_Lag1Trend_residue_zeroCycle_residue...  ...  0.0165  1.470000e-02  9.900000e-03
+2   None       Diff_SHG  Diff_SHG_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0155  1.470000e-02  9.900000e-03
+3   None    RelDiff_SHG  RelDiff_SHG_Lag1Trend_residue_zeroCycle_residu...  ...  0.0155  1.470000e-02  9.900000e-03
+4   None           _SHG  _SHG_Lag1Trend_residue_bestCycle_byL2_residue_...  ...  0.0156  1.480000e-02  1.110000e-02
+..   ...            ...                                                ...  ...     ...           ...           ...
+91  None    RelDiff_SHG  RelDiff_SHG_ConstantTrend_residue_bestCycle_by...  ...  2.9082  9.218250e+07  2.011186e+08
+92  None    RelDiff_SHG  RelDiff_SHG_LinearTrend_residue_bestCycle_byL2...  ...  2.5518  9.218268e+07  2.011186e+08
+93  None    RelDiff_SHG  RelDiff_SHG_Lag1Trend_residue_bestCycle_byL2_r...  ...  2.5382  9.218538e+07  2.011186e+08
+94  None    RelDiff_SHG  RelDiff_SHG_Lag1Trend_residue_zeroCycle_residu...  ...  3.2423  9.218678e+07  2.011186e+08
+95  None    RelDiff_SHG  RelDiff_SHG_Lag1Trend_residue_Seasonal_DayOfWe...  ...  3.1604  9.218681e+07  2.011186e+08
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _SHG      _SHG_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0155        0.0147    0.0099
+1  None     CumSum_SHG  CumSum_SHG_Lag1Trend_residue_zeroCycle_residue...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0165        0.0147    0.0099
+2  None       Diff_SHG  Diff_SHG_Lag1Trend_residue_zeroCycle_residue_NoAR          Difference_Lag1Trend_NoCycle_NoAR          64   0.0155        0.0147    0.0099
+3  None    RelDiff_SHG  RelDiff_SHG_Lag1Trend_residue_zeroCycle_residu...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0155        0.0147    0.0099
+4  None           _SHG  _SHG_Lag1Trend_residue_bestCycle_byL2_residue_...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0156        0.0148    0.0111
+7 0    34.060001
+1    33.869999
+2    34.340000
+3    34.740002
+4    34.860001
+5    34.950001
+6    35.590000
+Name: SHG, dtype: float64
+7 0    33.990002
+1    33.990002
+2    33.990002
+3    33.990002
+4    33.990002
+5    33.990002
+6    33.990002
+Name: SHG_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_SHG SHG [34.060001, 33.869999, 34.34, 34.740002000000004, 34.860001000000004, 34.950001, 35.59]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_SHG SHG [33.990002000000004, 33.990002000000004, 33.990002000000004, 33.990002000000004, 33.990002000000004, 33.990002000000004, 33.990002000000004]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_SHG SHG 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_SHG SHG 11.65259313583374
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_SHG SHG Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_SHG SHG 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_SHG SHG 0.0193 0.0195 2.1182
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_SHG SHG 0.6742851428571421 0.8403051418570681 -1.381376251457807
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_SHG_7'

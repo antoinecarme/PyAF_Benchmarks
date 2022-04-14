@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aord
+TIME :  Date N= 1282 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  FPH.AX N= 1282 H= 7 HEAD= [1.97  1.975 2.07  2.    2.02 ] TAIL= [9.76 9.73 9.46 9.53 9.49]
+   FPH.AX       Date
+0   1.970 2011-07-28
+1   1.975 2011-07-29
+2   2.070 2011-08-01
+3   2.000 2011-08-02
+4   2.020 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1282 entries, 0 to 1281
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   FPH.AX  1282 non-null   float64       
+ 1   Date    1282 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.0 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _FPH.AX   _FPH.AX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.190000e-02  1.070000e-02  7.900000e-03
+1   None         _FPH.AX  _FPH.AX_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  1.210000e-02  1.070000e-02  7.900000e-03
+2   None         _FPH.AX  _FPH.AX_Lag1Trend_residue_bestCycle_byL2_resid...  ...  1.220000e-02  1.070000e-02  8.000000e-03
+3   None   CumSum_FPH.AX  CumSum_FPH.AX_Lag1Trend_residue_zeroCycle_resi...  ...  1.280000e-02  1.070000e-02  7.900000e-03
+4   None     Diff_FPH.AX  Diff_FPH.AX_Lag1Trend_residue_zeroCycle_residu...  ...  1.190000e-02  1.070000e-02  7.900000e-03
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_FPH.AX  RelDiff_FPH.AX_LinearTrend_residue_zeroCycle_r...  ...  1.931532e+07  6.500657e+06  5.293706e+06
+92  None  RelDiff_FPH.AX  RelDiff_FPH.AX_LinearTrend_residue_bestCycle_b...  ...  1.930619e+07  6.500657e+06  5.293706e+06
+93  None  RelDiff_FPH.AX  RelDiff_FPH.AX_PolyTrend_residue_bestCycle_byL...  ...  1.930494e+07  6.500657e+06  5.293706e+06
+94  None  RelDiff_FPH.AX  RelDiff_FPH.AX_Lag1Trend_residue_Seasonal_DayO...  ...  1.933362e+07  6.500658e+06  5.293706e+06
+95  None  RelDiff_FPH.AX  RelDiff_FPH.AX_Lag1Trend_residue_zeroCycle_res...  ...  1.206159e+07  6.500658e+06  5.293707e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _FPH.AX   _FPH.AX_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0119        0.0107    0.0079
+1  None        _FPH.AX  _FPH.AX_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0121        0.0107    0.0079
+2  None        _FPH.AX  _FPH.AX_Lag1Trend_residue_bestCycle_byL2_resid...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0122        0.0107    0.0080
+3  None  CumSum_FPH.AX  CumSum_FPH.AX_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0128        0.0107    0.0079
+4  None    Diff_FPH.AX  Diff_FPH.AX_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0119        0.0107    0.0079
+7 0    9.55
+1    9.57
+2    9.81
+3    9.93
+4    9.86
+5    9.87
+6    9.99
+Name: FPH.AX, dtype: float64
+7 0    9.49
+1    9.49
+2    9.49
+3    9.49
+4    9.49
+5    9.49
+6    9.49
+Name: FPH.AX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_FPH.AX FPH.AX [9.55, 9.57, 9.81, 9.93, 9.86, 9.87, 9.99]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_FPH.AX FPH.AX [9.49, 9.49, 9.49, 9.49, 9.49, 9.49, 9.49]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_FPH.AX FPH.AX 1282 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_FPH.AX FPH.AX 10.881783723831177
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_FPH.AX FPH.AX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_FPH.AX FPH.AX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_FPH.AX FPH.AX 0.0311 0.0317 3.1773
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_FPH.AX FPH.AX 0.30714285714285694 0.3458529828037999 -3.7320361671948863
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aord_FPH.AX_7'

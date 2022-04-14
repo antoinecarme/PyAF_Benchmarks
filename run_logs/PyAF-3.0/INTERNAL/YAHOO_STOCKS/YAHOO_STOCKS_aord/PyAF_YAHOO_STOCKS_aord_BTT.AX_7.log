@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aord
+TIME :  Date N= 1299 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  BTT.AX N= 1299 H= 7 HEAD= [2.17749 2.16781 2.17749 2.1291  2.07103] TAIL= [8.3  8.32 8.52 8.57 8.63]
+    BTT.AX       Date
+0  2.17749 2011-07-28
+1  2.16781 2011-07-29
+2  2.17749 2011-08-01
+3  2.12910 2011-08-02
+4  2.07103 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1299 entries, 0 to 1298
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   BTT.AX  1299 non-null   float64       
+ 1   Date    1299 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _BTT.AX   _BTT.AX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.380000e-02  1.700000e-02  1.730000e-02
+1   None         _BTT.AX  _BTT.AX_Lag1Trend_residue_bestCycle_byL2_resid...  ...  1.420000e-02  1.700000e-02  1.650000e-02
+2   None   CumSum_BTT.AX  CumSum_BTT.AX_Lag1Trend_residue_zeroCycle_resi...  ...  1.480000e-02  1.700000e-02  1.730000e-02
+3   None     Diff_BTT.AX  Diff_BTT.AX_Lag1Trend_residue_zeroCycle_residu...  ...  1.380000e-02  1.700000e-02  1.730000e-02
+4   None  RelDiff_BTT.AX  RelDiff_BTT.AX_Lag1Trend_residue_zeroCycle_res...  ...  1.380000e-02  1.700000e-02  1.730000e-02
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_BTT.AX  RelDiff_BTT.AX_PolyTrend_residue_bestCycle_byL...  ...  1.486643e+07  4.863384e+06  5.887473e+06
+92  None  RelDiff_BTT.AX  RelDiff_BTT.AX_ConstantTrend_residue_Seasonal_...  ...  1.486620e+07  4.863384e+06  5.887473e+06
+93  None  RelDiff_BTT.AX  RelDiff_BTT.AX_ConstantTrend_residue_bestCycle...  ...  1.486620e+07  4.863384e+06  5.887473e+06
+94  None  RelDiff_BTT.AX  RelDiff_BTT.AX_ConstantTrend_residue_zeroCycle...  ...  1.485491e+07  4.863385e+06  5.887474e+06
+95  None  RelDiff_BTT.AX  RelDiff_BTT.AX_Lag1Trend_residue_zeroCycle_res...  ...  8.813507e+06  4.863385e+06  5.887474e+06
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _BTT.AX   _BTT.AX_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0138         0.017    0.0173
+1  None         _BTT.AX  _BTT.AX_Lag1Trend_residue_bestCycle_byL2_resid...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0142         0.017    0.0165
+2  None   CumSum_BTT.AX  CumSum_BTT.AX_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0148         0.017    0.0173
+3  None     Diff_BTT.AX  Diff_BTT.AX_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0138         0.017    0.0173
+4  None  RelDiff_BTT.AX  RelDiff_BTT.AX_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0138         0.017    0.0173
+7 0    8.63
+1    8.70
+2    8.65
+3    8.67
+4    8.66
+5    8.73
+6    8.69
+Name: BTT.AX, dtype: float64
+7 0    8.63
+1    8.63
+2    8.63
+3    8.63
+4    8.63
+5    8.63
+6    8.63
+Name: BTT.AX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_BTT.AX BTT.AX [8.63, 8.7, 8.65, 8.67, 8.66, 8.73, 8.69]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_BTT.AX BTT.AX [8.63, 8.63, 8.63, 8.63, 8.63, 8.63, 8.63]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_BTT.AX BTT.AX 1299 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_BTT.AX BTT.AX 11.333446741104126
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_BTT.AX BTT.AX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_BTT.AX BTT.AX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_BTT.AX BTT.AX 0.0053 0.0053 1.0549
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_BTT.AX BTT.AX 0.04571428571428499 0.05529143565818107 -2.1603375060709276
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aord_BTT.AX_7'

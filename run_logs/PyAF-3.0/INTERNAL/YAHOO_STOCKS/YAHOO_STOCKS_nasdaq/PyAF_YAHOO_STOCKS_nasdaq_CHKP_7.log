@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nasdaq
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  CHKP N= 1251 H= 7 HEAD= [57.959999 57.650002 57.630001 56.93     56.779999] TAIL= [81.449997 81.919998 81.669998 81.160004 81.970001]
+        CHKP       Date
+0  57.959999 2011-07-28
+1  57.650002 2011-07-29
+2  57.630001 2011-08-01
+3  56.930000 2011-08-02
+4  56.779999 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   CHKP    1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None          _CHKP  _CHKP_ConstantTrend_residue_Seasonal_DayOfWeek...  ...  1.130000e-02  1.090000e-02  8.200000e-03
+1   None          _CHKP  _CHKP_LinearTrend_residue_Seasonal_DayOfWeek_r...  ...  1.110000e-02  1.090000e-02  8.900000e-03
+2   None          _CHKP  _CHKP_Lag1Trend_residue_bestCycle_byL2_residue...  ...  1.100000e-02  1.090000e-02  8.300000e-03
+3   None          _CHKP     _CHKP_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.140000e-02  1.100000e-02  8.700000e-03
+4   None          _CHKP  _CHKP_Lag1Trend_residue_bestCycle_byL2_residue...  ...  1.130000e-02  1.100000e-02  9.200000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None   RelDiff_CHKP  RelDiff_CHKP_LinearTrend_residue_Seasonal_DayO...  ...  2.850431e+07  2.058327e+07  2.050830e+07
+92  None   RelDiff_CHKP  RelDiff_CHKP_PolyTrend_residue_Seasonal_DayOfW...  ...  2.850373e+07  2.058327e+07  2.050830e+07
+93  None   RelDiff_CHKP  RelDiff_CHKP_LinearTrend_residue_bestCycle_byL...  ...  2.850402e+07  2.058327e+07  2.050830e+07
+94  None   RelDiff_CHKP  RelDiff_CHKP_PolyTrend_residue_bestCycle_byL2_...  ...  2.850372e+07  2.058327e+07  2.050830e+07
+95  None   RelDiff_CHKP  RelDiff_CHKP_Lag1Trend_residue_Seasonal_DayOfW...  ...  2.853270e+07  2.058327e+07  2.050830e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                      Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None          _CHKP  _CHKP_ConstantTrend_residue_Seasonal_DayOfWeek...  NoTransf_ConstantTrend_Seasonal_DayOfWeek_AR          68   0.0113        0.0109    0.0082
+1  None          _CHKP  _CHKP_LinearTrend_residue_Seasonal_DayOfWeek_r...    NoTransf_LinearTrend_Seasonal_DayOfWeek_AR          84   0.0111        0.0109    0.0089
+2  None          _CHKP  _CHKP_Lag1Trend_residue_bestCycle_byL2_residue...                   NoTransf_Lag1Trend_Cycle_AR         104   0.0110        0.0109    0.0083
+3  None          _CHKP     _CHKP_Lag1Trend_residue_zeroCycle_residue_NoAR               NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0114        0.0110    0.0087
+4  None          _CHKP  _CHKP_Lag1Trend_residue_bestCycle_byL2_residue...                 NoTransf_Lag1Trend_Cycle_NoAR          40   0.0113        0.0110    0.0092
+7 0    81.190002
+1    82.260002
+2    81.349998
+3    81.730003
+4    83.639999
+5    80.529999
+6    78.099998
+Name: CHKP, dtype: float64
+7 0    81.970001
+1    81.970001
+2    81.970001
+3    81.970001
+4    81.970001
+5    81.970001
+6    81.970001
+Name: CHKP_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_CHKP CHKP [81.190002, 82.260002, 81.349998, 81.730003, 83.639999, 80.529999, 78.099998]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_CHKP CHKP [81.970001, 81.970001, 81.970001, 81.970001, 81.970001, 81.970001, 81.970001]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_CHKP CHKP 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_CHKP CHKP 10.833727836608887
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_CHKP CHKP Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_CHKP CHKP 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_CHKP CHKP 0.0159 0.0157 0.7785
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_CHKP CHKP 1.2728577142857123 1.730975120727041 -0.2042381032582543
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nasdaq_CHKP_7'

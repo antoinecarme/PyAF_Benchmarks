@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1029 H= 7 HEAD= ['2012-06-14T00:00:00.000000000' '2012-06-15T00:00:00.000000000'
+ '2012-06-18T00:00:00.000000000' '2012-06-19T00:00:00.000000000'
+ '2012-06-20T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  ALEX N= 1029 H= 7 HEAD= [26.23 25.57 25.57 25.57 25.57] TAIL= [37.740002 37.68     37.720001 37.84     37.580002]
+    ALEX       Date
+0  26.23 2012-06-14
+1  25.57 2012-06-15
+2  25.57 2012-06-18
+3  25.57 2012-06-19
+4  25.57 2012-06-20
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1029 entries, 0 to 1028
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   ALEX    1029 non-null   float64       
+ 1   Date    1029 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 24.1 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None          _ALEX     _ALEX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.300000e-02  1.280000e-02  1.140000e-02
+1   None          _ALEX  _ALEX_Lag1Trend_residue_bestCycle_byL2_residue...  ...  1.300000e-02  1.280000e-02  1.130000e-02
+2   None    CumSum_ALEX  CumSum_ALEX_Lag1Trend_residue_zeroCycle_residu...  ...  1.420000e-02  1.280000e-02  1.140000e-02
+3   None      Diff_ALEX  Diff_ALEX_Lag1Trend_residue_zeroCycle_residue_...  ...  1.300000e-02  1.280000e-02  1.140000e-02
+4   None   RelDiff_ALEX  RelDiff_ALEX_Lag1Trend_residue_zeroCycle_resid...  ...  1.300000e-02  1.280000e-02  1.140000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None   RelDiff_ALEX  RelDiff_ALEX_LinearTrend_residue_bestCycle_byL...  ...  3.869527e+06  3.986309e+06  3.763008e+06
+92  None   RelDiff_ALEX  RelDiff_ALEX_PolyTrend_residue_zeroCycle_resid...  ...  3.869537e+06  3.986310e+06  3.763008e+06
+93  None   RelDiff_ALEX  RelDiff_ALEX_PolyTrend_residue_bestCycle_byL2_...  ...  3.869533e+06  3.986310e+06  3.763008e+06
+94  None   RelDiff_ALEX  RelDiff_ALEX_ConstantTrend_residue_zeroCycle_r...  ...  3.869518e+06  3.986310e+06  3.763008e+06
+95  None   RelDiff_ALEX  RelDiff_ALEX_PolyTrend_residue_bestCycle_byL2_...  ...  3.869546e+06  3.986310e+06  3.763008e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None          _ALEX     _ALEX_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0130        0.0128    0.0114
+1  None          _ALEX  _ALEX_Lag1Trend_residue_bestCycle_byL2_residue...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0130        0.0128    0.0113
+2  None    CumSum_ALEX  CumSum_ALEX_Lag1Trend_residue_zeroCycle_residu...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0142        0.0128    0.0114
+3  None      Diff_ALEX  Diff_ALEX_Lag1Trend_residue_zeroCycle_residue_...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0130        0.0128    0.0114
+4  None   RelDiff_ALEX  RelDiff_ALEX_Lag1Trend_residue_zeroCycle_resid...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0130        0.0128    0.0114
+7 0    37.810001
+1    38.040001
+2    37.790001
+3    37.849998
+4    37.779999
+5    37.869999
+6    37.790001
+Name: ALEX, dtype: float64
+7 0    37.580002
+1    37.580002
+2    37.580002
+3    37.580002
+4    37.580002
+5    37.580002
+6    37.580002
+Name: ALEX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_ALEX ALEX [37.810001, 38.040001000000004, 37.790001000000004, 37.849998, 37.779999, 37.869999, 37.790001000000004]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_ALEX ALEX [37.580002, 37.580002, 37.580002, 37.580002, 37.580002, 37.580002, 37.580002]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_ALEX ALEX 1029 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_ALEX ALEX 11.546294927597046
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_ALEX ALEX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_ALEX ALEX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_ALEX ALEX 0.0071 0.0071 2.0549
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_ALEX ALEX 0.2671408571428578 0.28022763197035866 -9.962497076433317
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_ALEX_7'

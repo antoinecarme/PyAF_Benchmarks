@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aex
+TIME :  Date N= 1298 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  SBMO.AS N= 1298 H= 7 HEAD= [16.6456 16.5082 16.1501 15.3455 14.384 ] TAIL= [10.295 10.365 10.39  10.215 11.78 ]
+   SBMO.AS       Date
+0  16.6456 2011-07-28
+1  16.5082 2011-07-29
+2  16.1501 2011-08-01
+3  15.3455 2011-08-02
+4  14.3840 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1298 entries, 0 to 1297
+Data columns (total 2 columns):
+ #   Column   Non-Null Count  Dtype         
+---  ------   --------------  -----         
+ 0   SBMO.AS  1298 non-null   float64       
+ 1   Date     1298 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split   Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _SBMO.AS  _SBMO.AS_Lag1Trend_residue_Seasonal_DayOfWeek_...  ...  1.740000e-02  2.050000e-02  3.110000e-02
+1   None         _SBMO.AS  _SBMO.AS_Lag1Trend_residue_bestCycle_byL2_resi...  ...  1.740000e-02  2.050000e-02  3.190000e-02
+2   None         _SBMO.AS  _SBMO.AS_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.740000e-02  2.060000e-02  3.050000e-02
+3   None   CumSum_SBMO.AS  CumSum_SBMO.AS_Lag1Trend_residue_zeroCycle_res...  ...  1.830000e-02  2.060000e-02  3.050000e-02
+4   None     Diff_SBMO.AS  Diff_SBMO.AS_Lag1Trend_residue_zeroCycle_resid...  ...  1.740000e-02  2.060000e-02  3.050000e-02
+..   ...              ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_SBMO.AS  RelDiff_SBMO.AS_PolyTrend_residue_Seasonal_Day...  ...  7.465404e+07  7.988013e+07  8.589200e+07
+92  None  RelDiff_SBMO.AS  RelDiff_SBMO.AS_PolyTrend_residue_bestCycle_by...  ...  7.465404e+07  7.988013e+07  8.589200e+07
+93  None  RelDiff_SBMO.AS  RelDiff_SBMO.AS_Lag1Trend_residue_Seasonal_Day...  ...  7.470626e+07  7.988013e+07  8.589200e+07
+94  None  RelDiff_SBMO.AS  RelDiff_SBMO.AS_Lag1Trend_residue_bestCycle_by...  ...  7.470626e+07  7.988013e+07  8.589200e+07
+95  None  RelDiff_SBMO.AS  RelDiff_SBMO.AS_ConstantTrend_residue_zeroCycl...  ...  7.466182e+07  7.988013e+07  8.589200e+07
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _SBMO.AS  _SBMO.AS_Lag1Trend_residue_Seasonal_DayOfWeek_...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0174        0.0205    0.0311
+1  None        _SBMO.AS  _SBMO.AS_Lag1Trend_residue_bestCycle_byL2_resi...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0174        0.0205    0.0319
+2  None        _SBMO.AS  _SBMO.AS_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0174        0.0206    0.0305
+3  None  CumSum_SBMO.AS  CumSum_SBMO.AS_Lag1Trend_residue_zeroCycle_res...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0183        0.0206    0.0305
+4  None    Diff_SBMO.AS  Diff_SBMO.AS_Lag1Trend_residue_zeroCycle_resid...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0174        0.0206    0.0305
+7 0    11.830
+1    11.940
+2    12.265
+3    12.300
+4    11.920
+5    12.085
+6    12.350
+Name: SBMO.AS, dtype: float64
+7 0    11.78
+1    11.78
+2    11.78
+3    11.78
+4    11.78
+5    11.78
+6    11.78
+Name: SBMO.AS_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_SBMO.AS SBMO.AS [11.83, 11.94, 12.265, 12.3, 11.92, 12.085, 12.35]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_SBMO.AS SBMO.AS [11.78, 11.78, 11.78, 11.78, 11.78, 11.78, 11.78]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_SBMO.AS SBMO.AS 1298 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_SBMO.AS SBMO.AS 10.303738117218018
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_SBMO.AS SBMO.AS Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_SBMO.AS SBMO.AS 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_SBMO.AS SBMO.AS 0.0261 0.0266 1.4933
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_SBMO.AS SBMO.AS 0.3185714285714294 0.3724916106437843 -2.7236081810627883
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aex_SBMO.AS_7'

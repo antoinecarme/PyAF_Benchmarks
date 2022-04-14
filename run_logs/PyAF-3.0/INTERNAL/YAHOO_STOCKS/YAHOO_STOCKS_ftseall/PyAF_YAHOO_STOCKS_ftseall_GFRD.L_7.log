@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1295 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  GFRD.L N= 1295 H= 7 HEAD= [494.5  493.5  496.75 446.5  432.5 ] TAIL= [957.5 957.5 940.  976.  966.5]
+   GFRD.L       Date
+0  494.50 2011-07-28
+1  493.50 2011-07-29
+2  496.75 2011-08-01
+3  446.50 2011-08-02
+4  432.50 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1295 entries, 0 to 1294
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   GFRD.L  1295 non-null   float64       
+ 1   Date    1295 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _GFRD.L   _GFRD.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.130000e-02  1.560000e-02  2.910000e-02
+1   None   CumSum_GFRD.L  CumSum_GFRD.L_Lag1Trend_residue_zeroCycle_resi...  ...  1.230000e-02  1.560000e-02  2.910000e-02
+2   None     Diff_GFRD.L  Diff_GFRD.L_Lag1Trend_residue_zeroCycle_residu...  ...  1.130000e-02  1.560000e-02  2.910000e-02
+3   None  RelDiff_GFRD.L  RelDiff_GFRD.L_Lag1Trend_residue_zeroCycle_res...  ...  1.130000e-02  1.560000e-02  2.910000e-02
+4   None         _GFRD.L  _GFRD.L_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  1.140000e-02  1.570000e-02  2.990000e-02
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_GFRD.L  RelDiff_GFRD.L_PolyTrend_residue_Seasonal_DayO...  ...  1.337252e+07  7.750377e+06  1.169294e+07
+92  None  RelDiff_GFRD.L  RelDiff_GFRD.L_PolyTrend_residue_zeroCycle_res...  ...  1.337252e+07  7.750377e+06  1.169294e+07
+93  None  RelDiff_GFRD.L  RelDiff_GFRD.L_PolyTrend_residue_Seasonal_DayO...  ...  1.337252e+07  7.750377e+06  1.169294e+07
+94  None  RelDiff_GFRD.L  RelDiff_GFRD.L_PolyTrend_residue_bestCycle_byL...  ...  1.337252e+07  7.750377e+06  1.169294e+07
+95  None  RelDiff_GFRD.L  RelDiff_GFRD.L_PolyTrend_residue_zeroCycle_res...  ...  1.337252e+07  7.750377e+06  1.169294e+07
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _GFRD.L   _GFRD.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0113        0.0156    0.0291
+1  None   CumSum_GFRD.L  CumSum_GFRD.L_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0123        0.0156    0.0291
+2  None     Diff_GFRD.L  Diff_GFRD.L_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0113        0.0156    0.0291
+3  None  RelDiff_GFRD.L  RelDiff_GFRD.L_Lag1Trend_residue_zeroCycle_res...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0113        0.0156    0.0291
+4  None         _GFRD.L  _GFRD.L_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0114        0.0157    0.0299
+7 0    984.0
+1    971.0
+2    943.5
+3    976.0
+4    953.5
+5    994.0
+6    993.0
+Name: GFRD.L, dtype: float64
+7 0    966.5
+1    966.5
+2    966.5
+3    966.5
+4    966.5
+5    966.5
+6    966.5
+Name: GFRD.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_GFRD.L GFRD.L [984.0, 971.0, 943.5, 976.0, 953.5, 994.0, 993.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_GFRD.L GFRD.L [966.5, 966.5, 966.5, 966.5, 966.5, 966.5, 966.5]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_GFRD.L GFRD.L 1295 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_GFRD.L GFRD.L 11.54910397529602
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_GFRD.L GFRD.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_GFRD.L GFRD.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_GFRD.L GFRD.L 0.0178 0.0179 0.7602
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_GFRD.L GFRD.L 17.357142857142858 19.173083811873948 -0.15744578313247803
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_GFRD.L_7'

@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_mibtel
+TIME :  Date N= 489 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2013-06-06T00:00:00.000000000' '2013-06-07T00:00:00.000000000'
+ '2013-06-10T00:00:00.000000000' '2013-06-11T00:00:00.000000000'
+ '2013-06-12T00:00:00.000000000']
+SIGNAL :  EXR.MI N= 489 H= 7 HEAD= [17.46 17.16 17.45 16.22 16.19] TAIL= [23.92 24.3  24.37 24.19 23.71]
+   EXR.MI       Date
+0   17.46 2011-07-28
+1   17.16 2011-07-29
+2   17.45 2011-08-01
+3   16.22 2011-08-02
+4   16.19 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 489 entries, 0 to 488
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   EXR.MI  489 non-null    float64       
+ 1   Date    489 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 11.5 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _EXR.MI   _EXR.MI_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.870000e-02  1.340000e-02  1.250000e-02
+1   None         _EXR.MI  _EXR.MI_Lag1Trend_residue_bestCycle_byL2_resid...  ...  1.870000e-02  1.340000e-02  1.230000e-02
+2   None   CumSum_EXR.MI  CumSum_EXR.MI_Lag1Trend_residue_zeroCycle_resi...  ...  2.130000e-02  1.340000e-02  1.250000e-02
+3   None     Diff_EXR.MI  Diff_EXR.MI_Lag1Trend_residue_zeroCycle_residu...  ...  1.870000e-02  1.340000e-02  1.250000e-02
+4   None  RelDiff_EXR.MI  RelDiff_EXR.MI_Lag1Trend_residue_zeroCycle_res...  ...  1.870000e-02  1.340000e-02  1.250000e-02
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_EXR.MI  RelDiff_EXR.MI_PolyTrend_residue_bestCycle_byL...  ...  4.604207e+07  3.044200e+07  2.729843e+07
+92  None  RelDiff_EXR.MI  RelDiff_EXR.MI_PolyTrend_residue_zeroCycle_res...  ...  4.604206e+07  3.044200e+07  2.729843e+07
+93  None  RelDiff_EXR.MI  RelDiff_EXR.MI_PolyTrend_residue_Seasonal_DayO...  ...  4.604206e+07  3.044200e+07  2.729843e+07
+94  None  RelDiff_EXR.MI  RelDiff_EXR.MI_ConstantTrend_residue_bestCycle...  ...  4.568244e+07  3.044200e+07  2.729843e+07
+95  None  RelDiff_EXR.MI  RelDiff_EXR.MI_PolyTrend_residue_Seasonal_DayO...  ...  4.604207e+07  3.044200e+07  2.729843e+07
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _EXR.MI   _EXR.MI_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0187        0.0134    0.0125
+1  None         _EXR.MI  _EXR.MI_Lag1Trend_residue_bestCycle_byL2_resid...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0187        0.0134    0.0123
+2  None   CumSum_EXR.MI  CumSum_EXR.MI_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0213        0.0134    0.0125
+3  None     Diff_EXR.MI  Diff_EXR.MI_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0187        0.0134    0.0125
+4  None  RelDiff_EXR.MI  RelDiff_EXR.MI_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0187        0.0134    0.0125
+7 0    23.86
+1    23.80
+2    24.51
+3    24.52
+4    24.25
+5    23.98
+6    24.30
+Name: EXR.MI, dtype: float64
+7 0    23.71
+1    23.71
+2    23.71
+3    23.71
+4    23.71
+5    23.71
+6    23.71
+Name: EXR.MI_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_EXR.MI EXR.MI [23.86, 23.8, 24.51, 24.52, 24.25, 23.98, 24.3]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_EXR.MI EXR.MI [23.71, 23.71, 23.71, 23.71, 23.71, 23.71, 23.71]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_EXR.MI EXR.MI 489 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_EXR.MI EXR.MI 10.76524543762207
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_EXR.MI EXR.MI Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_EXR.MI EXR.MI 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_EXR.MI EXR.MI 0.0191 0.0193 1.6986
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_EXR.MI EXR.MI 0.4642857142857138 0.5397486187370664 -2.8450412102861704
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_mibtel_EXR.MI_7'

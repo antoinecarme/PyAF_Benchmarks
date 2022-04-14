@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1295 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  HTG.L N= 1295 H= 7 HEAD= [782.5 781.  781.  785.  755. ] TAIL= [458.   464.5  452.25 468.5  456.5 ]
+   HTG.L       Date
+0  782.5 2011-07-28
+1  781.0 2011-07-29
+2  781.0 2011-08-01
+3  785.0 2011-08-02
+4  755.0 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1295 entries, 0 to 1294
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   HTG.L   1295 non-null   float64       
+ 1   Date    1295 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _HTG.L    _HTG.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0160  3.060000e-02  2.060000e-02
+1   None   CumSum_HTG.L  CumSum_HTG.L_Lag1Trend_residue_zeroCycle_resid...  ...  0.0170  3.060000e-02  2.060000e-02
+2   None     Diff_HTG.L  Diff_HTG.L_Lag1Trend_residue_zeroCycle_residue...  ...  0.0160  3.060000e-02  2.060000e-02
+3   None  RelDiff_HTG.L  RelDiff_HTG.L_Lag1Trend_residue_zeroCycle_resi...  ...  0.0160  3.060000e-02  2.060000e-02
+4   None         _HTG.L  _HTG.L_Lag1Trend_residue_bestCycle_byL2_residu...  ...  0.0160  3.080000e-02  2.040000e-02
+..   ...            ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_HTG.L  RelDiff_HTG.L_ConstantTrend_residue_Seasonal_D...  ...  0.1507  7.322912e+07  1.183652e+08
+92  None  RelDiff_HTG.L  RelDiff_HTG.L_ConstantTrend_residue_bestCycle_...  ...  0.1425  7.322913e+07  1.183652e+08
+93  None  RelDiff_HTG.L  RelDiff_HTG.L_Lag1Trend_residue_bestCycle_byL2...  ...  0.1434  7.323049e+07  1.183652e+08
+94  None  RelDiff_HTG.L  RelDiff_HTG.L_Lag1Trend_residue_zeroCycle_resi...  ...  0.1446  7.323060e+07  1.183652e+08
+95  None  RelDiff_HTG.L  RelDiff_HTG.L_Lag1Trend_residue_Seasonal_DayOf...  ...  0.1478  7.323081e+07  1.183652e+08
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _HTG.L    _HTG.L_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32    0.016        0.0306    0.0206
+1  None   CumSum_HTG.L  CumSum_HTG.L_Lag1Trend_residue_zeroCycle_resid...         Integration_Lag1Trend_NoCycle_NoAR          64    0.017        0.0306    0.0206
+2  None     Diff_HTG.L  Diff_HTG.L_Lag1Trend_residue_zeroCycle_residue...          Difference_Lag1Trend_NoCycle_NoAR          64    0.016        0.0306    0.0206
+3  None  RelDiff_HTG.L  RelDiff_HTG.L_Lag1Trend_residue_zeroCycle_resi...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64    0.016        0.0306    0.0206
+4  None         _HTG.L  _HTG.L_Lag1Trend_residue_bestCycle_byL2_residu...              NoTransf_Lag1Trend_Cycle_NoAR          40    0.016        0.0308    0.0204
+7 0    448.75
+1    471.25
+2    449.50
+3    435.00
+4    428.50
+5    450.00
+6    409.50
+Name: HTG.L, dtype: float64
+7 0    456.5
+1    456.5
+2    456.5
+3    456.5
+4    456.5
+5    456.5
+6    456.5
+Name: HTG.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_HTG.L HTG.L [448.75, 471.25, 449.5, 435.0, 428.5, 450.0, 409.5]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_HTG.L HTG.L [456.5, 456.5, 456.5, 456.5, 456.5, 456.5, 456.5]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_HTG.L HTG.L 1295 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_HTG.L HTG.L 11.264752626419067
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_HTG.L HTG.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_HTG.L HTG.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_HTG.L HTG.L 0.044 0.0427 0.8925
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_HTG.L HTG.L 18.928571428571427 23.373137817344325 -0.6565026028975371
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_HTG.L_7'

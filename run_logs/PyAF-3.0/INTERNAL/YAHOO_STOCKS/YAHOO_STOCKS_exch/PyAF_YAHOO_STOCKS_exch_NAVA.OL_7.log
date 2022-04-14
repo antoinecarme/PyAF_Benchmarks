@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_exch
+TIME :  Date N= 1295 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  NAVA.OL N= 1295 H= 7 HEAD= [10.5  10.55 10.6  11.3  11.  ] TAIL= [10.1 10.4 10.4 10.5 10.5]
+   NAVA.OL       Date
+0    10.50 2011-07-28
+1    10.55 2011-07-29
+2    10.60 2011-08-01
+3    11.30 2011-08-02
+4    11.00 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1295 entries, 0 to 1294
+Data columns (total 2 columns):
+ #   Column   Non-Null Count  Dtype         
+---  ------   --------------  -----         
+ 0   NAVA.OL  1295 non-null   float64       
+ 1   Date     1295 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split   Transformation                                              Model  ...   FitMAPE  ForecastMAPE      TestMAPE
+0   None         _NAVA.OL  _NAVA.OL_Lag1Trend_residue_zeroCycle_residue_NoAR  ...    0.0251  2.220000e-02  2.090000e-02
+1   None   CumSum_NAVA.OL  CumSum_NAVA.OL_Lag1Trend_residue_zeroCycle_res...  ...    0.0261  2.220000e-02  2.090000e-02
+2   None     Diff_NAVA.OL  Diff_NAVA.OL_Lag1Trend_residue_zeroCycle_resid...  ...    0.0251  2.220000e-02  2.090000e-02
+3   None  RelDiff_NAVA.OL  RelDiff_NAVA.OL_Lag1Trend_residue_zeroCycle_re...  ...    0.0251  2.220000e-02  2.090000e-02
+4   None         _NAVA.OL  _NAVA.OL_Lag1Trend_residue_Seasonal_DayOfWeek_...  ...    0.0254  2.250000e-02  2.160000e-02
+..   ...              ...                                                ...  ...       ...           ...           ...
+91  None  RelDiff_NAVA.OL  RelDiff_NAVA.OL_ConstantTrend_residue_Seasonal...  ...  126.0544  1.232985e+07  2.064251e+07
+92  None  RelDiff_NAVA.OL  RelDiff_NAVA.OL_ConstantTrend_residue_zeroCycl...  ...  126.7538  1.232986e+07  2.064251e+07
+93  None  RelDiff_NAVA.OL  RelDiff_NAVA.OL_Lag1Trend_residue_bestCycle_by...  ...  211.0704  1.233358e+07  2.064251e+07
+94  None  RelDiff_NAVA.OL  RelDiff_NAVA.OL_Lag1Trend_residue_Seasonal_Day...  ...  269.6065  1.233529e+07  2.064251e+07
+95  None  RelDiff_NAVA.OL  RelDiff_NAVA.OL_Lag1Trend_residue_zeroCycle_re...  ...  271.9166  1.233535e+07  2.064251e+07
+
+[96 rows x 8 columns]
+  Split   Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _NAVA.OL  _NAVA.OL_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0251        0.0222    0.0209
+1  None   CumSum_NAVA.OL  CumSum_NAVA.OL_Lag1Trend_residue_zeroCycle_res...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0261        0.0222    0.0209
+2  None     Diff_NAVA.OL  Diff_NAVA.OL_Lag1Trend_residue_zeroCycle_resid...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0251        0.0222    0.0209
+3  None  RelDiff_NAVA.OL  RelDiff_NAVA.OL_Lag1Trend_residue_zeroCycle_re...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0251        0.0222    0.0209
+4  None         _NAVA.OL  _NAVA.OL_Lag1Trend_residue_Seasonal_DayOfWeek_...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0254        0.0225    0.0216
+7 0    10.40
+1    10.40
+2    10.50
+3    10.50
+4    10.50
+5    10.45
+6    10.40
+Name: NAVA.OL, dtype: float64
+7 0    10.5
+1    10.5
+2    10.5
+3    10.5
+4    10.5
+5    10.5
+6    10.5
+Name: NAVA.OL_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_NAVA.OL NAVA.OL [10.4, 10.4, 10.5, 10.5, 10.5, 10.45, 10.4]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_NAVA.OL NAVA.OL [10.5, 10.5, 10.5, 10.5, 10.5, 10.5, 10.5]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_NAVA.OL NAVA.OL 1295 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_NAVA.OL NAVA.OL 11.048227310180664
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_NAVA.OL NAVA.OL Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_NAVA.OL NAVA.OL 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_NAVA.OL NAVA.OL 0.0048 0.0048 1.5
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_NAVA.OL NAVA.OL 0.04999999999999995 0.06813851438692455 -1.1666666522222284
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_exch_NAVA.OL_7'

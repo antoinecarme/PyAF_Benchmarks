@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1292 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  TRG.L N= 1292 H= 7 HEAD= [4.03375 4.7236  3.92    3.93    3.76625] TAIL= [7.58866 7.60625 7.60459 7.61212 7.60819]
+     TRG.L       Date
+0  4.03375 2011-07-28
+1  4.72360 2011-07-29
+2  3.92000 2011-08-01
+3  3.93000 2011-08-02
+4  3.76625 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1292 entries, 0 to 1291
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   TRG.L   1292 non-null   float64       
+ 1   Date    1292 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _TRG.L  _TRG.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  2.570000e-02  1.400000e-02  5.200000e-03
+1   None         _TRG.L    _TRG.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.550000e-02  1.410000e-02  5.400000e-03
+2   None   CumSum_TRG.L  CumSum_TRG.L_Lag1Trend_residue_zeroCycle_resid...  ...  2.630000e-02  1.410000e-02  5.400000e-03
+3   None     Diff_TRG.L  Diff_TRG.L_Lag1Trend_residue_zeroCycle_residue...  ...  2.550000e-02  1.410000e-02  5.400000e-03
+4   None  RelDiff_TRG.L  RelDiff_TRG.L_Lag1Trend_residue_zeroCycle_resi...  ...  2.550000e-02  1.410000e-02  5.400000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_TRG.L  RelDiff_TRG.L_PolyTrend_residue_Seasonal_DayOf...  ...  3.253678e+07  2.019224e+07  1.816793e+07
+92  None  RelDiff_TRG.L  RelDiff_TRG.L_PolyTrend_residue_bestCycle_byL2...  ...  3.253678e+07  2.019224e+07  1.816793e+07
+93  None  RelDiff_TRG.L  RelDiff_TRG.L_PolyTrend_residue_zeroCycle_resi...  ...  3.253668e+07  2.019224e+07  1.816793e+07
+94  None  RelDiff_TRG.L  RelDiff_TRG.L_ConstantTrend_residue_zeroCycle_...  ...  3.253367e+07  2.019224e+07  1.816793e+07
+95  None  RelDiff_TRG.L  RelDiff_TRG.L_PolyTrend_residue_zeroCycle_resi...  ...  3.253860e+07  2.019224e+07  1.816793e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _TRG.L  _TRG.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0257        0.0140    0.0052
+1  None         _TRG.L    _TRG.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0255        0.0141    0.0054
+2  None   CumSum_TRG.L  CumSum_TRG.L_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0263        0.0141    0.0054
+3  None     Diff_TRG.L  Diff_TRG.L_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0255        0.0141    0.0054
+4  None  RelDiff_TRG.L  RelDiff_TRG.L_Lag1Trend_residue_zeroCycle_resi...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0255        0.0141    0.0054
+7 0    7.67829
+1    7.76131
+2    7.70429
+3    6.59000
+4    6.58500
+5    6.61000
+6    6.69000
+Name: TRG.L, dtype: float64
+7 0    7.60819
+1    7.60819
+2    7.60819
+3    7.60819
+4    7.60819
+5    7.60819
+6    7.60819
+Name: TRG.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_TRG.L TRG.L [7.67829, 7.761310000000001, 7.704289999999999, 6.59, 6.585, 6.61, 6.69]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_TRG.L TRG.L [7.60819, 7.60819, 7.60819, 7.60819, 7.60819, 7.60819, 7.60819]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_TRG.L TRG.L 1292 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_TRG.L TRG.L 11.12518310546875
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_TRG.L TRG.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_TRG.L TRG.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_TRG.L TRG.L 0.0914 0.0854 2.6871
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_TRG.L TRG.L 0.6110114285714284 0.7522043566174588 -0.9138324679316787
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_TRG.L_7'

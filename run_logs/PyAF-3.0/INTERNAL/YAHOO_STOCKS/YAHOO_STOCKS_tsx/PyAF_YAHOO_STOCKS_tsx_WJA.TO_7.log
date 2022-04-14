@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_tsx
+TIME :  Date N= 1248 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  WJA.TO N= 1248 H= 7 HEAD= [14.28 14.35 14.17 14.23 13.85] TAIL= [22.59     22.860001 22.870001 22.549999 22.68    ]
+   WJA.TO       Date
+0   14.28 2011-07-28
+1   14.35 2011-07-29
+2   14.17 2011-08-02
+3   14.23 2011-08-03
+4   13.85 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1248 entries, 0 to 1247
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   WJA.TO  1248 non-null   float64       
+ 1   Date    1248 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.2 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _WJA.TO  _WJA.TO_Lag1Trend_residue_bestCycle_byL2_resid...  ...  1.230000e-02  1.510000e-02  1.350000e-02
+1   None         _WJA.TO   _WJA.TO_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.240000e-02  1.520000e-02  1.490000e-02
+2   None         _WJA.TO  _WJA.TO_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  1.240000e-02  1.520000e-02  1.460000e-02
+3   None   CumSum_WJA.TO  CumSum_WJA.TO_Lag1Trend_residue_zeroCycle_resi...  ...  1.340000e-02  1.520000e-02  1.490000e-02
+4   None     Diff_WJA.TO  Diff_WJA.TO_Lag1Trend_residue_zeroCycle_residu...  ...  1.240000e-02  1.520000e-02  1.490000e-02
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_WJA.TO  RelDiff_WJA.TO_Lag1Trend_residue_Seasonal_DayO...  ...  1.884049e+07  1.811462e+07  1.712766e+07
+92  None  RelDiff_WJA.TO  RelDiff_WJA.TO_PolyTrend_residue_Seasonal_DayO...  ...  1.882496e+07  1.811462e+07  1.712766e+07
+93  None  RelDiff_WJA.TO  RelDiff_WJA.TO_PolyTrend_residue_bestCycle_byL...  ...  1.882490e+07  1.811462e+07  1.712766e+07
+94  None  RelDiff_WJA.TO  RelDiff_WJA.TO_PolyTrend_residue_zeroCycle_res...  ...  1.882489e+07  1.811462e+07  1.712766e+07
+95  None  RelDiff_WJA.TO  RelDiff_WJA.TO_PolyTrend_residue_zeroCycle_res...  ...  1.882501e+07  1.811462e+07  1.712766e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _WJA.TO  _WJA.TO_Lag1Trend_residue_bestCycle_byL2_resid...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0123        0.0151    0.0135
+1  None        _WJA.TO   _WJA.TO_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0124        0.0152    0.0149
+2  None        _WJA.TO  _WJA.TO_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0124        0.0152    0.0146
+3  None  CumSum_WJA.TO  CumSum_WJA.TO_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0134        0.0152    0.0149
+4  None    Diff_WJA.TO  Diff_WJA.TO_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0124        0.0152    0.0149
+7 0    22.510000
+1    22.790001
+2    22.639999
+3    22.860001
+4    22.930000
+5    22.809999
+6    22.900000
+Name: WJA.TO, dtype: float64
+7 0    22.68
+1    22.68
+2    22.68
+3    22.68
+4    22.68
+5    22.68
+6    22.68
+Name: WJA.TO_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_WJA.TO WJA.TO [22.51, 22.790001, 22.639999, 22.860001, 22.93, 22.809998999999998, 22.9]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_WJA.TO WJA.TO [22.68, 22.68, 22.68, 22.68, 22.68, 22.68, 22.68]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_WJA.TO WJA.TO 1248 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_WJA.TO WJA.TO 11.000543117523193
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_WJA.TO WJA.TO Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_WJA.TO WJA.TO 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_WJA.TO WJA.TO 0.0069 0.0069 1.0138
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_WJA.TO WJA.TO 0.15714314285714234 0.17021012224558493 -0.4830742230886973
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_tsx_WJA.TO_7'

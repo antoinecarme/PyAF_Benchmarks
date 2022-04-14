@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aord
+TIME :  Date N= 1296 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  WEC.AX N= 1296 H= 7 HEAD= [2.14 2.14 2.26 2.26 2.21] TAIL= [0.065 0.061 0.061 0.07  0.07 ]
+   WEC.AX       Date
+0    2.14 2011-07-28
+1    2.14 2011-07-29
+2    2.26 2011-08-01
+3    2.26 2011-08-02
+4    2.21 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1296 entries, 0 to 1295
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   WEC.AX  1296 non-null   float64       
+ 1   Date    1296 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _WEC.AX   _WEC.AX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0330  3.520000e-02  3.890000e-02
+1   None   CumSum_WEC.AX  CumSum_WEC.AX_Lag1Trend_residue_zeroCycle_resi...  ...  0.0339  3.520000e-02  3.890000e-02
+2   None     Diff_WEC.AX  Diff_WEC.AX_Lag1Trend_residue_zeroCycle_residu...  ...  0.0330  3.520000e-02  3.890000e-02
+3   None  RelDiff_WEC.AX  RelDiff_WEC.AX_Lag1Trend_residue_zeroCycle_res...  ...  0.0330  3.520000e-02  3.890000e-02
+4   None     Diff_WEC.AX  Diff_WEC.AX_Lag1Trend_residue_bestCycle_byL2_r...  ...  0.0348  4.120000e-02  5.290000e-02
+..   ...             ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_WEC.AX  RelDiff_WEC.AX_PolyTrend_residue_zeroCycle_res...  ...  2.0101  7.271698e+08  3.233925e+09
+92  None  RelDiff_WEC.AX  RelDiff_WEC.AX_PolyTrend_residue_Seasonal_DayO...  ...  2.1495  7.271711e+08  3.233925e+09
+93  None  RelDiff_WEC.AX  RelDiff_WEC.AX_LinearTrend_residue_bestCycle_b...  ...  1.8655  7.272136e+08  3.233925e+09
+94  None  RelDiff_WEC.AX  RelDiff_WEC.AX_LinearTrend_residue_zeroCycle_r...  ...  1.8723  7.272150e+08  3.233925e+09
+95  None  RelDiff_WEC.AX  RelDiff_WEC.AX_LinearTrend_residue_Seasonal_Da...  ...  2.0148  7.272161e+08  3.233925e+09
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _WEC.AX   _WEC.AX_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0330        0.0352    0.0389
+1  None   CumSum_WEC.AX  CumSum_WEC.AX_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0339        0.0352    0.0389
+2  None     Diff_WEC.AX  Diff_WEC.AX_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0330        0.0352    0.0389
+3  None  RelDiff_WEC.AX  RelDiff_WEC.AX_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0330        0.0352    0.0389
+4  None     Diff_WEC.AX  Diff_WEC.AX_Lag1Trend_residue_bestCycle_byL2_r...            Difference_Lag1Trend_Cycle_NoAR          72   0.0348        0.0412    0.0529
+7 0    0.070
+1    0.065
+2    0.062
+3    0.060
+4    0.060
+5    0.058
+6    0.058
+Name: WEC.AX, dtype: float64
+7 0    0.07
+1    0.07
+2    0.07
+3    0.07
+4    0.07
+5    0.07
+6    0.07
+Name: WEC.AX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_WEC.AX WEC.AX [0.07, 0.065, 0.062, 0.06, 0.06, 0.057999999999999996, 0.057999999999999996]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_WEC.AX WEC.AX [0.07, 0.07, 0.07, 0.07, 0.07, 0.07, 0.07]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_WEC.AX WEC.AX 1296 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_WEC.AX WEC.AX 12.814172744750977
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_WEC.AX WEC.AX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_WEC.AX WEC.AX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_WEC.AX WEC.AX 0.1362 0.1254 4.0714
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_WEC.AX WEC.AX 0.00814285714285715 0.009079018197391807 -4.112653697648622
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aord_WEC.AX_7'

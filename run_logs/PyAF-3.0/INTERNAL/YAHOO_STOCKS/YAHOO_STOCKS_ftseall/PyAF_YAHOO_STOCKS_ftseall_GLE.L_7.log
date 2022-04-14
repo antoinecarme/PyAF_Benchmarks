@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1295 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  GLE.L N= 1295 H= 7 HEAD= [105.5   103.    106.5   106.5   106.625] TAIL= [511.  512.5 512.  500.  505. ]
+     GLE.L       Date
+0  105.500 2011-07-28
+1  103.000 2011-07-29
+2  106.500 2011-08-01
+3  106.500 2011-08-02
+4  106.625 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1295 entries, 0 to 1294
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   GLE.L   1295 non-null   float64       
+ 1   Date    1295 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _GLE.L    _GLE.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.270000e-02  1.550000e-02  1.800000e-02
+1   None   CumSum_GLE.L  CumSum_GLE.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.370000e-02  1.550000e-02  1.800000e-02
+2   None     Diff_GLE.L  Diff_GLE.L_Lag1Trend_residue_zeroCycle_residue...  ...  1.270000e-02  1.550000e-02  1.800000e-02
+3   None  RelDiff_GLE.L  RelDiff_GLE.L_Lag1Trend_residue_zeroCycle_resi...  ...  1.270000e-02  1.550000e-02  1.800000e-02
+4   None         _GLE.L  _GLE.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  1.350000e-02  1.560000e-02  1.840000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_GLE.L  RelDiff_GLE.L_Lag1Trend_residue_Seasonal_DayOf...  ...  3.254633e+06  1.266394e+06  1.277287e+06
+92  None  RelDiff_GLE.L  RelDiff_GLE.L_LinearTrend_residue_Seasonal_Day...  ...  3.272255e+06  1.266394e+06  1.277287e+06
+93  None  RelDiff_GLE.L  RelDiff_GLE.L_Lag1Trend_residue_bestCycle_byL2...  ...  3.276805e+06  1.266394e+06  1.277287e+06
+94  None  RelDiff_GLE.L  RelDiff_GLE.L_PolyTrend_residue_bestCycle_byL2...  ...  3.272274e+06  1.266394e+06  1.277288e+06
+95  None  RelDiff_GLE.L  RelDiff_GLE.L_PolyTrend_residue_Seasonal_DayOf...  ...  3.272602e+06  1.266394e+06  1.277288e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _GLE.L    _GLE.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0127        0.0155    0.0180
+1  None   CumSum_GLE.L  CumSum_GLE.L_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0137        0.0155    0.0180
+2  None     Diff_GLE.L  Diff_GLE.L_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0127        0.0155    0.0180
+3  None  RelDiff_GLE.L  RelDiff_GLE.L_Lag1Trend_residue_zeroCycle_resi...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0127        0.0155    0.0180
+4  None         _GLE.L  _GLE.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0135        0.0156    0.0184
+7 0    505.0
+1    505.0
+2    485.0
+3    505.0
+4    490.0
+5    495.0
+6    515.0
+Name: GLE.L, dtype: float64
+7 0    505.0
+1    505.0
+2    505.0
+3    505.0
+4    505.0
+5    505.0
+6    505.0
+Name: GLE.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_GLE.L GLE.L [505.0, 505.0, 485.0, 505.0, 490.0, 495.0, 515.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_GLE.L GLE.L [505.0, 505.0, 505.0, 505.0, 505.0, 505.0, 505.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_GLE.L GLE.L 1295 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_GLE.L GLE.L 11.254899263381958
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_GLE.L GLE.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_GLE.L GLE.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_GLE.L GLE.L 0.0159 0.0157 0.5893
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_GLE.L GLE.L 7.857142857142857 10.856202966836188 -0.269230769230574
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_GLE.L_7'

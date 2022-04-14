@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1292 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  BRCI.L N= 1292 H= 7 HEAD= [1.495  1.4653 1.5075 1.475  1.43  ] TAIL= [0.767714 0.762295 0.76011  0.754819 0.752831]
+   BRCI.L       Date
+0  1.4950 2011-07-28
+1  1.4653 2011-07-29
+2  1.5075 2011-08-01
+3  1.4750 2011-08-02
+4  1.4300 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1292 entries, 0 to 1291
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   BRCI.L  1292 non-null   float64       
+ 1   Date    1292 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split  Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _BRCI.L   _BRCI.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0120  1.500000e-02  6.200000e-03
+1   None         _BRCI.L  _BRCI.L_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  0.0120  1.500000e-02  5.000000e-03
+2   None         _BRCI.L  _BRCI.L_Lag1Trend_residue_bestCycle_byL2_resid...  ...  0.0120  1.500000e-02  6.300000e-03
+3   None   CumSum_BRCI.L  CumSum_BRCI.L_Lag1Trend_residue_zeroCycle_resi...  ...  0.0129  1.500000e-02  6.200000e-03
+4   None     Diff_BRCI.L  Diff_BRCI.L_Lag1Trend_residue_zeroCycle_residu...  ...  0.0120  1.500000e-02  6.200000e-03
+..   ...             ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_BRCI.L  RelDiff_BRCI.L_LinearTrend_residue_zeroCycle_r...  ...  0.1465  8.047794e+07  1.369183e+08
+92  None  RelDiff_BRCI.L  RelDiff_BRCI.L_LinearTrend_residue_Seasonal_Da...  ...  0.1449  8.047794e+07  1.369183e+08
+93  None  RelDiff_BRCI.L  RelDiff_BRCI.L_ConstantTrend_residue_bestCycle...  ...  0.0758  8.047802e+07  1.369183e+08
+94  None  RelDiff_BRCI.L  RelDiff_BRCI.L_ConstantTrend_residue_zeroCycle...  ...  0.0762  8.047802e+07  1.369183e+08
+95  None  RelDiff_BRCI.L  RelDiff_BRCI.L_ConstantTrend_residue_Seasonal_...  ...  0.0761  8.047803e+07  1.369183e+08
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _BRCI.L   _BRCI.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0120         0.015    0.0062
+1  None        _BRCI.L  _BRCI.L_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0120         0.015    0.0050
+2  None        _BRCI.L  _BRCI.L_Lag1Trend_residue_bestCycle_byL2_resid...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0120         0.015    0.0063
+3  None  CumSum_BRCI.L  CumSum_BRCI.L_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0129         0.015    0.0062
+4  None    Diff_BRCI.L  Diff_BRCI.L_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0120         0.015    0.0062
+7 0    0.749407
+1    0.747930
+2    0.738096
+3    0.685000
+4    0.687500
+5    0.697500
+6    0.690000
+Name: BRCI.L, dtype: float64
+7 0    0.752831
+1    0.752831
+2    0.752831
+3    0.752831
+4    0.752831
+5    0.752831
+6    0.752831
+Name: BRCI.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_BRCI.L BRCI.L [0.7494069999999999, 0.74793, 0.738096, 0.685, 0.6875, 0.6975, 0.69]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_BRCI.L BRCI.L [0.752831, 0.752831, 0.752831, 0.752831, 0.752831, 0.752831, 0.752831]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_BRCI.L BRCI.L 1292 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_BRCI.L BRCI.L 11.257355451583862
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_BRCI.L BRCI.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_BRCI.L BRCI.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_BRCI.L BRCI.L 0.0565 0.0542 2.7863
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_BRCI.L BRCI.L 0.03919771428571433 0.04800491350744364 -2.0005715167388223
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_BRCI.L_7'

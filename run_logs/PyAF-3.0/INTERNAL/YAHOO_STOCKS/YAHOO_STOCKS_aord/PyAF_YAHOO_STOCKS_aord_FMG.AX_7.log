@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aord
+TIME :  Date N= 1299 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  FMG.AX N= 1299 H= 7 HEAD= [6.46 6.31 6.51 6.47 6.21] TAIL= [4.4  4.22 4.23 4.12 4.06]
+   FMG.AX       Date
+0    6.46 2011-07-28
+1    6.31 2011-07-29
+2    6.51 2011-08-01
+3    6.47 2011-08-02
+4    6.21 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1299 entries, 0 to 1298
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   FMG.AX  1299 non-null   float64       
+ 1   Date    1299 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _FMG.AX   _FMG.AX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0238  3.170000e-02  3.060000e-02
+1   None         _FMG.AX  _FMG.AX_Lag1Trend_residue_bestCycle_byL2_resid...  ...  0.0238  3.170000e-02  3.100000e-02
+2   None   CumSum_FMG.AX  CumSum_FMG.AX_Lag1Trend_residue_zeroCycle_resi...  ...  0.0248  3.170000e-02  3.060000e-02
+3   None     Diff_FMG.AX  Diff_FMG.AX_Lag1Trend_residue_zeroCycle_residu...  ...  0.0238  3.170000e-02  3.060000e-02
+4   None  RelDiff_FMG.AX  RelDiff_FMG.AX_Lag1Trend_residue_zeroCycle_res...  ...  0.0238  3.170000e-02  3.060000e-02
+..   ...             ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_FMG.AX  RelDiff_FMG.AX_ConstantTrend_residue_Seasonal_...  ...  0.4403  8.808989e+07  1.200146e+08
+92  None  RelDiff_FMG.AX  RelDiff_FMG.AX_ConstantTrend_residue_zeroCycle...  ...  0.4426  8.808989e+07  1.200146e+08
+93  None  RelDiff_FMG.AX  RelDiff_FMG.AX_Lag1Trend_residue_bestCycle_byL...  ...  0.3087  8.809070e+07  1.200146e+08
+94  None  RelDiff_FMG.AX  RelDiff_FMG.AX_Lag1Trend_residue_Seasonal_DayO...  ...  0.2986  8.809075e+07  1.200146e+08
+95  None  RelDiff_FMG.AX  RelDiff_FMG.AX_Lag1Trend_residue_zeroCycle_res...  ...  0.2977  8.809075e+07  1.200146e+08
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _FMG.AX   _FMG.AX_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0238        0.0317    0.0306
+1  None         _FMG.AX  _FMG.AX_Lag1Trend_residue_bestCycle_byL2_resid...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0238        0.0317    0.0310
+2  None   CumSum_FMG.AX  CumSum_FMG.AX_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0248        0.0317    0.0306
+3  None     Diff_FMG.AX  Diff_FMG.AX_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0238        0.0317    0.0306
+4  None  RelDiff_FMG.AX  RelDiff_FMG.AX_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0238        0.0317    0.0306
+7 0    4.00
+1    4.06
+2    4.05
+3    4.05
+4    4.12
+5    4.41
+6    4.62
+Name: FMG.AX, dtype: float64
+7 0    4.06
+1    4.06
+2    4.06
+3    4.06
+4    4.06
+5    4.06
+6    4.06
+Name: FMG.AX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_FMG.AX FMG.AX [4.0, 4.06, 4.05, 4.05, 4.12, 4.41, 4.62]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_FMG.AX FMG.AX [4.06, 4.06, 4.06, 4.06, 4.06, 4.06, 4.06]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_FMG.AX FMG.AX 1299 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_FMG.AX FMG.AX 11.093057632446289
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_FMG.AX FMG.AX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_FMG.AX FMG.AX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_FMG.AX FMG.AX 0.0336 0.0352 1.4062
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_FMG.AX FMG.AX 0.1500000000000001 0.25170844812429916 -0.34254454206029306
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aord_FMG.AX_7'

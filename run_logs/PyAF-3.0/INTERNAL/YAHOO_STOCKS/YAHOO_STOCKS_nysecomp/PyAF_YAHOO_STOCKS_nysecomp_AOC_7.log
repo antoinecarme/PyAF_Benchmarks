@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 224 H= 7 HEAD= ['2011-08-03T00:00:00.000000000' '2011-08-08T00:00:00.000000000'
+ '2011-08-09T00:00:00.000000000' '2011-08-10T00:00:00.000000000'
+ '2011-08-11T00:00:00.000000000'] TAIL= ['2012-09-07T00:00:00.000000000' '2012-09-10T00:00:00.000000000'
+ '2012-09-11T00:00:00.000000000' '2012-09-12T00:00:00.000000000'
+ '2012-09-13T00:00:00.000000000']
+SIGNAL :  AOC N= 224 H= 7 HEAD= [0.569 0.513 0.471 0.471 0.5  ] TAIL= [0.42 0.42 0.42 0.42 0.42]
+     AOC       Date
+0  0.569 2011-08-03
+1  0.513 2011-08-08
+2  0.471 2011-08-09
+3  0.471 2011-08-10
+4  0.500 2011-08-11
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 224 entries, 0 to 223
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   AOC     224 non-null    float64       
+ 1   Date    224 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 5.2 KB
+None
+   Split Transformation                                              Model                                           Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0   None           _AOC      _AOC_Lag1Trend_residue_zeroCycle_residue_NoAR                    NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0026        0.0000    0.0000
+1   None           _AOC  _AOC_ConstantTrend_residue_zeroCycle_residue_A...                  NoTransf_ConstantTrend_NoCycle_AR          43   0.0067        0.0000    0.0000
+2   None     CumSum_AOC  CumSum_AOC_Lag1Trend_residue_zeroCycle_residue...                 Integration_Lag1Trend_NoCycle_NoAR          64   0.0077        0.0000    0.0000
+3   None       Diff_AOC  Diff_AOC_Lag1Trend_residue_zeroCycle_residue_NoAR                  Difference_Lag1Trend_NoCycle_NoAR          64   0.0026        0.0000    0.0000
+4   None    RelDiff_AOC  RelDiff_AOC_Lag1Trend_residue_zeroCycle_residu...          RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0026        0.0000    0.0000
+..   ...            ...                                                ...                                                ...         ...      ...           ...       ...
+91  None     CumSum_AOC  CumSum_AOC_LinearTrend_residue_Seasonal_DayOfW...      Integration_LinearTrend_Seasonal_DayOfWeek_AR          95   1.7134        0.8817    0.8910
+92  None     CumSum_AOC  CumSum_AOC_ConstantTrend_residue_Seasonal_DayO...  Integration_ConstantTrend_Seasonal_DayOfWeek_NoAR          36   1.3789        0.9695    1.0717
+93  None     CumSum_AOC  CumSum_AOC_ConstantTrend_residue_zeroCycle_res...             Integration_ConstantTrend_NoCycle_NoAR          32   1.3654        1.0000    1.0000
+94  None     CumSum_AOC  CumSum_AOC_ConstantTrend_residue_bestCycle_byL...               Integration_ConstantTrend_Cycle_NoAR          40   1.3446        1.0433    1.0096
+95  None     CumSum_AOC  CumSum_AOC_LinearTrend_residue_bestCycle_byL2_...                   Integration_LinearTrend_Cycle_AR          99   1.6133        1.1133    1.0555
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _AOC      _AOC_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0026           0.0       0.0
+1  None           _AOC  _AOC_ConstantTrend_residue_zeroCycle_residue_A...          NoTransf_ConstantTrend_NoCycle_AR          43   0.0067           0.0       0.0
+2  None     CumSum_AOC  CumSum_AOC_Lag1Trend_residue_zeroCycle_residue...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0077           0.0       0.0
+3  None       Diff_AOC  Diff_AOC_Lag1Trend_residue_zeroCycle_residue_NoAR          Difference_Lag1Trend_NoCycle_NoAR          64   0.0026           0.0       0.0
+4  None    RelDiff_AOC  RelDiff_AOC_Lag1Trend_residue_zeroCycle_residu...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0026           0.0       0.0
+7 0    0.42
+1    0.42
+2    0.42
+3    0.42
+4    0.42
+5    0.42
+6    0.42
+Name: AOC, dtype: float64
+7 0    0.423347
+1    0.423347
+2    0.423347
+3    0.423347
+4    0.423347
+5    0.423347
+6    0.423347
+Name: AOC_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_AOC AOC [0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_AOC AOC [0.42334682080924857, 0.42334682080924857, 0.42334682080924857, 0.42334682080924857, 0.42334682080924857, 0.42334682080924857, 0.42334682080924857]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_AOC AOC 224 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_AOC AOC 10.608043432235718
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_AOC AOC ConstantTrend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_AOC AOC 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_AOC AOC 0.008 0.0079 33468208.0925
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_AOC AOC 0.003346820809248585 0.003346820809248585 -784083.6670453547
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_AOC_7'

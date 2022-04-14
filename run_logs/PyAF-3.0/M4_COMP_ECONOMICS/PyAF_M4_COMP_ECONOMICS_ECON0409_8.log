@@ -1,0 +1,66 @@
+BENCH_DATA M4_COMP_ECONOMICS
+TIME :  Date N= 75 H= 8 HEAD= [0 1 2 3 4] TAIL= [70 71 72 73 74]
+SIGNAL :  ECON0409 N= 75 H= 8 HEAD= [103.087 102.906 103.627 105.46  106.038] TAIL= [85.186 84.798 84.595 84.017 83.695]
+   ECON0409  Date
+0   103.087     0
+1   102.906     1
+2   103.627     2
+3   105.460     3
+4   106.038     4
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 75 entries, 0 to 74
+Data columns (total 2 columns):
+ #   Column    Non-Null Count  Dtype  
+---  ------    --------------  -----  
+ 0   ECON0409  75 non-null     float64
+ 1   Date      75 non-null     int64  
+dtypes: float64(1), int64(1)
+memory usage: 1.8 KB
+None
+   Split   Transformation                                              Model                                Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0   None  CumSum_ECON0409  CumSum_ECON0409_Lag1Trend_residue_zeroCycle_re...        Integration_Lag1Trend_NoCycle_AR          77   0.0422        0.0085    0.0050
+1   None  CumSum_ECON0409  CumSum_ECON0409_LinearTrend_residue_zeroCycle_...      Integration_LinearTrend_NoCycle_AR          61   0.0119        0.0086    0.0070
+2   None  CumSum_ECON0409  CumSum_ECON0409_ConstantTrend_residue_zeroCycl...    Integration_ConstantTrend_NoCycle_AR          45   0.0428        0.0090    0.0055
+3   None    Diff_ECON0409  Diff_ECON0409_Lag1Trend_residue_bestCycle_byL2...         Difference_Lag1Trend_Cycle_NoAR          72   0.0060        0.0122    0.0042
+4   None        _ECON0409  _ECON0409_Lag1Trend_residue_bestCycle_byL2_res...             NoTransf_Lag1Trend_Cycle_AR          53   0.0041        0.0134    0.0131
+..   ...              ...                                                ...                                     ...         ...      ...           ...       ...
+59  None  CumSum_ECON0409  CumSum_ECON0409_LinearTrend_residue_bestCycle_...      Integration_LinearTrend_Cycle_NoAR          56   0.2711        0.2393    0.2686
+60  None  CumSum_ECON0409  CumSum_ECON0409_PolyTrend_residue_bestCycle_by...        Integration_PolyTrend_Cycle_NoAR          56   0.4668        0.9458    1.6839
+61  None  CumSum_ECON0409  CumSum_ECON0409_PolyTrend_residue_zeroCycle_re...      Integration_PolyTrend_NoCycle_NoAR          48   0.3998        0.9546    1.6078
+62  None  CumSum_ECON0409  CumSum_ECON0409_ConstantTrend_residue_zeroCycl...  Integration_ConstantTrend_NoCycle_NoAR          32   1.4767        1.0000    1.0000
+63  None  CumSum_ECON0409  CumSum_ECON0409_ConstantTrend_residue_bestCycl...    Integration_ConstantTrend_Cycle_NoAR          40   1.4303        1.2067    1.2080
+
+[64 rows x 8 columns]
+  Split   Transformation                                              Model                              Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None  CumSum_ECON0409  CumSum_ECON0409_Lag1Trend_residue_zeroCycle_re...      Integration_Lag1Trend_NoCycle_AR          77   0.0422        0.0085    0.0050
+1  None  CumSum_ECON0409  CumSum_ECON0409_LinearTrend_residue_zeroCycle_...    Integration_LinearTrend_NoCycle_AR          61   0.0119        0.0086    0.0070
+2  None  CumSum_ECON0409  CumSum_ECON0409_ConstantTrend_residue_zeroCycl...  Integration_ConstantTrend_NoCycle_AR          45   0.0428        0.0090    0.0055
+3  None    Diff_ECON0409  Diff_ECON0409_Lag1Trend_residue_bestCycle_byL2...       Difference_Lag1Trend_Cycle_NoAR          72   0.0060        0.0122    0.0042
+4  None        _ECON0409  _ECON0409_Lag1Trend_residue_bestCycle_byL2_res...           NoTransf_Lag1Trend_Cycle_AR          53   0.0041        0.0134    0.0131
+8 0    84.738
+1    85.403
+2    85.433
+3    84.786
+4    84.071
+5    83.678
+6    83.761
+7    83.421
+Name: ECON0409, dtype: float64
+8 0    83.695
+1    83.695
+2    83.695
+3    83.695
+4    83.695
+5    83.695
+6    83.695
+7    83.695
+Name: ECON0409_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL ECON0409 ECON0409 [84.738, 85.403, 85.433, 84.786, 84.071, 83.678, 83.761, 83.421]
+FORECAST_DETAIL_PREDICTED ECON0409 ECON0409 [83.695, 83.695, 83.695, 83.695, 83.695, 83.695, 83.695, 83.695]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON ECON0409 ECON0409 75 8
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ ECON0409 ECON0409 6.42825984954834
+BENCHMARK_PERF_DETAIL_BEST_MODEL ECON0409 ECON0409 Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT ECON0409 ECON0409 8
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE ECON0409 ECON0409 0.0093 0.0094 1.9227
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 ECON0409 ECON0409 0.7891250000000039 1.026957581889347 -0.94781483087784
+BENCHMARK_SUCCESS 'M4_COMP_ECONOMICS_ECON0409_8'

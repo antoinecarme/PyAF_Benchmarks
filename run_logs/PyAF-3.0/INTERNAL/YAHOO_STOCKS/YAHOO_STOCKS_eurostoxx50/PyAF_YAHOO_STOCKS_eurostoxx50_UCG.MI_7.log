@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_eurostoxx50
+TIME :  Date N= 1297 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  UCG.MI N= 1297 H= 7 HEAD= [0.82922 0.82329 0.78772 0.74228 0.75545] TAIL= [2.1   2.02  2.154 2.18  2.22 ]
+    UCG.MI       Date
+0  0.82922 2011-07-28
+1  0.82329 2011-07-29
+2  0.78772 2011-08-01
+3  0.74228 2011-08-02
+4  0.75545 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1297 entries, 0 to 1296
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   UCG.MI  1297 non-null   float64       
+ 1   Date    1297 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _UCG.MI   _UCG.MI_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.310000e-02  2.450000e-02  5.150000e-02
+1   None   CumSum_UCG.MI  CumSum_UCG.MI_Lag1Trend_residue_zeroCycle_resi...  ...  2.410000e-02  2.450000e-02  5.150000e-02
+2   None     Diff_UCG.MI  Diff_UCG.MI_Lag1Trend_residue_zeroCycle_residu...  ...  2.310000e-02  2.450000e-02  5.150000e-02
+3   None  RelDiff_UCG.MI  RelDiff_UCG.MI_Lag1Trend_residue_zeroCycle_res...  ...  2.310000e-02  2.450000e-02  5.150000e-02
+4   None   CumSum_UCG.MI  CumSum_UCG.MI_Lag1Trend_residue_bestCycle_byL2...  ...  2.970000e-02  2.470000e-02  4.810000e-02
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_UCG.MI  RelDiff_UCG.MI_Lag1Trend_residue_Seasonal_DayO...  ...  1.561118e+07  1.014570e+07  1.952123e+07
+92  None  RelDiff_UCG.MI  RelDiff_UCG.MI_Lag1Trend_residue_bestCycle_byL...  ...  1.575156e+07  1.014570e+07  1.952123e+07
+93  None  RelDiff_UCG.MI  RelDiff_UCG.MI_PolyTrend_residue_Seasonal_DayO...  ...  1.570649e+07  1.014570e+07  1.952123e+07
+94  None  RelDiff_UCG.MI  RelDiff_UCG.MI_PolyTrend_residue_Seasonal_DayO...  ...  1.570829e+07  1.014570e+07  1.952123e+07
+95  None  RelDiff_UCG.MI  RelDiff_UCG.MI_PolyTrend_residue_bestCycle_byL...  ...  1.571051e+07  1.014570e+07  1.952123e+07
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _UCG.MI   _UCG.MI_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0231        0.0245    0.0515
+1  None   CumSum_UCG.MI  CumSum_UCG.MI_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0241        0.0245    0.0515
+2  None     Diff_UCG.MI  Diff_UCG.MI_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0231        0.0245    0.0515
+3  None  RelDiff_UCG.MI  RelDiff_UCG.MI_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0231        0.0245    0.0515
+4  None   CumSum_UCG.MI  CumSum_UCG.MI_Lag1Trend_residue_bestCycle_byL2...           Integration_Lag1Trend_Cycle_NoAR          72   0.0297        0.0247    0.0481
+7 0    2.214
+1    2.252
+2    2.300
+3    2.286
+4    2.294
+5    2.242
+6    2.150
+Name: UCG.MI, dtype: float64
+7 0    2.22
+1    2.22
+2    2.22
+3    2.22
+4    2.22
+5    2.22
+6    2.22
+Name: UCG.MI_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_UCG.MI UCG.MI [2.214, 2.252, 2.3, 2.286, 2.294, 2.242, 2.15]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_UCG.MI UCG.MI [2.22, 2.22, 2.22, 2.22, 2.22, 2.22, 2.22]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_UCG.MI UCG.MI 1297 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_UCG.MI UCG.MI 10.079185009002686
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_UCG.MI UCG.MI Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_UCG.MI UCG.MI 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_UCG.MI UCG.MI 0.0222 0.0223 1.1905
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_UCG.MI UCG.MI 0.049999999999999885 0.05691597817334389 -0.327990086593988
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_eurostoxx50_UCG.MI_7'

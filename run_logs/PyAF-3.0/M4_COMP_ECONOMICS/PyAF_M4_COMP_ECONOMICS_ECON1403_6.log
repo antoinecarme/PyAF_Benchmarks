@@ -1,0 +1,62 @@
+BENCH_DATA M4_COMP_ECONOMICS
+TIME :  Date N= 49 H= 6 HEAD= [0 1 2 3 4] TAIL= [44 45 46 47 48]
+SIGNAL :  ECON1403 N= 49 H= 6 HEAD= [1.  1.  1.1 1.2 1.3] TAIL= [49.6 52.2 55.3 58.5 62.3]
+   ECON1403  Date
+0       1.0     0
+1       1.0     1
+2       1.1     2
+3       1.2     3
+4       1.3     4
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 49 entries, 0 to 48
+Data columns (total 2 columns):
+ #   Column    Non-Null Count  Dtype  
+---  ------    --------------  -----  
+ 0   ECON1403  49 non-null     float64
+ 1   Date      49 non-null     int64  
+dtypes: float64(1), int64(1)
+memory usage: 1.1 KB
+None
+   Split    Transformation                                              Model                                      Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0   None   CumSum_ECON1403  CumSum_ECON1403_LinearTrend_residue_zeroCycle_...            Integration_LinearTrend_NoCycle_AR          56   0.1732        0.0141    0.0201
+1   None   CumSum_ECON1403  CumSum_ECON1403_LinearTrend_residue_bestCycle_...         Integration_LinearTrend_Cycle_None_AR          64   0.1732        0.0141    0.0201
+2   None   CumSum_ECON1403  CumSum_ECON1403_Lag1Trend_residue_zeroCycle_re...              Integration_Lag1Trend_NoCycle_AR          72   0.0999        0.0158    0.0154
+3   None   CumSum_ECON1403  CumSum_ECON1403_Lag1Trend_residue_bestCycle_by...           Integration_Lag1Trend_Cycle_None_AR          80   0.0999        0.0158    0.0154
+4   None   CumSum_ECON1403  CumSum_ECON1403_ConstantTrend_residue_zeroCycl...          Integration_ConstantTrend_NoCycle_AR          40   0.0977        0.0159    0.0203
+..   ...               ...                                                ...                                           ...         ...      ...           ...       ...
+59  None  RelDiff_ECON1403  RelDiff_ECON1403_Lag1Trend_residue_bestCycle_b...  RelativeDifference_Lag1Trend_Cycle_None_NoAR          72   0.5877        0.9676    0.9814
+60  None  RelDiff_ECON1403  RelDiff_ECON1403_Lag1Trend_residue_zeroCycle_r...       RelativeDifference_Lag1Trend_NoCycle_AR          72   0.5877        0.9676    0.9814
+61  None  RelDiff_ECON1403  RelDiff_ECON1403_Lag1Trend_residue_bestCycle_b...    RelativeDifference_Lag1Trend_Cycle_None_AR          80   0.5877        0.9676    0.9814
+62  None   CumSum_ECON1403  CumSum_ECON1403_ConstantTrend_residue_zeroCycl...        Integration_ConstantTrend_NoCycle_NoAR          32   2.2795        1.0000    1.0000
+63  None   CumSum_ECON1403  CumSum_ECON1403_ConstantTrend_residue_bestCycl...     Integration_ConstantTrend_Cycle_None_NoAR          40   2.2795        1.0000    1.0000
+
+[64 rows x 8 columns]
+  Split   Transformation                                              Model                               Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None  CumSum_ECON1403  CumSum_ECON1403_LinearTrend_residue_zeroCycle_...     Integration_LinearTrend_NoCycle_AR          56   0.1732        0.0141    0.0201
+1  None  CumSum_ECON1403  CumSum_ECON1403_LinearTrend_residue_bestCycle_...  Integration_LinearTrend_Cycle_None_AR          64   0.1732        0.0141    0.0201
+2  None  CumSum_ECON1403  CumSum_ECON1403_Lag1Trend_residue_zeroCycle_re...       Integration_Lag1Trend_NoCycle_AR          72   0.0999        0.0158    0.0154
+3  None  CumSum_ECON1403  CumSum_ECON1403_Lag1Trend_residue_bestCycle_by...    Integration_Lag1Trend_Cycle_None_AR          80   0.0999        0.0158    0.0154
+4  None  CumSum_ECON1403  CumSum_ECON1403_ConstantTrend_residue_zeroCycl...   Integration_ConstantTrend_NoCycle_AR          40   0.0977        0.0159    0.0203
+6 0    66.2
+1    70.1
+2    74.1
+3    77.9
+4    81.5
+5    85.8
+Name: ECON1403, dtype: float64
+6 0     67.527340
+1     74.321090
+2     82.791594
+3     93.268256
+4    106.167365
+5    121.723370
+Name: ECON1403_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL ECON1403 ECON1403 [66.2, 70.1, 74.1, 77.9, 81.5, 85.8]
+FORECAST_DETAIL_PREDICTED ECON1403 ECON1403 [67.52733966521589, 74.32109019038091, 82.79159415326637, 93.26825638555886, 106.16736541056548, 121.72336999752702]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON ECON1403 ECON1403 49 6
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ ECON1403 ECON1403 5.9450013637542725
+BENCHMARK_PERF_DETAIL_BEST_MODEL ECON1403 ECON1403 ConstantTrend + NoCycle + AR
+BENCHMARK_PERF_DETAIL_PERF_COUNT ECON1403 ECON1403 6
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE ECON1403 ECON1403 0.186 0.163 3.835
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 ECON1403 ECON1403 15.03316930041909 19.27984255864631 -7.437354254159999
+BENCHMARK_SUCCESS 'M4_COMP_ECONOMICS_ECON1403_6'

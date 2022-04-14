@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  CCI N= 1251 H= 7 HEAD= [43.91     43.400002 43.689999 42.029999 43.799999] TAIL= [100.150002  99.800003  99.470001 100.110001  99.389999]
+         CCI       Date
+0  43.910000 2011-07-28
+1  43.400002 2011-07-29
+2  43.689999 2011-08-01
+3  42.029999 2011-08-02
+4  43.799999 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   CCI     1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _CCI      _CCI_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  9.000000e-03  8.600000e-03  6.800000e-03
+1   None           _CCI  _CCI_Lag1Trend_residue_bestCycle_byL2_residue_...  ...  9.000000e-03  8.600000e-03  6.600000e-03
+2   None     CumSum_CCI  CumSum_CCI_Lag1Trend_residue_zeroCycle_residue...  ...  1.000000e-02  8.600000e-03  6.800000e-03
+3   None       Diff_CCI  Diff_CCI_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  9.000000e-03  8.600000e-03  6.800000e-03
+4   None    RelDiff_CCI  RelDiff_CCI_Lag1Trend_residue_zeroCycle_residu...  ...  9.000000e-03  8.600000e-03  6.800000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_CCI  RelDiff_CCI_Lag1Trend_residue_bestCycle_byL2_r...  ...  7.957791e+06  6.087222e+06  5.198072e+06
+92  None    RelDiff_CCI  RelDiff_CCI_PolyTrend_residue_zeroCycle_residu...  ...  7.981711e+06  6.087222e+06  5.198073e+06
+93  None    RelDiff_CCI  RelDiff_CCI_PolyTrend_residue_bestCycle_byL2_r...  ...  7.981711e+06  6.087222e+06  5.198073e+06
+94  None    RelDiff_CCI  RelDiff_CCI_ConstantTrend_residue_zeroCycle_re...  ...  7.970904e+06  6.087222e+06  5.198073e+06
+95  None    RelDiff_CCI  RelDiff_CCI_PolyTrend_residue_bestCycle_byL2_r...  ...  7.981712e+06  6.087222e+06  5.198073e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _CCI      _CCI_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32    0.009        0.0086    0.0068
+1  None           _CCI  _CCI_Lag1Trend_residue_bestCycle_byL2_residue_...              NoTransf_Lag1Trend_Cycle_NoAR          40    0.009        0.0086    0.0066
+2  None     CumSum_CCI  CumSum_CCI_Lag1Trend_residue_zeroCycle_residue...         Integration_Lag1Trend_NoCycle_NoAR          64    0.010        0.0086    0.0068
+3  None       Diff_CCI  Diff_CCI_Lag1Trend_residue_zeroCycle_residue_NoAR          Difference_Lag1Trend_NoCycle_NoAR          64    0.009        0.0086    0.0068
+4  None    RelDiff_CCI  RelDiff_CCI_Lag1Trend_residue_zeroCycle_residu...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64    0.009        0.0086    0.0068
+7 0    99.660004
+1    98.489998
+2    98.269997
+3    98.870003
+4    97.320000
+5    96.739998
+6    96.070000
+Name: CCI, dtype: float64
+7 0    99.389999
+1    99.389999
+2    99.389999
+3    99.389999
+4    99.389999
+5    99.389999
+6    99.389999
+Name: CCI_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_CCI CCI [99.660004, 98.489998, 98.269997, 98.870003, 97.32, 96.739998, 96.07]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_CCI CCI [99.389999, 99.389999, 99.389999, 99.389999, 99.389999, 99.389999, 99.389999]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_CCI CCI 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_CCI CCI 11.82183837890625
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_CCI CCI Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_CCI CCI 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_CCI CCI 0.016 0.0158 1.9415
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_CCI CCI 1.5500004285714328 1.8798745908038323 -1.5896733418968254
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_CCI_7'

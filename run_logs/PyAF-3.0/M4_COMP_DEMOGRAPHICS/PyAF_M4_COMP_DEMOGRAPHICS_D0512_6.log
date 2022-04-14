@@ -1,0 +1,62 @@
+BENCH_DATA M4_COMP_DEMOGRAPHICS
+TIME :  Date N= 16 H= 6 HEAD= [0 1 2 3 4] TAIL= [11 12 13 14 15]
+SIGNAL :  D0512 N= 16 H= 6 HEAD= [87. 85. 83. 80. 78.] TAIL= [65. 63. 62. 60. 59.]
+   D0512  Date
+0   87.0     0
+1   85.0     1
+2   83.0     2
+3   80.0     3
+4   78.0     4
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 16 entries, 0 to 15
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   D0512   16 non-null     float64
+ 1   Date    16 non-null     int64  
+dtypes: float64(1), int64(1)
+memory usage: 384.0 bytes
+None
+   Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0   None         _D0512  _D0512_LinearTrend_residue_zeroCycle_residue_A...            NoTransf_LinearTrend_NoCycle_AR          20   0.0051        0.0051    0.0051
+1   None         _D0512  _D0512_LinearTrend_residue_bestCycle_byL2_resi...         NoTransf_LinearTrend_Cycle_None_AR          28   0.0051        0.0051    0.0051
+2   None     Diff_D0512  Diff_D0512_PolyTrend_residue_zeroCycle_residue...            Difference_PolyTrend_NoCycle_AR          52   0.0057        0.0057    0.0057
+3   None     Diff_D0512  Diff_D0512_PolyTrend_residue_bestCycle_byL2_re...         Difference_PolyTrend_Cycle_None_AR          60   0.0057        0.0057    0.0057
+4   None         _D0512  _D0512_ConstantTrend_residue_zeroCycle_residue...          NoTransf_ConstantTrend_NoCycle_AR           4   0.0063        0.0063    0.0063
+..   ...            ...                                                ...                                        ...         ...      ...           ...       ...
+59  None   CumSum_D0512  CumSum_D0512_PolyTrend_residue_bestCycle_byL2_...      Integration_PolyTrend_Cycle_None_NoAR          56   0.5419        0.5419    0.5419
+60  None   CumSum_D0512  CumSum_D0512_LinearTrend_residue_zeroCycle_res...       Integration_LinearTrend_NoCycle_NoAR          48   0.5438        0.5438    0.5438
+61  None   CumSum_D0512  CumSum_D0512_LinearTrend_residue_bestCycle_byL...    Integration_LinearTrend_Cycle_None_NoAR          56   0.5438        0.5438    0.5438
+62  None   CumSum_D0512  CumSum_D0512_ConstantTrend_residue_zeroCycle_r...     Integration_ConstantTrend_NoCycle_NoAR          32   1.3427        1.3427    1.3427
+63  None   CumSum_D0512  CumSum_D0512_ConstantTrend_residue_bestCycle_b...  Integration_ConstantTrend_Cycle_None_NoAR          40   1.3427        1.3427    1.3427
+
+[64 rows x 8 columns]
+  Split Transformation                                              Model                            Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _D0512  _D0512_LinearTrend_residue_zeroCycle_residue_A...     NoTransf_LinearTrend_NoCycle_AR          20   0.0051        0.0051    0.0051
+1  None         _D0512  _D0512_LinearTrend_residue_bestCycle_byL2_resi...  NoTransf_LinearTrend_Cycle_None_AR          28   0.0051        0.0051    0.0051
+2  None     Diff_D0512  Diff_D0512_PolyTrend_residue_zeroCycle_residue...     Difference_PolyTrend_NoCycle_AR          52   0.0057        0.0057    0.0057
+3  None     Diff_D0512  Diff_D0512_PolyTrend_residue_bestCycle_byL2_re...  Difference_PolyTrend_Cycle_None_AR          60   0.0057        0.0057    0.0057
+4  None         _D0512  _D0512_ConstantTrend_residue_zeroCycle_residue...   NoTransf_ConstantTrend_NoCycle_AR           4   0.0063        0.0063    0.0063
+6 0    57.0
+1    56.0
+2    77.0
+3    67.0
+4    66.0
+5    66.0
+Name: D0512, dtype: float64
+6 0    57.443803
+1    56.244963
+2    54.857705
+3    53.632039
+4    52.362010
+5    51.177420
+Name: D0512_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL D0512 D0512 [57.0, 56.0, 77.0, 67.0, 66.0, 66.0]
+FORECAST_DETAIL_PREDICTED D0512 D0512 [57.443803475042436, 56.24496271297701, 54.857705490689305, 53.63203940875722, 52.36201026977139, 51.17741996128896]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON D0512 D0512 16 6
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ D0512 D0512 6.071404695510864
+BENCHMARK_PERF_DETAIL_BEST_MODEL D0512 D0512 ConstantTrend + NoCycle + AR
+BENCHMARK_PERF_DETAIL_PERF_COUNT D0512 D0512 6
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE D0512 D0512 0.1551 0.1755 1.6328
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 D0512 D0512 10.776598509585428 13.384967859798888 -2.6459384544264464
+BENCHMARK_SUCCESS 'M4_COMP_DEMOGRAPHICS_D0512_6'

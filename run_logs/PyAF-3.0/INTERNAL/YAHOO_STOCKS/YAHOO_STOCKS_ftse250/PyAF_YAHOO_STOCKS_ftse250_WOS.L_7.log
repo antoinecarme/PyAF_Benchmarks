@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftse250
+TIME :  Date N= 1296 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  WOS.L N= 1296 H= 7 HEAD= [1841.001 1815.    1745.001 1683.999 1658.997] TAIL= [4080. 4065. 4108. 4086. 4062.]
+      WOS.L       Date
+0  1841.001 2011-07-28
+1  1815.000 2011-07-29
+2  1745.001 2011-08-01
+3  1683.999 2011-08-02
+4  1658.997 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1296 entries, 0 to 1295
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   WOS.L   1296 non-null   float64       
+ 1   Date    1296 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None   CumSum_WOS.L  CumSum_WOS.L_Lag1Trend_residue_Seasonal_DayOfW...  ...  1.420000e-02  1.300000e-02  9.900000e-03
+1   None         _WOS.L    _WOS.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.160000e-02  1.310000e-02  1.020000e-02
+2   None         _WOS.L  _WOS.L_Lag1Trend_residue_bestCycle_byL2_residu...  ...  1.160000e-02  1.310000e-02  9.900000e-03
+3   None   CumSum_WOS.L  CumSum_WOS.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.260000e-02  1.310000e-02  1.020000e-02
+4   None     Diff_WOS.L  Diff_WOS.L_Lag1Trend_residue_zeroCycle_residue...  ...  1.160000e-02  1.310000e-02  1.020000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_WOS.L  RelDiff_WOS.L_LinearTrend_residue_bestCycle_by...  ...  1.549016e+07  1.143049e+07  1.072580e+07
+92  None  RelDiff_WOS.L  RelDiff_WOS.L_ConstantTrend_residue_Seasonal_D...  ...  1.530620e+07  1.143049e+07  1.072580e+07
+93  None  RelDiff_WOS.L  RelDiff_WOS.L_ConstantTrend_residue_bestCycle_...  ...  1.530620e+07  1.143049e+07  1.072580e+07
+94  None  RelDiff_WOS.L  RelDiff_WOS.L_PolyTrend_residue_Seasonal_DayOf...  ...  1.550117e+07  1.143049e+07  1.072580e+07
+95  None  RelDiff_WOS.L  RelDiff_WOS.L_PolyTrend_residue_bestCycle_byL2...  ...  1.550117e+07  1.143049e+07  1.072580e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                       Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None   CumSum_WOS.L  CumSum_WOS.L_Lag1Trend_residue_Seasonal_DayOfW...  Integration_Lag1Trend_Seasonal_DayOfWeek_NoAR          68   0.0142        0.0130    0.0099
+1  None         _WOS.L    _WOS.L_Lag1Trend_residue_zeroCycle_residue_NoAR                NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0116        0.0131    0.0102
+2  None         _WOS.L  _WOS.L_Lag1Trend_residue_bestCycle_byL2_residu...                  NoTransf_Lag1Trend_Cycle_NoAR          40   0.0116        0.0131    0.0099
+3  None   CumSum_WOS.L  CumSum_WOS.L_Lag1Trend_residue_zeroCycle_resid...             Integration_Lag1Trend_NoCycle_NoAR          64   0.0126        0.0131    0.0102
+4  None     Diff_WOS.L  Diff_WOS.L_Lag1Trend_residue_zeroCycle_residue...              Difference_Lag1Trend_NoCycle_NoAR          64   0.0116        0.0131    0.0102
+7 0    4100.0
+1    4065.0
+2    4070.0
+3    4080.0
+4    4100.0
+5    4166.0
+6    4163.0
+Name: WOS.L, dtype: float64
+7 0    4062.0
+1    4062.0
+2    4062.0
+3    4062.0
+4    4062.0
+5    4062.0
+6    4062.0
+Name: WOS.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_WOS.L WOS.L [4100.0, 4065.0, 4070.0, 4080.0, 4100.0, 4166.0, 4163.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_WOS.L WOS.L [4062.0, 4062.0, 4062.0, 4062.0, 4062.0, 4062.0, 4062.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_WOS.L WOS.L 1296 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_WOS.L WOS.L 10.805385828018188
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_WOS.L WOS.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_WOS.L WOS.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_WOS.L WOS.L 0.0107 0.0108 1.9116
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_WOS.L WOS.L 44.285714285714285 58.92125495705506 -1.2984030048369006
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftse250_WOS.L_7'

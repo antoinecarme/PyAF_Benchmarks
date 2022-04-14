@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  BKD N= 1251 H= 7 HEAD= [21.43     21.389999 20.33     19.9      19.969999] TAIL= [16.73     16.73     17.       16.9      17.219999]
+         BKD       Date
+0  21.430000 2011-07-28
+1  21.389999 2011-07-29
+2  20.330000 2011-08-01
+3  19.900000 2011-08-02
+4  19.969999 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   BKD     1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _BKD      _BKD_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.490000e-02  2.140000e-02  1.640000e-02
+1   None     CumSum_BKD  CumSum_BKD_Lag1Trend_residue_zeroCycle_residue...  ...  1.590000e-02  2.140000e-02  1.640000e-02
+2   None       Diff_BKD  Diff_BKD_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.490000e-02  2.140000e-02  1.640000e-02
+3   None    RelDiff_BKD  RelDiff_BKD_Lag1Trend_residue_zeroCycle_residu...  ...  1.490000e-02  2.140000e-02  1.640000e-02
+4   None           _BKD  _BKD_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  ...  1.500000e-02  2.150000e-02  1.720000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_BKD  RelDiff_BKD_Lag1Trend_residue_Seasonal_DayOfWe...  ...  4.032180e+07  5.138348e+07  5.879451e+07
+92  None    RelDiff_BKD  RelDiff_BKD_LinearTrend_residue_bestCycle_byL2...  ...  4.037653e+07  5.138348e+07  5.879451e+07
+93  None    RelDiff_BKD  RelDiff_BKD_PolyTrend_residue_Seasonal_DayOfWe...  ...  4.038451e+07  5.138348e+07  5.879451e+07
+94  None    RelDiff_BKD  RelDiff_BKD_ConstantTrend_residue_bestCycle_by...  ...  4.011110e+07  5.138348e+07  5.879451e+07
+95  None    RelDiff_BKD  RelDiff_BKD_PolyTrend_residue_zeroCycle_residu...  ...  4.041368e+07  5.138348e+07  5.879451e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _BKD      _BKD_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0149        0.0214    0.0164
+1  None     CumSum_BKD  CumSum_BKD_Lag1Trend_residue_zeroCycle_residue...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0159        0.0214    0.0164
+2  None       Diff_BKD  Diff_BKD_Lag1Trend_residue_zeroCycle_residue_NoAR           Difference_Lag1Trend_NoCycle_NoAR          64   0.0149        0.0214    0.0164
+3  None    RelDiff_BKD  RelDiff_BKD_Lag1Trend_residue_zeroCycle_residu...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0149        0.0214    0.0164
+4  None           _BKD  _BKD_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0150        0.0215    0.0172
+7 0    17.139999
+1    17.629999
+2    17.549999
+3    18.059999
+4    17.940001
+5    18.139999
+6    17.870001
+Name: BKD, dtype: float64
+7 0    17.219999
+1    17.219999
+2    17.219999
+3    17.219999
+4    17.219999
+5    17.219999
+6    17.219999
+Name: BKD_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_BKD BKD [17.139999, 17.629998999999998, 17.549999, 18.059998999999998, 17.940001000000002, 18.139999, 17.870001000000002]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_BKD BKD [17.219998999999998, 17.219998999999998, 17.219998999999998, 17.219998999999998, 17.219998999999998, 17.219998999999998, 17.219998999999998]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_BKD BKD 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_BKD BKD 11.95262098312378
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_BKD BKD Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_BKD BKD 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_BKD BKD 0.0315 0.0321 2.0274
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_BKD BKD 0.5642862857142872 0.6297738233465834 -2.833157305450655
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_BKD_7'

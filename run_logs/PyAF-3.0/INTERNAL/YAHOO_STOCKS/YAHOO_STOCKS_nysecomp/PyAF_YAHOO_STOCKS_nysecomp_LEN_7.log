@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  LEN N= 1251 H= 7 HEAD= [17.639999 17.690001 17.57     16.959999 17.059999] TAIL= [48.779999 48.709999 48.77     48.650002 48.889999]
+         LEN       Date
+0  17.639999 2011-07-28
+1  17.690001 2011-07-29
+2  17.570000 2011-08-01
+3  16.959999 2011-08-02
+4  17.059999 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   LEN     1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _LEN      _LEN_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.690000e-02  1.440000e-02  7.600000e-03
+1   None           _LEN  _LEN_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  ...  1.690000e-02  1.440000e-02  7.800000e-03
+2   None           _LEN  _LEN_Lag1Trend_residue_bestCycle_byL2_residue_...  ...  1.700000e-02  1.440000e-02  7.600000e-03
+3   None     CumSum_LEN  CumSum_LEN_Lag1Trend_residue_zeroCycle_residue...  ...  1.790000e-02  1.440000e-02  7.600000e-03
+4   None       Diff_LEN  Diff_LEN_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.690000e-02  1.440000e-02  7.600000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_LEN  RelDiff_LEN_PolyTrend_residue_zeroCycle_residu...  ...  1.545521e+07  1.043121e+07  1.009931e+07
+92  None    RelDiff_LEN  RelDiff_LEN_PolyTrend_residue_Seasonal_DayOfWe...  ...  1.545153e+07  1.043121e+07  1.009931e+07
+93  None    RelDiff_LEN  RelDiff_LEN_PolyTrend_residue_bestCycle_byL2_r...  ...  1.545158e+07  1.043121e+07  1.009931e+07
+94  None    RelDiff_LEN  RelDiff_LEN_ConstantTrend_residue_bestCycle_by...  ...  1.522298e+07  1.043121e+07  1.009931e+07
+95  None    RelDiff_LEN  RelDiff_LEN_PolyTrend_residue_zeroCycle_residu...  ...  1.546993e+07  1.043121e+07  1.009931e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _LEN      _LEN_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0169        0.0144    0.0076
+1  None           _LEN  _LEN_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0169        0.0144    0.0078
+2  None           _LEN  _LEN_Lag1Trend_residue_bestCycle_byL2_residue_...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0170        0.0144    0.0076
+3  None     CumSum_LEN  CumSum_LEN_Lag1Trend_residue_zeroCycle_residue...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0179        0.0144    0.0076
+4  None       Diff_LEN  Diff_LEN_Lag1Trend_residue_zeroCycle_residue_NoAR           Difference_Lag1Trend_NoCycle_NoAR          64   0.0169        0.0144    0.0076
+7 0    48.650002
+1    48.950001
+2    48.849998
+3    48.689999
+4    49.150002
+5    49.099998
+6    48.610001
+Name: LEN, dtype: float64
+7 0    48.889999
+1    48.889999
+2    48.889999
+3    48.889999
+4    48.889999
+5    48.889999
+6    48.889999
+Name: LEN_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_LEN LEN [48.650002, 48.950001, 48.849998, 48.689999, 49.150002, 49.099998, 48.610001000000004]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_LEN LEN [48.889998999999996, 48.889998999999996, 48.889998999999996, 48.889998999999996, 48.889998999999996, 48.889998999999996, 48.889998999999996]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_LEN LEN 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_LEN LEN 12.065458536148071
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_LEN LEN Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_LEN LEN 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_LEN LEN 0.0038 0.0038 0.7088
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_LEN LEN 0.18428571428571314 0.20455488262077584 -0.02648264033351655
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_LEN_7'

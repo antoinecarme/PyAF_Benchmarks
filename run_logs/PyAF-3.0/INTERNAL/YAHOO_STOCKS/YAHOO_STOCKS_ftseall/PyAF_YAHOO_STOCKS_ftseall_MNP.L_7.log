@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1292 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  MNP.L N= 1292 H= 7 HEAD= [1.2575  1.367   1.27    1.245   1.21875] TAIL= [2.01137 2.00479 2.00362 2.01046 2.00869]
+     MNP.L       Date
+0  1.25750 2011-07-28
+1  1.36700 2011-07-29
+2  1.27000 2011-08-01
+3  1.24500 2011-08-02
+4  1.21875 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1292 entries, 0 to 1291
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   MNP.L   1292 non-null   float64       
+ 1   Date    1292 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _MNP.L    _MNP.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.020000e-02  7.800000e-03  4.700000e-03
+1   None         _MNP.L  _MNP.L_Lag1Trend_residue_bestCycle_byL2_residu...  ...  1.030000e-02  7.800000e-03  4.700000e-03
+2   None   CumSum_MNP.L  CumSum_MNP.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.110000e-02  7.800000e-03  4.700000e-03
+3   None     Diff_MNP.L  Diff_MNP.L_Lag1Trend_residue_zeroCycle_residue...  ...  1.020000e-02  7.800000e-03  4.700000e-03
+4   None  RelDiff_MNP.L  RelDiff_MNP.L_Lag1Trend_residue_zeroCycle_resi...  ...  1.020000e-02  7.800000e-03  4.700000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_MNP.L  RelDiff_MNP.L_Lag1Trend_residue_bestCycle_byL2...  ...  1.113737e+07  9.532852e+06  8.332704e+06
+92  None  RelDiff_MNP.L  RelDiff_MNP.L_PolyTrend_residue_Seasonal_DayOf...  ...  1.113735e+07  9.532852e+06  8.332704e+06
+93  None  RelDiff_MNP.L  RelDiff_MNP.L_PolyTrend_residue_bestCycle_byL2...  ...  1.113735e+07  9.532852e+06  8.332704e+06
+94  None  RelDiff_MNP.L  RelDiff_MNP.L_ConstantTrend_residue_bestCycle_...  ...  1.107168e+07  9.532852e+06  8.332704e+06
+95  None  RelDiff_MNP.L  RelDiff_MNP.L_PolyTrend_residue_Seasonal_DayOf...  ...  1.113736e+07  9.532852e+06  8.332704e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _MNP.L    _MNP.L_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0102        0.0078    0.0047
+1  None         _MNP.L  _MNP.L_Lag1Trend_residue_bestCycle_byL2_residu...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0103        0.0078    0.0047
+2  None   CumSum_MNP.L  CumSum_MNP.L_Lag1Trend_residue_zeroCycle_resid...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0111        0.0078    0.0047
+3  None     Diff_MNP.L  Diff_MNP.L_Lag1Trend_residue_zeroCycle_residue...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0102        0.0078    0.0047
+4  None  RelDiff_MNP.L  RelDiff_MNP.L_Lag1Trend_residue_zeroCycle_resi...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0102        0.0078    0.0047
+7 0    2.03803
+1    2.04195
+2    2.03033
+3    2.05625
+4    2.05750
+5    2.03750
+6    2.06125
+Name: MNP.L, dtype: float64
+7 0    2.00869
+1    2.00869
+2    2.00869
+3    2.00869
+4    2.00869
+5    2.00869
+6    2.00869
+Name: MNP.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_MNP.L MNP.L [2.03803, 2.04195, 2.0303299999999997, 2.05625, 2.0575, 2.0375, 2.06125]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_MNP.L MNP.L [2.00869, 2.00869, 2.00869, 2.00869, 2.00869, 2.00869, 2.00869]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_MNP.L MNP.L 1292 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_MNP.L MNP.L 11.197259902954102
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_MNP.L MNP.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_MNP.L MNP.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_MNP.L MNP.L 0.0183 0.0184 2.5972
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_MNP.L MNP.L 0.03742571428571414 0.03904629523307635 -11.30230205530449
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_MNP.L_7'

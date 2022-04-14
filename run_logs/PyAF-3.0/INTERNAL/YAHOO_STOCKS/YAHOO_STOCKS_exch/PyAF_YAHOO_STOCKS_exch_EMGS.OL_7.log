@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_exch
+TIME :  Date N= 1298 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  EMGS.OL N= 1298 H= 7 HEAD= [7.9466 7.8101 7.2303 7.0598 6.555 ] TAIL= [6.24 6.3  6.23 6.15 6.3 ]
+   EMGS.OL       Date
+0   7.9466 2011-07-28
+1   7.8101 2011-07-29
+2   7.2303 2011-08-01
+3   7.0598 2011-08-02
+4   6.5550 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1298 entries, 0 to 1297
+Data columns (total 2 columns):
+ #   Column   Non-Null Count  Dtype         
+---  ------   --------------  -----         
+ 0   EMGS.OL  1298 non-null   float64       
+ 1   Date     1298 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split   Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _EMGS.OL  _EMGS.OL_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0250  4.190000e-02  1.190000e-02
+1   None   CumSum_EMGS.OL  CumSum_EMGS.OL_Lag1Trend_residue_zeroCycle_res...  ...  0.0259  4.190000e-02  1.190000e-02
+2   None     Diff_EMGS.OL  Diff_EMGS.OL_Lag1Trend_residue_zeroCycle_resid...  ...  0.0250  4.190000e-02  1.190000e-02
+3   None  RelDiff_EMGS.OL  RelDiff_EMGS.OL_Lag1Trend_residue_zeroCycle_re...  ...  0.0250  4.190000e-02  1.190000e-02
+4   None         _EMGS.OL  _EMGS.OL_ConstantTrend_residue_zeroCycle_resid...  ...  0.0256  4.830000e-02  3.990000e-02
+..   ...              ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_EMGS.OL  RelDiff_EMGS.OL_ConstantTrend_residue_bestCycl...  ...  0.3115  1.846311e+06  1.243979e+08
+92  None  RelDiff_EMGS.OL  RelDiff_EMGS.OL_ConstantTrend_residue_Seasonal...  ...  0.3108  1.846356e+06  1.243979e+08
+93  None  RelDiff_EMGS.OL  RelDiff_EMGS.OL_Lag1Trend_residue_bestCycle_by...  ...  0.2686  1.909681e+06  1.243979e+08
+94  None  RelDiff_EMGS.OL  RelDiff_EMGS.OL_Lag1Trend_residue_Seasonal_Day...  ...  0.2638  1.921176e+06  1.243979e+08
+95  None  RelDiff_EMGS.OL  RelDiff_EMGS.OL_Lag1Trend_residue_zeroCycle_re...  ...  0.2691  1.921191e+06  1.243979e+08
+
+[96 rows x 8 columns]
+  Split   Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _EMGS.OL  _EMGS.OL_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0250        0.0419    0.0119
+1  None   CumSum_EMGS.OL  CumSum_EMGS.OL_Lag1Trend_residue_zeroCycle_res...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0259        0.0419    0.0119
+2  None     Diff_EMGS.OL  Diff_EMGS.OL_Lag1Trend_residue_zeroCycle_resid...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0250        0.0419    0.0119
+3  None  RelDiff_EMGS.OL  RelDiff_EMGS.OL_Lag1Trend_residue_zeroCycle_re...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0250        0.0419    0.0119
+4  None         _EMGS.OL  _EMGS.OL_ConstantTrend_residue_zeroCycle_resid...          NoTransf_ConstantTrend_NoCycle_AR          64   0.0256        0.0483    0.0399
+7 0    6.40
+1    6.36
+2    6.35
+3    6.25
+4    6.35
+5    6.25
+6    6.22
+Name: EMGS.OL, dtype: float64
+7 0    6.3
+1    6.3
+2    6.3
+3    6.3
+4    6.3
+5    6.3
+6    6.3
+Name: EMGS.OL_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_EMGS.OL EMGS.OL [6.4, 6.36, 6.35, 6.25, 6.35, 6.25, 6.22]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_EMGS.OL EMGS.OL [6.3, 6.3, 6.3, 6.3, 6.3, 6.3, 6.3]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_EMGS.OL EMGS.OL 1298 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_EMGS.OL EMGS.OL 10.82250165939331
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_EMGS.OL EMGS.OL Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_EMGS.OL EMGS.OL 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_EMGS.OL EMGS.OL 0.01 0.01 0.9925
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_EMGS.OL EMGS.OL 0.06285714285714292 0.06546536707079782 -0.03143418112964724
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_exch_EMGS.OL_7'

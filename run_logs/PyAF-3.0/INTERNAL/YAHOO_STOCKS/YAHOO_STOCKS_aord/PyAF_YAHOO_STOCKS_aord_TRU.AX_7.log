@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aord
+TIME :  Date N= 606 H= 7 HEAD= ['2011-07-29T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000' '2011-08-04T00:00:00.000000000'
+ '2011-08-05T00:00:00.000000000'] TAIL= ['2013-12-04T00:00:00.000000000' '2013-12-05T00:00:00.000000000'
+ '2013-12-06T00:00:00.000000000' '2013-12-09T00:00:00.000000000'
+ '2013-12-10T00:00:00.000000000']
+SIGNAL :  TRU.AX N= 606 H= 7 HEAD= [5.71 5.71 5.7  5.65 5.2 ] TAIL= [8.4 8.4 8.4 8.4 8.4]
+   TRU.AX       Date
+0    5.71 2011-07-29
+1    5.71 2011-08-02
+2    5.70 2011-08-03
+3    5.65 2011-08-04
+4    5.20 2011-08-05
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 606 entries, 0 to 605
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   TRU.AX  606 non-null    float64       
+ 1   Date    606 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 14.2 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _TRU.AX   _TRU.AX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.180000e-02  1.240000e-02  3.400000e-03
+1   None   CumSum_TRU.AX  CumSum_TRU.AX_Lag1Trend_residue_zeroCycle_resi...  ...  1.390000e-02  1.240000e-02  3.400000e-03
+2   None     Diff_TRU.AX  Diff_TRU.AX_Lag1Trend_residue_zeroCycle_residu...  ...  1.180000e-02  1.240000e-02  3.400000e-03
+3   None  RelDiff_TRU.AX  RelDiff_TRU.AX_Lag1Trend_residue_zeroCycle_res...  ...  1.180000e-02  1.240000e-02  3.400000e-03
+4   None         _TRU.AX  _TRU.AX_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  1.210000e-02  1.260000e-02  3.700000e-03
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_TRU.AX  RelDiff_TRU.AX_PolyTrend_residue_bestCycle_byL...  ...  2.775098e+07  2.090537e+07  1.685522e+07
+92  None  RelDiff_TRU.AX  RelDiff_TRU.AX_Lag1Trend_residue_Seasonal_DayO...  ...  2.771504e+07  2.090537e+07  1.685522e+07
+93  None  RelDiff_TRU.AX  RelDiff_TRU.AX_ConstantTrend_residue_bestCycle...  ...  2.770083e+07  2.090537e+07  1.685522e+07
+94  None  RelDiff_TRU.AX  RelDiff_TRU.AX_LinearTrend_residue_zeroCycle_r...  ...  2.771027e+07  2.090537e+07  1.685522e+07
+95  None  RelDiff_TRU.AX  RelDiff_TRU.AX_LinearTrend_residue_bestCycle_b...  ...  2.775098e+07  2.090537e+07  1.685522e+07
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _TRU.AX   _TRU.AX_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0118        0.0124    0.0034
+1  None   CumSum_TRU.AX  CumSum_TRU.AX_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0139        0.0124    0.0034
+2  None     Diff_TRU.AX  Diff_TRU.AX_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0118        0.0124    0.0034
+3  None  RelDiff_TRU.AX  RelDiff_TRU.AX_Lag1Trend_residue_zeroCycle_res...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0118        0.0124    0.0034
+4  None         _TRU.AX  _TRU.AX_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0121        0.0126    0.0037
+7 0    8.4
+1    8.4
+2    8.4
+3    8.4
+4    8.4
+5    8.4
+6    8.4
+Name: TRU.AX, dtype: float64
+7 0    8.4
+1    8.4
+2    8.4
+3    8.4
+4    8.4
+5    8.4
+6    8.4
+Name: TRU.AX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_TRU.AX TRU.AX [8.4, 8.4, 8.4, 8.4, 8.4, 8.4, 8.4]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_TRU.AX TRU.AX [8.4, 8.4, 8.4, 8.4, 8.4, 8.4, 8.4]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_TRU.AX TRU.AX 606 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_TRU.AX TRU.AX 10.67341136932373
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_TRU.AX TRU.AX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_TRU.AX TRU.AX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_TRU.AX TRU.AX 0.0 0.0 0.0
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_TRU.AX TRU.AX 0.0 0.0 1.0
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aord_TRU.AX_7'

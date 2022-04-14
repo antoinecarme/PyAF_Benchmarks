@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ta100
+TIME :  Date N= 1019 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-08-01T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-07T00:00:00.000000000' '2016-07-11T00:00:00.000000000'
+ '2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000']
+SIGNAL :  ORL.TA N= 1019 H= 7 HEAD= [2.07161 1.95191 1.92779 1.93226 1.90724] TAIL= [1.35  1.356 1.341 1.343 1.349]
+    ORL.TA       Date
+0  2.07161 2011-07-28
+1  1.95191 2011-08-01
+2  1.92779 2011-08-02
+3  1.93226 2011-08-03
+4  1.90724 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1019 entries, 0 to 1018
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   ORL.TA  1019 non-null   float64       
+ 1   Date    1019 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 23.9 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _ORL.TA   _ORL.TA_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.620000e-02  1.360000e-02  6.500000e-03
+1   None         _ORL.TA  _ORL.TA_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  1.620000e-02  1.360000e-02  6.700000e-03
+2   None   CumSum_ORL.TA  CumSum_ORL.TA_Lag1Trend_residue_zeroCycle_resi...  ...  1.730000e-02  1.360000e-02  6.500000e-03
+3   None     Diff_ORL.TA  Diff_ORL.TA_Lag1Trend_residue_zeroCycle_residu...  ...  1.620000e-02  1.360000e-02  6.500000e-03
+4   None  RelDiff_ORL.TA  RelDiff_ORL.TA_Lag1Trend_residue_zeroCycle_res...  ...  1.620000e-02  1.360000e-02  6.500000e-03
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_ORL.TA  RelDiff_ORL.TA_Lag1Trend_residue_bestCycle_byL...  ...  9.223799e+07  8.556490e+07  9.278074e+07
+92  None  RelDiff_ORL.TA  RelDiff_ORL.TA_Lag1Trend_residue_Seasonal_DayO...  ...  9.247816e+07  8.556490e+07  9.278074e+07
+93  None  RelDiff_ORL.TA  RelDiff_ORL.TA_LinearTrend_residue_Seasonal_Da...  ...  9.239950e+07  8.556490e+07  9.278074e+07
+94  None  RelDiff_ORL.TA  RelDiff_ORL.TA_LinearTrend_residue_bestCycle_b...  ...  9.239950e+07  8.556490e+07  9.278074e+07
+95  None  RelDiff_ORL.TA  RelDiff_ORL.TA_LinearTrend_residue_bestCycle_b...  ...  9.239962e+07  8.556490e+07  9.278074e+07
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _ORL.TA   _ORL.TA_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0162        0.0136    0.0065
+1  None         _ORL.TA  _ORL.TA_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0162        0.0136    0.0067
+2  None   CumSum_ORL.TA  CumSum_ORL.TA_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0173        0.0136    0.0065
+3  None     Diff_ORL.TA  Diff_ORL.TA_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0162        0.0136    0.0065
+4  None  RelDiff_ORL.TA  RelDiff_ORL.TA_Lag1Trend_residue_zeroCycle_res...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0162        0.0136    0.0065
+7 0    1.366
+1    1.354
+2    1.364
+3    1.378
+4    1.371
+5    1.397
+6    1.387
+Name: ORL.TA, dtype: float64
+7 0    1.349
+1    1.349
+2    1.349
+3    1.349
+4    1.349
+5    1.349
+6    1.349
+Name: ORL.TA_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_ORL.TA ORL.TA [1.3659999999999999, 1.354, 1.364, 1.3780000000000001, 1.371, 1.3969999999999998, 1.3869999999999998]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_ORL.TA ORL.TA [1.349, 1.349, 1.349, 1.349, 1.349, 1.349, 1.349]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_ORL.TA ORL.TA 1019 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_ORL.TA ORL.TA 10.81761884689331
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_ORL.TA ORL.TA Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_ORL.TA ORL.TA 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_ORL.TA ORL.TA 0.018 0.0182 1.8879
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_ORL.TA ORL.TA 0.02485714285714285 0.028314559606574894 -3.3610120945039874
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ta100_ORL.TA_7'

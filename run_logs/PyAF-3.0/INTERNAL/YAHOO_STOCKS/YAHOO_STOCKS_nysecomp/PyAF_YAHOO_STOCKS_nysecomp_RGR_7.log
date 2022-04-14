@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  RGR N= 1251 H= 7 HEAD= [27.889999 27.32     27.75     27.52     27.799999] TAIL= [67.480003 67.349998 67.529999 68.019997 68.110001]
+         RGR       Date
+0  27.889999 2011-07-28
+1  27.320000 2011-07-29
+2  27.750000 2011-08-01
+3  27.520000 2011-08-02
+4  27.799999 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   RGR     1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _RGR  _RGR_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  ...  1.800000e-02  1.910000e-02  1.730000e-02
+1   None           _RGR  _RGR_Lag1Trend_residue_bestCycle_byL2_residue_...  ...  1.800000e-02  1.910000e-02  1.740000e-02
+2   None           _RGR      _RGR_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.800000e-02  1.920000e-02  1.740000e-02
+3   None     CumSum_RGR  CumSum_RGR_Lag1Trend_residue_zeroCycle_residue...  ...  1.900000e-02  1.920000e-02  1.740000e-02
+4   None       Diff_RGR  Diff_RGR_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.800000e-02  1.920000e-02  1.740000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_RGR  RelDiff_RGR_LinearTrend_residue_bestCycle_byL2...  ...  6.921455e+06  5.339959e+06  4.796208e+06
+92  None    RelDiff_RGR  RelDiff_RGR_PolyTrend_residue_Seasonal_DayOfWe...  ...  6.921455e+06  5.339959e+06  4.796208e+06
+93  None    RelDiff_RGR  RelDiff_RGR_ConstantTrend_residue_bestCycle_by...  ...  6.878655e+06  5.339959e+06  4.796208e+06
+94  None    RelDiff_RGR  RelDiff_RGR_PolyTrend_residue_zeroCycle_residu...  ...  6.921457e+06  5.339959e+06  4.796208e+06
+95  None    RelDiff_RGR  RelDiff_RGR_PolyTrend_residue_bestCycle_byL2_r...  ...  6.921457e+06  5.339959e+06  4.796208e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _RGR  _RGR_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36    0.018        0.0191    0.0173
+1  None           _RGR  _RGR_Lag1Trend_residue_bestCycle_byL2_residue_...               NoTransf_Lag1Trend_Cycle_NoAR          40    0.018        0.0191    0.0174
+2  None           _RGR      _RGR_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32    0.018        0.0192    0.0174
+3  None     CumSum_RGR  CumSum_RGR_Lag1Trend_residue_zeroCycle_residue...          Integration_Lag1Trend_NoCycle_NoAR          64    0.019        0.0192    0.0174
+4  None       Diff_RGR  Diff_RGR_Lag1Trend_residue_zeroCycle_residue_NoAR           Difference_Lag1Trend_NoCycle_NoAR          64    0.018        0.0192    0.0174
+7 0    67.800003
+1    67.550003
+2    66.830002
+3    67.019997
+4    68.660004
+5    68.930000
+6    69.720001
+Name: RGR, dtype: float64
+7 0    68.110001
+1    68.110001
+2    68.110001
+3    68.110001
+4    68.110001
+5    68.110001
+6    68.110001
+Name: RGR_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_RGR RGR [67.800003, 67.550003, 66.83000200000001, 67.019997, 68.660004, 68.93, 69.720001]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_RGR RGR [68.110001, 68.110001, 68.110001, 68.110001, 68.110001, 68.110001, 68.110001]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_RGR RGR 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_RGR RGR 12.262503147125244
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_RGR RGR Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_RGR RGR 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_RGR RGR 0.013 0.013 1.3812
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_RGR RGR 0.8885715714285689 0.9858429562007882 -0.0014214841384136978
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_RGR_7'

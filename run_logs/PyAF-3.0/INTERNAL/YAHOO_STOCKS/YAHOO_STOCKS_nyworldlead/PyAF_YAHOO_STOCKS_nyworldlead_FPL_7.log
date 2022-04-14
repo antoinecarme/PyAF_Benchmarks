@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nyworldlead
+TIME :  Date N= 582 H= 7 HEAD= ['2014-03-27T00:00:00.000000000' '2014-03-28T00:00:00.000000000'
+ '2014-03-31T00:00:00.000000000' '2014-04-01T00:00:00.000000000'
+ '2014-04-02T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  FPL N= 582 H= 7 HEAD= [20.       20.       20.200001 20.       20.02    ] TAIL= [14.43 14.21 14.06 13.92 14.1 ]
+         FPL       Date
+0  20.000000 2014-03-27
+1  20.000000 2014-03-28
+2  20.200001 2014-03-31
+3  20.000000 2014-04-01
+4  20.020000 2014-04-02
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 582 entries, 0 to 581
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   FPL     582 non-null    float64       
+ 1   Date    582 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 13.6 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _FPL  _FPL_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  ...  1.310000e-02  2.390000e-02  2.060000e-02
+1   None           _FPL  _FPL_Lag1Trend_residue_bestCycle_byL2_residue_...  ...  1.300000e-02  2.400000e-02  1.850000e-02
+2   None           _FPL      _FPL_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.310000e-02  2.410000e-02  1.990000e-02
+3   None     CumSum_FPL  CumSum_FPL_Lag1Trend_residue_zeroCycle_residue...  ...  1.530000e-02  2.410000e-02  1.990000e-02
+4   None       Diff_FPL  Diff_FPL_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.310000e-02  2.410000e-02  1.990000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_FPL  RelDiff_FPL_PolyTrend_residue_bestCycle_byL2_r...  ...  7.685271e+07  1.052718e+08  8.743218e+07
+92  None    RelDiff_FPL  RelDiff_FPL_LinearTrend_residue_zeroCycle_resi...  ...  7.693072e+07  1.052718e+08  8.743218e+07
+93  None    RelDiff_FPL  RelDiff_FPL_PolyTrend_residue_zeroCycle_residu...  ...  7.688139e+07  1.052718e+08  8.743218e+07
+94  None    RelDiff_FPL  RelDiff_FPL_LinearTrend_residue_Seasonal_DayOf...  ...  7.693073e+07  1.052718e+08  8.743218e+07
+95  None    RelDiff_FPL  RelDiff_FPL_PolyTrend_residue_Seasonal_DayOfWe...  ...  7.690762e+07  1.052718e+08  8.743218e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _FPL  _FPL_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0131        0.0239    0.0206
+1  None           _FPL  _FPL_Lag1Trend_residue_bestCycle_byL2_residue_...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0130        0.0240    0.0185
+2  None           _FPL      _FPL_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0131        0.0241    0.0199
+3  None     CumSum_FPL  CumSum_FPL_Lag1Trend_residue_zeroCycle_residue...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0153        0.0241    0.0199
+4  None       Diff_FPL  Diff_FPL_Lag1Trend_residue_zeroCycle_residue_NoAR           Difference_Lag1Trend_NoCycle_NoAR          64   0.0131        0.0241    0.0199
+7 0    13.99
+1    14.05
+2    14.00
+3    14.20
+4    14.21
+5    14.15
+6    14.00
+Name: FPL, dtype: float64
+7 0    14.1
+1    14.1
+2    14.1
+3    14.1
+4    14.1
+5    14.1
+6    14.1
+Name: FPL_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_FPL FPL [13.99, 14.05, 14.0, 14.2, 14.21, 14.15, 14.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_FPL FPL [14.1, 14.1, 14.1, 14.1, 14.1, 14.1, 14.1]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_FPL FPL 582 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_FPL FPL 10.267728090286255
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_FPL FPL Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_FPL FPL 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_FPL FPL 0.0063 0.0063 1.0027
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_FPL FPL 0.08857142857142845 0.09196272536817753 -0.024727990313277992
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nyworldlead_FPL_7'

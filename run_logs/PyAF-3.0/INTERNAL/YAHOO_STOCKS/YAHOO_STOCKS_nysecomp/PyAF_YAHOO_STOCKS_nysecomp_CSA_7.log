@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 260 H= 7 HEAD= ['2015-07-08T00:00:00.000000000' '2015-07-09T00:00:00.000000000'
+ '2015-07-10T00:00:00.000000000' '2015-07-13T00:00:00.000000000'
+ '2015-07-14T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  CSA N= 260 H= 7 HEAD= [34.779999 35.529999 35.150002 35.150002 35.639999] TAIL= [35.229    35.783001 35.938999 35.849998 35.849998]
+         CSA       Date
+0  34.779999 2015-07-08
+1  35.529999 2015-07-09
+2  35.150002 2015-07-10
+3  35.150002 2015-07-13
+4  35.639999 2015-07-14
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 260 entries, 0 to 259
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   CSA     260 non-null    float64       
+ 1   Date    260 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 6.1 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _CSA      _CSA_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  6.700000e-03  7.400000e-03  7.800000e-03
+1   None     CumSum_CSA  CumSum_CSA_Lag1Trend_residue_zeroCycle_residue...  ...  1.160000e-02  7.400000e-03  7.800000e-03
+2   None       Diff_CSA  Diff_CSA_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  6.700000e-03  7.400000e-03  7.800000e-03
+3   None    RelDiff_CSA  RelDiff_CSA_Lag1Trend_residue_zeroCycle_residu...  ...  6.700000e-03  7.400000e-03  7.800000e-03
+4   None           _CSA  _CSA_Lag1Trend_residue_bestCycle_byL2_residue_...  ...  6.800000e-03  7.600000e-03  7.900000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_CSA  RelDiff_CSA_Lag1Trend_residue_Seasonal_DayOfWe...  ...  1.715585e+07  1.681773e+07  1.614010e+07
+92  None    RelDiff_CSA  RelDiff_CSA_PolyTrend_residue_bestCycle_byL2_r...  ...  1.739695e+07  1.681773e+07  1.614010e+07
+93  None    RelDiff_CSA  RelDiff_CSA_PolyTrend_residue_Seasonal_DayOfWe...  ...  1.739693e+07  1.681773e+07  1.614010e+07
+94  None    RelDiff_CSA  RelDiff_CSA_PolyTrend_residue_zeroCycle_residu...  ...  1.739691e+07  1.681773e+07  1.614010e+07
+95  None    RelDiff_CSA  RelDiff_CSA_LinearTrend_residue_Seasonal_DayOf...  ...  1.739693e+07  1.681773e+07  1.614010e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _CSA      _CSA_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0067        0.0074    0.0078
+1  None     CumSum_CSA  CumSum_CSA_Lag1Trend_residue_zeroCycle_residue...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0116        0.0074    0.0078
+2  None       Diff_CSA  Diff_CSA_Lag1Trend_residue_zeroCycle_residue_NoAR          Difference_Lag1Trend_NoCycle_NoAR          64   0.0067        0.0074    0.0078
+3  None    RelDiff_CSA  RelDiff_CSA_Lag1Trend_residue_zeroCycle_residu...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0067        0.0074    0.0078
+4  None           _CSA  _CSA_Lag1Trend_residue_bestCycle_byL2_residue_...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0068        0.0076    0.0079
+7 0    35.630001
+1    35.939999
+2    35.599998
+3    35.980000
+4    35.869999
+5    35.910000
+6    36.011002
+Name: CSA, dtype: float64
+7 0    35.849998
+1    35.849998
+2    35.849998
+3    35.849998
+4    35.849998
+5    35.849998
+6    35.849998
+Name: CSA_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_CSA CSA [35.630001, 35.939999, 35.599998, 35.98, 35.869999, 35.91, 36.011002000000005]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_CSA CSA [35.849998, 35.849998, 35.849998, 35.849998, 35.849998, 35.849998, 35.849998]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_CSA CSA 260 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_CSA CSA 9.910468816757202
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_CSA CSA Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_CSA CSA 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_CSA CSA 0.0037 0.0037 0.623
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_CSA CSA 0.13300100000000015 0.15391182449469504 -6.958504074106031e-05
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_CSA_7'

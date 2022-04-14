@@ -1,0 +1,62 @@
+BENCH_DATA M4_COMP_DEMOGRAPHICS
+TIME :  Date N= 20 H= 6 HEAD= [0 1 2 3 4] TAIL= [15 16 17 18 19]
+SIGNAL :  D0811 N= 20 H= 6 HEAD= [42. 37. 33. 27. 26.] TAIL= [20. 24. 25. 26. 17.]
+   D0811  Date
+0   42.0     0
+1   37.0     1
+2   33.0     2
+3   27.0     3
+4   26.0     4
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 20 entries, 0 to 19
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   D0811   20 non-null     float64
+ 1   Date    20 non-null     int64  
+dtypes: float64(1), int64(1)
+memory usage: 480.0 bytes
+None
+   Split Transformation                                              Model                                        Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0   None         _D0811  _D0811_LinearTrend_residue_zeroCycle_residue_A...                 NoTransf_LinearTrend_NoCycle_AR          21   0.0886        0.0886    0.0886
+1   None         _D0811  _D0811_LinearTrend_residue_bestCycle_byL2_resi...              NoTransf_LinearTrend_Cycle_None_AR          29   0.0886        0.0886    0.0886
+2   None         _D0811   _D0811_PolyTrend_residue_zeroCycle_residue_AR(5)                   NoTransf_PolyTrend_NoCycle_AR          21   0.0893        0.0893    0.0893
+3   None         _D0811  _D0811_PolyTrend_residue_bestCycle_byL2_residu...                NoTransf_PolyTrend_Cycle_None_AR          29   0.0893        0.0893    0.0893
+4   None         _D0811  _D0811_ConstantTrend_residue_zeroCycle_residue...               NoTransf_ConstantTrend_NoCycle_AR           5   0.0926        0.0926    0.0926
+..   ...            ...                                                ...                                             ...         ...      ...           ...       ...
+59  None  RelDiff_D0811  RelDiff_D0811_PolyTrend_residue_bestCycle_byL2...      RelativeDifference_PolyTrend_Cycle_None_AR          61   0.5388        0.5388    0.5388
+60  None  RelDiff_D0811  RelDiff_D0811_ConstantTrend_residue_zeroCycle_...     RelativeDifference_ConstantTrend_NoCycle_AR          37   0.6229        0.6229    0.6229
+61  None  RelDiff_D0811  RelDiff_D0811_ConstantTrend_residue_bestCycle_...  RelativeDifference_ConstantTrend_Cycle_None_AR          45   0.6229        0.6229    0.6229
+62  None   CumSum_D0811  CumSum_D0811_ConstantTrend_residue_zeroCycle_r...          Integration_ConstantTrend_NoCycle_NoAR          32   1.2577        1.2577    1.2577
+63  None   CumSum_D0811  CumSum_D0811_ConstantTrend_residue_bestCycle_b...       Integration_ConstantTrend_Cycle_None_NoAR          40   1.2577        1.2577    1.2577
+
+[64 rows x 8 columns]
+  Split Transformation                                              Model                            Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _D0811  _D0811_LinearTrend_residue_zeroCycle_residue_A...     NoTransf_LinearTrend_NoCycle_AR          21   0.0886        0.0886    0.0886
+1  None         _D0811  _D0811_LinearTrend_residue_bestCycle_byL2_resi...  NoTransf_LinearTrend_Cycle_None_AR          29   0.0886        0.0886    0.0886
+2  None         _D0811   _D0811_PolyTrend_residue_zeroCycle_residue_AR(5)       NoTransf_PolyTrend_NoCycle_AR          21   0.0893        0.0893    0.0893
+3  None         _D0811  _D0811_PolyTrend_residue_bestCycle_byL2_residu...    NoTransf_PolyTrend_Cycle_None_AR          29   0.0893        0.0893    0.0893
+4  None         _D0811  _D0811_ConstantTrend_residue_zeroCycle_residue...   NoTransf_ConstantTrend_NoCycle_AR           5   0.0926        0.0926    0.0926
+6 0    18.0
+1    17.0
+2    19.0
+3    18.0
+4    21.0
+5    29.0
+Name: D0811, dtype: float64
+6 0    19.172377
+1    19.268952
+2    23.048091
+3    20.296281
+4    21.391809
+5    20.217867
+Name: D0811_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL D0811 D0811 [18.0, 17.0, 19.0, 18.0, 21.0, 29.0]
+FORECAST_DETAIL_PREDICTED D0811 D0811 [19.17237732943705, 19.26895208146087, 23.048090962469168, 20.296280591857943, 21.391809224505586, 20.217866877045743]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON D0811 D0811 20 6
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ D0811 D0811 4.978557348251343
+BENCHMARK_PERF_DETAIL_BEST_MODEL D0811 D0811 ConstantTrend + NoCycle + AR
+BENCHMARK_PERF_DETAIL_PERF_COUNT D0811 D0811 6
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE D0811 D0811 0.1435 0.146 1.0533
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 D0811 D0811 3.1599405521141457 4.192491975846218 -0.061697320185604365
+BENCHMARK_SUCCESS 'M4_COMP_DEMOGRAPHICS_D0811_6'

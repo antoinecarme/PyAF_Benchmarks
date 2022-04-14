@@ -1,0 +1,62 @@
+BENCH_DATA M1_COMP
+TIME :  Date N= 20 H= 6 HEAD= [0 1 2 3 4] TAIL= [15 16 17 18 19]
+SIGNAL :  YAG10 N= 20 H= 6 HEAD= [33.  34.9 37.6 43.7 44.6] TAIL= [81.5 83.5 85.2 88.3 92.4]
+Index  YAG10  Date
+1       33.0     0
+2       34.9     1
+3       37.6     2
+4       43.7     3
+5       44.6     4
+<class 'pandas.core.frame.DataFrame'>
+Index: 20 entries, 1 to 20
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   YAG10   20 non-null     float64
+ 1   Date    20 non-null     int64  
+dtypes: float64(1), int64(1)
+memory usage: 480.0+ bytes
+None
+   Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0   None         _YAG10   _YAG10_PolyTrend_residue_zeroCycle_residue_AR(5)               NoTransf_PolyTrend_NoCycle_AR          21   0.0588        0.0588    0.0588
+1   None         _YAG10  _YAG10_PolyTrend_residue_bestCycle_byL2_residu...            NoTransf_PolyTrend_Cycle_None_AR          29   0.0588        0.0588    0.0588
+2   None         _YAG10  _YAG10_ConstantTrend_residue_zeroCycle_residue...           NoTransf_ConstantTrend_NoCycle_AR           5   0.0590        0.0590    0.0590
+3   None         _YAG10  _YAG10_ConstantTrend_residue_bestCycle_byL2_re...        NoTransf_ConstantTrend_Cycle_None_AR          13   0.0590        0.0590    0.0590
+4   None         _YAG10    _YAG10_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0594        0.0594    0.0594
+..   ...            ...                                                ...                                         ...         ...      ...           ...       ...
+59  None  RelDiff_YAG10  RelDiff_YAG10_Lag1Trend_residue_bestCycle_byL2...  RelativeDifference_Lag1Trend_Cycle_None_AR          77   0.3891        0.3891    0.3891
+60  None   CumSum_YAG10  CumSum_YAG10_LinearTrend_residue_zeroCycle_res...        Integration_LinearTrend_NoCycle_NoAR          48   0.4572        0.4572    0.4572
+61  None   CumSum_YAG10  CumSum_YAG10_LinearTrend_residue_bestCycle_byL...     Integration_LinearTrend_Cycle_None_NoAR          56   0.4572        0.4572    0.4572
+62  None   CumSum_YAG10  CumSum_YAG10_ConstantTrend_residue_zeroCycle_r...      Integration_ConstantTrend_NoCycle_NoAR          32   1.6983        1.6983    1.6983
+63  None   CumSum_YAG10  CumSum_YAG10_ConstantTrend_residue_bestCycle_b...   Integration_ConstantTrend_Cycle_None_NoAR          40   1.6983        1.6983    1.6983
+
+[64 rows x 8 columns]
+  Split Transformation                                              Model                              Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _YAG10   _YAG10_PolyTrend_residue_zeroCycle_residue_AR(5)         NoTransf_PolyTrend_NoCycle_AR          21   0.0588        0.0588    0.0588
+1  None         _YAG10  _YAG10_PolyTrend_residue_bestCycle_byL2_residu...      NoTransf_PolyTrend_Cycle_None_AR          29   0.0588        0.0588    0.0588
+2  None         _YAG10  _YAG10_ConstantTrend_residue_zeroCycle_residue...     NoTransf_ConstantTrend_NoCycle_AR           5   0.0590        0.0590    0.0590
+3  None         _YAG10  _YAG10_ConstantTrend_residue_bestCycle_byL2_re...  NoTransf_ConstantTrend_Cycle_None_AR          13   0.0590        0.0590    0.0590
+4  None         _YAG10    _YAG10_Lag1Trend_residue_zeroCycle_residue_NoAR       NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0594        0.0594    0.0594
+6 0     96.9
+1    100.1
+2    104.3
+3    108.4
+4    112.8
+5    116.7
+Name: YAG10, dtype: float64
+6 0     95.464875
+1     98.696909
+2    101.874403
+3    104.908101
+4    108.136002
+5    111.353660
+Name: YAG10_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL M1_COMP YAG10 [96.9, 100.1, 104.3, 108.4, 112.8, 116.7]
+FORECAST_DETAIL_PREDICTED M1_COMP YAG10 [95.46487488250429, 98.6969094383768, 101.87440336832934, 104.90810054195371, 108.1360021551662, 111.3536596253744]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON M1_COMP YAG10 20 6
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ M1_COMP YAG10 4.203037977218628
+BENCHMARK_PERF_DETAIL_BEST_MODEL M1_COMP YAG10 ConstantTrend + NoCycle + AR
+BENCHMARK_PERF_DETAIL_PERF_COUNT M1_COMP YAG10 6
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE M1_COMP YAG10 0.0286 0.0291 0.7898
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 M1_COMP YAG10 3.1276749980492085 3.474702849876166 0.7460811350787497
+BENCHMARK_SUCCESS 'M1_COMP_YAG10_6'

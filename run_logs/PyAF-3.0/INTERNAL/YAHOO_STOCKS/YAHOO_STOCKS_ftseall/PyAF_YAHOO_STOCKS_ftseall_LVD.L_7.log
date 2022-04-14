@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1295 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  LVD.L N= 1295 H= 7 HEAD= [117.   119.75 117.5  114.25 111.75] TAIL= [115.5  120.75 118.25 120.   118.5 ]
+    LVD.L       Date
+0  117.00 2011-07-28
+1  119.75 2011-07-29
+2  117.50 2011-08-01
+3  114.25 2011-08-02
+4  111.75 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1295 entries, 0 to 1294
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   LVD.L   1295 non-null   float64       
+ 1   Date    1295 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _LVD.L    _LVD.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.250000e-02  1.660000e-02  2.220000e-02
+1   None   CumSum_LVD.L  CumSum_LVD.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.340000e-02  1.660000e-02  2.220000e-02
+2   None     Diff_LVD.L  Diff_LVD.L_Lag1Trend_residue_zeroCycle_residue...  ...  1.250000e-02  1.660000e-02  2.220000e-02
+3   None  RelDiff_LVD.L  RelDiff_LVD.L_Lag1Trend_residue_zeroCycle_resi...  ...  1.250000e-02  1.660000e-02  2.220000e-02
+4   None         _LVD.L  _LVD.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  1.250000e-02  1.670000e-02  2.210000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_LVD.L  RelDiff_LVD.L_LinearTrend_residue_bestCycle_by...  ...  2.499520e+07  2.584814e+07  3.187765e+07
+92  None  RelDiff_LVD.L  RelDiff_LVD.L_Lag1Trend_residue_bestCycle_byL2...  ...  2.502409e+07  2.584814e+07  3.187765e+07
+93  None  RelDiff_LVD.L  RelDiff_LVD.L_Lag1Trend_residue_Seasonal_DayOf...  ...  2.502409e+07  2.584814e+07  3.187765e+07
+94  None  RelDiff_LVD.L  RelDiff_LVD.L_ConstantTrend_residue_bestCycle_...  ...  2.476081e+07  2.584814e+07  3.187766e+07
+95  None  RelDiff_LVD.L  RelDiff_LVD.L_PolyTrend_residue_Seasonal_DayOf...  ...  2.500759e+07  2.584814e+07  3.187766e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _LVD.L    _LVD.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0125        0.0166    0.0222
+1  None   CumSum_LVD.L  CumSum_LVD.L_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0134        0.0166    0.0222
+2  None     Diff_LVD.L  Diff_LVD.L_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0125        0.0166    0.0222
+3  None  RelDiff_LVD.L  RelDiff_LVD.L_Lag1Trend_residue_zeroCycle_resi...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0125        0.0166    0.0222
+4  None         _LVD.L  _LVD.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0125        0.0167    0.0221
+7 0    120.00
+1    118.75
+2    119.50
+3    119.25
+4    120.50
+5    119.00
+6    116.50
+Name: LVD.L, dtype: float64
+7 0    118.5
+1    118.5
+2    118.5
+3    118.5
+4    118.5
+5    118.5
+6    118.5
+Name: LVD.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_LVD.L LVD.L [120.0, 118.75, 119.5, 119.25, 120.5, 119.0, 116.5]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_LVD.L LVD.L [118.5, 118.5, 118.5, 118.5, 118.5, 118.5, 118.5]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_LVD.L LVD.L 1295 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_LVD.L LVD.L 11.424893140792847
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_LVD.L LVD.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_LVD.L LVD.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_LVD.L LVD.L 0.0096 0.0096 0.9143
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_LVD.L LVD.L 1.1428571428571428 1.3161089837634485 -0.23230490016896366
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_LVD.L_7'

@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftse250
+TIME :  Date N= 1292 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  MNKS.L N= 1292 H= 7 HEAD= [3.451  3.9034 3.363  3.341  3.293 ] TAIL= [5.28691 5.30199 5.27571 5.29507 5.29546]
+   MNKS.L       Date
+0  3.4510 2011-07-28
+1  3.9034 2011-07-29
+2  3.3630 2011-08-01
+3  3.3410 2011-08-02
+4  3.2930 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1292 entries, 0 to 1291
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   MNKS.L  1292 non-null   float64       
+ 1   Date    1292 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _MNKS.L   _MNKS.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.110000e-02  1.420000e-02  5.400000e-03
+1   None   CumSum_MNKS.L  CumSum_MNKS.L_Lag1Trend_residue_zeroCycle_resi...  ...  2.200000e-02  1.420000e-02  5.400000e-03
+2   None     Diff_MNKS.L  Diff_MNKS.L_Lag1Trend_residue_zeroCycle_residu...  ...  2.110000e-02  1.420000e-02  5.400000e-03
+3   None  RelDiff_MNKS.L  RelDiff_MNKS.L_Lag1Trend_residue_zeroCycle_res...  ...  2.110000e-02  1.420000e-02  5.400000e-03
+4   None         _MNKS.L  _MNKS.L_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  2.140000e-02  1.450000e-02  4.500000e-03
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_MNKS.L  RelDiff_MNKS.L_Lag1Trend_residue_bestCycle_byL...  ...  1.274690e+07  1.027057e+07  8.899739e+06
+92  None  RelDiff_MNKS.L  RelDiff_MNKS.L_PolyTrend_residue_Seasonal_DayO...  ...  1.274688e+07  1.027057e+07  8.899740e+06
+93  None  RelDiff_MNKS.L  RelDiff_MNKS.L_PolyTrend_residue_bestCycle_byL...  ...  1.274688e+07  1.027057e+07  8.899740e+06
+94  None  RelDiff_MNKS.L  RelDiff_MNKS.L_ConstantTrend_residue_bestCycle...  ...  1.269276e+07  1.027057e+07  8.899740e+06
+95  None  RelDiff_MNKS.L  RelDiff_MNKS.L_PolyTrend_residue_Seasonal_DayO...  ...  1.274688e+07  1.027057e+07  8.899740e+06
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _MNKS.L   _MNKS.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0211        0.0142    0.0054
+1  None   CumSum_MNKS.L  CumSum_MNKS.L_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0220        0.0142    0.0054
+2  None     Diff_MNKS.L  Diff_MNKS.L_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0211        0.0142    0.0054
+3  None  RelDiff_MNKS.L  RelDiff_MNKS.L_Lag1Trend_residue_zeroCycle_res...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0211        0.0142    0.0054
+4  None         _MNKS.L  _MNKS.L_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0214        0.0145    0.0045
+7 0    5.34421
+1    5.37327
+2    5.36478
+3    4.68100
+4    5.39681
+5    4.81000
+6    4.75100
+Name: MNKS.L, dtype: float64
+7 0    5.29546
+1    5.29546
+2    5.29546
+3    5.29546
+4    5.29546
+5    5.29546
+6    5.29546
+Name: MNKS.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_MNKS.L MNKS.L [5.3442099999999995, 5.37327, 5.3647800000000005, 4.681, 5.396809999999999, 4.81, 4.751]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_MNKS.L MNKS.L [5.29546, 5.29546, 5.29546, 5.29546, 5.29546, 5.29546, 5.29546]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_MNKS.L MNKS.L 1292 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_MNKS.L MNKS.L 11.338369369506836
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_MNKS.L MNKS.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_MNKS.L MNKS.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_MNKS.L MNKS.L 0.0574 0.0548 0.799
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_MNKS.L MNKS.L 0.277372857142857 0.36511783583229296 -0.3847039735084883
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftse250_MNKS.L_7'

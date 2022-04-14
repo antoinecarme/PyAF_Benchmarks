@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_mib30
+TIME :  Date N= 1297 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  ATL.MI N= 1297 H= 7 HEAD= [13.6605 13.5555 13.1145 12.8205 12.7785] TAIL= [22.87 22.44 22.51 22.49 22.24]
+    ATL.MI       Date
+0  13.6605 2011-07-28
+1  13.5555 2011-07-29
+2  13.1145 2011-08-01
+3  12.8205 2011-08-02
+4  12.7785 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1297 entries, 0 to 1296
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   ATL.MI  1297 non-null   float64       
+ 1   Date    1297 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _ATL.MI   _ATL.MI_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.320000e-02  1.230000e-02  1.140000e-02
+1   None         _ATL.MI  _ATL.MI_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  1.320000e-02  1.230000e-02  1.120000e-02
+2   None         _ATL.MI  _ATL.MI_Lag1Trend_residue_bestCycle_byL2_resid...  ...  1.320000e-02  1.230000e-02  1.230000e-02
+3   None   CumSum_ATL.MI  CumSum_ATL.MI_Lag1Trend_residue_zeroCycle_resi...  ...  1.420000e-02  1.230000e-02  1.140000e-02
+4   None     Diff_ATL.MI  Diff_ATL.MI_Lag1Trend_residue_zeroCycle_residu...  ...  1.320000e-02  1.230000e-02  1.140000e-02
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_ATL.MI  RelDiff_ATL.MI_LinearTrend_residue_Seasonal_Da...  ...  3.069703e+07  1.890301e+07  2.015857e+07
+92  None  RelDiff_ATL.MI  RelDiff_ATL.MI_LinearTrend_residue_bestCycle_b...  ...  3.069703e+07  1.890301e+07  2.015857e+07
+93  None  RelDiff_ATL.MI  RelDiff_ATL.MI_PolyTrend_residue_Seasonal_DayO...  ...  3.069693e+07  1.890301e+07  2.015857e+07
+94  None  RelDiff_ATL.MI  RelDiff_ATL.MI_LinearTrend_residue_bestCycle_b...  ...  3.069717e+07  1.890301e+07  2.015857e+07
+95  None  RelDiff_ATL.MI  RelDiff_ATL.MI_Lag1Trend_residue_bestCycle_byL...  ...  3.064807e+07  1.890301e+07  2.015857e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _ATL.MI   _ATL.MI_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0132        0.0123    0.0114
+1  None        _ATL.MI  _ATL.MI_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0132        0.0123    0.0112
+2  None        _ATL.MI  _ATL.MI_Lag1Trend_residue_bestCycle_byL2_resid...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0132        0.0123    0.0123
+3  None  CumSum_ATL.MI  CumSum_ATL.MI_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0142        0.0123    0.0114
+4  None    Diff_ATL.MI  Diff_ATL.MI_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0132        0.0123    0.0114
+7 0    22.21
+1    22.06
+2    21.98
+3    22.08
+4    22.25
+5    22.18
+6    22.26
+Name: ATL.MI, dtype: float64
+7 0    22.24
+1    22.24
+2    22.24
+3    22.24
+4    22.24
+5    22.24
+6    22.24
+Name: ATL.MI_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_ATL.MI ATL.MI [22.21, 22.06, 21.98, 22.08, 22.25, 22.18, 22.26]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_ATL.MI ATL.MI [22.24, 22.24, 22.24, 22.24, 22.24, 22.24, 22.24]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_ATL.MI ATL.MI 1297 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_ATL.MI ATL.MI 12.938806533813477
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_ATL.MI ATL.MI Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_ATL.MI ATL.MI 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_ATL.MI ATL.MI 0.0047 0.0046 0.9495
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_ATL.MI ATL.MI 0.10285714285714269 0.13659115219201676 -0.9101546148409383
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_mib30_ATL.MI_7'

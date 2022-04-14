@@ -1,0 +1,62 @@
+BENCH_DATA M4_COMP_INVENTORY
+TIME :  Date N= 78 H= 6 HEAD= [0 1 2 3 4] TAIL= [73 74 75 76 77]
+SIGNAL :  I1102 N= 78 H= 6 HEAD= [ 0. 10.  0.  0. 12.] TAIL= [0. 0. 0. 0. 0.]
+   I1102  Date
+0    0.0     0
+1   10.0     1
+2    0.0     2
+3    0.0     3
+4   12.0     4
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 78 entries, 0 to 77
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   I1102   78 non-null     float64
+ 1   Date    78 non-null     int64  
+dtypes: float64(1), int64(1)
+memory usage: 1.8 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None   CumSum_I1102  CumSum_I1102_ConstantTrend_residue_zeroCycle_r...  ...  5.946445e+09  6.670000e-02  0.000000e+00
+1   None     Diff_I1102  Diff_I1102_ConstantTrend_residue_zeroCycle_res...  ...  1.579000e-01  6.670000e-02  0.000000e+00
+2   None  RelDiff_I1102  RelDiff_I1102_ConstantTrend_residue_zeroCycle_...  ...  1.579000e-01  6.670000e-02  0.000000e+00
+3   None  RelDiff_I1102  RelDiff_I1102_ConstantTrend_residue_bestCycle_...  ...  1.579000e-01  6.670000e-02  0.000000e+00
+4   None  RelDiff_I1102  RelDiff_I1102_ConstantTrend_residue_zeroCycle_...  ...  1.579000e-01  6.670000e-02  0.000000e+00
+..   ...            ...                                                ...  ...           ...           ...           ...
+59  None     Diff_I1102  Diff_I1102_PolyTrend_residue_zeroCycle_residue...  ...  2.014456e+10  2.690612e+10  4.476847e+10
+60  None     Diff_I1102  Diff_I1102_LinearTrend_residue_bestCycle_byL2_...  ...  2.173040e+10  2.930545e+10  5.648453e+10
+61  None     Diff_I1102  Diff_I1102_LinearTrend_residue_zeroCycle_resid...  ...  2.029091e+10  3.046213e+10  5.586450e+10
+62  None     Diff_I1102  Diff_I1102_Lag1Trend_residue_zeroCycle_residue...  ...  2.041709e+10  3.516215e+10  4.697505e+10
+63  None     Diff_I1102  Diff_I1102_Lag1Trend_residue_bestCycle_byL2_re...  ...  2.677051e+10  3.882361e+10  5.662248e+10
+
+[64 rows x 8 columns]
+  Split Transformation                                              Model                                       Category  Complexity       FitMAPE  ForecastMAPE  TestMAPE
+0  None   CumSum_I1102  CumSum_I1102_ConstantTrend_residue_zeroCycle_r...         Integration_ConstantTrend_NoCycle_NoAR          32  5.946445e+09        0.0667       0.0
+1  None     Diff_I1102  Diff_I1102_ConstantTrend_residue_zeroCycle_res...          Difference_ConstantTrend_NoCycle_NoAR          32  1.579000e-01        0.0667       0.0
+2  None  RelDiff_I1102  RelDiff_I1102_ConstantTrend_residue_zeroCycle_...  RelativeDifference_ConstantTrend_NoCycle_NoAR          32  1.579000e-01        0.0667       0.0
+3  None  RelDiff_I1102  RelDiff_I1102_ConstantTrend_residue_bestCycle_...    RelativeDifference_ConstantTrend_Cycle_NoAR          40  1.579000e-01        0.0667       0.0
+4  None  RelDiff_I1102  RelDiff_I1102_ConstantTrend_residue_zeroCycle_...    RelativeDifference_ConstantTrend_NoCycle_AR          46  1.579000e-01        0.0667       0.0
+6 0    0.0
+1    0.0
+2    0.0
+3    3.0
+4    0.0
+5    0.0
+Name: I1102, dtype: float64
+6 0    0.0
+1    0.0
+2    0.0
+3    0.0
+4    0.0
+5    0.0
+Name: I1102_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL I1102 I1102 [0.0, 0.0, 0.0, 3.0, 0.0, 0.0]
+FORECAST_DETAIL_PREDICTED I1102 I1102 [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON I1102 I1102 78 6
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ I1102 I1102 5.6822333335876465
+BENCHMARK_PERF_DETAIL_BEST_MODEL I1102 I1102 ConstantTrend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT I1102 I1102 6
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE I1102 I1102 0.1667 0.3333 0.4167
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 I1102 I1102 0.5 1.224744871391589 -0.1999999999840001
+BENCHMARK_SUCCESS 'M4_COMP_INVENTORY_I1102_6'

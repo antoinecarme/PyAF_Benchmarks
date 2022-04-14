@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_usindex
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  ^XMI N= 1251 H= 7 HEAD= [1347.619995 1335.530029 1333.47998  1306.079956 1309.810059] TAIL= [1913.030029 1915.219971 1927.849976 1928.439941 1930.890015]
+          ^XMI       Date
+0  1347.619995 2011-07-28
+1  1335.530029 2011-07-29
+2  1333.479980 2011-08-01
+3  1306.079956 2011-08-02
+4  1309.810059 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   ^XMI    1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None          _^XMI     _^XMI_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  6.200000e-03  7.800000e-03  4.800000e-03
+1   None          _^XMI  _^XMI_Lag1Trend_residue_Seasonal_DayOfWeek_res...  ...  6.200000e-03  7.800000e-03  4.700000e-03
+2   None    CumSum_^XMI  CumSum_^XMI_Lag1Trend_residue_zeroCycle_residu...  ...  7.200000e-03  7.800000e-03  4.800000e-03
+3   None      Diff_^XMI  Diff_^XMI_Lag1Trend_residue_zeroCycle_residue_...  ...  6.200000e-03  7.800000e-03  4.800000e-03
+4   None   RelDiff_^XMI  RelDiff_^XMI_Lag1Trend_residue_zeroCycle_resid...  ...  6.200000e-03  7.800000e-03  4.800000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None   RelDiff_^XMI  RelDiff_^XMI_LinearTrend_residue_bestCycle_byL...  ...  1.078154e+07  9.685180e+06  8.987451e+06
+92  None   RelDiff_^XMI  RelDiff_^XMI_PolyTrend_residue_Seasonal_DayOfW...  ...  1.078617e+07  9.685180e+06  8.987452e+06
+93  None   RelDiff_^XMI  RelDiff_^XMI_ConstantTrend_residue_bestCycle_b...  ...  1.071826e+07  9.685180e+06  8.987452e+06
+94  None   RelDiff_^XMI  RelDiff_^XMI_PolyTrend_residue_zeroCycle_resid...  ...  1.078617e+07  9.685180e+06  8.987452e+06
+95  None   RelDiff_^XMI  RelDiff_^XMI_PolyTrend_residue_bestCycle_byL2_...  ...  1.078617e+07  9.685180e+06  8.987452e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None          _^XMI     _^XMI_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0062        0.0078    0.0048
+1  None          _^XMI  _^XMI_Lag1Trend_residue_Seasonal_DayOfWeek_res...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0062        0.0078    0.0047
+2  None    CumSum_^XMI  CumSum_^XMI_Lag1Trend_residue_zeroCycle_residu...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0072        0.0078    0.0048
+3  None      Diff_^XMI  Diff_^XMI_Lag1Trend_residue_zeroCycle_residue_...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0062        0.0078    0.0048
+4  None   RelDiff_^XMI  RelDiff_^XMI_Lag1Trend_residue_zeroCycle_resid...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0062        0.0078    0.0048
+7 0    1934.459961
+1    1937.569946
+2    1931.439941
+3    1938.890015
+4    1931.260010
+5    1921.359985
+6    1915.069946
+Name: ^XMI, dtype: float64
+7 0    1930.890015
+1    1930.890015
+2    1930.890015
+3    1930.890015
+4    1930.890015
+5    1930.890015
+6    1930.890015
+Name: ^XMI_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_^XMI ^XMI [1934.459961, 1937.569946, 1931.439941, 1938.890015, 1931.2600100000002, 1921.359985, 1915.069946]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_^XMI ^XMI [1930.890015, 1930.890015, 1930.890015, 1930.890015, 1930.890015, 1930.890015, 1930.890015]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_^XMI ^XMI 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_^XMI ^XMI 11.028612852096558
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_^XMI ^XMI Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_^XMI ^XMI 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_^XMI ^XMI 0.0033 0.0033 0.942
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_^XMI ^XMI 6.359985285714337 8.13195954665326 -0.011928409608565893
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_usindex_^XMI_7'

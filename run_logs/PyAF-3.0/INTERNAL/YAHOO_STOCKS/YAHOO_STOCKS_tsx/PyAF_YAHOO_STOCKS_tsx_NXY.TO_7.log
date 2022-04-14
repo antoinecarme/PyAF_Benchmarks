@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_tsx
+TIME :  Date N= 405 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2013-02-12T00:00:00.000000000' '2013-02-13T00:00:00.000000000'
+ '2013-02-14T00:00:00.000000000' '2013-02-15T00:00:00.000000000'
+ '2013-02-18T00:00:00.000000000']
+SIGNAL :  NXY.TO N= 405 H= 7 HEAD= [22.27 22.29 21.8  21.75 20.14] TAIL= [27.48 27.49 27.44 27.63 27.63]
+   NXY.TO       Date
+0   22.27 2011-07-28
+1   22.29 2011-07-29
+2   21.80 2011-08-02
+3   21.75 2011-08-03
+4   20.14 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 405 entries, 0 to 404
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   NXY.TO  405 non-null    float64       
+ 1   Date    405 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 9.5 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _NXY.TO   _NXY.TO_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.580000e-02  1.070000e-02  6.300000e-03
+1   None   CumSum_NXY.TO  CumSum_NXY.TO_Lag1Trend_residue_zeroCycle_resi...  ...  1.900000e-02  1.070000e-02  6.300000e-03
+2   None     Diff_NXY.TO  Diff_NXY.TO_Lag1Trend_residue_zeroCycle_residu...  ...  1.580000e-02  1.070000e-02  6.300000e-03
+3   None  RelDiff_NXY.TO  RelDiff_NXY.TO_Lag1Trend_residue_zeroCycle_res...  ...  1.580000e-02  1.070000e-02  6.300000e-03
+4   None         _NXY.TO  _NXY.TO_Lag1Trend_residue_bestCycle_byL2_resid...  ...  1.600000e-02  1.090000e-02  6.500000e-03
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_NXY.TO  RelDiff_NXY.TO_Lag1Trend_residue_Seasonal_DayO...  ...  4.063573e+07  2.992340e+07  2.791948e+07
+92  None  RelDiff_NXY.TO  RelDiff_NXY.TO_LinearTrend_residue_Seasonal_Da...  ...  4.063574e+07  2.992340e+07  2.791948e+07
+93  None  RelDiff_NXY.TO  RelDiff_NXY.TO_LinearTrend_residue_Seasonal_Da...  ...  4.063574e+07  2.992340e+07  2.791948e+07
+94  None  RelDiff_NXY.TO  RelDiff_NXY.TO_PolyTrend_residue_Seasonal_DayO...  ...  4.063574e+07  2.992340e+07  2.791948e+07
+95  None  RelDiff_NXY.TO  RelDiff_NXY.TO_Lag1Trend_residue_Seasonal_DayO...  ...  4.063598e+07  2.992340e+07  2.791948e+07
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _NXY.TO   _NXY.TO_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0158        0.0107    0.0063
+1  None   CumSum_NXY.TO  CumSum_NXY.TO_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0190        0.0107    0.0063
+2  None     Diff_NXY.TO  Diff_NXY.TO_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0158        0.0107    0.0063
+3  None  RelDiff_NXY.TO  RelDiff_NXY.TO_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0158        0.0107    0.0063
+4  None         _NXY.TO  _NXY.TO_Lag1Trend_residue_bestCycle_byL2_resid...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0160        0.0109    0.0065
+7 0    27.74
+1    27.87
+2    27.91
+3    27.97
+4    28.15
+5    28.19
+6    28.18
+Name: NXY.TO, dtype: float64
+7 0    27.63
+1    27.63
+2    27.63
+3    27.63
+4    27.63
+5    27.63
+6    27.63
+Name: NXY.TO_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_NXY.TO NXY.TO [27.74, 27.87, 27.91, 27.97, 28.15, 28.19, 28.18]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_NXY.TO NXY.TO [27.63, 27.63, 27.63, 27.63, 27.63, 27.63, 27.63]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_NXY.TO NXY.TO 405 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_NXY.TO NXY.TO 10.253071546554565
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_NXY.TO NXY.TO Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_NXY.TO NXY.TO 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_NXY.TO NXY.TO 0.0132 0.0133 4.8447
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_NXY.TO NXY.TO 0.37142857142857216 0.40535698552545796 -5.234629081334804
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_tsx_NXY.TO_7'

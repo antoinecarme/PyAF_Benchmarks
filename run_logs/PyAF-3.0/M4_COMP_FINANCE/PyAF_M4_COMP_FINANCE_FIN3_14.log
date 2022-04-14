@@ -1,0 +1,78 @@
+BENCH_DATA M4_COMP_FINANCE
+TIME :  Date N= 331 H= 14 HEAD= [0 1 2 3 4] TAIL= [326 327 328 329 330]
+SIGNAL :  FIN3 N= 331 H= 14 HEAD= [91.9 89.5 89.8 91.5 99.1] TAIL= [97.6 94.9 93.  91.5 91.3]
+   FIN3  Date
+0  91.9     0
+1  89.5     1
+2  89.8     2
+3  91.5     3
+4  99.1     4
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 331 entries, 0 to 330
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   FIN3    331 non-null    float64
+ 1   Date    331 non-null    int64  
+dtypes: float64(1), int64(1)
+memory usage: 7.8 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None          _FIN3  _FIN3_Lag1Trend_residue_bestCycle_byL2_residue...  ...  1.910000e-02  1.450000e-02  1.610000e-02
+1   None          _FIN3     _FIN3_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.940000e-02  1.460000e-02  1.320000e-02
+2   None    CumSum_FIN3  CumSum_FIN3_Lag1Trend_residue_zeroCycle_residu...  ...  2.320000e-02  1.460000e-02  1.320000e-02
+3   None      Diff_FIN3  Diff_FIN3_Lag1Trend_residue_zeroCycle_residue_...  ...  1.940000e-02  1.460000e-02  1.320000e-02
+4   None   RelDiff_FIN3  RelDiff_FIN3_Lag1Trend_residue_zeroCycle_resid...  ...  1.940000e-02  1.460000e-02  1.320000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+59  None   RelDiff_FIN3  RelDiff_FIN3_LinearTrend_residue_zeroCycle_res...  ...  8.172717e+06  8.203207e+06  9.854537e+06
+60  None   RelDiff_FIN3  RelDiff_FIN3_Lag1Trend_residue_bestCycle_byL2_...  ...  8.046659e+06  8.203207e+06  9.854537e+06
+61  None   RelDiff_FIN3  RelDiff_FIN3_LinearTrend_residue_bestCycle_byL...  ...  8.172712e+06  8.203207e+06  9.854537e+06
+62  None   RelDiff_FIN3  RelDiff_FIN3_PolyTrend_residue_bestCycle_byL2_...  ...  8.172727e+06  8.203207e+06  9.854537e+06
+63  None   RelDiff_FIN3  RelDiff_FIN3_PolyTrend_residue_zeroCycle_resid...  ...  8.172733e+06  8.203207e+06  9.854537e+06
+
+[64 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None          _FIN3  _FIN3_Lag1Trend_residue_bestCycle_byL2_residue...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0191        0.0145    0.0161
+1  None          _FIN3     _FIN3_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0194        0.0146    0.0132
+2  None    CumSum_FIN3  CumSum_FIN3_Lag1Trend_residue_zeroCycle_residu...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0232        0.0146    0.0132
+3  None      Diff_FIN3  Diff_FIN3_Lag1Trend_residue_zeroCycle_residue_...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0194        0.0146    0.0132
+4  None   RelDiff_FIN3  RelDiff_FIN3_Lag1Trend_residue_zeroCycle_resid...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0194        0.0146    0.0132
+14 0      96.4
+1      96.7
+2      94.5
+3      97.0
+4      96.3
+5      98.6
+6      98.8
+7     102.8
+8     100.7
+9      99.1
+10     95.9
+11     95.9
+12     96.9
+13    100.8
+Name: FIN3, dtype: float64
+14 0     91.3
+1     91.3
+2     91.3
+3     91.3
+4     91.3
+5     91.3
+6     91.3
+7     91.3
+8     91.3
+9     91.3
+10    91.3
+11    91.3
+12    91.3
+13    91.3
+Name: FIN3_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL FIN3 FIN3 [96.4, 96.7, 94.5, 97.0, 96.3, 98.6, 98.8, 102.8, 100.7, 99.1, 95.9, 95.9, 96.9, 100.8]
+FORECAST_DETAIL_PREDICTED FIN3 FIN3 [91.3, 91.3, 91.3, 91.3, 91.3, 91.3, 91.3, 91.3, 91.3, 91.3, 91.3, 91.3, 91.3, 91.3]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON FIN3 FIN3 331 14
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ FIN3 FIN3 8.032997369766235
+BENCHMARK_PERF_DETAIL_BEST_MODEL FIN3 FIN3 Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT FIN3 FIN3 14
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE FIN3 FIN3 0.0668 0.0694 3.5673
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 FIN3 FIN3 6.585714285714289 6.958140145593097 -8.598519177846928
+BENCHMARK_SUCCESS 'M4_COMP_FINANCE_FIN3_14'

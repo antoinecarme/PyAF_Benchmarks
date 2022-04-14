@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aord
+TIME :  Date N= 1294 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  AVG.AX N= 1294 H= 7 HEAD= [0.28998 0.27524 0.27524 0.28507 0.28507] TAIL= [0.515 0.52  0.515 0.535 0.51 ]
+    AVG.AX       Date
+0  0.28998 2011-07-28
+1  0.27524 2011-07-29
+2  0.27524 2011-08-01
+3  0.28507 2011-08-02
+4  0.28507 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1294 entries, 0 to 1293
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   AVG.AX  1294 non-null   float64       
+ 1   Date    1294 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _AVG.AX   _AVG.AX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.440000e-02  1.530000e-02  2.350000e-02
+1   None   CumSum_AVG.AX  CumSum_AVG.AX_Lag1Trend_residue_zeroCycle_resi...  ...  1.540000e-02  1.530000e-02  2.350000e-02
+2   None     Diff_AVG.AX  Diff_AVG.AX_Lag1Trend_residue_zeroCycle_residu...  ...  1.440000e-02  1.530000e-02  2.350000e-02
+3   None  RelDiff_AVG.AX  RelDiff_AVG.AX_Lag1Trend_residue_zeroCycle_res...  ...  1.440000e-02  1.530000e-02  2.350000e-02
+4   None         _AVG.AX  _AVG.AX_Lag1Trend_residue_zeroCycle_residue_AR...  ...  1.450000e-02  1.550000e-02  2.370000e-02
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_AVG.AX  RelDiff_AVG.AX_PolyTrend_residue_zeroCycle_res...  ...  1.401149e+07  1.267439e+07  1.050190e+07
+92  None  RelDiff_AVG.AX  RelDiff_AVG.AX_PolyTrend_residue_Seasonal_DayO...  ...  1.401149e+07  1.267439e+07  1.050190e+07
+93  None  RelDiff_AVG.AX  RelDiff_AVG.AX_PolyTrend_residue_bestCycle_byL...  ...  1.401149e+07  1.267439e+07  1.050190e+07
+94  None  RelDiff_AVG.AX  RelDiff_AVG.AX_ConstantTrend_residue_zeroCycle...  ...  1.399500e+07  1.267439e+07  1.050190e+07
+95  None  RelDiff_AVG.AX  RelDiff_AVG.AX_PolyTrend_residue_zeroCycle_res...  ...  1.401149e+07  1.267439e+07  1.050190e+07
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _AVG.AX   _AVG.AX_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0144        0.0153    0.0235
+1  None   CumSum_AVG.AX  CumSum_AVG.AX_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0154        0.0153    0.0235
+2  None     Diff_AVG.AX  Diff_AVG.AX_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0144        0.0153    0.0235
+3  None  RelDiff_AVG.AX  RelDiff_AVG.AX_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0144        0.0153    0.0235
+4  None         _AVG.AX  _AVG.AX_Lag1Trend_residue_zeroCycle_residue_AR...              NoTransf_Lag1Trend_NoCycle_AR          96   0.0145        0.0155    0.0237
+7 0    0.515
+1    0.535
+2    0.570
+3    0.565
+4    0.570
+5    0.575
+6    0.565
+Name: AVG.AX, dtype: float64
+7 0    0.51
+1    0.51
+2    0.51
+3    0.51
+4    0.51
+5    0.51
+6    0.51
+Name: AVG.AX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_AVG.AX AVG.AX [0.515, 0.535, 0.57, 0.565, 0.57, 0.575, 0.565]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_AVG.AX AVG.AX [0.51, 0.51, 0.51, 0.51, 0.51, 0.51, 0.51]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_AVG.AX AVG.AX 1294 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_AVG.AX AVG.AX 11.153700351715088
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_AVG.AX AVG.AX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_AVG.AX AVG.AX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_AVG.AX AVG.AX 0.0821 0.0863 3.4821
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_AVG.AX AVG.AX 0.04642857142857139 0.050885024459910694 -4.970588038615929
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aord_AVG.AX_7'

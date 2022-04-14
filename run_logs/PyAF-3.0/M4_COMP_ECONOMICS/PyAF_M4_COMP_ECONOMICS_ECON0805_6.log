@@ -1,0 +1,62 @@
+BENCH_DATA M4_COMP_ECONOMICS
+TIME :  Date N= 49 H= 6 HEAD= [0 1 2 3 4] TAIL= [44 45 46 47 48]
+SIGNAL :  ECON0805 N= 49 H= 6 HEAD= [680. 635. 554. 578. 661.] TAIL= [9537. 9632. 9754. 9891. 9996.]
+   ECON0805  Date
+0     680.0     0
+1     635.0     1
+2     554.0     2
+3     578.0     3
+4     661.0     4
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 49 entries, 0 to 48
+Data columns (total 2 columns):
+ #   Column    Non-Null Count  Dtype  
+---  ------    --------------  -----  
+ 0   ECON0805  49 non-null     float64
+ 1   Date      49 non-null     int64  
+dtypes: float64(1), int64(1)
+memory usage: 1.1 KB
+None
+   Split    Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None   CumSum_ECON0805  CumSum_ECON0805_LinearTrend_residue_zeroCycle_...  ...  1.397000e-01  7.100000e-03  2.020000e-02
+1   None   CumSum_ECON0805  CumSum_ECON0805_LinearTrend_residue_bestCycle_...  ...  1.397000e-01  7.100000e-03  2.020000e-02
+2   None   CumSum_ECON0805  CumSum_ECON0805_Lag1Trend_residue_zeroCycle_re...  ...  9.390000e-02  8.200000e-03  2.600000e-03
+3   None   CumSum_ECON0805  CumSum_ECON0805_Lag1Trend_residue_bestCycle_by...  ...  9.390000e-02  8.200000e-03  2.600000e-03
+4   None         _ECON0805  _ECON0805_LinearTrend_residue_zeroCycle_residu...  ...  3.320000e-02  1.510000e-02  3.210000e-02
+..   ...               ...                                                ...  ...           ...           ...           ...
+59  None  RelDiff_ECON0805  RelDiff_ECON0805_LinearTrend_residue_bestCycle...  ...  8.279566e+06  1.382700e+06  1.297082e+06
+60  None  RelDiff_ECON0805  RelDiff_ECON0805_PolyTrend_residue_zeroCycle_r...  ...  8.279473e+06  1.382700e+06  1.297082e+06
+61  None  RelDiff_ECON0805  RelDiff_ECON0805_PolyTrend_residue_bestCycle_b...  ...  8.279473e+06  1.382700e+06  1.297082e+06
+62  None  RelDiff_ECON0805  RelDiff_ECON0805_PolyTrend_residue_zeroCycle_r...  ...  8.279571e+06  1.382700e+06  1.297082e+06
+63  None  RelDiff_ECON0805  RelDiff_ECON0805_PolyTrend_residue_bestCycle_b...  ...  8.279571e+06  1.382700e+06  1.297082e+06
+
+[64 rows x 8 columns]
+  Split   Transformation                                              Model                               Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None  CumSum_ECON0805  CumSum_ECON0805_LinearTrend_residue_zeroCycle_...     Integration_LinearTrend_NoCycle_AR          56   0.1397        0.0071    0.0202
+1  None  CumSum_ECON0805  CumSum_ECON0805_LinearTrend_residue_bestCycle_...  Integration_LinearTrend_Cycle_None_AR          64   0.1397        0.0071    0.0202
+2  None  CumSum_ECON0805  CumSum_ECON0805_Lag1Trend_residue_zeroCycle_re...       Integration_Lag1Trend_NoCycle_AR          72   0.0939        0.0082    0.0026
+3  None  CumSum_ECON0805  CumSum_ECON0805_Lag1Trend_residue_bestCycle_by...    Integration_Lag1Trend_Cycle_None_AR          80   0.0939        0.0082    0.0026
+4  None        _ECON0805  _ECON0805_LinearTrend_residue_zeroCycle_residu...        NoTransf_LinearTrend_NoCycle_AR          24   0.0332        0.0151    0.0321
+6 0    10062.0
+1    10084.0
+2    10109.0
+3    10118.0
+4    10122.0
+5    10114.0
+Name: ECON0805, dtype: float64
+6 0    9633.076352
+1    8933.351039
+2    8169.321631
+3    7461.017006
+4    6743.056569
+5    5949.946482
+Name: ECON0805_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL ECON0805 ECON0805 [10062.0, 10084.0, 10109.0, 10118.0, 10122.0, 10114.0]
+FORECAST_DETAIL_PREDICTED ECON0805 ECON0805 [9633.076352086777, 8933.351038806042, 8169.32163093972, 7461.017006440163, 6743.056568733971, 5949.94648170618]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON ECON0805 ECON0805 49 6
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ ECON0805 ECON0805 5.480671405792236
+BENCHMARK_PERF_DETAIL_BEST_MODEL ECON0805 ECON0805 LinearTrend + NoCycle + AR
+BENCHMARK_PERF_DETAIL_PERF_COUNT ECON0805 ECON0805 6
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE ECON0805 ECON0805 0.2261 0.2664 168.1278
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 ECON0805 ECON0805 2286.538486881191 2616.819944959067 -14823.636386798471
+BENCHMARK_SUCCESS 'M4_COMP_ECONOMICS_ECON0805_6'

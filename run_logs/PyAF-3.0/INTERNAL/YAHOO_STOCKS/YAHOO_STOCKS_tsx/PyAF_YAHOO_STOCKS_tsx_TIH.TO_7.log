@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_tsx
+TIME :  Date N= 1248 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  TIH.TO N= 1248 H= 7 HEAD= [18.309999 18.190001 17.940001 17.950001 18.01    ] TAIL= [39.400002 39.889999 39.630001 39.77     39.82    ]
+      TIH.TO       Date
+0  18.309999 2011-07-28
+1  18.190001 2011-07-29
+2  17.940001 2011-08-02
+3  17.950001 2011-08-03
+4  18.010000 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1248 entries, 0 to 1247
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   TIH.TO  1248 non-null   float64       
+ 1   Date    1248 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.2 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _TIH.TO   _TIH.TO_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  9.200000e-03  1.200000e-02  6.600000e-03
+1   None         _TIH.TO  _TIH.TO_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  9.100000e-03  1.200000e-02  6.400000e-03
+2   None   CumSum_TIH.TO  CumSum_TIH.TO_Lag1Trend_residue_zeroCycle_resi...  ...  1.020000e-02  1.200000e-02  6.600000e-03
+3   None     Diff_TIH.TO  Diff_TIH.TO_Lag1Trend_residue_zeroCycle_residu...  ...  9.200000e-03  1.200000e-02  6.600000e-03
+4   None  RelDiff_TIH.TO  RelDiff_TIH.TO_Lag1Trend_residue_zeroCycle_res...  ...  9.200000e-03  1.200000e-02  6.600000e-03
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_TIH.TO  RelDiff_TIH.TO_Lag1Trend_residue_Seasonal_DayO...  ...  1.062879e+07  7.564389e+06  6.347691e+06
+92  None  RelDiff_TIH.TO  RelDiff_TIH.TO_LinearTrend_residue_bestCycle_b...  ...  1.064270e+07  7.564389e+06  6.347691e+06
+93  None  RelDiff_TIH.TO  RelDiff_TIH.TO_ConstantTrend_residue_bestCycle...  ...  1.057325e+07  7.564390e+06  6.347691e+06
+94  None  RelDiff_TIH.TO  RelDiff_TIH.TO_PolyTrend_residue_zeroCycle_res...  ...  1.064270e+07  7.564390e+06  6.347691e+06
+95  None  RelDiff_TIH.TO  RelDiff_TIH.TO_PolyTrend_residue_bestCycle_byL...  ...  1.064270e+07  7.564390e+06  6.347691e+06
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _TIH.TO   _TIH.TO_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0092         0.012    0.0066
+1  None         _TIH.TO  _TIH.TO_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0091         0.012    0.0064
+2  None   CumSum_TIH.TO  CumSum_TIH.TO_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0102         0.012    0.0066
+3  None     Diff_TIH.TO  Diff_TIH.TO_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0092         0.012    0.0066
+4  None  RelDiff_TIH.TO  RelDiff_TIH.TO_Lag1Trend_residue_zeroCycle_res...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0092         0.012    0.0066
+7 0    40.419998
+1    40.150002
+2    40.290001
+3    39.240002
+4    38.849998
+5    39.020000
+6    39.220001
+Name: TIH.TO, dtype: float64
+7 0    39.82
+1    39.82
+2    39.82
+3    39.82
+4    39.82
+5    39.82
+6    39.82
+Name: TIH.TO_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_TIH.TO TIH.TO [40.419998, 40.150002, 40.290001000000004, 39.240002000000004, 38.849998, 39.02, 39.220001]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_TIH.TO TIH.TO [39.82, 39.82, 39.82, 39.82, 39.82, 39.82, 39.82]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_TIH.TO TIH.TO 1248 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_TIH.TO TIH.TO 10.981950283050537
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_TIH.TO TIH.TO Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_TIH.TO TIH.TO 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_TIH.TO TIH.TO 0.0158 0.0157 1.6795
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_TIH.TO TIH.TO 0.6214285714285707 0.6510541144963069 -0.13080343148535878
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_tsx_TIH.TO_7'

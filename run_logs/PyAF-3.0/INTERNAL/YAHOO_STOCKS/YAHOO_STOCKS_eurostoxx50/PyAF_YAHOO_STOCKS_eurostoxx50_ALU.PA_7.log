@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_eurostoxx50
+TIME :  Date N= 1298 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  ALU.PA N= 1298 H= 7 HEAD= [2.862 2.755 2.62  2.585 2.519] TAIL= [3.48 3.48 3.48 3.48 3.47]
+   ALU.PA       Date
+0   2.862 2011-07-28
+1   2.755 2011-07-29
+2   2.620 2011-08-01
+3   2.585 2011-08-02
+4   2.519 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1298 entries, 0 to 1297
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   ALU.PA  1298 non-null   float64       
+ 1   Date    1298 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _ALU.PA   _ALU.PA_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.310000e-02  1.140000e-02  1.600000e-03
+1   None   CumSum_ALU.PA  CumSum_ALU.PA_Lag1Trend_residue_zeroCycle_resi...  ...  2.410000e-02  1.140000e-02  1.600000e-03
+2   None     Diff_ALU.PA  Diff_ALU.PA_Lag1Trend_residue_zeroCycle_residu...  ...  2.310000e-02  1.140000e-02  1.600000e-03
+3   None  RelDiff_ALU.PA  RelDiff_ALU.PA_Lag1Trend_residue_zeroCycle_res...  ...  2.310000e-02  1.140000e-02  1.600000e-03
+4   None         _ALU.PA  _ALU.PA_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  2.320000e-02  1.170000e-02  1.400000e-03
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_ALU.PA  RelDiff_ALU.PA_LinearTrend_residue_Seasonal_Da...  ...  1.248092e+08  6.409651e+07  6.157365e+07
+92  None  RelDiff_ALU.PA  RelDiff_ALU.PA_PolyTrend_residue_Seasonal_DayO...  ...  1.248006e+08  6.409651e+07  6.157365e+07
+93  None  RelDiff_ALU.PA  RelDiff_ALU.PA_LinearTrend_residue_bestCycle_b...  ...  1.248092e+08  6.409651e+07  6.157365e+07
+94  None  RelDiff_ALU.PA  RelDiff_ALU.PA_PolyTrend_residue_bestCycle_byL...  ...  1.248006e+08  6.409651e+07  6.157365e+07
+95  None  RelDiff_ALU.PA  RelDiff_ALU.PA_ConstantTrend_residue_zeroCycle...  ...  1.248012e+08  6.409652e+07  6.157365e+07
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _ALU.PA   _ALU.PA_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0231        0.0114    0.0016
+1  None   CumSum_ALU.PA  CumSum_ALU.PA_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0241        0.0114    0.0016
+2  None     Diff_ALU.PA  Diff_ALU.PA_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0231        0.0114    0.0016
+3  None  RelDiff_ALU.PA  RelDiff_ALU.PA_Lag1Trend_residue_zeroCycle_res...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0231        0.0114    0.0016
+4  None         _ALU.PA  _ALU.PA_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0232        0.0117    0.0014
+7 0    3.48
+1    3.48
+2    3.48
+3    3.49
+4    3.49
+5    3.48
+6    3.49
+Name: ALU.PA, dtype: float64
+7 0    3.47
+1    3.47
+2    3.47
+3    3.47
+4    3.47
+5    3.47
+6    3.47
+Name: ALU.PA_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_ALU.PA ALU.PA [3.48, 3.48, 3.48, 3.49, 3.49, 3.48, 3.49]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_ALU.PA ALU.PA [3.47, 3.47, 3.47, 3.47, 3.47, 3.47, 3.47]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_ALU.PA ALU.PA 1298 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_ALU.PA ALU.PA 10.97567105293274
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_ALU.PA ALU.PA Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_ALU.PA ALU.PA 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_ALU.PA ALU.PA 0.0041 0.0041 2.8571
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_ALU.PA ALU.PA 0.01428571428571417 0.01511857892036902 -8.333327888891546
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_eurostoxx50_ALU.PA_7'

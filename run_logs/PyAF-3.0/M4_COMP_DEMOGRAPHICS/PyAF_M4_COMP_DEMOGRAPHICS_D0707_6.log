@@ -1,0 +1,62 @@
+BENCH_DATA M4_COMP_DEMOGRAPHICS
+TIME :  Date N= 47 H= 6 HEAD= [0 1 2 3 4] TAIL= [42 43 44 45 46]
+SIGNAL :  D0707 N= 47 H= 6 HEAD= [1476. 1515. 1556. 1597. 1640.] TAIL= [4493. 4622. 4754. 4887. 5024.]
+    D0707  Date
+0  1476.0     0
+1  1515.0     1
+2  1556.0     2
+3  1597.0     3
+4  1640.0     4
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 47 entries, 0 to 46
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   D0707   47 non-null     float64
+ 1   Date    47 non-null     int64  
+dtypes: float64(1), int64(1)
+memory usage: 1.1 KB
+None
+   Split Transformation                                              Model                                      Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0   None         _D0707  _D0707_PolyTrend_residue_zeroCycle_residue_AR(11)                 NoTransf_PolyTrend_NoCycle_AR          24   0.0011        0.0004    0.0015
+1   None         _D0707  _D0707_PolyTrend_residue_bestCycle_byL2_residu...              NoTransf_PolyTrend_Cycle_None_AR          32   0.0011        0.0004    0.0015
+2   None   CumSum_D0707  CumSum_D0707_LinearTrend_residue_zeroCycle_res...            Integration_LinearTrend_NoCycle_AR          56   0.0099        0.0011    0.0011
+3   None   CumSum_D0707  CumSum_D0707_LinearTrend_residue_bestCycle_byL...         Integration_LinearTrend_Cycle_None_AR          64   0.0099        0.0011    0.0011
+4   None   CumSum_D0707  CumSum_D0707_ConstantTrend_residue_zeroCycle_r...          Integration_ConstantTrend_NoCycle_AR          40   0.0632        0.0016    0.0010
+..   ...            ...                                                ...                                           ...         ...      ...           ...       ...
+59  None  RelDiff_D0707  RelDiff_D0707_Lag1Trend_residue_bestCycle_byL2...  RelativeDifference_Lag1Trend_Cycle_None_NoAR          72   0.3117        0.6086    0.6846
+60  None  RelDiff_D0707  RelDiff_D0707_Lag1Trend_residue_zeroCycle_resi...       RelativeDifference_Lag1Trend_NoCycle_AR          72   0.3117        0.6086    0.6846
+61  None  RelDiff_D0707  RelDiff_D0707_Lag1Trend_residue_bestCycle_byL2...    RelativeDifference_Lag1Trend_Cycle_None_AR          80   0.3117        0.6086    0.6846
+62  None   CumSum_D0707  CumSum_D0707_ConstantTrend_residue_zeroCycle_r...        Integration_ConstantTrend_NoCycle_NoAR          32   1.6255        1.0000    1.0000
+63  None   CumSum_D0707  CumSum_D0707_ConstantTrend_residue_bestCycle_b...     Integration_ConstantTrend_Cycle_None_NoAR          40   1.6255        1.0000    1.0000
+
+[64 rows x 8 columns]
+  Split Transformation                                              Model                               Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _D0707  _D0707_PolyTrend_residue_zeroCycle_residue_AR(11)          NoTransf_PolyTrend_NoCycle_AR          24   0.0011        0.0004    0.0015
+1  None         _D0707  _D0707_PolyTrend_residue_bestCycle_byL2_residu...       NoTransf_PolyTrend_Cycle_None_AR          32   0.0011        0.0004    0.0015
+2  None   CumSum_D0707  CumSum_D0707_LinearTrend_residue_zeroCycle_res...     Integration_LinearTrend_NoCycle_AR          56   0.0099        0.0011    0.0011
+3  None   CumSum_D0707  CumSum_D0707_LinearTrend_residue_bestCycle_byL...  Integration_LinearTrend_Cycle_None_AR          64   0.0099        0.0011    0.0011
+4  None   CumSum_D0707  CumSum_D0707_ConstantTrend_residue_zeroCycle_r...   Integration_ConstantTrend_NoCycle_AR          40   0.0632        0.0016    0.0010
+6 0    5162.0
+1    5303.0
+2    5447.0
+3    5592.0
+4    5740.0
+5    5890.0
+Name: D0707, dtype: float64
+6 0    5156.118755
+1    5285.823925
+2    5415.645137
+3    5546.900463
+4    5681.041192
+5    5818.404742
+Name: D0707_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL D0707 D0707 [5162.0, 5303.0, 5447.0, 5592.0, 5740.0, 5890.0]
+FORECAST_DETAIL_PREDICTED D0707 D0707 [5156.118754963236, 5285.823924570549, 5415.645137427899, 5546.900462516924, 5681.041192013679, 5818.404741542541]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON D0707 D0707 47 6
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ D0707 D0707 4.968781232833862
+BENCHMARK_PERF_DETAIL_BEST_MODEL D0707 D0707 ConstantTrend + NoCycle + AR
+BENCHMARK_PERF_DETAIL_PERF_COUNT D0707 D0707 6
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE D0707 D0707 0.0068 0.0068 0.2634
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 D0707 D0707 38.34429782752871 44.625710771560044 0.9677960891980911
+BENCHMARK_SUCCESS 'M4_COMP_DEMOGRAPHICS_D0707_6'

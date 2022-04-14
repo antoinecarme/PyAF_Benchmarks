@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1297 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  MIR N= 1297 H= 7 HEAD= [6.75 6.75 6.75 6.75 6.75] TAIL= [0.064 0.063 0.062 0.062 0.063]
+    MIR       Date
+0  6.75 2011-07-28
+1  6.75 2011-07-29
+2  6.75 2011-08-01
+3  6.75 2011-08-02
+4  6.75 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1297 entries, 0 to 1296
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   MIR     1297 non-null   float64       
+ 1   Date    1297 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _MIR      _MIR_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.238000e-01  3.900000e-02  1.340000e-02
+1   None     CumSum_MIR  CumSum_MIR_Lag1Trend_residue_zeroCycle_residue...  ...  2.248000e-01  3.900000e-02  1.340000e-02
+2   None       Diff_MIR  Diff_MIR_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.238000e-01  3.900000e-02  1.340000e-02
+3   None    RelDiff_MIR  RelDiff_MIR_Lag1Trend_residue_zeroCycle_residu...  ...  2.239000e-01  3.900000e-02  1.340000e-02
+4   None     CumSum_MIR  CumSum_MIR_ConstantTrend_residue_zeroCycle_res...  ...  6.411000e-01  7.260000e-02  1.720000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_MIR  RelDiff_MIR_Lag1Trend_residue_bestCycle_byL2_r...  ...  1.373486e+11  6.026319e+09  1.062150e+10
+92  None    RelDiff_MIR  RelDiff_MIR_PolyTrend_residue_zeroCycle_residu...  ...  1.373489e+11  6.026319e+09  1.062150e+10
+93  None    RelDiff_MIR  RelDiff_MIR_PolyTrend_residue_zeroCycle_residu...  ...  1.373490e+11  6.026319e+09  1.062150e+10
+94  None    RelDiff_MIR  RelDiff_MIR_LinearTrend_residue_Seasonal_DayOf...  ...  1.373490e+11  6.026319e+09  1.062150e+10
+95  None    RelDiff_MIR  RelDiff_MIR_PolyTrend_residue_bestCycle_byL2_r...  ...  1.373490e+11  6.026319e+09  1.062150e+10
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _MIR      _MIR_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.2238        0.0390    0.0134
+1  None     CumSum_MIR  CumSum_MIR_Lag1Trend_residue_zeroCycle_residue...         Integration_Lag1Trend_NoCycle_NoAR          64   0.2248        0.0390    0.0134
+2  None       Diff_MIR  Diff_MIR_Lag1Trend_residue_zeroCycle_residue_NoAR          Difference_Lag1Trend_NoCycle_NoAR          64   0.2238        0.0390    0.0134
+3  None    RelDiff_MIR  RelDiff_MIR_Lag1Trend_residue_zeroCycle_residu...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.2239        0.0390    0.0134
+4  None     CumSum_MIR  CumSum_MIR_ConstantTrend_residue_zeroCycle_res...       Integration_ConstantTrend_NoCycle_AR          96   0.6411        0.0726    0.0172
+7 0    0.063
+1    0.064
+2    0.065
+3    0.063
+4    0.062
+5    0.063
+6    0.062
+Name: MIR, dtype: float64
+7 0    0.063
+1    0.063
+2    0.063
+3    0.063
+4    0.063
+5    0.063
+6    0.063
+Name: MIR_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_MIR MIR [0.063, 0.064, 0.065, 0.063, 0.062, 0.063, 0.062]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_MIR MIR [0.063, 0.063, 0.063, 0.063, 0.063, 0.063, 0.063]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_MIR MIR 1297 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_MIR MIR 11.889894723892212
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_MIR MIR Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_MIR MIR 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_MIR MIR 0.0112 0.0113 0.6122
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_MIR MIR 0.0007142857142857149 0.001000000000000001 -0.020818446397656842
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_MIR_7'

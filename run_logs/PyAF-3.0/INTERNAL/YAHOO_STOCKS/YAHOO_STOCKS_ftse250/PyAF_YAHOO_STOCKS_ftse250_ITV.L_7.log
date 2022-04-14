@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftse250
+TIME :  Date N= 1295 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  ITV.L N= 1295 H= 7 HEAD= [71.05 69.95 68.75 67.1  65.45] TAIL= [184.9 186.7 188.5 190.6 185.9]
+   ITV.L       Date
+0  71.05 2011-07-28
+1  69.95 2011-07-29
+2  68.75 2011-08-01
+3  67.10 2011-08-02
+4  65.45 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1295 entries, 0 to 1294
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   ITV.L   1295 non-null   float64       
+ 1   Date    1295 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _ITV.L    _ITV.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.340000e-02  1.460000e-02  1.990000e-02
+1   None   CumSum_ITV.L  CumSum_ITV.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.430000e-02  1.460000e-02  1.990000e-02
+2   None     Diff_ITV.L  Diff_ITV.L_Lag1Trend_residue_zeroCycle_residue...  ...  1.340000e-02  1.460000e-02  1.990000e-02
+3   None  RelDiff_ITV.L  RelDiff_ITV.L_Lag1Trend_residue_zeroCycle_resi...  ...  1.340000e-02  1.460000e-02  1.990000e-02
+4   None         _ITV.L  _ITV.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  1.340000e-02  1.470000e-02  1.960000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_ITV.L  RelDiff_ITV.L_LinearTrend_residue_Seasonal_Day...  ...  1.618878e+07  8.024535e+06  1.034415e+07
+92  None  RelDiff_ITV.L  RelDiff_ITV.L_PolyTrend_residue_zeroCycle_resi...  ...  1.619532e+07  8.024536e+06  1.034415e+07
+93  None  RelDiff_ITV.L  RelDiff_ITV.L_ConstantTrend_residue_Seasonal_D...  ...  1.601050e+07  8.024536e+06  1.034415e+07
+94  None  RelDiff_ITV.L  RelDiff_ITV.L_PolyTrend_residue_zeroCycle_resi...  ...  1.620611e+07  8.024536e+06  1.034415e+07
+95  None  RelDiff_ITV.L  RelDiff_ITV.L_PolyTrend_residue_Seasonal_DayOf...  ...  1.620036e+07  8.024536e+06  1.034415e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _ITV.L    _ITV.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0134        0.0146    0.0199
+1  None   CumSum_ITV.L  CumSum_ITV.L_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0143        0.0146    0.0199
+2  None     Diff_ITV.L  Diff_ITV.L_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0134        0.0146    0.0199
+3  None  RelDiff_ITV.L  RelDiff_ITV.L_Lag1Trend_residue_zeroCycle_resi...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0134        0.0146    0.0199
+4  None         _ITV.L  _ITV.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0134        0.0147    0.0196
+7 0    187.7
+1    189.9
+2    188.1
+3    189.1
+4    184.8
+5    197.3
+6    195.2
+Name: ITV.L, dtype: float64
+7 0    185.9
+1    185.9
+2    185.9
+3    185.9
+4    185.9
+5    185.9
+6    185.9
+Name: ITV.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_ITV.L ITV.L [187.7, 189.9, 188.1, 189.1, 184.8, 197.3, 195.2]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_ITV.L ITV.L [185.9, 185.9, 185.9, 185.9, 185.9, 185.9, 185.9]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_ITV.L ITV.L 1295 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_ITV.L ITV.L 11.236012697219849
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_ITV.L ITV.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_ITV.L ITV.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_ITV.L ITV.L 0.0244 0.0249 1.1835
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_ITV.L ITV.L 4.714285714285706 5.999761900037601 -1.1636613429485076
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftse250_ITV.L_7'

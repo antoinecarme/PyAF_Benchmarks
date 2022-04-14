@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aord
+TIME :  Date N= 1299 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  GNC.AX N= 1299 H= 7 HEAD= [7.9  7.86 7.87 7.87 7.72] TAIL= [8.67 8.71 8.71 8.7  8.59]
+   GNC.AX       Date
+0    7.90 2011-07-28
+1    7.86 2011-07-29
+2    7.87 2011-08-01
+3    7.87 2011-08-02
+4    7.72 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1299 entries, 0 to 1298
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   GNC.AX  1299 non-null   float64       
+ 1   Date    1299 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _GNC.AX   _GNC.AX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  9.300000e-03  1.110000e-02  5.400000e-03
+1   None         _GNC.AX  _GNC.AX_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  9.400000e-03  1.110000e-02  5.800000e-03
+2   None         _GNC.AX  _GNC.AX_Lag1Trend_residue_bestCycle_byL2_resid...  ...  9.400000e-03  1.110000e-02  5.200000e-03
+3   None   CumSum_GNC.AX  CumSum_GNC.AX_Lag1Trend_residue_zeroCycle_resi...  ...  1.030000e-02  1.110000e-02  5.400000e-03
+4   None     Diff_GNC.AX  Diff_GNC.AX_Lag1Trend_residue_zeroCycle_residu...  ...  9.300000e-03  1.110000e-02  5.400000e-03
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_GNC.AX  RelDiff_GNC.AX_Lag1Trend_residue_bestCycle_byL...  ...  1.089743e+07  1.229368e+07  1.173799e+07
+92  None  RelDiff_GNC.AX  RelDiff_GNC.AX_PolyTrend_residue_zeroCycle_res...  ...  1.092226e+07  1.229368e+07  1.173799e+07
+93  None  RelDiff_GNC.AX  RelDiff_GNC.AX_PolyTrend_residue_zeroCycle_res...  ...  1.092227e+07  1.229368e+07  1.173799e+07
+94  None  RelDiff_GNC.AX  RelDiff_GNC.AX_PolyTrend_residue_Seasonal_DayO...  ...  1.092226e+07  1.229368e+07  1.173799e+07
+95  None  RelDiff_GNC.AX  RelDiff_GNC.AX_PolyTrend_residue_bestCycle_byL...  ...  1.092226e+07  1.229368e+07  1.173799e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _GNC.AX   _GNC.AX_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0093        0.0111    0.0054
+1  None        _GNC.AX  _GNC.AX_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0094        0.0111    0.0058
+2  None        _GNC.AX  _GNC.AX_Lag1Trend_residue_bestCycle_byL2_resid...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0094        0.0111    0.0052
+3  None  CumSum_GNC.AX  CumSum_GNC.AX_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0103        0.0111    0.0054
+4  None    Diff_GNC.AX  Diff_GNC.AX_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0093        0.0111    0.0054
+7 0    8.59
+1    8.71
+2    8.65
+3    8.71
+4    8.64
+5    8.15
+6    8.10
+Name: GNC.AX, dtype: float64
+7 0    8.59
+1    8.59
+2    8.59
+3    8.59
+4    8.59
+5    8.59
+6    8.59
+Name: GNC.AX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_GNC.AX GNC.AX [8.59, 8.71, 8.65, 8.71, 8.64, 8.15, 8.1]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_GNC.AX GNC.AX [8.59, 8.59, 8.59, 8.59, 8.59, 8.59, 8.59]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_GNC.AX GNC.AX 1299 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_GNC.AX GNC.AX 11.095330715179443
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_GNC.AX GNC.AX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_GNC.AX GNC.AX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_GNC.AX GNC.AX 0.0221 0.0217 1.2908
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_GNC.AX GNC.AX 0.18285714285714327 0.2587331775069776 -0.114274067266799
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aord_GNC.AX_7'

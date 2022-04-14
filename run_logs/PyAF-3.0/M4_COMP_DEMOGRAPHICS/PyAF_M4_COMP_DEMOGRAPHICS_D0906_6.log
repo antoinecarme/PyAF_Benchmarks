@@ -1,0 +1,62 @@
+BENCH_DATA M4_COMP_DEMOGRAPHICS
+TIME :  Date N= 47 H= 6 HEAD= [0 1 2 3 4] TAIL= [42 43 44 45 46]
+SIGNAL :  D0906 N= 47 H= 6 HEAD= [20042. 20653. 21289. 21964. 22685.] TAIL= [56683. 57422. 58154. 58883. 59588.]
+     D0906  Date
+0  20042.0     0
+1  20653.0     1
+2  21289.0     2
+3  21964.0     3
+4  22685.0     4
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 47 entries, 0 to 46
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   D0906   47 non-null     float64
+ 1   Date    47 non-null     int64  
+dtypes: float64(1), int64(1)
+memory usage: 1.1 KB
+None
+   Split Transformation                                              Model                                      Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0   None         _D0906  _D0906_ConstantTrend_residue_zeroCycle_residue...             NoTransf_ConstantTrend_NoCycle_AR           8   0.0016        0.0010    0.0009
+1   None         _D0906  _D0906_ConstantTrend_residue_bestCycle_byL2_re...          NoTransf_ConstantTrend_Cycle_None_AR          16   0.0016        0.0010    0.0009
+2   None   CumSum_D0906  CumSum_D0906_LinearTrend_residue_zeroCycle_res...            Integration_LinearTrend_NoCycle_AR          56   0.0155        0.0010    0.0016
+3   None   CumSum_D0906  CumSum_D0906_LinearTrend_residue_bestCycle_byL...         Integration_LinearTrend_Cycle_None_AR          64   0.0155        0.0010    0.0016
+4   None         _D0906  _D0906_LinearTrend_residue_zeroCycle_residue_A...               NoTransf_LinearTrend_NoCycle_AR          24   0.0007        0.0011    0.0020
+..   ...            ...                                                ...                                           ...         ...      ...           ...       ...
+59  None  RelDiff_D0906  RelDiff_D0906_Lag1Trend_residue_bestCycle_byL2...  RelativeDifference_Lag1Trend_Cycle_None_NoAR          72   0.3510        0.6146    0.6530
+60  None  RelDiff_D0906  RelDiff_D0906_Lag1Trend_residue_zeroCycle_resi...       RelativeDifference_Lag1Trend_NoCycle_AR          72   0.3510        0.6146    0.6530
+61  None  RelDiff_D0906  RelDiff_D0906_Lag1Trend_residue_bestCycle_byL2...    RelativeDifference_Lag1Trend_Cycle_None_AR          80   0.3510        0.6146    0.6530
+62  None   CumSum_D0906  CumSum_D0906_ConstantTrend_residue_zeroCycle_r...        Integration_ConstantTrend_NoCycle_NoAR          32   1.6667        1.0000    1.0000
+63  None   CumSum_D0906  CumSum_D0906_ConstantTrend_residue_bestCycle_b...     Integration_ConstantTrend_Cycle_None_NoAR          40   1.6667        1.0000    1.0000
+
+[64 rows x 8 columns]
+  Split Transformation                                              Model                               Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _D0906  _D0906_ConstantTrend_residue_zeroCycle_residue...      NoTransf_ConstantTrend_NoCycle_AR           8   0.0016        0.0010    0.0009
+1  None         _D0906  _D0906_ConstantTrend_residue_bestCycle_byL2_re...   NoTransf_ConstantTrend_Cycle_None_AR          16   0.0016        0.0010    0.0009
+2  None   CumSum_D0906  CumSum_D0906_LinearTrend_residue_zeroCycle_res...     Integration_LinearTrend_NoCycle_AR          56   0.0155        0.0010    0.0016
+3  None   CumSum_D0906  CumSum_D0906_LinearTrend_residue_bestCycle_byL...  Integration_LinearTrend_Cycle_None_AR          64   0.0155        0.0010    0.0016
+4  None         _D0906  _D0906_LinearTrend_residue_zeroCycle_residue_A...        NoTransf_LinearTrend_NoCycle_AR          24   0.0007        0.0011    0.0020
+6 0    60248.0
+1    60880.0
+2    61432.0
+3    61904.0
+4    62380.0
+5    62857.0
+Name: D0906, dtype: float64
+6 0    60344.898405
+1    61129.104001
+2    61928.935617
+3    62739.465025
+4    63557.574258
+5    64380.457803
+Name: D0906_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL D0906 D0906 [60248.0, 60880.0, 61432.0, 61904.0, 62380.0, 62857.0]
+FORECAST_DETAIL_PREDICTED D0906 D0906 [60344.898405190324, 61129.104000731524, 61928.935617029245, 62739.46502455362, 63557.57425792213, 64380.45780267506]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON D0906 D0906 47 6
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ D0906 D0906 4.975314617156982
+BENCHMARK_PERF_DETAIL_BEST_MODEL D0906 D0906 ConstantTrend + NoCycle + AR
+BENCHMARK_PERF_DETAIL_PERF_COUNT D0906 D0906 6
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE D0906 D0906 0.0117 0.0116 1.3988
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 D0906 D0906 729.9058513503174 887.3174674532484 -0.015106475109185613
+BENCHMARK_SUCCESS 'M4_COMP_DEMOGRAPHICS_D0906_6'

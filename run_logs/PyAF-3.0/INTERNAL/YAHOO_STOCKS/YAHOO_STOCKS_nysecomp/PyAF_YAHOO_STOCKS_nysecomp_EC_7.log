@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  EC N= 1251 H= 7 HEAD= [42.5      42.25     42.549999 41.860001 42.220001] TAIL= [9.54 9.48 9.67 9.57 9.67]
+          EC       Date
+0  42.500000 2011-07-28
+1  42.250000 2011-07-29
+2  42.549999 2011-08-01
+3  41.860001 2011-08-02
+4  42.220001 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   EC      1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None            _EC  _EC_Lag1Trend_residue_bestCycle_byL2_residue_NoAR  ...  0.0136  2.570000e-02  1.550000e-02
+1   None            _EC  _EC_Lag1Trend_residue_Seasonal_DayOfWeek_resid...  ...  0.0136  2.590000e-02  1.670000e-02
+2   None            _EC       _EC_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0136  2.610000e-02  1.410000e-02
+3   None      CumSum_EC  CumSum_EC_Lag1Trend_residue_zeroCycle_residue_...  ...  0.0146  2.610000e-02  1.410000e-02
+4   None        Diff_EC   Diff_EC_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0136  2.610000e-02  1.410000e-02
+..   ...            ...                                                ...  ...     ...           ...           ...
+91  None     RelDiff_EC  RelDiff_EC_ConstantTrend_residue_bestCycle_byL...  ...  0.3114  2.042734e+08  3.908101e+08
+92  None     RelDiff_EC  RelDiff_EC_ConstantTrend_residue_Seasonal_DayO...  ...  0.3152  2.042745e+08  3.908101e+08
+93  None     RelDiff_EC  RelDiff_EC_Lag1Trend_residue_bestCycle_byL2_re...  ...  0.0366  2.052308e+08  3.908101e+08
+94  None     RelDiff_EC  RelDiff_EC_Lag1Trend_residue_zeroCycle_residue...  ...  0.0390  2.053570e+08  3.908101e+08
+95  None     RelDiff_EC  RelDiff_EC_Lag1Trend_residue_Seasonal_DayOfWee...  ...  0.0394  2.053657e+08  3.908101e+08
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None            _EC  _EC_Lag1Trend_residue_bestCycle_byL2_residue_NoAR               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0136        0.0257    0.0155
+1  None            _EC  _EC_Lag1Trend_residue_Seasonal_DayOfWeek_resid...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0136        0.0259    0.0167
+2  None            _EC       _EC_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0136        0.0261    0.0141
+3  None      CumSum_EC  CumSum_EC_Lag1Trend_residue_zeroCycle_residue_...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0146        0.0261    0.0141
+4  None        Diff_EC   Diff_EC_Lag1Trend_residue_zeroCycle_residue_NoAR           Difference_Lag1Trend_NoCycle_NoAR          64   0.0136        0.0261    0.0141
+7 0    9.47
+1    9.11
+2    9.27
+3    9.26
+4    8.85
+5    8.78
+6    8.63
+Name: EC, dtype: float64
+7 0    9.67
+1    9.67
+2    9.67
+3    9.67
+4    9.67
+5    9.67
+6    9.67
+Name: EC_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_EC EC [9.47, 9.11, 9.27, 9.26, 8.85, 8.78, 8.63]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_EC EC [9.67, 9.67, 9.67, 9.67, 9.67, 9.67, 9.67]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_EC EC 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_EC EC 11.883094310760498
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_EC EC Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_EC EC 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_EC EC 0.0692 0.0664 3.1921
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_EC EC 0.6171428571428572 0.6790539637718682 -4.746045469705959
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_EC_7'

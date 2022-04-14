@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftse250
+TIME :  Date N= 1276 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  III.L N= 1276 H= 7 HEAD= [2.714 2.683 2.625 2.589 2.504] TAIL= [4.54142 4.53289 4.53384 4.53313 4.53553]
+   III.L       Date
+0  2.714 2011-07-28
+1  2.683 2011-07-29
+2  2.625 2011-08-01
+3  2.589 2011-08-02
+4  2.504 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1276 entries, 0 to 1275
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   III.L   1276 non-null   float64       
+ 1   Date    1276 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.9 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None     Diff_III.L  Diff_III.L_LinearTrend_residue_zeroCycle_resid...  ...  2.059000e-01  4.230000e-02  2.530000e-02
+1   None     Diff_III.L  Diff_III.L_LinearTrend_residue_bestCycle_byL2_...  ...  2.064000e-01  4.280000e-02  2.380000e-02
+2   None     Diff_III.L  Diff_III.L_LinearTrend_residue_Seasonal_DayOfW...  ...  1.981000e-01  4.320000e-02  3.020000e-02
+3   None         _III.L    _III.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  3.060000e-02  5.370000e-02  8.000000e-04
+4   None   CumSum_III.L  CumSum_III.L_Lag1Trend_residue_zeroCycle_resid...  ...  3.160000e-02  5.370000e-02  8.000000e-04
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_III.L  RelDiff_III.L_PolyTrend_residue_Seasonal_DayOf...  ...  3.737736e+07  2.495588e+07  2.302695e+07
+92  None  RelDiff_III.L  RelDiff_III.L_PolyTrend_residue_bestCycle_byL2...  ...  3.738140e+07  2.495588e+07  2.302695e+07
+93  None  RelDiff_III.L  RelDiff_III.L_PolyTrend_residue_zeroCycle_resi...  ...  3.738116e+07  2.495588e+07  2.302695e+07
+94  None  RelDiff_III.L  RelDiff_III.L_ConstantTrend_residue_zeroCycle_...  ...  3.737151e+07  2.495588e+07  2.302695e+07
+95  None  RelDiff_III.L  RelDiff_III.L_PolyTrend_residue_zeroCycle_resi...  ...  3.738731e+07  2.495588e+07  2.302695e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                        Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None     Diff_III.L  Diff_III.L_LinearTrend_residue_zeroCycle_resid...             Difference_LinearTrend_NoCycle_NoAR          48   0.2059        0.0423    0.0253
+1  None     Diff_III.L  Diff_III.L_LinearTrend_residue_bestCycle_byL2_...               Difference_LinearTrend_Cycle_NoAR          56   0.2064        0.0428    0.0238
+2  None     Diff_III.L  Diff_III.L_LinearTrend_residue_Seasonal_DayOfW...  Difference_LinearTrend_Seasonal_DayOfWeek_NoAR          52   0.1981        0.0432    0.0302
+3  None         _III.L    _III.L_Lag1Trend_residue_zeroCycle_residue_NoAR                 NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0306        0.0537    0.0008
+4  None   CumSum_III.L  CumSum_III.L_Lag1Trend_residue_zeroCycle_resid...              Integration_Lag1Trend_NoCycle_NoAR          64   0.0316        0.0537    0.0008
+7 0    4.54538
+1    4.54854
+2    5.86500
+3    5.91000
+4    6.10500
+5    6.08500
+6    6.21000
+Name: III.L, dtype: float64
+7 0    4.434210
+1    4.436919
+2    4.439628
+3    4.442339
+4    4.445052
+5    4.447766
+6    4.450482
+Name: III.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_III.L III.L [4.545380000000001, 4.54854, 5.865, 5.91, 6.105, 6.085, 6.21]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_III.L III.L [4.4342103840124505, 4.436918596499958, 4.439628301628039, 4.442339499396693, 4.445052189805921, 4.447766372855723, 4.450482048546098]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_III.L III.L 1276 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_III.L III.L 10.38979697227478
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_III.L III.L LinearTrend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_III.L III.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_III.L III.L 0.195 0.2236 4.1094
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_III.L III.L 1.167503229607874 1.349200501286263 -2.925824577605504
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftse250_III.L_7'

@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  BYD N= 1251 H= 7 HEAD= [9.02 8.74 8.68 7.94 7.86] TAIL= [18.93 19.09 19.17 19.18 19.25]
+    BYD       Date
+0  9.02 2011-07-28
+1  8.74 2011-07-29
+2  8.68 2011-08-01
+3  7.94 2011-08-02
+4  7.86 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   BYD     1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _BYD  _BYD_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  ...  2.190000e-02  1.770000e-02  7.100000e-03
+1   None           _BYD      _BYD_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.190000e-02  1.780000e-02  7.600000e-03
+2   None     CumSum_BYD  CumSum_BYD_Lag1Trend_residue_zeroCycle_residue...  ...  2.290000e-02  1.780000e-02  7.600000e-03
+3   None       Diff_BYD  Diff_BYD_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.190000e-02  1.780000e-02  7.600000e-03
+4   None    RelDiff_BYD  RelDiff_BYD_Lag1Trend_residue_zeroCycle_residu...  ...  2.190000e-02  1.780000e-02  7.600000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_BYD  RelDiff_BYD_Lag1Trend_residue_Seasonal_DayOfWe...  ...  5.061700e+07  2.497492e+07  2.388305e+07
+92  None    RelDiff_BYD  RelDiff_BYD_LinearTrend_residue_bestCycle_byL2...  ...  5.067938e+07  2.497492e+07  2.388305e+07
+93  None    RelDiff_BYD  RelDiff_BYD_PolyTrend_residue_Seasonal_DayOfWe...  ...  5.069279e+07  2.497492e+07  2.388305e+07
+94  None    RelDiff_BYD  RelDiff_BYD_ConstantTrend_residue_bestCycle_by...  ...  5.037356e+07  2.497492e+07  2.388305e+07
+95  None    RelDiff_BYD  RelDiff_BYD_PolyTrend_residue_zeroCycle_residu...  ...  5.072176e+07  2.497492e+07  2.388305e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _BYD  _BYD_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0219        0.0177    0.0071
+1  None           _BYD      _BYD_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0219        0.0178    0.0076
+2  None     CumSum_BYD  CumSum_BYD_Lag1Trend_residue_zeroCycle_residue...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0229        0.0178    0.0076
+3  None       Diff_BYD  Diff_BYD_Lag1Trend_residue_zeroCycle_residue_NoAR           Difference_Lag1Trend_NoCycle_NoAR          64   0.0219        0.0178    0.0076
+4  None    RelDiff_BYD  RelDiff_BYD_Lag1Trend_residue_zeroCycle_residu...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0219        0.0178    0.0076
+7 0    18.870001
+1    19.170000
+2    18.860001
+3    18.920000
+4    18.719999
+5    19.100000
+6    19.180000
+Name: BYD, dtype: float64
+7 0    19.25
+1    19.25
+2    19.25
+3    19.25
+4    19.25
+5    19.25
+6    19.25
+Name: BYD_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_BYD BYD [18.870001000000002, 19.17, 18.860001, 18.92, 18.719998999999998, 19.1, 19.18]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_BYD BYD [19.25, 19.25, 19.25, 19.25, 19.25, 19.25, 19.25]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_BYD BYD 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_BYD BYD 12.133932828903198
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_BYD BYD Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_BYD BYD 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_BYD BYD 0.0146 0.0145 1.2438
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_BYD BYD 0.2757141428571422 0.3207356543953733 -2.830897341399938
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_BYD_7'

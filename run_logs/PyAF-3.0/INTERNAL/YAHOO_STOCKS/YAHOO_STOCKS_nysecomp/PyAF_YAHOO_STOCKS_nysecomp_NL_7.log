@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  NL N= 1251 H= 7 HEAD= [17.799999 18.       18.33     17.110001 16.41    ] TAIL= [2.97 2.97 3.06 3.08 3.1 ]
+          NL       Date
+0  17.799999 2011-07-28
+1  18.000000 2011-07-29
+2  18.330000 2011-08-01
+3  17.110001 2011-08-02
+4  16.410000 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   NL      1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None            _NL  _NL_Lag1Trend_residue_bestCycle_byL2_residue_NoAR  ...  0.0173  3.630000e-02  4.640000e-02
+1   None            _NL       _NL_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0173  3.650000e-02  4.190000e-02
+2   None      CumSum_NL  CumSum_NL_Lag1Trend_residue_zeroCycle_residue_...  ...  0.0183  3.650000e-02  4.190000e-02
+3   None        Diff_NL   Diff_NL_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0173  3.650000e-02  4.190000e-02
+4   None     RelDiff_NL  RelDiff_NL_Lag1Trend_residue_zeroCycle_residue...  ...  0.0173  3.650000e-02  4.190000e-02
+..   ...            ...                                                ...  ...     ...           ...           ...
+91  None     RelDiff_NL  RelDiff_NL_ConstantTrend_residue_Seasonal_DayO...  ...  0.2644  2.690462e+08  5.550151e+08
+92  None     RelDiff_NL  RelDiff_NL_LinearTrend_residue_Seasonal_DayOfW...  ...  0.2123  2.690791e+08  5.550151e+08
+93  None     RelDiff_NL  RelDiff_NL_Lag1Trend_residue_Seasonal_DayOfWee...  ...  0.1336  2.714670e+08  5.550151e+08
+94  None     RelDiff_NL  RelDiff_NL_Lag1Trend_residue_bestCycle_byL2_re...  ...  0.1246  2.714670e+08  5.550151e+08
+95  None     RelDiff_NL  RelDiff_NL_Lag1Trend_residue_zeroCycle_residue...  ...  0.1285  2.714670e+08  5.550151e+08
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None            _NL  _NL_Lag1Trend_residue_bestCycle_byL2_residue_NoAR              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0173        0.0363    0.0464
+1  None            _NL       _NL_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0173        0.0365    0.0419
+2  None      CumSum_NL  CumSum_NL_Lag1Trend_residue_zeroCycle_residue_...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0183        0.0365    0.0419
+3  None        Diff_NL   Diff_NL_Lag1Trend_residue_zeroCycle_residue_NoAR          Difference_Lag1Trend_NoCycle_NoAR          64   0.0173        0.0365    0.0419
+4  None     RelDiff_NL  RelDiff_NL_Lag1Trend_residue_zeroCycle_residue...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0173        0.0365    0.0419
+7 0    3.00
+1    3.00
+2    2.93
+3    3.02
+4    2.95
+5    2.98
+6    2.99
+Name: NL, dtype: float64
+7 0    3.1
+1    3.1
+2    3.1
+3    3.1
+4    3.1
+5    3.1
+6    3.1
+Name: NL_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_NL NL [3.0, 3.0, 2.93, 3.02, 2.95, 2.98, 2.99]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_NL NL [3.1, 3.1, 3.1, 3.1, 3.1, 3.1, 3.1]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_NL NL 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_NL NL 11.612999439239502
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_NL NL Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_NL NL 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_NL NL 0.0399 0.039 2.6349
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_NL NL 0.11857142857142858 0.12206555615733702 -16.720873485325036
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_NL_7'

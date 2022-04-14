@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ta100
+TIME :  Date N= 262 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-08-01T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2013-03-21T00:00:00.000000000' '2013-03-25T00:00:00.000000000'
+ '2013-03-26T00:00:00.000000000' '2013-03-27T00:00:00.000000000'
+ '2013-03-28T00:00:00.000000000']
+SIGNAL :  DLKIS.TA N= 262 H= 7 HEAD= [ 99.6   99.44  99.54 100.2   98.88] TAIL= [75.58 75.58 75.58 75.58 75.58]
+   DLKIS.TA       Date
+0     99.60 2011-07-28
+1     99.44 2011-08-01
+2     99.54 2011-08-02
+3    100.20 2011-08-03
+4     98.88 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 262 entries, 0 to 261
+Data columns (total 2 columns):
+ #   Column    Non-Null Count  Dtype         
+---  ------    --------------  -----         
+ 0   DLKIS.TA  262 non-null    float64       
+ 1   Date      262 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 6.1 KB
+None
+   Split    Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _DLKIS.TA  _DLKIS.TA_Lag1Trend_residue_Seasonal_DayOfWeek...  ...  1.470000e-02  1.230000e-02  5.500000e-03
+1   None         _DLKIS.TA  _DLKIS.TA_Lag1Trend_residue_zeroCycle_residue_...  ...  1.440000e-02  1.250000e-02  4.300000e-03
+2   None   CumSum_DLKIS.TA  CumSum_DLKIS.TA_Lag1Trend_residue_zeroCycle_re...  ...  1.920000e-02  1.250000e-02  4.300000e-03
+3   None     Diff_DLKIS.TA  Diff_DLKIS.TA_Lag1Trend_residue_zeroCycle_resi...  ...  1.440000e-02  1.250000e-02  4.300000e-03
+4   None  RelDiff_DLKIS.TA  RelDiff_DLKIS.TA_Lag1Trend_residue_zeroCycle_r...  ...  1.440000e-02  1.250000e-02  4.300000e-03
+..   ...               ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_DLKIS.TA  RelDiff_DLKIS.TA_Lag1Trend_residue_Seasonal_Da...  ...  7.583789e+07  6.778316e+07  6.374832e+07
+92  None  RelDiff_DLKIS.TA  RelDiff_DLKIS.TA_LinearTrend_residue_bestCycle...  ...  7.614601e+07  6.778316e+07  6.374832e+07
+93  None  RelDiff_DLKIS.TA  RelDiff_DLKIS.TA_LinearTrend_residue_zeroCycle...  ...  7.609757e+07  6.778316e+07  6.374832e+07
+94  None  RelDiff_DLKIS.TA  RelDiff_DLKIS.TA_LinearTrend_residue_Seasonal_...  ...  7.605897e+07  6.778316e+07  6.374832e+07
+95  None  RelDiff_DLKIS.TA  RelDiff_DLKIS.TA_LinearTrend_residue_bestCycle...  ...  7.614603e+07  6.778316e+07  6.374832e+07
+
+[96 rows x 8 columns]
+  Split    Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _DLKIS.TA  _DLKIS.TA_Lag1Trend_residue_Seasonal_DayOfWeek...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0147        0.0123    0.0055
+1  None         _DLKIS.TA  _DLKIS.TA_Lag1Trend_residue_zeroCycle_residue_...             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0144        0.0125    0.0043
+2  None   CumSum_DLKIS.TA  CumSum_DLKIS.TA_Lag1Trend_residue_zeroCycle_re...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0192        0.0125    0.0043
+3  None     Diff_DLKIS.TA  Diff_DLKIS.TA_Lag1Trend_residue_zeroCycle_resi...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0144        0.0125    0.0043
+4  None  RelDiff_DLKIS.TA  RelDiff_DLKIS.TA_Lag1Trend_residue_zeroCycle_r...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0144        0.0125    0.0043
+7 0    75.58
+1    77.10
+2    77.77
+3    77.58
+4    78.68
+5    92.39
+6    92.39
+Name: DLKIS.TA, dtype: float64
+7 0    75.58
+1    75.58
+2    75.58
+3    75.58
+4    75.58
+5    75.58
+6    75.58
+Name: DLKIS.TA_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_DLKIS.TA DLKIS.TA [75.58, 77.1, 77.77, 77.58, 78.68, 92.39, 92.39]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_DLKIS.TA DLKIS.TA [75.58, 75.58, 75.58, 75.58, 75.58, 75.58, 75.58]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_DLKIS.TA DLKIS.TA 262 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_DLKIS.TA DLKIS.TA 10.32563591003418
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_DLKIS.TA DLKIS.TA Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_DLKIS.TA DLKIS.TA 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_DLKIS.TA DLKIS.TA 0.0681 0.0736 2.1157
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_DLKIS.TA DLKIS.TA 6.061428571428572 9.148526032723993 -0.782477259845701
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ta100_DLKIS.TA_7'

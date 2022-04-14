@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftse250
+TIME :  Date N= 1292 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  JMG.L N= 1292 H= 7 HEAD= [5.765  6.3112 5.755  5.69   5.535 ] TAIL= [7.59002 7.55049 7.55701 7.59448 7.58514]
+    JMG.L       Date
+0  5.7650 2011-07-28
+1  6.3112 2011-07-29
+2  5.7550 2011-08-01
+3  5.6900 2011-08-02
+4  5.5350 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1292 entries, 0 to 1291
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   JMG.L   1292 non-null   float64       
+ 1   Date    1292 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _JMG.L    _JMG.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.760000e-02  1.320000e-02  6.300000e-03
+1   None   CumSum_JMG.L  CumSum_JMG.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.840000e-02  1.320000e-02  6.300000e-03
+2   None     Diff_JMG.L  Diff_JMG.L_Lag1Trend_residue_zeroCycle_residue...  ...  1.760000e-02  1.320000e-02  6.300000e-03
+3   None  RelDiff_JMG.L  RelDiff_JMG.L_Lag1Trend_residue_zeroCycle_resi...  ...  1.760000e-02  1.320000e-02  6.300000e-03
+4   None         _JMG.L  _JMG.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  1.770000e-02  1.340000e-02  5.400000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_JMG.L  RelDiff_JMG.L_PolyTrend_residue_Seasonal_DayOf...  ...  1.655849e+07  1.549312e+07  1.272166e+07
+92  None  RelDiff_JMG.L  RelDiff_JMG.L_PolyTrend_residue_bestCycle_byL2...  ...  1.655849e+07  1.549312e+07  1.272166e+07
+93  None  RelDiff_JMG.L  RelDiff_JMG.L_ConstantTrend_residue_bestCycle_...  ...  1.643573e+07  1.549312e+07  1.272166e+07
+94  None  RelDiff_JMG.L  RelDiff_JMG.L_PolyTrend_residue_zeroCycle_resi...  ...  1.656180e+07  1.549312e+07  1.272166e+07
+95  None  RelDiff_JMG.L  RelDiff_JMG.L_PolyTrend_residue_Seasonal_DayOf...  ...  1.656032e+07  1.549312e+07  1.272166e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _JMG.L    _JMG.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0176        0.0132    0.0063
+1  None   CumSum_JMG.L  CumSum_JMG.L_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0184        0.0132    0.0063
+2  None     Diff_JMG.L  Diff_JMG.L_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0176        0.0132    0.0063
+3  None  RelDiff_JMG.L  RelDiff_JMG.L_Lag1Trend_residue_zeroCycle_resi...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0176        0.0132    0.0063
+4  None         _JMG.L  _JMG.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0177        0.0134    0.0054
+7 0    7.65297
+1    7.67941
+2    7.65495
+3    6.75000
+4    6.82000
+5    6.87500
+6    6.85500
+Name: JMG.L, dtype: float64
+7 0    7.58514
+1    7.58514
+2    7.58514
+3    7.58514
+4    7.58514
+5    7.58514
+6    7.58514
+Name: JMG.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_JMG.L JMG.L [7.65297, 7.679410000000001, 7.65495, 6.75, 6.82, 6.875, 6.855]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_JMG.L JMG.L [7.585139999999999, 7.585139999999999, 7.585139999999999, 7.585139999999999, 7.585139999999999, 7.585139999999999, 7.585139999999999]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_JMG.L JMG.L 1292 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_JMG.L JMG.L 11.139341831207275
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_JMG.L JMG.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_JMG.L JMG.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_JMG.L JMG.L 0.068 0.0646 2.548
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_JMG.L JMG.L 0.4674957142857142 0.5780092011501935 -0.9300166250325999
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftse250_JMG.L_7'

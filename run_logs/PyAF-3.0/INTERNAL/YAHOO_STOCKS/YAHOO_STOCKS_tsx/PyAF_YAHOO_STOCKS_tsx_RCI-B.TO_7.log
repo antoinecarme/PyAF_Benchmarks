@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_tsx
+TIME :  Date N= 1248 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  RCI-B.TO N= 1248 H= 7 HEAD= [36.880001 36.48     36.279999 36.900002 35.59    ] TAIL= [53.41     53.5      54.040001 53.91     53.599998]
+    RCI-B.TO       Date
+0  36.880001 2011-07-28
+1  36.480000 2011-07-29
+2  36.279999 2011-08-02
+3  36.900002 2011-08-03
+4  35.590000 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1248 entries, 0 to 1247
+Data columns (total 2 columns):
+ #   Column    Non-Null Count  Dtype         
+---  ------    --------------  -----         
+ 0   RCI-B.TO  1248 non-null   float64       
+ 1   Date      1248 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.2 KB
+None
+   Split    Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _RCI-B.TO  _RCI-B.TO_Lag1Trend_residue_zeroCycle_residue_...  ...  8.000000e-03  9.200000e-03  4.600000e-03
+1   None         _RCI-B.TO  _RCI-B.TO_Lag1Trend_residue_Seasonal_DayOfWeek...  ...  8.000000e-03  9.200000e-03  4.800000e-03
+2   None         _RCI-B.TO  _RCI-B.TO_Lag1Trend_residue_bestCycle_byL2_res...  ...  8.000000e-03  9.200000e-03  5.200000e-03
+3   None   CumSum_RCI-B.TO  CumSum_RCI-B.TO_Lag1Trend_residue_zeroCycle_re...  ...  9.000000e-03  9.200000e-03  4.600000e-03
+4   None     Diff_RCI-B.TO  Diff_RCI-B.TO_Lag1Trend_residue_zeroCycle_resi...  ...  8.000000e-03  9.200000e-03  4.600000e-03
+..   ...               ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_RCI-B.TO  RelDiff_RCI-B.TO_PolyTrend_residue_Seasonal_Da...  ...  5.031056e+06  4.368890e+06  3.976648e+06
+92  None  RelDiff_RCI-B.TO  RelDiff_RCI-B.TO_ConstantTrend_residue_Seasona...  ...  5.027613e+06  4.368890e+06  3.976648e+06
+93  None  RelDiff_RCI-B.TO  RelDiff_RCI-B.TO_ConstantTrend_residue_bestCyc...  ...  5.008865e+06  4.368890e+06  3.976648e+06
+94  None  RelDiff_RCI-B.TO  RelDiff_RCI-B.TO_PolyTrend_residue_Seasonal_Da...  ...  5.031057e+06  4.368890e+06  3.976648e+06
+95  None  RelDiff_RCI-B.TO  RelDiff_RCI-B.TO_PolyTrend_residue_bestCycle_b...  ...  5.031056e+06  4.368890e+06  3.976648e+06
+
+[96 rows x 8 columns]
+  Split   Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _RCI-B.TO  _RCI-B.TO_Lag1Trend_residue_zeroCycle_residue_...             NoTransf_Lag1Trend_NoCycle_NoAR          32    0.008        0.0092    0.0046
+1  None        _RCI-B.TO  _RCI-B.TO_Lag1Trend_residue_Seasonal_DayOfWeek...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36    0.008        0.0092    0.0048
+2  None        _RCI-B.TO  _RCI-B.TO_Lag1Trend_residue_bestCycle_byL2_res...               NoTransf_Lag1Trend_Cycle_NoAR          40    0.008        0.0092    0.0052
+3  None  CumSum_RCI-B.TO  CumSum_RCI-B.TO_Lag1Trend_residue_zeroCycle_re...          Integration_Lag1Trend_NoCycle_NoAR          64    0.009        0.0092    0.0046
+4  None    Diff_RCI-B.TO  Diff_RCI-B.TO_Lag1Trend_residue_zeroCycle_resi...           Difference_Lag1Trend_NoCycle_NoAR          64    0.008        0.0092    0.0046
+7 0    53.099998
+1    53.599998
+2    55.669998
+3    56.810001
+4    57.799999
+5    57.439999
+6    57.849998
+Name: RCI-B.TO, dtype: float64
+7 0    53.599998
+1    53.599998
+2    53.599998
+3    53.599998
+4    53.599998
+5    53.599998
+6    53.599998
+Name: RCI-B.TO_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_RCI-B.TO RCI-B.TO [53.099998, 53.599998, 55.669998, 56.810001, 57.799999, 57.439999, 57.849998]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_RCI-B.TO RCI-B.TO [53.599998, 53.599998, 53.599998, 53.599998, 53.599998, 53.599998, 53.599998]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_RCI-B.TO RCI-B.TO 1248 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_RCI-B.TO RCI-B.TO 10.818130731582642
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_RCI-B.TO RCI-B.TO Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_RCI-B.TO RCI-B.TO 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_RCI-B.TO RCI-B.TO 0.0452 0.0466 2.8315
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_RCI-B.TO RCI-B.TO 2.581429285714286 3.0539701406532407 -1.7593073971670354
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_tsx_RCI-B.TO_7'

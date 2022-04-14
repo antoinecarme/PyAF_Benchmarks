@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_spmib
+TIME :  Date N= 1297 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  UBI.MI N= 1297 H= 7 HEAD= [ 3.322  10.6488  3.09    2.92    2.89  ] TAIL= [ 2.818   2.648   2.79   14.5377  2.8   ]
+    UBI.MI       Date
+0   3.3220 2011-07-28
+1  10.6488 2011-07-29
+2   3.0900 2011-08-01
+3   2.9200 2011-08-02
+4   2.8900 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1297 entries, 0 to 1296
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   UBI.MI  1297 non-null   float64       
+ 1   Date    1297 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _UBI.MI  _UBI.MI_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  1.851000e-01  1.675000e-01  7.480000e-02
+1   None         _UBI.MI  _UBI.MI_Lag1Trend_residue_bestCycle_byL2_resid...  ...  1.981000e-01  1.718000e-01  7.290000e-02
+2   None         _UBI.MI  _UBI.MI_ConstantTrend_residue_bestCycle_byL2_r...  ...  1.898000e-01  1.812000e-01  6.740000e-02
+3   None         _UBI.MI  _UBI.MI_ConstantTrend_residue_zeroCycle_residu...  ...  1.795000e-01  1.814000e-01  4.640000e-02
+4   None         _UBI.MI  _UBI.MI_Lag1Trend_residue_zeroCycle_residue_AR...  ...  1.740000e-01  1.836000e-01  4.310000e-02
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_UBI.MI  RelDiff_UBI.MI_LinearTrend_residue_bestCycle_b...  ...  3.564271e+07  2.849329e+07  4.198992e+07
+92  None  RelDiff_UBI.MI  RelDiff_UBI.MI_PolyTrend_residue_bestCycle_byL...  ...  3.564252e+07  2.849329e+07  4.198992e+07
+93  None  RelDiff_UBI.MI  RelDiff_UBI.MI_PolyTrend_residue_Seasonal_DayO...  ...  3.564256e+07  2.849329e+07  4.198992e+07
+94  None  RelDiff_UBI.MI  RelDiff_UBI.MI_PolyTrend_residue_bestCycle_byL...  ...  3.564256e+07  2.849329e+07  4.198992e+07
+95  None  RelDiff_UBI.MI  RelDiff_UBI.MI_ConstantTrend_residue_zeroCycle...  ...  3.564255e+07  2.849329e+07  4.198992e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                  Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _UBI.MI  _UBI.MI_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_AR         100   0.1851        0.1675    0.0748
+1  None        _UBI.MI  _UBI.MI_Lag1Trend_residue_bestCycle_byL2_resid...               NoTransf_Lag1Trend_Cycle_AR         104   0.1981        0.1718    0.0729
+2  None        _UBI.MI  _UBI.MI_ConstantTrend_residue_bestCycle_byL2_r...           NoTransf_ConstantTrend_Cycle_AR          72   0.1898        0.1812    0.0674
+3  None        _UBI.MI  _UBI.MI_ConstantTrend_residue_zeroCycle_residu...         NoTransf_ConstantTrend_NoCycle_AR          64   0.1795        0.1814    0.0464
+4  None        _UBI.MI  _UBI.MI_Lag1Trend_residue_zeroCycle_residue_AR...             NoTransf_Lag1Trend_NoCycle_AR          96   0.1740        0.1836    0.0431
+7 0    2.790
+1    2.814
+2    2.794
+3    2.744
+4    2.750
+5    2.732
+6    2.754
+Name: UBI.MI, dtype: float64
+7 0     2.752833
+1     2.931552
+2     2.985567
+3    13.709510
+4     7.481396
+5     7.171392
+6     2.960144
+Name: UBI.MI_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_UBI.MI UBI.MI [2.79, 2.8139999999999996, 2.7939999999999996, 2.7439999999999998, 2.75, 2.7319999999999998, 2.7539999999999996]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_UBI.MI UBI.MI [2.7528333027057608, 2.9315518217524046, 2.9855669109041933, 13.709510029146571, 7.4813960592271345, 7.1713922310582605, 2.9601440854660046]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_UBI.MI UBI.MI 1297 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_UBI.MI UBI.MI 11.12403154373169
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_UBI.MI UBI.MI Lag1Trend + Seasonal_DayOfWeek + AR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_UBI.MI UBI.MI 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_UBI.MI UBI.MI 1.0772 0.4782 126.6657
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_UBI.MI UBI.MI 2.9555325478355443 4.81709923545096 -28659.46045328215
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_spmib_UBI.MI_7'

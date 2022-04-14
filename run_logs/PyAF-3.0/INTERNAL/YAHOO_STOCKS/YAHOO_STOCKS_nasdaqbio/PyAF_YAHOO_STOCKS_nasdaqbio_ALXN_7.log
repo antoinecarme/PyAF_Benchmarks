@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nasdaqbio
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  ALXN N= 1251 H= 7 HEAD= [56.490002 56.799999 56.009998 54.509998 54.900002] TAIL= [125.349998 123.470001 125.150002 125.580002 125.459999]
+        ALXN       Date
+0  56.490002 2011-07-28
+1  56.799999 2011-07-29
+2  56.009998 2011-08-01
+3  54.509998 2011-08-02
+4  54.900002 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   ALXN    1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None          _ALXN     _ALXN_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.650000e-02  1.960000e-02  7.000000e-03
+1   None          _ALXN  _ALXN_Lag1Trend_residue_bestCycle_byL2_residue...  ...  1.650000e-02  1.960000e-02  6.600000e-03
+2   None    CumSum_ALXN  CumSum_ALXN_Lag1Trend_residue_zeroCycle_residu...  ...  1.750000e-02  1.960000e-02  7.000000e-03
+3   None      Diff_ALXN  Diff_ALXN_Lag1Trend_residue_zeroCycle_residue_...  ...  1.650000e-02  1.960000e-02  7.000000e-03
+4   None   RelDiff_ALXN  RelDiff_ALXN_Lag1Trend_residue_zeroCycle_resid...  ...  1.650000e-02  1.960000e-02  7.000000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None   RelDiff_ALXN  RelDiff_ALXN_Lag1Trend_residue_bestCycle_byL2_...  ...  7.718063e+06  5.374790e+06  6.754301e+06
+92  None   RelDiff_ALXN  RelDiff_ALXN_PolyTrend_residue_zeroCycle_resid...  ...  7.742867e+06  5.374790e+06  6.754302e+06
+93  None   RelDiff_ALXN  RelDiff_ALXN_PolyTrend_residue_bestCycle_byL2_...  ...  7.740318e+06  5.374790e+06  6.754302e+06
+94  None   RelDiff_ALXN  RelDiff_ALXN_ConstantTrend_residue_zeroCycle_r...  ...  7.733419e+06  5.374790e+06  6.754302e+06
+95  None   RelDiff_ALXN  RelDiff_ALXN_PolyTrend_residue_bestCycle_byL2_...  ...  7.748135e+06  5.374790e+06  6.754302e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None          _ALXN     _ALXN_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0165        0.0196    0.0070
+1  None          _ALXN  _ALXN_Lag1Trend_residue_bestCycle_byL2_residue...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0165        0.0196    0.0066
+2  None    CumSum_ALXN  CumSum_ALXN_Lag1Trend_residue_zeroCycle_residu...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0175        0.0196    0.0070
+3  None      Diff_ALXN  Diff_ALXN_Lag1Trend_residue_zeroCycle_residue_...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0165        0.0196    0.0070
+4  None   RelDiff_ALXN  RelDiff_ALXN_Lag1Trend_residue_zeroCycle_resid...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0165        0.0196    0.0070
+7 0    124.160004
+1    126.930000
+2    127.300003
+3    125.800003
+4    127.459999
+5    126.650002
+6    129.779999
+Name: ALXN, dtype: float64
+7 0    125.459999
+1    125.459999
+2    125.459999
+3    125.459999
+4    125.459999
+5    125.459999
+6    125.459999
+Name: ALXN_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_ALXN ALXN [124.160004, 126.93, 127.300003, 125.800003, 127.459999, 126.650002, 129.779999]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_ALXN ALXN [125.459999, 125.459999, 125.459999, 125.459999, 125.459999, 125.459999, 125.459999]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_ALXN ALXN 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_ALXN ALXN 12.018833875656128
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_ALXN ALXN Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_ALXN ALXN 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_ALXN ALXN 0.0139 0.0141 1.043
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_ALXN ALXN 1.7800010000000046 2.118982724936902 -0.7917296052670793
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nasdaqbio_ALXN_7'

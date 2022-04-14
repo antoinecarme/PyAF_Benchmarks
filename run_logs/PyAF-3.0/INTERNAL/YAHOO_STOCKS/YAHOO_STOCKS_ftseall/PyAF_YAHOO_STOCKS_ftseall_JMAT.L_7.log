@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1292 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  JMAT.L N= 1292 H= 7 HEAD= [2024.    2040.002 2023.    1967.998 1899.997] TAIL= [3064. 3088. 3103. 3146. 3169.]
+     JMAT.L       Date
+0  2024.000 2011-07-28
+1  2040.002 2011-07-29
+2  2023.000 2011-08-01
+3  1967.998 2011-08-02
+4  1899.997 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1292 entries, 0 to 1291
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   JMAT.L  1292 non-null   float64       
+ 1   Date    1292 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _JMAT.L   _JMAT.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.160000e-02  1.450000e-02  1.250000e-02
+1   None         _JMAT.L  _JMAT.L_Lag1Trend_residue_bestCycle_byL2_resid...  ...  1.170000e-02  1.450000e-02  1.260000e-02
+2   None   CumSum_JMAT.L  CumSum_JMAT.L_Lag1Trend_residue_zeroCycle_resi...  ...  1.260000e-02  1.450000e-02  1.250000e-02
+3   None     Diff_JMAT.L  Diff_JMAT.L_Lag1Trend_residue_zeroCycle_residu...  ...  1.160000e-02  1.450000e-02  1.250000e-02
+4   None  RelDiff_JMAT.L  RelDiff_JMAT.L_Lag1Trend_residue_zeroCycle_res...  ...  1.160000e-02  1.450000e-02  1.250000e-02
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_JMAT.L  RelDiff_JMAT.L_ConstantTrend_residue_Seasonal_...  ...  1.936270e+07  1.861841e+07  1.622682e+07
+92  None  RelDiff_JMAT.L  RelDiff_JMAT.L_ConstantTrend_residue_bestCycle...  ...  1.936574e+07  1.861841e+07  1.622682e+07
+93  None  RelDiff_JMAT.L  RelDiff_JMAT.L_PolyTrend_residue_zeroCycle_res...  ...  1.945504e+07  1.861841e+07  1.622682e+07
+94  None  RelDiff_JMAT.L  RelDiff_JMAT.L_PolyTrend_residue_Seasonal_DayO...  ...  1.945504e+07  1.861841e+07  1.622682e+07
+95  None  RelDiff_JMAT.L  RelDiff_JMAT.L_PolyTrend_residue_bestCycle_byL...  ...  1.945504e+07  1.861841e+07  1.622682e+07
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _JMAT.L   _JMAT.L_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0116        0.0145    0.0125
+1  None         _JMAT.L  _JMAT.L_Lag1Trend_residue_bestCycle_byL2_resid...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0117        0.0145    0.0126
+2  None   CumSum_JMAT.L  CumSum_JMAT.L_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0126        0.0145    0.0125
+3  None     Diff_JMAT.L  Diff_JMAT.L_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0116        0.0145    0.0125
+4  None  RelDiff_JMAT.L  RelDiff_JMAT.L_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0116        0.0145    0.0125
+7 0    3147.0
+1    3175.0
+2    3213.0
+3    3220.0
+4    3220.0
+5    3228.0
+6    3243.0
+Name: JMAT.L, dtype: float64
+7 0    3169.0
+1    3169.0
+2    3169.0
+3    3169.0
+4    3169.0
+5    3169.0
+6    3169.0
+Name: JMAT.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_JMAT.L JMAT.L [3147.0, 3175.0, 3213.0, 3220.0, 3220.0, 3228.0, 3243.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_JMAT.L JMAT.L [3169.0, 3169.0, 3169.0, 3169.0, 3169.0, 3169.0, 3169.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_JMAT.L JMAT.L 1292 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_JMAT.L JMAT.L 10.688249349594116
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_JMAT.L JMAT.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_JMAT.L JMAT.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_JMAT.L JMAT.L 0.0136 0.0137 2.7411
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_JMAT.L JMAT.L 43.857142857142854 48.71931268574536 -1.467434657162217
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_JMAT.L_7'

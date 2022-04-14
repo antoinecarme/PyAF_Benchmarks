@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_bvsp
+TIME :  Date N= 1228 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  ELET6.SA N= 1228 H= 7 HEAD= [22.85 23.5  23.05 22.81 22.52] TAIL= [21.77 20.75 21.5  21.44 21.65]
+   ELET6.SA       Date
+0     22.85 2011-07-28
+1     23.50 2011-07-29
+2     23.05 2011-08-01
+3     22.81 2011-08-02
+4     22.52 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1228 entries, 0 to 1227
+Data columns (total 2 columns):
+ #   Column    Non-Null Count  Dtype         
+---  ------    --------------  -----         
+ 0   ELET6.SA  1228 non-null   float64       
+ 1   Date      1228 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 28.8 KB
+None
+   Split    Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _ELET6.SA  _ELET6.SA_Lag1Trend_residue_bestCycle_byL2_res...  ...  2.020000e-02  1.960000e-02  3.070000e-02
+1   None         _ELET6.SA  _ELET6.SA_Lag1Trend_residue_zeroCycle_residue_...  ...  2.000000e-02  1.970000e-02  3.090000e-02
+2   None   CumSum_ELET6.SA  CumSum_ELET6.SA_Lag1Trend_residue_zeroCycle_re...  ...  2.100000e-02  1.970000e-02  3.090000e-02
+3   None     Diff_ELET6.SA  Diff_ELET6.SA_Lag1Trend_residue_zeroCycle_resi...  ...  2.000000e-02  1.970000e-02  3.090000e-02
+4   None  RelDiff_ELET6.SA  RelDiff_ELET6.SA_Lag1Trend_residue_zeroCycle_r...  ...  2.000000e-02  1.970000e-02  3.090000e-02
+..   ...               ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_ELET6.SA  RelDiff_ELET6.SA_LinearTrend_residue_zeroCycle...  ...  1.491456e+08  1.652538e+08  8.013495e+07
+92  None  RelDiff_ELET6.SA  RelDiff_ELET6.SA_LinearTrend_residue_Seasonal_...  ...  1.491462e+08  1.652538e+08  8.013495e+07
+93  None  RelDiff_ELET6.SA  RelDiff_ELET6.SA_PolyTrend_residue_Seasonal_Da...  ...  1.491456e+08  1.652538e+08  8.013495e+07
+94  None  RelDiff_ELET6.SA  RelDiff_ELET6.SA_LinearTrend_residue_bestCycle...  ...  1.491466e+08  1.652538e+08  8.013495e+07
+95  None  RelDiff_ELET6.SA  RelDiff_ELET6.SA_PolyTrend_residue_bestCycle_b...  ...  1.491453e+08  1.652538e+08  8.013495e+07
+
+[96 rows x 8 columns]
+  Split    Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _ELET6.SA  _ELET6.SA_Lag1Trend_residue_bestCycle_byL2_res...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0202        0.0196    0.0307
+1  None         _ELET6.SA  _ELET6.SA_Lag1Trend_residue_zeroCycle_residue_...            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0200        0.0197    0.0309
+2  None   CumSum_ELET6.SA  CumSum_ELET6.SA_Lag1Trend_residue_zeroCycle_re...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0210        0.0197    0.0309
+3  None     Diff_ELET6.SA  Diff_ELET6.SA_Lag1Trend_residue_zeroCycle_resi...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0200        0.0197    0.0309
+4  None  RelDiff_ELET6.SA  RelDiff_ELET6.SA_Lag1Trend_residue_zeroCycle_r...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0200        0.0197    0.0309
+7 0    20.90
+1    20.57
+2    20.77
+3    21.51
+4    21.98
+5    21.39
+6    21.30
+Name: ELET6.SA, dtype: float64
+7 0    21.65
+1    21.65
+2    21.65
+3    21.65
+4    21.65
+5    21.65
+6    21.65
+Name: ELET6.SA_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_ELET6.SA ELET6.SA [20.9, 20.57, 20.77, 21.51, 21.98, 21.39, 21.3]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_ELET6.SA ELET6.SA [21.65, 21.65, 21.65, 21.65, 21.65, 21.65, 21.65]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_ELET6.SA ELET6.SA 1228 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_ELET6.SA ELET6.SA 10.941529750823975
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_ELET6.SA ELET6.SA Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_ELET6.SA ELET6.SA 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_ELET6.SA ELET6.SA 0.0258 0.0254 1.3424
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_ELET6.SA ELET6.SA 0.5414285714285703 0.634924067451038 -0.9839801533296295
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_bvsp_ELET6.SA_7'

@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aord
+TIME :  Date N= 1299 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  NHF.AX N= 1299 H= 7 HEAD= [1.335 1.35  1.34  1.35  1.335] TAIL= [4.51 4.57 4.68 4.6  4.66]
+   NHF.AX       Date
+0   1.335 2011-07-28
+1   1.350 2011-07-29
+2   1.340 2011-08-01
+3   1.350 2011-08-02
+4   1.335 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1299 entries, 0 to 1298
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   NHF.AX  1299 non-null   float64       
+ 1   Date    1299 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _NHF.AX   _NHF.AX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.070000e-02  1.280000e-02  1.930000e-02
+1   None         _NHF.AX  _NHF.AX_Lag1Trend_residue_bestCycle_byL2_resid...  ...  1.090000e-02  1.280000e-02  1.890000e-02
+2   None   CumSum_NHF.AX  CumSum_NHF.AX_Lag1Trend_residue_zeroCycle_resi...  ...  1.170000e-02  1.280000e-02  1.930000e-02
+3   None     Diff_NHF.AX  Diff_NHF.AX_Lag1Trend_residue_zeroCycle_residu...  ...  1.070000e-02  1.280000e-02  1.930000e-02
+4   None  RelDiff_NHF.AX  RelDiff_NHF.AX_Lag1Trend_residue_zeroCycle_res...  ...  1.070000e-02  1.280000e-02  1.930000e-02
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_NHF.AX  RelDiff_NHF.AX_PolyTrend_residue_Seasonal_DayO...  ...  7.005863e+06  4.077364e+06  3.313063e+06
+92  None  RelDiff_NHF.AX  RelDiff_NHF.AX_PolyTrend_residue_bestCycle_byL...  ...  7.005863e+06  4.077364e+06  3.313063e+06
+93  None  RelDiff_NHF.AX  RelDiff_NHF.AX_ConstantTrend_residue_zeroCycle...  ...  7.002352e+06  4.077364e+06  3.313063e+06
+94  None  RelDiff_NHF.AX  RelDiff_NHF.AX_ConstantTrend_residue_Seasonal_...  ...  6.861318e+06  4.077364e+06  3.313063e+06
+95  None  RelDiff_NHF.AX  RelDiff_NHF.AX_ConstantTrend_residue_bestCycle...  ...  6.861318e+06  4.077364e+06  3.313063e+06
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _NHF.AX   _NHF.AX_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0107        0.0128    0.0193
+1  None         _NHF.AX  _NHF.AX_Lag1Trend_residue_bestCycle_byL2_resid...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0109        0.0128    0.0189
+2  None   CumSum_NHF.AX  CumSum_NHF.AX_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0117        0.0128    0.0193
+3  None     Diff_NHF.AX  Diff_NHF.AX_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0107        0.0128    0.0193
+4  None  RelDiff_NHF.AX  RelDiff_NHF.AX_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0107        0.0128    0.0193
+7 0    4.72
+1    4.66
+2    4.67
+3    4.55
+4    4.71
+5    4.61
+6    4.63
+Name: NHF.AX, dtype: float64
+7 0    4.66
+1    4.66
+2    4.66
+3    4.66
+4    4.66
+5    4.66
+6    4.66
+Name: NHF.AX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_NHF.AX NHF.AX [4.72, 4.66, 4.67, 4.55, 4.71, 4.61, 4.63]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_NHF.AX NHF.AX [4.66, 4.66, 4.66, 4.66, 4.66, 4.66, 4.66]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_NHF.AX NHF.AX 1299 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_NHF.AX NHF.AX 12.200264692306519
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_NHF.AX NHF.AX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_NHF.AX NHF.AX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_NHF.AX NHF.AX 0.0096 0.0095 0.5653
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_NHF.AX NHF.AX 0.04428571428571423 0.055677643628300216 -0.03333332841269954
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aord_NHF.AX_7'

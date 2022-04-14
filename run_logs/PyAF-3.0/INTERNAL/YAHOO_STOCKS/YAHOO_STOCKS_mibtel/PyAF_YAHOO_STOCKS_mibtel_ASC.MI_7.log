@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_mibtel
+TIME :  Date N= 1297 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  ASC.MI N= 1297 H= 7 HEAD= [1.5   1.51  1.51  1.503 1.5  ] TAIL= [2.7 2.7 2.7 2.7 2.7]
+   ASC.MI       Date
+0   1.500 2011-07-28
+1   1.510 2011-07-29
+2   1.510 2011-08-01
+3   1.503 2011-08-02
+4   1.500 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1297 entries, 0 to 1296
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   ASC.MI  1297 non-null   float64       
+ 1   Date    1297 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _ASC.MI   _ASC.MI_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.190000e-02  8.900000e-03  5.000000e-04
+1   None         _ASC.MI  _ASC.MI_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  1.190000e-02  8.900000e-03  6.000000e-04
+2   None         _ASC.MI  _ASC.MI_Lag1Trend_residue_bestCycle_byL2_resid...  ...  1.190000e-02  8.900000e-03  1.000000e-03
+3   None   CumSum_ASC.MI  CumSum_ASC.MI_Lag1Trend_residue_zeroCycle_resi...  ...  1.290000e-02  8.900000e-03  5.000000e-04
+4   None     Diff_ASC.MI  Diff_ASC.MI_Lag1Trend_residue_zeroCycle_residu...  ...  1.190000e-02  8.900000e-03  5.000000e-04
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_ASC.MI  RelDiff_ASC.MI_Lag1Trend_residue_Seasonal_DayO...  ...  4.792749e+07  3.227285e+07  2.668080e+07
+92  None  RelDiff_ASC.MI  RelDiff_ASC.MI_Lag1Trend_residue_bestCycle_byL...  ...  4.789263e+07  3.227285e+07  2.668080e+07
+93  None  RelDiff_ASC.MI  RelDiff_ASC.MI_PolyTrend_residue_Seasonal_DayO...  ...  4.802478e+07  3.227285e+07  2.668080e+07
+94  None  RelDiff_ASC.MI  RelDiff_ASC.MI_Lag1Trend_residue_Seasonal_DayO...  ...  4.806621e+07  3.227285e+07  2.668080e+07
+95  None  RelDiff_ASC.MI  RelDiff_ASC.MI_Lag1Trend_residue_bestCycle_byL...  ...  4.806621e+07  3.227285e+07  2.668080e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _ASC.MI   _ASC.MI_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0119        0.0089    0.0005
+1  None        _ASC.MI  _ASC.MI_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0119        0.0089    0.0006
+2  None        _ASC.MI  _ASC.MI_Lag1Trend_residue_bestCycle_byL2_resid...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0119        0.0089    0.0010
+3  None  CumSum_ASC.MI  CumSum_ASC.MI_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0129        0.0089    0.0005
+4  None    Diff_ASC.MI  Diff_ASC.MI_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0119        0.0089    0.0005
+7 0    2.700
+1    2.786
+2    2.794
+3    2.798
+4    2.742
+5    2.740
+6    2.800
+Name: ASC.MI, dtype: float64
+7 0    2.7
+1    2.7
+2    2.7
+3    2.7
+4    2.7
+5    2.7
+6    2.7
+Name: ASC.MI_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_ASC.MI ASC.MI [2.7, 2.786, 2.7939999999999996, 2.798, 2.742, 2.74, 2.8]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_ASC.MI ASC.MI [2.7, 2.7, 2.7, 2.7, 2.7, 2.7, 2.7]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_ASC.MI ASC.MI 1297 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_ASC.MI ASC.MI 11.072294235229492
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_ASC.MI ASC.MI Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_ASC.MI ASC.MI 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_ASC.MI ASC.MI 0.0236 0.024 1.8254
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_ASC.MI ASC.MI 0.06571428571428552 0.0748331477354786 -3.3694267028885614
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_mibtel_ASC.MI_7'

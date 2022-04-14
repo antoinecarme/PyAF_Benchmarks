@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aex
+TIME :  Date N= 1298 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  RDSA.AS N= 1298 H= 7 HEAD= [25.9   25.6   25.43  25.395 24.24 ] TAIL= [25.25  24.85  25.07  24.995 24.91 ]
+   RDSA.AS       Date
+0   25.900 2011-07-28
+1   25.600 2011-07-29
+2   25.430 2011-08-01
+3   25.395 2011-08-02
+4   24.240 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1298 entries, 0 to 1297
+Data columns (total 2 columns):
+ #   Column   Non-Null Count  Dtype         
+---  ------   --------------  -----         
+ 0   RDSA.AS  1298 non-null   float64       
+ 1   Date     1298 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split   Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _RDSA.AS  _RDSA.AS_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0082  1.650000e-02  8.200000e-03
+1   None         _RDSA.AS  _RDSA.AS_Lag1Trend_residue_Seasonal_DayOfWeek_...  ...  0.0082  1.650000e-02  8.000000e-03
+2   None   CumSum_RDSA.AS  CumSum_RDSA.AS_Lag1Trend_residue_zeroCycle_res...  ...  0.0091  1.650000e-02  8.200000e-03
+3   None     Diff_RDSA.AS  Diff_RDSA.AS_Lag1Trend_residue_zeroCycle_resid...  ...  0.0082  1.650000e-02  8.200000e-03
+4   None  RelDiff_RDSA.AS  RelDiff_RDSA.AS_Lag1Trend_residue_zeroCycle_re...  ...  0.0082  1.650000e-02  8.200000e-03
+..   ...              ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_RDSA.AS  RelDiff_RDSA.AS_LinearTrend_residue_zeroCycle_...  ...  0.1379  1.951609e+07  3.700510e+07
+92  None  RelDiff_RDSA.AS  RelDiff_RDSA.AS_LinearTrend_residue_Seasonal_D...  ...  0.1367  1.951612e+07  3.700511e+07
+93  None  RelDiff_RDSA.AS  RelDiff_RDSA.AS_ConstantTrend_residue_bestCycl...  ...  0.0870  1.951615e+07  3.700510e+07
+94  None  RelDiff_RDSA.AS  RelDiff_RDSA.AS_ConstantTrend_residue_zeroCycl...  ...  0.0871  1.951618e+07  3.700510e+07
+95  None  RelDiff_RDSA.AS  RelDiff_RDSA.AS_ConstantTrend_residue_Seasonal...  ...  0.0861  1.951621e+07  3.700511e+07
+
+[96 rows x 8 columns]
+  Split   Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _RDSA.AS  _RDSA.AS_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0082        0.0165    0.0082
+1  None         _RDSA.AS  _RDSA.AS_Lag1Trend_residue_Seasonal_DayOfWeek_...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0082        0.0165    0.0080
+2  None   CumSum_RDSA.AS  CumSum_RDSA.AS_Lag1Trend_residue_zeroCycle_res...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0091        0.0165    0.0082
+3  None     Diff_RDSA.AS  Diff_RDSA.AS_Lag1Trend_residue_zeroCycle_resid...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0082        0.0165    0.0082
+4  None  RelDiff_RDSA.AS  RelDiff_RDSA.AS_Lag1Trend_residue_zeroCycle_re...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0082        0.0165    0.0082
+7 0    25.095
+1    25.025
+2    25.095
+3    25.020
+4    24.460
+5    24.655
+6    24.490
+Name: RDSA.AS, dtype: float64
+7 0    24.91
+1    24.91
+2    24.91
+3    24.91
+4    24.91
+5    24.91
+6    24.91
+Name: RDSA.AS_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_RDSA.AS RDSA.AS [25.095, 25.025, 25.095, 25.02, 24.46, 24.655, 24.49]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_RDSA.AS RDSA.AS [24.91, 24.91, 24.91, 24.91, 24.91, 24.91, 24.91]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_RDSA.AS RDSA.AS 1298 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_RDSA.AS RDSA.AS 10.154442071914673
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_RDSA.AS RDSA.AS Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_RDSA.AS RDSA.AS 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_RDSA.AS RDSA.AS 0.0099 0.0099 1.2989
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_RDSA.AS RDSA.AS 0.24571428571428505 0.27715390257812633 -0.08064886570300067
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aex_RDSA.AS_7'

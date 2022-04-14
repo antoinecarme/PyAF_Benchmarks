@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 501 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2013-06-21T00:00:00.000000000' '2013-06-24T00:00:00.000000000'
+ '2013-06-25T00:00:00.000000000' '2013-06-26T00:00:00.000000000'
+ '2013-06-27T00:00:00.000000000']
+SIGNAL :  EXM N= 501 H= 7 HEAD= [2.29 2.36 2.32 2.34 2.25] TAIL= [2.21 2.21 2.21 2.21 2.21]
+    EXM       Date
+0  2.29 2011-07-28
+1  2.36 2011-07-29
+2  2.32 2011-08-01
+3  2.34 2011-08-02
+4  2.25 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 501 entries, 0 to 500
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   EXM     501 non-null    float64       
+ 1   Date    501 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 11.7 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _EXM      _EXM_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  7.200000e-03  0.000000e+00  0.000000e+00
+1   None     CumSum_EXM  CumSum_EXM_Lag1Trend_residue_zeroCycle_residue...  ...  9.700000e-03  0.000000e+00  0.000000e+00
+2   None       Diff_EXM  Diff_EXM_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  7.200000e-03  0.000000e+00  0.000000e+00
+3   None    RelDiff_EXM  RelDiff_EXM_Lag1Trend_residue_zeroCycle_residu...  ...  7.200000e-03  0.000000e+00  0.000000e+00
+4   None     CumSum_EXM  CumSum_EXM_ConstantTrend_residue_zeroCycle_res...  ...  1.060000e-02  0.000000e+00  0.000000e+00
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_EXM  RelDiff_EXM_Lag1Trend_residue_Seasonal_DayOfWe...  ...  2.205733e+07  2.171946e+07  2.171946e+07
+92  None    RelDiff_EXM  RelDiff_EXM_Lag1Trend_residue_bestCycle_byL2_r...  ...  2.205733e+07  2.171946e+07  2.171946e+07
+93  None    RelDiff_EXM  RelDiff_EXM_ConstantTrend_residue_Seasonal_Day...  ...  2.200420e+07  2.171946e+07  2.171946e+07
+94  None    RelDiff_EXM  RelDiff_EXM_ConstantTrend_residue_bestCycle_by...  ...  2.200420e+07  2.171946e+07  2.171946e+07
+95  None    RelDiff_EXM  RelDiff_EXM_PolyTrend_residue_zeroCycle_residu...  ...  2.210813e+07  2.171946e+07  2.171946e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _EXM      _EXM_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0072           0.0       0.0
+1  None     CumSum_EXM  CumSum_EXM_Lag1Trend_residue_zeroCycle_residue...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0097           0.0       0.0
+2  None       Diff_EXM  Diff_EXM_Lag1Trend_residue_zeroCycle_residue_NoAR          Difference_Lag1Trend_NoCycle_NoAR          64   0.0072           0.0       0.0
+3  None    RelDiff_EXM  RelDiff_EXM_Lag1Trend_residue_zeroCycle_residu...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0072           0.0       0.0
+4  None     CumSum_EXM  CumSum_EXM_ConstantTrend_residue_zeroCycle_res...       Integration_ConstantTrend_NoCycle_AR          96   0.0106           0.0       0.0
+7 0    2.21
+1    2.21
+2    2.21
+3    2.21
+4    2.21
+5    2.21
+6    2.21
+Name: EXM, dtype: float64
+7 0    2.21
+1    2.21
+2    2.21
+3    2.21
+4    2.21
+5    2.21
+6    2.21
+Name: EXM_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_EXM EXM [2.21, 2.21, 2.21, 2.21, 2.21, 2.21, 2.21]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_EXM EXM [2.21, 2.21, 2.21, 2.21, 2.21, 2.21, 2.21]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_EXM EXM 501 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_EXM EXM 11.71509313583374
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_EXM EXM Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_EXM EXM 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_EXM EXM 0.0 0.0 0.0
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_EXM EXM 0.0 0.0 1.0
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_EXM_7'

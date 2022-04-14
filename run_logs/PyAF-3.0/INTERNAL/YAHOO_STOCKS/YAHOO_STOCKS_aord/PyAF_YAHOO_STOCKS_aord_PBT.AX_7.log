@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aord
+TIME :  Date N= 1284 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-08-01T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  PBT.AX N= 1284 H= 7 HEAD= [0.165 0.175 0.175 0.165 0.16 ] TAIL= [0.105 0.105 0.1   0.1   0.098]
+   PBT.AX       Date
+0   0.165 2011-07-28
+1   0.175 2011-08-01
+2   0.175 2011-08-02
+3   0.165 2011-08-03
+4   0.160 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1284 entries, 0 to 1283
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   PBT.AX  1284 non-null   float64       
+ 1   Date    1284 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.1 KB
+None
+   Split  Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _PBT.AX   _PBT.AX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0376  2.800000e-02  3.080000e-02
+1   None   CumSum_PBT.AX  CumSum_PBT.AX_Lag1Trend_residue_zeroCycle_resi...  ...  0.0385  2.800000e-02  3.080000e-02
+2   None     Diff_PBT.AX  Diff_PBT.AX_Lag1Trend_residue_zeroCycle_residu...  ...  0.0376  2.800000e-02  3.080000e-02
+3   None  RelDiff_PBT.AX  RelDiff_PBT.AX_Lag1Trend_residue_zeroCycle_res...  ...  0.0376  2.800000e-02  3.080000e-02
+4   None         _PBT.AX  _PBT.AX_Lag1Trend_residue_zeroCycle_residue_AR...  ...  0.0419  3.200000e-02  3.550000e-02
+..   ...             ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_PBT.AX  RelDiff_PBT.AX_LinearTrend_residue_Seasonal_Da...  ...  5.7474  3.201920e+07  1.021808e+08
+92  None  RelDiff_PBT.AX  RelDiff_PBT.AX_LinearTrend_residue_zeroCycle_r...  ...  5.7639  3.201981e+07  1.021808e+08
+93  None  RelDiff_PBT.AX  RelDiff_PBT.AX_ConstantTrend_residue_bestCycle...  ...  3.1778  3.203443e+07  1.021808e+08
+94  None  RelDiff_PBT.AX  RelDiff_PBT.AX_ConstantTrend_residue_Seasonal_...  ...  3.6401  3.204367e+07  1.021808e+08
+95  None  RelDiff_PBT.AX  RelDiff_PBT.AX_ConstantTrend_residue_zeroCycle...  ...  3.6527  3.204502e+07  1.021808e+08
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _PBT.AX   _PBT.AX_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0376         0.028    0.0308
+1  None   CumSum_PBT.AX  CumSum_PBT.AX_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0385         0.028    0.0308
+2  None     Diff_PBT.AX  Diff_PBT.AX_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0376         0.028    0.0308
+3  None  RelDiff_PBT.AX  RelDiff_PBT.AX_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0376         0.028    0.0308
+4  None         _PBT.AX  _PBT.AX_Lag1Trend_residue_zeroCycle_residue_AR...              NoTransf_Lag1Trend_NoCycle_AR          96   0.0419         0.032    0.0355
+7 0    0.105
+1    0.105
+2    0.098
+3    0.097
+4    0.098
+5    0.100
+6    0.097
+Name: PBT.AX, dtype: float64
+7 0    0.098
+1    0.098
+2    0.098
+3    0.098
+4    0.098
+5    0.098
+6    0.098
+Name: PBT.AX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_PBT.AX PBT.AX [0.105, 0.105, 0.098, 0.09699999999999999, 0.098, 0.1, 0.09699999999999999]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_PBT.AX PBT.AX [0.098, 0.098, 0.098, 0.098, 0.098, 0.098, 0.098]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_PBT.AX PBT.AX 1284 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_PBT.AX PBT.AX 11.393410205841064
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_PBT.AX PBT.AX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_PBT.AX PBT.AX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_PBT.AX PBT.AX 0.0249 0.0255 1.102
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_PBT.AX PBT.AX 0.002571428571428574 0.003854496446637723 -0.368419252079929
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aord_PBT.AX_7'

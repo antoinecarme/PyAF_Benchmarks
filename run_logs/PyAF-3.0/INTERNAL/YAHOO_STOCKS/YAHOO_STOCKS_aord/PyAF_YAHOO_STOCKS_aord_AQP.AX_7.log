@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aord
+TIME :  Date N= 1223 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-03-29T00:00:00.000000000' '2016-03-30T00:00:00.000000000'
+ '2016-03-31T00:00:00.000000000' '2016-04-01T00:00:00.000000000'
+ '2016-04-04T00:00:00.000000000']
+SIGNAL :  AQP.AX N= 1223 H= 7 HEAD= [2.41275 2.42421 2.50445 2.37837 2.27521] TAIL= [0.255 0.255 0.25  0.25  0.25 ]
+    AQP.AX       Date
+0  2.41275 2011-07-28
+1  2.42421 2011-07-29
+2  2.50445 2011-08-01
+3  2.37837 2011-08-02
+4  2.27521 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1223 entries, 0 to 1222
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   AQP.AX  1223 non-null   float64       
+ 1   Date    1223 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 28.7 KB
+None
+   Split  Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _AQP.AX   _AQP.AX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0288  1.800000e-02  2.900000e-03
+1   None   CumSum_AQP.AX  CumSum_AQP.AX_Lag1Trend_residue_zeroCycle_resi...  ...  0.0299  1.800000e-02  2.900000e-03
+2   None     Diff_AQP.AX  Diff_AQP.AX_Lag1Trend_residue_zeroCycle_residu...  ...  0.0288  1.800000e-02  2.900000e-03
+3   None  RelDiff_AQP.AX  RelDiff_AQP.AX_Lag1Trend_residue_zeroCycle_res...  ...  0.0288  1.800000e-02  2.900000e-03
+4   None         _AQP.AX  _AQP.AX_Lag1Trend_residue_zeroCycle_residue_AR...  ...  0.0291  2.360000e-02  8.200000e-03
+..   ...             ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_AQP.AX  RelDiff_AQP.AX_LinearTrend_residue_bestCycle_b...  ...  0.7726  8.444211e+08  9.048468e+08
+92  None  RelDiff_AQP.AX  RelDiff_AQP.AX_ConstantTrend_residue_bestCycle...  ...  0.5589  8.444325e+08  9.048468e+08
+93  None  RelDiff_AQP.AX  RelDiff_AQP.AX_Lag1Trend_residue_Seasonal_DayO...  ...  0.3875  8.506713e+08  9.048468e+08
+94  None  RelDiff_AQP.AX  RelDiff_AQP.AX_Lag1Trend_residue_bestCycle_byL...  ...  0.3875  8.506713e+08  9.048468e+08
+95  None  RelDiff_AQP.AX  RelDiff_AQP.AX_Lag1Trend_residue_zeroCycle_res...  ...  0.3871  8.506713e+08  9.048468e+08
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _AQP.AX   _AQP.AX_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0288        0.0180    0.0029
+1  None   CumSum_AQP.AX  CumSum_AQP.AX_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0299        0.0180    0.0029
+2  None     Diff_AQP.AX  Diff_AQP.AX_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0288        0.0180    0.0029
+3  None  RelDiff_AQP.AX  RelDiff_AQP.AX_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0288        0.0180    0.0029
+4  None         _AQP.AX  _AQP.AX_Lag1Trend_residue_zeroCycle_residue_AR...              NoTransf_Lag1Trend_NoCycle_AR          96   0.0291        0.0236    0.0082
+7 0    0.25
+1    0.25
+2    0.25
+3    0.25
+4    0.25
+5    0.25
+6    0.25
+Name: AQP.AX, dtype: float64
+7 0    0.25
+1    0.25
+2    0.25
+3    0.25
+4    0.25
+5    0.25
+6    0.25
+Name: AQP.AX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_AQP.AX AQP.AX [0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_AQP.AX AQP.AX [0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_AQP.AX AQP.AX 1223 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_AQP.AX AQP.AX 10.732612371444702
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_AQP.AX AQP.AX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_AQP.AX AQP.AX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_AQP.AX AQP.AX 0.0 0.0 0.0
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_AQP.AX AQP.AX 0.0 0.0 1.0
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aord_AQP.AX_7'

@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1294 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  BWY.L N= 1294 H= 7 HEAD= [672.5 660.  668.  675.  666. ] TAIL= [1970. 1992. 1965. 1969. 2007.]
+   BWY.L       Date
+0  672.5 2011-07-28
+1  660.0 2011-07-29
+2  668.0 2011-08-01
+3  675.0 2011-08-02
+4  666.0 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1294 entries, 0 to 1293
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   BWY.L   1294 non-null   float64       
+ 1   Date    1294 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _BWY.L    _BWY.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.300000e-02  1.700000e-02  2.500000e-02
+1   None         _BWY.L  _BWY.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  1.300000e-02  1.700000e-02  2.500000e-02
+2   None         _BWY.L  _BWY.L_Lag1Trend_residue_bestCycle_byL2_residu...  ...  1.300000e-02  1.700000e-02  2.390000e-02
+3   None   CumSum_BWY.L  CumSum_BWY.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.390000e-02  1.700000e-02  2.500000e-02
+4   None     Diff_BWY.L  Diff_BWY.L_Lag1Trend_residue_zeroCycle_residue...  ...  1.300000e-02  1.700000e-02  2.500000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_BWY.L  RelDiff_BWY.L_PolyTrend_residue_zeroCycle_resi...  ...  1.163882e+07  5.294437e+06  6.740875e+06
+92  None  RelDiff_BWY.L  RelDiff_BWY.L_PolyTrend_residue_Seasonal_DayOf...  ...  1.163719e+07  5.294437e+06  6.740875e+06
+93  None  RelDiff_BWY.L  RelDiff_BWY.L_ConstantTrend_residue_bestCycle_...  ...  1.149527e+07  5.294437e+06  6.740875e+06
+94  None  RelDiff_BWY.L  RelDiff_BWY.L_PolyTrend_residue_zeroCycle_resi...  ...  1.164872e+07  5.294437e+06  6.740875e+06
+95  None  RelDiff_BWY.L  RelDiff_BWY.L_PolyTrend_residue_Seasonal_DayOf...  ...  1.164353e+07  5.294437e+06  6.740875e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _BWY.L    _BWY.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0130         0.017    0.0250
+1  None         _BWY.L  _BWY.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0130         0.017    0.0250
+2  None         _BWY.L  _BWY.L_Lag1Trend_residue_bestCycle_byL2_residu...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0130         0.017    0.0239
+3  None   CumSum_BWY.L  CumSum_BWY.L_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0139         0.017    0.0250
+4  None     Diff_BWY.L  Diff_BWY.L_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0130         0.017    0.0250
+7 0    2010.0
+1    2027.0
+2    2027.0
+3    1979.0
+4    2005.0
+5    1945.0
+6    2075.0
+Name: BWY.L, dtype: float64
+7 0    2007.0
+1    2007.0
+2    2007.0
+3    2007.0
+4    2007.0
+5    2007.0
+6    2007.0
+Name: BWY.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_BWY.L BWY.L [2010.0, 2027.0, 2027.0, 1979.0, 2005.0, 1945.0, 2075.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_BWY.L BWY.L [2007.0, 2007.0, 2007.0, 2007.0, 2007.0, 2007.0, 2007.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_BWY.L BWY.L 1294 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_BWY.L BWY.L 11.12211012840271
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_BWY.L BWY.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_BWY.L BWY.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_BWY.L BWY.L 0.0144 0.0144 0.6192
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_BWY.L BWY.L 29.0 37.919086788280424 -0.005150226838235739
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_BWY.L_7'

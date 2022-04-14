@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ipc
+TIME :  Date N= 1294 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  TLEVISACPO.MX N= 1294 H= 7 HEAD= [52.79 52.21 52.26 50.92 50.27] TAIL= [97.66 98.07 98.79 99.22 99.27]
+   TLEVISACPO.MX       Date
+0          52.79 2011-07-28
+1          52.21 2011-07-29
+2          52.26 2011-08-01
+3          50.92 2011-08-02
+4          50.27 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1294 entries, 0 to 1293
+Data columns (total 2 columns):
+ #   Column         Non-Null Count  Dtype         
+---  ------         --------------  -----         
+ 0   TLEVISACPO.MX  1294 non-null   float64       
+ 1   Date           1294 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split         Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _TLEVISACPO.MX  _TLEVISACPO.MX_Lag1Trend_residue_zeroCycle_res...  ...  1.050000e-02  1.170000e-02  9.200000e-03
+1   None         _TLEVISACPO.MX  _TLEVISACPO.MX_Lag1Trend_residue_Seasonal_DayO...  ...  1.060000e-02  1.170000e-02  8.600000e-03
+2   None         _TLEVISACPO.MX  _TLEVISACPO.MX_Lag1Trend_residue_bestCycle_byL...  ...  1.060000e-02  1.170000e-02  8.700000e-03
+3   None   CumSum_TLEVISACPO.MX  CumSum_TLEVISACPO.MX_Lag1Trend_residue_zeroCyc...  ...  1.150000e-02  1.170000e-02  9.200000e-03
+4   None     Diff_TLEVISACPO.MX  Diff_TLEVISACPO.MX_Lag1Trend_residue_zeroCycle...  ...  1.050000e-02  1.170000e-02  9.200000e-03
+..   ...                    ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_TLEVISACPO.MX  RelDiff_TLEVISACPO.MX_PolyTrend_residue_bestCy...  ...  8.730141e+06  6.418340e+06  6.318502e+06
+92  None  RelDiff_TLEVISACPO.MX  RelDiff_TLEVISACPO.MX_ConstantTrend_residue_ze...  ...  8.719724e+06  6.418340e+06  6.318502e+06
+93  None  RelDiff_TLEVISACPO.MX  RelDiff_TLEVISACPO.MX_ConstantTrend_residue_be...  ...  8.609725e+06  6.418340e+06  6.318502e+06
+94  None  RelDiff_TLEVISACPO.MX  RelDiff_TLEVISACPO.MX_PolyTrend_residue_Season...  ...  8.730918e+06  6.418340e+06  6.318502e+06
+95  None  RelDiff_TLEVISACPO.MX  RelDiff_TLEVISACPO.MX_PolyTrend_residue_bestCy...  ...  8.730917e+06  6.418340e+06  6.318502e+06
+
+[96 rows x 8 columns]
+  Split        Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _TLEVISACPO.MX  _TLEVISACPO.MX_Lag1Trend_residue_zeroCycle_res...             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0105        0.0117    0.0092
+1  None        _TLEVISACPO.MX  _TLEVISACPO.MX_Lag1Trend_residue_Seasonal_DayO...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0106        0.0117    0.0086
+2  None        _TLEVISACPO.MX  _TLEVISACPO.MX_Lag1Trend_residue_bestCycle_byL...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0106        0.0117    0.0087
+3  None  CumSum_TLEVISACPO.MX  CumSum_TLEVISACPO.MX_Lag1Trend_residue_zeroCyc...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0115        0.0117    0.0092
+4  None    Diff_TLEVISACPO.MX  Diff_TLEVISACPO.MX_Lag1Trend_residue_zeroCycle...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0105        0.0117    0.0092
+7 0    100.33
+1    101.03
+2     99.27
+3    100.35
+4     98.49
+5     99.12
+6     99.22
+Name: TLEVISACPO.MX, dtype: float64
+7 0    99.27
+1    99.27
+2    99.27
+3    99.27
+4    99.27
+5    99.27
+6    99.27
+Name: TLEVISACPO.MX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_TLEVISACPO.MX TLEVISACPO.MX [100.33, 101.03, 99.27, 100.35, 98.49, 99.12, 99.22]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_TLEVISACPO.MX TLEVISACPO.MX [99.27, 99.27, 99.27, 99.27, 99.27, 99.27, 99.27]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_TLEVISACPO.MX TLEVISACPO.MX 1294 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_TLEVISACPO.MX TLEVISACPO.MX 10.116568565368652
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_TLEVISACPO.MX TLEVISACPO.MX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_TLEVISACPO.MX TLEVISACPO.MX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_TLEVISACPO.MX TLEVISACPO.MX 0.007 0.007 0.6824
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_TLEVISACPO.MX TLEVISACPO.MX 0.6971428571428565 0.9274388697606217 -0.2536064198474315
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ipc_TLEVISACPO.MX_7'

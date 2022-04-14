@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_bvsp
+TIME :  Date N= 303 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2012-10-02T00:00:00.000000000' '2012-10-03T00:00:00.000000000'
+ '2012-10-04T00:00:00.000000000' '2012-10-05T00:00:00.000000000'
+ '2012-10-08T00:00:00.000000000']
+SIGNAL :  RDCD3.SA N= 303 H= 7 HEAD= [26.25 26.41 26.79 27.15 27.13] TAIL= [34.96 34.96 34.97 35.   35.03]
+   RDCD3.SA       Date
+0     26.25 2011-07-28
+1     26.41 2011-07-29
+2     26.79 2011-08-01
+3     27.15 2011-08-02
+4     27.13 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 303 entries, 0 to 302
+Data columns (total 2 columns):
+ #   Column    Non-Null Count  Dtype         
+---  ------    --------------  -----         
+ 0   RDCD3.SA  303 non-null    float64       
+ 1   Date      303 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 7.1 KB
+None
+   Split    Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _RDCD3.SA  _RDCD3.SA_Lag1Trend_residue_zeroCycle_residue_...  ...  9.300000e-03  3.700000e-03  4.000000e-04
+1   None   CumSum_RDCD3.SA  CumSum_RDCD3.SA_Lag1Trend_residue_zeroCycle_re...  ...  1.350000e-02  3.700000e-03  4.000000e-04
+2   None     Diff_RDCD3.SA  Diff_RDCD3.SA_Lag1Trend_residue_zeroCycle_resi...  ...  9.300000e-03  3.700000e-03  4.000000e-04
+3   None  RelDiff_RDCD3.SA  RelDiff_RDCD3.SA_Lag1Trend_residue_zeroCycle_r...  ...  9.300000e-03  3.700000e-03  4.000000e-04
+4   None         _RDCD3.SA  _RDCD3.SA_Lag1Trend_residue_bestCycle_byL2_res...  ...  9.500000e-03  3.900000e-03  1.000000e-03
+..   ...               ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_RDCD3.SA  RelDiff_RDCD3.SA_ConstantTrend_residue_Seasona...  ...  8.598352e+06  7.780895e+06  7.462630e+06
+92  None  RelDiff_RDCD3.SA  RelDiff_RDCD3.SA_LinearTrend_residue_Seasonal_...  ...  8.640223e+06  7.780895e+06  7.462630e+06
+93  None  RelDiff_RDCD3.SA  RelDiff_RDCD3.SA_PolyTrend_residue_Seasonal_Da...  ...  8.640262e+06  7.780896e+06  7.462631e+06
+94  None  RelDiff_RDCD3.SA  RelDiff_RDCD3.SA_PolyTrend_residue_bestCycle_b...  ...  8.640263e+06  7.780896e+06  7.462631e+06
+95  None  RelDiff_RDCD3.SA  RelDiff_RDCD3.SA_ConstantTrend_residue_zeroCyc...  ...  8.640217e+06  7.780896e+06  7.462631e+06
+
+[96 rows x 8 columns]
+  Split    Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _RDCD3.SA  _RDCD3.SA_Lag1Trend_residue_zeroCycle_residue_...            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0093        0.0037    0.0004
+1  None   CumSum_RDCD3.SA  CumSum_RDCD3.SA_Lag1Trend_residue_zeroCycle_re...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0135        0.0037    0.0004
+2  None     Diff_RDCD3.SA  Diff_RDCD3.SA_Lag1Trend_residue_zeroCycle_resi...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0093        0.0037    0.0004
+3  None  RelDiff_RDCD3.SA  RelDiff_RDCD3.SA_Lag1Trend_residue_zeroCycle_r...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0093        0.0037    0.0004
+4  None         _RDCD3.SA  _RDCD3.SA_Lag1Trend_residue_bestCycle_byL2_res...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0095        0.0039    0.0010
+7 0    35.03
+1    35.09
+2    35.05
+3    35.05
+4    35.05
+5    35.05
+6    35.05
+Name: RDCD3.SA, dtype: float64
+7 0    35.03
+1    35.03
+2    35.03
+3    35.03
+4    35.03
+5    35.03
+6    35.03
+Name: RDCD3.SA_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_RDCD3.SA RDCD3.SA [35.03, 35.09, 35.05, 35.05, 35.05, 35.05, 35.05]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_RDCD3.SA RDCD3.SA [35.03, 35.03, 35.03, 35.03, 35.03, 35.03, 35.03]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_RDCD3.SA RDCD3.SA 303 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_RDCD3.SA RDCD3.SA 9.68632197380066
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_RDCD3.SA RDCD3.SA Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_RDCD3.SA RDCD3.SA 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_RDCD3.SA RDCD3.SA 0.0007 0.0007 1.3714
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_RDCD3.SA RDCD3.SA 0.02285714285714034 0.028284271247460576 -1.882352792819387
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_bvsp_RDCD3.SA_7'

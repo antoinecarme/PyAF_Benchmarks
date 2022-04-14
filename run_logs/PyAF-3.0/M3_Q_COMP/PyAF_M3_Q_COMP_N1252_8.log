@@ -1,0 +1,66 @@
+BENCH_DATA M3_Q_COMP
+TIME :  Date N= 45 H= 8 HEAD= [0 1 2 3 4] TAIL= [40 41 42 43 44]
+SIGNAL :  N1252 N= 45 H= 8 HEAD= [4882. 4538. 4680. 4984. 5156.] TAIL= [8122. 7953. 7953. 7700. 7339.]
+Index   N1252  Date
+1      4882.0     0
+2      4538.0     1
+3      4680.0     2
+4      4984.0     3
+5      5156.0     4
+<class 'pandas.core.frame.DataFrame'>
+Index: 45 entries, 1 to 45
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   N1252   45 non-null     float64
+ 1   Date    45 non-null     int64  
+dtypes: float64(1), int64(1)
+memory usage: 1.1+ KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _N1252  _N1252_Lag1Trend_residue_zeroCycle_residue_AR(11)  ...  1.630000e-02  8.500000e-03  1.990000e-02
+1   None         _N1252  _N1252_Lag1Trend_residue_bestCycle_byL2_residu...  ...  1.630000e-02  8.500000e-03  1.990000e-02
+2   None         _N1252  _N1252_ConstantTrend_residue_zeroCycle_residue...  ...  1.620000e-02  9.100000e-03  1.970000e-02
+3   None         _N1252  _N1252_ConstantTrend_residue_bestCycle_byL2_re...  ...  1.620000e-02  9.100000e-03  1.970000e-02
+4   None   CumSum_N1252  CumSum_N1252_ConstantTrend_residue_zeroCycle_r...  ...  7.950000e-02  9.800000e-03  2.160000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+59  None  RelDiff_N1252  RelDiff_N1252_LinearTrend_residue_zeroCycle_re...  ...  5.681094e+06  4.518349e+06  4.370676e+06
+60  None  RelDiff_N1252  RelDiff_N1252_PolyTrend_residue_zeroCycle_resi...  ...  5.681128e+06  4.518349e+06  4.370676e+06
+61  None  RelDiff_N1252  RelDiff_N1252_PolyTrend_residue_bestCycle_byL2...  ...  5.680262e+06  4.518349e+06  4.370676e+06
+62  None  RelDiff_N1252  RelDiff_N1252_LinearTrend_residue_bestCycle_by...  ...  5.681094e+06  4.518349e+06  4.370676e+06
+63  None  RelDiff_N1252  RelDiff_N1252_PolyTrend_residue_bestCycle_byL2...  ...  5.681128e+06  4.518349e+06  4.370676e+06
+
+[64 rows x 8 columns]
+  Split Transformation                                              Model                              Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _N1252  _N1252_Lag1Trend_residue_zeroCycle_residue_AR(11)         NoTransf_Lag1Trend_NoCycle_AR          39   0.0163        0.0085    0.0199
+1  None         _N1252  _N1252_Lag1Trend_residue_bestCycle_byL2_residu...      NoTransf_Lag1Trend_Cycle_None_AR          47   0.0163        0.0085    0.0199
+2  None         _N1252  _N1252_ConstantTrend_residue_zeroCycle_residue...     NoTransf_ConstantTrend_NoCycle_AR           7   0.0162        0.0091    0.0197
+3  None         _N1252  _N1252_ConstantTrend_residue_bestCycle_byL2_re...  NoTransf_ConstantTrend_Cycle_None_AR          15   0.0162        0.0091    0.0197
+4  None   CumSum_N1252  CumSum_N1252_ConstantTrend_residue_zeroCycle_r...  Integration_ConstantTrend_NoCycle_AR          39   0.0795        0.0098    0.0216
+8 0    7320.0
+1    7326.0
+2    7269.0
+3    7382.0
+4    7651.0
+5    7666.0
+6    7940.0
+7    7978.0
+Name: N1252, dtype: float64
+8 0    7155.033845
+1    7169.607227
+2    7202.066158
+3    7332.721536
+4    7548.721950
+5    7752.733956
+6    7890.655723
+7    8000.767804
+Name: N1252_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL M3_Q_COMP N1252 [7320.0, 7326.0, 7269.0, 7382.0, 7651.0, 7666.0, 7940.0, 7978.0]
+FORECAST_DETAIL_PREDICTED M3_Q_COMP N1252 [7155.033845380658, 7169.607227057284, 7202.0661576630155, 7332.721536087331, 7548.721949788012, 7752.733955815008, 7890.655722721878, 8000.7678040954515]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON M3_Q_COMP N1252 45 8
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ M3_Q_COMP N1252 4.891424179077148
+BENCHMARK_PERF_DETAIL_BEST_MODEL M3_Q_COMP N1252 ConstantTrend + NoCycle + AR
+BENCHMARK_PERF_DETAIL_PERF_COUNT M3_Q_COMP N1252 8
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE M3_Q_COMP N1252 0.0117 0.0118 0.7919
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 M3_Q_COMP N1252 87.3369151515351 99.69819902090995 0.8597628193795963
+BENCHMARK_SUCCESS 'M3_Q_COMP_N1252_8'

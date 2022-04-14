@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_midex
+TIME :  Date N= 1297 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  CRG.MI N= 1297 H= 7 HEAD= [0.18463 0.18161 0.17544 0.16689 0.16652] TAIL= [0.3479 0.3621 0.3726 0.3753 0.3765]
+    CRG.MI       Date
+0  0.18463 2011-07-28
+1  0.18161 2011-07-29
+2  0.17544 2011-08-01
+3  0.16689 2011-08-02
+4  0.16652 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1297 entries, 0 to 1296
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   CRG.MI  1297 non-null   float64       
+ 1   Date    1297 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _CRG.MI   _CRG.MI_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.210000e-02  3.190000e-02  3.840000e-02
+1   None   CumSum_CRG.MI  CumSum_CRG.MI_Lag1Trend_residue_zeroCycle_resi...  ...  2.300000e-02  3.190000e-02  3.840000e-02
+2   None     Diff_CRG.MI  Diff_CRG.MI_Lag1Trend_residue_zeroCycle_residu...  ...  2.210000e-02  3.190000e-02  3.840000e-02
+3   None  RelDiff_CRG.MI  RelDiff_CRG.MI_Lag1Trend_residue_zeroCycle_res...  ...  2.210000e-02  3.190000e-02  3.840000e-02
+4   None   CumSum_CRG.MI  CumSum_CRG.MI_Lag1Trend_residue_bestCycle_byL2...  ...  3.840000e-02  3.200000e-02  3.940000e-02
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_CRG.MI  RelDiff_CRG.MI_ConstantTrend_residue_Seasonal_...  ...  3.029174e+08  2.125500e+07  4.802582e+07
+92  None  RelDiff_CRG.MI  RelDiff_CRG.MI_ConstantTrend_residue_bestCycle...  ...  3.030284e+08  2.125500e+07  4.802582e+07
+93  None  RelDiff_CRG.MI  RelDiff_CRG.MI_PolyTrend_residue_zeroCycle_res...  ...  2.798384e+08  2.125500e+07  4.802582e+07
+94  None  RelDiff_CRG.MI  RelDiff_CRG.MI_LinearTrend_residue_Seasonal_Da...  ...  3.039781e+08  2.125500e+07  4.802582e+07
+95  None  RelDiff_CRG.MI  RelDiff_CRG.MI_PolyTrend_residue_bestCycle_byL...  ...  3.038673e+08  2.125500e+07  4.802582e+07
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _CRG.MI   _CRG.MI_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0221        0.0319    0.0384
+1  None   CumSum_CRG.MI  CumSum_CRG.MI_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0230        0.0319    0.0384
+2  None     Diff_CRG.MI  Diff_CRG.MI_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0221        0.0319    0.0384
+3  None  RelDiff_CRG.MI  RelDiff_CRG.MI_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0221        0.0319    0.0384
+4  None   CumSum_CRG.MI  CumSum_CRG.MI_Lag1Trend_residue_bestCycle_byL2...           Integration_Lag1Trend_Cycle_NoAR          72   0.0384        0.0320    0.0394
+7 0    0.3700
+1    0.3622
+2    0.3550
+3    0.3476
+4    0.3350
+5    0.3302
+6    0.3380
+Name: CRG.MI, dtype: float64
+7 0    0.3765
+1    0.3765
+2    0.3765
+3    0.3765
+4    0.3765
+5    0.3765
+6    0.3765
+Name: CRG.MI_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_CRG.MI CRG.MI [0.37, 0.3622, 0.355, 0.3476, 0.335, 0.3302, 0.33799999999999997]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_CRG.MI CRG.MI [0.3765, 0.3765, 0.3765, 0.3765, 0.3765, 0.3765, 0.3765]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_CRG.MI CRG.MI 1297 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_CRG.MI CRG.MI 11.745622396469116
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_CRG.MI CRG.MI Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_CRG.MI CRG.MI 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_CRG.MI CRG.MI 0.0827 0.0786 3.5564
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_CRG.MI CRG.MI 0.028214285714285716 0.031378768982500624 -4.221235947173179
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_midex_CRG.MI_7'

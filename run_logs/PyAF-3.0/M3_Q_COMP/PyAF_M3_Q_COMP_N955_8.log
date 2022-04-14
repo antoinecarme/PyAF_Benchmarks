@@ -1,0 +1,66 @@
+BENCH_DATA M3_Q_COMP
+TIME :  Date N= 44 H= 8 HEAD= [0 1 2 3 4] TAIL= [39 40 41 42 43]
+SIGNAL :  N955 N= 44 H= 8 HEAD= [4551.  4604.  4626.5 4631.5 4645.5] TAIL= [5883.5 5910.5 5954.  5982.5 6034. ]
+Index    N955  Date
+1      4551.0     0
+2      4604.0     1
+3      4626.5     2
+4      4631.5     3
+5      4645.5     4
+<class 'pandas.core.frame.DataFrame'>
+Index: 44 entries, 1 to 44
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   N955    44 non-null     float64
+ 1   Date    44 non-null     int64  
+dtypes: float64(1), int64(1)
+memory usage: 1.0+ KB
+None
+   Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0   None      Diff_N955  Diff_N955_Lag1Trend_residue_zeroCycle_residue_...            Difference_Lag1Trend_NoCycle_AR          71   0.0037        0.0011    0.0095
+1   None      Diff_N955  Diff_N955_Lag1Trend_residue_bestCycle_byL2_res...         Difference_Lag1Trend_Cycle_None_AR          79   0.0037        0.0011    0.0095
+2   None      Diff_N955  Diff_N955_ConstantTrend_residue_zeroCycle_resi...        Difference_ConstantTrend_NoCycle_AR          39   0.0058        0.0012    0.0083
+3   None      Diff_N955  Diff_N955_ConstantTrend_residue_bestCycle_byL2...     Difference_ConstantTrend_Cycle_None_AR          47   0.0058        0.0012    0.0083
+4   None          _N955   _N955_Lag1Trend_residue_zeroCycle_residue_AR(11)              NoTransf_Lag1Trend_NoCycle_AR          39   0.0024        0.0013    0.0031
+..   ...            ...                                                ...                                        ...         ...      ...           ...       ...
+59  None    CumSum_N955  CumSum_N955_LinearTrend_residue_bestCycle_byL2...    Integration_LinearTrend_Cycle_None_NoAR          56   0.4143        0.3749    0.4158
+60  None    CumSum_N955  CumSum_N955_PolyTrend_residue_zeroCycle_residu...         Integration_PolyTrend_NoCycle_NoAR          48   0.4379        0.6039    1.0188
+61  None    CumSum_N955  CumSum_N955_PolyTrend_residue_bestCycle_byL2_r...      Integration_PolyTrend_Cycle_None_NoAR          56   0.4379        0.6039    1.0188
+62  None    CumSum_N955  CumSum_N955_ConstantTrend_residue_zeroCycle_re...     Integration_ConstantTrend_NoCycle_NoAR          32   1.4666        1.0000    1.0000
+63  None    CumSum_N955  CumSum_N955_ConstantTrend_residue_bestCycle_by...  Integration_ConstantTrend_Cycle_None_NoAR          40   1.4666        1.0000    1.0000
+
+[64 rows x 8 columns]
+  Split Transformation                                              Model                                Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None      Diff_N955  Diff_N955_Lag1Trend_residue_zeroCycle_residue_...         Difference_Lag1Trend_NoCycle_AR          71   0.0037        0.0011    0.0095
+1  None      Diff_N955  Diff_N955_Lag1Trend_residue_bestCycle_byL2_res...      Difference_Lag1Trend_Cycle_None_AR          79   0.0037        0.0011    0.0095
+2  None      Diff_N955  Diff_N955_ConstantTrend_residue_zeroCycle_resi...     Difference_ConstantTrend_NoCycle_AR          39   0.0058        0.0012    0.0083
+3  None      Diff_N955  Diff_N955_ConstantTrend_residue_bestCycle_byL2...  Difference_ConstantTrend_Cycle_None_AR          47   0.0058        0.0012    0.0083
+4  None          _N955   _N955_Lag1Trend_residue_zeroCycle_residue_AR(11)           NoTransf_Lag1Trend_NoCycle_AR          39   0.0024        0.0013    0.0031
+8 0    6052.5
+1    6091.5
+2    6127.5
+3    6164.5
+4    6199.5
+5    6231.0
+6    6225.5
+7    6221.5
+Name: N955, dtype: float64
+8 0    6149.856760
+1    6296.898642
+2    6454.424357
+3    6600.594902
+4    6734.541093
+5    6871.860841
+6    7026.892116
+7    7205.690952
+Name: N955_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL M3_Q_COMP N955 [6052.5, 6091.5, 6127.5, 6164.5, 6199.5, 6231.0, 6225.5, 6221.5]
+FORECAST_DETAIL_PREDICTED M3_Q_COMP N955 [6149.856760195553, 6296.898641539279, 6454.424357324473, 6600.594901699936, 6734.541092580313, 6871.860840694507, 7026.892116352288, 7205.6909517842705]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON M3_Q_COMP N955 44 8
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ M3_Q_COMP N955 4.379660606384277
+BENCHMARK_PERF_DETAIL_BEST_MODEL M3_Q_COMP N955 ConstantTrend + NoCycle + AR
+BENCHMARK_PERF_DETAIL_PERF_COUNT M3_Q_COMP N955 8
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE M3_Q_COMP N955 0.0812 0.0772 18.7439
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 M3_Q_COMP N955 503.40745777132736 576.2549328436899 -82.38624187684715
+BENCHMARK_SUCCESS 'M3_Q_COMP_N955_8'

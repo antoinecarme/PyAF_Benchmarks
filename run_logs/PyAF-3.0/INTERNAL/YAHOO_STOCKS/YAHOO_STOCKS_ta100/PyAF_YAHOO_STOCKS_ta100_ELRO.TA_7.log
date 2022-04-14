@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ta100
+TIME :  Date N= 796 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-08-01T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2015-06-10T00:00:00.000000000' '2015-06-11T00:00:00.000000000'
+ '2015-06-15T00:00:00.000000000' '2015-06-16T00:00:00.000000000'
+ '2015-06-17T00:00:00.000000000']
+SIGNAL :  ELRO.TA N= 796 H= 7 HEAD= [105.4  102.5  100.2   99.55  95.1 ] TAIL= [ 99.84  99.55 103.   103.   101.3 ]
+   ELRO.TA       Date
+0   105.40 2011-07-28
+1   102.50 2011-08-01
+2   100.20 2011-08-02
+3    99.55 2011-08-03
+4    95.10 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 796 entries, 0 to 795
+Data columns (total 2 columns):
+ #   Column   Non-Null Count  Dtype         
+---  ------   --------------  -----         
+ 0   ELRO.TA  796 non-null    float64       
+ 1   Date     796 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 18.7 KB
+None
+   Split   Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _ELRO.TA  _ELRO.TA_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.540000e-02  1.140000e-02  1.860000e-02
+1   None   CumSum_ELRO.TA  CumSum_ELRO.TA_Lag1Trend_residue_zeroCycle_res...  ...  1.690000e-02  1.140000e-02  1.860000e-02
+2   None     Diff_ELRO.TA  Diff_ELRO.TA_Lag1Trend_residue_zeroCycle_resid...  ...  1.540000e-02  1.140000e-02  1.860000e-02
+3   None  RelDiff_ELRO.TA  RelDiff_ELRO.TA_Lag1Trend_residue_zeroCycle_re...  ...  1.540000e-02  1.140000e-02  1.860000e-02
+4   None   CumSum_ELRO.TA  CumSum_ELRO.TA_Lag1Trend_residue_bestCycle_byL...  ...  1.920000e-02  1.160000e-02  1.550000e-02
+..   ...              ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_ELRO.TA  RelDiff_ELRO.TA_PolyTrend_residue_bestCycle_by...  ...  4.879413e+07  4.191013e+07  4.670722e+07
+92  None  RelDiff_ELRO.TA  RelDiff_ELRO.TA_LinearTrend_residue_bestCycle_...  ...  4.882715e+07  4.191013e+07  4.670722e+07
+93  None  RelDiff_ELRO.TA  RelDiff_ELRO.TA_ConstantTrend_residue_bestCycl...  ...  4.880144e+07  4.191013e+07  4.670722e+07
+94  None  RelDiff_ELRO.TA  RelDiff_ELRO.TA_Lag1Trend_residue_bestCycle_by...  ...  4.882730e+07  4.191013e+07  4.670722e+07
+95  None  RelDiff_ELRO.TA  RelDiff_ELRO.TA_ConstantTrend_residue_zeroCycl...  ...  4.878615e+07  4.191013e+07  4.670722e+07
+
+[96 rows x 8 columns]
+  Split   Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _ELRO.TA  _ELRO.TA_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0154        0.0114    0.0186
+1  None   CumSum_ELRO.TA  CumSum_ELRO.TA_Lag1Trend_residue_zeroCycle_res...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0169        0.0114    0.0186
+2  None     Diff_ELRO.TA  Diff_ELRO.TA_Lag1Trend_residue_zeroCycle_resid...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0154        0.0114    0.0186
+3  None  RelDiff_ELRO.TA  RelDiff_ELRO.TA_Lag1Trend_residue_zeroCycle_re...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0154        0.0114    0.0186
+4  None   CumSum_ELRO.TA  CumSum_ELRO.TA_Lag1Trend_residue_bestCycle_byL...           Integration_Lag1Trend_Cycle_NoAR          72   0.0192        0.0116    0.0155
+7 0    100.50
+1     99.99
+2     99.34
+3     97.93
+4    102.00
+5    102.00
+6    102.00
+Name: ELRO.TA, dtype: float64
+7 0    101.3
+1    101.3
+2    101.3
+3    101.3
+4    101.3
+5    101.3
+6    101.3
+Name: ELRO.TA_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_ELRO.TA ELRO.TA [100.5, 99.99, 99.34, 97.93, 102.0, 102.0, 102.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_ELRO.TA ELRO.TA [101.3, 101.3, 101.3, 101.3, 101.3, 101.3, 101.3]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_ELRO.TA ELRO.TA 796 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_ELRO.TA ELRO.TA 10.413061141967773
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_ELRO.TA ELRO.TA Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_ELRO.TA ELRO.TA 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_ELRO.TA ELRO.TA 0.0137 0.0136 1.2315
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_ELRO.TA ELRO.TA 1.3628571428571417 1.6485751423577846 -0.27246824375251166
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ta100_ELRO.TA_7'

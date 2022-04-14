@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_tsx
+TIME :  Date N= 1248 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  ELD.TO N= 1248 H= 7 HEAD= [16.98     16.450001 17.469999 17.700001 17.110001] TAIL= [6.41 6.42 6.32 6.27 6.28]
+      ELD.TO       Date
+0  16.980000 2011-07-28
+1  16.450001 2011-07-29
+2  17.469999 2011-08-02
+3  17.700001 2011-08-03
+4  17.110001 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1248 entries, 0 to 1247
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   ELD.TO  1248 non-null   float64       
+ 1   Date    1248 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.2 KB
+None
+   Split  Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _ELD.TO   _ELD.TO_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0241  3.630000e-02  1.550000e-02
+1   None   CumSum_ELD.TO  CumSum_ELD.TO_Lag1Trend_residue_zeroCycle_resi...  ...  0.0251  3.630000e-02  1.550000e-02
+2   None     Diff_ELD.TO  Diff_ELD.TO_Lag1Trend_residue_zeroCycle_residu...  ...  0.0241  3.630000e-02  1.550000e-02
+3   None  RelDiff_ELD.TO  RelDiff_ELD.TO_Lag1Trend_residue_zeroCycle_res...  ...  0.0241  3.630000e-02  1.550000e-02
+4   None         _ELD.TO  _ELD.TO_Lag1Trend_residue_bestCycle_byL2_resid...  ...  0.0240  3.650000e-02  1.740000e-02
+..   ...             ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_ELD.TO  RelDiff_ELD.TO_LinearTrend_residue_bestCycle_b...  ...  0.4269  1.335363e+08  2.184890e+08
+92  None  RelDiff_ELD.TO  RelDiff_ELD.TO_ConstantTrend_residue_bestCycle...  ...  0.4044  1.335363e+08  2.184890e+08
+93  None  RelDiff_ELD.TO  RelDiff_ELD.TO_Lag1Trend_residue_bestCycle_byL...  ...  0.2275  1.335371e+08  2.184890e+08
+94  None  RelDiff_ELD.TO  RelDiff_ELD.TO_Lag1Trend_residue_zeroCycle_res...  ...  0.2274  1.335371e+08  2.184890e+08
+95  None  RelDiff_ELD.TO  RelDiff_ELD.TO_Lag1Trend_residue_Seasonal_DayO...  ...  0.2420  1.335371e+08  2.184890e+08
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _ELD.TO   _ELD.TO_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0241        0.0363    0.0155
+1  None   CumSum_ELD.TO  CumSum_ELD.TO_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0251        0.0363    0.0155
+2  None     Diff_ELD.TO  Diff_ELD.TO_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0241        0.0363    0.0155
+3  None  RelDiff_ELD.TO  RelDiff_ELD.TO_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0241        0.0363    0.0155
+4  None         _ELD.TO  _ELD.TO_Lag1Trend_residue_bestCycle_byL2_resid...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0240        0.0365    0.0174
+7 0    6.08
+1    5.63
+2    5.84
+3    5.68
+4    5.34
+5    5.42
+6    5.67
+Name: ELD.TO, dtype: float64
+7 0    6.28
+1    6.28
+2    6.28
+3    6.28
+4    6.28
+5    6.28
+6    6.28
+Name: ELD.TO_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_ELD.TO ELD.TO [6.08, 5.63, 5.84, 5.68, 5.34, 5.42, 5.67]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_ELD.TO ELD.TO [6.28, 6.28, 6.28, 6.28, 6.28, 6.28, 6.28]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_ELD.TO ELD.TO 1248 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_ELD.TO ELD.TO 10.945595264434814
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_ELD.TO ELD.TO Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_ELD.TO ELD.TO 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_ELD.TO ELD.TO 0.1102 0.1036 2.4736
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_ELD.TO ELD.TO 0.6142857142857147 0.6558963332722638 -7.139547453201921
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_tsx_ELD.TO_7'

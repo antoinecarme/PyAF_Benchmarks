@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_mc
+TIME :  Date N= 1298 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  MDF.MC N= 1298 H= 7 HEAD= [5.55 5.58 5.51 5.39 5.33] TAIL= [1.22 1.23 1.21 1.2  1.2 ]
+   MDF.MC       Date
+0    5.55 2011-07-28
+1    5.58 2011-07-29
+2    5.51 2011-08-01
+3    5.39 2011-08-02
+4    5.33 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1298 entries, 0 to 1297
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   MDF.MC  1298 non-null   float64       
+ 1   Date    1298 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _MDF.MC  _MDF.MC_Lag1Trend_residue_bestCycle_byL2_resid...  ...  0.0100  2.610000e-02  2.200000e-02
+1   None         _MDF.MC  _MDF.MC_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  0.0101  2.620000e-02  2.110000e-02
+2   None         _MDF.MC   _MDF.MC_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0101  2.630000e-02  1.910000e-02
+3   None   CumSum_MDF.MC  CumSum_MDF.MC_Lag1Trend_residue_zeroCycle_resi...  ...  0.0110  2.630000e-02  1.910000e-02
+4   None     Diff_MDF.MC  Diff_MDF.MC_Lag1Trend_residue_zeroCycle_residu...  ...  0.0101  2.630000e-02  1.910000e-02
+..   ...             ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_MDF.MC  RelDiff_MDF.MC_LinearTrend_residue_zeroCycle_r...  ...  0.0989  1.396269e+08  3.817237e+08
+92  None  RelDiff_MDF.MC  RelDiff_MDF.MC_ConstantTrend_residue_zeroCycle...  ...  0.0965  1.396707e+08  3.817237e+08
+93  None  RelDiff_MDF.MC  RelDiff_MDF.MC_Lag1Trend_residue_bestCycle_byL...  ...  0.0407  1.404444e+08  3.817237e+08
+94  None  RelDiff_MDF.MC  RelDiff_MDF.MC_Lag1Trend_residue_zeroCycle_res...  ...  0.0439  1.404444e+08  3.817237e+08
+95  None  RelDiff_MDF.MC  RelDiff_MDF.MC_Lag1Trend_residue_Seasonal_DayO...  ...  0.0434  1.404444e+08  3.817237e+08
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _MDF.MC  _MDF.MC_Lag1Trend_residue_bestCycle_byL2_resid...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0100        0.0261    0.0220
+1  None        _MDF.MC  _MDF.MC_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0101        0.0262    0.0211
+2  None        _MDF.MC   _MDF.MC_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0101        0.0263    0.0191
+3  None  CumSum_MDF.MC  CumSum_MDF.MC_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0110        0.0263    0.0191
+4  None    Diff_MDF.MC  Diff_MDF.MC_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0101        0.0263    0.0191
+7 0    1.19
+1    1.18
+2    1.18
+3    1.20
+4    1.25
+5    1.25
+6    1.29
+Name: MDF.MC, dtype: float64
+7 0    1.2
+1    1.2
+2    1.2
+3    1.2
+4    1.2
+5    1.2
+6    1.2
+Name: MDF.MC_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_MDF.MC MDF.MC [1.19, 1.18, 1.18, 1.2, 1.25, 1.25, 1.29]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_MDF.MC MDF.MC [1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_MDF.MC MDF.MC 1298 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_MDF.MC MDF.MC 10.932950258255005
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_MDF.MC MDF.MC Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_MDF.MC MDF.MC 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_MDF.MC MDF.MC 0.0274 0.028 1.7143
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_MDF.MC MDF.MC 0.034285714285714315 0.044721359549995836 -0.2499999888392861
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_mc_MDF.MC_7'

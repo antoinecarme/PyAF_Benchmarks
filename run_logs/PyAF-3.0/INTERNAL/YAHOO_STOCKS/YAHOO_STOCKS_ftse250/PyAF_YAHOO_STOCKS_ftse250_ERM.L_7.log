@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftse250
+TIME :  Date N= 1294 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  ERM.L N= 1294 H= 7 HEAD= [665.  682.  677.5 671.  632.5] TAIL= [1061. 1021. 1019.  993. 1000.]
+   ERM.L       Date
+0  665.0 2011-07-28
+1  682.0 2011-07-29
+2  677.5 2011-08-01
+3  671.0 2011-08-02
+4  632.5 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1294 entries, 0 to 1293
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   ERM.L   1294 non-null   float64       
+ 1   Date    1294 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _ERM.L  _ERM.L_Lag1Trend_residue_bestCycle_byL2_residu...  ...  1.300000e-02  1.740000e-02  2.550000e-02
+1   None         _ERM.L    _ERM.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.300000e-02  1.760000e-02  2.540000e-02
+2   None   CumSum_ERM.L  CumSum_ERM.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.390000e-02  1.760000e-02  2.540000e-02
+3   None     Diff_ERM.L  Diff_ERM.L_Lag1Trend_residue_zeroCycle_residue...  ...  1.300000e-02  1.760000e-02  2.540000e-02
+4   None  RelDiff_ERM.L  RelDiff_ERM.L_Lag1Trend_residue_zeroCycle_resi...  ...  1.300000e-02  1.760000e-02  2.540000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_ERM.L  RelDiff_ERM.L_LinearTrend_residue_zeroCycle_re...  ...  1.561973e+07  1.475022e+07  1.404929e+07
+92  None  RelDiff_ERM.L  RelDiff_ERM.L_Lag1Trend_residue_Seasonal_DayOf...  ...  1.549849e+07  1.475022e+07  1.404929e+07
+93  None  RelDiff_ERM.L  RelDiff_ERM.L_LinearTrend_residue_Seasonal_Day...  ...  1.561942e+07  1.475022e+07  1.404929e+07
+94  None  RelDiff_ERM.L  RelDiff_ERM.L_PolyTrend_residue_Seasonal_DayOf...  ...  1.562153e+07  1.475022e+07  1.404929e+07
+95  None  RelDiff_ERM.L  RelDiff_ERM.L_ConstantTrend_residue_Seasonal_D...  ...  1.548825e+07  1.475022e+07  1.404929e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _ERM.L  _ERM.L_Lag1Trend_residue_bestCycle_byL2_residu...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0130        0.0174    0.0255
+1  None         _ERM.L    _ERM.L_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0130        0.0176    0.0254
+2  None   CumSum_ERM.L  CumSum_ERM.L_Lag1Trend_residue_zeroCycle_resid...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0139        0.0176    0.0254
+3  None     Diff_ERM.L  Diff_ERM.L_Lag1Trend_residue_zeroCycle_residue...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0130        0.0176    0.0254
+4  None  RelDiff_ERM.L  RelDiff_ERM.L_Lag1Trend_residue_zeroCycle_resi...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0130        0.0176    0.0254
+7 0    988.0
+1    963.5
+2    994.0
+3    957.0
+4    990.0
+5    968.5
+6    985.0
+Name: ERM.L, dtype: float64
+7 0    1000.0
+1    1000.0
+2    1000.0
+3    1000.0
+4    1000.0
+5    1000.0
+6    1000.0
+Name: ERM.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_ERM.L ERM.L [988.0, 963.5, 994.0, 957.0, 990.0, 968.5, 985.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_ERM.L ERM.L [1000.0, 1000.0, 1000.0, 1000.0, 1000.0, 1000.0, 1000.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_ERM.L ERM.L 1294 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_ERM.L ERM.L 11.144181966781616
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_ERM.L ERM.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_ERM.L ERM.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_ERM.L ERM.L 0.0227 0.0223 0.8098
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_ERM.L ERM.L 22.0 25.85260417940798 -2.625339015885035
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftse250_ERM.L_7'

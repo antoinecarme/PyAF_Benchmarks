@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1295 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  EXPN.L N= 1295 H= 7 HEAD= [806.  802.5 788.  788.5 773.5] TAIL= [1463. 1459. 1472. 1462. 1465.]
+   EXPN.L       Date
+0   806.0 2011-07-28
+1   802.5 2011-07-29
+2   788.0 2011-08-01
+3   788.5 2011-08-02
+4   773.5 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1295 entries, 0 to 1294
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   EXPN.L  1295 non-null   float64       
+ 1   Date    1295 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _EXPN.L  _EXPN.L_Lag1Trend_residue_bestCycle_byL2_resid...  ...  9.800000e-03  1.170000e-02  7.900000e-03
+1   None         _EXPN.L   _EXPN.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  9.800000e-03  1.180000e-02  8.500000e-03
+2   None         _EXPN.L  _EXPN.L_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  9.800000e-03  1.180000e-02  8.600000e-03
+3   None   CumSum_EXPN.L  CumSum_EXPN.L_Lag1Trend_residue_zeroCycle_resi...  ...  1.080000e-02  1.180000e-02  8.500000e-03
+4   None     Diff_EXPN.L  Diff_EXPN.L_Lag1Trend_residue_zeroCycle_residu...  ...  9.800000e-03  1.180000e-02  8.500000e-03
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_EXPN.L  RelDiff_EXPN.L_LinearTrend_residue_bestCycle_b...  ...  1.377915e+07  1.193414e+07  9.607998e+06
+92  None  RelDiff_EXPN.L  RelDiff_EXPN.L_PolyTrend_residue_Seasonal_DayO...  ...  1.377966e+07  1.193414e+07  9.607999e+06
+93  None  RelDiff_EXPN.L  RelDiff_EXPN.L_ConstantTrend_residue_bestCycle...  ...  1.359822e+07  1.193414e+07  9.607999e+06
+94  None  RelDiff_EXPN.L  RelDiff_EXPN.L_PolyTrend_residue_zeroCycle_res...  ...  1.378165e+07  1.193414e+07  9.607999e+06
+95  None  RelDiff_EXPN.L  RelDiff_EXPN.L_PolyTrend_residue_bestCycle_byL...  ...  1.378076e+07  1.193414e+07  9.607999e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _EXPN.L  _EXPN.L_Lag1Trend_residue_bestCycle_byL2_resid...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0098        0.0117    0.0079
+1  None        _EXPN.L   _EXPN.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0098        0.0118    0.0085
+2  None        _EXPN.L  _EXPN.L_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0098        0.0118    0.0086
+3  None  CumSum_EXPN.L  CumSum_EXPN.L_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0108        0.0118    0.0085
+4  None    Diff_EXPN.L  Diff_EXPN.L_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0098        0.0118    0.0085
+7 0    1470.0
+1    1469.0
+2    1476.0
+3    1479.0
+4    1471.0
+5    1472.0
+6    1476.0
+Name: EXPN.L, dtype: float64
+7 0    1465.0
+1    1465.0
+2    1465.0
+3    1465.0
+4    1465.0
+5    1465.0
+6    1465.0
+Name: EXPN.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_EXPN.L EXPN.L [1470.0, 1469.0, 1476.0, 1479.0, 1471.0, 1472.0, 1476.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_EXPN.L EXPN.L [1465.0, 1465.0, 1465.0, 1465.0, 1465.0, 1465.0, 1465.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_EXPN.L EXPN.L 1295 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_EXPN.L EXPN.L 10.980779647827148
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_EXPN.L EXPN.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_EXPN.L EXPN.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_EXPN.L EXPN.L 0.0056 0.0056 2.0714
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_EXPN.L EXPN.L 8.285714285714286 8.976158898517147 -5.760273972594637
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_EXPN.L_7'

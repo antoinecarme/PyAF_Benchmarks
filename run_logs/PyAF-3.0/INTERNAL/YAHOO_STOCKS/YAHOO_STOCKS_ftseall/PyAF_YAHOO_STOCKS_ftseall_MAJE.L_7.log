@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1292 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  MAJE.L N= 1292 H= 7 HEAD= [1.65   2.1685 1.595  1.55   1.51  ] TAIL= [2.92162 2.91425 2.91226 2.91671 2.92686]
+   MAJE.L       Date
+0  1.6500 2011-07-28
+1  2.1685 2011-07-29
+2  1.5950 2011-08-01
+3  1.5500 2011-08-02
+4  1.5100 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1292 entries, 0 to 1291
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   MAJE.L  1292 non-null   float64       
+ 1   Date    1292 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _MAJE.L   _MAJE.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  3.350000e-02  1.490000e-02  5.500000e-03
+1   None   CumSum_MAJE.L  CumSum_MAJE.L_Lag1Trend_residue_zeroCycle_resi...  ...  3.430000e-02  1.490000e-02  5.500000e-03
+2   None     Diff_MAJE.L  Diff_MAJE.L_Lag1Trend_residue_zeroCycle_residu...  ...  3.350000e-02  1.490000e-02  5.500000e-03
+3   None  RelDiff_MAJE.L  RelDiff_MAJE.L_Lag1Trend_residue_zeroCycle_res...  ...  3.350000e-02  1.490000e-02  5.500000e-03
+4   None         _MAJE.L  _MAJE.L_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  3.510000e-02  1.530000e-02  6.800000e-03
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_MAJE.L  RelDiff_MAJE.L_LinearTrend_residue_Seasonal_Da...  ...  1.680253e+07  1.158246e+07  1.072903e+07
+92  None  RelDiff_MAJE.L  RelDiff_MAJE.L_Lag1Trend_residue_Seasonal_DayO...  ...  1.678372e+07  1.158246e+07  1.072903e+07
+93  None  RelDiff_MAJE.L  RelDiff_MAJE.L_LinearTrend_residue_bestCycle_b...  ...  1.680253e+07  1.158246e+07  1.072903e+07
+94  None  RelDiff_MAJE.L  RelDiff_MAJE.L_PolyTrend_residue_Seasonal_DayO...  ...  1.680513e+07  1.158246e+07  1.072903e+07
+95  None  RelDiff_MAJE.L  RelDiff_MAJE.L_PolyTrend_residue_bestCycle_byL...  ...  1.680512e+07  1.158246e+07  1.072903e+07
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _MAJE.L   _MAJE.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0335        0.0149    0.0055
+1  None   CumSum_MAJE.L  CumSum_MAJE.L_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0343        0.0149    0.0055
+2  None     Diff_MAJE.L  Diff_MAJE.L_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0335        0.0149    0.0055
+3  None  RelDiff_MAJE.L  RelDiff_MAJE.L_Lag1Trend_residue_zeroCycle_res...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0335        0.0149    0.0055
+4  None         _MAJE.L  _MAJE.L_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0351        0.0153    0.0068
+7 0    2.92900
+1    2.94017
+2    2.93040
+3    2.53750
+4    2.61500
+5    2.58750
+6    2.57875
+Name: MAJE.L, dtype: float64
+7 0    2.92686
+1    2.92686
+2    2.92686
+3    2.92686
+4    2.92686
+5    2.92686
+6    2.92686
+Name: MAJE.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_MAJE.L MAJE.L [2.929, 2.94017, 2.9304, 2.5375, 2.615, 2.5875, 2.57875]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_MAJE.L MAJE.L [2.92686, 2.92686, 2.92686, 2.92686, 2.92686, 2.92686, 2.92686]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_MAJE.L MAJE.L 1292 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_MAJE.L MAJE.L 11.474281311035156
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_MAJE.L MAJE.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_MAJE.L MAJE.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_MAJE.L MAJE.L 0.0779 0.073 2.287
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_MAJE.L MAJE.L 0.20109714285714286 0.2633297547617002 -1.2328770732238605
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_MAJE.L_7'

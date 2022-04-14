@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aord
+TIME :  Date N= 1261 H= 7 HEAD= ['2011-07-29T00:00:00.000000000' '2011-08-01T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-05T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  SMM.AX N= 1261 H= 7 HEAD= [1.75 1.76 1.76 1.75 1.75] TAIL= [0.14 0.14 0.14 0.14 0.14]
+   SMM.AX       Date
+0    1.75 2011-07-29
+1    1.76 2011-08-01
+2    1.76 2011-08-02
+3    1.75 2011-08-03
+4    1.75 2011-08-05
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1261 entries, 0 to 1260
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   SMM.AX  1261 non-null   float64       
+ 1   Date    1261 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.6 KB
+None
+   Split  Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _SMM.AX   _SMM.AX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0110  1.860000e-02  2.040000e-02
+1   None   CumSum_SMM.AX  CumSum_SMM.AX_Lag1Trend_residue_zeroCycle_resi...  ...  0.0120  1.860000e-02  2.040000e-02
+2   None     Diff_SMM.AX  Diff_SMM.AX_Lag1Trend_residue_zeroCycle_residu...  ...  0.0110  1.860000e-02  2.040000e-02
+3   None  RelDiff_SMM.AX  RelDiff_SMM.AX_Lag1Trend_residue_zeroCycle_res...  ...  0.0110  1.860000e-02  2.040000e-02
+4   None     Diff_SMM.AX  Diff_SMM.AX_Lag1Trend_residue_bestCycle_byL2_r...  ...  0.0130  2.350000e-02  2.330000e-02
+..   ...             ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_SMM.AX  RelDiff_SMM.AX_PolyTrend_residue_Seasonal_DayO...  ...  0.6165  6.524618e+08  1.187857e+09
+92  None  RelDiff_SMM.AX  RelDiff_SMM.AX_PolyTrend_residue_zeroCycle_res...  ...  0.6229  6.524618e+08  1.187857e+09
+93  None  RelDiff_SMM.AX  RelDiff_SMM.AX_Lag1Trend_residue_bestCycle_byL...  ...  0.2250  6.524618e+08  1.187857e+09
+94  None  RelDiff_SMM.AX  RelDiff_SMM.AX_Lag1Trend_residue_Seasonal_DayO...  ...  0.2574  6.524618e+08  1.187857e+09
+95  None  RelDiff_SMM.AX  RelDiff_SMM.AX_Lag1Trend_residue_zeroCycle_res...  ...  0.2577  6.524618e+08  1.187857e+09
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _SMM.AX   _SMM.AX_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32    0.011        0.0186    0.0204
+1  None   CumSum_SMM.AX  CumSum_SMM.AX_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64    0.012        0.0186    0.0204
+2  None     Diff_SMM.AX  Diff_SMM.AX_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64    0.011        0.0186    0.0204
+3  None  RelDiff_SMM.AX  RelDiff_SMM.AX_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64    0.011        0.0186    0.0204
+4  None     Diff_SMM.AX  Diff_SMM.AX_Lag1Trend_residue_bestCycle_byL2_r...            Difference_Lag1Trend_Cycle_NoAR          72    0.013        0.0235    0.0233
+7 0    0.140
+1    0.140
+2    0.135
+3    0.135
+4    0.135
+5    0.135
+6    0.135
+Name: SMM.AX, dtype: float64
+7 0    0.14
+1    0.14
+2    0.14
+3    0.14
+4    0.14
+5    0.14
+6    0.14
+Name: SMM.AX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_SMM.AX SMM.AX [0.14, 0.14, 0.135, 0.135, 0.135, 0.135, 0.135]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_SMM.AX SMM.AX [0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_SMM.AX SMM.AX 1261 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_SMM.AX SMM.AX 10.76806378364563
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_SMM.AX SMM.AX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_SMM.AX SMM.AX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_SMM.AX SMM.AX 0.0265 0.026 4.2857
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_SMM.AX SMM.AX 0.003571428571428575 0.004225771273642587 -2.49999020002744
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aord_SMM.AX_7'

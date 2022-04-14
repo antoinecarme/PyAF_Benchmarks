@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1021 H= 7 HEAD= ['2011-07-29T00:00:00.000000000' '2011-08-01T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-09T00:00:00.000000000'
+ '2011-08-10T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  DLM N= 1021 H= 7 HEAD= [491.65 492.   492.   465.   491.  ] TAIL= [190. 190. 190. 190. 190.]
+      DLM       Date
+0  491.65 2011-07-29
+1  492.00 2011-08-01
+2  492.00 2011-08-02
+3  465.00 2011-08-09
+4  491.00 2011-08-10
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1021 entries, 0 to 1020
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   DLM     1021 non-null   float64       
+ 1   Date    1021 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 23.9 KB
+None
+   Split Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None           _DLM      _DLM_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0182  8.200000e-03  8.600000e-03
+1   None     CumSum_DLM  CumSum_DLM_Lag1Trend_residue_zeroCycle_residue...  ...  0.0194  8.200000e-03  8.600000e-03
+2   None       Diff_DLM  Diff_DLM_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0182  8.200000e-03  8.600000e-03
+3   None    RelDiff_DLM  RelDiff_DLM_Lag1Trend_residue_zeroCycle_residu...  ...  0.0182  8.200000e-03  8.600000e-03
+4   None           _DLM  _DLM_Lag1Trend_residue_bestCycle_byL2_residue_...  ...  0.0192  1.000000e-02  1.060000e-02
+..   ...            ...                                                ...  ...     ...           ...           ...
+91  None    RelDiff_DLM  RelDiff_DLM_ConstantTrend_residue_zeroCycle_re...  ...  3.6976  9.764135e+06  1.781495e+08
+92  None    RelDiff_DLM  RelDiff_DLM_ConstantTrend_residue_Seasonal_Day...  ...  3.4123  9.883768e+06  1.781495e+08
+93  None    RelDiff_DLM  RelDiff_DLM_Lag1Trend_residue_bestCycle_byL2_r...  ...  3.2519  1.035248e+07  1.781495e+08
+94  None    RelDiff_DLM  RelDiff_DLM_Lag1Trend_residue_zeroCycle_residu...  ...  3.4671  1.035256e+07  1.781495e+08
+95  None    RelDiff_DLM  RelDiff_DLM_Lag1Trend_residue_Seasonal_DayOfWe...  ...  3.0111  1.035263e+07  1.781495e+08
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _DLM      _DLM_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0182        0.0082    0.0086
+1  None     CumSum_DLM  CumSum_DLM_Lag1Trend_residue_zeroCycle_residue...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0194        0.0082    0.0086
+2  None       Diff_DLM  Diff_DLM_Lag1Trend_residue_zeroCycle_residue_NoAR          Difference_Lag1Trend_NoCycle_NoAR          64   0.0182        0.0082    0.0086
+3  None    RelDiff_DLM  RelDiff_DLM_Lag1Trend_residue_zeroCycle_residu...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0182        0.0082    0.0086
+4  None           _DLM  _DLM_Lag1Trend_residue_bestCycle_byL2_residue_...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0192        0.0100    0.0106
+7 0    185.00
+1    185.00
+2    177.00
+3    171.35
+4    171.35
+5    171.35
+6    170.00
+Name: DLM, dtype: float64
+7 0    190.0
+1    190.0
+2    190.0
+3    190.0
+4    190.0
+5    190.0
+6    190.0
+Name: DLM_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_DLM DLM [185.0, 185.0, 177.0, 171.35, 171.35, 171.35, 170.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_DLM DLM [190.0, 190.0, 190.0, 190.0, 190.0, 190.0, 190.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_DLM DLM 1021 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_DLM DLM 11.417953252792358
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_DLM DLM Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_DLM DLM 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_DLM DLM 0.0817 0.0779 5.6543
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_DLM DLM 14.135714285714288 15.410884372509491 -5.303467448824097
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_DLM_7'

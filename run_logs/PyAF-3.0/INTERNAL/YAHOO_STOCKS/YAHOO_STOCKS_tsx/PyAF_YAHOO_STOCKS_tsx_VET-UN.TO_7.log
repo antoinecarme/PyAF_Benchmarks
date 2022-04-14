@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_tsx
+TIME :  Date N= 1248 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  VET-UN.TO N= 1248 H= 7 HEAD= [48.689999 47.91     47.650002 47.07     44.82    ] TAIL= [42.   41.5  42.52 42.34 42.27]
+   VET-UN.TO       Date
+0  48.689999 2011-07-28
+1  47.910000 2011-07-29
+2  47.650002 2011-08-02
+3  47.070000 2011-08-03
+4  44.820000 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1248 entries, 0 to 1247
+Data columns (total 2 columns):
+ #   Column     Non-Null Count  Dtype         
+---  ------     --------------  -----         
+ 0   VET-UN.TO  1248 non-null   float64       
+ 1   Date       1248 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.2 KB
+None
+   Split     Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None     Diff_VET-UN.TO  Diff_VET-UN.TO_Lag1Trend_residue_bestCycle_byL...  ...  0.0119  2.080000e-02  1.080000e-02
+1   None         _VET-UN.TO  _VET-UN.TO_Lag1Trend_residue_Seasonal_DayOfWee...  ...  0.0119  2.090000e-02  1.200000e-02
+2   None         _VET-UN.TO  _VET-UN.TO_Lag1Trend_residue_bestCycle_byL2_re...  ...  0.0119  2.090000e-02  1.070000e-02
+3   None         _VET-UN.TO  _VET-UN.TO_Lag1Trend_residue_zeroCycle_residue...  ...  0.0118  2.110000e-02  1.070000e-02
+4   None   CumSum_VET-UN.TO  CumSum_VET-UN.TO_Lag1Trend_residue_zeroCycle_r...  ...  0.0128  2.110000e-02  1.070000e-02
+..   ...                ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_VET-UN.TO  RelDiff_VET-UN.TO_ConstantTrend_residue_bestCy...  ...  0.1618  1.961153e+07  3.998342e+07
+92  None  RelDiff_VET-UN.TO  RelDiff_VET-UN.TO_ConstantTrend_residue_Season...  ...  0.1896  1.961154e+07  3.998342e+07
+93  None  RelDiff_VET-UN.TO  RelDiff_VET-UN.TO_Lag1Trend_residue_Seasonal_D...  ...  0.2778  1.961210e+07  3.998342e+07
+94  None  RelDiff_VET-UN.TO  RelDiff_VET-UN.TO_Lag1Trend_residue_bestCycle_...  ...  0.2413  1.961217e+07  3.998342e+07
+95  None  RelDiff_VET-UN.TO  RelDiff_VET-UN.TO_Lag1Trend_residue_zeroCycle_...  ...  0.2469  1.961220e+07  3.998342e+07
+
+[96 rows x 8 columns]
+  Split    Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None    Diff_VET-UN.TO  Diff_VET-UN.TO_Lag1Trend_residue_bestCycle_byL...             Difference_Lag1Trend_Cycle_NoAR          72   0.0119        0.0208    0.0108
+1  None        _VET-UN.TO  _VET-UN.TO_Lag1Trend_residue_Seasonal_DayOfWee...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0119        0.0209    0.0120
+2  None        _VET-UN.TO  _VET-UN.TO_Lag1Trend_residue_bestCycle_byL2_re...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0119        0.0209    0.0107
+3  None        _VET-UN.TO  _VET-UN.TO_Lag1Trend_residue_zeroCycle_residue...             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0118        0.0211    0.0107
+4  None  CumSum_VET-UN.TO  CumSum_VET-UN.TO_Lag1Trend_residue_zeroCycle_r...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0128        0.0211    0.0107
+7 0    42.360001
+1    42.889999
+2    42.560001
+3    43.119999
+4    42.580002
+5    42.740002
+6    42.900002
+Name: VET-UN.TO, dtype: float64
+7 0    42.27
+1    42.27
+2    42.27
+3    42.27
+4    42.27
+5    42.27
+6    42.27
+Name: VET-UN.TO_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_VET-UN.TO VET-UN.TO [42.360001000000004, 42.889998999999996, 42.560001, 43.119999, 42.580002, 42.740002000000004, 42.900002]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_VET-UN.TO VET-UN.TO [42.27, 42.27, 42.27, 42.27, 42.27, 42.27, 42.27]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_VET-UN.TO VET-UN.TO 1248 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_VET-UN.TO VET-UN.TO 10.745485782623291
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_VET-UN.TO VET-UN.TO Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_VET-UN.TO VET-UN.TO 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_VET-UN.TO VET-UN.TO 0.0109 0.0109 1.2256
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_VET-UN.TO VET-UN.TO 0.4657151428571404 0.5227678342952169 -3.8458769703692743
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_tsx_VET-UN.TO_7'

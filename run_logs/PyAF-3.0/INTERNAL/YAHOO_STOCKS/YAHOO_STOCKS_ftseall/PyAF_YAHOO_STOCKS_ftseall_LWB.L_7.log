@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1295 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  LWB.L N= 1295 H= 7 HEAD= [73.25 73.5  75.25 74.25 70.  ] TAIL= [62.  61.  61.5 59.5 59.5]
+   LWB.L       Date
+0  73.25 2011-07-28
+1  73.50 2011-07-29
+2  75.25 2011-08-01
+3  74.25 2011-08-02
+4  70.00 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1295 entries, 0 to 1294
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   LWB.L   1295 non-null   float64       
+ 1   Date    1295 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _LWB.L    _LWB.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  7.520000e-02  1.350000e-02  1.000000e-02
+1   None   CumSum_LWB.L  CumSum_LWB.L_Lag1Trend_residue_zeroCycle_resid...  ...  7.620000e-02  1.350000e-02  1.000000e-02
+2   None     Diff_LWB.L  Diff_LWB.L_Lag1Trend_residue_zeroCycle_residue...  ...  7.520000e-02  1.350000e-02  1.000000e-02
+3   None  RelDiff_LWB.L  RelDiff_LWB.L_Lag1Trend_residue_zeroCycle_resi...  ...  7.520000e-02  1.350000e-02  1.000000e-02
+4   None         _LWB.L  _LWB.L_Lag1Trend_residue_bestCycle_byL2_residu...  ...  1.271000e-01  1.370000e-02  1.110000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_LWB.L  RelDiff_LWB.L_Lag1Trend_residue_bestCycle_byL2...  ...  3.130890e+09  1.136721e+08  1.186883e+08
+92  None  RelDiff_LWB.L  RelDiff_LWB.L_PolyTrend_residue_zeroCycle_resi...  ...  3.131079e+09  1.136721e+08  1.186883e+08
+93  None  RelDiff_LWB.L  RelDiff_LWB.L_PolyTrend_residue_zeroCycle_resi...  ...  3.131079e+09  1.136721e+08  1.186883e+08
+94  None  RelDiff_LWB.L  RelDiff_LWB.L_Lag1Trend_residue_Seasonal_DayOf...  ...  3.130795e+09  1.136721e+08  1.186883e+08
+95  None  RelDiff_LWB.L  RelDiff_LWB.L_LinearTrend_residue_Seasonal_Day...  ...  3.131079e+09  1.136721e+08  1.186883e+08
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _LWB.L    _LWB.L_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0752        0.0135    0.0100
+1  None   CumSum_LWB.L  CumSum_LWB.L_Lag1Trend_residue_zeroCycle_resid...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0762        0.0135    0.0100
+2  None     Diff_LWB.L  Diff_LWB.L_Lag1Trend_residue_zeroCycle_residue...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0752        0.0135    0.0100
+3  None  RelDiff_LWB.L  RelDiff_LWB.L_Lag1Trend_residue_zeroCycle_resi...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0752        0.0135    0.0100
+4  None         _LWB.L  _LWB.L_Lag1Trend_residue_bestCycle_byL2_residu...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.1271        0.0137    0.0111
+7 0    61.875
+1    63.000
+2    63.250
+3    60.500
+4    60.750
+5    60.500
+6    63.000
+Name: LWB.L, dtype: float64
+7 0    59.5
+1    59.5
+2    59.5
+3    59.5
+4    59.5
+5    59.5
+6    59.5
+Name: LWB.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_LWB.L LWB.L [61.875, 63.0, 63.25, 60.5, 60.75, 60.5, 63.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_LWB.L LWB.L [59.5, 59.5, 59.5, 59.5, 59.5, 59.5, 59.5]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_LWB.L LWB.L 1295 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_LWB.L LWB.L 11.119728565216064
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_LWB.L LWB.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_LWB.L LWB.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_LWB.L LWB.L 0.0375 0.0384 1.9699
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_LWB.L LWB.L 2.3392857142857144 2.6122137573877287 -4.04931571490651
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_LWB.L_7'

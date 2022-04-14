@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftse100
+TIME :  Date N= 1294 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  KGF.L N= 1294 H= 7 HEAD= [254.7 252.7 248.1 239.3 237.9] TAIL= [323.5 328.4 330.5 331.8 331.9]
+   KGF.L       Date
+0  254.7 2011-07-28
+1  252.7 2011-07-29
+2  248.1 2011-08-01
+3  239.3 2011-08-02
+4  237.9 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1294 entries, 0 to 1293
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   KGF.L   1294 non-null   float64       
+ 1   Date    1294 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _KGF.L  _KGF.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  1.110000e-02  1.230000e-02  1.050000e-02
+1   None   CumSum_KGF.L  CumSum_KGF.L_Lag1Trend_residue_bestCycle_byL2_...  ...  1.360000e-02  1.230000e-02  1.060000e-02
+2   None         _KGF.L    _KGF.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.110000e-02  1.240000e-02  1.070000e-02
+3   None         _KGF.L  _KGF.L_Lag1Trend_residue_bestCycle_byL2_residu...  ...  1.110000e-02  1.240000e-02  1.120000e-02
+4   None   CumSum_KGF.L  CumSum_KGF.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.200000e-02  1.240000e-02  1.070000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_KGF.L  RelDiff_KGF.L_LinearTrend_residue_bestCycle_by...  ...  1.205439e+07  1.077948e+07  1.159862e+07
+92  None  RelDiff_KGF.L  RelDiff_KGF.L_PolyTrend_residue_Seasonal_DayOf...  ...  1.205439e+07  1.077948e+07  1.159862e+07
+93  None  RelDiff_KGF.L  RelDiff_KGF.L_PolyTrend_residue_bestCycle_byL2...  ...  1.205439e+07  1.077948e+07  1.159862e+07
+94  None  RelDiff_KGF.L  RelDiff_KGF.L_ConstantTrend_residue_zeroCycle_...  ...  1.204381e+07  1.077948e+07  1.159862e+07
+95  None  RelDiff_KGF.L  RelDiff_KGF.L_PolyTrend_residue_Seasonal_DayOf...  ...  1.205440e+07  1.077948e+07  1.159862e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _KGF.L  _KGF.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0111        0.0123    0.0105
+1  None   CumSum_KGF.L  CumSum_KGF.L_Lag1Trend_residue_bestCycle_byL2_...            Integration_Lag1Trend_Cycle_NoAR          72   0.0136        0.0123    0.0106
+2  None         _KGF.L    _KGF.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0111        0.0124    0.0107
+3  None         _KGF.L  _KGF.L_Lag1Trend_residue_bestCycle_byL2_residu...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0111        0.0124    0.0112
+4  None   CumSum_KGF.L  CumSum_KGF.L_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0120        0.0124    0.0107
+7 0    331.6
+1    333.6
+2    332.2
+3    325.9
+4    326.5
+5    325.2
+6    331.2
+Name: KGF.L, dtype: float64
+7 0    331.9
+1    331.9
+2    331.9
+3    331.9
+4    331.9
+5    331.9
+6    331.9
+Name: KGF.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_KGF.L KGF.L [331.6, 333.6, 332.2, 325.9, 326.5, 325.2, 331.2]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_KGF.L KGF.L [331.9, 331.9, 331.9, 331.9, 331.9, 331.9, 331.9]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_KGF.L KGF.L 1294 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_KGF.L KGF.L 11.624521732330322
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_KGF.L KGF.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_KGF.L KGF.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_KGF.L KGF.L 0.0092 0.0092 1.0276
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_KGF.L KGF.L 3.0142857142857093 4.0286474156967325 -0.5814938551463349
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftse100_KGF.L_7'

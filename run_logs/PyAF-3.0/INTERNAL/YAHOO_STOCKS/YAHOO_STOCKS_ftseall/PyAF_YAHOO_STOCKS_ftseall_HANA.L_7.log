@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1292 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  HANA.L N= 1292 H= 7 HEAD= [10.15  10.15   9.9   10.2    9.785] TAIL= [11.0004 11.114  11.06   11.2704 11.3282]
+   HANA.L       Date
+0  10.150 2011-07-28
+1  10.150 2011-07-29
+2   9.900 2011-08-01
+3  10.200 2011-08-02
+4   9.785 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1292 entries, 0 to 1291
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   HANA.L  1292 non-null   float64       
+ 1   Date    1292 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _HANA.L   _HANA.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  3.420000e-02  2.860000e-02  8.800000e-03
+1   None   CumSum_HANA.L  CumSum_HANA.L_Lag1Trend_residue_zeroCycle_resi...  ...  3.510000e-02  2.860000e-02  8.800000e-03
+2   None     Diff_HANA.L  Diff_HANA.L_Lag1Trend_residue_zeroCycle_residu...  ...  3.420000e-02  2.860000e-02  8.800000e-03
+3   None  RelDiff_HANA.L  RelDiff_HANA.L_Lag1Trend_residue_zeroCycle_res...  ...  3.420000e-02  2.860000e-02  8.800000e-03
+4   None     Diff_HANA.L  Diff_HANA.L_Lag1Trend_residue_Seasonal_DayOfWe...  ...  3.650000e-02  2.920000e-02  7.100000e-03
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_HANA.L  RelDiff_HANA.L_LinearTrend_residue_Seasonal_Da...  ...  3.972272e+07  3.331347e+07  3.195619e+07
+92  None  RelDiff_HANA.L  RelDiff_HANA.L_PolyTrend_residue_bestCycle_byL...  ...  3.971453e+07  3.331347e+07  3.195619e+07
+93  None  RelDiff_HANA.L  RelDiff_HANA.L_LinearTrend_residue_bestCycle_b...  ...  3.972262e+07  3.331347e+07  3.195619e+07
+94  None  RelDiff_HANA.L  RelDiff_HANA.L_PolyTrend_residue_bestCycle_byL...  ...  3.971806e+07  3.331347e+07  3.195619e+07
+95  None  RelDiff_HANA.L  RelDiff_HANA.L_Lag1Trend_residue_bestCycle_byL...  ...  3.973697e+07  3.331347e+07  3.195619e+07
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                      Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _HANA.L   _HANA.L_Lag1Trend_residue_zeroCycle_residue_NoAR               NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0342        0.0286    0.0088
+1  None   CumSum_HANA.L  CumSum_HANA.L_Lag1Trend_residue_zeroCycle_resi...            Integration_Lag1Trend_NoCycle_NoAR          64   0.0351        0.0286    0.0088
+2  None     Diff_HANA.L  Diff_HANA.L_Lag1Trend_residue_zeroCycle_residu...             Difference_Lag1Trend_NoCycle_NoAR          64   0.0342        0.0286    0.0088
+3  None  RelDiff_HANA.L  RelDiff_HANA.L_Lag1Trend_residue_zeroCycle_res...     RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0342        0.0286    0.0088
+4  None     Diff_HANA.L  Diff_HANA.L_Lag1Trend_residue_Seasonal_DayOfWe...  Difference_Lag1Trend_Seasonal_DayOfWeek_NoAR          68   0.0365        0.0292    0.0071
+7 0    11.5027
+1    11.5201
+2    11.4566
+3     7.3750
+4     7.4000
+5     7.4250
+6     7.4750
+Name: HANA.L, dtype: float64
+7 0    11.3282
+1    11.3282
+2    11.3282
+3    11.3282
+4    11.3282
+5    11.3282
+6    11.3282
+Name: HANA.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_HANA.L HANA.L [11.5027, 11.5201, 11.4566, 7.375, 7.4, 7.425, 7.475]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_HANA.L HANA.L [11.3282, 11.3282, 11.3282, 11.3282, 11.3282, 11.3282, 11.3282]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_HANA.L HANA.L 1292 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_HANA.L HANA.L 11.54167103767395
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_HANA.L HANA.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_HANA.L HANA.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_HANA.L HANA.L 0.3073 0.2445 3.2441
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_HANA.L HANA.L 2.3046571428571427 2.9574223424172232 -1.1508070683824219
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_HANA.L_7'

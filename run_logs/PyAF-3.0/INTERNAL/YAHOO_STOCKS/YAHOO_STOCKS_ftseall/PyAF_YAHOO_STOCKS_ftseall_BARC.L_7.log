@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 1294 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  BARC.L N= 1294 H= 7 HEAD= [210.521 205.995 200.453 200.222 196.296] TAIL= [148.55 145.1  148.   149.8  150.95]
+    BARC.L       Date
+0  210.521 2011-07-28
+1  205.995 2011-07-29
+2  200.453 2011-08-01
+3  200.222 2011-08-02
+4  196.296 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1294 entries, 0 to 1293
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   BARC.L  1294 non-null   float64       
+ 1   Date    1294 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split  Transformation                                              Model  ...      FitMAPE  ForecastMAPE      TestMAPE
+0   None         _BARC.L   _BARC.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...       0.0166  1.850000e-02  2.270000e-02
+1   None         _BARC.L  _BARC.L_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...       0.0166  1.850000e-02  2.300000e-02
+2   None         _BARC.L  _BARC.L_Lag1Trend_residue_bestCycle_byL2_resid...  ...       0.0166  1.850000e-02  2.270000e-02
+3   None   CumSum_BARC.L  CumSum_BARC.L_Lag1Trend_residue_zeroCycle_resi...  ...       0.0175  1.850000e-02  2.270000e-02
+4   None     Diff_BARC.L  Diff_BARC.L_Lag1Trend_residue_zeroCycle_residu...  ...       0.0166  1.850000e-02  2.270000e-02
+..   ...             ...                                                ...  ...          ...           ...           ...
+91  None  RelDiff_BARC.L  RelDiff_BARC.L_ConstantTrend_residue_Seasonal_...  ...   35944.0882  7.191744e+06  3.234279e+07
+92  None  RelDiff_BARC.L  RelDiff_BARC.L_ConstantTrend_residue_zeroCycle...  ...   39601.0149  8.421805e+06  3.803561e+07
+93  None  RelDiff_BARC.L  RelDiff_BARC.L_PolyTrend_residue_bestCycle_byL...  ...  343120.5782  2.100871e+07  5.682430e+07
+94  None  RelDiff_BARC.L  RelDiff_BARC.L_PolyTrend_residue_Seasonal_DayO...  ...  481492.3983  2.420343e+07  5.682430e+07
+95  None  RelDiff_BARC.L  RelDiff_BARC.L_PolyTrend_residue_zeroCycle_res...  ...  503498.5276  2.483608e+07  5.682430e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _BARC.L   _BARC.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0166        0.0185    0.0227
+1  None        _BARC.L  _BARC.L_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0166        0.0185    0.0230
+2  None        _BARC.L  _BARC.L_Lag1Trend_residue_bestCycle_byL2_resid...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0166        0.0185    0.0227
+3  None  CumSum_BARC.L  CumSum_BARC.L_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0175        0.0185    0.0227
+4  None    Diff_BARC.L  Diff_BARC.L_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0166        0.0185    0.0227
+7 0    150.40
+1    150.95
+2    151.90
+3    151.80
+4    151.00
+5    149.00
+6    149.75
+Name: BARC.L, dtype: float64
+7 0    150.95
+1    150.95
+2    150.95
+3    150.95
+4    150.95
+5    150.95
+6    150.95
+Name: BARC.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_BARC.L BARC.L [150.4, 150.95, 151.9, 151.8, 151.0, 149.0, 149.75]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_BARC.L BARC.L [150.95, 150.95, 150.95, 150.95, 150.95, 150.95, 150.95]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_BARC.L BARC.L 1294 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_BARC.L BARC.L 10.844274759292603
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_BARC.L BARC.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_BARC.L BARC.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_BARC.L BARC.L 0.0053 0.0053 0.9237
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_BARC.L BARC.L 0.7928571428571445 1.0122464409138985 -0.07315378859139554
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_BARC.L_7'

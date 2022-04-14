@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_tsx
+TIME :  Date N= 1248 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  PMT-UN.TO N= 1248 H= 7 HEAD= [3.26 3.27 3.27 3.28 3.12] TAIL= [2.2  2.1  2.14 2.05 2.06]
+   PMT-UN.TO       Date
+0       3.26 2011-07-28
+1       3.27 2011-07-29
+2       3.27 2011-08-02
+3       3.28 2011-08-03
+4       3.12 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1248 entries, 0 to 1247
+Data columns (total 2 columns):
+ #   Column     Non-Null Count  Dtype         
+---  ------     --------------  -----         
+ 0   PMT-UN.TO  1248 non-null   float64       
+ 1   Date       1248 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.2 KB
+None
+   Split     Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _PMT-UN.TO  _PMT-UN.TO_Lag1Trend_residue_zeroCycle_residue...  ...  0.0262  5.110000e-02  2.480000e-02
+1   None   CumSum_PMT-UN.TO  CumSum_PMT-UN.TO_Lag1Trend_residue_zeroCycle_r...  ...  0.0272  5.110000e-02  2.480000e-02
+2   None     Diff_PMT-UN.TO  Diff_PMT-UN.TO_Lag1Trend_residue_zeroCycle_res...  ...  0.0262  5.110000e-02  2.480000e-02
+3   None  RelDiff_PMT-UN.TO  RelDiff_PMT-UN.TO_Lag1Trend_residue_zeroCycle_...  ...  0.0262  5.110000e-02  2.480000e-02
+4   None         _PMT-UN.TO  _PMT-UN.TO_Lag1Trend_residue_Seasonal_DayOfWee...  ...  0.0261  6.180000e-02  2.450000e-02
+..   ...                ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_PMT-UN.TO  RelDiff_PMT-UN.TO_ConstantTrend_residue_zeroCy...  ...  0.9399  9.640154e+08  1.492652e+08
+92  None  RelDiff_PMT-UN.TO  RelDiff_PMT-UN.TO_ConstantTrend_residue_bestCy...  ...  0.9341  9.641724e+08  1.492652e+08
+93  None  RelDiff_PMT-UN.TO  RelDiff_PMT-UN.TO_LinearTrend_residue_Seasonal...  ...  0.5641  9.666374e+08  1.492652e+08
+94  None  RelDiff_PMT-UN.TO  RelDiff_PMT-UN.TO_LinearTrend_residue_zeroCycl...  ...  0.6045  9.675992e+08  1.492652e+08
+95  None  RelDiff_PMT-UN.TO  RelDiff_PMT-UN.TO_LinearTrend_residue_bestCycl...  ...  0.6007  9.678856e+08  1.492652e+08
+
+[96 rows x 8 columns]
+  Split     Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _PMT-UN.TO  _PMT-UN.TO_Lag1Trend_residue_zeroCycle_residue...             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0262        0.0511    0.0248
+1  None   CumSum_PMT-UN.TO  CumSum_PMT-UN.TO_Lag1Trend_residue_zeroCycle_r...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0272        0.0511    0.0248
+2  None     Diff_PMT-UN.TO  Diff_PMT-UN.TO_Lag1Trend_residue_zeroCycle_res...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0262        0.0511    0.0248
+3  None  RelDiff_PMT-UN.TO  RelDiff_PMT-UN.TO_Lag1Trend_residue_zeroCycle_...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0262        0.0511    0.0248
+4  None         _PMT-UN.TO  _PMT-UN.TO_Lag1Trend_residue_Seasonal_DayOfWee...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0261        0.0618    0.0245
+7 0    2.02
+1    2.12
+2    2.09
+3    2.10
+4    2.10
+5    2.05
+6    1.93
+Name: PMT-UN.TO, dtype: float64
+7 0    2.06
+1    2.06
+2    2.06
+3    2.06
+4    2.06
+5    2.06
+6    2.06
+Name: PMT-UN.TO_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_PMT-UN.TO PMT-UN.TO [2.02, 2.12, 2.09, 2.1, 2.1, 2.05, 1.93]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_PMT-UN.TO PMT-UN.TO [2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_PMT-UN.TO PMT-UN.TO 1248 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_PMT-UN.TO PMT-UN.TO 11.239380836486816
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_PMT-UN.TO PMT-UN.TO Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_PMT-UN.TO PMT-UN.TO 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_PMT-UN.TO PMT-UN.TO 0.0247 0.0245 0.9677
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_PMT-UN.TO PMT-UN.TO 0.050000000000000044 0.061295537008357 -0.0005434744544541292
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_tsx_PMT-UN.TO_7'

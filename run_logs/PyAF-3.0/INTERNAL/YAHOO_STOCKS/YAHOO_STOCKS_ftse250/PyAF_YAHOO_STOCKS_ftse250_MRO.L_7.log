@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftse250
+TIME :  Date N= 1292 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  MRO.L N= 1292 H= 7 HEAD= [29.74  29.649 29.342 28.055 27.723] TAIL= [590.5 621.5 652.  664.  639.5]
+    MRO.L       Date
+0  29.740 2011-07-28
+1  29.649 2011-07-29
+2  29.342 2011-08-01
+3  28.055 2011-08-02
+4  27.723 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1292 entries, 0 to 1291
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   MRO.L   1292 non-null   float64       
+ 1   Date    1292 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _MRO.L    _MRO.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.240000e-02  1.570000e-02  3.470000e-02
+1   None         _MRO.L  _MRO.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  1.240000e-02  1.570000e-02  3.470000e-02
+2   None   CumSum_MRO.L  CumSum_MRO.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.330000e-02  1.570000e-02  3.470000e-02
+3   None     Diff_MRO.L  Diff_MRO.L_Lag1Trend_residue_zeroCycle_residue...  ...  1.240000e-02  1.570000e-02  3.470000e-02
+4   None  RelDiff_MRO.L  RelDiff_MRO.L_Lag1Trend_residue_zeroCycle_resi...  ...  1.240000e-02  1.570000e-02  3.470000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_MRO.L  RelDiff_MRO.L_LinearTrend_residue_Seasonal_Day...  ...  2.076023e+07  1.139909e+07  1.224380e+06
+92  None  RelDiff_MRO.L  RelDiff_MRO.L_LinearTrend_residue_Seasonal_Day...  ...  2.076070e+07  1.139909e+07  1.224380e+06
+93  None  RelDiff_MRO.L  RelDiff_MRO.L_LinearTrend_residue_bestCycle_by...  ...  2.076125e+07  1.139909e+07  1.224380e+06
+94  None  RelDiff_MRO.L  RelDiff_MRO.L_PolyTrend_residue_zeroCycle_resi...  ...  2.078050e+07  1.139909e+07  1.224381e+06
+95  None  RelDiff_MRO.L  RelDiff_MRO.L_PolyTrend_residue_bestCycle_byL2...  ...  2.078013e+07  1.139909e+07  1.224381e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _MRO.L    _MRO.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0124        0.0157    0.0347
+1  None         _MRO.L  _MRO.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0124        0.0157    0.0347
+2  None   CumSum_MRO.L  CumSum_MRO.L_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0133        0.0157    0.0347
+3  None     Diff_MRO.L  Diff_MRO.L_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0124        0.0157    0.0347
+4  None  RelDiff_MRO.L  RelDiff_MRO.L_Lag1Trend_residue_zeroCycle_resi...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0124        0.0157    0.0347
+7 0    634.5
+1    640.0
+2    640.0
+3    646.5
+4    644.5
+5    660.0
+6    671.0
+Name: MRO.L, dtype: float64
+7 0    639.5
+1    639.5
+2    639.5
+3    639.5
+4    639.5
+5    639.5
+6    639.5
+Name: MRO.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_MRO.L MRO.L [634.5, 640.0, 640.0, 646.5, 644.5, 660.0, 671.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_MRO.L MRO.L [639.5, 639.5, 639.5, 639.5, 639.5, 639.5, 639.5]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_MRO.L MRO.L 1292 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_MRO.L MRO.L 11.362901210784912
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_MRO.L MRO.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_MRO.L MRO.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_MRO.L MRO.L 0.0151 0.0154 1.4815
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_MRO.L MRO.L 10.0 14.696938456699069 -0.5154639175256213
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftse250_MRO.L_7'

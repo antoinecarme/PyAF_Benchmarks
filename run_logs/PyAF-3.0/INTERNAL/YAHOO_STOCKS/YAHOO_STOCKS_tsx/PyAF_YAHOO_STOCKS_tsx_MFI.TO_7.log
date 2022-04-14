@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_tsx
+TIME :  Date N= 1248 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  MFI.TO N= 1248 H= 7 HEAD= [10.91 11.4  11.18 11.48 11.28] TAIL= [28.969999 28.4      28.74     28.799999 29.059999]
+   MFI.TO       Date
+0   10.91 2011-07-28
+1   11.40 2011-07-29
+2   11.18 2011-08-02
+3   11.48 2011-08-03
+4   11.28 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1248 entries, 0 to 1247
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   MFI.TO  1248 non-null   float64       
+ 1   Date    1248 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.2 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _MFI.TO   _MFI.TO_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.050000e-02  1.100000e-02  1.010000e-02
+1   None         _MFI.TO  _MFI.TO_Lag1Trend_residue_bestCycle_byL2_resid...  ...  1.050000e-02  1.100000e-02  9.500000e-03
+2   None   CumSum_MFI.TO  CumSum_MFI.TO_Lag1Trend_residue_zeroCycle_resi...  ...  1.140000e-02  1.100000e-02  1.010000e-02
+3   None     Diff_MFI.TO  Diff_MFI.TO_Lag1Trend_residue_zeroCycle_residu...  ...  1.050000e-02  1.100000e-02  1.010000e-02
+4   None  RelDiff_MFI.TO  RelDiff_MFI.TO_Lag1Trend_residue_zeroCycle_res...  ...  1.050000e-02  1.100000e-02  1.010000e-02
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_MFI.TO  RelDiff_MFI.TO_Lag1Trend_residue_Seasonal_DayO...  ...  6.398885e+06  3.793462e+06  3.170174e+06
+92  None  RelDiff_MFI.TO  RelDiff_MFI.TO_LinearTrend_residue_bestCycle_b...  ...  6.395141e+06  3.793462e+06  3.170174e+06
+93  None  RelDiff_MFI.TO  RelDiff_MFI.TO_PolyTrend_residue_bestCycle_byL...  ...  6.392846e+06  3.793462e+06  3.170174e+06
+94  None  RelDiff_MFI.TO  RelDiff_MFI.TO_PolyTrend_residue_bestCycle_byL...  ...  6.394311e+06  3.793462e+06  3.170174e+06
+95  None  RelDiff_MFI.TO  RelDiff_MFI.TO_Lag1Trend_residue_zeroCycle_res...  ...  4.356356e+06  3.793462e+06  3.170175e+06
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _MFI.TO   _MFI.TO_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0105         0.011    0.0101
+1  None         _MFI.TO  _MFI.TO_Lag1Trend_residue_bestCycle_byL2_resid...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0105         0.011    0.0095
+2  None   CumSum_MFI.TO  CumSum_MFI.TO_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0114         0.011    0.0101
+3  None     Diff_MFI.TO  Diff_MFI.TO_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0105         0.011    0.0101
+4  None  RelDiff_MFI.TO  RelDiff_MFI.TO_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0105         0.011    0.0101
+7 0    29.379999
+1    29.350000
+2    29.200001
+3    29.480000
+4    29.570000
+5    29.290001
+6    29.240000
+Name: MFI.TO, dtype: float64
+7 0    29.059999
+1    29.059999
+2    29.059999
+3    29.059999
+4    29.059999
+5    29.059999
+6    29.059999
+Name: MFI.TO_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_MFI.TO MFI.TO [29.379998999999998, 29.35, 29.200001, 29.48, 29.57, 29.290001, 29.24]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_MFI.TO MFI.TO [29.059998999999998, 29.059998999999998, 29.059998999999998, 29.059998999999998, 29.059998999999998, 29.059998999999998, 29.059998999999998]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_MFI.TO MFI.TO 1248 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_MFI.TO MFI.TO 11.357140064239502
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_MFI.TO MFI.TO Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_MFI.TO MFI.TO 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_MFI.TO MFI.TO 0.0102 0.0102 2.0357
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_MFI.TO MFI.TO 0.2985725714285736 0.32246910815766733 -6.00681289706824
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_tsx_MFI.TO_7'

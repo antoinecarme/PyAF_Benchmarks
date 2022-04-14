@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nasdaqbio
+TIME :  Date N= 1248 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-07T00:00:00.000000000' '2016-07-08T00:00:00.000000000'
+ '2016-07-11T00:00:00.000000000' '2016-07-12T00:00:00.000000000'
+ '2016-07-13T00:00:00.000000000']
+SIGNAL :  SNTA N= 1248 H= 7 HEAD= [4.63 4.67 4.8  4.47 4.45] TAIL= [0.28 0.28 0.27 0.27 0.27]
+   SNTA       Date
+0  4.63 2011-07-28
+1  4.67 2011-07-29
+2  4.80 2011-08-01
+3  4.47 2011-08-02
+4  4.45 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1248 entries, 0 to 1247
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   SNTA    1248 non-null   float64       
+ 1   Date    1248 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.2 KB
+None
+   Split Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None          _SNTA     _SNTA_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0303  4.600000e-02  2.100000e-02
+1   None    CumSum_SNTA  CumSum_SNTA_Lag1Trend_residue_zeroCycle_residu...  ...  0.0313  4.600000e-02  2.100000e-02
+2   None      Diff_SNTA  Diff_SNTA_Lag1Trend_residue_zeroCycle_residue_...  ...  0.0303  4.600000e-02  2.100000e-02
+3   None   RelDiff_SNTA  RelDiff_SNTA_Lag1Trend_residue_zeroCycle_resid...  ...  0.0303  4.600000e-02  2.100000e-02
+4   None          _SNTA   _SNTA_Lag1Trend_residue_zeroCycle_residue_AR(64)  ...  0.0308  6.440000e-02  4.060000e-02
+..   ...            ...                                                ...  ...     ...           ...           ...
+91  None   RelDiff_SNTA  RelDiff_SNTA_LinearTrend_residue_Seasonal_DayO...  ...  0.9328  5.689188e+08  1.619274e+09
+92  None   RelDiff_SNTA  RelDiff_SNTA_PolyTrend_residue_zeroCycle_resid...  ...  0.9514  5.691708e+08  1.619274e+09
+93  None   RelDiff_SNTA  RelDiff_SNTA_PolyTrend_residue_Seasonal_DayOfW...  ...  0.9535  5.693313e+08  1.619274e+09
+94  None   RelDiff_SNTA  RelDiff_SNTA_ConstantTrend_residue_zeroCycle_r...  ...  0.4537  5.708835e+08  1.619274e+09
+95  None   RelDiff_SNTA  RelDiff_SNTA_ConstantTrend_residue_Seasonal_Da...  ...  0.4554  5.711025e+08  1.619274e+09
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None          _SNTA     _SNTA_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0303        0.0460    0.0210
+1  None    CumSum_SNTA  CumSum_SNTA_Lag1Trend_residue_zeroCycle_residu...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0313        0.0460    0.0210
+2  None      Diff_SNTA  Diff_SNTA_Lag1Trend_residue_zeroCycle_residue_...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0303        0.0460    0.0210
+3  None   RelDiff_SNTA  RelDiff_SNTA_Lag1Trend_residue_zeroCycle_resid...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0303        0.0460    0.0210
+4  None          _SNTA   _SNTA_Lag1Trend_residue_zeroCycle_residue_AR(64)              NoTransf_Lag1Trend_NoCycle_AR          96   0.0308        0.0644    0.0406
+7 0    0.27
+1    0.27
+2    0.27
+3    0.26
+4    0.27
+5    0.27
+6    0.34
+Name: SNTA, dtype: float64
+7 0    0.27
+1    0.27
+2    0.27
+3    0.27
+4    0.27
+5    0.27
+6    0.27
+Name: SNTA_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_SNTA SNTA [0.27, 0.27, 0.27, 0.26, 0.27, 0.27, 0.34]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_SNTA SNTA [0.27, 0.27, 0.27, 0.27, 0.27, 0.27, 0.27]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_SNTA SNTA 1248 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_SNTA SNTA 11.011741399765015
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_SNTA SNTA Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_SNTA SNTA 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_SNTA SNTA 0.0349 0.0382 0.7619
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_SNTA SNTA 0.01142857142857143 0.02672612419124244 -0.11464965667978455
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nasdaqbio_SNTA_7'

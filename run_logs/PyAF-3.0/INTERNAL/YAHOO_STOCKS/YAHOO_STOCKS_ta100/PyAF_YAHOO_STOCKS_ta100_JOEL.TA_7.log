@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ta100
+TIME :  Date N= 1019 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-08-01T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-07T00:00:00.000000000' '2016-07-11T00:00:00.000000000'
+ '2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000']
+SIGNAL :  JOEL.TA N= 1019 H= 7 HEAD= [59.5974 57.9198 56.5856 55.84   54.9767] TAIL= [159.10001 160.60001 160.39999 159.8     162.8    ]
+   JOEL.TA       Date
+0  59.5974 2011-07-28
+1  57.9198 2011-08-01
+2  56.5856 2011-08-02
+3  55.8400 2011-08-03
+4  54.9767 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1019 entries, 0 to 1018
+Data columns (total 2 columns):
+ #   Column   Non-Null Count  Dtype         
+---  ------   --------------  -----         
+ 0   JOEL.TA  1019 non-null   float64       
+ 1   Date     1019 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 23.9 KB
+None
+   Split   Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _JOEL.TA  _JOEL.TA_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.420000e-02  1.190000e-02  7.100000e-03
+1   None         _JOEL.TA  _JOEL.TA_Lag1Trend_residue_bestCycle_byL2_resi...  ...  1.430000e-02  1.190000e-02  7.900000e-03
+2   None   CumSum_JOEL.TA  CumSum_JOEL.TA_Lag1Trend_residue_zeroCycle_res...  ...  1.540000e-02  1.190000e-02  7.100000e-03
+3   None     Diff_JOEL.TA  Diff_JOEL.TA_Lag1Trend_residue_zeroCycle_resid...  ...  1.420000e-02  1.190000e-02  7.100000e-03
+4   None  RelDiff_JOEL.TA  RelDiff_JOEL.TA_Lag1Trend_residue_zeroCycle_re...  ...  1.420000e-02  1.190000e-02  7.100000e-03
+..   ...              ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_JOEL.TA  RelDiff_JOEL.TA_LinearTrend_residue_bestCycle_...  ...  1.996074e+07  1.197464e+07  1.152126e+07
+92  None  RelDiff_JOEL.TA  RelDiff_JOEL.TA_LinearTrend_residue_bestCycle_...  ...  1.995991e+07  1.197464e+07  1.152126e+07
+93  None  RelDiff_JOEL.TA  RelDiff_JOEL.TA_PolyTrend_residue_bestCycle_by...  ...  1.996042e+07  1.197464e+07  1.152126e+07
+94  None  RelDiff_JOEL.TA  RelDiff_JOEL.TA_ConstantTrend_residue_bestCycl...  ...  1.995356e+07  1.197464e+07  1.152126e+07
+95  None  RelDiff_JOEL.TA  RelDiff_JOEL.TA_PolyTrend_residue_Seasonal_Day...  ...  1.996084e+07  1.197464e+07  1.152126e+07
+
+[96 rows x 8 columns]
+  Split   Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _JOEL.TA  _JOEL.TA_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0142        0.0119    0.0071
+1  None         _JOEL.TA  _JOEL.TA_Lag1Trend_residue_bestCycle_byL2_resi...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0143        0.0119    0.0079
+2  None   CumSum_JOEL.TA  CumSum_JOEL.TA_Lag1Trend_residue_zeroCycle_res...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0154        0.0119    0.0071
+3  None     Diff_JOEL.TA  Diff_JOEL.TA_Lag1Trend_residue_zeroCycle_resid...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0142        0.0119    0.0071
+4  None  RelDiff_JOEL.TA  RelDiff_JOEL.TA_Lag1Trend_residue_zeroCycle_re...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0142        0.0119    0.0071
+7 0    161.30000
+1    168.20000
+2    170.30000
+3    169.50000
+4    167.80000
+5    167.39999
+6    167.60001
+Name: JOEL.TA, dtype: float64
+7 0    162.8
+1    162.8
+2    162.8
+3    162.8
+4    162.8
+5    162.8
+6    162.8
+Name: JOEL.TA_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_JOEL.TA JOEL.TA [161.3, 168.2, 170.3, 169.5, 167.8, 167.39999, 167.60001]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_JOEL.TA JOEL.TA [162.8, 162.8, 162.8, 162.8, 162.8, 162.8, 162.8]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_JOEL.TA JOEL.TA 1019 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_JOEL.TA JOEL.TA 10.491286754608154
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_JOEL.TA JOEL.TA Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_JOEL.TA JOEL.TA 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_JOEL.TA JOEL.TA 0.0301 0.0306 2.5148
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_JOEL.TA JOEL.TA 5.071428571428563 5.368559317255015 -2.966994148643908
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ta100_JOEL.TA_7'

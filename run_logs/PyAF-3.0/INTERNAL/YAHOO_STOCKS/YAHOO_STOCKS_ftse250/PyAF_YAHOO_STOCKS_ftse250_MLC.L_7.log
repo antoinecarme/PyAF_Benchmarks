@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftse250
+TIME :  Date N= 1295 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  MLC.L N= 1295 H= 7 HEAD= [509.5 517.  516.  515.  504.5] TAIL= [407.  414.8 409.7 420.  413.9]
+   MLC.L       Date
+0  509.5 2011-07-28
+1  517.0 2011-07-29
+2  516.0 2011-08-01
+3  515.0 2011-08-02
+4  504.5 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1295 entries, 0 to 1294
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   MLC.L   1295 non-null   float64       
+ 1   Date    1295 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None   CumSum_MLC.L  CumSum_MLC.L_Lag1Trend_residue_Seasonal_DayOfW...  ...  0.0117  1.370000e-02  2.470000e-02
+1   None         _MLC.L    _MLC.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0095  1.380000e-02  2.320000e-02
+2   None         _MLC.L  _MLC.L_Lag1Trend_residue_bestCycle_byL2_residu...  ...  0.0095  1.380000e-02  2.190000e-02
+3   None   CumSum_MLC.L  CumSum_MLC.L_Lag1Trend_residue_zeroCycle_resid...  ...  0.0104  1.380000e-02  2.320000e-02
+4   None     Diff_MLC.L  Diff_MLC.L_Lag1Trend_residue_zeroCycle_residue...  ...  0.0095  1.380000e-02  2.320000e-02
+..   ...            ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_MLC.L  RelDiff_MLC.L_ConstantTrend_residue_Seasonal_D...  ...  5.2035  9.780393e+05  3.456950e+07
+92  None  RelDiff_MLC.L  RelDiff_MLC.L_ConstantTrend_residue_zeroCycle_...  ...  5.3919  9.783122e+05  3.456950e+07
+93  None  RelDiff_MLC.L  RelDiff_MLC.L_Lag1Trend_residue_bestCycle_byL2...  ...  8.4817  1.099726e+06  3.456950e+07
+94  None  RelDiff_MLC.L  RelDiff_MLC.L_Lag1Trend_residue_Seasonal_DayOf...  ...  8.0594  1.099727e+06  3.456950e+07
+95  None  RelDiff_MLC.L  RelDiff_MLC.L_Lag1Trend_residue_zeroCycle_resi...  ...  8.2239  1.099727e+06  3.456950e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                       Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None   CumSum_MLC.L  CumSum_MLC.L_Lag1Trend_residue_Seasonal_DayOfW...  Integration_Lag1Trend_Seasonal_DayOfWeek_NoAR          68   0.0117        0.0137    0.0247
+1  None         _MLC.L    _MLC.L_Lag1Trend_residue_zeroCycle_residue_NoAR                NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0095        0.0138    0.0232
+2  None         _MLC.L  _MLC.L_Lag1Trend_residue_bestCycle_byL2_residu...                  NoTransf_Lag1Trend_Cycle_NoAR          40   0.0095        0.0138    0.0219
+3  None   CumSum_MLC.L  CumSum_MLC.L_Lag1Trend_residue_zeroCycle_resid...             Integration_Lag1Trend_NoCycle_NoAR          64   0.0104        0.0138    0.0232
+4  None     Diff_MLC.L  Diff_MLC.L_Lag1Trend_residue_zeroCycle_residue...              Difference_Lag1Trend_NoCycle_NoAR          64   0.0095        0.0138    0.0232
+7 0    413.2
+1    421.7
+2    432.7
+3    431.0
+4    428.6
+5    430.0
+6    441.4
+Name: MLC.L, dtype: float64
+7 0    413.9
+1    413.9
+2    413.9
+3    413.9
+4    413.9
+5    413.9
+6    413.9
+Name: MLC.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_MLC.L MLC.L [413.2, 421.7, 432.7, 431.0, 428.6, 430.0, 441.4]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_MLC.L MLC.L [413.9, 413.9, 413.9, 413.9, 413.9, 413.9, 413.9]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_MLC.L MLC.L 1295 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_MLC.L MLC.L 11.514514207839966
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_MLC.L MLC.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_MLC.L MLC.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_MLC.L MLC.L 0.0339 0.0347 2.4184
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_MLC.L MLC.L 14.671428571428587 16.642158170484652 -3.100751793364747
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftse250_MLC.L_7'

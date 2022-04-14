@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_exch
+TIME :  Date N= 1298 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  KOA.OL N= 1298 H= 7 HEAD= [3.75 3.78 3.72 3.48 3.4 ] TAIL= [5.35 5.34 5.33 5.34 5.68]
+   KOA.OL       Date
+0    3.75 2011-07-28
+1    3.78 2011-07-29
+2    3.72 2011-08-01
+3    3.48 2011-08-02
+4    3.40 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1298 entries, 0 to 1297
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   KOA.OL  1298 non-null   float64       
+ 1   Date    1298 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _KOA.OL   _KOA.OL_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  2.060000e-02  1.720000e-02  1.740000e-02
+1   None   CumSum_KOA.OL  CumSum_KOA.OL_Lag1Trend_residue_zeroCycle_resi...  ...  2.150000e-02  1.720000e-02  1.740000e-02
+2   None     Diff_KOA.OL  Diff_KOA.OL_Lag1Trend_residue_zeroCycle_residu...  ...  2.060000e-02  1.720000e-02  1.740000e-02
+3   None  RelDiff_KOA.OL  RelDiff_KOA.OL_Lag1Trend_residue_zeroCycle_res...  ...  2.060000e-02  1.720000e-02  1.740000e-02
+4   None         _KOA.OL  _KOA.OL_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  2.080000e-02  1.730000e-02  1.730000e-02
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_KOA.OL  RelDiff_KOA.OL_Lag1Trend_residue_bestCycle_byL...  ...  9.670978e+07  4.591618e+07  4.801373e+07
+92  None  RelDiff_KOA.OL  RelDiff_KOA.OL_PolyTrend_residue_Seasonal_DayO...  ...  9.684851e+07  4.591618e+07  4.801373e+07
+93  None  RelDiff_KOA.OL  RelDiff_KOA.OL_PolyTrend_residue_bestCycle_byL...  ...  9.684851e+07  4.591618e+07  4.801373e+07
+94  None  RelDiff_KOA.OL  RelDiff_KOA.OL_PolyTrend_residue_zeroCycle_res...  ...  9.684841e+07  4.591618e+07  4.801373e+07
+95  None  RelDiff_KOA.OL  RelDiff_KOA.OL_PolyTrend_residue_zeroCycle_res...  ...  9.685031e+07  4.591618e+07  4.801373e+07
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _KOA.OL   _KOA.OL_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0206        0.0172    0.0174
+1  None   CumSum_KOA.OL  CumSum_KOA.OL_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0215        0.0172    0.0174
+2  None     Diff_KOA.OL  Diff_KOA.OL_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0206        0.0172    0.0174
+3  None  RelDiff_KOA.OL  RelDiff_KOA.OL_Lag1Trend_residue_zeroCycle_res...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0206        0.0172    0.0174
+4  None         _KOA.OL  _KOA.OL_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0208        0.0173    0.0173
+7 0    5.65
+1    5.68
+2    5.72
+3    5.65
+4    5.78
+5    5.68
+6    5.86
+Name: KOA.OL, dtype: float64
+7 0    5.68
+1    5.68
+2    5.68
+3    5.68
+4    5.68
+5    5.68
+6    5.68
+Name: KOA.OL_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_KOA.OL KOA.OL [5.65, 5.68, 5.72, 5.65, 5.78, 5.68, 5.86]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_KOA.OL KOA.OL [5.68, 5.68, 5.68, 5.68, 5.68, 5.68, 5.68]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_KOA.OL KOA.OL 1298 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_KOA.OL KOA.OL 10.864944696426392
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_KOA.OL KOA.OL Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_KOA.OL KOA.OL 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_KOA.OL KOA.OL 0.0094 0.0095 0.5922
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_KOA.OL KOA.OL 0.05428571428571427 0.08088792952509774 -0.2671936723832631
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_exch_KOA.OL_7'

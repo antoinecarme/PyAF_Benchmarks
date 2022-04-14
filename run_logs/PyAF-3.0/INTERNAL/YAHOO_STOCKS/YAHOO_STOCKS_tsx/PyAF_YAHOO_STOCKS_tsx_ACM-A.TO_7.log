@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_tsx
+TIME :  Date N= 498 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2013-06-21T00:00:00.000000000' '2013-06-24T00:00:00.000000000'
+ '2013-06-25T00:00:00.000000000' '2013-06-26T00:00:00.000000000'
+ '2013-06-27T00:00:00.000000000']
+SIGNAL :  ACM-A.TO N= 498 H= 7 HEAD= [36.48 36.51 36.3  35.76 35.74] TAIL= [47.9  47.85 48.   48.11 48.24]
+   ACM-A.TO       Date
+0     36.48 2011-07-28
+1     36.51 2011-07-29
+2     36.30 2011-08-02
+3     35.76 2011-08-03
+4     35.74 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 498 entries, 0 to 497
+Data columns (total 2 columns):
+ #   Column    Non-Null Count  Dtype         
+---  ------    --------------  -----         
+ 0   ACM-A.TO  498 non-null    float64       
+ 1   Date      498 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 11.7 KB
+None
+   Split    Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _ACM-A.TO  _ACM-A.TO_Lag1Trend_residue_zeroCycle_residue_...  ...  6.600000e-03  1.700000e-03  2.000000e-03
+1   None   CumSum_ACM-A.TO  CumSum_ACM-A.TO_Lag1Trend_residue_zeroCycle_re...  ...  9.100000e-03  1.700000e-03  2.000000e-03
+2   None     Diff_ACM-A.TO  Diff_ACM-A.TO_Lag1Trend_residue_zeroCycle_resi...  ...  6.600000e-03  1.700000e-03  2.000000e-03
+3   None  RelDiff_ACM-A.TO  RelDiff_ACM-A.TO_Lag1Trend_residue_zeroCycle_r...  ...  6.600000e-03  1.700000e-03  2.000000e-03
+4   None         _ACM-A.TO  _ACM-A.TO_ConstantTrend_residue_zeroCycle_resi...  ...  7.400000e-03  1.800000e-03  1.800000e-03
+..   ...               ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_ACM-A.TO  RelDiff_ACM-A.TO_LinearTrend_residue_bestCycle...  ...  1.099020e+07  9.296703e+06  9.393099e+06
+92  None  RelDiff_ACM-A.TO  RelDiff_ACM-A.TO_PolyTrend_residue_Seasonal_Da...  ...  1.099020e+07  9.296703e+06  9.393100e+06
+93  None  RelDiff_ACM-A.TO  RelDiff_ACM-A.TO_PolyTrend_residue_bestCycle_b...  ...  1.099020e+07  9.296703e+06  9.393100e+06
+94  None  RelDiff_ACM-A.TO  RelDiff_ACM-A.TO_PolyTrend_residue_zeroCycle_r...  ...  1.099021e+07  9.296703e+06  9.393100e+06
+95  None  RelDiff_ACM-A.TO  RelDiff_ACM-A.TO_ConstantTrend_residue_bestCyc...  ...  1.089886e+07  9.296703e+06  9.393100e+06
+
+[96 rows x 8 columns]
+  Split    Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _ACM-A.TO  _ACM-A.TO_Lag1Trend_residue_zeroCycle_residue_...            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0066        0.0017    0.0020
+1  None   CumSum_ACM-A.TO  CumSum_ACM-A.TO_Lag1Trend_residue_zeroCycle_re...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0091        0.0017    0.0020
+2  None     Diff_ACM-A.TO  Diff_ACM-A.TO_Lag1Trend_residue_zeroCycle_resi...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0066        0.0017    0.0020
+3  None  RelDiff_ACM-A.TO  RelDiff_ACM-A.TO_Lag1Trend_residue_zeroCycle_r...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0066        0.0017    0.0020
+4  None         _ACM-A.TO  _ACM-A.TO_ConstantTrend_residue_zeroCycle_resi...          NoTransf_ConstantTrend_NoCycle_AR          64   0.0074        0.0018    0.0018
+7 0    49.96
+1    49.96
+2    49.96
+3    49.96
+4    49.96
+5    50.00
+6    49.99
+Name: ACM-A.TO, dtype: float64
+7 0    48.24
+1    48.24
+2    48.24
+3    48.24
+4    48.24
+5    48.24
+6    48.24
+Name: ACM-A.TO_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_ACM-A.TO ACM-A.TO [49.96, 49.96, 49.96, 49.96, 49.96, 50.0, 49.99]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_ACM-A.TO ACM-A.TO [48.24, 48.24, 48.24, 48.24, 48.24, 48.24, 48.24]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_ACM-A.TO ACM-A.TO 498 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_ACM-A.TO ACM-A.TO 10.479972839355469
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_ACM-A.TO ACM-A.TO Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_ACM-A.TO ACM-A.TO 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_ACM-A.TO ACM-A.TO 0.0346 0.0352 207.6
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_ACM-A.TO ACM-A.TO 1.7299999999999989 1.730074317148584 -11639.05490888586
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_tsx_ACM-A.TO_7'

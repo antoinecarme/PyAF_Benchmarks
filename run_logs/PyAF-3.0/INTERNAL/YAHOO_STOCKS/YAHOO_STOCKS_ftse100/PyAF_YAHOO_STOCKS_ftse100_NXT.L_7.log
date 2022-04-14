@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftse100
+TIME :  Date N= 1295 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  NXT.L N= 1295 H= 7 HEAD= [2408. 2375. 2336. 2362. 2358.] TAIL= [5130. 5140. 5125. 5100. 5090.]
+    NXT.L       Date
+0  2408.0 2011-07-28
+1  2375.0 2011-07-29
+2  2336.0 2011-08-01
+3  2362.0 2011-08-02
+4  2358.0 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1295 entries, 0 to 1294
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   NXT.L   1295 non-null   float64       
+ 1   Date    1295 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _NXT.L    _NXT.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  8.200000e-03  1.220000e-02  1.130000e-02
+1   None         _NXT.L  _NXT.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  8.200000e-03  1.220000e-02  1.130000e-02
+2   None         _NXT.L  _NXT.L_Lag1Trend_residue_bestCycle_byL2_residu...  ...  8.200000e-03  1.220000e-02  1.150000e-02
+3   None   CumSum_NXT.L  CumSum_NXT.L_Lag1Trend_residue_zeroCycle_resid...  ...  9.200000e-03  1.220000e-02  1.130000e-02
+4   None     Diff_NXT.L  Diff_NXT.L_Lag1Trend_residue_zeroCycle_residue...  ...  8.200000e-03  1.220000e-02  1.130000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_NXT.L  RelDiff_NXT.L_LinearTrend_residue_bestCycle_by...  ...  5.945307e+06  3.862582e+06  4.974506e+06
+92  None  RelDiff_NXT.L  RelDiff_NXT.L_ConstantTrend_residue_bestCycle_...  ...  5.943561e+06  3.862583e+06  4.974506e+06
+93  None  RelDiff_NXT.L  RelDiff_NXT.L_PolyTrend_residue_zeroCycle_resi...  ...  5.953545e+06  3.862583e+06  4.974506e+06
+94  None  RelDiff_NXT.L  RelDiff_NXT.L_PolyTrend_residue_Seasonal_DayOf...  ...  5.953546e+06  3.862583e+06  4.974506e+06
+95  None  RelDiff_NXT.L  RelDiff_NXT.L_PolyTrend_residue_Seasonal_DayOf...  ...  5.953545e+06  3.862583e+06  4.974506e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _NXT.L    _NXT.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0082        0.0122    0.0113
+1  None         _NXT.L  _NXT.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0082        0.0122    0.0113
+2  None         _NXT.L  _NXT.L_Lag1Trend_residue_bestCycle_byL2_residu...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0082        0.0122    0.0115
+3  None   CumSum_NXT.L  CumSum_NXT.L_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0092        0.0122    0.0113
+4  None     Diff_NXT.L  Diff_NXT.L_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0082        0.0122    0.0113
+7 0    5035.0
+1    4896.0
+2    4872.0
+3    5005.0
+4    4974.0
+5    5005.0
+6    4968.0
+Name: NXT.L, dtype: float64
+7 0    5090.0
+1    5090.0
+2    5090.0
+3    5090.0
+4    5090.0
+5    5090.0
+6    5090.0
+Name: NXT.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_NXT.L NXT.L [5035.0, 4896.0, 4872.0, 5005.0, 4974.0, 5005.0, 4968.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_NXT.L NXT.L [5090.0, 5090.0, 5090.0, 5090.0, 5090.0, 5090.0, 5090.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_NXT.L NXT.L 1295 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_NXT.L NXT.L 11.023993730545044
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_NXT.L NXT.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_NXT.L NXT.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_NXT.L NXT.L 0.0253 0.0249 1.8987
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_NXT.L NXT.L 125.0 136.78711301037933 -5.06365740740738
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftse100_NXT.L_7'

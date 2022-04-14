@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ta100
+TIME :  Date N= 1019 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-08-01T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-07T00:00:00.000000000' '2016-07-11T00:00:00.000000000'
+ '2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000']
+SIGNAL :  FRUT.TA N= 1019 H= 7 HEAD= [36.6  35.9  35.5  34.19 33.78] TAIL= [181.5 185.  194.4 191.2 192.4]
+   FRUT.TA       Date
+0    36.60 2011-07-28
+1    35.90 2011-08-01
+2    35.50 2011-08-02
+3    34.19 2011-08-03
+4    33.78 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1019 entries, 0 to 1018
+Data columns (total 2 columns):
+ #   Column   Non-Null Count  Dtype         
+---  ------   --------------  -----         
+ 0   FRUT.TA  1019 non-null   float64       
+ 1   Date     1019 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 23.9 KB
+None
+   Split   Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _FRUT.TA  _FRUT.TA_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.320000e-02  1.690000e-02  2.120000e-02
+1   None         _FRUT.TA  _FRUT.TA_Lag1Trend_residue_bestCycle_byL2_resi...  ...  1.370000e-02  1.690000e-02  2.120000e-02
+2   None   CumSum_FRUT.TA  CumSum_FRUT.TA_Lag1Trend_residue_zeroCycle_res...  ...  1.450000e-02  1.690000e-02  2.120000e-02
+3   None     Diff_FRUT.TA  Diff_FRUT.TA_Lag1Trend_residue_zeroCycle_resid...  ...  1.320000e-02  1.690000e-02  2.120000e-02
+4   None  RelDiff_FRUT.TA  RelDiff_FRUT.TA_Lag1Trend_residue_zeroCycle_re...  ...  1.320000e-02  1.690000e-02  2.120000e-02
+..   ...              ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_FRUT.TA  RelDiff_FRUT.TA_LinearTrend_residue_bestCycle_...  ...  1.258786e+07  3.925191e+06  3.731390e+06
+92  None  RelDiff_FRUT.TA  RelDiff_FRUT.TA_LinearTrend_residue_bestCycle_...  ...  1.258617e+07  3.925191e+06  3.731390e+06
+93  None  RelDiff_FRUT.TA  RelDiff_FRUT.TA_PolyTrend_residue_bestCycle_by...  ...  1.258721e+07  3.925192e+06  3.731391e+06
+94  None  RelDiff_FRUT.TA  RelDiff_FRUT.TA_ConstantTrend_residue_bestCycl...  ...  1.258579e+07  3.925192e+06  3.731391e+06
+95  None  RelDiff_FRUT.TA  RelDiff_FRUT.TA_PolyTrend_residue_Seasonal_Day...  ...  1.258808e+07  3.925192e+06  3.731391e+06
+
+[96 rows x 8 columns]
+  Split   Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _FRUT.TA  _FRUT.TA_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0132        0.0169    0.0212
+1  None         _FRUT.TA  _FRUT.TA_Lag1Trend_residue_bestCycle_byL2_resi...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0137        0.0169    0.0212
+2  None   CumSum_FRUT.TA  CumSum_FRUT.TA_Lag1Trend_residue_zeroCycle_res...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0145        0.0169    0.0212
+3  None     Diff_FRUT.TA  Diff_FRUT.TA_Lag1Trend_residue_zeroCycle_resid...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0132        0.0169    0.0212
+4  None  RelDiff_FRUT.TA  RelDiff_FRUT.TA_Lag1Trend_residue_zeroCycle_re...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0132        0.0169    0.0212
+7 0    190.0
+1    190.3
+2    194.0
+3    192.7
+4    191.5
+5    192.2
+6    191.6
+Name: FRUT.TA, dtype: float64
+7 0    192.4
+1    192.4
+2    192.4
+3    192.4
+4    192.4
+5    192.4
+6    192.4
+Name: FRUT.TA_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_FRUT.TA FRUT.TA [190.0, 190.3, 194.0, 192.7, 191.5, 192.2, 191.6]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_FRUT.TA FRUT.TA [192.4, 192.4, 192.4, 192.4, 192.4, 192.4, 192.4]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_FRUT.TA FRUT.TA 1019 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_FRUT.TA FRUT.TA 10.64641261100769
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_FRUT.TA FRUT.TA Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_FRUT.TA FRUT.TA 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_FRUT.TA FRUT.TA 0.0062 0.0062 0.9121
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_FRUT.TA FRUT.TA 1.1857142857142873 1.4297851986524814 -0.25337837836740795
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ta100_FRUT.TA_7'

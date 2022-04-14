@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ta100
+TIME :  Date N= 1019 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-08-01T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-07T00:00:00.000000000' '2016-07-11T00:00:00.000000000'
+ '2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000']
+SIGNAL :  NFTA.TA N= 1019 H= 7 HEAD= [11.75 11.45 11.48 11.42 11.35] TAIL= [20.38 20.3  20.32 20.48 20.37]
+   NFTA.TA       Date
+0    11.75 2011-07-28
+1    11.45 2011-08-01
+2    11.48 2011-08-02
+3    11.42 2011-08-03
+4    11.35 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1019 entries, 0 to 1018
+Data columns (total 2 columns):
+ #   Column   Non-Null Count  Dtype         
+---  ------   --------------  -----         
+ 0   NFTA.TA  1019 non-null   float64       
+ 1   Date     1019 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 23.9 KB
+None
+   Split   Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _NFTA.TA  _NFTA.TA_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.300000e-02  1.540000e-02  7.400000e-03
+1   None   CumSum_NFTA.TA  CumSum_NFTA.TA_Lag1Trend_residue_zeroCycle_res...  ...  1.420000e-02  1.540000e-02  7.400000e-03
+2   None     Diff_NFTA.TA  Diff_NFTA.TA_Lag1Trend_residue_zeroCycle_resid...  ...  1.300000e-02  1.540000e-02  7.400000e-03
+3   None  RelDiff_NFTA.TA  RelDiff_NFTA.TA_Lag1Trend_residue_zeroCycle_re...  ...  1.300000e-02  1.540000e-02  7.400000e-03
+4   None         _NFTA.TA  _NFTA.TA_Lag1Trend_residue_Seasonal_DayOfWeek_...  ...  1.300000e-02  1.550000e-02  7.400000e-03
+..   ...              ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_NFTA.TA  RelDiff_NFTA.TA_PolyTrend_residue_Seasonal_Day...  ...  1.824503e+07  1.597429e+07  1.576386e+07
+92  None  RelDiff_NFTA.TA  RelDiff_NFTA.TA_ConstantTrend_residue_bestCycl...  ...  1.809727e+07  1.597429e+07  1.576386e+07
+93  None  RelDiff_NFTA.TA  RelDiff_NFTA.TA_PolyTrend_residue_zeroCycle_re...  ...  1.826204e+07  1.597429e+07  1.576386e+07
+94  None  RelDiff_NFTA.TA  RelDiff_NFTA.TA_PolyTrend_residue_Seasonal_Day...  ...  1.825510e+07  1.597429e+07  1.576386e+07
+95  None  RelDiff_NFTA.TA  RelDiff_NFTA.TA_PolyTrend_residue_bestCycle_by...  ...  1.826329e+07  1.597429e+07  1.576386e+07
+
+[96 rows x 8 columns]
+  Split   Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _NFTA.TA  _NFTA.TA_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0130        0.0154    0.0074
+1  None   CumSum_NFTA.TA  CumSum_NFTA.TA_Lag1Trend_residue_zeroCycle_res...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0142        0.0154    0.0074
+2  None     Diff_NFTA.TA  Diff_NFTA.TA_Lag1Trend_residue_zeroCycle_resid...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0130        0.0154    0.0074
+3  None  RelDiff_NFTA.TA  RelDiff_NFTA.TA_Lag1Trend_residue_zeroCycle_re...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0130        0.0154    0.0074
+4  None         _NFTA.TA  _NFTA.TA_Lag1Trend_residue_Seasonal_DayOfWeek_...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0130        0.0155    0.0074
+7 0    20.44
+1    21.86
+2    21.98
+3    21.62
+4    21.90
+5    22.28
+6    22.89
+Name: NFTA.TA, dtype: float64
+7 0    20.37
+1    20.37
+2    20.37
+3    20.37
+4    20.37
+5    20.37
+6    20.37
+Name: NFTA.TA_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_NFTA.TA NFTA.TA [20.44, 21.86, 21.98, 21.62, 21.9, 22.28, 22.89]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_NFTA.TA NFTA.TA [20.37, 20.37, 20.37, 20.37, 20.37, 20.37, 20.37]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_NFTA.TA NFTA.TA 1019 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_NFTA.TA NFTA.TA 10.598974704742432
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_NFTA.TA NFTA.TA Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_NFTA.TA NFTA.TA 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_NFTA.TA NFTA.TA 0.0669 0.0697 2.8067
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_NFTA.TA NFTA.TA 1.4828571428571422 1.635280666167999 -4.626486778769931
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ta100_NFTA.TA_7'

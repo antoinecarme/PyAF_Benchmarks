@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_mibtel
+TIME :  Date N= 731 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2014-05-15T00:00:00.000000000' '2014-05-16T00:00:00.000000000'
+ '2014-05-19T00:00:00.000000000' '2014-05-20T00:00:00.000000000'
+ '2014-05-21T00:00:00.000000000']
+SIGNAL :  CB.MI N= 731 H= 7 HEAD= [22.04 22.1  22.1  21.31 22.5 ] TAIL= [17.09 16.91 16.94 17.05 17.35]
+   CB.MI       Date
+0  22.04 2011-07-28
+1  22.10 2011-07-29
+2  22.10 2011-08-01
+3  21.31 2011-08-02
+4  22.50 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 731 entries, 0 to 730
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   CB.MI   731 non-null    float64       
+ 1   Date    731 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 17.1 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _CB.MI    _CB.MI_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.440000e-02  2.040000e-02  1.850000e-02
+1   None   CumSum_CB.MI  CumSum_CB.MI_Lag1Trend_residue_zeroCycle_resid...  ...  1.610000e-02  2.040000e-02  1.850000e-02
+2   None     Diff_CB.MI  Diff_CB.MI_Lag1Trend_residue_zeroCycle_residue...  ...  1.440000e-02  2.040000e-02  1.850000e-02
+3   None  RelDiff_CB.MI  RelDiff_CB.MI_Lag1Trend_residue_zeroCycle_resi...  ...  1.440000e-02  2.040000e-02  1.850000e-02
+4   None         _CB.MI  _CB.MI_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  1.460000e-02  2.060000e-02  2.000000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_CB.MI  RelDiff_CB.MI_LinearTrend_residue_Seasonal_Day...  ...  9.669621e+07  8.069322e+07  7.925131e+07
+92  None  RelDiff_CB.MI  RelDiff_CB.MI_LinearTrend_residue_bestCycle_by...  ...  9.674289e+07  8.069322e+07  7.925131e+07
+93  None  RelDiff_CB.MI  RelDiff_CB.MI_Lag1Trend_residue_Seasonal_DayOf...  ...  9.680227e+07  8.069322e+07  7.925131e+07
+94  None  RelDiff_CB.MI  RelDiff_CB.MI_ConstantTrend_residue_Seasonal_D...  ...  9.647643e+07  8.069322e+07  7.925131e+07
+95  None  RelDiff_CB.MI  RelDiff_CB.MI_LinearTrend_residue_zeroCycle_re...  ...  9.672271e+07  8.069322e+07  7.925131e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _CB.MI    _CB.MI_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0144        0.0204    0.0185
+1  None   CumSum_CB.MI  CumSum_CB.MI_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0161        0.0204    0.0185
+2  None     Diff_CB.MI  Diff_CB.MI_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0144        0.0204    0.0185
+3  None  RelDiff_CB.MI  RelDiff_CB.MI_Lag1Trend_residue_zeroCycle_resi...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0144        0.0204    0.0185
+4  None         _CB.MI  _CB.MI_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0146        0.0206    0.0200
+7 0    16.75
+1    17.60
+2    18.53
+3    18.74
+4    19.22
+5    19.20
+6    19.65
+Name: CB.MI, dtype: float64
+7 0    17.35
+1    17.35
+2    17.35
+3    17.35
+4    17.35
+5    17.35
+6    17.35
+Name: CB.MI_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_CB.MI CB.MI [16.75, 17.6, 18.53, 18.74, 19.22, 19.2, 19.65]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_CB.MI CB.MI [17.35, 17.35, 17.35, 17.35, 17.35, 17.35, 17.35]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_CB.MI CB.MI 731 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_CB.MI CB.MI 10.663784265518188
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_CB.MI CB.MI Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_CB.MI CB.MI 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_CB.MI CB.MI 0.0712 0.0743 2.7522
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_CB.MI CB.MI 1.3485714285714272 1.5097965804325126 -1.5502726201267367
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_mibtel_CB.MI_7'

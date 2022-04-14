@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftse100
+TIME :  Date N= 1293 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  EMG.L N= 1293 H= 7 HEAD= [226.9 222.8 218.6 213.  210. ] TAIL= [123.8 121.  122.3 120.7 122.9]
+   EMG.L       Date
+0  226.9 2011-07-28
+1  222.8 2011-07-29
+2  218.6 2011-08-01
+3  213.0 2011-08-02
+4  210.0 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1293 entries, 0 to 1292
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   EMG.L   1293 non-null   float64       
+ 1   Date    1293 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _EMG.L    _EMG.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.970000e-02  1.810000e-02  2.410000e-02
+1   None   CumSum_EMG.L  CumSum_EMG.L_Lag1Trend_residue_zeroCycle_resid...  ...  2.060000e-02  1.810000e-02  2.410000e-02
+2   None     Diff_EMG.L  Diff_EMG.L_Lag1Trend_residue_zeroCycle_residue...  ...  1.970000e-02  1.810000e-02  2.410000e-02
+3   None  RelDiff_EMG.L  RelDiff_EMG.L_Lag1Trend_residue_zeroCycle_resi...  ...  1.970000e-02  1.810000e-02  2.410000e-02
+4   None         _EMG.L  _EMG.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  1.970000e-02  1.830000e-02  2.420000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_EMG.L  RelDiff_EMG.L_ConstantTrend_residue_Seasonal_D...  ...  1.519675e+08  1.085076e+08  1.357550e+08
+92  None  RelDiff_EMG.L  RelDiff_EMG.L_PolyTrend_residue_Seasonal_DayOf...  ...  1.526222e+08  1.085076e+08  1.357550e+08
+93  None  RelDiff_EMG.L  RelDiff_EMG.L_LinearTrend_residue_Seasonal_Day...  ...  1.526311e+08  1.085076e+08  1.357550e+08
+94  None  RelDiff_EMG.L  RelDiff_EMG.L_PolyTrend_residue_Seasonal_DayOf...  ...  1.526309e+08  1.085076e+08  1.357550e+08
+95  None  RelDiff_EMG.L  RelDiff_EMG.L_Lag1Trend_residue_bestCycle_byL2...  ...  1.527021e+08  1.085076e+08  1.357550e+08
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _EMG.L    _EMG.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0197        0.0181    0.0241
+1  None   CumSum_EMG.L  CumSum_EMG.L_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0206        0.0181    0.0241
+2  None     Diff_EMG.L  Diff_EMG.L_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0197        0.0181    0.0241
+3  None  RelDiff_EMG.L  RelDiff_EMG.L_Lag1Trend_residue_zeroCycle_resi...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0197        0.0181    0.0241
+4  None         _EMG.L  _EMG.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0197        0.0183    0.0242
+7 0    122.3
+1    122.7
+2    123.5
+3    121.0
+4    122.4
+5    112.8
+6    117.0
+Name: EMG.L, dtype: float64
+7 0    122.9
+1    122.9
+2    122.9
+3    122.9
+4    122.9
+5    122.9
+6    122.9
+Name: EMG.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_EMG.L EMG.L [122.3, 122.7, 123.5, 121.0, 122.4, 112.8, 117.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_EMG.L EMG.L [122.9, 122.9, 122.9, 122.9, 122.9, 122.9, 122.9]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_EMG.L EMG.L 1293 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_EMG.L EMG.L 11.338334321975708
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_EMG.L EMG.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_EMG.L EMG.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_EMG.L EMG.L 0.0244 0.0237 0.898
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_EMG.L EMG.L 2.8285714285714323 4.49507667183935 -0.5371048872864141
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftse100_EMG.L_7'

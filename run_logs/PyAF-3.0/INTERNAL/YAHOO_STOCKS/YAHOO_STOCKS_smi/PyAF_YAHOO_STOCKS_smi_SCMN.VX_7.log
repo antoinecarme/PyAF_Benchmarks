@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_smi
+TIME :  Date N= 1031 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  SCMN.VX N= 1031 H= 7 HEAD= [382.4 380.4 373.1 374.9 378. ] TAIL= [482.3 482.1 483.2 482.1 482.5]
+   SCMN.VX       Date
+0    382.4 2011-07-28
+1    380.4 2011-07-29
+2    373.1 2011-08-02
+3    374.9 2011-08-03
+4    378.0 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1031 entries, 0 to 1030
+Data columns (total 2 columns):
+ #   Column   Non-Null Count  Dtype         
+---  ------   --------------  -----         
+ 0   SCMN.VX  1031 non-null   float64       
+ 1   Date     1031 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 24.2 KB
+None
+   Split   Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _SCMN.VX  _SCMN.VX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  7.400000e-03  9.800000e-03  4.200000e-03
+1   None         _SCMN.VX  _SCMN.VX_Lag1Trend_residue_Seasonal_DayOfWeek_...  ...  7.400000e-03  9.800000e-03  4.300000e-03
+2   None   CumSum_SCMN.VX  CumSum_SCMN.VX_Lag1Trend_residue_zeroCycle_res...  ...  8.600000e-03  9.800000e-03  4.200000e-03
+3   None     Diff_SCMN.VX  Diff_SCMN.VX_Lag1Trend_residue_zeroCycle_resid...  ...  7.400000e-03  9.800000e-03  4.200000e-03
+4   None  RelDiff_SCMN.VX  RelDiff_SCMN.VX_Lag1Trend_residue_zeroCycle_re...  ...  7.400000e-03  9.800000e-03  4.200000e-03
+..   ...              ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_SCMN.VX  RelDiff_SCMN.VX_LinearTrend_residue_Seasonal_D...  ...  1.162010e+07  1.071045e+07  1.094479e+07
+92  None  RelDiff_SCMN.VX  RelDiff_SCMN.VX_Lag1Trend_residue_Seasonal_Day...  ...  1.161719e+07  1.071045e+07  1.094479e+07
+93  None  RelDiff_SCMN.VX  RelDiff_SCMN.VX_PolyTrend_residue_Seasonal_Day...  ...  1.162161e+07  1.071045e+07  1.094479e+07
+94  None  RelDiff_SCMN.VX  RelDiff_SCMN.VX_PolyTrend_residue_bestCycle_by...  ...  1.162163e+07  1.071045e+07  1.094479e+07
+95  None  RelDiff_SCMN.VX  RelDiff_SCMN.VX_PolyTrend_residue_bestCycle_by...  ...  1.162423e+07  1.071045e+07  1.094479e+07
+
+[96 rows x 8 columns]
+  Split   Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _SCMN.VX  _SCMN.VX_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0074        0.0098    0.0042
+1  None         _SCMN.VX  _SCMN.VX_Lag1Trend_residue_Seasonal_DayOfWeek_...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0074        0.0098    0.0043
+2  None   CumSum_SCMN.VX  CumSum_SCMN.VX_Lag1Trend_residue_zeroCycle_res...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0086        0.0098    0.0042
+3  None     Diff_SCMN.VX  Diff_SCMN.VX_Lag1Trend_residue_zeroCycle_resid...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0074        0.0098    0.0042
+4  None  RelDiff_SCMN.VX  RelDiff_SCMN.VX_Lag1Trend_residue_zeroCycle_re...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0074        0.0098    0.0042
+7 0    479.4
+1    480.3
+2    477.4
+3    479.7
+4    479.5
+5    478.5
+6    479.9
+Name: SCMN.VX, dtype: float64
+7 0    482.5
+1    482.5
+2    482.5
+3    482.5
+4    482.5
+5    482.5
+6    482.5
+Name: SCMN.VX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_SCMN.VX SCMN.VX [479.4, 480.3, 477.4, 479.7, 479.5, 478.5, 479.9]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_SCMN.VX SCMN.VX [482.5, 482.5, 482.5, 482.5, 482.5, 482.5, 482.5]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_SCMN.VX SCMN.VX 1031 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_SCMN.VX SCMN.VX 10.85446834564209
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_SCMN.VX SCMN.VX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_SCMN.VX SCMN.VX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_SCMN.VX SCMN.VX 0.0068 0.0068 2.2463
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_SCMN.VX SCMN.VX 3.257142857142867 3.381884512685631 -12.81025135510918
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_smi_SCMN.VX_7'

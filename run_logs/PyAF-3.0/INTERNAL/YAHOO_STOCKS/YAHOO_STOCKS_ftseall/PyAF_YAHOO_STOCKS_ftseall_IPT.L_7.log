@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftseall
+TIME :  Date N= 439 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2013-03-27T00:00:00.000000000' '2013-03-28T00:00:00.000000000'
+ '2013-03-29T00:00:00.000000000' '2013-04-01T00:00:00.000000000'
+ '2013-04-02T00:00:00.000000000']
+SIGNAL :  IPT.L N= 439 H= 7 HEAD= [0.9875 0.9875 0.9975 1.015  1.0025] TAIL= [0.83   0.8425 1.001  1.001  0.83  ]
+    IPT.L       Date
+0  0.9875 2011-07-28
+1  0.9875 2011-07-29
+2  0.9975 2011-08-01
+3  1.0150 2011-08-02
+4  1.0025 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 439 entries, 0 to 438
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   IPT.L   439 non-null    float64       
+ 1   Date    439 non-null    datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 10.3 KB
+None
+   Split Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _IPT.L    _IPT.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0075  1.320000e-02  5.720000e-02
+1   None         _IPT.L  _IPT.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  ...  0.0076  1.320000e-02  5.760000e-02
+2   None   CumSum_IPT.L  CumSum_IPT.L_Lag1Trend_residue_zeroCycle_resid...  ...  0.0104  1.320000e-02  5.720000e-02
+3   None     Diff_IPT.L  Diff_IPT.L_Lag1Trend_residue_zeroCycle_residue...  ...  0.0075  1.320000e-02  5.720000e-02
+4   None  RelDiff_IPT.L  RelDiff_IPT.L_Lag1Trend_residue_zeroCycle_resi...  ...  0.0075  1.320000e-02  5.720000e-02
+..   ...            ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_IPT.L  RelDiff_IPT.L_PolyTrend_residue_Seasonal_DayOf...  ...  0.0574  7.426016e+06  2.522582e+07
+92  None  RelDiff_IPT.L  RelDiff_IPT.L_PolyTrend_residue_bestCycle_byL2...  ...  0.0574  7.426016e+06  2.522582e+07
+93  None  RelDiff_IPT.L  RelDiff_IPT.L_Lag1Trend_residue_Seasonal_DayOf...  ...  0.0622  7.426641e+06  2.522582e+07
+94  None  RelDiff_IPT.L  RelDiff_IPT.L_Lag1Trend_residue_bestCycle_byL2...  ...  0.0622  7.426641e+06  2.522582e+07
+95  None  RelDiff_IPT.L  RelDiff_IPT.L_Lag1Trend_residue_zeroCycle_resi...  ...  0.0578  7.426677e+06  2.522582e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _IPT.L    _IPT.L_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0075        0.0132    0.0572
+1  None         _IPT.L  _IPT.L_Lag1Trend_residue_Seasonal_DayOfWeek_re...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0076        0.0132    0.0576
+2  None   CumSum_IPT.L  CumSum_IPT.L_Lag1Trend_residue_zeroCycle_resid...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0104        0.0132    0.0572
+3  None     Diff_IPT.L  Diff_IPT.L_Lag1Trend_residue_zeroCycle_residue...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0075        0.0132    0.0572
+4  None  RelDiff_IPT.L  RelDiff_IPT.L_Lag1Trend_residue_zeroCycle_resi...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0075        0.0132    0.0572
+7 0    0.84250
+1    0.84250
+2    1.00100
+3    1.00100
+4    1.00200
+5    1.00200
+6    0.88375
+Name: IPT.L, dtype: float64
+7 0    0.83
+1    0.83
+2    0.83
+3    0.83
+4    0.83
+5    0.83
+6    0.83
+Name: IPT.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_IPT.L IPT.L [0.8425, 0.8425, 1.001, 1.001, 1.002, 1.002, 0.88375]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_IPT.L IPT.L [0.83, 0.83, 0.83, 0.83, 0.83, 0.83, 0.83]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_IPT.L IPT.L 439 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_IPT.L IPT.L 10.164929628372192
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_IPT.L IPT.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_IPT.L IPT.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_IPT.L IPT.L 0.1108 0.1202 2.36
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_IPT.L IPT.L 0.10925000000000003 0.13139447830320508 -2.2397602628775886
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftseall_IPT.L_7'

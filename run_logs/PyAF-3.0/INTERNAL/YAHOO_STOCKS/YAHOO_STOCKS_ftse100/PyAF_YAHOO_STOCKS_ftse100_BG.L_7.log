@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_ftse100
+TIME :  Date N= 1178 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-01-28T00:00:00.000000000' '2016-01-29T00:00:00.000000000'
+ '2016-02-01T00:00:00.000000000' '2016-02-02T00:00:00.000000000'
+ '2016-02-03T00:00:00.000000000']
+SIGNAL :  BG.L N= 1178 H= 7 HEAD= [1471.5 1444.  1435.  1413.  1370.5] TAIL= [1044.  1054.5 1047.5 1014.  1016.5]
+     BG.L       Date
+0  1471.5 2011-07-28
+1  1444.0 2011-07-29
+2  1435.0 2011-08-01
+3  1413.0 2011-08-02
+4  1370.5 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1178 entries, 0 to 1177
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   BG.L    1178 non-null   float64       
+ 1   Date    1178 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 27.6 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None          _BG.L  _BG.L_Lag1Trend_residue_bestCycle_byL2_residue...  ...  1.250000e-02  1.390000e-02  1.710000e-02
+1   None          _BG.L     _BG.L_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.250000e-02  1.400000e-02  1.610000e-02
+2   None    CumSum_BG.L  CumSum_BG.L_Lag1Trend_residue_zeroCycle_residu...  ...  1.350000e-02  1.400000e-02  1.610000e-02
+3   None      Diff_BG.L  Diff_BG.L_Lag1Trend_residue_zeroCycle_residue_...  ...  1.250000e-02  1.400000e-02  1.610000e-02
+4   None   RelDiff_BG.L  RelDiff_BG.L_Lag1Trend_residue_zeroCycle_resid...  ...  1.250000e-02  1.400000e-02  1.610000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None   RelDiff_BG.L  RelDiff_BG.L_LinearTrend_residue_zeroCycle_res...  ...  5.692191e+07  6.620803e+07  6.581646e+07
+92  None   RelDiff_BG.L  RelDiff_BG.L_PolyTrend_residue_zeroCycle_resid...  ...  5.701322e+07  6.620803e+07  6.581646e+07
+93  None   RelDiff_BG.L  RelDiff_BG.L_PolyTrend_residue_zeroCycle_resid...  ...  5.697801e+07  6.620803e+07  6.581646e+07
+94  None   RelDiff_BG.L  RelDiff_BG.L_LinearTrend_residue_Seasonal_DayO...  ...  5.700976e+07  6.620803e+07  6.581646e+07
+95  None   RelDiff_BG.L  RelDiff_BG.L_LinearTrend_residue_bestCycle_byL...  ...  5.701898e+07  6.620803e+07  6.581646e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None          _BG.L  _BG.L_Lag1Trend_residue_bestCycle_byL2_residue...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0125        0.0139    0.0171
+1  None          _BG.L     _BG.L_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0125        0.0140    0.0161
+2  None    CumSum_BG.L  CumSum_BG.L_Lag1Trend_residue_zeroCycle_residu...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0135        0.0140    0.0161
+3  None      Diff_BG.L  Diff_BG.L_Lag1Trend_residue_zeroCycle_residue_...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0125        0.0140    0.0161
+4  None   RelDiff_BG.L  RelDiff_BG.L_Lag1Trend_residue_zeroCycle_resid...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0125        0.0140    0.0161
+7 0    1057.5
+1    1060.0
+2    1054.5
+3    1028.0
+4    1026.0
+5    1020.0
+6    1062.0
+Name: BG.L, dtype: float64
+7 0    1016.5
+1    1016.5
+2    1016.5
+3    1016.5
+4    1016.5
+5    1016.5
+6    1016.5
+Name: BG.L_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_BG.L BG.L [1057.5, 1060.0, 1054.5, 1028.0, 1026.0, 1020.0, 1062.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_BG.L BG.L [1016.5, 1016.5, 1016.5, 1016.5, 1016.5, 1016.5, 1016.5]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_BG.L BG.L 1178 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_BG.L BG.L 11.126595735549927
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_BG.L BG.L Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_BG.L BG.L 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_BG.L BG.L 0.0261 0.0266 1.9527
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_BG.L BG.L 27.5 32.34247538896357 -2.6096869608083013
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_ftse100_BG.L_7'

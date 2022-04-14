@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1296 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  WPI N= 1296 H= 7 HEAD= [0.35 0.4  0.6  0.64 0.53] TAIL= [0.34  0.335 0.33  0.33  0.33 ]
+    WPI       Date
+0  0.35 2011-07-28
+1  0.40 2011-07-29
+2  0.60 2011-08-01
+3  0.64 2011-08-02
+4  0.53 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1296 entries, 0 to 1295
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   WPI     1296 non-null   float64       
+ 1   Date    1296 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.4 KB
+None
+   Split Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None           _WPI      _WPI_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0196  2.830000e-02  1.270000e-02
+1   None     CumSum_WPI  CumSum_WPI_Lag1Trend_residue_zeroCycle_residue...  ...  0.0205  2.830000e-02  1.270000e-02
+2   None       Diff_WPI  Diff_WPI_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0196  2.830000e-02  1.270000e-02
+3   None    RelDiff_WPI  RelDiff_WPI_Lag1Trend_residue_zeroCycle_residu...  ...  0.0196  2.830000e-02  1.270000e-02
+4   None           _WPI  _WPI_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  ...  0.0203  2.920000e-02  1.270000e-02
+..   ...            ...                                                ...  ...     ...           ...           ...
+91  None    RelDiff_WPI  RelDiff_WPI_ConstantTrend_residue_zeroCycle_re...  ...  0.6481  4.821456e+07  5.535044e+07
+92  None    RelDiff_WPI  RelDiff_WPI_Lag1Trend_residue_Seasonal_DayOfWe...  ...  0.9701  4.821486e+07  5.535044e+07
+93  None    RelDiff_WPI  RelDiff_WPI_Lag1Trend_residue_zeroCycle_residu...  ...  0.9738  4.821500e+07  5.535044e+07
+94  None    RelDiff_WPI  RelDiff_WPI_PolyTrend_residue_Seasonal_DayOfWe...  ...  1.7203  4.821661e+07  5.535044e+07
+95  None    RelDiff_WPI  RelDiff_WPI_PolyTrend_residue_zeroCycle_residu...  ...  1.8532  4.821686e+07  5.535044e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _WPI      _WPI_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0196        0.0283    0.0127
+1  None     CumSum_WPI  CumSum_WPI_Lag1Trend_residue_zeroCycle_residue...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0205        0.0283    0.0127
+2  None       Diff_WPI  Diff_WPI_Lag1Trend_residue_zeroCycle_residue_NoAR           Difference_Lag1Trend_NoCycle_NoAR          64   0.0196        0.0283    0.0127
+3  None    RelDiff_WPI  RelDiff_WPI_Lag1Trend_residue_zeroCycle_residu...   RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0196        0.0283    0.0127
+4  None           _WPI  _WPI_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0203        0.0292    0.0127
+7 0    0.330
+1    0.330
+2    0.335
+3    0.335
+4    0.325
+5    0.330
+6    0.335
+Name: WPI, dtype: float64
+7 0    0.33
+1    0.33
+2    0.33
+3    0.33
+4    0.33
+5    0.33
+6    0.33
+Name: WPI_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_WPI WPI [0.33, 0.33, 0.335, 0.335, 0.325, 0.33, 0.335]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_WPI WPI [0.33, 0.33, 0.33, 0.33, 0.33, 0.33, 0.33]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_WPI WPI 1296 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_WPI WPI 15.270369529724121
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_WPI WPI Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_WPI WPI 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_WPI WPI 0.0086 0.0086 0.6857
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_WPI WPI 0.0028571428571428597 0.0037796447300922757 -0.16666530555714343
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_WPI_7'

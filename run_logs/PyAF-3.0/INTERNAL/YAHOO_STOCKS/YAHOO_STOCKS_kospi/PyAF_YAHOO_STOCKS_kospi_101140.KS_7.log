@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_kospi
+TIME :  Date N= 1217 H= 7 HEAD= ['2011-11-17T00:00:00.000000000' '2011-11-18T00:00:00.000000000'
+ '2011-11-21T00:00:00.000000000' '2011-11-22T00:00:00.000000000'
+ '2011-11-23T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  101140.KS N= 1217 H= 7 HEAD= [219. 219. 219. 219. 219.] TAIL= [2830. 2870. 2775. 3010. 2935.]
+   101140.KS       Date
+0      219.0 2011-11-17
+1      219.0 2011-11-18
+2      219.0 2011-11-21
+3      219.0 2011-11-22
+4      219.0 2011-11-23
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1217 entries, 0 to 1216
+Data columns (total 2 columns):
+ #   Column     Non-Null Count  Dtype         
+---  ------     --------------  -----         
+ 0   101140.KS  1217 non-null   float64       
+ 1   Date       1217 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 28.5 KB
+None
+   Split     Transformation                                              Model  ... FitMAPE  ForecastMAPE  TestMAPE
+0   None         _101140.KS  _101140.KS_Lag1Trend_residue_zeroCycle_residue...  ...  0.0215        0.0305    0.0573
+1   None   CumSum_101140.KS  CumSum_101140.KS_Lag1Trend_residue_zeroCycle_r...  ...  0.0225        0.0305    0.0573
+2   None     Diff_101140.KS  Diff_101140.KS_Lag1Trend_residue_zeroCycle_res...  ...  0.0215        0.0305    0.0573
+3   None         _101140.KS  _101140.KS_Lag1Trend_residue_bestCycle_byL2_re...  ...  0.0244        0.0308    0.0565
+4   None   CumSum_101140.KS  CumSum_101140.KS_Lag1Trend_residue_Seasonal_Da...  ...  0.0308        0.0309    0.0568
+..   ...                ...                                                ...  ...     ...           ...       ...
+91  None  RelDiff_101140.KS  RelDiff_101140.KS_Lag1Trend_residue_Seasonal_D...  ...  0.7124        0.8724    0.9256
+92  None  RelDiff_101140.KS  RelDiff_101140.KS_Lag1Trend_residue_bestCycle_...  ...  0.7124        0.8724    0.9256
+93  None   CumSum_101140.KS  CumSum_101140.KS_ConstantTrend_residue_zeroCyc...  ...  3.2591        1.0000    1.0000
+94  None   CumSum_101140.KS  CumSum_101140.KS_ConstantTrend_residue_Seasona...  ...  4.2003        1.0059    0.8962
+95  None   CumSum_101140.KS  CumSum_101140.KS_ConstantTrend_residue_bestCyc...  ...  4.3684        1.0807    0.6166
+
+[96 rows x 8 columns]
+  Split    Transformation                                              Model                                       Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _101140.KS  _101140.KS_Lag1Trend_residue_zeroCycle_residue...                NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0215        0.0305    0.0573
+1  None  CumSum_101140.KS  CumSum_101140.KS_Lag1Trend_residue_zeroCycle_r...             Integration_Lag1Trend_NoCycle_NoAR          64   0.0225        0.0305    0.0573
+2  None    Diff_101140.KS  Diff_101140.KS_Lag1Trend_residue_zeroCycle_res...              Difference_Lag1Trend_NoCycle_NoAR          64   0.0215        0.0305    0.0573
+3  None        _101140.KS  _101140.KS_Lag1Trend_residue_bestCycle_byL2_re...                  NoTransf_Lag1Trend_Cycle_NoAR          40   0.0244        0.0308    0.0565
+4  None  CumSum_101140.KS  CumSum_101140.KS_Lag1Trend_residue_Seasonal_Da...  Integration_Lag1Trend_Seasonal_DayOfWeek_NoAR          68   0.0308        0.0309    0.0568
+7 0    2830.0
+1    2730.0
+2    2650.0
+3    2615.0
+4    2560.0
+5    2545.0
+6    2840.0
+Name: 101140.KS, dtype: float64
+7 0    2935.0
+1    2935.0
+2    2935.0
+3    2935.0
+4    2935.0
+5    2935.0
+6    2935.0
+Name: 101140.KS_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_101140.KS 101140.KS [2830.0, 2730.0, 2650.0, 2615.0, 2560.0, 2545.0, 2840.0]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_101140.KS 101140.KS [2935.0, 2935.0, 2935.0, 2935.0, 2935.0, 2935.0, 2935.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_101140.KS 101140.KS 1217 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_101140.KS 101140.KS 11.195466995239258
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_101140.KS 101140.KS Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_101140.KS 101140.KS 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_101140.KS 101140.KS 0.0965 0.0911 2.6232
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_101140.KS 101140.KS 253.57142857142858 277.34068786035914 -5.095213067033226
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_kospi_101140.KS_7'

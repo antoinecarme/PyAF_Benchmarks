@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  BHE N= 1251 H= 7 HEAD= [15.45 14.65 14.35 14.18 14.48] TAIL= [22.209999 22.43     22.5      22.6      22.59    ]
+     BHE       Date
+0  15.45 2011-07-28
+1  14.65 2011-07-29
+2  14.35 2011-08-01
+3  14.18 2011-08-02
+4  14.48 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   BHE     1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _BHE  _BHE_Lag1Trend_residue_bestCycle_byL2_residue_...  ...  1.370000e-02  1.300000e-02  8.300000e-03
+1   None           _BHE      _BHE_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.370000e-02  1.310000e-02  8.700000e-03
+2   None           _BHE  _BHE_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  ...  1.360000e-02  1.310000e-02  8.600000e-03
+3   None     CumSum_BHE  CumSum_BHE_Lag1Trend_residue_zeroCycle_residue...  ...  1.460000e-02  1.310000e-02  8.700000e-03
+4   None       Diff_BHE  Diff_BHE_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.370000e-02  1.310000e-02  8.700000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_BHE  RelDiff_BHE_LinearTrend_residue_bestCycle_byL2...  ...  1.772054e+07  1.574444e+07  1.489637e+07
+92  None    RelDiff_BHE  RelDiff_BHE_PolyTrend_residue_Seasonal_DayOfWe...  ...  1.772054e+07  1.574444e+07  1.489637e+07
+93  None    RelDiff_BHE  RelDiff_BHE_ConstantTrend_residue_bestCycle_by...  ...  1.767665e+07  1.574444e+07  1.489637e+07
+94  None    RelDiff_BHE  RelDiff_BHE_PolyTrend_residue_zeroCycle_residu...  ...  1.772055e+07  1.574444e+07  1.489637e+07
+95  None    RelDiff_BHE  RelDiff_BHE_PolyTrend_residue_bestCycle_byL2_r...  ...  1.772055e+07  1.574444e+07  1.489637e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _BHE  _BHE_Lag1Trend_residue_bestCycle_byL2_residue_...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0137        0.0130    0.0083
+1  None           _BHE      _BHE_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0137        0.0131    0.0087
+2  None           _BHE  _BHE_Lag1Trend_residue_Seasonal_DayOfWeek_resi...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0136        0.0131    0.0086
+3  None     CumSum_BHE  CumSum_BHE_Lag1Trend_residue_zeroCycle_residue...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0146        0.0131    0.0087
+4  None       Diff_BHE  Diff_BHE_Lag1Trend_residue_zeroCycle_residue_NoAR           Difference_Lag1Trend_NoCycle_NoAR          64   0.0137        0.0131    0.0087
+7 0    22.450001
+1    22.770000
+2    22.889999
+3    23.219999
+4    23.700001
+5    23.510000
+6    23.740000
+Name: BHE, dtype: float64
+7 0    22.59
+1    22.59
+2    22.59
+3    22.59
+4    22.59
+5    22.59
+6    22.59
+Name: BHE_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_BHE BHE [22.450001, 22.77, 22.889999, 23.219998999999998, 23.700001, 23.51, 23.74]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_BHE BHE [22.59, 22.59, 22.59, 22.59, 22.59, 22.59, 22.59]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_BHE BHE 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_BHE BHE 12.071589469909668
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_BHE BHE Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_BHE BHE 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_BHE BHE 0.027 0.0275 2.2737
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_BHE BHE 0.6328568571428568 0.7502285442263575 -1.6629170271566363
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_BHE_7'

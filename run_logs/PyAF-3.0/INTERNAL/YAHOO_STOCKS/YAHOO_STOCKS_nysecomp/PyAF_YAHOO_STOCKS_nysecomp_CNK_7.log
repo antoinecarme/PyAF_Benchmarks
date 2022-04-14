@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  CNK N= 1251 H= 7 HEAD= [19.540001 19.49     19.360001 18.91     18.940001] TAIL= [36.860001 37.18     37.689999 37.66     38.      ]
+         CNK       Date
+0  19.540001 2011-07-28
+1  19.490000 2011-07-29
+2  19.360001 2011-08-01
+3  18.910000 2011-08-02
+4  18.940001 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   CNK     1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None           _CNK      _CNK_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.070000e-02  1.270000e-02  1.140000e-02
+1   None           _CNK  _CNK_Lag1Trend_residue_bestCycle_byL2_residue_...  ...  1.060000e-02  1.270000e-02  1.070000e-02
+2   None     CumSum_CNK  CumSum_CNK_Lag1Trend_residue_zeroCycle_residue...  ...  1.170000e-02  1.270000e-02  1.140000e-02
+3   None       Diff_CNK  Diff_CNK_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.070000e-02  1.270000e-02  1.140000e-02
+4   None    RelDiff_CNK  RelDiff_CNK_Lag1Trend_residue_zeroCycle_residu...  ...  1.070000e-02  1.270000e-02  1.140000e-02
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None    RelDiff_CNK  RelDiff_CNK_Lag1Trend_residue_bestCycle_byL2_r...  ...  6.017213e+06  4.873865e+06  4.514649e+06
+92  None    RelDiff_CNK  RelDiff_CNK_PolyTrend_residue_zeroCycle_residu...  ...  6.034114e+06  4.873865e+06  4.514649e+06
+93  None    RelDiff_CNK  RelDiff_CNK_PolyTrend_residue_bestCycle_byL2_r...  ...  6.034114e+06  4.873865e+06  4.514649e+06
+94  None    RelDiff_CNK  RelDiff_CNK_ConstantTrend_residue_zeroCycle_re...  ...  6.027766e+06  4.873865e+06  4.514649e+06
+95  None    RelDiff_CNK  RelDiff_CNK_PolyTrend_residue_bestCycle_byL2_r...  ...  6.034115e+06  4.873865e+06  4.514649e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None           _CNK      _CNK_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0107        0.0127    0.0114
+1  None           _CNK  _CNK_Lag1Trend_residue_bestCycle_byL2_residue_...              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0106        0.0127    0.0107
+2  None     CumSum_CNK  CumSum_CNK_Lag1Trend_residue_zeroCycle_residue...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0117        0.0127    0.0114
+3  None       Diff_CNK  Diff_CNK_Lag1Trend_residue_zeroCycle_residue_NoAR          Difference_Lag1Trend_NoCycle_NoAR          64   0.0107        0.0127    0.0114
+4  None    RelDiff_CNK  RelDiff_CNK_Lag1Trend_residue_zeroCycle_residu...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0107        0.0127    0.0114
+7 0    38.119999
+1    38.139999
+2    38.669998
+3    39.270000
+4    39.139999
+5    38.349998
+6    37.700001
+Name: CNK, dtype: float64
+7 0    38.0
+1    38.0
+2    38.0
+3    38.0
+4    38.0
+5    38.0
+6    38.0
+Name: CNK_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_CNK CNK [38.119999, 38.139998999999996, 38.669998, 39.27, 39.139998999999996, 38.349998, 37.700001]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_CNK CNK [38.0, 38.0, 38.0, 38.0, 38.0, 38.0, 38.0]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_CNK CNK 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_CNK CNK 11.894946813583374
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_CNK CNK Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_CNK CNK 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_CNK CNK 0.0147 0.0148 1.2574
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_CNK CNK 0.5699988571428563 0.7179228490197055 -0.8349852557064612
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_CNK_7'

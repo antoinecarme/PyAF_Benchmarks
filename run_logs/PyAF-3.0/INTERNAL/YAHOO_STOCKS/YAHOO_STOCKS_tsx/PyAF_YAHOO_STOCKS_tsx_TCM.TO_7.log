@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_tsx
+TIME :  Date N= 1248 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-02T00:00:00.000000000' '2011-08-03T00:00:00.000000000'
+ '2011-08-04T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  TCM.TO N= 1248 H= 7 HEAD= [8.65 8.64 8.4  8.52 7.95] TAIL= [0.69 0.72 0.71 0.71 0.73]
+   TCM.TO       Date
+0    8.65 2011-07-28
+1    8.64 2011-07-29
+2    8.40 2011-08-02
+3    8.52 2011-08-03
+4    7.95 2011-08-04
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1248 entries, 0 to 1247
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   TCM.TO  1248 non-null   float64       
+ 1   Date    1248 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.2 KB
+None
+   Split  Transformation                                              Model  ... FitMAPE  ForecastMAPE      TestMAPE
+0   None         _TCM.TO   _TCM.TO_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  0.0270  5.030000e-02  2.000000e-02
+1   None   CumSum_TCM.TO  CumSum_TCM.TO_Lag1Trend_residue_zeroCycle_resi...  ...  0.0281  5.030000e-02  2.000000e-02
+2   None     Diff_TCM.TO  Diff_TCM.TO_Lag1Trend_residue_zeroCycle_residu...  ...  0.0270  5.030000e-02  2.000000e-02
+3   None  RelDiff_TCM.TO  RelDiff_TCM.TO_Lag1Trend_residue_zeroCycle_res...  ...  0.0270  5.030000e-02  2.000000e-02
+4   None         _TCM.TO  _TCM.TO_Lag1Trend_residue_zeroCycle_residue_AR...  ...  0.0270  5.330000e-02  2.200000e-02
+..   ...             ...                                                ...  ...     ...           ...           ...
+91  None  RelDiff_TCM.TO  RelDiff_TCM.TO_ConstantTrend_residue_zeroCycle...  ...  0.2459  9.738646e+08  1.189898e+09
+92  None  RelDiff_TCM.TO  RelDiff_TCM.TO_ConstantTrend_residue_Seasonal_...  ...  0.2543  9.738719e+08  1.189898e+09
+93  None  RelDiff_TCM.TO  RelDiff_TCM.TO_Lag1Trend_residue_bestCycle_byL...  ...  0.1963  9.752679e+08  1.189898e+09
+94  None  RelDiff_TCM.TO  RelDiff_TCM.TO_Lag1Trend_residue_Seasonal_DayO...  ...  0.2471  9.752877e+08  1.189898e+09
+95  None  RelDiff_TCM.TO  RelDiff_TCM.TO_Lag1Trend_residue_zeroCycle_res...  ...  0.2025  9.752885e+08  1.189898e+09
+
+[96 rows x 8 columns]
+  Split  Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None         _TCM.TO   _TCM.TO_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0270        0.0503     0.020
+1  None   CumSum_TCM.TO  CumSum_TCM.TO_Lag1Trend_residue_zeroCycle_resi...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0281        0.0503     0.020
+2  None     Diff_TCM.TO  Diff_TCM.TO_Lag1Trend_residue_zeroCycle_residu...          Difference_Lag1Trend_NoCycle_NoAR          64   0.0270        0.0503     0.020
+3  None  RelDiff_TCM.TO  RelDiff_TCM.TO_Lag1Trend_residue_zeroCycle_res...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0270        0.0503     0.020
+4  None         _TCM.TO  _TCM.TO_Lag1Trend_residue_zeroCycle_residue_AR...              NoTransf_Lag1Trend_NoCycle_AR          96   0.0270        0.0533     0.022
+7 0    0.71
+1    0.66
+2    0.70
+3    0.72
+4    0.71
+5    0.71
+6    0.72
+Name: TCM.TO, dtype: float64
+7 0    0.73
+1    0.73
+2    0.73
+3    0.73
+4    0.73
+5    0.73
+6    0.73
+Name: TCM.TO_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_TCM.TO TCM.TO [0.71, 0.66, 0.7, 0.72, 0.71, 0.71, 0.72]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_TCM.TO TCM.TO [0.73, 0.73, 0.73, 0.73, 0.73, 0.73, 0.73]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_TCM.TO TCM.TO 1248 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_TCM.TO TCM.TO 10.949116468429565
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_TCM.TO TCM.TO Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_TCM.TO TCM.TO 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_TCM.TO TCM.TO 0.0373 0.0362 1.1868
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_TCM.TO TCM.TO 0.02571428571428572 0.03207134902949092 -1.7999998911111215
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_tsx_TCM.TO_7'

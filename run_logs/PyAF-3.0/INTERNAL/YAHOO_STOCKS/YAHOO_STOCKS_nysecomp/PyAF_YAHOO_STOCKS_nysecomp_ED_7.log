@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_nysecomp
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  ED N= 1251 H= 7 HEAD= [52.970001 52.599998 52.75     52.279999 52.639999] TAIL= [78.769997 79.419998 79.120003 79.150002 79.059998]
+          ED       Date
+0  52.970001 2011-07-28
+1  52.599998 2011-07-29
+2  52.750000 2011-08-01
+3  52.279999 2011-08-02
+4  52.639999 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   ED      1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None            _ED       _ED_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  7.000000e-03  8.800000e-03  5.500000e-03
+1   None            _ED  _ED_Lag1Trend_residue_Seasonal_DayOfWeek_resid...  ...  7.000000e-03  8.800000e-03  5.500000e-03
+2   None            _ED  _ED_Lag1Trend_residue_bestCycle_byL2_residue_NoAR  ...  7.000000e-03  8.800000e-03  5.800000e-03
+3   None      CumSum_ED  CumSum_ED_Lag1Trend_residue_zeroCycle_residue_...  ...  8.000000e-03  8.800000e-03  5.500000e-03
+4   None        Diff_ED   Diff_ED_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  7.000000e-03  8.800000e-03  5.500000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None     RelDiff_ED  RelDiff_ED_Lag1Trend_residue_bestCycle_byL2_re...  ...  4.361201e+06  3.742124e+06  3.222606e+06
+92  None     RelDiff_ED  RelDiff_ED_PolyTrend_residue_zeroCycle_residue...  ...  4.370756e+06  3.742124e+06  3.222606e+06
+93  None     RelDiff_ED  RelDiff_ED_PolyTrend_residue_bestCycle_byL2_re...  ...  4.370756e+06  3.742124e+06  3.222606e+06
+94  None     RelDiff_ED  RelDiff_ED_ConstantTrend_residue_bestCycle_byL...  ...  4.336330e+06  3.742124e+06  3.222606e+06
+95  None     RelDiff_ED  RelDiff_ED_PolyTrend_residue_bestCycle_byL2_re...  ...  4.370757e+06  3.742124e+06  3.222606e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None            _ED       _ED_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32    0.007        0.0088    0.0055
+1  None            _ED  _ED_Lag1Trend_residue_Seasonal_DayOfWeek_resid...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36    0.007        0.0088    0.0055
+2  None            _ED  _ED_Lag1Trend_residue_bestCycle_byL2_residue_NoAR               NoTransf_Lag1Trend_Cycle_NoAR          40    0.007        0.0088    0.0058
+3  None      CumSum_ED  CumSum_ED_Lag1Trend_residue_zeroCycle_residue_...          Integration_Lag1Trend_NoCycle_NoAR          64    0.008        0.0088    0.0055
+4  None        Diff_ED   Diff_ED_Lag1Trend_residue_zeroCycle_residue_NoAR           Difference_Lag1Trend_NoCycle_NoAR          64    0.007        0.0088    0.0055
+7 0    79.110001
+1    78.910004
+2    79.889999
+3    81.180000
+4    81.190002
+5    80.449997
+6    79.430000
+Name: ED, dtype: float64
+7 0    79.059998
+1    79.059998
+2    79.059998
+3    79.059998
+4    79.059998
+5    79.059998
+6    79.059998
+Name: ED_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_ED ED [79.110001, 78.910004, 79.889999, 81.18, 81.190002, 80.449997, 79.43]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_ED ED [79.059998, 79.059998, 79.059998, 79.059998, 79.059998, 79.059998, 79.059998]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_ED ED 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_ED ED 11.618810892105103
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_ED ED Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_ED ED 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_ED ED 0.0125 0.0126 1.4232
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_ED ED 1.0057150000000072 1.2991329185307268 -1.2188276514657352
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_nysecomp_ED_7'

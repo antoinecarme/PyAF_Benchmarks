@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_aord
+TIME :  Date N= 1294 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-13T00:00:00.000000000' '2016-07-14T00:00:00.000000000'
+ '2016-07-15T00:00:00.000000000' '2016-07-18T00:00:00.000000000'
+ '2016-07-19T00:00:00.000000000']
+SIGNAL :  SRV.AX N= 1294 H= 7 HEAD= [2.97 2.97 2.99 2.99 3.04] TAIL= [6.88 6.9  6.88 6.88 6.9 ]
+   SRV.AX       Date
+0    2.97 2011-07-28
+1    2.97 2011-07-29
+2    2.99 2011-08-01
+3    2.99 2011-08-02
+4    3.04 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1294 entries, 0 to 1293
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   SRV.AX  1294 non-null   float64       
+ 1   Date    1294 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 30.3 KB
+None
+   Split  Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None         _SRV.AX   _SRV.AX_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.090000e-02  1.050000e-02  2.100000e-03
+1   None         _SRV.AX  _SRV.AX_Lag1Trend_residue_Seasonal_DayOfWeek_r...  ...  1.110000e-02  1.050000e-02  2.500000e-03
+2   None         _SRV.AX  _SRV.AX_Lag1Trend_residue_bestCycle_byL2_resid...  ...  1.110000e-02  1.050000e-02  2.500000e-03
+3   None   CumSum_SRV.AX  CumSum_SRV.AX_Lag1Trend_residue_zeroCycle_resi...  ...  1.190000e-02  1.050000e-02  2.100000e-03
+4   None     Diff_SRV.AX  Diff_SRV.AX_Lag1Trend_residue_zeroCycle_residu...  ...  1.090000e-02  1.050000e-02  2.100000e-03
+..   ...             ...                                                ...  ...           ...           ...           ...
+91  None  RelDiff_SRV.AX  RelDiff_SRV.AX_PolyTrend_residue_Seasonal_DayO...  ...  1.099146e+07  5.990679e+06  5.949432e+06
+92  None  RelDiff_SRV.AX  RelDiff_SRV.AX_PolyTrend_residue_bestCycle_byL...  ...  1.099281e+07  5.990679e+06  5.949432e+06
+93  None  RelDiff_SRV.AX  RelDiff_SRV.AX_PolyTrend_residue_zeroCycle_res...  ...  1.099263e+07  5.990679e+06  5.949432e+06
+94  None  RelDiff_SRV.AX  RelDiff_SRV.AX_ConstantTrend_residue_zeroCycle...  ...  1.098957e+07  5.990679e+06  5.949432e+06
+95  None  RelDiff_SRV.AX  RelDiff_SRV.AX_PolyTrend_residue_zeroCycle_res...  ...  1.099463e+07  5.990679e+06  5.949432e+06
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                    Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None        _SRV.AX   _SRV.AX_Lag1Trend_residue_zeroCycle_residue_NoAR             NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0109        0.0105    0.0021
+1  None        _SRV.AX  _SRV.AX_Lag1Trend_residue_Seasonal_DayOfWeek_r...  NoTransf_Lag1Trend_Seasonal_DayOfWeek_NoAR          36   0.0111        0.0105    0.0025
+2  None        _SRV.AX  _SRV.AX_Lag1Trend_residue_bestCycle_byL2_resid...               NoTransf_Lag1Trend_Cycle_NoAR          40   0.0111        0.0105    0.0025
+3  None  CumSum_SRV.AX  CumSum_SRV.AX_Lag1Trend_residue_zeroCycle_resi...          Integration_Lag1Trend_NoCycle_NoAR          64   0.0119        0.0105    0.0021
+4  None    Diff_SRV.AX  Diff_SRV.AX_Lag1Trend_residue_zeroCycle_residu...           Difference_Lag1Trend_NoCycle_NoAR          64   0.0109        0.0105    0.0021
+7 0    6.88
+1    6.88
+2    6.89
+3    6.78
+4    6.76
+5    6.69
+6    6.71
+Name: SRV.AX, dtype: float64
+7 0    6.9
+1    6.9
+2    6.9
+3    6.9
+4    6.9
+5    6.9
+6    6.9
+Name: SRV.AX_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_SRV.AX SRV.AX [6.88, 6.88, 6.89, 6.78, 6.76, 6.69, 6.71]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_SRV.AX SRV.AX [6.9, 6.9, 6.9, 6.9, 6.9, 6.9, 6.9]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_SRV.AX SRV.AX 1294 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_SRV.AX SRV.AX 10.999183416366577
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_SRV.AX SRV.AX Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_SRV.AX SRV.AX 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_SRV.AX SRV.AX 0.0151 0.0149 2.646
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_SRV.AX SRV.AX 0.1014285714285718 0.12822970460410957 -1.6714190919430116
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_aord_SRV.AX_7'

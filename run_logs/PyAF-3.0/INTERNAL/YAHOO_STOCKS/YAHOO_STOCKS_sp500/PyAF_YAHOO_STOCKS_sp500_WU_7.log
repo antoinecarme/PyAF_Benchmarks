@@ -1,0 +1,68 @@
+BENCH_DATA YAHOO_STOCKS_sp500
+TIME :  Date N= 1251 H= 7 HEAD= ['2011-07-28T00:00:00.000000000' '2011-07-29T00:00:00.000000000'
+ '2011-08-01T00:00:00.000000000' '2011-08-02T00:00:00.000000000'
+ '2011-08-03T00:00:00.000000000'] TAIL= ['2016-07-12T00:00:00.000000000' '2016-07-13T00:00:00.000000000'
+ '2016-07-14T00:00:00.000000000' '2016-07-15T00:00:00.000000000'
+ '2016-07-18T00:00:00.000000000']
+SIGNAL :  WU N= 1251 H= 7 HEAD= [19.360001 19.41     19.08     18.48     18.889999] TAIL= [19.98     19.889999 20.040001 20.129999 20.129999]
+          WU       Date
+0  19.360001 2011-07-28
+1  19.410000 2011-07-29
+2  19.080000 2011-08-01
+3  18.480000 2011-08-02
+4  18.889999 2011-08-03
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1251 entries, 0 to 1250
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   WU      1251 non-null   float64       
+ 1   Date    1251 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 29.3 KB
+None
+   Split Transformation                                              Model  ...       FitMAPE  ForecastMAPE      TestMAPE
+0   None            _WU       _WU_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.140000e-02  1.210000e-02  9.500000e-03
+1   None            _WU  _WU_Lag1Trend_residue_bestCycle_byL2_residue_NoAR  ...  1.140000e-02  1.210000e-02  9.000000e-03
+2   None      CumSum_WU  CumSum_WU_Lag1Trend_residue_zeroCycle_residue_...  ...  1.240000e-02  1.210000e-02  9.500000e-03
+3   None        Diff_WU   Diff_WU_Lag1Trend_residue_zeroCycle_residue_NoAR  ...  1.140000e-02  1.210000e-02  9.500000e-03
+4   None     RelDiff_WU  RelDiff_WU_Lag1Trend_residue_zeroCycle_residue...  ...  1.140000e-02  1.210000e-02  9.500000e-03
+..   ...            ...                                                ...  ...           ...           ...           ...
+91  None     RelDiff_WU  RelDiff_WU_Lag1Trend_residue_bestCycle_byL2_re...  ...  4.372387e+07  3.942765e+07  3.722996e+07
+92  None     RelDiff_WU  RelDiff_WU_LinearTrend_residue_Seasonal_DayOfW...  ...  4.368821e+07  3.942765e+07  3.722996e+07
+93  None     RelDiff_WU  RelDiff_WU_PolyTrend_residue_Seasonal_DayOfWee...  ...  4.368552e+07  3.942765e+07  3.722996e+07
+94  None     RelDiff_WU  RelDiff_WU_LinearTrend_residue_bestCycle_byL2_...  ...  4.370845e+07  3.942765e+07  3.722996e+07
+95  None     RelDiff_WU  RelDiff_WU_ConstantTrend_residue_zeroCycle_res...  ...  4.368836e+07  3.942765e+07  3.722996e+07
+
+[96 rows x 8 columns]
+  Split Transformation                                              Model                                   Category  Complexity  FitMAPE  ForecastMAPE  TestMAPE
+0  None            _WU       _WU_Lag1Trend_residue_zeroCycle_residue_NoAR            NoTransf_Lag1Trend_NoCycle_NoAR          32   0.0114        0.0121    0.0095
+1  None            _WU  _WU_Lag1Trend_residue_bestCycle_byL2_residue_NoAR              NoTransf_Lag1Trend_Cycle_NoAR          40   0.0114        0.0121    0.0090
+2  None      CumSum_WU  CumSum_WU_Lag1Trend_residue_zeroCycle_residue_...         Integration_Lag1Trend_NoCycle_NoAR          64   0.0124        0.0121    0.0095
+3  None        Diff_WU   Diff_WU_Lag1Trend_residue_zeroCycle_residue_NoAR          Difference_Lag1Trend_NoCycle_NoAR          64   0.0114        0.0121    0.0095
+4  None     RelDiff_WU  RelDiff_WU_Lag1Trend_residue_zeroCycle_residue...  RelativeDifference_Lag1Trend_NoCycle_NoAR          64   0.0114        0.0121    0.0095
+7 0    20.100000
+1    20.180000
+2    20.170000
+3    20.260000
+4    20.209999
+5    20.410000
+6    20.389999
+Name: WU, dtype: float64
+7 0    20.129999
+1    20.129999
+2    20.129999
+3    20.129999
+4    20.129999
+5    20.129999
+6    20.129999
+Name: WU_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL Yahoo_Stock_Price_WU WU [20.1, 20.18, 20.17, 20.26, 20.209999, 20.41, 20.389999]
+FORECAST_DETAIL_PREDICTED Yahoo_Stock_Price_WU WU [20.129998999999998, 20.129998999999998, 20.129998999999998, 20.129998999999998, 20.129998999999998, 20.129998999999998, 20.129998999999998]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON Yahoo_Stock_Price_WU WU 1251 7
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ Yahoo_Stock_Price_WU WU 11.307944297790527
+BENCHMARK_PERF_DETAIL_BEST_MODEL Yahoo_Stock_Price_WU WU Lag1Trend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT Yahoo_Stock_Price_WU WU 7
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE Yahoo_Stock_Price_WU WU 0.0061 0.0061 1.6571
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 Yahoo_Stock_Price_WU WU 0.12428614285714445 0.1577977638828544 -1.163315366557514
+BENCHMARK_SUCCESS 'YAHOO_STOCKS_sp500_WU_7'
