@@ -6,7 +6,7 @@ benches = "M2_COMP M3_OTHER_COMP M3_Y_COMP M4_COMP_CLIMATE M4_COMP_ECONOMICS  M4
             NN3_PART_1  NN5  M1_COMP   M3_M_COMP  M3_Q_COMP M4_COMP_BUSINESS-INDUSTRY  M4_COMP_DEMOGRAPHICS \
             M4_COMP_FINANCE M4_COMP_INVENTORY  NN3_PART_2 FPP2_BENCH".split()
 
-releases = "PyAF-1.0 PyAF-2.0 PyAF-4.0".split()
+releases = "PyAF-1.0 PyAF-2.0 PyAF-3.0 PyAF-4.0".split()
 
 def create_dir_if_needed(iDir):
     try:
