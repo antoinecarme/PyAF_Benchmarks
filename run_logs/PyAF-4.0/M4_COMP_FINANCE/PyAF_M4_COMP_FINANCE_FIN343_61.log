@@ -1,0 +1,2835 @@
+Exception ignored in: <_io.FileIO name='/home/antoine/dev/python/packages/timeseries/pyaf/logs/M4_COMP_FINANCE/PyAF_M4_COMP_FINANCE_FIN325_85.log' mode='ab' closefd=True>
+Traceback (most recent call last):
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 40, in set_pyaf_logger
+    pyaf_logger.handlers = []
+ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/antoine/dev/python/packages/timeseries/pyaf/logs/M4_COMP_FINANCE/PyAF_M4_COMP_FINANCE_FIN325_85.log' mode='a' encoding='UTF-8'>
+BENCH_DATA M4_COMP_FINANCE
+TIME :  Date N= 1701 H= 61 HEAD= [0 1 2 3 4] TAIL= [1696 1697 1698 1699 1700]
+SIGNAL :  FIN343 N= 1701 H= 61 HEAD= [ 0.          0.02341049 -0.01414743 -0.0050438  -0.00252805] TAIL= [ 0.01051654 -0.00065941  0.02112102 -0.00302713 -0.01281103]
+     FIN343  Date
+0  0.000000     0
+1  0.023410     1
+2 -0.014147     2
+3 -0.005044     3
+4 -0.002528     4
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1701 entries, 0 to 1700
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   FIN343  1701 non-null   float64
+ 1   Date    1701 non-null   int64  
+dtypes: float64(1), int64(1)
+memory usage: 39.9 KB
+None
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 143, in trainModel
+    lAutoF1.train(df , self.mTSSpec.mTimeVar , iSignal, iHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 25, in train
+    self.mSignalDecomposition.train(iInputDS, iTime, iSignal, iHorizon, iExogenousData);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 666, in train
+    lTrainer.train(iInputDS, lSplits , self.mDateColumns, self.mSignals, self.mHorizons)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 416, in train
+    self.train_all_transformations(iInputDS, iSplits, iTime, iSignals, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 498, in train_all_transformations
+    lTimer = tsutil.cTimer(("SIGNAL_TRAINING",{"Signals" : iSignals,
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/Utils.py", line 84, in __init__
+    logger.info(("OPERATION_START", self.mMessage))
+Message: ('OPERATION_START', ('SIGNAL_TRAINING', {'Signals': ['FIN343'], 'Transformations': [('FIN343', 'None', '_', 'T+S+R'), ('FIN343', 'None', 'Diff_', 'T+S+R'), ('FIN343', 'None', 'RelDiff_', 'T+S+R'), ('FIN343', 'None', 'CumSum_', 'T+S+R')], 'Cores': 4}))
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 143, in trainModel
+    lAutoF1.train(df , self.mTSSpec.mTimeVar , iSignal, iHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 25, in train
+    self.mSignalDecomposition.train(iInputDS, iTime, iSignal, iHorizon, iExogenousData);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 666, in train
+    lTrainer.train(iInputDS, lSplits , self.mDateColumns, self.mSignals, self.mHorizons)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 416, in train
+    self.train_all_transformations(iInputDS, iSplits, iTime, iSignals, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 512, in train_all_transformations
+    res = run_transform_thread(arg)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 380, in run_transform_thread
+    arg.mSigDec.train(arg.mInputDS, arg.mSplit, arg.mTime, arg.mSignal, arg.mHorizon, arg.mTransformation, arg.mDecompositionType);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 121, in train
+    lTimer = tsutil.cTimer(("TRAINING", {"Signal" : iSignal, "Transformation" : iTransformation.get_name(iSignal)}))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/Utils.py", line 84, in __init__
+    logger.info(("OPERATION_START", self.mMessage))
+Message: ('OPERATION_START', ('TRAINING', {'Signal': 'FIN343', 'Transformation': '_FIN343'}))
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 143, in trainModel
+    lAutoF1.train(df , self.mTSSpec.mTimeVar , iSignal, iHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 25, in train
+    self.mSignalDecomposition.train(iInputDS, iTime, iSignal, iHorizon, iExogenousData);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 666, in train
+    lTrainer.train(iInputDS, lSplits , self.mDateColumns, self.mSignals, self.mHorizons)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 416, in train
+    self.train_all_transformations(iInputDS, iSplits, iTime, iSignals, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 512, in train_all_transformations
+    res = run_transform_thread(arg)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 380, in run_transform_thread
+    arg.mSigDec.train(arg.mInputDS, arg.mSplit, arg.mTime, arg.mSignal, arg.mHorizon, arg.mTransformation, arg.mDecompositionType);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 178, in train
+    lCycleEstimator.estimateAllCycles();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition_Cycle.py", line 520, in estimateAllCycles
+    self.filterSeasonals()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition_Cycle.py", line 470, in filterSeasonals
+    logger.debug("CYCLE_TRAINING_FILTER_SEASONALS_START")
+Message: 'CYCLE_TRAINING_FILTER_SEASONALS_START'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 143, in trainModel
+    lAutoF1.train(df , self.mTSSpec.mTimeVar , iSignal, iHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 25, in train
+    self.mSignalDecomposition.train(iInputDS, iTime, iSignal, iHorizon, iExogenousData);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 666, in train
+    lTrainer.train(iInputDS, lSplits , self.mDateColumns, self.mSignals, self.mHorizons)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 416, in train
+    self.train_all_transformations(iInputDS, iSplits, iTime, iSignals, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 512, in train_all_transformations
+    res = run_transform_thread(arg)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 380, in run_transform_thread
+    arg.mSigDec.train(arg.mInputDS, arg.mSplit, arg.mTime, arg.mSignal, arg.mHorizon, arg.mTransformation, arg.mDecompositionType);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/Utils.py", line 90, in __del__
+    logger.info(("OPERATION_END_ELAPSED" , round(lDelta.total_seconds(), 3), self.mMessage))
+Message: ('OPERATION_END_ELAPSED', 0.819, ('TRAINING', {'Signal': 'FIN343', 'Transformation': '_FIN343'}))
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 143, in trainModel
+    lAutoF1.train(df , self.mTSSpec.mTimeVar , iSignal, iHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 25, in train
+    self.mSignalDecomposition.train(iInputDS, iTime, iSignal, iHorizon, iExogenousData);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 666, in train
+    lTrainer.train(iInputDS, lSplits , self.mDateColumns, self.mSignals, self.mHorizons)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 416, in train
+    self.train_all_transformations(iInputDS, iSplits, iTime, iSignals, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 512, in train_all_transformations
+    res = run_transform_thread(arg)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 380, in run_transform_thread
+    arg.mSigDec.train(arg.mInputDS, arg.mSplit, arg.mTime, arg.mSignal, arg.mHorizon, arg.mTransformation, arg.mDecompositionType);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 121, in train
+    lTimer = tsutil.cTimer(("TRAINING", {"Signal" : iSignal, "Transformation" : iTransformation.get_name(iSignal)}))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/Utils.py", line 84, in __init__
+    logger.info(("OPERATION_START", self.mMessage))
+Message: ('OPERATION_START', ('TRAINING', {'Signal': 'FIN343', 'Transformation': 'Diff_FIN343'}))
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 143, in trainModel
+    lAutoF1.train(df , self.mTSSpec.mTimeVar , iSignal, iHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 25, in train
+    self.mSignalDecomposition.train(iInputDS, iTime, iSignal, iHorizon, iExogenousData);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 666, in train
+    lTrainer.train(iInputDS, lSplits , self.mDateColumns, self.mSignals, self.mHorizons)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 416, in train
+    self.train_all_transformations(iInputDS, iSplits, iTime, iSignals, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 512, in train_all_transformations
+    res = run_transform_thread(arg)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 380, in run_transform_thread
+    arg.mSigDec.train(arg.mInputDS, arg.mSplit, arg.mTime, arg.mSignal, arg.mHorizon, arg.mTransformation, arg.mDecompositionType);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 178, in train
+    lCycleEstimator.estimateAllCycles();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition_Cycle.py", line 520, in estimateAllCycles
+    self.filterSeasonals()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition_Cycle.py", line 470, in filterSeasonals
+    logger.debug("CYCLE_TRAINING_FILTER_SEASONALS_START")
+Message: 'CYCLE_TRAINING_FILTER_SEASONALS_START'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 143, in trainModel
+    lAutoF1.train(df , self.mTSSpec.mTimeVar , iSignal, iHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 25, in train
+    self.mSignalDecomposition.train(iInputDS, iTime, iSignal, iHorizon, iExogenousData);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 666, in train
+    lTrainer.train(iInputDS, lSplits , self.mDateColumns, self.mSignals, self.mHorizons)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 416, in train
+    self.train_all_transformations(iInputDS, iSplits, iTime, iSignals, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 512, in train_all_transformations
+    res = run_transform_thread(arg)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 380, in run_transform_thread
+    arg.mSigDec.train(arg.mInputDS, arg.mSplit, arg.mTime, arg.mSignal, arg.mHorizon, arg.mTransformation, arg.mDecompositionType);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/Utils.py", line 90, in __del__
+    logger.info(("OPERATION_END_ELAPSED" , round(lDelta.total_seconds(), 3), self.mMessage))
+Message: ('OPERATION_END_ELAPSED', 0.822, ('TRAINING', {'Signal': 'FIN343', 'Transformation': 'Diff_FIN343'}))
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 143, in trainModel
+    lAutoF1.train(df , self.mTSSpec.mTimeVar , iSignal, iHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 25, in train
+    self.mSignalDecomposition.train(iInputDS, iTime, iSignal, iHorizon, iExogenousData);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 666, in train
+    lTrainer.train(iInputDS, lSplits , self.mDateColumns, self.mSignals, self.mHorizons)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 416, in train
+    self.train_all_transformations(iInputDS, iSplits, iTime, iSignals, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 512, in train_all_transformations
+    res = run_transform_thread(arg)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 380, in run_transform_thread
+    arg.mSigDec.train(arg.mInputDS, arg.mSplit, arg.mTime, arg.mSignal, arg.mHorizon, arg.mTransformation, arg.mDecompositionType);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 121, in train
+    lTimer = tsutil.cTimer(("TRAINING", {"Signal" : iSignal, "Transformation" : iTransformation.get_name(iSignal)}))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/Utils.py", line 84, in __init__
+    logger.info(("OPERATION_START", self.mMessage))
+Message: ('OPERATION_START', ('TRAINING', {'Signal': 'FIN343', 'Transformation': 'RelDiff_FIN343'}))
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 143, in trainModel
+    lAutoF1.train(df , self.mTSSpec.mTimeVar , iSignal, iHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 25, in train
+    self.mSignalDecomposition.train(iInputDS, iTime, iSignal, iHorizon, iExogenousData);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 666, in train
+    lTrainer.train(iInputDS, lSplits , self.mDateColumns, self.mSignals, self.mHorizons)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 416, in train
+    self.train_all_transformations(iInputDS, iSplits, iTime, iSignals, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 512, in train_all_transformations
+    res = run_transform_thread(arg)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 380, in run_transform_thread
+    arg.mSigDec.train(arg.mInputDS, arg.mSplit, arg.mTime, arg.mSignal, arg.mHorizon, arg.mTransformation, arg.mDecompositionType);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 178, in train
+    lCycleEstimator.estimateAllCycles();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition_Cycle.py", line 520, in estimateAllCycles
+    self.filterSeasonals()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition_Cycle.py", line 470, in filterSeasonals
+    logger.debug("CYCLE_TRAINING_FILTER_SEASONALS_START")
+Message: 'CYCLE_TRAINING_FILTER_SEASONALS_START'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 143, in trainModel
+    lAutoF1.train(df , self.mTSSpec.mTimeVar , iSignal, iHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 25, in train
+    self.mSignalDecomposition.train(iInputDS, iTime, iSignal, iHorizon, iExogenousData);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 666, in train
+    lTrainer.train(iInputDS, lSplits , self.mDateColumns, self.mSignals, self.mHorizons)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 416, in train
+    self.train_all_transformations(iInputDS, iSplits, iTime, iSignals, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 512, in train_all_transformations
+    res = run_transform_thread(arg)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 380, in run_transform_thread
+    arg.mSigDec.train(arg.mInputDS, arg.mSplit, arg.mTime, arg.mSignal, arg.mHorizon, arg.mTransformation, arg.mDecompositionType);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/Utils.py", line 90, in __del__
+    logger.info(("OPERATION_END_ELAPSED" , round(lDelta.total_seconds(), 3), self.mMessage))
+Message: ('OPERATION_END_ELAPSED', 0.954, ('TRAINING', {'Signal': 'FIN343', 'Transformation': 'RelDiff_FIN343'}))
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 143, in trainModel
+    lAutoF1.train(df , self.mTSSpec.mTimeVar , iSignal, iHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 25, in train
+    self.mSignalDecomposition.train(iInputDS, iTime, iSignal, iHorizon, iExogenousData);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 666, in train
+    lTrainer.train(iInputDS, lSplits , self.mDateColumns, self.mSignals, self.mHorizons)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 416, in train
+    self.train_all_transformations(iInputDS, iSplits, iTime, iSignals, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 512, in train_all_transformations
+    res = run_transform_thread(arg)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 380, in run_transform_thread
+    arg.mSigDec.train(arg.mInputDS, arg.mSplit, arg.mTime, arg.mSignal, arg.mHorizon, arg.mTransformation, arg.mDecompositionType);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 121, in train
+    lTimer = tsutil.cTimer(("TRAINING", {"Signal" : iSignal, "Transformation" : iTransformation.get_name(iSignal)}))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/Utils.py", line 84, in __init__
+    logger.info(("OPERATION_START", self.mMessage))
+Message: ('OPERATION_START', ('TRAINING', {'Signal': 'FIN343', 'Transformation': 'CumSum_FIN343'}))
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 143, in trainModel
+    lAutoF1.train(df , self.mTSSpec.mTimeVar , iSignal, iHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 25, in train
+    self.mSignalDecomposition.train(iInputDS, iTime, iSignal, iHorizon, iExogenousData);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 666, in train
+    lTrainer.train(iInputDS, lSplits , self.mDateColumns, self.mSignals, self.mHorizons)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 416, in train
+    self.train_all_transformations(iInputDS, iSplits, iTime, iSignals, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 512, in train_all_transformations
+    res = run_transform_thread(arg)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 380, in run_transform_thread
+    arg.mSigDec.train(arg.mInputDS, arg.mSplit, arg.mTime, arg.mSignal, arg.mHorizon, arg.mTransformation, arg.mDecompositionType);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 178, in train
+    lCycleEstimator.estimateAllCycles();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition_Cycle.py", line 520, in estimateAllCycles
+    self.filterSeasonals()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition_Cycle.py", line 470, in filterSeasonals
+    logger.debug("CYCLE_TRAINING_FILTER_SEASONALS_START")
+Message: 'CYCLE_TRAINING_FILTER_SEASONALS_START'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 143, in trainModel
+    lAutoF1.train(df , self.mTSSpec.mTimeVar , iSignal, iHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 25, in train
+    self.mSignalDecomposition.train(iInputDS, iTime, iSignal, iHorizon, iExogenousData);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 666, in train
+    lTrainer.train(iInputDS, lSplits , self.mDateColumns, self.mSignals, self.mHorizons)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 416, in train
+    self.train_all_transformations(iInputDS, iSplits, iTime, iSignals, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 512, in train_all_transformations
+    res = run_transform_thread(arg)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 380, in run_transform_thread
+    arg.mSigDec.train(arg.mInputDS, arg.mSplit, arg.mTime, arg.mSignal, arg.mHorizon, arg.mTransformation, arg.mDecompositionType);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/Utils.py", line 90, in __del__
+    logger.info(("OPERATION_END_ELAPSED" , round(lDelta.total_seconds(), 3), self.mMessage))
+Message: ('OPERATION_END_ELAPSED', 0.882, ('TRAINING', {'Signal': 'FIN343', 'Transformation': 'CumSum_FIN343'}))
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 143, in trainModel
+    lAutoF1.train(df , self.mTSSpec.mTimeVar , iSignal, iHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 25, in train
+    self.mSignalDecomposition.train(iInputDS, iTime, iSignal, iHorizon, iExogenousData);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 666, in train
+    lTrainer.train(iInputDS, lSplits , self.mDateColumns, self.mSignals, self.mHorizons)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 416, in train
+    self.train_all_transformations(iInputDS, iSplits, iTime, iSignals, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/Utils.py", line 90, in __del__
+    logger.info(("OPERATION_END_ELAPSED" , round(lDelta.total_seconds(), 3), self.mMessage))
+Message: ('OPERATION_END_ELAPSED', 3.479, ('SIGNAL_TRAINING', {'Signals': ['FIN343'], 'Transformations': [('FIN343', 'None', '_', 'T+S+R'), ('FIN343', 'None', 'Diff_', 'T+S+R'), ('FIN343', 'None', 'RelDiff_', 'T+S+R'), ('FIN343', 'None', 'CumSum_', 'T+S+R')], 'Cores': 4}))
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 143, in trainModel
+    lAutoF1.train(df , self.mTSSpec.mTimeVar , iSignal, iHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 25, in train
+    self.mSignalDecomposition.train(iInputDS, iTime, iSignal, iHorizon, iExogenousData);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 666, in train
+    lTrainer.train(iInputDS, lSplits , self.mDateColumns, self.mSignals, self.mHorizons)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 417, in train
+    self.finalize_training()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 431, in finalize_training
+    lTimer = tsutil.cTimer(("FINALIZE_TRAINING",
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/Utils.py", line 84, in __init__
+    logger.info(("OPERATION_START", self.mMessage))
+Message: ('OPERATION_START', ('FINALIZE_TRAINING', {'Signals': ['FIN343'], 'Transformations': [('FIN343', [('FIN343', 'None', 'CumSum_', 'T+S+R'), ('FIN343', 'None', 'Diff_', 'T+S+R'), ('FIN343', 'None', 'RelDiff_', 'T+S+R'), ('FIN343', 'None', '_', 'T+S+R')])], 'Cores': 1}))
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 143, in trainModel
+    lAutoF1.train(df , self.mTSSpec.mTimeVar , iSignal, iHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 25, in train
+    self.mSignalDecomposition.train(iInputDS, iTime, iSignal, iHorizon, iExogenousData);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 666, in train
+    lTrainer.train(iInputDS, lSplits , self.mDateColumns, self.mSignals, self.mHorizons)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 417, in train
+    self.finalize_training()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 450, in finalize_training
+    res = run_finalize_training(arg)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 388, in run_finalize_training
+    lModelSelector.collectPerformanceIndices_ModelSelection(lSignal, sigdecs)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 230, in collectPerformanceIndices_ModelSelection
+    lTimer = tsutil.cTimer(("MODEL_SELECTION", {"Signal" : iSignal, "Transformations" : sorted(list(iSigDecs.keys()))}))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/Utils.py", line 84, in __init__
+    logger.info(("OPERATION_START", self.mMessage))
+Message: ('OPERATION_START', ('MODEL_SELECTION', {'Signal': 'FIN343', 'Transformations': [('FIN343', 'None', 'CumSum_', 'T+S+R'), ('FIN343', 'None', 'Diff_', 'T+S+R'), ('FIN343', 'None', 'RelDiff_', 'T+S+R'), ('FIN343', 'None', '_', 'T+S+R')]}))
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 143, in trainModel
+    lAutoF1.train(df , self.mTSSpec.mTimeVar , iSignal, iHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 25, in train
+    self.mSignalDecomposition.train(iInputDS, iTime, iSignal, iHorizon, iExogenousData);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 666, in train
+    lTrainer.train(iInputDS, lSplits , self.mDateColumns, self.mSignals, self.mHorizons)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 417, in train
+    self.finalize_training()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 450, in finalize_training
+    res = run_finalize_training(arg)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 388, in run_finalize_training
+    lModelSelector.collectPerformanceIndices_ModelSelection(lSignal, sigdecs)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/Utils.py", line 90, in __del__
+    logger.info(("OPERATION_END_ELAPSED" , round(lDelta.total_seconds(), 3), self.mMessage))
+Message: ('OPERATION_END_ELAPSED', 0.005, ('MODEL_SELECTION', {'Signal': 'FIN343', 'Transformations': [('FIN343', 'None', 'CumSum_', 'T+S+R'), ('FIN343', 'None', 'Diff_', 'T+S+R'), ('FIN343', 'None', 'RelDiff_', 'T+S+R'), ('FIN343', 'None', '_', 'T+S+R')]}))
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 143, in trainModel
+    lAutoF1.train(df , self.mTSSpec.mTimeVar , iSignal, iHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 25, in train
+    self.mSignalDecomposition.train(iInputDS, iTime, iSignal, iHorizon, iExogenousData);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 666, in train
+    lTrainer.train(iInputDS, lSplits , self.mDateColumns, self.mSignals, self.mHorizons)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 417, in train
+    self.finalize_training()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 450, in finalize_training
+    res = run_finalize_training(arg)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 393, in run_finalize_training
+    lModelSelector.mBestModel.updateAllPerfs();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/TimeSeriesModel.py", line 66, in updateAllPerfs
+    lTimer = tsutil.cTimer(("UPDATE_BEST_MODEL_PERFS", {"Signal" : self.mOriginalSignal, "Model" : self.mOutName}))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/Utils.py", line 84, in __init__
+    logger.info(("OPERATION_START", self.mMessage))
+Message: ('OPERATION_START', ('UPDATE_BEST_MODEL_PERFS', {'Signal': 'FIN343', 'Model': '_FIN343_LinearTrend_residue_bestCycle_byMAPE_residue_NoAR'}))
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 143, in trainModel
+    lAutoF1.train(df , self.mTSSpec.mTimeVar , iSignal, iHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 25, in train
+    self.mSignalDecomposition.train(iInputDS, iTime, iSignal, iHorizon, iExogenousData);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 666, in train
+    lTrainer.train(iInputDS, lSplits , self.mDateColumns, self.mSignals, self.mHorizons)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 417, in train
+    self.finalize_training()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 450, in finalize_training
+    res = run_finalize_training(arg)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 393, in run_finalize_training
+    lModelSelector.mBestModel.updateAllPerfs();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/Utils.py", line 90, in __del__
+    logger.info(("OPERATION_END_ELAPSED" , round(lDelta.total_seconds(), 3), self.mMessage))
+Message: ('OPERATION_END_ELAPSED', 0.027, ('UPDATE_BEST_MODEL_PERFS', {'Signal': 'FIN343', 'Model': '_FIN343_LinearTrend_residue_bestCycle_byMAPE_residue_NoAR'}))
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 143, in trainModel
+    lAutoF1.train(df , self.mTSSpec.mTimeVar , iSignal, iHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 25, in train
+    self.mSignalDecomposition.train(iInputDS, iTime, iSignal, iHorizon, iExogenousData);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 666, in train
+    lTrainer.train(iInputDS, lSplits , self.mDateColumns, self.mSignals, self.mHorizons)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 417, in train
+    self.finalize_training()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 450, in finalize_training
+    res = run_finalize_training(arg)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 394, in run_finalize_training
+    lModelSelector.mBestModel.computePredictionIntervals();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/TimeSeriesModel.py", line 116, in computePredictionIntervals
+    lTimer = tsutil.cTimer(("COMPUTE_PREDICTION_INTERVALS", {"Signal" : self.mOriginalSignal}))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/Utils.py", line 84, in __init__
+    logger.info(("OPERATION_START", self.mMessage))
+Message: ('OPERATION_START', ('COMPUTE_PREDICTION_INTERVALS', {'Signal': 'FIN343'}))
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 143, in trainModel
+    lAutoF1.train(df , self.mTSSpec.mTimeVar , iSignal, iHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 25, in train
+    self.mSignalDecomposition.train(iInputDS, iTime, iSignal, iHorizon, iExogenousData);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 666, in train
+    lTrainer.train(iInputDS, lSplits , self.mDateColumns, self.mSignals, self.mHorizons)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 417, in train
+    self.finalize_training()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 450, in finalize_training
+    res = run_finalize_training(arg)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 394, in run_finalize_training
+    lModelSelector.mBestModel.computePredictionIntervals();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/Utils.py", line 90, in __del__
+    logger.info(("OPERATION_END_ELAPSED" , round(lDelta.total_seconds(), 3), self.mMessage))
+Message: ('OPERATION_END_ELAPSED', 1.648, ('COMPUTE_PREDICTION_INTERVALS', {'Signal': 'FIN343'}))
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 143, in trainModel
+    lAutoF1.train(df , self.mTSSpec.mTimeVar , iSignal, iHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 25, in train
+    self.mSignalDecomposition.train(iInputDS, iTime, iSignal, iHorizon, iExogenousData);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 666, in train
+    lTrainer.train(iInputDS, lSplits , self.mDateColumns, self.mSignals, self.mHorizons)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 417, in train
+    self.finalize_training()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/Utils.py", line 90, in __del__
+    logger.info(("OPERATION_END_ELAPSED" , round(lDelta.total_seconds(), 3), self.mMessage))
+Message: ('OPERATION_END_ELAPSED', 1.682, ('FINALIZE_TRAINING', {'Signals': ['FIN343'], 'Transformations': [('FIN343', [('FIN343', 'None', 'CumSum_', 'T+S+R'), ('FIN343', 'None', 'Diff_', 'T+S+R'), ('FIN343', 'None', 'RelDiff_', 'T+S+R'), ('FIN343', 'None', '_', 'T+S+R')])], 'Cores': 1}))
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 144, in trainModel
+    self.reportModelInfo(lAutoF1);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 134, in reportModelInfo
+    iModel.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 44, in getModelInfo
+    return  self.mSignalDecomposition.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 694, in getModelInfo
+    self.mBestModels[lSignal].getInfo()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/TimeSeriesModel.py", line 131, in getInfo
+    logger.info("TIME_DETAIL " + self.mTrend.mTimeInfo.info());
+Message: "TIME_DETAIL TimeVariable='Date' TimeMin=0 TimeMax=1311 TimeDelta=1 Horizon=61"
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 144, in trainModel
+    self.reportModelInfo(lAutoF1);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 134, in reportModelInfo
+    iModel.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 44, in getModelInfo
+    return  self.mSignalDecomposition.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 694, in getModelInfo
+    self.mBestModels[lSignal].getInfo()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/TimeSeriesModel.py", line 133, in getInfo
+    logger.info("SIGNAL_DETAIL_ORIG " + sig_info[0]);
+Message: "SIGNAL_DETAIL_ORIG SignalVariable='FIN343' Length=1701  Min=-0.79560734 Max=0.09364836  Mean=-0.00038196267430923016 StdDev=0.02487801917631029"
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 144, in trainModel
+    self.reportModelInfo(lAutoF1);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 134, in reportModelInfo
+    iModel.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 44, in getModelInfo
+    return  self.mSignalDecomposition.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 694, in getModelInfo
+    self.mBestModels[lSignal].getInfo()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/TimeSeriesModel.py", line 134, in getInfo
+    logger.info("SIGNAL_DETAIL_TRANSFORMED " + sig_info[1]);
+Message: "SIGNAL_DETAIL_TRANSFORMED TransformedSignalVariable='_FIN343' Min=0.0 Max=1.0  Mean=0.8942595221213552 StdDev=0.027976226833643328"
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 144, in trainModel
+    self.reportModelInfo(lAutoF1);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 134, in reportModelInfo
+    iModel.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 44, in getModelInfo
+    return  self.mSignalDecomposition.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 694, in getModelInfo
+    self.mBestModels[lSignal].getInfo()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/TimeSeriesModel.py", line 137, in getInfo
+    logger.info("DECOMPOSITION_TYPE '" + self.mDecompositionType + "'");
+Message: "DECOMPOSITION_TYPE 'T+S+R'"
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 144, in trainModel
+    self.reportModelInfo(lAutoF1);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 134, in reportModelInfo
+    iModel.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 44, in getModelInfo
+    return  self.mSignalDecomposition.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 694, in getModelInfo
+    self.mBestModels[lSignal].getInfo()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/TimeSeriesModel.py", line 138, in getInfo
+    logger.info("BEST_TRANSOFORMATION_TYPE '" + self.mTransformation.get_name("") + "'");
+Message: "BEST_TRANSOFORMATION_TYPE '_'"
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 144, in trainModel
+    self.reportModelInfo(lAutoF1);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 134, in reportModelInfo
+    iModel.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 44, in getModelInfo
+    return  self.mSignalDecomposition.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 694, in getModelInfo
+    self.mBestModels[lSignal].getInfo()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/TimeSeriesModel.py", line 139, in getInfo
+    logger.info("BEST_DECOMPOSITION  '" + self.mOutName + "' [" + self.getFormula() + "]");
+Message: "BEST_DECOMPOSITION  '_FIN343_LinearTrend_residue_bestCycle_byMAPE_residue_NoAR' [LinearTrend + Cycle_None + NoAR]"
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 144, in trainModel
+    self.reportModelInfo(lAutoF1);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 134, in reportModelInfo
+    iModel.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 44, in getModelInfo
+    return  self.mSignalDecomposition.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 694, in getModelInfo
+    self.mBestModels[lSignal].getInfo()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/TimeSeriesModel.py", line 140, in getInfo
+    logger.info("TREND_DETAIL '" + self.mTrend.mOutName + "' [" + self.mTrend.mFormula + "]");
+Message: "TREND_DETAIL '_FIN343_LinearTrend' [LinearTrend]"
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 144, in trainModel
+    self.reportModelInfo(lAutoF1);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 134, in reportModelInfo
+    iModel.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 44, in getModelInfo
+    return  self.mSignalDecomposition.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 694, in getModelInfo
+    self.mBestModels[lSignal].getInfo()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/TimeSeriesModel.py", line 141, in getInfo
+    logger.info("CYCLE_DETAIL '"+ self.mCycle.mOutName + "' [" + self.mCycle.mFormula + "]");
+Message: "CYCLE_DETAIL '_FIN343_LinearTrend_residue_bestCycle_byMAPE' [Cycle_None]"
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 144, in trainModel
+    self.reportModelInfo(lAutoF1);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 134, in reportModelInfo
+    iModel.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 44, in getModelInfo
+    return  self.mSignalDecomposition.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 694, in getModelInfo
+    self.mBestModels[lSignal].getInfo()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/TimeSeriesModel.py", line 142, in getInfo
+    logger.info("AUTOREG_DETAIL '" + self.mAR.mOutName + "' [" + self.mAR.mFormula + "]");
+Message: "AUTOREG_DETAIL '_FIN343_LinearTrend_residue_bestCycle_byMAPE_residue_NoAR' [NoAR]"
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 144, in trainModel
+    self.reportModelInfo(lAutoF1);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 134, in reportModelInfo
+    iModel.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 44, in getModelInfo
+    return  self.mSignalDecomposition.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 694, in getModelInfo
+    self.mBestModels[lSignal].getInfo()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/TimeSeriesModel.py", line 143, in getInfo
+    logger.info("MODEL_MAPE MAPE_Fit=" + str(self.mFitPerf.mMAPE) + " MAPE_Forecast=" + str(self.mForecastPerf.mMAPE)  + " MAPE_Test=" + str(self.mTestPerf.mMAPE) );
+Message: 'MODEL_MAPE MAPE_Fit=227558.4776 MAPE_Forecast=6461.3313 MAPE_Test=6611.6504'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 144, in trainModel
+    self.reportModelInfo(lAutoF1);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 134, in reportModelInfo
+    iModel.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 44, in getModelInfo
+    return  self.mSignalDecomposition.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 694, in getModelInfo
+    self.mBestModels[lSignal].getInfo()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/TimeSeriesModel.py", line 144, in getInfo
+    logger.info("MODEL_SMAPE SMAPE_Fit=" + str(self.mFitPerf.mSMAPE) + " SMAPE_Forecast=" + str(self.mForecastPerf.mSMAPE)  + " SMAPE_Test=" + str(self.mTestPerf.mSMAPE) );
+Message: 'MODEL_SMAPE SMAPE_Fit=1.8632 SMAPE_Forecast=1.9883 SMAPE_Test=1.984'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 144, in trainModel
+    self.reportModelInfo(lAutoF1);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 134, in reportModelInfo
+    iModel.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 44, in getModelInfo
+    return  self.mSignalDecomposition.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 694, in getModelInfo
+    self.mBestModels[lSignal].getInfo()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/TimeSeriesModel.py", line 145, in getInfo
+    logger.info("MODEL_MASE MASE_Fit=" + str(self.mFitPerf.mMASE) + " MASE_Forecast=" + str(self.mForecastPerf.mMASE)  + " MASE_Test=" + str(self.mTestPerf.mMASE) );
+Message: 'MODEL_MASE MASE_Fit=0.656 MASE_Forecast=0.6887 MASE_Test=0.6682'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 144, in trainModel
+    self.reportModelInfo(lAutoF1);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 134, in reportModelInfo
+    iModel.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 44, in getModelInfo
+    return  self.mSignalDecomposition.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 694, in getModelInfo
+    self.mBestModels[lSignal].getInfo()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/TimeSeriesModel.py", line 146, in getInfo
+    logger.info("MODEL_CRPS CRPS_Fit=" + str(self.mFitPerf.mCRPS) + " CRPS_Forecast=" + str(self.mForecastPerf.mCRPS)  + " CRPS_Test=" + str(self.mTestPerf.mCRPS) );
+Message: 'MODEL_CRPS CRPS_Fit=0.001186815330437263 CRPS_Forecast=0.0026414887199729883 CRPS_Test=0.0019204412936239753'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 144, in trainModel
+    self.reportModelInfo(lAutoF1);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 134, in reportModelInfo
+    iModel.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 44, in getModelInfo
+    return  self.mSignalDecomposition.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 694, in getModelInfo
+    self.mBestModels[lSignal].getInfo()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/TimeSeriesModel.py", line 147, in getInfo
+    logger.info("MODEL_L1 L1_Fit=" + str(self.mFitPerf.mL1) + " L1_Forecast=" + str(self.mForecastPerf.mL1)  + " L1_Test=" + str(self.mTestPerf.mL1) );
+Message: 'MODEL_L1 L1_Fit=0.009460340888062656 L1_Forecast=0.018217682415201754 L1_Test=0.012312977275619976'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 144, in trainModel
+    self.reportModelInfo(lAutoF1);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 134, in reportModelInfo
+    iModel.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 44, in getModelInfo
+    return  self.mSignalDecomposition.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 694, in getModelInfo
+    self.mBestModels[lSignal].getInfo()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/TimeSeriesModel.py", line 148, in getInfo
+    logger.info("MODEL_L2 L2_Fit=" + str(self.mFitPerf.mL2) + " L2_Forecast=" + str(self.mForecastPerf.mL2)  + " L2_Test=" + str(self.mTestPerf.mL2) );
+Message: 'MODEL_L2 L2_Fit=0.025411569233242146 L2_Forecast=0.023861108038368783 L2_Test=0.017563115146943014'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 144, in trainModel
+    self.reportModelInfo(lAutoF1);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 134, in reportModelInfo
+    iModel.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 44, in getModelInfo
+    return  self.mSignalDecomposition.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 694, in getModelInfo
+    self.mBestModels[lSignal].getInfo()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/TimeSeriesModel.py", line 149, in getInfo
+    logger.info("MODEL_LnQ LnQ_Fit=" + str(self.mFitPerf.mLnQ) + " LnQ_Forecast=" + str(self.mForecastPerf.mLnQ)  + " LnQ_Test=" + str(self.mTestPerf.mLnQ) );
+Message: 'MODEL_LnQ LnQ_Fit=inf LnQ_Forecast=inf LnQ_Test=inf'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 144, in trainModel
+    self.reportModelInfo(lAutoF1);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 134, in reportModelInfo
+    iModel.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 44, in getModelInfo
+    return  self.mSignalDecomposition.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 694, in getModelInfo
+    self.mBestModels[lSignal].getInfo()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/TimeSeriesModel.py", line 150, in getInfo
+    logger.info("MODEL_MEDIAN_AE MedAE_Fit=" + str(self.mFitPerf.mMedAE) + " MedAE_Forecast=" + str(self.mForecastPerf.mMedAE)  + " MedAE_Test=" + str(self.mTestPerf.mMedAE) );
+Message: 'MODEL_MEDIAN_AE MedAE_Fit=0.006490619146095373 MedAE_Forecast=0.014187263554956487 MedAE_Test=0.010524558896496719'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 144, in trainModel
+    self.reportModelInfo(lAutoF1);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 134, in reportModelInfo
+    iModel.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 44, in getModelInfo
+    return  self.mSignalDecomposition.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 694, in getModelInfo
+    self.mBestModels[lSignal].getInfo()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/TimeSeriesModel.py", line 151, in getInfo
+    logger.info("MODEL_COMPLEXITY " + str(self.getComplexity()) );
+Message: 'MODEL_COMPLEXITY 1.0'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 144, in trainModel
+    self.reportModelInfo(lAutoF1);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 134, in reportModelInfo
+    iModel.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 44, in getModelInfo
+    return  self.mSignalDecomposition.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 694, in getModelInfo
+    self.mBestModels[lSignal].getInfo()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/TimeSeriesModel.py", line 152, in getInfo
+    logger.info("SIGNAL_TRANSFORMATION_DETAIL_START");
+Message: 'SIGNAL_TRANSFORMATION_DETAIL_START'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 144, in trainModel
+    self.reportModelInfo(lAutoF1);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 134, in reportModelInfo
+    iModel.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 44, in getModelInfo
+    return  self.mSignalDecomposition.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 694, in getModelInfo
+    self.mBestModels[lSignal].getInfo()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/TimeSeriesModel.py", line 153, in getInfo
+    self.mTransformation.dump_values();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/Signal_Transformation.py", line 174, in dump_values
+    logger.info("SIGNAL_TRANSFORMATION_MODEL_VALUES " + self.mFormula + " " + str(None));
+Message: 'SIGNAL_TRANSFORMATION_MODEL_VALUES NoTransf None'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 144, in trainModel
+    self.reportModelInfo(lAutoF1);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 134, in reportModelInfo
+    iModel.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 44, in getModelInfo
+    return  self.mSignalDecomposition.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 694, in getModelInfo
+    self.mBestModels[lSignal].getInfo()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/TimeSeriesModel.py", line 154, in getInfo
+    logger.info("SIGNAL_TRANSFORMATION_DETAIL_END");
+Message: 'SIGNAL_TRANSFORMATION_DETAIL_END'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 144, in trainModel
+    self.reportModelInfo(lAutoF1);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 134, in reportModelInfo
+    iModel.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 44, in getModelInfo
+    return  self.mSignalDecomposition.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 694, in getModelInfo
+    self.mBestModels[lSignal].getInfo()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/TimeSeriesModel.py", line 155, in getInfo
+    logger.info("TREND_DETAIL_START");
+Message: 'TREND_DETAIL_START'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 144, in trainModel
+    self.reportModelInfo(lAutoF1);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 134, in reportModelInfo
+    iModel.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 44, in getModelInfo
+    return  self.mSignalDecomposition.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 694, in getModelInfo
+    self.mBestModels[lSignal].getInfo()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/TimeSeriesModel.py", line 156, in getInfo
+    self.mTrend.dump_values();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition_Trend.py", line 270, in dump_values
+    logger.info("LINEAR_RIDGE_TREND " + self.mFormula + " " + str((self.mTrendRidge.intercept_ , self.mTrendRidge.coef_)));
+Message: 'LINEAR_RIDGE_TREND LinearTrend (0.8939847217536774, array([0.00059819]))'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 144, in trainModel
+    self.reportModelInfo(lAutoF1);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 134, in reportModelInfo
+    iModel.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 44, in getModelInfo
+    return  self.mSignalDecomposition.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 694, in getModelInfo
+    self.mBestModels[lSignal].getInfo()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/TimeSeriesModel.py", line 157, in getInfo
+    logger.info("TREND_DETAIL_END");
+Message: 'TREND_DETAIL_END'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 144, in trainModel
+    self.reportModelInfo(lAutoF1);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 134, in reportModelInfo
+    iModel.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 44, in getModelInfo
+    return  self.mSignalDecomposition.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 694, in getModelInfo
+    self.mBestModels[lSignal].getInfo()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/TimeSeriesModel.py", line 158, in getInfo
+    logger.info("CYCLE_MODEL_DETAIL_START");
+Message: 'CYCLE_MODEL_DETAIL_START'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 144, in trainModel
+    self.reportModelInfo(lAutoF1);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 134, in reportModelInfo
+    iModel.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 44, in getModelInfo
+    return  self.mSignalDecomposition.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 694, in getModelInfo
+    self.mBestModels[lSignal].getInfo()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/TimeSeriesModel.py", line 159, in getInfo
+    self.mCycle.dump_values();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition_Cycle.py", line 257, in dump_values
+    logger.info("BEST_CYCLE_LENGTH_VALUES " + self.getCycleName() + " " + str(self.mBestCycleLength) + " " + str(self.mDefaultValue) + " " + str(lDict));
+Message: 'BEST_CYCLE_LENGTH_VALUES _FIN343_LinearTrend_residue_bestCycle_byMAPE None 0.0005980164572411684 {}'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 144, in trainModel
+    self.reportModelInfo(lAutoF1);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 134, in reportModelInfo
+    iModel.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 44, in getModelInfo
+    return  self.mSignalDecomposition.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 694, in getModelInfo
+    self.mBestModels[lSignal].getInfo()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/TimeSeriesModel.py", line 160, in getInfo
+    logger.info("CYCLE_MODEL_DETAIL_END");
+Message: 'CYCLE_MODEL_DETAIL_END'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 144, in trainModel
+    self.reportModelInfo(lAutoF1);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 134, in reportModelInfo
+    iModel.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 44, in getModelInfo
+    return  self.mSignalDecomposition.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 694, in getModelInfo
+    self.mBestModels[lSignal].getInfo()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/TimeSeriesModel.py", line 161, in getInfo
+    logger.info("AR_MODEL_DETAIL_START");
+Message: 'AR_MODEL_DETAIL_START'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 161, in testSignal
+    self.trainSignal(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 156, in trainSignal
+    self.trainModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 144, in trainModel
+    self.reportModelInfo(lAutoF1);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 134, in reportModelInfo
+    iModel.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 44, in getModelInfo
+    return  self.mSignalDecomposition.getModelInfo();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 694, in getModelInfo
+    self.mBestModels[lSignal].getInfo()
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/TimeSeriesModel.py", line 163, in getInfo
+    logger.info("AR_MODEL_DETAIL_END");
+Message: 'AR_MODEL_DETAIL_END'
+Arguments: ()
+   Split  Transformation  ...  ForecastMAPE      TestMAPE
+0   None         _FIN343  ...  6.461331e+03  6.611650e+03
+1   None         _FIN343  ...  6.461331e+03  6.611650e+03
+2   None         _FIN343  ...  4.394709e+04  5.907607e+04
+3   None         _FIN343  ...  4.394709e+04  5.907607e+04
+4   None         _FIN343  ...  6.492060e+04  4.343465e+05
+..   ...             ...  ...           ...           ...
+59  None  RelDiff_FIN343  ...  9.702541e+15  1.304276e+16
+60  None  RelDiff_FIN343  ...  9.702541e+15  1.304276e+16
+61  None  RelDiff_FIN343  ...  9.702541e+15  1.304276e+16
+62  None  RelDiff_FIN343  ...  9.702541e+15  1.304276e+16
+63  None  RelDiff_FIN343  ...  9.702541e+15  1.304276e+16
+
+[64 rows x 10 columns]
+  Split Transformation  ... ForecastMAPE     TestMAPE
+0  None        _FIN343  ...    6461.3313    6611.6504
+1  None        _FIN343  ...    6461.3313    6611.6504
+2  None        _FIN343  ...   43947.0900   59076.0696
+3  None        _FIN343  ...   43947.0900   59076.0696
+4  None        _FIN343  ...   64920.5972  434346.4600
+
+[5 rows x 10 columns]
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 162, in testSignal
+    self.getTestPerfs(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 239, in getTestPerfs
+    self.applyModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 186, in applyModel
+    self.mApplyOut = lAutoF1.forecast(self.mApplyIn, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 35, in forecast
+    lForecastFrame = self.mSignalDecomposition.forecast(iInputDS, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/SignalDecomposition.py", line 678, in forecast
+    lTimer = tsutil.cTimer(("FORECASTING", {"Signals" : self.mSignals, "Horizon" : iHorizon}))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/Utils.py", line 84, in __init__
+    logger.info(("OPERATION_START", self.mMessage))
+Message: ('OPERATION_START', ('FORECASTING', {'Signals': ['FIN343'], 'Horizon': 61}))
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1103, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/benches/run_benchmark_M4Comp.py", line 17, in <module>
+    tester.run_multiprocessed();
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 427, in run_multiprocessed
+    pool = mp.Pool(processes=nbprocesses, maxtasksperchild=10)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 212, in __init__
+    self._repopulate_pool()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 303, in _repopulate_pool
+    return self._repopulate_pool_static(self._ctx, self.Process,
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 326, in _repopulate_pool_static
+    w.start()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 61, in run_bench_process
+    tester.testSignal(a.mSignal, a.mHorizon)
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 162, in testSignal
+    self.getTestPerfs(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 239, in getTestPerfs
+    self.applyModel(iSignal, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/Bench/GenericBenchmark.py", line 186, in applyModel
+    self.mApplyOut = lAutoF1.forecast(self.mApplyIn, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/ForecastEngine.py", line 35, in forecast
+    lForecastFrame = self.mSignalDecomposition.forecast(iInputDS, iHorizon);
+  File "/home/antoine/dev/python/packages/timeseries/pyaf/pyaf/TS/Utils.py", line 90, in __del__
+    logger.info(("OPERATION_END_ELAPSED" , round(lDelta.total_seconds(), 3), self.mMessage))
+Message: ('OPERATION_END_ELAPSED', 1.315, ('FORECASTING', {'Signals': ['FIN343'], 'Horizon': 61}))
+Arguments: ()
+61 0     0.009775
+1     0.001299
+2     0.000000
+3     0.016789
+4     0.014514
+        ...   
+56   -0.002683
+57   -0.009177
+58   -0.009809
+59   -0.004941
+60    0.029821
+Name: FIN343, Length: 61, dtype: float64
+61 0     0.000064
+1     0.000064
+2     0.000065
+3     0.000065
+4     0.000065
+        ...   
+56    0.000087
+57    0.000087
+58    0.000087
+59    0.000088
+60    0.000088
+Name: FIN343_Forecast, Length: 61, dtype: float64
+FORECAST_DETAIL_ACTUAL FIN343 FIN343 [0.009774713, 0.001298701, 0.0, 0.01678884, 0.01451362, -0.006309169, -0.012098206, -0.009655691, -0.00064704, 0.052942419, -0.006775511, -0.014317082, 0.003129893, 0.02652021, -0.003658541, 0.007303745, -0.016509088, -0.001233806, 0.009216655, 0.008526239, 0.018029335, -0.008373255, 0.004195391, -0.000598265, -0.005400553, 0.010772097, -0.00776819, -0.00060006, -0.022459214, -0.004306374, 0.021348783, -0.004233451, -0.006079046, -0.009188426, -0.002464573, 0.014697141, 0.005456212, 0.00241546, 0.008408458, 0.019544596, 0.007013471, -0.00818718, 0.011675556, 0.007516659, -0.000576203, 0.011461444, 0.009639995, 0.003380285, -0.003380285, 0.000564175, -0.007359218, 0.005665738, -0.000565131, 0.0, 0.026221865, 0.027160822, -0.002683125, -0.009176853, -0.009809343, -0.004940993, 0.029820589]
+FORECAST_DETAIL_PREDICTED FIN343 FIN343 [6.385885550608261e-05, 6.426461054609423e-05, 6.467036558610584e-05, 6.507612062622847e-05, 6.548187566624009e-05, 6.58876307062517e-05, 6.629338574648536e-05, 6.669914078649697e-05, 6.710489582650858e-05, 6.751065086663122e-05, 6.791640590664283e-05, 6.832216094665444e-05, 6.872791598677708e-05, 6.913367102678869e-05, 6.95394260668003e-05, 6.994518110692294e-05, 7.035093614693455e-05, 7.075669118694616e-05, 7.11624462270688e-05, 7.156820126708041e-05, 7.197395630709202e-05, 7.237971134721466e-05, 7.27854663873373e-05, 7.319122142734891e-05, 7.359697646747154e-05, 7.400273150748315e-05, 7.440848654749477e-05, 7.48142415876174e-05, 7.521999662762902e-05, 7.562575166764063e-05, 7.603150670776326e-05, 7.643726174777488e-05, 7.684301678778649e-05, 7.724877182790912e-05, 7.765452686792074e-05, 7.806028190793235e-05, 7.846603694805498e-05, 7.88717919880666e-05, 7.927754702818923e-05, 7.968330206831187e-05, 8.008905710832348e-05, 8.049481214833509e-05, 8.090056718845773e-05, 8.130632222846934e-05, 8.171207726848095e-05, 8.211783230860359e-05, 8.25235873486152e-05, 8.292934238862681e-05, 8.333509742874945e-05, 8.374085246876106e-05, 8.414660750877268e-05, 8.455236254889531e-05, 8.495811758890692e-05, 8.536387262891854e-05, 8.576962766915219e-05, 8.61753827091638e-05, 8.658113774917542e-05, 8.698689278929805e-05, 8.739264782930967e-05, 8.779840286932128e-05, 8.820415790944391e-05]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON FIN343 FIN343 1701 61
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ FIN343 FIN343 6.549535274505615
+BENCHMARK_PERF_DETAIL_BEST_MODEL FIN343 FIN343 LinearTrend + Cycle_None + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT FIN343 FIN343 61
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE FIN343 FIN343 24596.7529 1.9718 0.7262
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 FIN343 FIN343 0.009580762597148627 0.013257265468466548 -0.0658085005080995
+BENCHMARK_SUCCESS 'M4_COMP_FINANCE_FIN343_61'
