@@ -1,0 +1,116 @@
+BENCH_DATA MWH_BENCH
+TIME :  Time N= 9 H= 1 HEAD= [1 2 3 4 5] TAIL= [5 6 7 8 9]
+SIGNAL :  sales N= 9 H= 1 HEAD= [30 20 45 35 30] TAIL= [30 60 40 50 45]
+   sales  Time
+0     30     1
+1     20     2
+2     45     3
+3     35     4
+4     30     5
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 9 entries, 0 to 8
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype
+---  ------  --------------  -----
+ 0   sales   9 non-null      int64
+ 1   Time    9 non-null      int64
+dtypes: int64(2)
+memory usage: 276.0 bytes
+None
+('OPERATION_START', ('TRAINING', {'Signals': ['sales'], 'Horizons': {'sales': 1}}))
+('OPERATION_START', ('SIGNAL_TRAINING', {'Signals': ['sales'], 'Transformations': [('sales', 'None', '_', 'T+S+R'), ('sales', 'None', 'Diff_', 'T+S+R'), ('sales', 'None', 'RelDiff_', 'T+S+R'), ('sales', 'None', 'CumSum_', 'T+S+R')], 'Cores': 1}))
+('OPERATION_START', ('TRAINING', {'Signal': 'sales', 'Horizon': 1, 'Transformation': '_sales', 'DecompositionType': 'T+S+R'}))
+CYCLE_TRAINING_FILTER_SEASONALS_START
+('OPERATION_END_ELAPSED', 0.176, ('TRAINING', {'Signal': 'sales', 'Horizon': 1, 'Transformation': '_sales', 'DecompositionType': 'T+S+R'}))
+('OPERATION_START', ('TRAINING', {'Signal': 'sales', 'Horizon': 1, 'Transformation': 'Diff_sales', 'DecompositionType': 'T+S+R'}))
+CYCLE_TRAINING_FILTER_SEASONALS_START
+('OPERATION_END_ELAPSED', 0.175, ('TRAINING', {'Signal': 'sales', 'Horizon': 1, 'Transformation': 'Diff_sales', 'DecompositionType': 'T+S+R'}))
+('OPERATION_START', ('TRAINING', {'Signal': 'sales', 'Horizon': 1, 'Transformation': 'RelDiff_sales', 'DecompositionType': 'T+S+R'}))
+CYCLE_TRAINING_FILTER_SEASONALS_START
+('OPERATION_END_ELAPSED', 0.177, ('TRAINING', {'Signal': 'sales', 'Horizon': 1, 'Transformation': 'RelDiff_sales', 'DecompositionType': 'T+S+R'}))
+('OPERATION_START', ('TRAINING', {'Signal': 'sales', 'Horizon': 1, 'Transformation': 'CumSum_sales', 'DecompositionType': 'T+S+R'}))
+CYCLE_TRAINING_FILTER_SEASONALS_START
+('OPERATION_END_ELAPSED', 0.176, ('TRAINING', {'Signal': 'sales', 'Horizon': 1, 'Transformation': 'CumSum_sales', 'DecompositionType': 'T+S+R'}))
+('OPERATION_END_ELAPSED', 0.705, ('SIGNAL_TRAINING', {'Signals': ['sales'], 'Transformations': [('sales', 'None', '_', 'T+S+R'), ('sales', 'None', 'Diff_', 'T+S+R'), ('sales', 'None', 'RelDiff_', 'T+S+R'), ('sales', 'None', 'CumSum_', 'T+S+R')], 'Cores': 1}))
+('OPERATION_START', ('FINALIZE_TRAINING', {'Signals': ['sales'], 'Transformations': [('sales', [('sales', 'None', 'CumSum_', 'T+S+R'), ('sales', 'None', 'Diff_', 'T+S+R'), ('sales', 'None', 'RelDiff_', 'T+S+R'), ('sales', 'None', '_', 'T+S+R')])], 'Cores': 1}))
+('OPERATION_START', ('MODEL_SELECTION', {'Signal': 'sales', 'Transformations': [('sales', 'None', 'CumSum_', 'T+S+R'), ('sales', 'None', 'Diff_', 'T+S+R'), ('sales', 'None', 'RelDiff_', 'T+S+R'), ('sales', 'None', '_', 'T+S+R')]}))
+('OPERATION_END_ELAPSED', 0.008, ('MODEL_SELECTION', {'Signal': 'sales', 'Transformations': [('sales', 'None', 'CumSum_', 'T+S+R'), ('sales', 'None', 'Diff_', 'T+S+R'), ('sales', 'None', 'RelDiff_', 'T+S+R'), ('sales', 'None', '_', 'T+S+R')]}))
+('OPERATION_START', ('UPDATE_BEST_MODEL_PERFS', {'Signal': 'sales', 'Model': 'CumSum_sales_PolyTrend_residue_zeroCycle[0.0]_residue_NoAR'}))
+('OPERATION_END_ELAPSED', 0.052, ('UPDATE_BEST_MODEL_PERFS', {'Signal': 'sales', 'Model': 'CumSum_sales_PolyTrend_residue_zeroCycle[0.0]_residue_NoAR'}))
+('OPERATION_START', ('COMPUTE_PREDICTION_INTERVALS', {'Signal': 'sales'}))
+('OPERATION_END_ELAPSED', 0.051, ('COMPUTE_PREDICTION_INTERVALS', {'Signal': 'sales'}))
+('OPERATION_END_ELAPSED', 0.111, ('FINALIZE_TRAINING', {'Signals': ['sales'], 'Transformations': [('sales', [('sales', 'None', 'CumSum_', 'T+S+R'), ('sales', 'None', 'Diff_', 'T+S+R'), ('sales', 'None', 'RelDiff_', 'T+S+R'), ('sales', 'None', '_', 'T+S+R')])], 'Cores': 1}))
+('OPERATION_END_ELAPSED', 0.819, ('TRAINING', {'Signals': ['sales'], 'Horizons': {'sales': 1}}))
+TIME_DETAIL TimeVariable='Time' TimeMin=1 TimeMax=9 TimeDelta=1 Horizon=1
+SIGNAL_DETAIL_ORIG SignalVariable='sales' Length=9  Min=20 Max=60  Mean=39.444444 StdDev=11.412577
+SIGNAL_DETAIL_TRANSFORMED TransformedSignalVariable='CumSum_sales' Min=0.25 Max=4.375  Mean=1.972222 StdDev=1.420067
+DECOMPOSITION_TYPE 'T+S+R'
+BEST_TRANSOFORMATION_TYPE 'CumSum_'
+BEST_DECOMPOSITION  'CumSum_sales_PolyTrend_residue_zeroCycle[0.0]_residue_NoAR' [PolyTrend + NoCycle + NoAR]
+TREND_DETAIL 'CumSum_sales_PolyTrend' [PolyTrend]
+CYCLE_DETAIL 'CumSum_sales_PolyTrend_residue_zeroCycle[0.0]' [NoCycle]
+AUTOREG_DETAIL 'CumSum_sales_PolyTrend_residue_zeroCycle[0.0]_residue_NoAR' [NoAR]
+MODEL_PERFS Fit STEP=1 {'MAPE': 0.1807, 'RMSE': 8.3502, 'MAE': 6.722, 'MASE': 0.4676}
+MODEL_PERFS Forecast STEP=1 {'MAPE': 0.1807, 'RMSE': 8.3502, 'MAE': 6.722, 'MASE': 0.4676}
+MODEL_PERFS Test STEP=1 {'MAPE': 0.1807, 'RMSE': 8.3502, 'MAE': 6.722, 'MASE': 0.4676}
+MODEL_PERFS Fit STEP=1 {'MAPE': 0.1807, 'RMSE': 8.3502, 'MAE': 6.722, 'MASE': 0.4676}
+MODEL_PERFS Forecast STEP=1 {'MAPE': 0.1807, 'RMSE': 8.3502, 'MAE': 6.722, 'MASE': 0.4676}
+MODEL_PERFS Test STEP=1 {'MAPE': 0.1807, 'RMSE': 8.3502, 'MAE': 6.722, 'MASE': 0.4676}
+MODEL_COMPLEXITY {'Decomposition': 'S', 'Transformation': 'M', 'Trend': 'M', 'Cycle': 'S', 'AR': 'S'} [MMSSS]
+SIGNAL_TRANSFORMATION_DETAIL_START
+SIGNAL_TRANSFORMATION_MODEL_VALUES Integration None
+SIGNAL_TRANSFORMATION_DETAIL_END
+TREND_DETAIL_START
+POLYNOMIAL_RIDGE_TREND PolyTrend (0.215909, array([ 0.693723,  5.904762, -2.424242]))
+TREND_DETAIL_END
+CYCLE_MODEL_DETAIL_START
+ZERO_CYCLE_MODEL_VALUES CumSum_sales_PolyTrend_residue_zeroCycle[0.0] 0.0 {}
+CYCLE_MODEL_DETAIL_END
+AR_MODEL_DETAIL_START
+AR_MODEL_DETAIL_END
+TRAINING_TIME_IN_SECONDS 0.817
+COMPETITION_DETAIL_START 'sales'
+COMPETITION_DETAIL_SHORT_LIST 'sales' 0 {'Transformation': 'CumSum_sales', 'DecompositionType': 'T+S+R', 'Model': 'CumSum_sales_PolyTrend_residue_zeroCycle[0.0]_residue_NoAR', 'Voting': 15.0, 'Complexity': 'MMSSS', 'Forecast_MASE_1': 0.4676, 'Forecast_MASE_H': 0.4676}
+COMPETITION_DETAIL_END 'sales'
+   Split Transformation DecompositionType  ... Test_MASE_1 Test_MASE_H Voting
+0   None   CumSum_sales             T+S+R  ...      0.4676      0.4676   15.0
+1   None         _sales             T+S+R  ...      0.4804      0.4804   14.0
+2   None     Diff_sales             T+S+R  ...      0.4778      0.4778   14.0
+3   None     Diff_sales             T+S+R  ...      0.4895      0.4895   13.0
+4   None         _sales             T+S+R  ...      0.5059      0.5059   11.0
+5   None     Diff_sales             T+S+R  ...      0.5101      0.5101   11.0
+6   None   CumSum_sales             T+S+R  ...      0.5797      0.5797    9.0
+7   None         _sales             T+S+R  ...      0.6613      0.6613    8.0
+8   None   CumSum_sales             T+S+R  ...      0.8116      0.8116    7.0
+9   None         _sales             T+S+R  ...      0.8889      0.8889    6.0
+10  None     Diff_sales             T+S+R  ...      0.8889      0.8889    6.0
+11  None  RelDiff_sales             T+S+R  ...      0.8889      0.8889    6.0
+12  None   CumSum_sales             T+S+R  ...      1.2754      1.2754    3.0
+13  None  RelDiff_sales             T+S+R  ...      1.7791      1.7791    2.0
+14  None  RelDiff_sales             T+S+R  ...      2.0162      2.0162    1.0
+15  None  RelDiff_sales             T+S+R  ...      2.1353      2.1353    0.0
+
+[16 rows x 14 columns]
+  Split Transformation DecompositionType  ... Test_MASE_1 Test_MASE_H Voting
+0  None   CumSum_sales             T+S+R  ...      0.4676      0.4676   15.0
+1  None         _sales             T+S+R  ...      0.4804      0.4804   14.0
+2  None     Diff_sales             T+S+R  ...      0.4778      0.4778   14.0
+3  None     Diff_sales             T+S+R  ...      0.4895      0.4895   13.0
+4  None         _sales             T+S+R  ...      0.5059      0.5059   11.0
+
+[5 rows x 14 columns]
+('OPERATION_START', ('FORECASTING', {'Signals': ['sales'], 'Horizon': 1}))
+('OPERATION_END_ELAPSED', 0.029, ('FORECASTING', {'Signals': ['sales'], 'Horizon': 1}))
+1 0    65
+Name: sales, dtype: int64
+1 0    45.108225
+Name: sales_Forecast, dtype: float64
+FORECAST_DETAIL_ACTUAL MWH sales sales [65]
+FORECAST_DETAIL_PREDICTED MWH sales sales [45.10822510822493]
+BENCHMARK_PERF_DETAIL_SIGNAL_HORIZON MWH sales sales 9 1
+BENCHMARK_PERF_DETAIL_BENCH_TIME_IN_SECONDS PYAF_SYSTEM_DEPENDENT_ MWH sales sales 0.9474434852600098
+BENCHMARK_PERF_DETAIL_BEST_MODEL MWH sales sales PolyTrend + NoCycle + NoAR
+BENCHMARK_PERF_DETAIL_PERF_COUNT MWH sales sales 1
+BENCHMARK_PERF_DETAIL_PERF_MAPE_SMAPE_MASE MWH sales sales 0.306 0.3613 0.0
+BENCHMARK_PERF_DETAIL_PERF_L1_L2_R2 MWH sales sales 19.8918 19.8918 -3956827083449.5312
+BENCHMARK_SUCCESS 'MWH_BENCH_sales_1'
