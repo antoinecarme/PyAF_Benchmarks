@@ -6,7 +6,7 @@ benches = "M2_COMP M3_OTHER_COMP M3_Y_COMP M4_COMP_CLIMATE M4_COMP_ECONOMICS  M4
             NN3_PART_1  NN5  M1_COMP   M3_M_COMP  M3_Q_COMP M4_COMP_BUSINESS-INDUSTRY  M4_COMP_DEMOGRAPHICS \
             M4_COMP_FINANCE M4_COMP_INVENTORY  NN3_PART_2 FPP2_BENCH".split()
 
-releases = "PyAF-1.0 PyAF-2.0 PyAF-3.0 PyAF-4.0".split()
+releases = "PyAF-1.0 PyAF-2.0 PyAF-3.0 PyAF-4.0 PyAF-5.0".split()
 
 def create_dir_if_needed(iDir):
     try:
@@ -54,7 +54,7 @@ def debrief_log_files(names):
     pool = Pool(6)
 
     for df in pool.imap(debrief_log_file, names):
-        dir_df = dir_df.append(df)
+        dir_df = pd.concat([dir_df, df])
     return dir_df
 
 def debrief_directory(bench):
@@ -69,7 +69,7 @@ def debrief_directory(bench):
             print(dir_df.describe())
             Q = 10
             lRow = [release]
-            for lPerf in ["L1" , "L2", "MAPE", "SMAPE", "TrainingTime"]:
+            for lPerf in ["L1" , "L2", "MAPE", "SMAPE", "MASE", "TrainingTime"]:
                 lQuantiles = dir_df[lPerf].quantile([q / Q for q in range(Q+1)]).round(4)
                 lQuantiles = list(lQuantiles)
                 print("QUANTILES", bench, release, lPerf, list(dir_df[lPerf].head(Q)), lQuantiles)
